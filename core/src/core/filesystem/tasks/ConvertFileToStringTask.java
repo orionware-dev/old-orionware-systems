@@ -6,21 +6,9 @@ import java.io.IOException;
 import core.filesystem.FileSystemService;
 import core.services.OrionTask;
 
-public class ConvertFileToStringTask implements OrionTask
+public class ConvertFileToStringTask extends OrionTask
 {
-    private String filePath;
-    private FileSystemService fileSystemService;
-    
-    
-    public ConvertFileToStringTask(FileSystemService fileSystemService, String filePath)
-    {
-        this.fileSystemService = fileSystemService;
-        this.filePath = filePath;
-    }
-    
-
-    @Override
-    public Object execute(Object... methodParameters)
+    public Object execute(FileSystemService fileSystemService, String filePath)
     {
         String fileString = null;
         BufferedReader input = null;
@@ -55,12 +43,5 @@ public class ConvertFileToStringTask implements OrionTask
         }
         
         return fileString;
-    }
-
-    
-    @Override
-    public Object[] executeAndReturnArray(Object... methodParameters)
-    {
-        return null;
     }
 }

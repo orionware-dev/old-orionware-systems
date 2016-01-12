@@ -4,36 +4,19 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import core.services.OrionTask;
 
-public class GetFileStreamTask implements OrionTask
+public class GetFileStreamTask extends OrionTask
 {
-    private String fileLocation;
-    
-    
-    public GetFileStreamTask(String fileLocation)
-    {
-        this.fileLocation = fileLocation;
-    }
-    
-
-    @Override
-    public Object execute(Object... methodParameters)
+    public Object execute(String filePath)
     {
         try
         {
-            return new FileInputStream(fileLocation);
+            return new FileInputStream(filePath);
         }
         catch(FileNotFoundException exception)
         {
             exception.printStackTrace();
         }
         
-        return null;
-    }
-
-    
-    @Override
-    public Object[] executeAndReturnArray(Object... methodParameters)
-    {
         return null;
     }
 }

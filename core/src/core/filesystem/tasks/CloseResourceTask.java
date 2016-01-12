@@ -4,19 +4,9 @@ import java.io.Closeable;
 import java.io.IOException;
 import core.services.OrionTask;
 
-public class CloseResourceTask implements OrionTask
+public class CloseResourceTask extends OrionTask
 {
-    private Closeable closeable;
-    
-    
-    public CloseResourceTask(Closeable closeable)
-    {
-        this.closeable = closeable;
-    }
-    
-
-    @Override
-    public Object execute(Object... methodParameters)
+    public Object execute(Closeable closeable)
     {
         if(closeable != null)
         {
@@ -30,13 +20,6 @@ public class CloseResourceTask implements OrionTask
             }
         }
         
-        return null;
-    }
-
-    
-    @Override
-    public Object[] executeAndReturnArray(Object... methodParameters)
-    {
         return null;
     }
 }

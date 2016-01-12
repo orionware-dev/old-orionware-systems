@@ -3,19 +3,9 @@ package core.reflection.tasks;
 import java.lang.reflect.InvocationTargetException;
 import core.services.OrionTask;
 
-public class InstantiateClassTask implements OrionTask
+public class InstantiateClassTask extends OrionTask
 {
-    private Class<?> classToInstantiate;
-    
-    
-    public InstantiateClassTask(Class<?> classToInstantiate)
-    {
-        this.classToInstantiate = classToInstantiate;
-    }
-    
-    
-    @Override
-    public Object execute(Object... methodParameters)
+    public Object execute(Class<?> classToInstantiate)
     {
         try
         {
@@ -46,13 +36,6 @@ public class InstantiateClassTask implements OrionTask
             exception.printStackTrace();
         }
         
-        return null;
-    }
-
-    
-    @Override
-    public Object[] executeAndReturnArray(Object... methodParameters)
-    {
         return null;
     }
 }

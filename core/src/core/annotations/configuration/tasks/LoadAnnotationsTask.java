@@ -8,24 +8,19 @@ import core.configuration.Configuration;
 import core.configuration.RegisteredAnnotation;
 import core.services.OrionTask;
 
-public class LoadAnnotationsTask implements OrionTask
+public class LoadAnnotationsTask extends OrionTask
 {
     private AnnotationsConfigurationService annotationsConfigurationService;
     private String libraryAnnotationsFilePath;
     private String libraryName;
     
     
-    public LoadAnnotationsTask(AnnotationsConfigurationService annotationsConfigurationService, String libraryName, String libraryAnnotationsFilePath)
+    public Object execute(AnnotationsConfigurationService annotationsConfigurationService, String libraryName, String libraryAnnotationsFilePath)
     {
         this.annotationsConfigurationService = annotationsConfigurationService;
         this.libraryName = libraryName;
         this.libraryAnnotationsFilePath = libraryAnnotationsFilePath;
-    }
-    
-    
-    @Override
-    public Object execute(Object... methodParameters)
-    {
+        
         if(!haveAnnotationsBeenRegistered())
         {
             registerAnnotations();
@@ -83,12 +78,5 @@ public class LoadAnnotationsTask implements OrionTask
     private void setAnnotationsAsRegistered()
     {
         Configuration.LIBRARIES_AND_IF_ANNOTATIONS_HAVE_BEEN_REGISTERED_MAPPER.put(libraryName, true);
-    }
-
-
-    @Override
-    public Object[] executeAndReturnArray(Object... methodParameters)
-    {
-        return null;
     }
 }

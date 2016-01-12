@@ -6,19 +6,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import core.services.OrionTask;
 
-public class GetWriterForFileTask implements OrionTask
+public class GetWriterForFileTask extends OrionTask
 {
-    private String filePath;
-    
-    
-    public GetWriterForFileTask(String filePath)
-    {
-        this.filePath = filePath;
-    }
-    
-
-    @Override
-    public Object execute(Object... methodParameters)
+    public Object execute(String filePath)
     {
         BufferedWriter output = null;
         
@@ -36,12 +26,5 @@ public class GetWriterForFileTask implements OrionTask
         }
         
         return output;
-    }
-
-    
-    @Override
-    public Object[] executeAndReturnArray(Object... methodParameters)
-    {
-        return null;
     }
 }

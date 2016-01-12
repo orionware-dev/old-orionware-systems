@@ -14,8 +14,8 @@ public class AnnotationsProcessorServiceImpl implements AnnotationsProcessorServ
     @Override
     public void processAllAnnotations(OrionObject OrionObject)
     {
-        List<Annotation> allObjectAnnotationsList = (List<Annotation>)new GatherAllObjectAnnotationsTask(OrionObject).execute();
-        new ApplyAnnotationsTask(this, OrionObject, allObjectAnnotationsList).execute();
+        List<Annotation> allObjectAnnotationsList = (List<Annotation>)new GatherAllObjectAnnotationsTask().execute(OrionObject);
+        new ApplyAnnotationsTask().execute(this, OrionObject, allObjectAnnotationsList);
     }
     
     

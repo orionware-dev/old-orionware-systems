@@ -6,23 +6,9 @@ import java.io.IOException;
 import core.filesystem.FileSystemService;
 import core.services.OrionTask;
 
-public class SaveStringToFileTask implements OrionTask
+public class SaveStringToFileTask extends OrionTask
 {
-    private FileSystemService fileSystemService;
-    private String filePath;
-    private String fileString;
-    
-    
-    public SaveStringToFileTask(FileSystemService fileSystemService, String filePath, String fileString)
-    {
-        this.fileSystemService = fileSystemService;
-        this.filePath = filePath;
-        this.fileString = fileString;
-    }
-    
-
-    @Override
-    public Object execute(Object... methodParameters)
+    public Object execute(FileSystemService fileSystemService, String filePath, String fileString)
     {
         BufferedWriter output = null;
         String lineSeparator = System.lineSeparator();
@@ -31,11 +17,17 @@ public class SaveStringToFileTask implements OrionTask
         {
             output = (BufferedWriter)fileSystemService.getWritterForFile(filePath);
             String[] lines = fileString.split(lineSeparator);
+            int numberOfLines = lines.length;
+            int lineCounter = 1;
             
             for(String line : lines)
             {
                 output.write(line);
-                output.write(lineSeparator);
+                
+                if(lineCounter != numberOfLines)
+                {
+                    output.write(lineSeparator);
+                }
             }
         }
         catch(FileNotFoundException exception)
@@ -51,13 +43,6 @@ public class SaveStringToFileTask implements OrionTask
             fileSystemService.closeResource(output);
         }
         
-        return null;
-    }
-
-    
-    @Override
-    public Object[] executeAndReturnArray(Object... methodParameters)
-    {
         return null;
     }
 }

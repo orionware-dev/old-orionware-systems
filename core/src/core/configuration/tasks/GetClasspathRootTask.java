@@ -4,19 +4,9 @@ import java.io.File;
 import core.configuration.Configuration;
 import core.services.OrionTask;
 
-public class GetClasspathRootTask implements OrionTask
+public class GetClasspathRootTask extends OrionTask
 {
-    private String libraryClasspathRootPath;
-    
-    
-    public GetClasspathRootTask(String libraryClasspathRootPath)
-    {
-        this.libraryClasspathRootPath = libraryClasspathRootPath;
-    }
-    
-    
-    @Override
-    public Object execute(Object... methodParameters)
+    public Object execute(String libraryClasspathRootPath)
     {
         //use this class to get the path of this class
         File classpathRoot = new File(this.getClass().getResource("").getPath());
@@ -48,12 +38,5 @@ public class GetClasspathRootTask implements OrionTask
         while(!classpathRoot.getName().endsWith(libraryClasspathRootPath));
         
         return classpathRoot.getAbsolutePath();
-    }
-
-    
-    @Override
-    public Object[] executeAndReturnArray(Object... methodParameters)
-    {
-        return null;
     }
 }

@@ -9,19 +9,9 @@ import java.util.List;
 import core.OrionObject;
 import core.services.OrionTask;
 
-public class GatherAllObjectAnnotationsTask implements OrionTask
+public class GatherAllObjectAnnotationsTask extends OrionTask
 {
-    private OrionObject object;
-    
-    
-    public GatherAllObjectAnnotationsTask(OrionObject object)
-    {
-        this.object = object;
-    }
-    
-
-    @Override
-    public Object execute(Object... methodParameters)
+    public Object execute(OrionObject object)
     {
         List<Annotation> allObjectAnnotationsList = new ArrayList<Annotation>();
         allObjectAnnotationsList.addAll(Arrays.asList(object.getClass().getAnnotations()));
@@ -43,12 +33,5 @@ public class GatherAllObjectAnnotationsTask implements OrionTask
     private void gatherAllVariablesAnnotations(Field variable, List<Annotation> allObjectAnnotationsList)
     {
         allObjectAnnotationsList.addAll(Arrays.asList(variable.getAnnotations()));
-    }
-
-    
-    @Override
-    public Object[] executeAndReturnArray(Object... methodParameters)
-    {
-        return null;
     }
 }

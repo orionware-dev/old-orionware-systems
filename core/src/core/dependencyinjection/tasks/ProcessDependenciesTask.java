@@ -7,22 +7,16 @@ import core.dependencyinjection.Injector;
 import core.reflection.ReflectionService;
 import core.services.OrionTask;
 
-public class ProcessDependenciesTask implements OrionTask
+public class ProcessDependenciesTask extends OrionTask
 {
     private OrionObject object;
     private ReflectionService reflectionService;
     
     
-    public ProcessDependenciesTask(OrionObject object, ReflectionService reflectionService)
+    public Object execute(OrionObject object, ReflectionService reflectionService)
     {
         this.object = object;
         this.reflectionService = reflectionService;
-    }
-    
-    
-    @Override
-    public Object execute(Object... methodParameters)
-    {
         Arrays.stream(reflectionService.getMethodsArray(object))
             .forEach(this::processMethod);
         return null;
@@ -67,12 +61,5 @@ public class ProcessDependenciesTask implements OrionTask
         {
             exception.printStackTrace();
         }
-    }
-
-
-    @Override
-    public Object[] executeAndReturnArray(Object... methodParameters)
-    {
-        return null;
     }
 }

@@ -2,19 +2,9 @@ package core.reflection.tasks;
 
 import core.services.OrionTask;
 
-public class LoadClassTask implements OrionTask
+public class LoadClassTask extends OrionTask
 {
-    private String className;
-    
-    
-    public LoadClassTask(String className)
-    {
-        this.className = className;
-    }
-    
-    
-    @Override
-    public Object execute(Object... methodParameters)
+    public Object execute(String className)
     {
         try
         {
@@ -25,13 +15,6 @@ public class LoadClassTask implements OrionTask
             exception.printStackTrace();
         }
         
-        return null;
-    }
-
-    
-    @Override
-    public Object[] executeAndReturnArray(Object... methodParameters)
-    {
         return null;
     }
 }

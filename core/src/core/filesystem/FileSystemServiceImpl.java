@@ -15,50 +15,50 @@ import core.filesystem.tasks.SaveStringToFileTask;
 public class FileSystemServiceImpl implements FileSystemService
 {
     @Override
-    public InputStream getFileStream(String fileLocation)
+    public InputStream getFileStream(String filePath)
     {
-        return (InputStream)new GetFileStreamTask(fileLocation).execute();
+        return (InputStream)new GetFileStreamTask().execute(filePath);
     }
     
     
     @Override
     public String convertFileToString(String filePath)
     {
-        return (String)new ConvertFileToStringTask(this, filePath).execute();
+        return (String)new ConvertFileToStringTask().execute(this, filePath);
     }
 
 
     @Override
     public void saveStringToFile(String filePath, String fileString)
     {
-        new SaveStringToFileTask(this, filePath, fileString).execute();
+        new SaveStringToFileTask().execute(this, filePath, fileString);
     }
     
     
     @Override
     public void emptyDirectory(String directory)
     {
-        new EmptyDirectoryTask(directory).execute();
+        new EmptyDirectoryTask().execute(directory);
     }
     
     
     @Override
     public void closeResource(Closeable closeable)
     {
-        new CloseResourceTask(closeable).execute();
+        new CloseResourceTask().execute(closeable);
     }
     
     
     @Override
     public Reader getReaderFromFile(String filePath)
     {
-        return (Reader)new GetReaderFromFileTask(filePath).execute();
+        return (Reader)new GetReaderFromFileTask().execute(filePath);
     }
     
     
     @Override
     public Writer getWritterForFile(String filePath)
     {
-        return (Writer)new GetWriterForFileTask(filePath).execute();
+        return (Writer)new GetWriterForFileTask().execute(filePath);
     }
 }

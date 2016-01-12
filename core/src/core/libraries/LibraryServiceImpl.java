@@ -9,6 +9,6 @@ public class LibraryServiceImpl implements LibraryService
     @Override
     public boolean isCoreLibrary(Class<?> classBeingRun)
     {
-        return (boolean)new IsCoreLibraryTask(classBeingRun).execute();
+        return (boolean)new IsCoreLibraryTask().execute(classBeingRun);
     }
 }

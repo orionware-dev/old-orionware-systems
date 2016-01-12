@@ -5,31 +5,10 @@ import core.annotations.configuration.AnnotationsConfigurationService;
 import core.configuration.tasks.GetClasspathRootTask;
 import core.services.OrionTask;
 
-public class GetAnnotationsFileStreamTask implements OrionTask
+public class GetAnnotationsFileStreamTask extends OrionTask
 {
-    private AnnotationsConfigurationService annotationsConfigurationService;
-    private String libraryAnnotationsFilePath;
-    private GetClasspathRootTask getClasspathRootTask;
-    
-    
-    public GetAnnotationsFileStreamTask(AnnotationsConfigurationService annotationsConfigurationService, GetClasspathRootTask getClasspathRootTask, String libraryAnnotationsFilePath)
+    public Object execute(AnnotationsConfigurationService annotationsConfigurationService, GetClasspathRootTask getClasspathRootTask, String libraryAnnotationsFilePath, String libraryName)
     {
-        this.annotationsConfigurationService = annotationsConfigurationService;
-        this.getClasspathRootTask = getClasspathRootTask;
-        this.libraryAnnotationsFilePath = libraryAnnotationsFilePath;
-    }
-    
-    
-    @Override
-    public Object execute(Object... methodParameters)
-    {
-        return annotationsConfigurationService.getFileSystemService().getFileStream(new File((String)getClasspathRootTask.execute()).getAbsolutePath() + libraryAnnotationsFilePath);
-    }
-
-
-    @Override
-    public Object[] executeAndReturnArray(Object... methodParameters)
-    {
-        return null;
+        return annotationsConfigurationService.getFileSystemService().getFileStream(new File((String)getClasspathRootTask.execute(libraryName)).getAbsolutePath() + libraryAnnotationsFilePath);
     }
 }

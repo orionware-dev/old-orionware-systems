@@ -9,6 +9,6 @@ public class DependencyInjectorServiceImpl implements DependencyInjectorService
     @Override
     public void processDependencies(OrionObject object)
     {
-        new ProcessDependenciesTask(object, new ReflectionServiceImpl()).execute();
+        new ProcessDependenciesTask().execute(object, new ReflectionServiceImpl());
     }
 }

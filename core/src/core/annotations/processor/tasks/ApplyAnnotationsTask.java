@@ -10,24 +10,18 @@ import core.reflection.ReflectionService;
 import core.registry.RegisteredAnnotations;
 import core.services.OrionTask;
 
-public class ApplyAnnotationsTask implements OrionTask
+public class ApplyAnnotationsTask extends OrionTask
 {
     private AnnotationsProcessorService annotationsProcessorService;
     private OrionObject object;
     private List<Annotation> allObjectAnnotationsList;
     
-    
-    public ApplyAnnotationsTask(AnnotationsProcessorService annotationsProcessorService, OrionObject object, List<Annotation> allObjectAnnotationsList)
+
+    public Object execute(AnnotationsProcessorService annotationsProcessorService, OrionObject object, List<Annotation> allObjectAnnotationsList)
     {
         this.annotationsProcessorService = annotationsProcessorService;
         this.object = object;
         this.allObjectAnnotationsList = allObjectAnnotationsList;
-    }
-    
-
-    @Override
-    public Object execute(Object... methodParameters)
-    {
         RegisteredAnnotations.forEach((annotation) -> applyAnnotation((RegisteredAnnotation)annotation));
         return null;
     }
@@ -60,12 +54,5 @@ public class ApplyAnnotationsTask implements OrionTask
                 exception.printStackTrace();
             }
         }
-    }
-
-    
-    @Override
-    public Object[] executeAndReturnArray(Object... methodParameters)
-    {
-        return null;
     }
 }

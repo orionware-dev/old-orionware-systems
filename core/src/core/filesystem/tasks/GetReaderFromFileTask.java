@@ -5,19 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import core.services.OrionTask;
 
-public class GetReaderFromFileTask implements OrionTask
+public class GetReaderFromFileTask extends OrionTask
 {
-    private String filePath;
-    
-    
-    public GetReaderFromFileTask(String filePath)
-    {
-        this.filePath = filePath;
-    }
-    
-
-    @Override
-    public Object execute(Object... methodParameters)
+    public Object execute(String filePath)
     {
         BufferedReader input = null;
         
@@ -31,12 +21,5 @@ public class GetReaderFromFileTask implements OrionTask
         }
         
         return input;
-    }
-
-    
-    @Override
-    public Object[] executeAndReturnArray(Object... methodParameters)
-    {
-        return null;
     }
 }
