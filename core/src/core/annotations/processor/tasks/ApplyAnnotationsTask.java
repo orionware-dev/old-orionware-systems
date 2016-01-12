@@ -17,7 +17,7 @@ public class ApplyAnnotationsTask extends OrionTask
     private List<Annotation> allObjectAnnotationsList;
     
 
-    public Object execute(AnnotationsProcessorService annotationsProcessorService, OrionObject object, List<Annotation> allObjectAnnotationsList)
+    public Object run(AnnotationsProcessorService annotationsProcessorService, OrionObject object, List<Annotation> allObjectAnnotationsList)
     {
         this.annotationsProcessorService = annotationsProcessorService;
         this.object = object;

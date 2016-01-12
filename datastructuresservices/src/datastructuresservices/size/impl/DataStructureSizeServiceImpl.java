@@ -15,7 +15,7 @@ public class DataStructureSizeServiceImpl extends DataStructureObject implements
     public int getSize(Collection<?> dataStructure)
     {
         getSizeTask.setDataStructure(dataStructure);
-        return getSizeTask.execute();
+        return getSizeTask.run();
     }
 
 

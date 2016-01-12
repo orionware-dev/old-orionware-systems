@@ -6,7 +6,7 @@ import core.services.OrionTask;
 
 public class GetFileStreamTask extends OrionTask
 {
-    public Object execute(String filePath)
+    public Object run(String filePath)
     {
         try
         {

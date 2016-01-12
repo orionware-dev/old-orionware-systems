@@ -6,7 +6,7 @@ import core.services.OrionTask;
 
 public class CallMethodTask extends OrionTask
 {
-    public Object execute(Method method, Object objectMethodBelongsTo, Object... methodArguments)
+    public Object run(Method method, Object objectMethodBelongsTo, Object... methodArguments)
     {
         try
         {

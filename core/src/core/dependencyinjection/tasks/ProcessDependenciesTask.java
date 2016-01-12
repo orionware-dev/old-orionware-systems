@@ -13,7 +13,7 @@ public class ProcessDependenciesTask extends OrionTask
     private ReflectionService reflectionService;
     
     
-    public Object execute(OrionObject object, ReflectionService reflectionService)
+    public Object run(OrionObject object, ReflectionService reflectionService)
     {
         this.object = object;
         this.reflectionService = reflectionService;

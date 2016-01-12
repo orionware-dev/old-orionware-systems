@@ -5,7 +5,7 @@ import core.services.OrionTask;
 
 public class InstantiateClassTask extends OrionTask
 {
-    public Object execute(Class<?> classToInstantiate)
+    public Object run(Class<?> classToInstantiate)
     {
         try
         {

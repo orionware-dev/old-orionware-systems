@@ -17,48 +17,48 @@ public class FileSystemServiceImpl implements FileSystemService
     @Override
     public InputStream getFileStream(String filePath)
     {
-        return (InputStream)new GetFileStreamTask().execute(filePath);
+        return (InputStream)new GetFileStreamTask().run(filePath);
     }
     
     
     @Override
     public String convertFileToString(String filePath)
     {
-        return (String)new ConvertFileToStringTask().execute(this, filePath);
+        return (String)new ConvertFileToStringTask().run(this, filePath);
     }
 
 
     @Override
     public void saveStringToFile(String filePath, String fileString)
     {
-        new SaveStringToFileTask().execute(this, filePath, fileString);
+        new SaveStringToFileTask().run(this, filePath, fileString);
     }
     
     
     @Override
     public void emptyDirectory(String directory)
     {
-        new EmptyDirectoryTask().execute(directory);
+        new EmptyDirectoryTask().run(directory);
     }
     
     
     @Override
     public void closeResource(Closeable closeable)
     {
-        new CloseResourceTask().execute(closeable);
+        new CloseResourceTask().run(closeable);
     }
     
     
     @Override
     public Reader getReaderFromFile(String filePath)
     {
-        return (Reader)new GetReaderFromFileTask().execute(filePath);
+        return (Reader)new GetReaderFromFileTask().run(filePath);
     }
     
     
     @Override
     public Writer getWritterForFile(String filePath)
     {
-        return (Writer)new GetWriterForFileTask().execute(filePath);
+        return (Writer)new GetWriterForFileTask().run(filePath);
     }
 }

@@ -8,7 +8,7 @@ import core.services.OrionTask;
 
 public class GetWriterForFileTask extends OrionTask
 {
-    public Object execute(String filePath)
+    public Object run(String filePath)
     {
         BufferedWriter output = null;
         

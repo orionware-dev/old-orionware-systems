@@ -13,14 +13,14 @@ public class LoadPropertiesTask extends OrionTask
     private String libraryName;
     
     
-    public Object execute(ConfigurationService configurationService, String libraryName, String libraryConfigurationFilePath, GetClasspathRootTask getClasspathRootTask)
+    public Object run(ConfigurationService configurationService, String libraryName, String libraryConfigurationFilePath, GetClasspathRootTask getClasspathRootTask)
     {
         this.libraryName = libraryName;
         
         if(!havePropertiesBeenLoaded())
         {
             StringBuilder sb = new StringBuilder();
-            sb.append(new File((String)getClasspathRootTask.execute(libraryName)).getAbsolutePath());
+            sb.append(new File((String)getClasspathRootTask.run(libraryName)).getAbsolutePath());
             sb.append(libraryConfigurationFilePath);
             InputStream propertiesFileInput = configurationService.getFileSystemService().getFileStream(sb.toString());
             OrionProperties.loadProperties(propertiesFileInput);

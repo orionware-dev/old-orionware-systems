@@ -2,7 +2,7 @@ package datastructures.services;
 
 import core.services.OrionTask;
 
-public interface DataStructureTask extends OrionTask
+public abstract class DataStructureTask extends OrionTask
 {
     
 }

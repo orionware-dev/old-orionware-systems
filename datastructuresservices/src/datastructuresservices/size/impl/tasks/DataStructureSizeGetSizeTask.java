@@ -16,7 +16,7 @@ public class DataStructureSizeGetSizeTask extends DataStructureObject implements
     
     
     @Override
-    public Integer execute()
+    public Integer run()
     {
         if(dataStructure != null)
         {

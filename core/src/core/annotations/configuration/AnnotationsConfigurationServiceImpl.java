@@ -23,7 +23,7 @@ public class AnnotationsConfigurationServiceImpl implements AnnotationsConfigura
     @Override
     public InputStream getAnnotationsFileStream(String libraryName, String libraryAnnotationsFilePath)
     {
-        return (InputStream)new GetAnnotationsFileStreamTask().execute(this, new GetClasspathRootTask(), libraryAnnotationsFilePath, libraryName);
+        return (InputStream)new GetAnnotationsFileStreamTask().run(this, new GetClasspathRootTask(), libraryAnnotationsFilePath, libraryName);
     }
     
     
@@ -37,7 +37,7 @@ public class AnnotationsConfigurationServiceImpl implements AnnotationsConfigura
     @Override
     public void loadLibraryAnnotations(String libraryName, String libraryAnnotationsFilePath)
     {
-        new LoadAnnotationsTask().execute(this, libraryName, libraryAnnotationsFilePath);
+        new LoadAnnotationsTask().run(this, libraryName, libraryAnnotationsFilePath);
     }
     
     

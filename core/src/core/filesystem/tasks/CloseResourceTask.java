@@ -6,7 +6,7 @@ import core.services.OrionTask;
 
 public class CloseResourceTask extends OrionTask
 {
-    public Object execute(Closeable closeable)
+    public Object run(Closeable closeable)
     {
         if(closeable != null)
         {

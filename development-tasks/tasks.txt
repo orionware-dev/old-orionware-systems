@@ -30,7 +30,7 @@ public Object executeFilter()
     }
     else if(function instanceof OrionServiceTask)
     {
-        return ((OrionServiceTask)function).execute();
+        return ((OrionServiceTask)function).run();
     }
     
     return null;
@@ -40,7 +40,7 @@ public Object executeFilter()
 instead of manually checking the instanceof, use configuration/Pipeline.prop in which I explicitly
 declare the class types OrionAbstractFunction and OrionServiceTask and use that config to do
 the checking in a loop with stream() like: for each class type, if function instanceof thisClassType,
-return ((OrionAbstractFunction)function).execute();
+return ((OrionAbstractFunction)function).run();
 
 
 --find a way for each project that has config prop files, to do System.getResourceAsStream()

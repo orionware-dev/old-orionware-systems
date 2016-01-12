@@ -13,35 +13,35 @@ public class ReflectionServiceImpl implements ReflectionService
     @Override
     public Method[] getMethodsArray(OrionObject object)
     {
-        return (Method[])new GetMethodsArrayTask().execute(object);
+        return (Method[])new GetMethodsArrayTask().run(object);
     }
     
     
     @Override
     public void makeMethodAccessible(Method method)
     {
-        new MakeMethodAccessibleTask().execute(method);
+        new MakeMethodAccessibleTask().run(method);
     }
 
 
     @Override
     public void callMethod(Method method, Object objectMethodBelongsTo, Object... methodArguments)
     {
-        new CallMethodTask().execute(method, objectMethodBelongsTo, methodArguments);
+        new CallMethodTask().run(method, objectMethodBelongsTo, methodArguments);
     }
     
     
     @Override
     public Class<?> loadClass(String className)
     {
-        return (Class<?>)new LoadClassTask().execute(className);
+        return (Class<?>)new LoadClassTask().run(className);
     }
     
     
     @Override
     public Object instantiateClass(Class<?> classToInstantiate)
     {
-        return new InstantiateClassTask().execute(classToInstantiate);
+        return new InstantiateClassTask().run(classToInstantiate);
     }
     
     

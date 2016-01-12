@@ -6,7 +6,7 @@ import core.services.OrionTask;
 
 public class EmptyDirectoryTask extends OrionTask
 {
-    public Object execute(String directory)
+    public Object run(String directory)
     {
         try
         {

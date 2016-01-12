@@ -8,7 +8,7 @@ import core.services.OrionTask;
 
 public class SaveStringToFileTask extends OrionTask
 {
-    public Object execute(FileSystemService fileSystemService, String filePath, String fileString)
+    public Object run(FileSystemService fileSystemService, String filePath, String fileString)
     {
         BufferedWriter output = null;
         String lineSeparator = System.lineSeparator();

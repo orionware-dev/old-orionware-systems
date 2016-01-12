@@ -7,7 +7,7 @@ import core.services.OrionTask;
 
 public class GetReaderFromFileTask extends OrionTask
 {
-    public Object execute(String filePath)
+    public Object run(String filePath)
     {
         BufferedReader input = null;
         

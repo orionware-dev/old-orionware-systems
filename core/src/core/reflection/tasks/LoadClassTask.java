@@ -4,7 +4,7 @@ import core.services.OrionTask;
 
 public class LoadClassTask extends OrionTask
 {
-    public Object execute(String className)
+    public Object run(String className)
     {
         try
         {

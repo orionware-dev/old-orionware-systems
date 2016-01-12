@@ -5,7 +5,7 @@ import core.services.OrionTask;
 
 public class MakeMethodAccessibleTask extends OrionTask
 {
-    public Object execute(Method method)
+    public Object run(Method method)
     {
         if(!method.isAccessible())
         {

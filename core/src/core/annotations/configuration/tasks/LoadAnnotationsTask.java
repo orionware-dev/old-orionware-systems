@@ -15,7 +15,7 @@ public class LoadAnnotationsTask extends OrionTask
     private String libraryName;
     
     
-    public Object execute(AnnotationsConfigurationService annotationsConfigurationService, String libraryName, String libraryAnnotationsFilePath)
+    public Object run(AnnotationsConfigurationService annotationsConfigurationService, String libraryName, String libraryAnnotationsFilePath)
     {
         this.annotationsConfigurationService = annotationsConfigurationService;
         this.libraryName = libraryName;

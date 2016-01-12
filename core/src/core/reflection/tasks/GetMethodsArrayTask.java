@@ -7,7 +7,7 @@ import core.services.OrionTask;
 
 public class GetMethodsArrayTask extends OrionTask
 {
-    public Object[] execute(OrionObject object)
+    public Object[] run(OrionObject object)
     {
         return Arrays.stream(object.getClass().getDeclaredMethods())
                     .filter((method) -> method != null).toArray(Method[]::new);

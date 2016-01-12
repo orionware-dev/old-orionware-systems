@@ -11,7 +11,7 @@ import core.services.OrionTask;
 
 public class GatherAllObjectAnnotationsTask extends OrionTask
 {
-    public Object execute(OrionObject object)
+    public Object run(OrionObject object)
     {
         List<Annotation> allObjectAnnotationsList = new ArrayList<Annotation>();
         allObjectAnnotationsList.addAll(Arrays.asList(object.getClass().getAnnotations()));
