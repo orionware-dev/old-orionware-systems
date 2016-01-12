@@ -1,6 +1,6 @@
 package core.configuration;
 
-import core.configuration.tasks.GetClasspathRootTask;
+import core.configuration.tasks.GetClasspathRootPathTask;
 import core.configuration.tasks.GetConfigurationPathTask;
 import core.configuration.tasks.LoadPropertiesTask;
 import core.filesystem.FileSystemService;
@@ -20,21 +20,21 @@ public class ConfigurationServiceImpl implements ConfigurationService
     @Override
     public String getCoreClasspathRoot(String libraryClasspathRootPath)
     {
-        return (String)new GetClasspathRootTask().run(libraryClasspathRootPath);
+        return (String)new GetClasspathRootPathTask().run(libraryClasspathRootPath);
     }
     
     
     @Override
     public String getCoreConfigurationPath()
     {
-        return (String)new GetConfigurationPathTask().run(null, new GetClasspathRootTask());
+        return (String)new GetConfigurationPathTask().run(null, new GetClasspathRootPathTask());
     }
 
 
     @Override
     public void loadProperties(String libraryName, String libraryConfigurationFilePath)
     {
-        new LoadPropertiesTask().run(this, libraryName, libraryConfigurationFilePath, new GetClasspathRootTask());
+        new LoadPropertiesTask().run(this, libraryName, libraryConfigurationFilePath, new GetClasspathRootPathTask());
     }
     
     

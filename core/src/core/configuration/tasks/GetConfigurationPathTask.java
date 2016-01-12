@@ -6,7 +6,7 @@ import core.services.OrionTask;
 
 public class GetConfigurationPathTask extends OrionTask
 {
-    public Object run(String libraryClasspathRootPath, GetClasspathRootTask getClasspathRootTask)
+    public Object run(String libraryClasspathRootPath, GetClasspathRootPathTask getClasspathRootTask)
     {
         StringBuilder sb = new StringBuilder();
         sb.append(new File((String)getClasspathRootTask.run(libraryClasspathRootPath)).getAbsolutePath());

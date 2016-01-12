@@ -12,7 +12,7 @@ public class LoadPropertiesTask extends OrionTask
     private String libraryName;
     
     
-    public Object run(ConfigurationService configurationService, String libraryName, String libraryConfigurationFilePath, GetClasspathRootTask getClasspathRootTask)
+    public Object run(ConfigurationService configurationService, String libraryName, String libraryConfigurationFilePath, GetClasspathRootPathTask getClasspathRootTask)
     {
         this.libraryName = libraryName;
         

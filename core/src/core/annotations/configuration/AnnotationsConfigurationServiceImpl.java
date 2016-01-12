@@ -4,7 +4,7 @@ import java.io.InputStream;
 import core.annotations.configuration.tasks.GetAnnotationsFileStreamTask;
 import core.annotations.configuration.tasks.LoadAnnotationsTask;
 import core.configuration.RegisteredAnnotation;
-import core.configuration.tasks.GetClasspathRootTask;
+import core.configuration.tasks.GetClasspathRootPathTask;
 import core.filesystem.FileSystemService;
 import core.filesystem.FileSystemServiceImpl;
 import core.registry.RegisteredAnnotations;
@@ -23,7 +23,7 @@ public class AnnotationsConfigurationServiceImpl implements AnnotationsConfigura
     @Override
     public InputStream getAnnotationsFileStream(String libraryName, String libraryAnnotationsFilePath)
     {
-        return (InputStream)new GetAnnotationsFileStreamTask().run(this, new GetClasspathRootTask(), libraryAnnotationsFilePath, libraryName);
+        return (InputStream)new GetAnnotationsFileStreamTask().run(this, new GetClasspathRootPathTask(), libraryAnnotationsFilePath, libraryName);
     }
     
     
