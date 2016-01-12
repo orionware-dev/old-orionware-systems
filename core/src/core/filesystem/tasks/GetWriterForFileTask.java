@@ -10,11 +10,9 @@ public class GetWriterForFileTask extends OrionTask
 {
     public Object run(String filePath)
     {
-        BufferedWriter output = null;
-        
         try
         {
-            output = new BufferedWriter(new FileWriter(filePath));
+            return new BufferedWriter(new FileWriter(filePath));
         }
         catch(FileNotFoundException exception)
         {
@@ -25,6 +23,6 @@ public class GetWriterForFileTask extends OrionTask
             exception.printStackTrace();
         }
         
-        return output;
+        return null;
     }
 }

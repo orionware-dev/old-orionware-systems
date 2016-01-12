@@ -9,17 +9,15 @@ public class GetReaderFromFileTask extends OrionTask
 {
     public Object run(String filePath)
     {
-        BufferedReader input = null;
-        
         try
         {
-            input = new BufferedReader(new FileReader(filePath));
+            return new BufferedReader(new FileReader(filePath));
         }
         catch(FileNotFoundException exception)
         {
             exception.printStackTrace();
         }
         
-        return input;
+        return null;
     }
 }
