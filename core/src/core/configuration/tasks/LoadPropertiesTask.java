@@ -1,7 +1,6 @@
 package core.configuration.tasks;
 
 import java.io.File;
-import java.io.IOException;
 import java.io.InputStream;
 import core.configuration.Configuration;
 import core.configuration.ConfigurationService;
