@@ -1,0 +1,3 @@
+datastructures.annotation.1=datastructures.testannotation.TestAnnotation
+datastructures.annotation.service.1=datastructures.testannotation.TestAnnotationFacadeImpl
+datastructures.annotation.service.method.to.call.1=processAnnotation

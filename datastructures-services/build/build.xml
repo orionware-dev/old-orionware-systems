@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<project name="OrionDataStructuresServicesBuilder" default="all" basedir=".">
+    <property file="DataStructuresServicesBuild.prop"/>
+    <property name="orion.data.structures.services.binaries.dir" value="${orion.data.structures.services.dir}/${default.binaries.dir.name}"/>
+    <property name="orion.data.structures.services.source.dir" value="${orion.data.structures.services.dir}/${default.source.dir.name}"/>
+
+    
+    <target name="all">
+    	<buildProject sourceDir="${orion.data.structures.services.source.dir}" binariesDir="${orion.data.structures.services.binaries.dir}" JARPath="${orion.data.structures.services.jar.file.name}" projectName="${orion.data.structures.services}"/>
+    </target>
+</project>
