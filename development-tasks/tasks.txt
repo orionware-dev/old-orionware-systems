@@ -1,0 +1,54 @@
+﻿--follow law of Demeter to prevent things like
+annotationsConfigurationService.getFileSystemService().closeResource(input);
+
+
+--cleanup Configuration.java
+
+
+--CREATE CONVENIENT filter() AND forEach() IN OrionArrayList=========
+enable the stream() so that I don't have to write it every time
+methodsList.stream().filter((method) -> method != null).forEach(this::processMethod);
+methodsList.filter((method) -> method != null).forEach(this::processMethod);
+
+
+
+--CREATE CONVENIENT LAMBDA IF/THEN/ELSE========
+so that we can have something like:
+myObject.when(some != null).then(myObject::processMethod);
+
+
+
+--in Filter.java there is the following method=======
+
+
+@Override
+public Object executeFilter()
+{
+    if(function instanceof OrionAbstractFunction)
+    {
+        return ((OrionAbstractFunction)function).executeFunction();
+    }
+    else if(function instanceof OrionServiceTask)
+    {
+        return ((OrionServiceTask)function).execute();
+    }
+    
+    return null;
+}
+
+
+instead of manually checking the instanceof, use configuration/Pipeline.prop in which I explicitly
+declare the class types OrionAbstractFunction and OrionServiceTask and use that config to do
+the checking in a loop with stream() like: for each class type, if function instanceof thisClassType,
+return ((OrionAbstractFunction)function).execute();
+
+
+--find a way for each project that has config prop files, to do System.getResourceAsStream()
+and send the prop file to the ConfigurationFacade so that it loads the prop file to memory
+when the library has started been used for the first time. If it is difficult, see if there is a way
+to do that from within the libraries-builder
+
+
+--NEW PROJECT GENERATOR IN Ant=============
+create an Ant task that after you create an empty project, it will generate the necessary general and
+services dir and default interfaces and abstract classes
