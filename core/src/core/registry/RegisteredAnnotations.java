@@ -8,12 +8,18 @@ import core.general.OrionConfiguration;
 
 public class RegisteredAnnotations extends OrionConfiguration
 {
-    public static Set<RegisteredAnnotation> registeredAnnotationsSet;
+    private static Set<RegisteredAnnotation> registeredAnnotationsSet;
     
     
     static
     {
         registeredAnnotationsSet = new HashSet<RegisteredAnnotation>();
+    }
+    
+    
+    public static Set<RegisteredAnnotation> getAnnotations()
+    {
+        return registeredAnnotationsSet;
     }
     
     
