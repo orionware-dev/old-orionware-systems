@@ -5,6 +5,6 @@
 	<classpathentry kind="src" path="integrationtests"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/core"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/design-patterns"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/designpatterns"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
