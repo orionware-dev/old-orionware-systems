@@ -25,13 +25,13 @@ public class RegisteredAnnotations extends OrionConfiguration
     
     public static void add(RegisteredAnnotation registeredAnnotation)
     {
-        registeredAnnotationsSet.add(registeredAnnotation);
+        getAnnotations().add(registeredAnnotation);
     }
     
     
     @SuppressWarnings("unchecked")
     public static void forEach(Consumer<?> action)
     {
-        registeredAnnotationsSet.forEach((Consumer<? super RegisteredAnnotation>)action);
+        getAnnotations().forEach((Consumer<? super RegisteredAnnotation>)action);
     }
 }
