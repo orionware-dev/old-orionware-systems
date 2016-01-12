@@ -1,0 +1,45 @@
+<project name="JavaCompileService" basedir=".">
+    <macrodef name="javaCompile">
+        <attribute name="sourceDir" default=""/>
+        <attribute name="binariesDir" default=""/>
+        
+        <sequential>
+            <path id="compilation_classpath">
+                <fileset dir="${orion.libraries.dir}">
+                    <include name="**/*.jar"/>
+                </fileset>
+            </path>
+            
+            <print a="Compiling source path @{sourceDir}"/>
+            
+            <javac srcdir="@{sourceDir}" destdir="@{binariesDir}" includeantruntime="false" debug="true" debuglevel="lines,vars,source" target="${default.java.version}" source="${default.java.version}" >
+                <classpath refid="compilation_classpath"/>
+            </javac>
+        </sequential>
+    </macrodef>
+    
+    
+    <macrodef name="buildJARFile">
+        <attribute name="JARPath" default=""/>
+        <attribute name="binariesDir" default=""/>
+        <attribute name="projectName" default=""/>
+        
+        <sequential>
+            <jar jarfile="@{JARPath}" >
+            	<manifest>
+    	            <attribute name="Implementation-Title" value="Orionware Libraries - @{projectName}"/>
+    	            <attribute name="Implementation-Version" value="${orion.version}"/>
+    	            <attribute name="Implementation-Vendor" value="http://orionware.co"/>
+    	            <attribute name="Built-By" value="Dimitrios Efthymiou"/>
+    	        </manifest>
+            	
+            	<fileset dir="@{binariesDir}">
+                    <include name="**/**"/>
+                    <exclude name="WEB-INF/**"/>
+                </fileset>
+            	
+            	<!--<zipfileset dir="@{binariesDir}/../configuration" includes="**/**" prefix="configuration" erroronmissingdir="false"/>-->
+            </jar>
+        </sequential>
+    </macrodef>
+</project>

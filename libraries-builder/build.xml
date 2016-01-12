@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<project name="OrionLibrariesBuilder" default="all" basedir=".">
+    <property name="orion.libraries.home.dir" location="${basedir}/.."/>
+	<property name="orion.all.libraries.dir" location="${basedir}/../../../all-libraries"/>
+    <import file="${basedir}/services/BuildPropertiesImporter.xml"/>
+	<import file="${basedir}/services/AntService.xml"/>
+
+    
+    <target name="all">
+    	<callAnt file="${orion.core.builder.dir}/build.xml"/>
+    	<callAnt file="${orion.data.structures.builder.dir}/build.xml"/>
+    	<callAnt file="${orion.data.structures.services.builder.dir}/build.xml"/>
+    	<callAnt file="${orion.data.structures.facades.builder.dir}/build.xml"/>
+    	<callAnt file="${orion.design.patterns.builder.dir}/build.xml"/>
+    	<callAnt file="${orion.design.patterns.services.builder.dir}/build.xml"/>
+    	<callAnt file="${orion.design.patterns.facades.builder.dir}/build.xml"/>
+    </target>
+</project>

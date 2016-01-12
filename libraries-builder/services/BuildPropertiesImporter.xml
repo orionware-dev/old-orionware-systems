@@ -1,0 +1,15 @@
+<project name="BuildPropertiesImporter" basedir=".">
+    <property name="builder.configuration.path" location="${basedir}/configuration"/>
+    
+    
+    <macrodef name="importBuildProperties">
+        <sequential>
+        	<property file="${builder.configuration.path}/OrionVersion.prop"/>
+            <property file="${builder.configuration.path}/OrionLibrariesDirectories.prop"/>
+            <property file="${builder.configuration.path}/OrionLibrariesDefaultBuild.prop"/>
+        </sequential>
+    </macrodef>
+    
+    
+    <importBuildProperties/>
+</project>
