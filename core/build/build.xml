@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<project name="OrionCoreBuilder" default="all" basedir=".">
+    <property file="CoreBuild.prop"/>
+    <property name="orion.core.binaries.dir" value="${orion.core.dir}/${default.binaries.dir.name}"/>
+    <property name="orion.core.source.dir" value="${orion.core.dir}/${default.source.dir.name}"/>
+
+    
+    <target name="all">
+    	<buildProject sourceDir="${orion.core.source.dir}" binariesDir="${orion.core.binaries.dir}" JARPath="${orion.core.jar.file.name}" projectName="${orion.core}"/>
+    </target>
+</project>
