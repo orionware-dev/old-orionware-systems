@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<project name="OrionProjectNameBuilder" default="all" basedir=".">
+    <property name="orion.libraries.home.dir" location="${basedir}/../.."/>
+    
+    
+    <target name="properties_importer">
+        <propertyregex property="basedir" input="${basedir}" regexp="\\" replace="/" global="true" override="true"/>
+    </target>
+
+    
+    <target name="all" depends="properties_importer">
+        
+    </target>
+</project>
