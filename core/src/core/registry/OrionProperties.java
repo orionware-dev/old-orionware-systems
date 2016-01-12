@@ -1,16 +1,37 @@
 package core.registry;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 import core.general.OrionConfiguration;
 
 public class OrionProperties extends OrionConfiguration
 {
-    public static Properties properties;
+    private static Properties properties;
     
     
     static
     {
         properties = new Properties();
+    }
+    
+    
+    public static void loadProperties(InputStream propertiesFileInput)
+    {
+        try
+        {
+            getProperties().load(propertiesFileInput);
+        }
+        catch(IOException exception)
+        {
+            exception.printStackTrace();
+        }
+    }
+    
+    
+    public static Properties getProperties()
+    {
+        return properties;
     }
     
     

@@ -37,20 +37,13 @@ public class LoadPropertiesTask implements OrionTask
     
     private void loadProperties()
     {
-        try
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.append(new File((String)new GetClasspathRootTask(libraryName).execute()).getAbsolutePath());
-            sb.append(libraryConfigurationFilePath);
-            InputStream propertiesFileInput = configurationService.getFileSystemService().getFileStream(sb.toString());
-            OrionProperties.properties.load(propertiesFileInput);
-            configurationService.getFileSystemService().closeResource(propertiesFileInput);
-            setPropertiesAsLoaded();
-        }
-        catch(IOException exception)
-        {
-            exception.printStackTrace();
-        }
+        StringBuilder sb = new StringBuilder();
+        sb.append(new File((String)new GetClasspathRootTask(libraryName).execute()).getAbsolutePath());
+        sb.append(libraryConfigurationFilePath);
+        InputStream propertiesFileInput = configurationService.getFileSystemService().getFileStream(sb.toString());
+        OrionProperties.loadProperties(propertiesFileInput);
+        configurationService.getFileSystemService().closeResource(propertiesFileInput);
+        setPropertiesAsLoaded();
     }
     
     
