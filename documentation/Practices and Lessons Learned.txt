@@ -1,0 +1,8 @@
+--put 3rd-party libraries and Orion-generated ones in a common project
+called "all-libraries" for easy visibility across projects. I know that
+this way projects will not have their own lib dir with only the JARs
+they need, but this way we would have several copies of the same JARs
+
+
+--created a "libraries-builder" project that has the necessary Ant
+files and prop files to build all the projects in the correct order
