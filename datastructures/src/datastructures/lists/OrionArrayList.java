@@ -2,10 +2,20 @@ package datastructures.lists;
 
 import java.util.ArrayList;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 public class OrionArrayList<T> extends ArrayList<T> implements OrionList<T>
 {
     private static final long serialVersionUID = 6156781298396101372L;
+    
+    
+    @SuppressWarnings("unchecked")
+    @Override
+    public Stream<T> filter(Predicate<?> filterToApply)
+    {
+        return stream().filter((Predicate<? super T>)filterToApply);
+    }
     
     
     @SuppressWarnings("unchecked")
