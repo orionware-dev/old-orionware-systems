@@ -7,7 +7,7 @@ import datastructuresintegrationtests.dependencyinjection.DependencyInjectionTes
 
 @RunWith(Suite.class)
 @SuiteClasses({DependencyInjectionTest.class})
-public class DataStructuresTestSuite
+public class DataStructuresIntegrationTestsSuite
 {
     
 }
