@@ -1,4 +1,4 @@
-package datastructuresservices.size.impl.tasks;
+package datastructuresservices.lists.size.impl.tasks;
 
 import java.util.Collection;
 import datastructures.services.DataStructureTask;

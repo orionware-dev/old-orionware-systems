@@ -1,4 +1,4 @@
-package datastructuresservices.size;
+package datastructuresservices.lists.size;
 
 import java.util.Collection;
 import datastructures.services.DataStructureService;
