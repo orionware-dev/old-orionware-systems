@@ -7,7 +7,7 @@ import coreintegrationtests.dependencyinjection.DependencyInjectionTest;
 
 @RunWith(Suite.class)
 @SuiteClasses({DependencyInjectionTest.class})
-public class CoreTestSuite
+public class CoreIntegrationTestsSuite
 {
     
 }
