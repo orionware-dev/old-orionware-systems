@@ -1,5 +1,6 @@
 package core.annotations.configuration;
 
+import java.io.Closeable;
 import java.io.InputStream;
 import core.annotations.configuration.tasks.GetAnnotationsFileStreamTask;
 import core.annotations.configuration.tasks.LoadAnnotationsTask;
@@ -42,8 +43,15 @@ public class AnnotationsConfigurationServiceImpl implements AnnotationsConfigura
     
     
     @Override
-    public FileSystemService getFileSystemService()
+    public InputStream getFileStream(String filePath)
     {
-        return fileSystemService;
+        return new FileSystemServiceImpl().getFileStream(filePath);
+    }
+    
+    
+    @Override
+    public void closeResource(Closeable stream)
+    {
+        new FileSystemServiceImpl().closeResource(stream);
     }
 }

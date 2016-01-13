@@ -1,5 +1,6 @@
 package core.annotations.configuration;
 
+import java.io.Closeable;
 import java.io.InputStream;
 import core.configuration.RegisteredAnnotation;
 import core.filesystem.FileSystemService;
@@ -16,5 +17,8 @@ public interface AnnotationsConfigurationService extends OrionService
     public void loadLibraryAnnotations(String libraryName, String libraryAnnotationsFilePath);
     
     
-    public FileSystemService getFileSystemService();
+    public InputStream getFileStream(String filePath);
+    
+    
+    public void closeResource(Closeable stream);
 }

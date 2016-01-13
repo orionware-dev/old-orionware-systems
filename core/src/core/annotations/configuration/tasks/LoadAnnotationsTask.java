@@ -37,7 +37,7 @@ public class LoadAnnotationsTask extends OrionTask
             Properties annotationsDeclarations = new Properties();
             InputStream libraryAnnotationsFileStream = annotationsConfigurationService.getAnnotationsFileStream(libraryName, libraryAnnotationsFilePath);
             annotationsDeclarations.load(libraryAnnotationsFileStream);
-            annotationsConfigurationService.getFileSystemService().closeResource(libraryAnnotationsFileStream);
+            annotationsConfigurationService.closeResource(libraryAnnotationsFileStream);
             
             if(!annotationsDeclarations.isEmpty())
             {
