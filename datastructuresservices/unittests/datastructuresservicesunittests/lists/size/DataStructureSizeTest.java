@@ -1,4 +1,4 @@
-package datastructuresservicesunittests.size;
+package datastructuresservicesunittests.lists.size;
 
 import org.junit.Assert;
 import org.junit.Before;
