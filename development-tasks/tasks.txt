@@ -1,8 +1,4 @@
-﻿--follow law of Demeter to prevent things like
-annotationsConfigurationService.getFileSystemService().closeResource(input);
-
-
---cleanup Configuration.java
+﻿--cleanup Configuration.java
 
 
 --CREATE CONVENIENT filter() AND forEach() IN OrionArrayList=========
