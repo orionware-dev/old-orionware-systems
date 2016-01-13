@@ -1,6 +1,8 @@
 package core.configuration;
 
+import java.io.Closeable;
 import java.io.File;
+import java.io.InputStream;
 import core.configuration.tasks.GetClasspathRootPathTask;
 import core.configuration.tasks.GetClasspathRootTask;
 import core.configuration.tasks.GetConfigurationPathTask;
@@ -10,15 +12,6 @@ import core.filesystem.FileSystemServiceImpl;
 
 public class ConfigurationServiceImpl implements ConfigurationService
 {
-    private FileSystemServiceImpl fileSystemService;
-    
-    
-    public ConfigurationServiceImpl()
-    {
-        fileSystemService = new FileSystemServiceImpl();
-    }
-    
-    
     @Override
     public String getCoreClasspathRootPath(String libraryClasspathRootPath)
     {
@@ -48,8 +41,15 @@ public class ConfigurationServiceImpl implements ConfigurationService
     
     
     @Override
-    public FileSystemService getFileSystemService()
+    public InputStream getFileStream(String filePath)
     {
-        return fileSystemService;
+        return new FileSystemServiceImpl().getFileStream(filePath);
+    }
+    
+    
+    @Override
+    public void closeResource(Closeable stream)
+    {
+        new FileSystemServiceImpl().closeResource(stream);
     }
 }

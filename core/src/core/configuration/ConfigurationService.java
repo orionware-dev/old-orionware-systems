@@ -1,6 +1,8 @@
 package core.configuration;
 
+import java.io.Closeable;
 import java.io.File;
+import java.io.InputStream;
 import core.filesystem.FileSystemService;
 import core.services.OrionService;
 
@@ -18,5 +20,8 @@ public interface ConfigurationService extends OrionService
     public void loadProperties(String libraryName, String libraryConfigurationFilePath);
     
     
-    public FileSystemService getFileSystemService();
+    public InputStream getFileStream(String filePath);
+    
+    
+    public void closeResource(Closeable stream);
 }
