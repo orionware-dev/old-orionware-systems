@@ -3,7 +3,6 @@ package core.annotations.configuration;
 import java.io.Closeable;
 import java.io.InputStream;
 import core.configuration.RegisteredAnnotation;
-import core.filesystem.FileSystemService;
 import core.services.OrionService;
 
 public interface AnnotationsConfigurationService extends OrionService

@@ -3,7 +3,6 @@ package coreintegrationtests.dependencyinjection;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import core.OrionObject;
 
 public class DependencyInjectionTest// extends OrionObject
 {

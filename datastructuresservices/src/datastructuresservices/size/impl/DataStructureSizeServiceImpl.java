@@ -2,7 +2,7 @@ package datastructuresservices.size.impl;
 
 import java.util.Collection;
 import core.dependencyinjection.Injector;
-import datastructures.general.DataStructureObject;
+import datastructures.DataStructureObject;
 import datastructuresservices.size.DataStructureSizeService;
 import datastructuresservices.size.impl.tasks.DataStructureSizeGetSizeTask;
 

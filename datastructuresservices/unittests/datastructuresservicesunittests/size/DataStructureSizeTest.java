@@ -1,10 +1,10 @@
-package datastructuresservicesintegrationtests.size;
+package datastructuresservicesunittests.size;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import datastructures.lists.OrionArrayList;
 import datastructures.lists.OrionList;
-import org.junit.Assert;
 import datastructuresservices.size.DataStructureSizeService;
 import datastructuresservices.size.impl.DataStructureSizeServiceImpl;
 
