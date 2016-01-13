@@ -7,7 +7,7 @@ import core.dependencyinjection.Injector;
 import core.reflection.ReflectionService;
 import core.services.OrionTask;
 
-public class ProcessDependenciesTask extends OrionTask
+public class ProcessDependenciesTask implements OrionTask
 {
     private OrionObject object;
     private ReflectionService reflectionService;

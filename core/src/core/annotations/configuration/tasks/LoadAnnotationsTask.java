@@ -8,7 +8,7 @@ import core.configuration.Configuration;
 import core.configuration.RegisteredAnnotation;
 import core.services.OrionTask;
 
-public class LoadAnnotationsTask extends OrionTask
+public class LoadAnnotationsTask implements OrionTask
 {
     private AnnotationsConfigurationService annotationsConfigurationService;
     private String libraryAnnotationsFilePath;

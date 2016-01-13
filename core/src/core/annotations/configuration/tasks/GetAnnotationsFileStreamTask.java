@@ -5,7 +5,7 @@ import core.annotations.configuration.AnnotationsConfigurationService;
 import core.configuration.tasks.GetClasspathRootPathTask;
 import core.services.OrionTask;
 
-public class GetAnnotationsFileStreamTask extends OrionTask
+public class GetAnnotationsFileStreamTask implements OrionTask
 {
     public Object run(AnnotationsConfigurationService annotationsConfigurationService, GetClasspathRootPathTask getClasspathRootTask, String libraryAnnotationsFilePath, String libraryName)
     {

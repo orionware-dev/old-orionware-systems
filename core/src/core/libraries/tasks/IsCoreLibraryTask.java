@@ -3,7 +3,7 @@ package core.libraries.tasks;
 import core.configuration.Configuration;
 import core.services.OrionTask;
 
-public class IsCoreLibraryTask extends OrionTask
+public class IsCoreLibraryTask implements OrionTask
 {
     public Object run(Class<?> classBeingRun)
     {

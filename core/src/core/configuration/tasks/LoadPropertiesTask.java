@@ -1,13 +1,12 @@
 package core.configuration.tasks;
 
-import java.io.File;
 import java.io.InputStream;
 import core.configuration.Configuration;
 import core.configuration.ConfigurationService;
 import core.registry.OrionProperties;
 import core.services.OrionTask;
 
-public class LoadPropertiesTask extends OrionTask
+public class LoadPropertiesTask implements OrionTask
 {
     private String libraryName;
     

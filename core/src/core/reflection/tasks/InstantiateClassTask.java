@@ -3,7 +3,7 @@ package core.reflection.tasks;
 import java.lang.reflect.InvocationTargetException;
 import core.services.OrionTask;
 
-public class InstantiateClassTask extends OrionTask
+public class InstantiateClassTask implements OrionTask
 {
     public Object run(Class<?> classToInstantiate)
     {

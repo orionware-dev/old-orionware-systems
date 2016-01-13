@@ -1,6 +1,6 @@
 package core.services;
 
-public abstract class OrionTask
+public interface OrionTask
 {
     
 }

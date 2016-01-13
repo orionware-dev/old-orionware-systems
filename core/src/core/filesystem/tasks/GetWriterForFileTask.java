@@ -6,7 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import core.services.OrionTask;
 
-public class GetWriterForFileTask extends OrionTask
+public class GetWriterForFileTask implements OrionTask
 {
     public Object run(String filePath)
     {

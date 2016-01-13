@@ -5,7 +5,7 @@ import java.util.Arrays;
 import core.OrionObject;
 import core.services.OrionTask;
 
-public class GetMethodsArrayTask extends OrionTask
+public class GetMethodsArrayTask implements OrionTask
 {
     public Object[] run(OrionObject object)
     {

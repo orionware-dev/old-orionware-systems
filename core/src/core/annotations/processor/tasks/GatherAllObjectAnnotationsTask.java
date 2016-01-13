@@ -9,7 +9,7 @@ import java.util.List;
 import core.OrionObject;
 import core.services.OrionTask;
 
-public class GatherAllObjectAnnotationsTask extends OrionTask
+public class GatherAllObjectAnnotationsTask implements OrionTask
 {
     public Object run(OrionObject object)
     {

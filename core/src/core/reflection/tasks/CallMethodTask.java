@@ -4,7 +4,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import core.services.OrionTask;
 
-public class CallMethodTask extends OrionTask
+public class CallMethodTask implements OrionTask
 {
     public Object run(Method method, Object objectMethodBelongsTo, Object... methodArguments)
     {

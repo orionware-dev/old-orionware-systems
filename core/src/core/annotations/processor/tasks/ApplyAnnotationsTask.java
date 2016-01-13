@@ -10,7 +10,7 @@ import core.reflection.ReflectionService;
 import core.registry.RegisteredAnnotations;
 import core.services.OrionTask;
 
-public class ApplyAnnotationsTask extends OrionTask
+public class ApplyAnnotationsTask implements OrionTask
 {
     private AnnotationsProcessorService annotationsProcessorService;
     private OrionObject object;

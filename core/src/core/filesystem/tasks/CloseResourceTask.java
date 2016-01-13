@@ -4,7 +4,7 @@ import java.io.Closeable;
 import java.io.IOException;
 import core.services.OrionTask;
 
-public class CloseResourceTask extends OrionTask
+public class CloseResourceTask implements OrionTask
 {
     public Object run(Closeable closeable)
     {

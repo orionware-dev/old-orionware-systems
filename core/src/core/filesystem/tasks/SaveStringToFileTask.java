@@ -7,7 +7,7 @@ import java.util.Arrays;
 import core.filesystem.FileSystemService;
 import core.services.OrionTask;
 
-public class SaveStringToFileTask extends OrionTask
+public class SaveStringToFileTask implements OrionTask
 {
     private String lineSeparator;
     private BufferedWriter output = null;

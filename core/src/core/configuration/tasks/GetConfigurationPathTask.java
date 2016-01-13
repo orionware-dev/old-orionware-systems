@@ -3,7 +3,7 @@ package core.configuration.tasks;
 import core.configuration.Configuration;
 import core.services.OrionTask;
 
-public class GetConfigurationPathTask extends OrionTask
+public class GetConfigurationPathTask implements OrionTask
 {
     public Object run(String libraryClasspathRootPath, GetClasspathRootPathTask getClasspathRootPathTask)
     {

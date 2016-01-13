@@ -1,10 +1,9 @@
 package datastructuresservices.size.impl.tasks;
 
 import java.util.Collection;
-import datastructures.general.DataStructureObject;
 import datastructures.services.DataStructureTask;
 
-public class DataStructureSizeGetSizeTask extends DataStructureObject implements DataStructureTask
+public class DataStructureSizeGetSizeTask extends DataStructureTask
 {
     private Collection<?> dataStructure;
     
@@ -15,7 +14,6 @@ public class DataStructureSizeGetSizeTask extends DataStructureObject implements
     }
     
     
-    @Override
     public Integer run()
     {
         if(dataStructure != null)
@@ -24,12 +22,5 @@ public class DataStructureSizeGetSizeTask extends DataStructureObject implements
         }
         
         return 0;
-    }
-
-
-    @Override
-    public Object[] executeAndReturnArray()
-    {
-        return null;
     }
 }

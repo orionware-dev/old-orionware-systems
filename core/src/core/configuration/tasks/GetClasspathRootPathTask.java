@@ -4,7 +4,7 @@ import java.io.File;
 import core.configuration.Configuration;
 import core.services.OrionTask;
 
-public class GetClasspathRootPathTask extends OrionTask
+public class GetClasspathRootPathTask implements OrionTask
 {
     public Object run(String libraryClasspathRootPath)
     {

@@ -4,7 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import core.services.OrionTask;
 
-public class GetFileStreamTask extends OrionTask
+public class GetFileStreamTask implements OrionTask
 {
     public Object run(String filePath)
     {

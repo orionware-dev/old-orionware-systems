@@ -6,7 +6,7 @@ import java.io.IOException;
 import core.filesystem.FileSystemService;
 import core.services.OrionTask;
 
-public class ConvertFileToStringTask extends OrionTask
+public class ConvertFileToStringTask implements OrionTask
 {
     public Object run(FileSystemService fileSystemService, String filePath)
     {
