@@ -14,6 +14,12 @@ public interface OrionList<T> extends List<T>, DataStructure
     public void forAll(Consumer<?> action);
     
     
+    public void forAll(Stream<T> stream, Consumer<?> action);
+    
+    
+    public void filterAndLoop(Predicate<?> filterToApply, Consumer<?> action);
+    
+    
     public Object getFirst();
     
     

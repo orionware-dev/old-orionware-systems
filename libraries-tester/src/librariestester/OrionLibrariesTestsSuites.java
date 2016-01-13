@@ -3,16 +3,12 @@ package librariestester;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
-import coreintegrationtests.CoreTestSuite;
-import datastructuresfacadesintegrationtests.DataStructuresFacadesTestSuite;
-import datastructuresintegrationtests.DataStructuresTestSuite;
-import datastructuresservicesintegrationtests.DataStructuresServicesTestSuite;
+import coreintegrationtests.CoreIntegrationTestsSuite;
+import datastructuresunittests.DataStructuresUnitTestsSuite;
 
 @RunWith(Suite.class)
-@SuiteClasses({CoreTestSuite.class,
-                DataStructuresTestSuite.class,
-                DataStructuresFacadesTestSuite.class,
-                DataStructuresServicesTestSuite.class})
+@SuiteClasses({CoreIntegrationTestsSuite.class,
+                DataStructuresUnitTestsSuite.class})
 public class OrionLibrariesTestsSuites
 {
     

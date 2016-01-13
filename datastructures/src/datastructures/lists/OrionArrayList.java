@@ -26,6 +26,21 @@ public class OrionArrayList<T> extends ArrayList<T> implements OrionList<T>
     }
     
     
+    @SuppressWarnings("unchecked")
+    @Override
+    public void forAll(Stream<T> stream, Consumer<?> action)
+    {
+        stream.forEach((Consumer<? super T>)action);
+    }
+    
+    
+    @Override
+    public void filterAndLoop(Predicate<?> filterToApply, Consumer<?> action)
+    {
+        forAll(filter(filterToApply), action);
+    }
+    
+    
     @Override
     public Object getFirst()
     {
