@@ -8,6 +8,7 @@ import core.configuration.RegisteredAnnotation;
 import core.configuration.tasks.GetClasspathRootPathTask;
 import core.filesystem.FileSystemService;
 import core.filesystem.FileSystemServiceImpl;
+import core.general.Triple;
 import core.registry.RegisteredAnnotations;
 
 public class AnnotationsConfigurationServiceImpl implements AnnotationsConfigurationService
@@ -36,22 +37,22 @@ public class AnnotationsConfigurationServiceImpl implements AnnotationsConfigura
     
     
     @Override
-    public void loadLibraryAnnotations(String libraryName, String libraryAnnotationsFilePath)
+    public void loadLibraryAnnotations(Triple<String, String, String> libraryNameAndConfigurationFilePathAndAnnotationsFilePath)
     {
-        new LoadAnnotationsTask().run(this, libraryName, libraryAnnotationsFilePath);
+        new LoadAnnotationsTask().run(this, libraryNameAndConfigurationFilePathAndAnnotationsFilePath);
     }
     
     
     @Override
     public InputStream getFileStream(String filePath)
     {
-        return new FileSystemServiceImpl().getFileStream(filePath);
+        return fileSystemService.getFileStream(filePath);
     }
     
     
     @Override
     public void closeResource(Closeable stream)
     {
-        new FileSystemServiceImpl().closeResource(stream);
+        fileSystemService.closeResource(stream);
     }
 }

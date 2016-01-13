@@ -1,28 +1,38 @@
 package core.configuration.tasks;
 
 import java.io.InputStream;
+import java.util.Set;
 import core.configuration.Configuration;
 import core.configuration.ConfigurationService;
+import core.general.Pair;
 import core.registry.OrionProperties;
 import core.services.OrionTask;
 
 public class LoadPropertiesTask implements OrionTask
 {
-    private String libraryName;
+    private String currentLibraryName;
     
     
-    public Object run(ConfigurationService configurationService, String libraryName, String libraryConfigurationFilePath, GetClasspathRootPathTask getClasspathRootPathTask)
+    public Object run(ConfigurationService configurationService, Set<Pair<String, String>> libraryNamesAndConfigurationFilePaths, GetClasspathRootPathTask getClasspathRootPathTask)
     {
-        this.libraryName = libraryName;
-        
         if(!havePropertiesBeenLoaded())
         {
             StringBuilder sb = new StringBuilder();
-            sb.append((String)getClasspathRootPathTask.run(libraryName));
-            sb.append(libraryConfigurationFilePath);
-            InputStream propertiesFileInput = configurationService.getFileStream(sb.toString());
-            OrionProperties.loadProperties(propertiesFileInput);
-            configurationService.closeResource(propertiesFileInput);
+            
+            if(libraryNamesAndConfigurationFilePaths != null)
+            {
+                for(Pair<String, String> libraryNameAndConfigurationFilePath : libraryNamesAndConfigurationFilePaths)
+                {
+                    currentLibraryName = libraryNameAndConfigurationFilePath.getOne();
+                    sb = new StringBuilder();
+                    sb.append((String)getClasspathRootPathTask.run(libraryNameAndConfigurationFilePath.getOne()));
+                    sb.append(libraryNameAndConfigurationFilePath.getTwo());
+                    InputStream propertiesFileInput = configurationService.getFileStream(sb.toString());
+                    OrionProperties.loadProperties(propertiesFileInput);
+                    configurationService.closeResource(propertiesFileInput);
+                }
+            }
+            
             setPropertiesAsLoaded();
         }
         
@@ -32,9 +42,9 @@ public class LoadPropertiesTask implements OrionTask
     
     private boolean havePropertiesBeenLoaded()
     {
-        if(Configuration.LIBRARIES_AND_IF_PROPERTIES_HAVE_BEEN_LOADED_MAPPER.get(libraryName) != null)
+        if(Configuration.LIBRARIES_AND_IF_PROPERTIES_HAVE_BEEN_LOADED_MAPPER.get(currentLibraryName) != null)
         {
-            return Configuration.LIBRARIES_AND_IF_PROPERTIES_HAVE_BEEN_LOADED_MAPPER.get(libraryName);
+            return Configuration.LIBRARIES_AND_IF_PROPERTIES_HAVE_BEEN_LOADED_MAPPER.get(currentLibraryName);
         }
         else
         {
@@ -45,6 +55,6 @@ public class LoadPropertiesTask implements OrionTask
     
     private void setPropertiesAsLoaded()
     {
-        Configuration.LIBRARIES_AND_IF_PROPERTIES_HAVE_BEEN_LOADED_MAPPER.put(libraryName, true);
+        Configuration.LIBRARIES_AND_IF_PROPERTIES_HAVE_BEEN_LOADED_MAPPER.put(currentLibraryName, true);
     }
 }

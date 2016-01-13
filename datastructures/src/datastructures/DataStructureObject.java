@@ -8,4 +8,11 @@ public abstract class DataStructureObject extends OrionObject
     {
         super("datastructures", "/configuration/DataStructures.prop", "/configuration/DataStructuresAnnotations.prop");
     }
+    
+    
+    public DataStructureObject(String libraryName, String libraryConfigurationFilePath, String libraryAnnotationsFilePath)
+    {
+        this();
+        super(libraryName, libraryConfigurationFilePath, libraryAnnotationsFilePath);
+    }
 }

@@ -3,11 +3,13 @@ package core.configuration;
 import java.io.Closeable;
 import java.io.File;
 import java.io.InputStream;
+import java.util.Set;
 import core.configuration.tasks.GetClasspathRootPathTask;
 import core.configuration.tasks.GetClasspathRootTask;
 import core.configuration.tasks.GetConfigurationPathTask;
 import core.configuration.tasks.LoadPropertiesTask;
 import core.filesystem.FileSystemServiceImpl;
+import core.general.Pair;
 
 public class ConfigurationServiceImpl implements ConfigurationService
 {
@@ -33,9 +35,9 @@ public class ConfigurationServiceImpl implements ConfigurationService
 
 
     @Override
-    public void loadProperties(String libraryName, String libraryConfigurationFilePath)
+    public void loadProperties(Set<Pair<String, String>> libraryNamesAndConfigurationFilePaths)
     {
-        new LoadPropertiesTask().run(this, libraryName, libraryConfigurationFilePath, new GetClasspathRootPathTask());
+        new LoadPropertiesTask().run(this, libraryNamesAndConfigurationFilePaths, new GetClasspathRootPathTask());
     }
     
     

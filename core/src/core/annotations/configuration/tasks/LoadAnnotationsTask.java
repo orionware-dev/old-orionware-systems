@@ -6,31 +6,31 @@ import java.util.Properties;
 import core.annotations.configuration.AnnotationsConfigurationService;
 import core.configuration.Configuration;
 import core.configuration.RegisteredAnnotation;
+import core.general.Triple;
 import core.services.OrionTask;
 
 public class LoadAnnotationsTask implements OrionTask
 {
     private AnnotationsConfigurationService annotationsConfigurationService;
-    private String libraryAnnotationsFilePath;
-    private String libraryName;
     
     
-    public Object run(AnnotationsConfigurationService annotationsConfigurationService, String libraryName, String libraryAnnotationsFilePath)
+    public Object run(AnnotationsConfigurationService annotationsConfigurationService, Triple<String, String, String> libraryNameAndConfigurationFilePathAndAnnotationsFilePath)
     {
         this.annotationsConfigurationService = annotationsConfigurationService;
-        this.libraryName = libraryName;
-        this.libraryAnnotationsFilePath = libraryAnnotationsFilePath;
         
-        if(!haveAnnotationsBeenRegistered())
+        if(libraryNameAndConfigurationFilePathAndAnnotationsFilePath != null)
         {
-            registerAnnotations();
+            if(!haveAnnotationsBeenRegistered(libraryNameAndConfigurationFilePathAndAnnotationsFilePath.getOne()))
+            {
+                registerAnnotations(libraryNameAndConfigurationFilePathAndAnnotationsFilePath.getOne(), libraryNameAndConfigurationFilePathAndAnnotationsFilePath.getThree());
+            }
         }
         
         return null;
     }
     
     
-    private void registerAnnotations()
+    private void registerAnnotations(String libraryName, String libraryAnnotationsFilePath)
     {
         try
         {
@@ -53,7 +53,7 @@ public class LoadAnnotationsTask implements OrionTask
                 }
             }
             
-            setAnnotationsAsRegistered();
+            setAnnotationsAsRegistered(libraryName);
         }
         catch(IOException exception)
         {
@@ -62,7 +62,7 @@ public class LoadAnnotationsTask implements OrionTask
     }
     
     
-    private boolean haveAnnotationsBeenRegistered()
+    private boolean haveAnnotationsBeenRegistered(String libraryName)
     {
         if(Configuration.LIBRARIES_AND_IF_ANNOTATIONS_HAVE_BEEN_REGISTERED_MAPPER.get(libraryName) != null)
         {
@@ -75,7 +75,7 @@ public class LoadAnnotationsTask implements OrionTask
     }
     
     
-    private void setAnnotationsAsRegistered()
+    private void setAnnotationsAsRegistered(String libraryName)
     {
         Configuration.LIBRARIES_AND_IF_ANNOTATIONS_HAVE_BEEN_REGISTERED_MAPPER.put(libraryName, true);
     }
