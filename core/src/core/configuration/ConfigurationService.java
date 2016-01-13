@@ -1,11 +1,15 @@
 package core.configuration;
 
+import java.io.File;
 import core.filesystem.FileSystemService;
 import core.services.OrionService;
 
 public interface ConfigurationService extends OrionService
 {
-    public String getCoreClasspathRoot(String libraryClasspathRootPath);
+    public String getCoreClasspathRootPath(String libraryClasspathRootPath);
+    
+    
+    public File getCoreClasspathRoot(String libraryClasspathRootPath);
     
     
     public String getCoreConfigurationPath();

@@ -1,6 +1,8 @@
 package core.configuration;
 
+import java.io.File;
 import core.configuration.tasks.GetClasspathRootPathTask;
+import core.configuration.tasks.GetClasspathRootTask;
 import core.configuration.tasks.GetConfigurationPathTask;
 import core.configuration.tasks.LoadPropertiesTask;
 import core.filesystem.FileSystemService;
@@ -18,9 +20,16 @@ public class ConfigurationServiceImpl implements ConfigurationService
     
     
     @Override
-    public String getCoreClasspathRoot(String libraryClasspathRootPath)
+    public String getCoreClasspathRootPath(String libraryClasspathRootPath)
     {
         return (String)new GetClasspathRootPathTask().run(libraryClasspathRootPath);
+    }
+    
+    
+    @Override
+    public File getCoreClasspathRoot(String libraryClasspathRootPath)
+    {
+        return (File)new GetClasspathRootTask().run(libraryClasspathRootPath, new GetClasspathRootPathTask());
     }
     
     
