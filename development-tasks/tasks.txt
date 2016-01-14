@@ -1,4 +1,4 @@
-﻿--make core better
+﻿--improve core
 
 
 --CREATE CONVENIENT filter() AND forEach() IN OrionArrayList=========
