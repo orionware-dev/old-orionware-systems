@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 import core.annotations.configuration.AnnotationsConfigurationService;
-import core.configuration.Configuration;
+import core.configuration.CoreConfiguration;
 import core.configuration.RegisteredAnnotation;
 import core.general.Triple;
 import core.services.OrionTask;
@@ -64,9 +64,9 @@ public class LoadAnnotationsTask implements OrionTask
     
     private boolean haveAnnotationsBeenRegistered(String libraryName)
     {
-        if(Configuration.LIBRARIES_AND_IF_ANNOTATIONS_HAVE_BEEN_REGISTERED_MAPPER.get(libraryName) != null)
+        if(CoreConfiguration.LIBRARIES_AND_IF_ANNOTATIONS_HAVE_BEEN_REGISTERED_MAPPER.get(libraryName) != null)
         {
-            return Configuration.LIBRARIES_AND_IF_ANNOTATIONS_HAVE_BEEN_REGISTERED_MAPPER.get(libraryName);
+            return CoreConfiguration.LIBRARIES_AND_IF_ANNOTATIONS_HAVE_BEEN_REGISTERED_MAPPER.get(libraryName);
         }
         else
         {
@@ -77,6 +77,6 @@ public class LoadAnnotationsTask implements OrionTask
     
     private void setAnnotationsAsRegistered(String libraryName)
     {
-        Configuration.LIBRARIES_AND_IF_ANNOTATIONS_HAVE_BEEN_REGISTERED_MAPPER.put(libraryName, true);
+        CoreConfiguration.LIBRARIES_AND_IF_ANNOTATIONS_HAVE_BEEN_REGISTERED_MAPPER.put(libraryName, true);
     }
 }

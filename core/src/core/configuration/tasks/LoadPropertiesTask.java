@@ -2,7 +2,7 @@ package core.configuration.tasks;
 
 import java.io.InputStream;
 import java.util.Set;
-import core.configuration.Configuration;
+import core.configuration.CoreConfiguration;
 import core.configuration.ConfigurationService;
 import core.general.Pair;
 import core.registry.OrionProperties;
@@ -42,9 +42,9 @@ public class LoadPropertiesTask implements OrionTask
     
     private boolean havePropertiesBeenLoaded()
     {
-        if(Configuration.LIBRARIES_AND_IF_PROPERTIES_HAVE_BEEN_LOADED_MAPPER.get(currentLibraryName) != null)
+        if(CoreConfiguration.LIBRARIES_AND_IF_PROPERTIES_HAVE_BEEN_LOADED_MAPPER.get(currentLibraryName) != null)
         {
-            return Configuration.LIBRARIES_AND_IF_PROPERTIES_HAVE_BEEN_LOADED_MAPPER.get(currentLibraryName);
+            return CoreConfiguration.LIBRARIES_AND_IF_PROPERTIES_HAVE_BEEN_LOADED_MAPPER.get(currentLibraryName);
         }
         else
         {
@@ -55,6 +55,6 @@ public class LoadPropertiesTask implements OrionTask
     
     private void setPropertiesAsLoaded()
     {
-        Configuration.LIBRARIES_AND_IF_PROPERTIES_HAVE_BEEN_LOADED_MAPPER.put(currentLibraryName, true);
+        CoreConfiguration.LIBRARIES_AND_IF_PROPERTIES_HAVE_BEEN_LOADED_MAPPER.put(currentLibraryName, true);
     }
 }

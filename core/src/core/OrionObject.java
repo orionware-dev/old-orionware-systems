@@ -7,7 +7,7 @@ import core.annotations.configuration.AnnotationsConfigurationService;
 import core.annotations.configuration.AnnotationsConfigurationServiceImpl;
 import core.annotations.processor.AnnotationsProcessorService;
 import core.annotations.processor.AnnotationsProcessorServiceImpl;
-import core.configuration.Configuration;
+import core.configuration.CoreConfiguration;
 import core.configuration.ConfigurationService;
 import core.configuration.ConfigurationServiceImpl;
 import core.configuration.LibraryConfiguration;
@@ -55,8 +55,8 @@ public abstract class OrionObject
     private void loadCoreConfigurationTriple()
     {
         LibraryConfiguration libraryConfigurationTriple = new LibraryConfiguration();
-        libraryConfigurationTriple.setLibraryName(Configuration.CORE_LIBRARY_NAME);
-        libraryConfigurationTriple.setConfigurationFilePath(Configuration.CORE_PROPERTIES_FILE_PATH);
+        libraryConfigurationTriple.setLibraryName(CoreConfiguration.CORE_LIBRARY_NAME);
+        libraryConfigurationTriple.setConfigurationFilePath(CoreConfiguration.CORE_PROPERTIES_FILE_PATH);
         libraryConfigurationTriple.setAnnotationsFilePath("/configuration/DataStructuresAnnotations.prop");
         libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths.add(libraryConfigurationTriple);
     }
@@ -65,8 +65,8 @@ public abstract class OrionObject
     private void loadCoreProperties()
     {
         Pair<String, String> libraryNameAndConfigurationFilePathAndAnnotationsFilePath = new Pair<String, String>();
-        libraryNameAndConfigurationFilePathAndAnnotationsFilePath.setOne(Configuration.CORE_LIBRARY_NAME);
-        libraryNameAndConfigurationFilePathAndAnnotationsFilePath.setTwo(Configuration.CORE_PROPERTIES_FILE_PATH);
+        libraryNameAndConfigurationFilePathAndAnnotationsFilePath.setOne(CoreConfiguration.CORE_LIBRARY_NAME);
+        libraryNameAndConfigurationFilePathAndAnnotationsFilePath.setTwo(CoreConfiguration.CORE_PROPERTIES_FILE_PATH);
         libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths.add(libraryNameAndConfigurationFilePathAndAnnotationsFilePath);
         
     }
