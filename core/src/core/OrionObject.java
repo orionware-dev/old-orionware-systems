@@ -25,30 +25,14 @@ public abstract class OrionObject
     public OrionObject()
     {
         isCoreLibrary = new LibraryServiceImpl().isCoreLibrary(getClass());
-        //the core config is loaded. The subclasses did it already
         loadCoreConfigurationTriple();
         annotationsProcessorService = new AnnotationsProcessorServiceImpl();
         configurationService = new ConfigurationServiceImpl();
-        configurationService.loadLibrariesProperties(libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths);
         annotationsConfigurationService = new AnnotationsConfigurationServiceImpl();
-        //load core annotations
         
-        if(libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths != null && !libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths.isEmpty())
+        if(isCoreLibrary)
         {
-            for(Triple<String, String, String> libraryNameAndConfigurationFilePathAndAnnotationsFilePath : libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths)
-            {
-                annotationsConfigurationService.loadLibrariesAnnotations(libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths);
-            }
-        }
-        
-        
-        //if the following condition is true then it means that only the core is running
-        //in which case we can process all annotations. Otherwise we do that in
-        //the second constructor which is called by another library/project and
-        //not the core itself
-        if(new LibraryServiceImpl().isCoreLibrary(getClass()))
-        {
-            annotationsProcessorService.processAllAnnotations(this);
+            processAllLibrariesConfigurations();
         }
     }
     
@@ -60,5 +44,27 @@ public abstract class OrionObject
         libraryConfigurationTriple.setConfigurationFilePath(CoreConfiguration.CORE_PROPERTIES_FILE_PATH);
         libraryConfigurationTriple.setAnnotationsFilePath(CoreConfiguration.CORE_ANNOTATIONS_DEFINITION_FILE_PATH);
         libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths.add(libraryConfigurationTriple);
+    }
+    
+    
+    private void processAllLibrariesConfigurations()
+    {
+        configurationService.loadLibrariesProperties(libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths);
+        
+        //load core annotations
+        
+        if(libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths != null && !libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths.isEmpty())
+        {
+            for(Triple<String, String, String> libraryNameAndConfigurationFilePathAndAnnotationsFilePath : libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths)
+            {
+                annotationsConfigurationService.loadLibrariesAnnotations(libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths);
+            }
+        }
+        
+        //if the following condition is true then it means that only the core is running
+        //in which case we can process all annotations. Otherwise we do that in
+        //the second constructor which is called by another library/project and
+        //not the core itself
+        annotationsProcessorService.processAllAnnotations(this);
     }
 }
