@@ -19,12 +19,11 @@ public abstract class OrionObject
     private ConfigurationService configurationService;
     private AnnotationsConfigurationService annotationsConfigurationService;
     private AnnotationsProcessorService annotationsProcessorService;
-    private Set<Triple<String, String, String>> libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths;
+    protected Set<Triple<String, String, String>> libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths = new HashSet<Triple<String, String, String>>();
     
     
     public OrionObject()
     {
-        libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths = new HashSet<>();
         annotationsProcessorService = new AnnotationsProcessorServiceImpl();
         configurationService = new ConfigurationServiceImpl();
         loadCoreProperties();

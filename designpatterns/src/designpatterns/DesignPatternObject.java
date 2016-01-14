@@ -1,4 +1,4 @@
-package designpatterns.general;
+package designpatterns;
 
 import core.dependencyinjection.DependencyInjectorFacadeImpl;
 import core.orion.OrionObject;
