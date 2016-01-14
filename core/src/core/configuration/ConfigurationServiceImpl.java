@@ -7,7 +7,7 @@ import java.util.Set;
 import core.configuration.tasks.GetClasspathRootPathTask;
 import core.configuration.tasks.GetClasspathRootTask;
 import core.configuration.tasks.GetConfigurationPathTask;
-import core.configuration.tasks.LoadPropertiesTask;
+import core.configuration.tasks.LoadLibrariesPropertiesTask;
 import core.filesystem.FileSystemServiceImpl;
 import core.general.Pair;
 
@@ -35,9 +35,9 @@ public class ConfigurationServiceImpl implements ConfigurationService
 
 
     @Override
-    public void loadProperties(Set<Pair<String, String>> libraryNamesAndConfigurationFilePaths)
+    public void loadLibrariesProperties(Set<LibraryConfiguration> libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths)
     {
-        new LoadPropertiesTask().run(this, libraryNamesAndConfigurationFilePaths, new GetClasspathRootPathTask());
+        new LoadLibrariesPropertiesTask().run(this, libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths, new GetClasspathRootPathTask());
     }
     
     

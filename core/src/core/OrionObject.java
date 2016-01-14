@@ -20,15 +20,18 @@ public abstract class OrionObject
     private ConfigurationService configurationService;
     private AnnotationsConfigurationService annotationsConfigurationService;
     private AnnotationsProcessorService annotationsProcessorService;
+    private boolean isCoreLibrary;
     protected Set<LibraryConfiguration> libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths = new HashSet<LibraryConfiguration>();
     
     
     public OrionObject()
     {
+        isCoreLibrary = new LibraryServiceImpl().isCoreLibrary(getClass());
+        //the core config is loaded. The subclasses did it already
         loadCoreConfigurationTriple();
         annotationsProcessorService = new AnnotationsProcessorServiceImpl();
         configurationService = new ConfigurationServiceImpl();
-        configurationService.loadProperties(libraryNameAndConfigurationFilePathAndAnnotationsFilePath);
+        configurationService.loadLibrariesProperties(libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths);
         annotationsConfigurationService = new AnnotationsConfigurationServiceImpl();
         //load core annotations
         
@@ -57,42 +60,7 @@ public abstract class OrionObject
         LibraryConfiguration libraryConfigurationTriple = new LibraryConfiguration();
         libraryConfigurationTriple.setLibraryName(CoreConfiguration.CORE_LIBRARY_NAME);
         libraryConfigurationTriple.setConfigurationFilePath(CoreConfiguration.CORE_PROPERTIES_FILE_PATH);
-        libraryConfigurationTriple.setAnnotationsFilePath("/configuration/DataStructuresAnnotations.prop");
+        libraryConfigurationTriple.setAnnotationsFilePath(CoreConfiguration.CORE_ANNOTATIONS_DEFINITION_FILE_PATH);
         libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths.add(libraryConfigurationTriple);
-    }
-    
-    
-    private void loadCoreProperties()
-    {
-        Pair<String, String> libraryNameAndConfigurationFilePathAndAnnotationsFilePath = new Pair<String, String>();
-        libraryNameAndConfigurationFilePathAndAnnotationsFilePath.setOne(CoreConfiguration.CORE_LIBRARY_NAME);
-        libraryNameAndConfigurationFilePathAndAnnotationsFilePath.setTwo(CoreConfiguration.CORE_PROPERTIES_FILE_PATH);
-        libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths.add(libraryNameAndConfigurationFilePathAndAnnotationsFilePath);
-        
-    }
-    
-    
-    public OrionObject(Set<Triple<String, String, String>> libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths)
-    {
-        //call the default constructor to initialise the core
-        this();
-        //when this constructor is run that means that the object being created
-        //belogns to a project other than the core. The following vars are
-        //overwritten by the other project, essentially
-        libraryNamesAndConfigurationFilePaths.clear();
-        libraryNames.addAll(libraryNames);
-        libraryConfigurationFilePaths.addAll(libraryConfigurationFilePaths);
-        libraryAnnotationsFilePaths.addAll(libraryAnnotationsFilePaths); 
-        configurationService.loadProperties(libraryNames, libraryConfigurationFilePaths);
-        
-        if(libraryNames != null && !libraryNames.isEmpty())
-        {
-            for(String libraryName : libraryNames)
-            {
-                annotationsConfigurationService.loadLibraryAnnotations(libraryName, libraryAnnotationsFilePaths);
-            }
-        }
-        
-        annotationsProcessorService.processAllAnnotations(this);
     }
 }

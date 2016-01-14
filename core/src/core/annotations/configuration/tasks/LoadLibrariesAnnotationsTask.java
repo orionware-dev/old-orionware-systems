@@ -3,22 +3,24 @@ package core.annotations.configuration.tasks;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+import java.util.Set;
 import core.annotations.configuration.AnnotationsConfigurationService;
 import core.configuration.CoreConfiguration;
+import core.configuration.LibraryConfiguration;
 import core.configuration.RegisteredAnnotation;
 import core.general.Triple;
 import core.services.OrionTask;
 
-public class LoadAnnotationsTask implements OrionTask
+public class LoadLibrariesAnnotationsTask implements OrionTask
 {
     private AnnotationsConfigurationService annotationsConfigurationService;
     
     
-    public Object run(AnnotationsConfigurationService annotationsConfigurationService, Triple<String, String, String> libraryNameAndConfigurationFilePathAndAnnotationsFilePath)
+    public Object run(AnnotationsConfigurationService annotationsConfigurationService, Set<LibraryConfiguration> libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths)
     {
         this.annotationsConfigurationService = annotationsConfigurationService;
         
-        if(libraryNameAndConfigurationFilePathAndAnnotationsFilePath != null)
+        if(libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths != null)
         {
             if(!haveAnnotationsBeenRegistered(libraryNameAndConfigurationFilePathAndAnnotationsFilePath.getOne()))
             {

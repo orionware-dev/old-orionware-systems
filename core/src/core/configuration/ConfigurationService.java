@@ -18,7 +18,7 @@ public interface ConfigurationService extends OrionService
     public String getCoreConfigurationPath();
     
     
-    public void loadProperties(Set<Pair<String, String>> libraryNamesAndConfigurationFilePaths);
+    public void loadLibrariesProperties(Set<LibraryConfiguration> libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths);
     
     
     public InputStream getFileStream(String filePath);

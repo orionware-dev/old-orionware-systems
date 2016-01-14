@@ -3,25 +3,26 @@ package core.configuration.tasks;
 import java.io.InputStream;
 import java.util.Set;
 import core.configuration.CoreConfiguration;
+import core.configuration.LibraryConfiguration;
 import core.configuration.ConfigurationService;
 import core.general.Pair;
 import core.registry.OrionProperties;
 import core.services.OrionTask;
 
-public class LoadPropertiesTask implements OrionTask
+public class LoadLibrariesPropertiesTask implements OrionTask
 {
     private String currentLibraryName;
     
     
-    public Object run(ConfigurationService configurationService, Set<Pair<String, String>> libraryNamesAndConfigurationFilePaths, GetClasspathRootPathTask getClasspathRootPathTask)
+    public Object run(ConfigurationService configurationService, Set<LibraryConfiguration> libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths, GetClasspathRootPathTask getClasspathRootPathTask)
     {
         if(!havePropertiesBeenLoaded())
         {
             StringBuilder sb = new StringBuilder();
             
-            if(libraryNamesAndConfigurationFilePaths != null)
+            if(libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths != null)
             {
-                for(Pair<String, String> libraryNameAndConfigurationFilePath : libraryNamesAndConfigurationFilePaths)
+                for(Pair<String, String> libraryNameAndConfigurationFilePath : libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths)
                 {
                     currentLibraryName = libraryNameAndConfigurationFilePath.getOne();
                     sb = new StringBuilder();
