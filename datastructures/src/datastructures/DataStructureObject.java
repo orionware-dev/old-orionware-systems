@@ -2,22 +2,18 @@ package datastructures;
 
 import java.util.Set;
 import core.OrionObject;
+import core.configuration.LibraryConfiguration;
 import core.general.Triple;
 
 public abstract class DataStructureObject extends OrionObject
 {
     public DataStructureObject()
     {
-        
-        libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths.add(arg0);
+        LibraryConfiguration libraryConfigurationTriple = new LibraryConfiguration();
+        libraryConfigurationTriple.setLibraryName("datastructures");
+        libraryConfigurationTriple.setConfigurationFilePath("/configuration/DataStructures.prop");
+        libraryConfigurationTriple.setAnnotationsFilePath("/configuration/DataStructuresAnnotations.prop");
+        libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths.add(libraryConfigurationTriple);
         super("datastructures", "/configuration/DataStructures.prop", "/configuration/DataStructuresAnnotations.prop");
-    }
-    
-    
-    public DataStructureObject(String libraryName, String libraryConfigurationFilePath, String libraryAnnotationsFilePath)
-    {
-        this();
-        Set<Triple<String, String, String>> libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths;
-        super(libraryName, libraryConfigurationFilePath, libraryAnnotationsFilePath);
     }
 }

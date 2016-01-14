@@ -10,6 +10,7 @@ import core.annotations.processor.AnnotationsProcessorServiceImpl;
 import core.configuration.Configuration;
 import core.configuration.ConfigurationService;
 import core.configuration.ConfigurationServiceImpl;
+import core.configuration.LibraryConfiguration;
 import core.general.Pair;
 import core.general.Triple;
 import core.libraries.LibraryServiceImpl;
@@ -19,14 +20,15 @@ public abstract class OrionObject
     private ConfigurationService configurationService;
     private AnnotationsConfigurationService annotationsConfigurationService;
     private AnnotationsProcessorService annotationsProcessorService;
-    protected Set<Triple<String, String, String>> libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths = new HashSet<Triple<String, String, String>>();
+    protected Set<LibraryConfiguration> libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths = new HashSet<LibraryConfiguration>();
     
     
     public OrionObject()
     {
+        loadCoreConfigurationTriple();
         annotationsProcessorService = new AnnotationsProcessorServiceImpl();
         configurationService = new ConfigurationServiceImpl();
-        loadCoreProperties();
+        configurationService.loadProperties(libraryNameAndConfigurationFilePathAndAnnotationsFilePath);
         annotationsConfigurationService = new AnnotationsConfigurationServiceImpl();
         //load core annotations
         
@@ -50,13 +52,23 @@ public abstract class OrionObject
     }
     
     
+    private void loadCoreConfigurationTriple()
+    {
+        LibraryConfiguration libraryConfigurationTriple = new LibraryConfiguration();
+        libraryConfigurationTriple.setLibraryName(Configuration.CORE_LIBRARY_NAME);
+        libraryConfigurationTriple.setConfigurationFilePath(Configuration.CORE_PROPERTIES_FILE_PATH);
+        libraryConfigurationTriple.setAnnotationsFilePath("/configuration/DataStructuresAnnotations.prop");
+        libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths.add(libraryConfigurationTriple);
+    }
+    
+    
     private void loadCoreProperties()
     {
         Pair<String, String> libraryNameAndConfigurationFilePathAndAnnotationsFilePath = new Pair<String, String>();
         libraryNameAndConfigurationFilePathAndAnnotationsFilePath.setOne(Configuration.CORE_LIBRARY_NAME);
         libraryNameAndConfigurationFilePathAndAnnotationsFilePath.setTwo(Configuration.CORE_PROPERTIES_FILE_PATH);
         libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths.add(libraryNameAndConfigurationFilePathAndAnnotationsFilePath);
-        configurationService.loadProperties(libraryNameAndConfigurationFilePathAndAnnotationsFilePath);
+        
     }
     
     
