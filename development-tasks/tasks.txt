@@ -1,7 +1,4 @@
-﻿--improve core even more
-
-
---CREATE CONVENIENT filter() AND forEach() IN OrionArrayList=========
+﻿--CREATE CONVENIENT filter() AND forEach() IN OrionArrayList=========
 enable the stream() so that I don't have to write it every time
 methodsList.stream().filter((method) -> method != null).forEach(this::processMethod);
 methodsList.filter((method) -> method != null).forEach(this::processMethod);
