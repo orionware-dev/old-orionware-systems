@@ -8,7 +8,6 @@ import core.annotations.configuration.AnnotationsConfigurationService;
 import core.configuration.CoreConfiguration;
 import core.configuration.LibraryConfiguration;
 import core.configuration.RegisteredAnnotation;
-import core.general.Triple;
 import core.services.OrionTask;
 
 public class LoadLibrariesAnnotationsTask implements OrionTask

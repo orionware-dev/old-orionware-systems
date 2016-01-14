@@ -1,17 +1,15 @@
 package core;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import core.annotations.configuration.AnnotationsConfigurationService;
 import core.annotations.configuration.AnnotationsConfigurationServiceImpl;
 import core.annotations.processor.AnnotationsProcessorService;
 import core.annotations.processor.AnnotationsProcessorServiceImpl;
-import core.configuration.CoreConfiguration;
 import core.configuration.ConfigurationService;
 import core.configuration.ConfigurationServiceImpl;
+import core.configuration.CoreConfiguration;
 import core.configuration.LibraryConfiguration;
-import core.general.Pair;
 import core.general.Triple;
 import core.libraries.LibraryServiceImpl;
 
@@ -39,7 +37,7 @@ public abstract class OrionObject
         {
             for(Triple<String, String, String> libraryNameAndConfigurationFilePathAndAnnotationsFilePath : libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths)
             {
-                annotationsConfigurationService.loadLibraryAnnotations(libraryNameAndConfigurationFilePathAndAnnotationsFilePath);
+                annotationsConfigurationService.loadLibrariesAnnotations(libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths);
             }
         }
         

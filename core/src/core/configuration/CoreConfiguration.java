@@ -1,7 +1,5 @@
 package core.configuration;
 
-import java.util.HashMap;
-import java.util.Map;
 import core.general.OrionConfiguration;
 
 public class CoreConfiguration extends OrionConfiguration

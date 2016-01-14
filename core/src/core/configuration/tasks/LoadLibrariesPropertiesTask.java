@@ -2,9 +2,9 @@ package core.configuration.tasks;
 
 import java.io.InputStream;
 import java.util.Set;
+import core.configuration.ConfigurationService;
 import core.configuration.CoreConfiguration;
 import core.configuration.LibraryConfiguration;
-import core.configuration.ConfigurationService;
 import core.general.Pair;
 import core.registry.OrionProperties;
 import core.services.OrionTask;

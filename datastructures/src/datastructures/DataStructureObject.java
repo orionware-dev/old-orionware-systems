@@ -14,6 +14,5 @@ public abstract class DataStructureObject extends OrionObject
         libraryConfigurationTriple.setConfigurationFilePath("/configuration/DataStructures.prop");
         libraryConfigurationTriple.setAnnotationsFilePath("/configuration/DataStructuresAnnotations.prop");
         libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths.add(libraryConfigurationTriple);
-        super("datastructures", "/configuration/DataStructures.prop", "/configuration/DataStructuresAnnotations.prop");
     }
 }

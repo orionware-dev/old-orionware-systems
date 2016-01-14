@@ -4,7 +4,6 @@ import java.io.Closeable;
 import java.io.File;
 import java.io.InputStream;
 import java.util.Set;
-import core.general.Pair;
 import core.services.OrionService;
 
 public interface ConfigurationService extends OrionService

@@ -5,7 +5,6 @@ import java.io.InputStream;
 import java.util.Set;
 import core.configuration.LibraryConfiguration;
 import core.configuration.RegisteredAnnotation;
-import core.general.Triple;
 import core.services.OrionService;
 
 public interface AnnotationsConfigurationService extends OrionService

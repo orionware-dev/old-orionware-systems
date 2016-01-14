@@ -10,7 +10,6 @@ import core.configuration.RegisteredAnnotation;
 import core.configuration.tasks.GetClasspathRootPathTask;
 import core.filesystem.FileSystemService;
 import core.filesystem.FileSystemServiceImpl;
-import core.general.Triple;
 import core.registry.RegisteredAnnotations;
 
 public class AnnotationsConfigurationServiceImpl implements AnnotationsConfigurationService

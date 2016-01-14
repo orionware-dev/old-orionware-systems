@@ -9,7 +9,6 @@ import core.configuration.tasks.GetClasspathRootTask;
 import core.configuration.tasks.GetConfigurationPathTask;
 import core.configuration.tasks.LoadLibrariesPropertiesTask;
 import core.filesystem.FileSystemServiceImpl;
-import core.general.Pair;
 
 public class ConfigurationServiceImpl implements ConfigurationService
 {
