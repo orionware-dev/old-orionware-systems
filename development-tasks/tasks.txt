@@ -1,9 +1,9 @@
-﻿--figure ut how a DataStructure.java object will encapsulate its size?
+﻿--finish the template-project and apply everything I think of
+to all the projects
+
+
+--figure out how a DataStructure.java object will encapsulate its size:
 Use datastructuresservices.lists.size.impl.tasks.GetSizeTask
-
-
---create public OrionList<T> getEmptyConcurrentList(T listType);
-in datastructuresservices.factories.lists.ListFactoryService
 
 
 
