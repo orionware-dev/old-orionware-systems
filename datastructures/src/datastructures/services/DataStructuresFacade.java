@@ -2,7 +2,7 @@ package datastructures.services;
 
 import core.services.OrionFacade;
 
-public interface DataStructureFacade extends OrionFacade
+public interface DataStructuresFacade extends OrionFacade
 {
     
 }
