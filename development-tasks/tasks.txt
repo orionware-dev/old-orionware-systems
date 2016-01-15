@@ -2,6 +2,9 @@
 to all the projects. Use core and datastructures as examples
 
 
+--delete datastructures.testannotation.TestAnnotation
+
+
 --figure out how a DataStructure.java object will encapsulate its size:
 Use datastructuresservices.lists.size.impl.tasks.GetSizeTask
 

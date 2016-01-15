@@ -1,8 +1,8 @@
 package core.annotations;
 
-import core.general.OrionConfiguration;
+import core.general.OrionAnnotation;
 
-public class RegisteredAnnotation extends OrionConfiguration
+public class RegisteredAnnotation extends OrionAnnotation
 {
     private String annotationClass;
     private String annotationService;

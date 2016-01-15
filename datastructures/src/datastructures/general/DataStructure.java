@@ -1,6 +1,6 @@
 package datastructures.general;
 
-public interface DataStructure extends DataStructureInterface
+public interface DataStructure extends DataStructuresInterface
 {
     
 }
