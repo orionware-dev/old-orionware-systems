@@ -1,5 +1,5 @@
 ﻿--finish the template-project and apply everything I think of
-to all the projects
+to all the projects. Use core and datastructures as examples
 
 
 --figure out how a DataStructure.java object will encapsulate its size:
