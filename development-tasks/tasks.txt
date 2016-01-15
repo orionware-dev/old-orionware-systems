@@ -48,12 +48,6 @@ the checking in a loop with stream() like: for each class type, if function inst
 return ((OrionAbstractFunction)function).run();
 
 
---find a way for each project that has config prop files, to do System.getResourceAsStream()
-and send the prop file to the ConfigurationService so that it loads the prop file to memory
-when the library has started been used for the first time. If it is difficult, see if there is a way
-to do that from within the libraries-builder
-
-
---NEW PROJECT GENERATOR IN Ant=============
-create an Ant task that after you create an empty project, it will generate the necessary general and
-services dir and default interfaces and abstract classes
+--NEW PROJECT GENERATOR dev tool=============
+create a dev tool that after you create an empty project, it will generate the necessary general and
+services dir and default interfaces and abstract classes, etc.
