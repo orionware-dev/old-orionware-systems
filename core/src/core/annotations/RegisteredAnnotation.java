@@ -1,4 +1,4 @@
-package core.configuration;
+package core.annotations;
 
 import core.general.OrionConfiguration;
 

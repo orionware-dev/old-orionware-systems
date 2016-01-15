@@ -4,10 +4,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 import java.util.Set;
+import core.annotations.RegisteredAnnotation;
 import core.annotations.configuration.AnnotationsConfigurationService;
 import core.configuration.LibrariesConfigurationMapper;
 import core.configuration.LibraryConfiguration;
-import core.configuration.RegisteredAnnotation;
 import core.services.OrionTask;
 
 public class LoadLibrariesAnnotationsTask implements OrionTask
