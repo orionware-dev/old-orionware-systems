@@ -2,10 +2,12 @@ package datastructuresservicesintegrationtests.dependencyinjection;
 
 import core.dependencyinjection.Injector;
 import datastructures.DataStructureObject;
+import datastructuresservices.factories.lists.ListFactoryService;
 
 public class TestClass1 extends DataStructureObject
 {
     private TestClass2 testClass2;
+    private ListFactoryService<?> listFactoryService;
     
     
     public String testThisClassIsRunning()
@@ -30,5 +32,18 @@ public class TestClass1 extends DataStructureObject
     private void setTestClass2(TestClass2 testClass2)
     {
         this.testClass2 = testClass2;
+    }
+
+
+    public ListFactoryService<?> getListFactoryService()
+    {
+        return this.listFactoryService;
+    }
+
+
+    @Injector(ID = "datastructuresservices.factories.lists.impl.ListFactoryServiceImpl")
+    private void setListFactoryService(ListFactoryService<?> listFactoryService)
+    {
+        this.listFactoryService = listFactoryService;
     }
 }

@@ -1,5 +1,14 @@
-﻿--figure ut how a DataStructure.java object will encapsulate its size?
+﻿--go through all tasks and make the return type of the run() to be the actual one
+so that we do not need to cast everywhere
+
+
+
+--figure ut how a DataStructure.java object will encapsulate its size?
 Use datastructuresservices.lists.size.impl.tasks.GetSizeTask
+
+
+--create public OrionList<T> getEmptyConcurrentList(T listType);
+in datastructuresservices.factories.lists.ListFactoryService
 
 
 
