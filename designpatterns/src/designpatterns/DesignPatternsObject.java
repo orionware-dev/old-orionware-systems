@@ -1,14 +1,15 @@
-package designpatternsservices;
+package designpatterns;
 
 import core.OrionObject;
 import core.configuration.LibraryConfiguration;
 
-public abstract class DesignPatternServiceObject extends OrionObject
+public abstract class DesignPatternsObject extends OrionObject
 {
-    public DesignPatternServiceObject()
+    public DesignPatternsObject()
     {
         LibraryConfiguration libraryConfiguration = new LibraryConfiguration();
-        libraryConfiguration.setLibraryName("designpatternsservices");
+        libraryConfiguration.setLibraryName("designpatterns");
+        libraryConfiguration.setConfigurationFilePath("/configuration/Pipeline.prop");
         librariesConfigurationSet.add(libraryConfiguration);
         processAllLibrariesConfiguration();
     }

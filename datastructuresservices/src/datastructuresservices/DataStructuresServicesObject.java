@@ -1,11 +1,11 @@
 package datastructuresservices;
 
 import core.configuration.LibraryConfiguration;
-import datastructures.DataStructureObject;
+import datastructures.DataStructuresObject;
 
-public abstract class DataStructureServiceObject extends DataStructureObject
+public abstract class DataStructuresServicesObject extends DataStructuresObject
 {
-    public DataStructureServiceObject()
+    public DataStructuresServicesObject()
     {
         LibraryConfiguration libraryConfiguration = new LibraryConfiguration();
         libraryConfiguration.setLibraryName("datastructuresservices");

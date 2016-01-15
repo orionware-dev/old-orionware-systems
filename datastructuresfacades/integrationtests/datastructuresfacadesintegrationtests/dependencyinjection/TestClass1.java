@@ -1,9 +1,9 @@
 package datastructuresfacadesintegrationtests.dependencyinjection;
 
 import core.dependencyinjection.Injector;
-import datastructures.DataStructureObject;
+import datastructures.DataStructuresObject;
 
-public class TestClass1 extends DataStructureObject
+public class TestClass1 extends DataStructuresObject
 {
     private TestClass2 testClass2;
     

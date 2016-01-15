@@ -3,11 +3,11 @@ package datastructuresfacadesintegrationtests.dependencyinjection;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import datastructures.DataStructureObject;
+import datastructures.DataStructuresObject;
 import datastructures.lists.OrionArrayList;
 import datastructures.lists.OrionList;
 
-public class DependencyInjectionTest extends DataStructureObject
+public class DependencyInjectionTest extends DataStructuresObject
 {
     @Before
     public void setUp() throws Exception

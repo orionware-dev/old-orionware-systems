@@ -1,9 +1,9 @@
 package datastructures.testannotation;
 
-import datastructures.DataStructureObject;
+import datastructures.DataStructuresObject;
 
 @TestAnnotation
-public class TestAnnotationClass extends DataStructureObject
+public class TestAnnotationClass extends DataStructuresObject
 {
     public static void main(String[] args)
     {

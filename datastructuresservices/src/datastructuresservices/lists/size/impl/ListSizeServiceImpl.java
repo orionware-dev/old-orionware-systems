@@ -1,12 +1,12 @@
 package datastructuresservices.lists.size.impl;
 
 import core.dependencyinjection.Injector;
-import datastructures.DataStructureObject;
+import datastructures.DataStructuresObject;
 import datastructures.lists.OrionList;
 import datastructuresservices.lists.size.ListSizeService;
 import datastructuresservices.lists.size.impl.tasks.GetSizeTask;
 
-public class ListSizeServiceImpl extends DataStructureObject implements ListSizeService
+public class ListSizeServiceImpl extends DataStructuresObject implements ListSizeService
 {
     private GetSizeTask getSizeTask;
     

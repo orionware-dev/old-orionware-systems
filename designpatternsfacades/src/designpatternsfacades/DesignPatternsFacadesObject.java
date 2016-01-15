@@ -3,9 +3,9 @@ package designpatternsfacades;
 import core.OrionObject;
 import core.configuration.LibraryConfiguration;
 
-public abstract class DesignPatternFacadeObject extends OrionObject
+public abstract class DesignPatternsFacadesObject extends OrionObject
 {
-    public DesignPatternFacadeObject()
+    public DesignPatternsFacadesObject()
     {
         LibraryConfiguration libraryConfiguration = new LibraryConfiguration();
         libraryConfiguration.setLibraryName("designpatternsfacades");

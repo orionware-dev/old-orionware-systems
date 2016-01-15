@@ -1,11 +1,11 @@
 package datastructuresfacades;
 
 import core.configuration.LibraryConfiguration;
-import datastructures.DataStructureObject;
+import datastructures.DataStructuresObject;
 
-public abstract class DataStructureFacadeObject extends DataStructureObject
+public abstract class DataStructuresFacadesObject extends DataStructuresObject
 {
-    public DataStructureFacadeObject()
+    public DataStructuresFacadesObject()
     {
         LibraryConfiguration libraryConfiguration = new LibraryConfiguration();
         libraryConfiguration.setLibraryName("datastructuresfacades");

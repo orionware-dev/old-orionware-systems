@@ -1,10 +1,10 @@
 package datastructuresservicesintegrationtests.dependencyinjection;
 
 import core.dependencyinjection.Injector;
-import datastructures.DataStructureObject;
+import datastructures.DataStructuresObject;
 import datastructuresservices.lists.size.ListSizeService;
 
-public class TestClass2 extends DataStructureObject
+public class TestClass2 extends DataStructuresObject
 {
     private ListSizeService listSizeService;
     

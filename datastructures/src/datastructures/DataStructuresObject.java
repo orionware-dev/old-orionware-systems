@@ -3,9 +3,9 @@ package datastructures;
 import core.OrionObject;
 import core.configuration.LibraryConfiguration;
 
-public abstract class DataStructureObject extends OrionObject
+public abstract class DataStructuresObject extends OrionObject
 {
-    public DataStructureObject()
+    public DataStructuresObject()
     {
         LibraryConfiguration libraryConfiguration = new LibraryConfiguration();
         libraryConfiguration.setLibraryName("datastructures");

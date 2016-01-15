@@ -3,11 +3,11 @@ package datastructuresunittests.lists;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import datastructures.DataStructureObject;
+import datastructures.DataStructuresObject;
 import datastructures.lists.OrionArrayList;
 import datastructures.lists.OrionList;
 
-public class OrionListTest extends DataStructureObject
+public class OrionListTest extends DataStructuresObject
 {
     private OrionList<Integer> filteredList;
     private OrionList<Integer> expectedFilteredList;

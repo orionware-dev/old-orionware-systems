@@ -1,8 +1,8 @@
 package datastructuresintegrationtests.dependencyinjection;
 
-import datastructures.DataStructureObject;
+import datastructures.DataStructuresObject;
 
-public class TestClass2 extends DataStructureObject
+public class TestClass2 extends DataStructuresObject
 {
     public String testThisClassIsRunning()
     {

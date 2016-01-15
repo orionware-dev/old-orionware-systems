@@ -3,9 +3,9 @@ package datastructuresintegrationtests.dependencyinjection;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import datastructures.DataStructureObject;
+import datastructures.DataStructuresObject;
 
-public class DependencyInjectionTest extends DataStructureObject
+public class DependencyInjectionTest extends DataStructuresObject
 {
     @Before
     public void setUp() throws Exception

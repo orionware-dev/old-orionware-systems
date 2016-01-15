@@ -1,9 +1,9 @@
 package datastructures.services;
 
 import core.services.OrionTask;
-import datastructures.DataStructureObject;
+import datastructures.DataStructuresObject;
 
-public abstract class DataStructureTask extends DataStructureObject implements OrionTask
+public abstract class DataStructureTask extends DataStructuresObject implements OrionTask
 {
     
 }

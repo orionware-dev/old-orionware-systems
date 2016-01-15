@@ -2,11 +2,11 @@ package datastructuresfacades.lists.size.impl;
 
 import core.dependencyinjection.Injector;
 import datastructures.lists.OrionList;
-import datastructuresfacades.DataStructureFacadeObject;
+import datastructuresfacades.DataStructuresFacadesObject;
 import datastructuresfacades.lists.size.ListSizeFacade;
 import datastructuresservices.lists.size.ListSizeService;
 
-public class ListSizeFacadeImpl extends DataStructureFacadeObject implements ListSizeFacade
+public class ListSizeFacadeImpl extends DataStructuresFacadesObject implements ListSizeFacade
 {
     private ListSizeService listSizeService;
     
