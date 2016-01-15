@@ -1,4 +1,9 @@
-﻿--CREATE CONVENIENT filter() AND forEach() IN OrionArrayList=========
+﻿--figure ut how a DataStructure.java object will encapsulate its size?
+Use datastructuresservices.lists.size.impl.tasks.GetSizeTask
+
+
+
+--CREATE CONVENIENT filter() AND forEach() IN OrionArrayList=========
 enable the stream() so that I don't have to write it every time
 methodsList.stream().filter((method) -> method != null).forEach(this::processMethod);
 methodsList.filter((method) -> method != null).forEach(this::processMethod);

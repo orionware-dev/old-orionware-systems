@@ -7,7 +7,7 @@ import datastructuresservicesunittests.lists.size.DataStructureSizeTest;
 
 @RunWith(Suite.class)
 @SuiteClasses({DataStructureSizeTest.class})
-public class DataStructuresServicesTestSuite
+public class DataStructuresServicesUnitTestsSuite
 {
     
 }
