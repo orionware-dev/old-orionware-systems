@@ -3,7 +3,6 @@ package datastructuresservicesintegrationtests.dependencyinjection;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import core.general.GenericType;
 import datastructures.DataStructureObject;
 import datastructures.lists.OrionArrayList;
 import datastructures.lists.OrionList;
@@ -28,14 +27,5 @@ public class DependencyInjectionTest extends DataStructureObject
         dataStructure.add("2");
         dataStructure.add("3");
         Assert.assertEquals(3, testClass1.getTestClass2().getListSizeService().getSize(dataStructure));
-    }
-    
-    
-    @Test
-    public void testDependencyInjection2()
-    {
-        TestClass1 testClass1 = new TestClass1();
-        testClass1.getListFactoryService().getEmptyList();
-        
     }
 }
