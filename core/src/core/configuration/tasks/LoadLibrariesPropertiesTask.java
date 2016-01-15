@@ -3,10 +3,8 @@ package core.configuration.tasks;
 import java.io.InputStream;
 import java.util.Set;
 import core.configuration.ConfigurationService;
-import core.configuration.CoreConfiguration;
 import core.configuration.LibrariesConfigurationMapper;
 import core.configuration.LibraryConfiguration;
-import core.general.Pair;
 import core.registry.OrionProperties;
 import core.services.OrionTask;
 
@@ -28,10 +26,13 @@ public class LoadLibrariesPropertiesTask implements OrionTask
             
             for(LibraryConfiguration libraryConfiguration : librariesConfiguration)
             {
-                if(!havePropertiesBeenLoadedForLibrary(libraryConfiguration.getLibraryName()))
+                if(libraryConfiguration.getConfigurationFilePath() != null)
                 {
-                    loadLibraryProperties(libraryConfiguration);
-                    setPropertiesAsLoadedForLibrary(libraryConfiguration.getLibraryName());
+                    if(!havePropertiesBeenLoadedForLibrary(libraryConfiguration.getLibraryName()))
+                    {
+                        loadLibraryProperties(libraryConfiguration);
+                        setPropertiesAsLoadedForLibrary(libraryConfiguration.getLibraryName());
+                    }
                 }
             }
         }

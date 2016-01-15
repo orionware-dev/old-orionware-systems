@@ -2,7 +2,6 @@ package datastructuresservices.lists.size.impl;
 
 import core.dependencyinjection.Injector;
 import datastructures.DataStructureObject;
-import datastructures.general.DataStructure;
 import datastructures.lists.OrionList;
 import datastructuresservices.lists.size.ListSizeService;
 import datastructuresservices.lists.size.impl.tasks.GetSizeTask;
@@ -14,13 +13,6 @@ public class ListSizeServiceImpl extends DataStructureObject implements ListSize
     
     @Override
     public int getSize(OrionList<?> dataStructure)
-    {
-        return getSizeTask.run(dataStructure);
-    }
-    
-    
-    @Override
-    public int getSize(DataStructure dataStructure)
     {
         return getSizeTask.run(dataStructure);
     }

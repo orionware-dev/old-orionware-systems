@@ -5,7 +5,6 @@ import java.io.InputStream;
 import java.util.Properties;
 import java.util.Set;
 import core.annotations.configuration.AnnotationsConfigurationService;
-import core.configuration.CoreConfiguration;
 import core.configuration.LibrariesConfigurationMapper;
 import core.configuration.LibraryConfiguration;
 import core.configuration.RegisteredAnnotation;
@@ -24,10 +23,13 @@ public class LoadLibrariesAnnotationsTask implements OrionTask
         {
             for(LibraryConfiguration libraryConfiguration : librariesConfiguration)
             {
-                if(!haveAnnotationsBeenRegistered(libraryConfiguration.getLibraryName()))
+                if(libraryConfiguration.getAnnotationsFilePath() != null)
                 {
-                    registerAnnotations(libraryConfiguration.getLibraryName(), libraryConfiguration.getAnnotationsFilePath());
-                    setAnnotationsAsRegistered(libraryConfiguration.getLibraryName());
+                    if(!haveAnnotationsBeenRegistered(libraryConfiguration.getLibraryName()))
+                    {
+                        registerAnnotations(libraryConfiguration.getLibraryName(), libraryConfiguration.getAnnotationsFilePath());
+                        setAnnotationsAsRegistered(libraryConfiguration.getLibraryName());
+                    }
                 }
             }
         }

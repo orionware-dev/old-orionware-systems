@@ -1,14 +1,14 @@
-package datastructuresservices;
+package datastructuresfacades;
 
 import core.configuration.LibraryConfiguration;
 import datastructures.DataStructureObject;
 
-public abstract class DataStructureServiceObject extends DataStructureObject
+public abstract class DataStructureFacadeObject extends DataStructureObject
 {
-    public DataStructureServiceObject()
+    public DataStructureFacadeObject()
     {
         LibraryConfiguration libraryConfiguration = new LibraryConfiguration();
-        libraryConfiguration.setLibraryName("datastructuresservices");
+        libraryConfiguration.setLibraryName("datastructuresfacades");
         librariesConfigurationSet.add(libraryConfiguration);
         processAllLibrariesConfiguration();
     }
