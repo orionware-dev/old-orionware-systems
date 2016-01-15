@@ -11,26 +11,29 @@ import core.services.OrionTask;
 
 public class GatherAllObjectAnnotationsTask implements OrionTask
 {
+    private List<Annotation> allObjectAnnotationsList;
+    
+    
     public Object run(OrionObject object)
     {
-        List<Annotation> allObjectAnnotationsList = new ArrayList<Annotation>();
+        allObjectAnnotationsList = new ArrayList<Annotation>();
         allObjectAnnotationsList.addAll(Arrays.asList(object.getClass().getAnnotations()));
         Arrays.stream(object.getClass().getDeclaredMethods())
-            .forEach((method) -> gatherAllMethodsAnnotations(method, allObjectAnnotationsList));
+            .forEach((method) -> gatherAllMethodsAnnotations(method));
         Arrays.stream(object.getClass().getDeclaredFields())
-            .forEach((variable) -> gatherAllVariablesAnnotations(variable, allObjectAnnotationsList));
+            .forEach((variable) -> gatherAllVariablesAnnotations(variable));
         
         return allObjectAnnotationsList;
     }
     
     
-    private void gatherAllMethodsAnnotations(Method method, List<Annotation> allObjectAnnotationsList)
+    private void gatherAllMethodsAnnotations(Method method)
     {
         allObjectAnnotationsList.addAll(Arrays.asList(method.getAnnotations()));
     }
     
     
-    private void gatherAllVariablesAnnotations(Field variable, List<Annotation> allObjectAnnotationsList)
+    private void gatherAllVariablesAnnotations(Field variable)
     {
         allObjectAnnotationsList.addAll(Arrays.asList(variable.getAnnotations()));
     }

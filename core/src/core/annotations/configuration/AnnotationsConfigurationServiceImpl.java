@@ -38,9 +38,9 @@ public class AnnotationsConfigurationServiceImpl implements AnnotationsConfigura
     
     
     @Override
-    public void loadLibrariesAnnotations(Set<LibraryConfiguration> libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths)
+    public void loadLibrariesAnnotations(Set<LibraryConfiguration> librariesConfiguration)
     {
-        new LoadLibrariesAnnotationsTask().run(this, libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths);
+        new LoadLibrariesAnnotationsTask().run(this, librariesConfiguration);
     }
     
     

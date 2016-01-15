@@ -34,9 +34,9 @@ public class ConfigurationServiceImpl implements ConfigurationService
 
 
     @Override
-    public void loadLibrariesProperties(Set<LibraryConfiguration> libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths)
+    public void loadLibrariesProperties(Set<LibraryConfiguration> librariesConfiguration)
     {
-        new LoadLibrariesPropertiesTask().run(this, libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths, new GetClasspathRootPathTask());
+        new LoadLibrariesPropertiesTask().run(this, librariesConfiguration, new GetClasspathRootPathTask());
     }
     
     

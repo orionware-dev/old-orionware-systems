@@ -15,7 +15,7 @@ public interface AnnotationsConfigurationService extends OrionService
     public void registerAnnotation(RegisteredAnnotation registeredAnnotation);
     
     
-    public void loadLibrariesAnnotations(Set<LibraryConfiguration> libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths);
+    public void loadLibrariesAnnotations(Set<LibraryConfiguration> librariesConfiguration);
     
     
     public InputStream getFileStream(String filePath);

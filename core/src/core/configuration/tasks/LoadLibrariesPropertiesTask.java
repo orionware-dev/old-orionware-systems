@@ -4,6 +4,7 @@ import java.io.InputStream;
 import java.util.Set;
 import core.configuration.ConfigurationService;
 import core.configuration.CoreConfiguration;
+import core.configuration.LibrariesConfigurationMapper;
 import core.configuration.LibraryConfiguration;
 import core.general.Pair;
 import core.registry.OrionProperties;
@@ -11,41 +12,50 @@ import core.services.OrionTask;
 
 public class LoadLibrariesPropertiesTask implements OrionTask
 {
-    private String currentLibraryName;
+    private ConfigurationService configurationService;
+    private GetClasspathRootPathTask getClasspathRootPathTask;
+    private StringBuilder sb;
     
     
-    public Object run(ConfigurationService configurationService, Set<LibraryConfiguration> libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths, GetClasspathRootPathTask getClasspathRootPathTask)
+    public Object run(ConfigurationService configurationService, Set<LibraryConfiguration> librariesConfiguration, GetClasspathRootPathTask getClasspathRootPathTask)
     {
-        if(!havePropertiesBeenLoaded())
+        this.configurationService = configurationService;
+        this.getClasspathRootPathTask = getClasspathRootPathTask;
+        
+        if(librariesConfiguration != null)
         {
-            StringBuilder sb = new StringBuilder();
+            sb = null;
             
-            if(libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths != null)
+            for(LibraryConfiguration libraryConfiguration : librariesConfiguration)
             {
-                for(Pair<String, String> libraryNameAndConfigurationFilePath : libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths)
+                if(!havePropertiesBeenLoadedForLibrary(libraryConfiguration.getLibraryName()))
                 {
-                    currentLibraryName = libraryNameAndConfigurationFilePath.getOne();
-                    sb = new StringBuilder();
-                    sb.append((String)getClasspathRootPathTask.run(libraryNameAndConfigurationFilePath.getOne()));
-                    sb.append(libraryNameAndConfigurationFilePath.getTwo());
-                    InputStream propertiesFileInput = configurationService.getFileStream(sb.toString());
-                    OrionProperties.loadProperties(propertiesFileInput);
-                    configurationService.closeResource(propertiesFileInput);
+                    loadLibraryProperties(libraryConfiguration);
+                    setPropertiesAsLoadedForLibrary(libraryConfiguration.getLibraryName());
                 }
             }
-            
-            setPropertiesAsLoaded();
         }
         
         return null;
     }
     
     
-    private boolean havePropertiesBeenLoaded()
+    private void loadLibraryProperties(LibraryConfiguration libraryConfiguration)
     {
-        if(CoreConfiguration.LIBRARIES_AND_IF_PROPERTIES_HAVE_BEEN_LOADED_MAPPER.get(currentLibraryName) != null)
+        sb = new StringBuilder();
+        sb.append((String)getClasspathRootPathTask.run(libraryConfiguration.getLibraryName()));
+        sb.append(libraryConfiguration.getConfigurationFilePath());
+        InputStream propertiesFileInput = configurationService.getFileStream(sb.toString());
+        OrionProperties.loadProperties(propertiesFileInput);
+        configurationService.closeResource(propertiesFileInput);
+    }
+    
+    
+    private boolean havePropertiesBeenLoadedForLibrary(String libraryName)
+    {
+        if(LibrariesConfigurationMapper.LIBRARIES_AND_IF_PROPERTIES_HAVE_BEEN_LOADED_MAPPER.get(libraryName) != null)
         {
-            return CoreConfiguration.LIBRARIES_AND_IF_PROPERTIES_HAVE_BEEN_LOADED_MAPPER.get(currentLibraryName);
+            return LibrariesConfigurationMapper.LIBRARIES_AND_IF_PROPERTIES_HAVE_BEEN_LOADED_MAPPER.get(libraryName);
         }
         else
         {
@@ -54,8 +64,8 @@ public class LoadLibrariesPropertiesTask implements OrionTask
     }
     
     
-    private void setPropertiesAsLoaded()
+    private void setPropertiesAsLoadedForLibrary(String libraryName)
     {
-        CoreConfiguration.LIBRARIES_AND_IF_PROPERTIES_HAVE_BEEN_LOADED_MAPPER.put(currentLibraryName, true);
+        LibrariesConfigurationMapper.LIBRARIES_AND_IF_PROPERTIES_HAVE_BEEN_LOADED_MAPPER.put(libraryName, true);
     }
 }

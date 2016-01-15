@@ -6,6 +6,7 @@ import java.util.Properties;
 import java.util.Set;
 import core.annotations.configuration.AnnotationsConfigurationService;
 import core.configuration.CoreConfiguration;
+import core.configuration.LibrariesConfigurationMapper;
 import core.configuration.LibraryConfiguration;
 import core.configuration.RegisteredAnnotation;
 import core.services.OrionTask;
@@ -15,15 +16,19 @@ public class LoadLibrariesAnnotationsTask implements OrionTask
     private AnnotationsConfigurationService annotationsConfigurationService;
     
     
-    public Object run(AnnotationsConfigurationService annotationsConfigurationService, Set<LibraryConfiguration> libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths)
+    public Object run(AnnotationsConfigurationService annotationsConfigurationService, Set<LibraryConfiguration> librariesConfiguration)
     {
         this.annotationsConfigurationService = annotationsConfigurationService;
         
-        if(libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths != null)
+        if(librariesConfiguration != null)
         {
-            if(!haveAnnotationsBeenRegistered(libraryNameAndConfigurationFilePathAndAnnotationsFilePath.getOne()))
+            for(LibraryConfiguration libraryConfiguration : librariesConfiguration)
             {
-                registerAnnotations(libraryNameAndConfigurationFilePathAndAnnotationsFilePath.getOne(), libraryNameAndConfigurationFilePathAndAnnotationsFilePath.getThree());
+                if(!haveAnnotationsBeenRegistered(libraryConfiguration.getLibraryName()))
+                {
+                    registerAnnotations(libraryConfiguration.getLibraryName(), libraryConfiguration.getAnnotationsFilePath());
+                    setAnnotationsAsRegistered(libraryConfiguration.getLibraryName());
+                }
             }
         }
         
@@ -53,8 +58,6 @@ public class LoadLibrariesAnnotationsTask implements OrionTask
                     ++annotationCounter;
                 }
             }
-            
-            setAnnotationsAsRegistered(libraryName);
         }
         catch(IOException exception)
         {
@@ -65,9 +68,9 @@ public class LoadLibrariesAnnotationsTask implements OrionTask
     
     private boolean haveAnnotationsBeenRegistered(String libraryName)
     {
-        if(CoreConfiguration.LIBRARIES_AND_IF_ANNOTATIONS_HAVE_BEEN_REGISTERED_MAPPER.get(libraryName) != null)
+        if(LibrariesConfigurationMapper.LIBRARIES_AND_IF_ANNOTATIONS_HAVE_BEEN_REGISTERED_MAPPER.get(libraryName) != null)
         {
-            return CoreConfiguration.LIBRARIES_AND_IF_ANNOTATIONS_HAVE_BEEN_REGISTERED_MAPPER.get(libraryName);
+            return LibrariesConfigurationMapper.LIBRARIES_AND_IF_ANNOTATIONS_HAVE_BEEN_REGISTERED_MAPPER.get(libraryName);
         }
         else
         {
@@ -78,6 +81,6 @@ public class LoadLibrariesAnnotationsTask implements OrionTask
     
     private void setAnnotationsAsRegistered(String libraryName)
     {
-        CoreConfiguration.LIBRARIES_AND_IF_ANNOTATIONS_HAVE_BEEN_REGISTERED_MAPPER.put(libraryName, true);
+        LibrariesConfigurationMapper.LIBRARIES_AND_IF_ANNOTATIONS_HAVE_BEEN_REGISTERED_MAPPER.put(libraryName, true);
     }
 }

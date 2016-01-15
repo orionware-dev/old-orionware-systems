@@ -11,37 +11,37 @@ import core.libraries.LibraryServiceImpl;
 
 public abstract class OrionObject
 {
-    protected Set<LibraryConfiguration> libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths = new HashSet<LibraryConfiguration>();
+    protected Set<LibraryConfiguration> librariesConfigurationSet = new HashSet<LibraryConfiguration>();
     
     
     public OrionObject()
     {
-        loadCoreConfigurationTriple();
+        loadCoreConfiguration();
         
         if(new LibraryServiceImpl().isCoreLibrary(getClass()))
         {
-            processAllLibrariesConfigurations();
+            processAllLibrariesConfiguration();
         }
     }
     
     
-    private void loadCoreConfigurationTriple()
+    private void loadCoreConfiguration()
     {
-        LibraryConfiguration libraryConfigurationTriple = new LibraryConfiguration();
-        libraryConfigurationTriple.setLibraryName(CoreConfiguration.CORE_LIBRARY_NAME);
-        libraryConfigurationTriple.setConfigurationFilePath(CoreConfiguration.CORE_PROPERTIES_FILE_PATH);
-        libraryConfigurationTriple.setAnnotationsFilePath(CoreConfiguration.CORE_ANNOTATIONS_DEFINITION_FILE_PATH);
-        libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths.add(libraryConfigurationTriple);
+        LibraryConfiguration libraryConfiguration = new LibraryConfiguration();
+        libraryConfiguration.setLibraryName(CoreConfiguration.CORE_LIBRARY_NAME);
+        libraryConfiguration.setConfigurationFilePath(CoreConfiguration.CORE_PROPERTIES_FILE_PATH);
+        libraryConfiguration.setAnnotationsFilePath(CoreConfiguration.CORE_ANNOTATIONS_DEFINITION_FILE_PATH);
+        librariesConfigurationSet.add(libraryConfiguration);
     }
     
     
     //this method is called by this constructor if only the core is running.
     //If another library is running like datastructures, then that constructor
     //will call this method so that all the libraries configs are loaded in one go
-    protected void processAllLibrariesConfigurations()
+    protected void processAllLibrariesConfiguration()
     {
-        new ConfigurationServiceImpl().loadLibrariesProperties(libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths);
-        new AnnotationsConfigurationServiceImpl().loadLibrariesAnnotations(libraryNamesAndConfigurationFilePathsAndAnnotationsFilePaths);
+        new ConfigurationServiceImpl().loadLibrariesProperties(librariesConfigurationSet);
+        new AnnotationsConfigurationServiceImpl().loadLibrariesAnnotations(librariesConfigurationSet);
         new AnnotationsProcessorServiceImpl().processAllAnnotations(this);
     }
 }
