@@ -15,7 +15,7 @@ public class LoadLibrariesAnnotationsTask implements OrionTask
     private AnnotationsConfigurationService annotationsConfigurationService;
     
     
-    public Object run(AnnotationsConfigurationService annotationsConfigurationService, Set<LibraryConfiguration> librariesConfiguration)
+    public void run(AnnotationsConfigurationService annotationsConfigurationService, Set<LibraryConfiguration> librariesConfiguration)
     {
         this.annotationsConfigurationService = annotationsConfigurationService;
         
@@ -33,8 +33,6 @@ public class LoadLibrariesAnnotationsTask implements OrionTask
                 }
             }
         }
-        
-        return null;
     }
     
     

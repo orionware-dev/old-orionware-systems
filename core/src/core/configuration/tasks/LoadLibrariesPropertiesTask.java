@@ -15,7 +15,7 @@ public class LoadLibrariesPropertiesTask implements OrionTask
     private StringBuilder sb;
     
     
-    public Object run(ConfigurationService configurationService, Set<LibraryConfiguration> librariesConfiguration, GetClasspathRootPathTask getClasspathRootPathTask)
+    public void run(ConfigurationService configurationService, Set<LibraryConfiguration> librariesConfiguration, GetClasspathRootPathTask getClasspathRootPathTask)
     {
         this.configurationService = configurationService;
         this.getClasspathRootPathTask = getClasspathRootPathTask;
@@ -36,8 +36,6 @@ public class LoadLibrariesPropertiesTask implements OrionTask
                 }
             }
         }
-        
-        return null;
     }
     
     

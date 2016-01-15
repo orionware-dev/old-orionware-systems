@@ -6,7 +6,7 @@ import core.services.OrionTask;
 
 public class GetClasspathRootPathTask implements OrionTask
 {
-    public Object run(String libraryClasspathRootPath)
+    public String run(String libraryClasspathRootPath)
     {
         //use this class to get the path of this class
         File classpathRoot = new File(this.getClass().getResource("").getPath());

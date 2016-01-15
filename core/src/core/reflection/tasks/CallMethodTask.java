@@ -6,11 +6,12 @@ import core.services.OrionTask;
 
 public class CallMethodTask implements OrionTask
 {
-    public Object run(Method method, Object objectMethodBelongsTo, Object... methodArguments)
+    public boolean run(Method method, Object objectMethodBelongsTo, Object... methodArguments)
     {
         try
         {
             method.invoke(objectMethodBelongsTo, methodArguments);
+            return true;
         }
         catch(IllegalAccessException exception)
         {
@@ -25,6 +26,6 @@ public class CallMethodTask implements OrionTask
             exception.printStackTrace();
         }
         
-        return null;
+        return false;
     }
 }

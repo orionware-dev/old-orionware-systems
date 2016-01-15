@@ -14,7 +14,7 @@ public interface FileSystemService extends OrionService
     public String convertFileToString(String filePath);
 
 
-    public void saveStringToFile(String filePath, String fileString);
+    public boolean saveStringToFile(String filePath, String fileString);
     
     
     public void emptyDirectory(String directory);

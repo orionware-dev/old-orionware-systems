@@ -17,13 +17,12 @@ public class ApplyAnnotationsTask implements OrionTask
     private List<Annotation> allObjectAnnotationsList;
     
 
-    public Object run(AnnotationsProcessorService annotationsProcessorService, OrionObject object, List<Annotation> allObjectAnnotationsList)
+    public void run(AnnotationsProcessorService annotationsProcessorService, OrionObject object, List<Annotation> allObjectAnnotationsList)
     {
         this.annotationsProcessorService = annotationsProcessorService;
         this.object = object;
         this.allObjectAnnotationsList = allObjectAnnotationsList;
         RegisteredAnnotations.forEach((annotation) -> applyAnnotation((RegisteredAnnotation)annotation));
-        return null;
     }
     
     

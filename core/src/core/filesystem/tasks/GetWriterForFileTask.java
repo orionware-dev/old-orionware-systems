@@ -4,11 +4,12 @@ import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Writer;
 import core.services.OrionTask;
 
 public class GetWriterForFileTask implements OrionTask
 {
-    public Object run(String filePath)
+    public Writer run(String filePath)
     {
         try
         {

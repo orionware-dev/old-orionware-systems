@@ -3,11 +3,12 @@ package core.filesystem.tasks;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.Reader;
 import core.services.OrionTask;
 
 public class GetReaderFromFileTask implements OrionTask
 {
-    public Object run(String filePath)
+    public Reader run(String filePath)
     {
         try
         {

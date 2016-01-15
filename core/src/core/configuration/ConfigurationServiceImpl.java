@@ -15,21 +15,21 @@ public class ConfigurationServiceImpl implements ConfigurationService
     @Override
     public String getCoreClasspathRootPath(String libraryClasspathRootPath)
     {
-        return (String)new GetClasspathRootPathTask().run(libraryClasspathRootPath);
+        return new GetClasspathRootPathTask().run(libraryClasspathRootPath);
     }
     
     
     @Override
     public File getCoreClasspathRoot(String libraryClasspathRootPath)
     {
-        return (File)new GetClasspathRootTask().run(libraryClasspathRootPath, new GetClasspathRootPathTask());
+        return new GetClasspathRootTask().run(libraryClasspathRootPath, new GetClasspathRootPathTask());
     }
     
     
     @Override
     public String getCoreConfigurationPath()
     {
-        return (String)new GetConfigurationPathTask().run(null, new GetClasspathRootPathTask());
+        return new GetConfigurationPathTask().run(null, new GetClasspathRootPathTask());
     }
 
 

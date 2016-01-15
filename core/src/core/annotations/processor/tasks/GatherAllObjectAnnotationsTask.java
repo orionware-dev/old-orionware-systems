@@ -14,7 +14,7 @@ public class GatherAllObjectAnnotationsTask implements OrionTask
     private List<Annotation> allObjectAnnotationsList;
     
     
-    public Object run(OrionObject object)
+    public List<Annotation> run(OrionObject object)
     {
         allObjectAnnotationsList = new ArrayList<Annotation>();
         allObjectAnnotationsList.addAll(Arrays.asList(object.getClass().getAnnotations()));

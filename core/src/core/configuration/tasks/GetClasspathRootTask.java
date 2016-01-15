@@ -5,8 +5,8 @@ import core.services.OrionTask;
 
 public class GetClasspathRootTask implements OrionTask
 {
-    public Object run(String libraryClasspathRootPath, GetClasspathRootPathTask getClasspathRootPathTask)
+    public File run(String libraryClasspathRootPath, GetClasspathRootPathTask getClasspathRootPathTask)
     {
-        return new File((String)getClasspathRootPathTask.run(libraryClasspathRootPath));
+        return new File(getClasspathRootPathTask.run(libraryClasspathRootPath));
     }
 }

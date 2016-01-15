@@ -10,11 +10,10 @@ import core.reflection.ReflectionServiceImpl;
 
 public class AnnotationsProcessorServiceImpl implements AnnotationsProcessorService
 {
-    @SuppressWarnings("unchecked")
     @Override
     public void processAllAnnotations(OrionObject OrionObject)
     {
-        List<Annotation> allObjectAnnotationsList = (List<Annotation>)new GatherAllObjectAnnotationsTask().run(OrionObject);
+        List<Annotation> allObjectAnnotationsList = new GatherAllObjectAnnotationsTask().run(OrionObject);
         new ApplyAnnotationsTask().run(this, OrionObject, allObjectAnnotationsList);
     }
     

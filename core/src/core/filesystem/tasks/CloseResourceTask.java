@@ -6,13 +6,14 @@ import core.services.OrionTask;
 
 public class CloseResourceTask implements OrionTask
 {
-    public Object run(Closeable closeable)
+    public boolean run(Closeable closeable)
     {
         if(closeable != null)
         {
             try
             {
                 closeable.close();
+                return true;
             }
             catch(IOException exception)
             {
@@ -20,6 +21,6 @@ public class CloseResourceTask implements OrionTask
             }
         }
         
-        return null;
+        return false;
     }
 }

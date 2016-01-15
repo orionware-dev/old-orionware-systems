@@ -5,13 +5,11 @@ import core.services.OrionTask;
 
 public class MakeMethodAccessibleTask implements OrionTask
 {
-    public Object run(Method method)
+    public void run(Method method)
     {
         if(!method.isAccessible())
         {
             method.setAccessible(true);
         }
-        
-        return null;
     }
 }
