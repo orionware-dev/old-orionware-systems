@@ -28,9 +28,9 @@ public abstract class OrionObject
     private void loadCoreConfiguration()
     {
         LibraryConfiguration libraryConfiguration = new LibraryConfiguration();
-        libraryConfiguration.setLibraryName(CoreConfiguration.CORE_LIBRARY_NAME);
-        libraryConfiguration.setConfigurationFilePath(CoreConfiguration.CORE_PROPERTIES_FILE_PATH);
-        libraryConfiguration.setAnnotationsFilePath(CoreConfiguration.CORE_ANNOTATIONS_DEFINITION_FILE_PATH);
+        libraryConfiguration.setLibraryName(CoreConfiguration.LIBRARY_NAME);
+        libraryConfiguration.setConfigurationFilePath(CoreConfiguration.PROPERTIES_FILE_PATH);
+        libraryConfiguration.setAnnotationsFilePath(CoreConfiguration.ANNOTATIONS_DEFINITION_FILE_PATH);
         librariesConfigurationSet.add(libraryConfiguration);
     }
     

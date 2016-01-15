@@ -16,12 +16,12 @@ public class GetClasspathRootPathTask implements OrionTask
         {
             classpathRoot = new File(classpathRoot.getParent());
             
-            if(!CoreConfiguration.CORE_CLASSPATH_ROOT.equals(libraryClasspathRootPath)
-                && classpathRoot.getAbsolutePath().endsWith(File.separator + CoreConfiguration.CORE_CLASSPATH_ROOT))
+            if(!CoreConfiguration.CLASSPATH_ROOT.equals(libraryClasspathRootPath)
+                && classpathRoot.getAbsolutePath().endsWith(File.separator + CoreConfiguration.CLASSPATH_ROOT))
             {
                 classpathRoot = new File(classpathRoot.getParent());
                 
-                if(classpathRoot.getAbsolutePath().endsWith(CoreConfiguration.CORE_CLASSPATH_ROOT + File.separator + CoreConfiguration.BIN_DIR))
+                if(classpathRoot.getAbsolutePath().endsWith(CoreConfiguration.CLASSPATH_ROOT + File.separator + CoreConfiguration.BIN_DIR))
                 {
                     classpathRoot = new File(classpathRoot.getParent());
                     classpathRoot = new File(classpathRoot.getParent());

@@ -7,8 +7,8 @@ public class IsCoreLibraryTask implements OrionTask
 {
     public boolean run(Class<?> classBeingRun)
     {
-        return classBeingRun.getName().startsWith(CoreConfiguration.CORE_CLASSPATH_ROOT + ".")
-                    || classBeingRun.getName().startsWith(CoreConfiguration.CORE_INTEGRATION_TESTS_CLASSPATH_ROOT + ".")
-                    || classBeingRun.getName().startsWith(CoreConfiguration.CORE_UNIT_TESTS_CLASSPATH_ROOT + ".");
+        return classBeingRun.getName().startsWith(CoreConfiguration.CLASSPATH_ROOT + ".")
+                    || classBeingRun.getName().startsWith(CoreConfiguration.INTEGRATION_TESTS_CLASSPATH_ROOT + ".")
+                    || classBeingRun.getName().startsWith(CoreConfiguration.UNIT_TESTS_CLASSPATH_ROOT + ".");
     }
 }
