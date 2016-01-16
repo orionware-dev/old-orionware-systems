@@ -1,0 +1,7 @@
+1--create a branch from the master and name it "ongoing"
+2--clone master and ongoing separately
+3--make changes to ongoing
+4--commit them to ongoing
+5--go to master and do pull from remote/ongoing
+6--open TortoiseGit settings and in context menu add "push"
+7--right-click => push to master
