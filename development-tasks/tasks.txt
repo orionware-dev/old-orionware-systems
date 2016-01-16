@@ -1,4 +1,13 @@
-﻿--finish the template-project and apply everything I think of
+﻿--in config classes where I have static vars, see where I can use enums
+
+
+--interfaces can declare methods, but also "default" modifier in which we can provide a default impl of the method inside the interface
+
+
+--for annotations processing see if I can do getAnnotation(annotation.getClass());
+
+
+--finish the template-project and apply everything I think of
 to all the projects. Use core and datastructures as examples
 
 
