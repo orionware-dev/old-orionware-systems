@@ -7,7 +7,7 @@
         
         <sequential>
         	<emptyPath path="@{binariesDir}"/>
-	        <javaCompile sourceDir="@{sourceDir}" binariesDir="@{binariesDir}"/>
+	        <compile sourceDir="@{sourceDir}" binariesDir="@{binariesDir}"/>
 	        <buildJARFile JARPath="${orion.libraries.orionware.libraries.dir}/@{JARPath}" binariesDir="@{binariesDir}" projectName="@{projectName}"/>
 	        <print a="${orion.libraries.orionware.libraries.dir}/@{JARPath}"/>
         </sequential>

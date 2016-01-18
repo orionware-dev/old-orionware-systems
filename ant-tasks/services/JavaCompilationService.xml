@@ -1,5 +1,5 @@
-<project name="JavaCompileService" basedir=".">
-    <macrodef name="javaCompile">
+<project name="JavaCompilationService" basedir=".">
+    <macrodef name="compile">
         <attribute name="sourceDir" default=""/>
         <attribute name="binariesDir" default=""/>
         

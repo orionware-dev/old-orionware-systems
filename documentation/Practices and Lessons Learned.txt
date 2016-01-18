@@ -1,7 +1,3 @@
---see if I can import multiple XMLs with a wildcard
-
---rename ant service files and macrodefs
-
 --create Annotations service.Java that will encapsulate AnnotationsConfigurationService and AnnotationsProcessingService
 
 --use something other than Set(Triple(string, string, string))
