@@ -6,17 +6,18 @@ import core.services.OrionTask;
 
 public class EmptyDirectoryTask implements OrionTask
 {
-    public Object run(String directory)
+    public boolean run(String directory)
     {
         try
         {
-            FileUtils.cleanDirectory(new File(directory)); 
+            FileUtils.cleanDirectory(new File(directory));
+            return true;
         }
         catch(Exception exception)
         {
             exception.printStackTrace();
         }
         
-        return null;
+        return false;
     }
 }

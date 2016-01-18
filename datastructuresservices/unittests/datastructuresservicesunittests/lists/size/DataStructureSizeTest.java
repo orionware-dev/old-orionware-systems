@@ -5,8 +5,8 @@ import org.junit.Before;
 import org.junit.Test;
 import datastructures.lists.OrionArrayList;
 import datastructures.lists.OrionList;
-import datastructuresservices.lists.size.DataStructureSizeService;
-import datastructuresservices.lists.size.impl.DataStructureSizeServiceImpl;
+import datastructuresservices.lists.size.ListSizeService;
+import datastructuresservices.lists.size.impl.ListSizeServiceImpl;
 
 public class DataStructureSizeTest
 {
@@ -20,7 +20,7 @@ public class DataStructureSizeTest
     @Test
     public void testDataStructureSize()
     {
-        DataStructureSizeService dataStructureSizeService = new DataStructureSizeServiceImpl();
+        ListSizeService dataStructureSizeService = new ListSizeServiceImpl();
         OrionList<String> dataStructure = new OrionArrayList<String>();
         dataStructure.add("1");
         dataStructure.add("2");

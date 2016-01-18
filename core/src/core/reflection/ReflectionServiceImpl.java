@@ -13,7 +13,7 @@ public class ReflectionServiceImpl implements ReflectionService
     @Override
     public Method[] getMethodsArray(OrionObject object)
     {
-        return (Method[])new GetMethodsArrayTask().run(object);
+        return new GetMethodsArrayTask().run(object);
     }
     
     
@@ -34,7 +34,7 @@ public class ReflectionServiceImpl implements ReflectionService
     @Override
     public Class<?> loadClass(String className)
     {
-        return (Class<?>)new LoadClassTask().run(className);
+        return new LoadClassTask().run(className);
     }
     
     

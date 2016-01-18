@@ -2,13 +2,14 @@ package core.annotations.configuration;
 
 import java.io.Closeable;
 import java.io.InputStream;
+import java.util.Set;
+import core.annotations.RegisteredAnnotation;
 import core.annotations.configuration.tasks.GetAnnotationsFileStreamTask;
-import core.annotations.configuration.tasks.LoadAnnotationsTask;
-import core.configuration.RegisteredAnnotation;
+import core.annotations.configuration.tasks.LoadLibrariesAnnotationsTask;
+import core.configuration.LibraryConfiguration;
 import core.configuration.tasks.GetClasspathRootPathTask;
 import core.filesystem.FileSystemService;
 import core.filesystem.FileSystemServiceImpl;
-import core.general.Triple;
 import core.registry.RegisteredAnnotations;
 
 public class AnnotationsConfigurationServiceImpl implements AnnotationsConfigurationService
@@ -25,7 +26,7 @@ public class AnnotationsConfigurationServiceImpl implements AnnotationsConfigura
     @Override
     public InputStream getAnnotationsFileStream(String libraryName, String libraryAnnotationsFilePath)
     {
-        return (InputStream)new GetAnnotationsFileStreamTask().run(this, new GetClasspathRootPathTask(), libraryAnnotationsFilePath, libraryName);
+        return new GetAnnotationsFileStreamTask().run(this, new GetClasspathRootPathTask(), libraryAnnotationsFilePath, libraryName);
     }
     
     
@@ -37,9 +38,9 @@ public class AnnotationsConfigurationServiceImpl implements AnnotationsConfigura
     
     
     @Override
-    public void loadLibraryAnnotations(Triple<String, String, String> libraryNameAndConfigurationFilePathAndAnnotationsFilePath)
+    public void loadLibrariesAnnotations(Set<LibraryConfiguration> librariesConfiguration)
     {
-        new LoadAnnotationsTask().run(this, libraryNameAndConfigurationFilePathAndAnnotationsFilePath);
+        new LoadLibrariesAnnotationsTask().run(this, librariesConfiguration);
     }
     
     

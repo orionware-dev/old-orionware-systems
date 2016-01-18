@@ -1,14 +1,11 @@
 <?xml version="1.0"?>
-<project name="OrionProjectNameBuilder" default="all" basedir=".">
-    <property name="orion.libraries.home.dir" location="${basedir}/../.."/>
-    
-    
-    <target name="properties_importer">
-        <propertyregex property="basedir" input="${basedir}" regexp="\\" replace="/" global="true" override="true"/>
-    </target>
+<project name="Orion<project_name>Builder" default="all" basedir=".">
+    <property file="<project_name>Build.prop"/>
+    <property name="orion.<project_name>.binaries.dir" value="${orion.<project_name>.dir}/${default.binaries.dir.name}"/>
+    <property name="orion.<project_name>.source.dir" value="${orion.<project_name>.dir}/${default.source.dir.name}"/>
 
     
-    <target name="all" depends="properties_importer">
-        
+    <target name="all">
+    	<buildProject sourceDir="${orion.<project_name>.source.dir}" binariesDir="${orion.<project_name>.binaries.dir}" JARPath="${orion.data.structures.jar.file.name}" projectName="${orion.data.structures}"/>
     </target>
 </project>

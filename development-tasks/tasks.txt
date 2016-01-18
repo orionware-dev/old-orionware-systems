@@ -1,4 +1,25 @@
-﻿--CREATE CONVENIENT filter() AND forEach() IN OrionArrayList=========
+﻿--in config classes where I have static vars, see where I can use enums
+
+
+--interfaces can declare methods, but also "default" modifier in which we can provide a default impl of the method inside the interface
+
+
+--for annotations processing see if I can do getAnnotation(annotation.getClass());
+
+
+--finish the template-project and apply everything I think of
+to all the projects. Use core and datastructures as examples
+
+
+--delete datastructures.testannotation.TestAnnotation
+
+
+--figure out how a DataStructure.java object will encapsulate its size:
+Use datastructuresservices.lists.size.impl.tasks.GetSizeTask
+
+
+
+--CREATE CONVENIENT filter() AND forEach() IN OrionArrayList=========
 enable the stream() so that I don't have to write it every time
 methodsList.stream().filter((method) -> method != null).forEach(this::processMethod);
 methodsList.filter((method) -> method != null).forEach(this::processMethod);
@@ -36,12 +57,6 @@ the checking in a loop with stream() like: for each class type, if function inst
 return ((OrionAbstractFunction)function).run();
 
 
---find a way for each project that has config prop files, to do System.getResourceAsStream()
-and send the prop file to the ConfigurationService so that it loads the prop file to memory
-when the library has started been used for the first time. If it is difficult, see if there is a way
-to do that from within the libraries-builder
-
-
---NEW PROJECT GENERATOR IN Ant=============
-create an Ant task that after you create an empty project, it will generate the necessary general and
-services dir and default interfaces and abstract classes
+--NEW PROJECT GENERATOR dev tool=============
+create a dev tool that after you create an empty project, it will generate the necessary general and
+services dir and default interfaces and abstract classes, etc.

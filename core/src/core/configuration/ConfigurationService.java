@@ -4,7 +4,6 @@ import java.io.Closeable;
 import java.io.File;
 import java.io.InputStream;
 import java.util.Set;
-import core.general.Pair;
 import core.services.OrionService;
 
 public interface ConfigurationService extends OrionService
@@ -18,7 +17,7 @@ public interface ConfigurationService extends OrionService
     public String getCoreConfigurationPath();
     
     
-    public void loadProperties(Set<Pair<String, String>> libraryNamesAndConfigurationFilePaths);
+    public void loadLibrariesProperties(Set<LibraryConfiguration> librariesConfiguration);
     
     
     public InputStream getFileStream(String filePath);

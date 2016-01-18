@@ -17,21 +17,21 @@ public class FileSystemServiceImpl implements FileSystemService
     @Override
     public InputStream getFileStream(String filePath)
     {
-        return (InputStream)new GetFileStreamTask().run(filePath);
+        return new GetFileStreamTask().run(filePath);
     }
     
     
     @Override
     public String convertFileToString(String filePath)
     {
-        return (String)new ConvertFileToStringTask().run(this, filePath);
+        return new ConvertFileToStringTask().run(this, filePath);
     }
 
 
     @Override
-    public void saveStringToFile(String filePath, String fileString)
+    public boolean saveStringToFile(String filePath, String fileString)
     {
-        new SaveStringToFileTask().run(this, filePath, fileString);
+        return new SaveStringToFileTask().run(this, filePath, fileString);
     }
     
     
@@ -52,13 +52,13 @@ public class FileSystemServiceImpl implements FileSystemService
     @Override
     public Reader getReaderFromFile(String filePath)
     {
-        return (Reader)new GetReaderFromFileTask().run(filePath);
+        return new GetReaderFromFileTask().run(filePath);
     }
     
     
     @Override
     public Writer getWritterForFile(String filePath)
     {
-        return (Writer)new GetWriterForFileTask().run(filePath);
+        return new GetWriterForFileTask().run(filePath);
     }
 }

@@ -14,9 +14,10 @@ public class SaveStringToFileTask implements OrionTask
     private int numberOfLines;
     private int lineCounter;
     private FileSystemService fileSystemService;
+    private boolean error = false;
     
     
-    public Object run(FileSystemService fileSystemService, String filePath, String fileString)
+    public boolean run(FileSystemService fileSystemService, String filePath, String fileString)
     {
         this.fileSystemService = fileSystemService;
         this.lineSeparator = System.lineSeparator();
@@ -25,7 +26,7 @@ public class SaveStringToFileTask implements OrionTask
         this.numberOfLines = lines.length;
         this.lineCounter = 1;
         Arrays.stream(lines).forEach(this::writeLineToFile);
-        return null;
+        return error;
     }
     
     
@@ -42,10 +43,12 @@ public class SaveStringToFileTask implements OrionTask
         }
         catch(FileNotFoundException exception)
         {
+            error = true;
             exception.printStackTrace();
         }
         catch(IOException exception)
         {
+            error = true;
             exception.printStackTrace();
         }
         finally

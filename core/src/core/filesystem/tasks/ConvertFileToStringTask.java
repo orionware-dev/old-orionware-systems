@@ -8,7 +8,7 @@ import core.services.OrionTask;
 
 public class ConvertFileToStringTask implements OrionTask
 {
-    public Object run(FileSystemService fileSystemService, String filePath)
+    public String run(FileSystemService fileSystemService, String filePath)
     {
         String fileString = null;
         BufferedReader input = null;

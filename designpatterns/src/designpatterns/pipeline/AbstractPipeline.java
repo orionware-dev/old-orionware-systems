@@ -1,20 +1,20 @@
 package designpatterns.pipeline;
 
 import core.general.OrionContainer;
-import core.orion.OrionObject;
 import datastructures.lists.OrionList;
-import datastructuresfacades.size.DataStructureSizeFacade;
-import datastructuresfacades.size.impl.DataStructureSizeFacadeImpl;
+import datastructuresfacades.lists.size.ListSizeFacade;
+import datastructuresfacades.lists.size.impl.ListSizeFacadeImpl;
+import designpatterns.DesignPatternsObject;
 
-public abstract class AbstractPipeline extends OrionObject implements OrionContainer
+public abstract class AbstractPipeline extends DesignPatternsObject implements OrionContainer
 {
     private OrionList<AbstractFilter> filtersList;
-    private DataStructureSizeFacade dataStructureSizeFacade;
+    private ListSizeFacade dataStructureSizeFacade;
     
     
     public AbstractPipeline()
     {
-        dataStructureSizeFacade = new DataStructureSizeFacadeImpl();
+        dataStructureSizeFacade = new ListSizeFacadeImpl();
     }
     
     

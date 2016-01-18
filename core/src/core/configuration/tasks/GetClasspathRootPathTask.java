@@ -1,12 +1,12 @@
 package core.configuration.tasks;
 
 import java.io.File;
-import core.configuration.Configuration;
+import core.configuration.CoreConfiguration;
 import core.services.OrionTask;
 
 public class GetClasspathRootPathTask implements OrionTask
 {
-    public Object run(String libraryClasspathRootPath)
+    public String run(String libraryClasspathRootPath)
     {
         //use this class to get the path of this class
         File classpathRoot = new File(this.getClass().getResource("").getPath());
@@ -16,16 +16,16 @@ public class GetClasspathRootPathTask implements OrionTask
         {
             classpathRoot = new File(classpathRoot.getParent());
             
-            if(!Configuration.CORE_CLASSPATH_ROOT.equals(libraryClasspathRootPath)
-                && classpathRoot.getAbsolutePath().endsWith(File.separator + Configuration.CORE_CLASSPATH_ROOT))
+            if(!CoreConfiguration.CLASSPATH_ROOT.equals(libraryClasspathRootPath)
+                && classpathRoot.getAbsolutePath().endsWith(File.separator + CoreConfiguration.CLASSPATH_ROOT))
             {
                 classpathRoot = new File(classpathRoot.getParent());
                 
-                if(classpathRoot.getAbsolutePath().endsWith(Configuration.CORE_CLASSPATH_ROOT + File.separator + Configuration.BIN_DIR))
+                if(classpathRoot.getAbsolutePath().endsWith(CoreConfiguration.CLASSPATH_ROOT + File.separator + CoreConfiguration.BIN_DIR))
                 {
                     classpathRoot = new File(classpathRoot.getParent());
                     classpathRoot = new File(classpathRoot.getParent());
-                    classpathRoot = new File(classpathRoot.getAbsolutePath() + File.separator + libraryClasspathRootPath + File.separator + Configuration.BIN_DIR + File.separator + libraryClasspathRootPath);
+                    classpathRoot = new File(classpathRoot.getAbsolutePath() + File.separator + libraryClasspathRootPath + File.separator + CoreConfiguration.BIN_DIR + File.separator + libraryClasspathRootPath);
                 }
                 else
                 {

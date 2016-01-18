@@ -2,11 +2,12 @@ package core.filesystem.tasks;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import core.services.OrionTask;
 
 public class GetFileStreamTask implements OrionTask
 {
-    public Object run(String filePath)
+    public InputStream run(String filePath)
     {
         try
         {

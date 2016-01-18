@@ -1,11 +1,11 @@
 package designpatterns.pipeline.services.impl;
 
-import core.orion.OrionObject;
+import designpatterns.DesignPatternsObject;
 import designpatterns.pipeline.AbstractPipeline;
 import designpatterns.pipeline.impl.Pipeline;
 import designpatterns.pipeline.services.PipelineService;
 
-public class PipelineServiceImpl extends OrionObject implements PipelineService
+public class PipelineServiceImpl extends DesignPatternsObject implements PipelineService
 {
     private AbstractPipeline pipeline;
     
