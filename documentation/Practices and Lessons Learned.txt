@@ -1,3 +1,25 @@
+--create a global ant service in ant-tasks that import all the ant service XMLs and in libraries-builder import that one
+
+--see if I can import multiple XMLs with a wildcard
+
+--rename ant service files and macrodefs
+
+--create Annotations service.Java that will encapsulate AnnotationsConfigurationService and AnnotationsProcessingService
+
+--use something other than Set(Triple(string, string, string))
+
+--in orionobject move the "new hashset" elsewhere
+
+--use string builders everywhere
+
+--rename libraryConfiguration to librariesConfiguration in LoadLibrariesAnnotationsTask.Java
+
+--extend Properties class and add isNotEmpty() for convenience
+
+--create more private methods as necessary to make the code read like a sequence of normal sentences
+
+--make ApplyAnnotationsTask more efficient
+
 --facades should only use DTOs and not models. A DTO has a subset of vars
 from the respective model + any other vars necessary for the facade or
 the caller of the facade

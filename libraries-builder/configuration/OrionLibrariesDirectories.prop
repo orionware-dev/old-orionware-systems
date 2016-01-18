@@ -2,7 +2,7 @@
 
 orion.ant.tasks=Ant Tasks
 orion.ant.tasks.dir=${orion.libraries.home.dir}/ant-tasks
-orion.ant.tasks.macrodefs.dir=${orion.ant.tasks.dir}/macrodefs
+orion.ant.tasks.services.dir=${orion.ant.tasks.dir}/services
 
 orion.libraries.dir=${orion.all.libraries.dir}
 orion.libraries.ant.dir=${orion.libraries.dir}/ant
