@@ -1,7 +1,3 @@
---use string builders everywhere
-
---rename libraryConfiguration to librariesConfiguration in LoadLibrariesAnnotationsTask.Java
-
 --extend Properties class and add isNotEmpty() for convenience
 
 --create more private methods as necessary to make the code read like a sequence of normal sentences

@@ -1,13 +1,12 @@
 package core.annotations.configuration.tasks;
 
-import java.io.IOException;
 import java.io.InputStream;
-import java.util.Properties;
 import java.util.Set;
 import core.annotations.RegisteredAnnotation;
 import core.annotations.configuration.AnnotationsConfigurationService;
 import core.configuration.LibrariesConfigurationMapper;
 import core.configuration.LibraryConfiguration;
+import core.general.OrionProperties;
 import core.services.OrionTask;
 
 public class LoadLibrariesAnnotationsTask implements OrionTask
@@ -38,45 +37,38 @@ public class LoadLibrariesAnnotationsTask implements OrionTask
     
     private void registerAnnotations(String libraryName, String libraryAnnotationsFilePath)
     {
-        try
+        OrionProperties annotationsDeclarations = new OrionProperties();
+        InputStream libraryAnnotationsFileStream = annotationsConfigurationService.getAnnotationsFileStream(libraryName, libraryAnnotationsFilePath);
+        annotationsDeclarations.loadProperties(libraryAnnotationsFileStream);
+        annotationsConfigurationService.closeResource(libraryAnnotationsFileStream);
+        
+        if(annotationsDeclarations.isNotEmpty())
         {
-            Properties annotationsDeclarations = new Properties();
-            InputStream libraryAnnotationsFileStream = annotationsConfigurationService.getAnnotationsFileStream(libraryName, libraryAnnotationsFilePath);
-            annotationsDeclarations.load(libraryAnnotationsFileStream);
-            annotationsConfigurationService.closeResource(libraryAnnotationsFileStream);
+            int annotationCounter = 1;
+            StringBuilder sb1 = null;
+            StringBuilder sb2 = null;
+            StringBuilder sb3 = null;
             
-            if(!annotationsDeclarations.isEmpty())
+            while(annotationsDeclarations.getProperty(libraryName + ".annotation." + annotationCounter) != null)
             {
-                int annotationCounter = 1;
-                StringBuilder sb1 = null;
-                StringBuilder sb2 = null;
-                StringBuilder sb3 = null;
-                
-                while(annotationsDeclarations.getProperty(libraryName + ".annotation." + annotationCounter) != null)
-                {
-                    sb1 = new StringBuilder();
-                    sb2 = new StringBuilder();
-                    sb3 = new StringBuilder();
-                    sb1.append(libraryName);
-                    sb1.append(".annotation.");
-                    sb1.append(annotationCounter);
-                    sb2.append(libraryName);
-                    sb2.append(".annotation.service.");
-                    sb2.append(annotationCounter);
-                    sb3.append(libraryName);
-                    sb3.append(".annotation.service.method.to.call.");
-                    sb3.append(annotationCounter);
-                    annotationsConfigurationService.registerAnnotation(new RegisteredAnnotation
-                        (annotationsDeclarations.getProperty(sb1.toString()),
-                        annotationsDeclarations.getProperty(sb2.toString()),
-                        annotationsDeclarations.getProperty(sb3.toString())));
-                    ++annotationCounter;
-                }
+                sb1 = new StringBuilder();
+                sb2 = new StringBuilder();
+                sb3 = new StringBuilder();
+                sb1.append(libraryName);
+                sb1.append(".annotation.");
+                sb1.append(annotationCounter);
+                sb2.append(libraryName);
+                sb2.append(".annotation.service.");
+                sb2.append(annotationCounter);
+                sb3.append(libraryName);
+                sb3.append(".annotation.service.method.to.call.");
+                sb3.append(annotationCounter);
+                annotationsConfigurationService.registerAnnotation(new RegisteredAnnotation
+                    (annotationsDeclarations.getProperty(sb1.toString()),
+                    annotationsDeclarations.getProperty(sb2.toString()),
+                    annotationsDeclarations.getProperty(sb3.toString())));
+                ++annotationCounter;
             }
-        }
-        catch(IOException exception)
-        {
-            exception.printStackTrace();
         }
     }
     

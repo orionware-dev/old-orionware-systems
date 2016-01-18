@@ -5,7 +5,7 @@ import java.util.Set;
 import core.configuration.ConfigurationService;
 import core.configuration.LibrariesConfigurationMapper;
 import core.configuration.LibraryConfiguration;
-import core.registry.OrionProperties;
+import core.registry.AllProperties;
 import core.services.OrionTask;
 
 public class LoadLibrariesPropertiesTask implements OrionTask
@@ -45,7 +45,7 @@ public class LoadLibrariesPropertiesTask implements OrionTask
         sb.append((String)getClasspathRootPathTask.run(libraryConfiguration.getLibraryName()));
         sb.append(libraryConfiguration.getConfigurationFilePath());
         InputStream propertiesFileInput = configurationService.getFileStream(sb.toString());
-        OrionProperties.loadProperties(propertiesFileInput);
+        AllProperties.loadProperties(propertiesFileInput);
         configurationService.closeResource(propertiesFileInput);
     }
     

@@ -4,8 +4,6 @@ import java.util.HashSet;
 import java.util.Set;
 import core.annotations.AnnotationsService;
 import core.annotations.AnnotationsServiceImpl;
-import core.annotations.configuration.AnnotationsConfigurationServiceImpl;
-import core.annotations.processor.AnnotationsProcessorServiceImpl;
 import core.configuration.ConfigurationServiceImpl;
 import core.configuration.CoreConfiguration;
 import core.configuration.LibraryConfiguration;
