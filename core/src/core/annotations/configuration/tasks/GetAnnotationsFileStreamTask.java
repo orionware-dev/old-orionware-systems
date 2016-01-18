@@ -10,6 +10,9 @@ public class GetAnnotationsFileStreamTask implements OrionTask
 {
     public InputStream run(AnnotationsConfigurationService annotationsConfigurationService, GetClasspathRootPathTask getClasspathRootTask, String libraryAnnotationsFilePath, String libraryName)
     {
-        return annotationsConfigurationService.getFileStream(new File((String)getClasspathRootTask.run(libraryName)).getAbsolutePath() + libraryAnnotationsFilePath);
+        StringBuilder sb = new StringBuilder();
+        sb.append(new File((String)getClasspathRootTask.run(libraryName)).getAbsolutePath());
+        sb.append(libraryAnnotationsFilePath);
+        return annotationsConfigurationService.getFileStream(sb.toString());
     }
 }

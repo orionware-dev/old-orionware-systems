@@ -48,13 +48,28 @@ public class LoadLibrariesAnnotationsTask implements OrionTask
             if(!annotationsDeclarations.isEmpty())
             {
                 int annotationCounter = 1;
+                StringBuilder sb1 = null;
+                StringBuilder sb2 = null;
+                StringBuilder sb3 = null;
                 
                 while(annotationsDeclarations.getProperty(libraryName + ".annotation." + annotationCounter) != null)
                 {
+                    sb1 = new StringBuilder();
+                    sb2 = new StringBuilder();
+                    sb3 = new StringBuilder();
+                    sb1.append(libraryName);
+                    sb1.append(".annotation.");
+                    sb1.append(annotationCounter);
+                    sb2.append(libraryName);
+                    sb2.append(".annotation.service.");
+                    sb2.append(annotationCounter);
+                    sb3.append(libraryName);
+                    sb3.append(".annotation.service.method.to.call.");
+                    sb3.append(annotationCounter);
                     annotationsConfigurationService.registerAnnotation(new RegisteredAnnotation
-                        (annotationsDeclarations.getProperty(libraryName + ".annotation." + annotationCounter),
-                        annotationsDeclarations.getProperty(libraryName + ".annotation.service." + annotationCounter),
-                        annotationsDeclarations.getProperty(libraryName + ".annotation.service.method.to.call." + annotationCounter)));
+                        (annotationsDeclarations.getProperty(sb1.toString()),
+                        annotationsDeclarations.getProperty(sb2.toString()),
+                        annotationsDeclarations.getProperty(sb3.toString())));
                     ++annotationCounter;
                 }
             }
