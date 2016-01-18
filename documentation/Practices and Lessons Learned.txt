@@ -1,5 +1,3 @@
---create a global ant service in ant-tasks that import all the ant service XMLs and in libraries-builder import that one
-
 --see if I can import multiple XMLs with a wildcard
 
 --rename ant service files and macrodefs

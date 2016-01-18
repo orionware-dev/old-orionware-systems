@@ -2,11 +2,10 @@
 <project name="AntService" basedir=".">
     <macrodef name="initialiseAntService">
         <sequential>
-            <import file="AntCallingService.xml"/>
-            <import file="FileSystemService.xml"/>
-            <import file="JavaCompilerService.xml"/>
-            <import file="OutputService.xml"/>
-            <import file="ProjectBuilderService.xml"/>
+        	<import>
+        		<fileset dir="${orion.ant.tasks.services.dir}" includes="*.xml"/>
+        	</import>
+        	
             <taskdef resource="net/sf/antcontrib/antlib.xml" classpath="${orion.libraries.ant.dir}/ant-contrib-1.0b3.jar"/>
         </sequential>
     </macrodef>
