@@ -12,6 +12,10 @@ import core.services.OrionTask;
 public class LoadLibrariesAnnotationsTask implements OrionTask
 {
     private AnnotationsConfigurationService annotationsConfigurationService;
+    private String currentAnnotationClass = null;
+    private String currentAnnotationServiceClass = null;
+    private String currentAnnotationServiceMethodToCall = null;
+    private OrionProperties annotationsDeclarations;
     
     
     public void run(AnnotationsConfigurationService annotationsConfigurationService, Set<LibraryConfiguration> librariesConfiguration)
@@ -20,56 +24,89 @@ public class LoadLibrariesAnnotationsTask implements OrionTask
         
         if(librariesConfiguration != null)
         {
-            for(LibraryConfiguration libraryConfiguration : librariesConfiguration)
+            registerAllLibrariesAnnotations(librariesConfiguration);
+        }
+    }
+    
+    
+    private void registerAllLibrariesAnnotations(Set<LibraryConfiguration> librariesConfiguration)
+    {
+        for(LibraryConfiguration libraryConfiguration : librariesConfiguration)
+        {
+            if(libraryConfiguration.getAnnotationsFilePath() != null
+                            && haveAnnotationsNotBeenRegistered(libraryConfiguration.getLibraryName()))
             {
-                if(libraryConfiguration.getAnnotationsFilePath() != null)
-                {
-                    if(!haveAnnotationsBeenRegistered(libraryConfiguration.getLibraryName()))
-                    {
-                        registerAnnotations(libraryConfiguration.getLibraryName(), libraryConfiguration.getAnnotationsFilePath());
-                        setAnnotationsAsRegistered(libraryConfiguration.getLibraryName());
-                    }
-                }
+                registerLibraryAnnotations(libraryConfiguration.getLibraryName(), libraryConfiguration.getAnnotationsFilePath());
+                setAnnotationsAsRegistered(libraryConfiguration.getLibraryName());
             }
         }
     }
     
     
-    private void registerAnnotations(String libraryName, String libraryAnnotationsFilePath)
+    private void registerLibraryAnnotations(String libraryName, String libraryAnnotationsFilePath)
+    {
+        annotationsDeclarations = loadLibraryAnnotationsDefinitions(libraryName, libraryAnnotationsFilePath);
+        
+        if(annotationsDeclarations.isNotEmpty())
+        {
+            int annotationCounter = 1;
+            
+            while(annotationsDeclarations.getProperty(libraryName + ".annotation." + annotationCounter) != null)
+            {
+                resolveCurrentAnnotationClass(libraryName, annotationCounter);
+                resolveCurrentAnnotationServiceClass(libraryName, annotationCounter);
+                resolveCurrentAnnotationServiceMethodToCall(libraryName, annotationCounter);
+                registerLibraryAnnotation();
+                ++annotationCounter;
+            }
+        }
+    }
+    
+    
+    private OrionProperties loadLibraryAnnotationsDefinitions(String libraryName, String libraryAnnotationsFilePath)
     {
         OrionProperties annotationsDeclarations = new OrionProperties();
         InputStream libraryAnnotationsFileStream = annotationsConfigurationService.getAnnotationsFileStream(libraryName, libraryAnnotationsFilePath);
         annotationsDeclarations.loadProperties(libraryAnnotationsFileStream);
         annotationsConfigurationService.closeResource(libraryAnnotationsFileStream);
-        
-        if(annotationsDeclarations.isNotEmpty())
-        {
-            int annotationCounter = 1;
-            StringBuilder sb1 = null;
-            StringBuilder sb2 = null;
-            StringBuilder sb3 = null;
-            
-            while(annotationsDeclarations.getProperty(libraryName + ".annotation." + annotationCounter) != null)
-            {
-                sb1 = new StringBuilder();
-                sb2 = new StringBuilder();
-                sb3 = new StringBuilder();
-                sb1.append(libraryName);
-                sb1.append(".annotation.");
-                sb1.append(annotationCounter);
-                sb2.append(libraryName);
-                sb2.append(".annotation.service.");
-                sb2.append(annotationCounter);
-                sb3.append(libraryName);
-                sb3.append(".annotation.service.method.to.call.");
-                sb3.append(annotationCounter);
-                annotationsConfigurationService.registerAnnotation(new RegisteredAnnotation
-                    (annotationsDeclarations.getProperty(sb1.toString()),
-                    annotationsDeclarations.getProperty(sb2.toString()),
-                    annotationsDeclarations.getProperty(sb3.toString())));
-                ++annotationCounter;
-            }
-        }
+        return annotationsDeclarations;
+    }
+    
+    
+    private void resolveCurrentAnnotationClass(String libraryName, int annotationCounter)
+    {
+        StringBuilder sb1 = new StringBuilder();
+        sb1.append(libraryName);
+        sb1.append(".annotation.");
+        sb1.append(annotationCounter);
+        currentAnnotationClass = annotationsDeclarations.getProperty(sb1.toString());
+    }
+    
+    
+    private void resolveCurrentAnnotationServiceClass(String libraryName, int annotationCounter)
+    {
+        StringBuilder sb2 = new StringBuilder();
+        sb2.append(libraryName);
+        sb2.append(".annotation.service.");
+        sb2.append(annotationCounter);
+        currentAnnotationServiceClass = annotationsDeclarations.getProperty(sb2.toString());
+    }
+    
+    
+    private void resolveCurrentAnnotationServiceMethodToCall(String libraryName, int annotationCounter)
+    {
+        StringBuilder sb3 = new StringBuilder();
+        sb3.append(libraryName);
+        sb3.append(".annotation.service.method.to.call.");
+        sb3.append(annotationCounter);
+        currentAnnotationServiceMethodToCall = annotationsDeclarations.getProperty(sb3.toString());
+    }
+    
+    
+    private void registerLibraryAnnotation()
+    {
+        annotationsConfigurationService.registerAnnotation(new RegisteredAnnotation
+            (currentAnnotationClass, currentAnnotationServiceClass, currentAnnotationServiceMethodToCall));
     }
     
     
@@ -83,6 +120,12 @@ public class LoadLibrariesAnnotationsTask implements OrionTask
         {
             return false;
         }
+    }
+    
+    
+    private boolean haveAnnotationsNotBeenRegistered(String libraryName)
+    {
+        return !haveAnnotationsBeenRegistered(libraryName);
     }
     
     

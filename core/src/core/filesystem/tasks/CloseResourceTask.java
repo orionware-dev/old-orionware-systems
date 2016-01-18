@@ -10,17 +10,24 @@ public class CloseResourceTask implements OrionTask
     {
         if(closeable != null)
         {
-            try
-            {
-                closeable.close();
-                return true;
-            }
-            catch(IOException exception)
-            {
-                exception.printStackTrace();
-            }
+            return closeResource(closeable);
         }
         
         return false;
+    }
+    
+    
+    private boolean closeResource(Closeable closeable)
+    {
+        try
+        {
+            closeable.close();
+            return true;
+        }
+        catch(IOException exception)
+        {
+            exception.printStackTrace();
+            return false;
+        }
     }
 }

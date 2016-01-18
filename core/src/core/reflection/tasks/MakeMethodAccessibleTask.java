@@ -9,7 +9,13 @@ public class MakeMethodAccessibleTask implements OrionTask
     {
         if(!method.isAccessible())
         {
-            method.setAccessible(true);
+            makeMethodAccessible(method);
         }
+    }
+    
+    
+    private void makeMethodAccessible(Method method)
+    {
+        method.setAccessible(true);
     }
 }

@@ -17,17 +17,23 @@ public abstract class OrionObject
     public OrionObject()
     {
         librariesConfigurationSet = new HashSet<LibraryConfiguration>();
-        loadCoreConfiguration();
+        loadCoreConfiguration(initialiseCoreConfiguration());
         processAllLibrariesConfigurationIfItIsTheCoreLibrary();
     }
     
     
-    private void loadCoreConfiguration()
+    private LibraryConfiguration initialiseCoreConfiguration()
     {
         LibraryConfiguration libraryConfiguration = new LibraryConfiguration();
         libraryConfiguration.setLibraryName(CoreConfiguration.LIBRARY_NAME);
         libraryConfiguration.setConfigurationFilePath(CoreConfiguration.PROPERTIES_FILE_PATH);
         libraryConfiguration.setAnnotationsFilePath(CoreConfiguration.ANNOTATIONS_DEFINITION_FILE_PATH);
+        return libraryConfiguration;
+    }
+    
+    
+    private void loadCoreConfiguration(LibraryConfiguration libraryConfiguration)
+    {
         librariesConfigurationSet.add(libraryConfiguration);
     }
     

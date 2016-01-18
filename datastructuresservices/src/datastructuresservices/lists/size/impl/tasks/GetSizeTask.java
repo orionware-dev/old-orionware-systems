@@ -9,9 +9,15 @@ public class GetSizeTask extends DataStructuresTask
     {
         if(dataStructure != null)
         {
-            return dataStructure.size();
+            return getListSize(dataStructure);
         }
         
         return 0;
+    }
+    
+    
+    private int getListSize(OrionList<?> dataStructure)
+    {
+        return dataStructure.size();
     }
 }

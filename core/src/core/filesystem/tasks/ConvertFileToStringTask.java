@@ -8,26 +8,43 @@ import core.services.OrionTask;
 
 public class ConvertFileToStringTask implements OrionTask
 {
+    private StringBuilder fileStringBuilder;
+    private BufferedReader input;
+    private String currentLine;
+    
+    
     public String run(FileSystemService fileSystemService, String filePath)
     {
         String fileString = null;
-        BufferedReader input = null;
+        input = (BufferedReader)fileSystemService.getReaderForFile(filePath);
+        fileStringBuilder = new StringBuilder();
+        currentLine = null;
         
         try
         {
-            input = (BufferedReader)fileSystemService.getReaderForFile(filePath);
-            StringBuilder fileStringBuilder = new StringBuilder();
-            String currentLine = null;
-            
             do
             {
-                currentLine = input.readLine();
-                fileStringBuilder.append(currentLine);
-                fileStringBuilder.append(System.lineSeparator());
+                addLineToFile();
             }
             while(currentLine != null);
-            
-            fileString = fileStringBuilder.toString();
+        }
+        finally
+        {
+            fileSystemService.closeResource(input);
+        }
+        
+        fileString = fileStringBuilder.toString();
+        return fileString;
+    }
+    
+    
+    private void addLineToFile()
+    {
+        try
+        {
+            currentLine = input.readLine();
+            fileStringBuilder.append(currentLine);
+            fileStringBuilder.append(System.lineSeparator());
         }
         catch(FileNotFoundException exception)
         {
@@ -37,11 +54,5 @@ public class ConvertFileToStringTask implements OrionTask
         {
             exception.printStackTrace();
         }
-        finally
-        {
-            fileSystemService.closeResource(input);
-        }
-        
-        return fileString;
     }
 }

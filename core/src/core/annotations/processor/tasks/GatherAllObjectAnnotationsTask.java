@@ -17,13 +17,19 @@ public class GatherAllObjectAnnotationsTask implements OrionTask
     public List<Annotation> run(OrionObject object)
     {
         allObjectAnnotationsList = new ArrayList<Annotation>();
-        allObjectAnnotationsList.addAll(Arrays.asList(object.getClass().getAnnotations()));
+        gatherAllClassAnnotations(object);
         Arrays.stream(object.getClass().getDeclaredMethods())
             .forEach((method) -> gatherAllMethodsAnnotations(method));
         Arrays.stream(object.getClass().getDeclaredFields())
             .forEach((variable) -> gatherAllVariablesAnnotations(variable));
         
         return allObjectAnnotationsList;
+    }
+    
+    
+    private void gatherAllClassAnnotations(OrionObject object)
+    {
+        allObjectAnnotationsList.addAll(Arrays.asList(object.getClass().getAnnotations()));
     }
     
     

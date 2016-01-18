@@ -22,18 +22,22 @@ public class LoadLibrariesPropertiesTask implements OrionTask
         
         if(librariesConfiguration != null)
         {
-            sb = null;
-            
-            for(LibraryConfiguration libraryConfiguration : librariesConfiguration)
+            loadLibrariesProperties(librariesConfiguration);
+        }
+    }
+    
+    
+    private void loadLibrariesProperties(Set<LibraryConfiguration> librariesConfiguration)
+    {
+        sb = null;
+        
+        for(LibraryConfiguration libraryConfiguration : librariesConfiguration)
+        {
+            if(libraryConfiguration.getConfigurationFilePath() != null
+                            && havePropertiesNotBeenLoadedForLibrary(libraryConfiguration.getLibraryName()))
             {
-                if(libraryConfiguration.getConfigurationFilePath() != null)
-                {
-                    if(!havePropertiesBeenLoadedForLibrary(libraryConfiguration.getLibraryName()))
-                    {
-                        loadLibraryProperties(libraryConfiguration);
-                        setPropertiesAsLoadedForLibrary(libraryConfiguration.getLibraryName());
-                    }
-                }
+                loadLibraryProperties(libraryConfiguration);
+                setPropertiesAsLoadedForLibrary(libraryConfiguration.getLibraryName());
             }
         }
     }
@@ -41,12 +45,18 @@ public class LoadLibrariesPropertiesTask implements OrionTask
     
     private void loadLibraryProperties(LibraryConfiguration libraryConfiguration)
     {
+        InputStream propertiesFileInput = configurationService.getFileStream(buildLibraryPropertiesFilePath(libraryConfiguration));
+        AllProperties.loadProperties(propertiesFileInput);
+        configurationService.closeResource(propertiesFileInput);
+    }
+    
+    
+    private String buildLibraryPropertiesFilePath(LibraryConfiguration libraryConfiguration)
+    {
         sb = new StringBuilder();
         sb.append((String)getClasspathRootPathTask.run(libraryConfiguration.getLibraryName()));
         sb.append(libraryConfiguration.getConfigurationFilePath());
-        InputStream propertiesFileInput = configurationService.getFileStream(sb.toString());
-        AllProperties.loadProperties(propertiesFileInput);
-        configurationService.closeResource(propertiesFileInput);
+        return sb.toString();
     }
     
     
@@ -60,6 +70,12 @@ public class LoadLibrariesPropertiesTask implements OrionTask
         {
             return false;
         }
+    }
+    
+    
+    private boolean havePropertiesNotBeenLoadedForLibrary(String libraryName)
+    {
+        return !havePropertiesBeenLoadedForLibrary(libraryName);
     }
     
     

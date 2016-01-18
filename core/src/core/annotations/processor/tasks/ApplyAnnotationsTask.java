@@ -29,29 +29,37 @@ public class ApplyAnnotationsTask implements OrionTask
     private void applyAnnotation(RegisteredAnnotation registeredAnnotation)
     {
         //if it finds a registered annotation that matches the one it is processing now then process it
+        //otherwise it means that we are processing an annotation that has not been registered
+        //in which case we ignore it
         if(allObjectAnnotationsList.stream()
             .filter((annotation) -> annotation.annotationType().getName().equals(registeredAnnotation.getAnnotationClass()))
             .count() == 1)
         {
-            try
-            {
-                ReflectionService reflectionService = annotationsProcessorService.getReflectionService();
-                Object someAnnotationService = reflectionService.loadAndInstantiateClass(registeredAnnotation.getAnnotationService());
-                Method someMethod = someAnnotationService.getClass().getMethod(registeredAnnotation.getAnnotationServiceMethodToCall(), OrionObject.class);
-                reflectionService.callMethod(someMethod, someAnnotationService, object);
-            }
-            catch(NoSuchMethodException exception)
-            {
-                exception.printStackTrace();
-            }
-            catch(SecurityException exception)
-            {
-                exception.printStackTrace();
-            }
-            catch(IllegalArgumentException exception)
-            {
-                exception.printStackTrace();
-            }
+            applyAnnotationToMethod(registeredAnnotation);
+        }
+    }
+    
+    
+    private void applyAnnotationToMethod(RegisteredAnnotation registeredAnnotation)
+    {
+        try
+        {
+            ReflectionService reflectionService = annotationsProcessorService.getReflectionService();
+            Object someAnnotationService = reflectionService.loadAndInstantiateClass(registeredAnnotation.getAnnotationService());
+            Method someMethod = someAnnotationService.getClass().getMethod(registeredAnnotation.getAnnotationServiceMethodToCall(), OrionObject.class);
+            reflectionService.callMethod(someMethod, someAnnotationService, object);
+        }
+        catch(NoSuchMethodException exception)
+        {
+            exception.printStackTrace();
+        }
+        catch(SecurityException exception)
+        {
+            exception.printStackTrace();
+        }
+        catch(IllegalArgumentException exception)
+        {
+            exception.printStackTrace();
         }
     }
 }

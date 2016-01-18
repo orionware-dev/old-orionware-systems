@@ -1,7 +1,3 @@
---extend Properties class and add isNotEmpty() for convenience
-
---create more private methods as necessary to make the code read like a sequence of normal sentences
-
 --make ApplyAnnotationsTask more efficient
 
 --facades should only use DTOs and not models. A DTO has a subset of vars
