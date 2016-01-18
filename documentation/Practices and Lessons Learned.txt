@@ -2,6 +2,8 @@
 from the respective model + any other vars necessary for the facade or
 the caller of the facade
 
+--instead of null collections or arrays return empty ones
+
 
 --methods should not return nulls. They should return like an empty list.
 I can also use JDK8's Optionals like this:
@@ -45,6 +47,16 @@ this.varName = builder.getVarName();
 --instead of constants classes like CoreConfiguration.java, make it a normal
 object and its constructor will populate the values in the static final vars
 and inject the object to whomever needs it like OrionObject.java
+
+--make constant classes "final" since all they have is public static finals
+
+--split methods into tasks
+
+--see if some of the instance vars of a class belong to a separate data class
+
+--split services into smaller service classes
+
+
 
 
 --put 3rd-party libraries and Orion-generated ones in a common project
