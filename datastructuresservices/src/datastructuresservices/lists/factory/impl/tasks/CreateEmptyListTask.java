@@ -4,10 +4,10 @@ import datastructures.lists.OrionArrayList;
 import datastructures.lists.OrionList;
 import datastructures.services.DataStructuresTask;
 
-public class CreateEmptyListTask extends DataStructuresTask
+public class CreateEmptyListTask<T> extends DataStructuresTask
 {
-    public OrionList<?> run()
+    public OrionList<T> run(Class<T> listType)
     {
-        return new OrionArrayList<>();
+        return new OrionArrayList<T>();
     }
 }

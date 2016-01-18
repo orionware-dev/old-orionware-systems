@@ -4,10 +4,11 @@ import datastructures.lists.OrionList;
 import datastructuresservices.lists.factory.ListFactoryService;
 import datastructuresservices.lists.factory.impl.tasks.CreateEmptyListTask;
 
-public class ListFactoryServiceImpl implements ListFactoryService
+public class ListFactoryServiceImpl<T> implements ListFactoryService<T>
 {
-    public OrionList<?> createEmptyList()
+    @SuppressWarnings({"rawtypes", "unchecked"})
+    public OrionList<T> createEmptyList(Class<T> listType)
     {
-        return new CreateEmptyListTask().run();
+        return new CreateEmptyListTask().run(listType);
     }
 }

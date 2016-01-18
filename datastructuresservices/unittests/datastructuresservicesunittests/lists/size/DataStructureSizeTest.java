@@ -5,6 +5,8 @@ import org.junit.Before;
 import org.junit.Test;
 import datastructures.lists.OrionArrayList;
 import datastructures.lists.OrionList;
+import datastructuresservices.lists.factory.ListFactoryService;
+import datastructuresservices.lists.factory.impl.ListFactoryServiceImpl;
 import datastructuresservices.lists.size.ListSizeService;
 import datastructuresservices.lists.size.impl.ListSizeServiceImpl;
 
@@ -20,11 +22,12 @@ public class DataStructureSizeTest
     @Test
     public void testDataStructureSize()
     {
+        ListFactoryService<DataStructureSizeTest> listFactoryService = new ListFactoryServiceImpl<DataStructureSizeTest>();
+        OrionList<DataStructureSizeTest> dataStructure = listFactoryService.createEmptyList(DataStructureSizeTest.class);
         ListSizeService dataStructureSizeService = new ListSizeServiceImpl();
-        OrionList<String> dataStructure = new OrionArrayList<String>();
-        dataStructure.add("1");
-        dataStructure.add("2");
-        dataStructure.add("3");
+        dataStructure.add(new DataStructureSizeTest());
+        dataStructure.add(new DataStructureSizeTest());
+        dataStructure.add(new DataStructureSizeTest());
         Assert.assertEquals(3, dataStructureSizeService.getSize(dataStructure));
     }
 }
