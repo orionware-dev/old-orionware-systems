@@ -13,11 +13,12 @@ import core.libraries.LibraryServiceImpl;
 
 public abstract class OrionObject
 {
-    protected Set<LibraryConfiguration> librariesConfigurationSet = new HashSet<LibraryConfiguration>();
+    protected Set<LibraryConfiguration> librariesConfigurationSet;
     
     
     public OrionObject()
     {
+        librariesConfigurationSet = new HashSet<LibraryConfiguration>();
         loadCoreConfiguration();
         
         if(new LibraryServiceImpl().isCoreLibrary(getClass()))
