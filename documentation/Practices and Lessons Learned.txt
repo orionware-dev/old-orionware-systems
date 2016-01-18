@@ -1,11 +1,3 @@
---make ApplyAnnotationsTask more efficient
-
---facades should only use DTOs and not models. A DTO has a subset of vars
-from the respective model + any other vars necessary for the facade or
-the caller of the facade
-
---instead of null collections or arrays return empty ones
-
 --methods should not return nulls. They should return like an empty list.
 I can also use JDK8's Optionals like this:
 Optional<Order> result = findOrderById(id);
@@ -25,10 +17,6 @@ public Optional<Order> findOrderById(String id)
         return Optional.absent();
 }
 
-
---create data classes as needed
-
---don't use IF/ELSE in constructors
 
 --for the @Injector, see if I can do something like this:
 private Kitchen kitchen;
@@ -51,17 +39,20 @@ and inject the object to whomever needs it like OrionObject.java
 
 --make constant classes "final" since all they have is public static finals
 
---split methods into tasks
-
 --see if some of the instance vars of a class belong to a separate data class
 
 --split services into smaller service classes
 
 --in config classes where I have static vars, see where I can use enums
 
---interfaces can declare methods, but also "default" modifier in which we can provide a default impl of the method inside the interface
+--interfaces can declare methods, but also "default" modifier in which we can
+provide a default impl of the method inside the interface
 
 --for annotations processing see if I can do getAnnotation(annotation.getClass());
+
+--split classes with private methods into more task classes
+
+--make ApplyAnnotationsTask more efficient
 
 
 

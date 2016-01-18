@@ -1,6 +1,7 @@
 package core.annotations.processor.tasks;
 
 import java.lang.annotation.Annotation;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -18,6 +19,8 @@ public class GatherAllObjectAnnotationsTask implements OrionTask
     {
         allObjectAnnotationsList = new ArrayList<Annotation>();
         gatherAllClassAnnotations(object);
+        Arrays.stream(object.getClass().getDeclaredConstructors())
+        .forEach((constructor) -> gatherAllConstructorsAnnotations(constructor));
         Arrays.stream(object.getClass().getDeclaredMethods())
             .forEach((method) -> gatherAllMethodsAnnotations(method));
         Arrays.stream(object.getClass().getDeclaredFields())
@@ -30,6 +33,12 @@ public class GatherAllObjectAnnotationsTask implements OrionTask
     private void gatherAllClassAnnotations(OrionObject object)
     {
         allObjectAnnotationsList.addAll(Arrays.asList(object.getClass().getAnnotations()));
+    }
+    
+    
+    private void gatherAllConstructorsAnnotations(Constructor<?> constructor)
+    {
+        allObjectAnnotationsList.addAll(Arrays.asList(constructor.getAnnotations()));
     }
     
     

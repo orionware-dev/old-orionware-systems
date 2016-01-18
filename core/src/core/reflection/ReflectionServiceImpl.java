@@ -1,8 +1,11 @@
 package core.reflection;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import core.OrionObject;
+import core.reflection.tasks.CallConstructorTask;
 import core.reflection.tasks.CallMethodTask;
+import core.reflection.tasks.GetConstructorsArrayTask;
 import core.reflection.tasks.GetMethodsArrayTask;
 import core.reflection.tasks.InstantiateClassTask;
 import core.reflection.tasks.LoadClassTask;
@@ -18,6 +21,13 @@ public class ReflectionServiceImpl implements ReflectionService
     
     
     @Override
+    public Constructor<?>[] getConstructorsArray(OrionObject object)
+    {
+        return new GetConstructorsArrayTask().run(object);
+    }
+    
+    
+    @Override
     public void makeMethodAccessible(Method method)
     {
         new MakeMethodAccessibleTask().run(method);
@@ -28,6 +38,13 @@ public class ReflectionServiceImpl implements ReflectionService
     public void callMethod(Method method, Object objectMethodBelongsTo, Object... methodArguments)
     {
         new CallMethodTask().run(method, objectMethodBelongsTo, methodArguments);
+    }
+    
+    
+    @Override
+    public void callConstructor(Constructor<?> constructor, Object... constructorArguments)
+    {
+        new CallConstructorTask().run(constructor, constructorArguments);
     }
     
     
