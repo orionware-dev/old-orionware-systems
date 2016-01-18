@@ -18,11 +18,7 @@ public abstract class OrionObject
     {
         librariesConfigurationSet = new HashSet<LibraryConfiguration>();
         loadCoreConfiguration();
-        
-        if(new LibraryServiceImpl().isCoreLibrary(getClass()))
-        {
-            processAllLibrariesConfiguration();
-        }
+        processAllLibrariesConfigurationIfItIsTheCoreLibrary();
     }
     
     
@@ -39,6 +35,15 @@ public abstract class OrionObject
     //this method is called by this constructor if only the core is running.
     //If another library is running like datastructures, then that constructor
     //will call this method so that all the libraries configs are loaded in one go
+    protected void processAllLibrariesConfigurationIfItIsTheCoreLibrary()
+    {
+        if(new LibraryServiceImpl().isCoreLibrary(getClass()))
+        {
+            processAllLibrariesConfiguration();
+        }
+    }
+    
+    
     protected void processAllLibrariesConfiguration()
     {
         new ConfigurationServiceImpl().loadLibrariesProperties(librariesConfigurationSet);
