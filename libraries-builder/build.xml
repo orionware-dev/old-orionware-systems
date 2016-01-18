@@ -3,7 +3,7 @@
     <property name="orion.libraries.home.dir" location="${basedir}/.."/>
 	<property name="orion.all.libraries.dir" location="${basedir}/../all-libraries"/>
     <import file="${basedir}/services/BuildPropertiesImporter.xml"/>
-	<import file="${basedir}/services/AntService.xml"/>
+	<import file="${orion.ant.tasks.services.dir}/AntService.xml"/>
 
     
     <target name="all">
