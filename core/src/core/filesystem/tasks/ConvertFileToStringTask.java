@@ -15,7 +15,7 @@ public class ConvertFileToStringTask implements OrionTask
         
         try
         {
-            input = (BufferedReader)fileSystemService.getReaderFromFile(filePath);
+            input = (BufferedReader)fileSystemService.getReaderForFile(filePath);
             StringBuilder fileStringBuilder = new StringBuilder();
             String currentLine = null;
             

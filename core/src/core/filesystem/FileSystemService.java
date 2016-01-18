@@ -23,7 +23,7 @@ public interface FileSystemService extends OrionService
     public void closeResource(Closeable stream);
     
     
-    public Reader getReaderFromFile(String filePath);
+    public Reader getReaderForFile(String filePath);
     
     
     public Writer getWritterForFile(String filePath);

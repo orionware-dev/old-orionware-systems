@@ -50,7 +50,7 @@ public class FileSystemServiceImpl implements FileSystemService
     
     
     @Override
-    public Reader getReaderFromFile(String filePath)
+    public Reader getReaderForFile(String filePath)
     {
         return new GetReaderFromFileTask().run(filePath);
     }
