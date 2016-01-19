@@ -15,11 +15,14 @@ import core.registry.RegisteredAnnotations;
 public class AnnotationsConfigurationServiceImpl implements AnnotationsConfigurationService
 {
     private FileSystemService fileSystemService;
+    private LoadLibrariesAnnotationsTask loadLibrariesAnnotationsTask;
+    private GetClasspathRootPathTask getClasspathRootPathTask;
+    private GetAnnotationsFileStreamTask getAnnotationsFileStreamTask;
     
     
     public AnnotationsConfigurationServiceImpl()
     {
-        fileSystemService = new FileSystemServiceImpl();
+        new AnnotationsConfigurationServiceDependenciesBuilder().injectDependencies(this);
     }
     
     
@@ -33,14 +36,14 @@ public class AnnotationsConfigurationServiceImpl implements AnnotationsConfigura
     @Override
     public void loadLibrariesAnnotations(Set<LibraryConfiguration> librariesConfiguration)
     {
-        new LoadLibrariesAnnotationsTask().run(this, librariesConfiguration);
+        loadLibrariesAnnotationsTask.run(this, librariesConfiguration);
     }
     
     
     @Override
     public InputStream getAnnotationsFileStream(String libraryName, String libraryAnnotationsFilePath)
     {
-        return new GetAnnotationsFileStreamTask().run(this, new GetClasspathRootPathTask(), libraryAnnotationsFilePath, libraryName);
+        return getAnnotationsFileStreamTask.run(this, getClasspathRootPathTask, libraryAnnotationsFilePath, libraryName);
     }
     
     
@@ -55,5 +58,29 @@ public class AnnotationsConfigurationServiceImpl implements AnnotationsConfigura
     public void closeResource(Closeable stream)
     {
         fileSystemService.closeResource(stream);
+    }
+
+
+    public void setFileSystemService(FileSystemService fileSystemService)
+    {
+        this.fileSystemService = fileSystemService;
+    }
+
+
+    public void setLoadLibrariesAnnotationsTask(LoadLibrariesAnnotationsTask loadLibrariesAnnotationsTask)
+    {
+        this.loadLibrariesAnnotationsTask = loadLibrariesAnnotationsTask;
+    }
+
+
+    public void setGetClasspathRootPathTask(GetClasspathRootPathTask getClasspathRootPathTask)
+    {
+        this.getClasspathRootPathTask = getClasspathRootPathTask;
+    }
+
+
+    public void setGetAnnotationsFileStreamTask(GetAnnotationsFileStreamTask getAnnotationsFileStreamTask)
+    {
+        this.getAnnotationsFileStreamTask = getAnnotationsFileStreamTask;
     }
 }

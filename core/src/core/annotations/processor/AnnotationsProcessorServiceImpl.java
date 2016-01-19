@@ -10,17 +10,46 @@ import core.reflection.ReflectionServiceImpl;
 
 public class AnnotationsProcessorServiceImpl implements AnnotationsProcessorService
 {
+    private GatherAllObjectAnnotationsTask gatherAllObjectAnnotationsTask;
+    private ApplyAnnotationsTask applyAnnotationsTask;
+    private ReflectionService reflectionService;
+    
+    
+    public AnnotationsProcessorServiceImpl()
+    {
+        new AnnotationsProcessorServiceDependenciesBuilder().injectDependencies(this);
+    }
+    
+    
     @Override
     public void processAllAnnotations(OrionObject OrionObject)
     {
-        List<Annotation> allObjectAnnotationsList = new GatherAllObjectAnnotationsTask().run(OrionObject);
-        new ApplyAnnotationsTask().run(this, OrionObject, allObjectAnnotationsList);
+        List<Annotation> allObjectAnnotationsList = gatherAllObjectAnnotationsTask.run(OrionObject);
+        applyAnnotationsTask.run(this, OrionObject, allObjectAnnotationsList);
     }
     
     
     @Override
     public ReflectionService getReflectionService()
     {
-        return new ReflectionServiceImpl();
+        return reflectionService;
+    }
+
+
+    public void setGatherAllObjectAnnotationsTask(GatherAllObjectAnnotationsTask gatherAllObjectAnnotationsTask)
+    {
+        this.gatherAllObjectAnnotationsTask = gatherAllObjectAnnotationsTask;
+    }
+
+
+    public void setApplyAnnotationsTask(ApplyAnnotationsTask applyAnnotationsTask)
+    {
+        this.applyAnnotationsTask = applyAnnotationsTask;
+    }
+
+
+    public void setReflectionService(ReflectionService reflectionService)
+    {
+        this.reflectionService = reflectionService;
     }
 }
