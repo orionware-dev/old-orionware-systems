@@ -4,14 +4,27 @@ import core.general.OrionConfiguration;
 
 public class DataStructuresServicesConfiguration extends OrionConfiguration
 {
-    public static String BIN_DIR = "bin";
-    public static String DEFAULT_CONFIGURATION_DIR = "configuration";
-    public static String LIBRARY_NAME = "datastructuresservices";
-    //public static String PROPERTIES_FILE_PATH = "/" + DEFAULT_CONFIGURATION_DIR + "/DataStructures.prop";
-    //public static String ANNOTATIONS_DEFINITION_FILE_PATH = "/" + DEFAULT_CONFIGURATION_DIR + "/DataStructuresAnnotations.prop";
+    public String BIN_DIR;
+    public String DEFAULT_CONFIGURATION_DIR;
+    public String LIBRARY_NAME;
+    //public String PROPERTIES_FILE_PATH;
+    //public String ANNOTATIONS_DEFINITION_FILE_PATH;
     
     //classpath dirs
-    public static String CLASSPATH_ROOT = LIBRARY_NAME;
-    public static String INTEGRATION_TESTS_CLASSPATH_ROOT = LIBRARY_NAME + "integrationtests";
-    public static String UNIT_TESTS_CLASSPATH_ROOT = LIBRARY_NAME + "unittests";
+    public String CLASSPATH_ROOT;
+    public String INTEGRATION_TESTS_CLASSPATH_ROOT;
+    public String UNIT_TESTS_CLASSPATH_ROOT;
+    
+    
+    public DataStructuresServicesConfiguration()
+    {
+        BIN_DIR = "bin";
+        DEFAULT_CONFIGURATION_DIR = "configuration";
+        LIBRARY_NAME = "datastructuresservices";
+        //PROPERTIES_FILE_PATH = "/" + DEFAULT_CONFIGURATION_DIR + "/DataStructures.prop";
+        //ANNOTATIONS_DEFINITION_FILE_PATH = "/" + DEFAULT_CONFIGURATION_DIR + "/DataStructuresAnnotations.prop";
+        CLASSPATH_ROOT = LIBRARY_NAME;
+        INTEGRATION_TESTS_CLASSPATH_ROOT = LIBRARY_NAME + "integrationtests";
+        UNIT_TESTS_CLASSPATH_ROOT = LIBRARY_NAME + "unittests";
+    }
 }
