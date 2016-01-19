@@ -1,16 +1,17 @@
+--see if some of the instance vars of a class belong to a separate data class
+
 --for the "core" project = for complicated dependency (object) construction,
 use ObjectDependenciesBuilder.java. This builder will be called by the constructor
 and will instantiate the dependencies and in the constructor you can do:
 this.varName = builder.getVarName();
 
---see if some of the instance vars of a class belong to a separate data class
+--split classes with private methods into more task classes
+
+--make ApplyAnnotationsTask more efficient
 
 --interfaces can declare methods, but also "default" modifier in which we can
 provide a default impl of the method inside the interface
 
---split classes with private methods into more task classes
-
---make ApplyAnnotationsTask more efficient
 
 
 
