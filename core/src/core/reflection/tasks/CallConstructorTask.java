@@ -2,7 +2,6 @@ package core.reflection.tasks;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import core.services.OrionTask;
 
 public class CallConstructorTask implements OrionTask

@@ -8,19 +8,6 @@ public class TestClass2 extends OrionObject
     private TestClass3 testClass3;
     
     
-    public TestClass2()
-    {
-        this(null);
-    }
-    
-    
-    @Injector
-    public TestClass2(TestClass3 testClass3)
-    {
-        
-    }
-    
-    
     public String testThisClassIsRunning()
     {
         return "Running coreintegrationtests.dependencyinjection.TestClass2...";
@@ -33,7 +20,7 @@ public class TestClass2 extends OrionObject
     }
     
     
-    //@Injector(ID = "coreintegrationtests.dependencyinjection.TestClass3")
+    @Injector(ID = "coreintegrationtests.dependencyinjection.TestClass3")
     private void setTestClass3(TestClass3 testClass3)
     {
         this.testClass3 = testClass3;

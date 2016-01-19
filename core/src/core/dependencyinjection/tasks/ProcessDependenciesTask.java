@@ -1,6 +1,5 @@
 package core.dependencyinjection.tasks;
 
-import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import core.OrionObject;
@@ -18,25 +17,12 @@ public class ProcessDependenciesTask implements OrionTask
     {
         this.object = object;
         this.reflectionService = reflectionService;
-        //Arrays.stream(reflectionService.getMethodsArray(object))
-            //.forEach(this::processMethod);
-        Arrays.stream(reflectionService.getConstructorsArray(object))
-        .forEach(this::processConstructor);
+        Arrays.stream(reflectionService.getMethodsArray(object))
+            .forEach(this::processMethod);
     }
     
     
-    private void processConstructor(Constructor<?> constructor)
-    {
-        Injector injection = extractAnnotationFromConstructor(constructor);
-        
-        if(injection != null)
-        {
-            processInjection(constructor, injection);
-        }
-    }
-    
-    
-    /*private void processMethod(Method method)
+    private void processMethod(Method method)
     {
         reflectionService.makeMethodAccessible(method);
         Injector injection = extractAnnotationFromMethod(method);
@@ -45,12 +31,6 @@ public class ProcessDependenciesTask implements OrionTask
         {
             processInjection(method, injection);
         }
-    }*/
-    
-    
-    private Injector extractAnnotationFromConstructor(Constructor<?> constructor)
-    {
-        return constructor.getAnnotation(Injector.class);
     }
     
     
@@ -60,44 +40,7 @@ public class ProcessDependenciesTask implements OrionTask
     }
     
     
-    private void processInjection(Constructor<?> constructor, Injector injection)
-    {
-        //String classToInject = injection.ID();
-        
-        try
-        {
-            Class<?>[] constructorParameters = constructor.getParameterTypes();
-            
-            if(constructorParameters != null)
-            {
-                Object[] constructorParametersObjects = new Object[constructorParameters.length];
-                int constructorParameterCounter = 0;
-                
-                for(Class<?> constructorParameter : constructorParameters)
-                {
-                    constructorParametersObjects[constructorParameterCounter] = Class.forName(constructorParameter.getName()).newInstance();
-                    ++constructorParameterCounter;
-                }
-                
-                reflectionService.callConstructor(constructor, constructorParametersObjects);
-            }
-        }
-        catch(InstantiationException exception)
-        {
-            exception.printStackTrace();
-        }
-        catch(IllegalAccessException exception)
-        {
-            exception.printStackTrace();
-        }
-        catch(ClassNotFoundException exception)
-        {
-            exception.printStackTrace();
-        }
-    }
-    
-    
-    /*private void processInjection(Method method, Injector injection)
+    private void processInjection(Method method, Injector injection)
     {
         String classToInject = injection.ID();
         
@@ -117,5 +60,5 @@ public class ProcessDependenciesTask implements OrionTask
         {
             exception.printStackTrace();
         }
-    }*/
+    }
 }
