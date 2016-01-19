@@ -24,10 +24,11 @@ public abstract class OrionObject
     
     private LibraryConfiguration initialiseCoreConfiguration()
     {
+        CoreConfiguration coreConfiguration = new CoreConfiguration();
         LibraryConfiguration libraryConfiguration = new LibraryConfiguration();
-        libraryConfiguration.setLibraryName(CoreConfiguration.LIBRARY_NAME);
-        libraryConfiguration.setConfigurationFilePath(CoreConfiguration.PROPERTIES_FILE_PATH);
-        libraryConfiguration.setAnnotationsFilePath(CoreConfiguration.ANNOTATIONS_DEFINITION_FILE_PATH);
+        libraryConfiguration.setLibraryName(coreConfiguration.LIBRARY_NAME);
+        libraryConfiguration.setConfigurationFilePath(coreConfiguration.PROPERTIES_FILE_PATH);
+        libraryConfiguration.setAnnotationsFilePath(coreConfiguration.ANNOTATIONS_DEFINITION_FILE_PATH);
         return libraryConfiguration;
     }
     

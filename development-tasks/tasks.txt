@@ -51,3 +51,16 @@ return ((OrionAbstractFunction)function).run();
 --NEW PROJECT GENERATOR dev tool=============
 create a dev tool that after you create an empty project, it will generate the necessary general and
 services dir and default interfaces and abstract classes, etc.
+
+
+
+--for the @Injector, see if I can do something like this:
+private Kitchen kitchen;
+private Bedroom bedroom;
+@Injector
+House(Kitchen k, Bedroom b)
+{
+    this.kitchen = k;
+    this.bedroom = b;
+}
+-make it a constructor annotation, but figure out how to avoid StackOverFlowError

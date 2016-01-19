@@ -1,43 +1,11 @@
---methods should not return nulls. They should return like an empty list.
-I can also use JDK8's Optionals like this:
-Optional<Order> result = findOrderById(id);
-if(result.isPresent())
-    // result logic using result.get()
-else
-    // no result logic
-
-or:
-
-public Optional<Order> findOrderById(String id)
-{
-    OrderResponse response = lookup(id);
-    if(response.success)
-        return Optional.of(response.result);
-    else
-        return Optional.absent();
-}
-
-
---for the @Injector, see if I can do something like this:
-private Kitchen kitchen;
-private Bedroom bedroom;
-@Injector
-House(Kitchen k, Bedroom b)
-{
-    this.kitchen = k;
-    this.bedroom = b;
-}
+--instead of constants classes like CoreConfiguration.java, make it a normal
+object and its constructor will populate the values in the static final vars
+and inject the object to whomever needs it like OrionObject.java
 
 --for the "core" project = for complicated dependency (object) construction,
 use ObjectDependenciesBuilder.java. This builder will be called by the constructor
 and will instantiate the dependencies and in the constructor you can do:
 this.varName = builder.getVarName();
-
---instead of constants classes like CoreConfiguration.java, make it a normal
-object and its constructor will populate the values in the static final vars
-and inject the object to whomever needs it like OrionObject.java
-
---make constant classes "final" since all they have is public static finals
 
 --see if some of the instance vars of a class belong to a separate data class
 

@@ -7,10 +7,11 @@ public class GetConfigurationPathTask implements OrionTask
 {
     public String run(String libraryClasspathRootPath, GetClasspathRootPathTask getClasspathRootPathTask)
     {
+        CoreConfiguration coreConfiguration = new CoreConfiguration();
         StringBuilder sb = new StringBuilder();
         sb.append((String)getClasspathRootPathTask.run(libraryClasspathRootPath));
         sb.append("/");
-        sb.append(CoreConfiguration.DEFAULT_CONFIGURATION_DIR);
+        sb.append(coreConfiguration.DEFAULT_CONFIGURATION_DIR);
         return sb.toString();
     }
 }

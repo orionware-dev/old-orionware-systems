@@ -11,6 +11,7 @@ public class GetClasspathRootPathTask implements OrionTask
         //use this class to get the path of this class
         File classpathRoot = new File(this.getClass().getResource("").getPath());
         StringBuilder sb = null;
+        CoreConfiguration coreConfiguration = new CoreConfiguration();
         
         //get parent dir until we reach the classpath root which is the "core" dir
         do
@@ -18,16 +19,16 @@ public class GetClasspathRootPathTask implements OrionTask
             classpathRoot = new File(classpathRoot.getParent());
             sb = new StringBuilder();
             sb.append(File.separator);
-            sb.append(CoreConfiguration.CLASSPATH_ROOT);
+            sb.append(coreConfiguration.CLASSPATH_ROOT);
             
-            if(!CoreConfiguration.CLASSPATH_ROOT.equals(libraryClasspathRootPath)
+            if(!coreConfiguration.CLASSPATH_ROOT.equals(libraryClasspathRootPath)
                 && classpathRoot.getAbsolutePath().endsWith(sb.toString()))
             {
                 classpathRoot = new File(classpathRoot.getParent());
                 sb = new StringBuilder();
-                sb.append(CoreConfiguration.CLASSPATH_ROOT);
+                sb.append(coreConfiguration.CLASSPATH_ROOT);
                 sb.append(File.separator);
-                sb.append(CoreConfiguration.BIN_DIR);
+                sb.append(coreConfiguration.BIN_DIR);
                 
                 if(classpathRoot.getAbsolutePath().endsWith(sb.toString()))
                 {
@@ -38,7 +39,7 @@ public class GetClasspathRootPathTask implements OrionTask
                     sb.append(File.separator);
                     sb.append(libraryClasspathRootPath);
                     sb.append(File.separator);
-                    sb.append(CoreConfiguration.BIN_DIR);
+                    sb.append(coreConfiguration.BIN_DIR);
                     sb.append(File.separator);
                     sb.append(libraryClasspathRootPath);
                     classpathRoot = new File(sb.toString());
