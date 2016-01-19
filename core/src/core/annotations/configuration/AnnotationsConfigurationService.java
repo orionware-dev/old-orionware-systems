@@ -9,17 +9,8 @@ import core.services.OrionService;
 
 public interface AnnotationsConfigurationService extends OrionService
 {
-    public InputStream getAnnotationsFileStream(String libraryName, String libraryAnnotationsFilePath);
-    
-    
     public void registerAnnotation(RegisteredAnnotation registeredAnnotation);
     
     
     public void loadLibrariesAnnotations(Set<LibraryConfiguration> librariesConfiguration);
-    
-    
-    public InputStream getFileStream(String filePath);
-    
-    
-    public void closeResource(Closeable stream);
 }

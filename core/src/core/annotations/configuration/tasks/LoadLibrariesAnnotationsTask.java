@@ -4,6 +4,7 @@ import java.io.InputStream;
 import java.util.Set;
 import core.annotations.RegisteredAnnotation;
 import core.annotations.configuration.AnnotationsConfigurationService;
+import core.annotations.filestream.AnnotationsFileStreamService;
 import core.configuration.LibrariesConfigurationMapper;
 import core.configuration.LibraryConfiguration;
 import core.general.OrionProperties;
@@ -12,13 +13,14 @@ import core.services.OrionTask;
 public class LoadLibrariesAnnotationsTask implements OrionTask
 {
     private AnnotationsConfigurationService annotationsConfigurationService;
+    private AnnotationsFileStreamService annotationsFileStreamService;
     private String currentAnnotationClass = null;
     private String currentAnnotationServiceClass = null;
     private String currentAnnotationServiceMethodToCall = null;
     private OrionProperties annotationsDeclarations;
     
     
-    public void run(AnnotationsConfigurationService annotationsConfigurationService, Set<LibraryConfiguration> librariesConfiguration)
+    public void run(AnnotationsConfigurationService annotationsConfigurationService, AnnotationsFileStreamService annotationsFileStreamService, Set<LibraryConfiguration> librariesConfiguration)
     {
         this.annotationsConfigurationService = annotationsConfigurationService;
         
@@ -66,9 +68,9 @@ public class LoadLibrariesAnnotationsTask implements OrionTask
     private OrionProperties loadLibraryAnnotationsDefinitions(String libraryName, String libraryAnnotationsFilePath)
     {
         OrionProperties annotationsDeclarations = new OrionProperties();
-        InputStream libraryAnnotationsFileStream = annotationsConfigurationService.getAnnotationsFileStream(libraryName, libraryAnnotationsFilePath);
+        InputStream libraryAnnotationsFileStream = annotationsFileStreamService.getAnnotationsFileStream(libraryName, libraryAnnotationsFilePath);
         annotationsDeclarations.loadProperties(libraryAnnotationsFileStream);
-        annotationsConfigurationService.closeResource(libraryAnnotationsFileStream);
+        annotationsFileStreamService.closeResource(libraryAnnotationsFileStream);
         return annotationsDeclarations;
     }
     
