@@ -1,6 +1,4 @@
---instead of constants classes like CoreConfiguration.java, make it a normal
-object and its constructor will populate the values in the static final vars
-and inject the object to whomever needs it like OrionObject.java
+--split services into smaller service classes
 
 --for the "core" project = for complicated dependency (object) construction,
 use ObjectDependenciesBuilder.java. This builder will be called by the constructor
@@ -8,8 +6,6 @@ and will instantiate the dependencies and in the constructor you can do:
 this.varName = builder.getVarName();
 
 --see if some of the instance vars of a class belong to a separate data class
-
---split services into smaller service classes
 
 --in config classes where I have static vars, see where I can use enums
 
