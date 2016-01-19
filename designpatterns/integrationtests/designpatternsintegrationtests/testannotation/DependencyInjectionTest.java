@@ -2,11 +2,7 @@ package designpatternsintegrationtests.testannotation;
 
 import org.junit.Before;
 import org.junit.Test;
-import core.orion.OrionObject;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import org.junit.Assert;
+import core.OrionObject;
 
 public class DependencyInjectionTest extends OrionObject
 {

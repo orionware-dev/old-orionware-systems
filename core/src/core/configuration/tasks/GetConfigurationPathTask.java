@@ -1,17 +1,16 @@
 package core.configuration.tasks;
 
-import core.configuration.CoreConfiguration;
+import core.general.DefaultConfigurationEnum;
 import core.services.OrionTask;
 
 public class GetConfigurationPathTask implements OrionTask
 {
     public String run(String libraryClasspathRootPath, GetClasspathRootPathTask getClasspathRootPathTask)
     {
-        CoreConfiguration coreConfiguration = new CoreConfiguration();
         StringBuilder sb = new StringBuilder();
         sb.append((String)getClasspathRootPathTask.run(libraryClasspathRootPath));
         sb.append("/");
-        sb.append(coreConfiguration.DEFAULT_CONFIGURATION_DIR);
+        sb.append(DefaultConfigurationEnum.DEFAULT_CONFIGURATION_DIR.get());
         return sb.toString();
     }
 }

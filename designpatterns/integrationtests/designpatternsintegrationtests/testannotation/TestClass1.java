@@ -1,6 +1,6 @@
 package designpatternsintegrationtests.testannotation;
 
-import core.orion.OrionObject;
+import core.OrionObject;
 import datastructures.testannotation.TestAnnotation;
 
 @TestAnnotation

@@ -5,7 +5,7 @@ import java.util.Set;
 import core.annotations.AnnotationsService;
 import core.annotations.AnnotationsServiceImpl;
 import core.configuration.ConfigurationServiceImpl;
-import core.configuration.CoreConfiguration;
+import core.configuration.CoreConfigurationEnum;
 import core.configuration.LibraryConfiguration;
 import core.libraries.LibraryServiceImpl;
 
@@ -24,11 +24,10 @@ public abstract class OrionObject
     
     private LibraryConfiguration initialiseCoreConfiguration()
     {
-        CoreConfiguration coreConfiguration = new CoreConfiguration();
         LibraryConfiguration libraryConfiguration = new LibraryConfiguration();
-        libraryConfiguration.setLibraryName(coreConfiguration.LIBRARY_NAME);
-        libraryConfiguration.setConfigurationFilePath(coreConfiguration.PROPERTIES_FILE_PATH);
-        libraryConfiguration.setAnnotationsFilePath(coreConfiguration.ANNOTATIONS_DEFINITION_FILE_PATH);
+        libraryConfiguration.setLibraryName(CoreConfigurationEnum.LIBRARY_NAME.get());
+        libraryConfiguration.setConfigurationFilePath(CoreConfigurationEnum.PROPERTIES_FILE_PATH.get());
+        libraryConfiguration.setAnnotationsFilePath(CoreConfigurationEnum.ANNOTATIONS_DEFINITION_FILE_PATH.get());
         return libraryConfiguration;
     }
     

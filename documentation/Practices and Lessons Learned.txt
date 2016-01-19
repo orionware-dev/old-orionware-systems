@@ -1,5 +1,3 @@
---split services into smaller service classes
-
 --for the "core" project = for complicated dependency (object) construction,
 use ObjectDependenciesBuilder.java. This builder will be called by the constructor
 and will instantiate the dependencies and in the constructor you can do:
@@ -7,12 +5,8 @@ this.varName = builder.getVarName();
 
 --see if some of the instance vars of a class belong to a separate data class
 
---in config classes where I have static vars, see where I can use enums
-
 --interfaces can declare methods, but also "default" modifier in which we can
 provide a default impl of the method inside the interface
-
---for annotations processing see if I can do getAnnotation(annotation.getClass());
 
 --split classes with private methods into more task classes
 

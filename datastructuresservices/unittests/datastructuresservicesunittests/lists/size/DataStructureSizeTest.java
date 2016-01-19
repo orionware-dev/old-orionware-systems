@@ -3,7 +3,6 @@ package datastructuresservicesunittests.lists.size;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import datastructures.lists.OrionArrayList;
 import datastructures.lists.OrionList;
 import datastructuresservices.lists.factory.ListFactoryService;
 import datastructuresservices.lists.factory.impl.ListFactoryServiceImpl;

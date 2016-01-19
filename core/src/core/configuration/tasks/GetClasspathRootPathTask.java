@@ -1,7 +1,8 @@
 package core.configuration.tasks;
 
 import java.io.File;
-import core.configuration.CoreConfiguration;
+import core.configuration.CoreConfigurationEnum;
+import core.general.DefaultConfigurationEnum;
 import core.services.OrionTask;
 
 public class GetClasspathRootPathTask implements OrionTask
@@ -11,7 +12,6 @@ public class GetClasspathRootPathTask implements OrionTask
         //use this class to get the path of this class
         File classpathRoot = new File(this.getClass().getResource("").getPath());
         StringBuilder sb = null;
-        CoreConfiguration coreConfiguration = new CoreConfiguration();
         
         //get parent dir until we reach the classpath root which is the "core" dir
         do
@@ -19,16 +19,16 @@ public class GetClasspathRootPathTask implements OrionTask
             classpathRoot = new File(classpathRoot.getParent());
             sb = new StringBuilder();
             sb.append(File.separator);
-            sb.append(coreConfiguration.CLASSPATH_ROOT);
+            sb.append(CoreConfigurationEnum.CLASSPATH_ROOT.get());
             
-            if(!coreConfiguration.CLASSPATH_ROOT.equals(libraryClasspathRootPath)
+            if(!CoreConfigurationEnum.CLASSPATH_ROOT.get().equals(libraryClasspathRootPath)
                 && classpathRoot.getAbsolutePath().endsWith(sb.toString()))
             {
                 classpathRoot = new File(classpathRoot.getParent());
                 sb = new StringBuilder();
-                sb.append(coreConfiguration.CLASSPATH_ROOT);
+                sb.append(CoreConfigurationEnum.CLASSPATH_ROOT.get());
                 sb.append(File.separator);
-                sb.append(coreConfiguration.BIN_DIR);
+                sb.append(DefaultConfigurationEnum.BIN_DIR.get());
                 
                 if(classpathRoot.getAbsolutePath().endsWith(sb.toString()))
                 {
@@ -39,7 +39,7 @@ public class GetClasspathRootPathTask implements OrionTask
                     sb.append(File.separator);
                     sb.append(libraryClasspathRootPath);
                     sb.append(File.separator);
-                    sb.append(coreConfiguration.BIN_DIR);
+                    sb.append(DefaultConfigurationEnum.BIN_DIR.get());
                     sb.append(File.separator);
                     sb.append(libraryClasspathRootPath);
                     classpathRoot = new File(sb.toString());
