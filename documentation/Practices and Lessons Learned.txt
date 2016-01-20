@@ -1,6 +1,6 @@
---see if some of the instance vars of a class belong to a separate data class
-
 --split classes with private methods into more task classes
+
+--see if some of the instance vars of a class belong to a separate data class
 
 --interfaces can declare methods, but also "default" modifier in which we can
 provide a default impl of the method inside the interface

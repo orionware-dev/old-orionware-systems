@@ -1,10 +1,12 @@
 package core.annotations.processor;
 
 import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
 import java.util.List;
 import core.OrionObject;
 import core.annotations.processor.tasks.ApplyAnnotationsTask;
 import core.annotations.processor.tasks.GatherAllObjectAnnotationsTask;
+import core.dependencyinjection.Injector;
 import core.reflection.ReflectionService;
 
 public class AnnotationsProcessorServiceImpl implements AnnotationsProcessorService
@@ -32,6 +34,14 @@ public class AnnotationsProcessorServiceImpl implements AnnotationsProcessorServ
     public ReflectionService getReflectionService()
     {
         return reflectionService;
+    }
+    
+    
+    @SuppressWarnings({"rawtypes", "unchecked"})
+    @Override
+    public Annotation extractAnnotationFromMethod(Method method, Class annotationClassToExtract)
+    {
+        return method.getAnnotation(annotationClassToExtract);
     }
 
 
