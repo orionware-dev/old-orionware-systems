@@ -12,9 +12,9 @@ import core.services.OrionTask;
 public class LoadLibrariesAnnotationsTask implements OrionTask
 {
     private AnnotationsConfigurationService annotationsConfigurationService;
-    private String currentAnnotationClass = null;
-    private String currentAnnotationServiceClass = null;
-    private String currentAnnotationServiceMethodToCall = null;
+    private String currentAnnotationClass;
+    private String currentAnnotationServiceClass;
+    private String currentAnnotationServiceMethodToCall;
     private OrionProperties annotationsDeclarations;
     
     
