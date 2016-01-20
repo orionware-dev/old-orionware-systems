@@ -5,7 +5,9 @@ import java.io.InputStream;
 import java.util.Set;
 import core.annotations.RegisteredAnnotation;
 import core.annotations.configuration.tasks.GetAnnotationsFileStreamTask;
-import core.annotations.configuration.tasks.LoadLibrariesAnnotationsTask;
+import core.annotations.configuration.tasks.LoadLibraryAnnotationsDefinitionsTask;
+import core.annotations.registry.AnnotationsRegistrationService;
+import core.annotations.registry.tasks.RegisterLibraryAnnotationsTask;
 import core.configuration.LibraryConfiguration;
 import core.configuration.tasks.GetClasspathRootPathTask;
 import core.filesystem.FileSystemService;
@@ -14,9 +16,10 @@ import core.registry.RegisteredAnnotations;
 public class AnnotationsConfigurationServiceImpl implements AnnotationsConfigurationService
 {
     private FileSystemService fileSystemService;
-    private LoadLibrariesAnnotationsTask loadLibrariesAnnotationsTask;
     private GetClasspathRootPathTask getClasspathRootPathTask;
     private GetAnnotationsFileStreamTask getAnnotationsFileStreamTask;
+    private AnnotationsRegistrationService annotationsRegistrationService;
+    private RegisterLibraryAnnotationsTask registerLibraryAnnotationsTask;
     
     
     public AnnotationsConfigurationServiceImpl()
@@ -35,7 +38,10 @@ public class AnnotationsConfigurationServiceImpl implements AnnotationsConfigura
     @Override
     public void loadLibrariesAnnotations(Set<LibraryConfiguration> librariesConfiguration)
     {
-        loadLibrariesAnnotationsTask.run(this, librariesConfiguration);
+        librariesConfiguration.stream()
+            .filter((libraryConfiguration) -> libraryConfiguration.getAnnotationsFilePath() != null)
+            .filter((libraryConfiguration) -> annotationsRegistrationService.haveAnnotationsNotBeenRegisteredForLibrary(libraryConfiguration.getLibraryName()))
+            .forEach((libraryConfiguration) -> registerLibraryAnnotationsTask.run(this, new LoadLibraryAnnotationsDefinitionsTask(), annotationsRegistrationService, libraryConfiguration));
     }
     
     
@@ -66,12 +72,6 @@ public class AnnotationsConfigurationServiceImpl implements AnnotationsConfigura
     }
 
 
-    public void setLoadLibrariesAnnotationsTask(LoadLibrariesAnnotationsTask loadLibrariesAnnotationsTask)
-    {
-        this.loadLibrariesAnnotationsTask = loadLibrariesAnnotationsTask;
-    }
-
-
     public void setGetClasspathRootPathTask(GetClasspathRootPathTask getClasspathRootPathTask)
     {
         this.getClasspathRootPathTask = getClasspathRootPathTask;
@@ -81,5 +81,17 @@ public class AnnotationsConfigurationServiceImpl implements AnnotationsConfigura
     public void setGetAnnotationsFileStreamTask(GetAnnotationsFileStreamTask getAnnotationsFileStreamTask)
     {
         this.getAnnotationsFileStreamTask = getAnnotationsFileStreamTask;
+    }
+
+
+    public void setAnnotationsRegistrationService(AnnotationsRegistrationService annotationsRegistrationService)
+    {
+        this.annotationsRegistrationService = annotationsRegistrationService;
+    }
+
+
+    public void setRegisterLibraryAnnotationsTask(RegisterLibraryAnnotationsTask registerLibraryAnnotationsTask)
+    {
+        this.registerLibraryAnnotationsTask = registerLibraryAnnotationsTask;
     }
 }
