@@ -2,8 +2,6 @@
 
 --split classes with private methods into more task classes
 
---make ApplyAnnotationsTask more efficient
-
 --interfaces can declare methods, but also "default" modifier in which we can
 provide a default impl of the method inside the interface
 

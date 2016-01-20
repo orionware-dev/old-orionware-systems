@@ -30,7 +30,8 @@ public class ApplyAnnotationsTask implements OrionTask
     {
         //if it finds a registered annotation that matches the one it is processing now then process it
         //otherwise it means that we are processing an annotation that has not been registered
-        //in which case we ignore it
+        //in which case we ignore it. It could be a Java/Spring/etc. annotation in which
+        //case it is processed by the respective framework
         if(allObjectAnnotationsList.stream()
             .filter((annotation) -> annotation.annotationType().getName().equals(registeredAnnotation.getAnnotationClass()))
             .count() == 1)

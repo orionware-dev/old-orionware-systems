@@ -18,38 +18,10 @@ public class GatherAllObjectAnnotationsTask implements OrionTask
     public List<Annotation> run(OrionObject object)
     {
         allObjectAnnotationsList = new ArrayList<Annotation>();
-        gatherAllClassAnnotations(object);
-        Arrays.stream(object.getClass().getDeclaredConstructors())
-        .forEach((constructor) -> gatherAllConstructorsAnnotations(constructor));
-        Arrays.stream(object.getClass().getDeclaredMethods())
-            .forEach((method) -> gatherAllMethodsAnnotations(method));
-        Arrays.stream(object.getClass().getDeclaredFields())
-            .forEach((variable) -> gatherAllVariablesAnnotations(variable));
-        
+        allObjectAnnotationsList.addAll(new GatherAllClassLevelAnnotationsTask().run(object));
+        allObjectAnnotationsList.addAll(new GatherAllObjectConstructorsAnnotationsTask().run(object));
+        allObjectAnnotationsList.addAll(new GatherAllObjectMethodsAnnotationsTask().run(object));
+        allObjectAnnotationsList.addAll(new GatherAllObjectVariablesAnnotationsTask().run(object));
         return allObjectAnnotationsList;
-    }
-    
-    
-    private void gatherAllClassAnnotations(OrionObject object)
-    {
-        allObjectAnnotationsList.addAll(Arrays.asList(object.getClass().getAnnotations()));
-    }
-    
-    
-    private void gatherAllConstructorsAnnotations(Constructor<?> constructor)
-    {
-        allObjectAnnotationsList.addAll(Arrays.asList(constructor.getAnnotations()));
-    }
-    
-    
-    private void gatherAllMethodsAnnotations(Method method)
-    {
-        allObjectAnnotationsList.addAll(Arrays.asList(method.getAnnotations()));
-    }
-    
-    
-    private void gatherAllVariablesAnnotations(Field variable)
-    {
-        allObjectAnnotationsList.addAll(Arrays.asList(variable.getAnnotations()));
     }
 }

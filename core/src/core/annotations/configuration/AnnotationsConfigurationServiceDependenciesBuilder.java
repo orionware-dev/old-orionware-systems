@@ -1,6 +1,7 @@
 package core.annotations.configuration;
 
 import core.annotations.configuration.tasks.GetAnnotationsFileStreamTask;
+import core.annotations.configuration.tasks.LoadLibraryAnnotationsDefinitionsTask;
 import core.annotations.registry.AnnotationsRegistrationServiceImpl;
 import core.annotations.registry.tasks.RegisterLibraryAnnotationsTask;
 import core.configuration.tasks.GetClasspathRootPathTask;
@@ -16,5 +17,6 @@ public class AnnotationsConfigurationServiceDependenciesBuilder extends ObjectDe
         object.setGetClasspathRootPathTask(new GetClasspathRootPathTask());
         object.setGetAnnotationsFileStreamTask(new GetAnnotationsFileStreamTask());
         object.setRegisterLibraryAnnotationsTask(new RegisterLibraryAnnotationsTask());
+        object.setLoadLibraryAnnotationsDefinitionsTask(new LoadLibraryAnnotationsDefinitionsTask());
     }
 }
