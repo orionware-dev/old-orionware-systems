@@ -21,11 +21,7 @@ public class LoadLibrariesAnnotationsTask implements OrionTask
     public void run(AnnotationsConfigurationService annotationsConfigurationService, Set<LibraryConfiguration> librariesConfiguration)
     {
         this.annotationsConfigurationService = annotationsConfigurationService;
-        
-        if(librariesConfiguration != null)
-        {
-            registerAllLibrariesAnnotations(librariesConfiguration);
-        }
+        registerAllLibrariesAnnotations(librariesConfiguration);
     }
     
     

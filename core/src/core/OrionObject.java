@@ -53,8 +53,12 @@ public abstract class OrionObject
     
     protected void processAllLibrariesConfiguration()
     {
-        configurationService.loadLibrariesProperties(librariesConfigurationSet);
-        annotationsService.getAnnotationsConfigurationService().loadLibrariesAnnotations(librariesConfigurationSet);
+        if(librariesConfigurationSet != null)
+        {
+            configurationService.loadLibrariesProperties(librariesConfigurationSet);
+            annotationsService.getAnnotationsConfigurationService().loadLibrariesAnnotations(librariesConfigurationSet);
+        }
+        
         annotationsService.getAnnotationsProcessorService().processAllAnnotations(this);
     }
 

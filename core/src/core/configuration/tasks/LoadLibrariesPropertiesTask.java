@@ -19,11 +19,7 @@ public class LoadLibrariesPropertiesTask implements OrionTask
     {
         this.configurationService = configurationService;
         this.getClasspathRootPathTask = getClasspathRootPathTask;
-        
-        if(librariesConfiguration != null)
-        {
-            loadLibrariesProperties(librariesConfiguration);
-        }
+        loadLibrariesProperties(librariesConfiguration);
     }
     
     
