@@ -29,29 +29,31 @@ public class LoadLibrariesAnnotationsTask implements OrionTask
     {
         for(LibraryConfiguration libraryConfiguration : librariesConfiguration)
         {
+            //we check for the annotations file path, because it is possible
+            //a library not to have any custom annotations
             if(libraryConfiguration.getAnnotationsFilePath() != null
                             && haveAnnotationsNotBeenRegistered(libraryConfiguration.getLibraryName()))
             {
-                registerLibraryAnnotations(libraryConfiguration.getLibraryName(), libraryConfiguration.getAnnotationsFilePath());
+                registerLibraryAnnotations(libraryConfiguration);
                 setAnnotationsAsRegistered(libraryConfiguration.getLibraryName());
             }
         }
     }
     
     
-    private void registerLibraryAnnotations(String libraryName, String libraryAnnotationsFilePath)
+    private void registerLibraryAnnotations(LibraryConfiguration libraryConfiguration)
     {
-        annotationsDeclarations = loadLibraryAnnotationsDefinitions(libraryName, libraryAnnotationsFilePath);
+        annotationsDeclarations = loadLibraryAnnotationsDefinitions(libraryConfiguration.getLibraryName(), libraryConfiguration.getAnnotationsFilePath());
         
         if(annotationsDeclarations.isNotEmpty())
         {
             int annotationCounter = 1;
             
-            while(annotationsDeclarations.getProperty(libraryName + ".annotation." + annotationCounter) != null)
+            while(annotationsDeclarations.getProperty(libraryConfiguration.getLibraryName() + ".annotation." + annotationCounter) != null)
             {
-                resolveCurrentAnnotationClass(libraryName, annotationCounter);
-                resolveCurrentAnnotationServiceClass(libraryName, annotationCounter);
-                resolveCurrentAnnotationServiceMethodToCall(libraryName, annotationCounter);
+                resolveCurrentAnnotationClass(libraryConfiguration.getLibraryName(), annotationCounter);
+                resolveCurrentAnnotationServiceClass(libraryConfiguration.getLibraryName(), annotationCounter);
+                resolveCurrentAnnotationServiceMethodToCall(libraryConfiguration.getLibraryName(), annotationCounter);
                 registerLibraryAnnotation();
                 ++annotationCounter;
             }
