@@ -9,7 +9,6 @@ import core.annotations.configuration.tasks.LoadLibrariesAnnotationsTask;
 import core.configuration.LibraryConfiguration;
 import core.configuration.tasks.GetClasspathRootPathTask;
 import core.filesystem.FileSystemService;
-import core.filesystem.FileSystemServiceImpl;
 import core.registry.RegisteredAnnotations;
 
 public class AnnotationsConfigurationServiceImpl implements AnnotationsConfigurationService

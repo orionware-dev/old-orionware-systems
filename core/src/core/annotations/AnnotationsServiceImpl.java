@@ -1,10 +1,7 @@
 package core.annotations;
 
 import core.annotations.configuration.AnnotationsConfigurationService;
-import core.annotations.configuration.AnnotationsConfigurationServiceDependenciesBuilder;
-import core.annotations.configuration.AnnotationsConfigurationServiceImpl;
 import core.annotations.processor.AnnotationsProcessorService;
-import core.annotations.processor.AnnotationsProcessorServiceImpl;
 
 public class AnnotationsServiceImpl implements AnnotationsService
 {

@@ -3,7 +3,6 @@ package core.dependencyinjection;
 import core.OrionObject;
 import core.dependencyinjection.tasks.ProcessDependenciesTask;
 import core.reflection.ReflectionService;
-import core.reflection.ReflectionServiceImpl;
 
 public class DependencyInjectorServiceImpl implements DependencyInjectorService
 {

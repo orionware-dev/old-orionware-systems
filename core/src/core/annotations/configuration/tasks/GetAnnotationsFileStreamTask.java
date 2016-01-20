@@ -1,6 +1,5 @@
 package core.annotations.configuration.tasks;
 
-import java.io.File;
 import java.io.InputStream;
 import core.annotations.configuration.AnnotationsConfigurationService;
 import core.configuration.tasks.GetClasspathRootPathTask;
