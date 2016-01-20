@@ -14,51 +14,108 @@ import core.filesystem.tasks.SaveStringToFileTask;
 
 public class FileSystemServiceImpl implements FileSystemService
 {
+    private GetFileStreamTask getFileStreamTask;
+    private ConvertFileToStringTask convertFileToStringTask;
+    private SaveStringToFileTask saveStringToFileTask;
+    private EmptyDirectoryTask emptyDirectoryTask;
+    private CloseResourceTask closeResourceTask;
+    private GetReaderFromFileTask getReaderFromFileTask;
+    private GetWriterForFileTask getWriterForFileTask;
+    
+    
+    public FileSystemServiceImpl()
+    {
+        new FileSystemServiceDependenciesBuilder().injectDependencies(this);
+    }
+    
+    
     @Override
     public InputStream getFileStream(String filePath)
     {
-        return new GetFileStreamTask().run(filePath);
+        return getFileStreamTask.run(filePath);
     }
     
     
     @Override
     public String convertFileToString(String filePath)
     {
-        return new ConvertFileToStringTask().run(this, filePath);
+        return convertFileToStringTask.run(this, filePath);
     }
 
 
     @Override
     public boolean saveStringToFile(String filePath, String fileString)
     {
-        return new SaveStringToFileTask().run(this, filePath, fileString);
+        return saveStringToFileTask.run(this, filePath, fileString);
     }
     
     
     @Override
     public void emptyDirectory(String directory)
     {
-        new EmptyDirectoryTask().run(directory);
+        emptyDirectoryTask.run(directory);
     }
     
     
     @Override
     public void closeResource(Closeable closeable)
     {
-        new CloseResourceTask().run(closeable);
+        closeResourceTask.run(closeable);
     }
     
     
     @Override
     public Reader getReaderForFile(String filePath)
     {
-        return new GetReaderFromFileTask().run(filePath);
+        return getReaderFromFileTask.run(filePath);
     }
     
     
     @Override
     public Writer getWritterForFile(String filePath)
     {
-        return new GetWriterForFileTask().run(filePath);
+        return getWriterForFileTask.run(filePath);
+    }
+
+
+    public void setGetFileStreamTask(GetFileStreamTask getFileStreamTask)
+    {
+        this.getFileStreamTask = getFileStreamTask;
+    }
+
+
+    public void setConvertFileToStringTask(ConvertFileToStringTask convertFileToStringTask)
+    {
+        this.convertFileToStringTask = convertFileToStringTask;
+    }
+
+
+    public void setSaveStringToFileTask(SaveStringToFileTask saveStringToFileTask)
+    {
+        this.saveStringToFileTask = saveStringToFileTask;
+    }
+
+
+    public void setEmptyDirectoryTask(EmptyDirectoryTask emptyDirectoryTask)
+    {
+        this.emptyDirectoryTask = emptyDirectoryTask;
+    }
+
+
+    public void setCloseResourceTask(CloseResourceTask closeResourceTask)
+    {
+        this.closeResourceTask = closeResourceTask;
+    }
+
+
+    public void setGetReaderFromFileTask(GetReaderFromFileTask getReaderFromFileTask)
+    {
+        this.getReaderFromFileTask = getReaderFromFileTask;
+    }
+
+
+    public void setGetWriterForFileTask(GetWriterForFileTask getWriterForFileTask)
+    {
+        this.getWriterForFileTask = getWriterForFileTask;
     }
 }
