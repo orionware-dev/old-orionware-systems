@@ -19,7 +19,6 @@ public abstract class OrionObject
     public OrionObject()
     {
         new OrionObjectDependenciesBuilder().injectDependencies(this);
-        //librariesConfigurationSet = new HashSet<LibraryConfiguration>();
         loadCoreConfiguration(initialiseCoreConfiguration());
         processAllLibrariesConfigurationIfItIsTheCoreLibrary();
     }
