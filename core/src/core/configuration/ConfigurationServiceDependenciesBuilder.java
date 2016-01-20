@@ -1,9 +1,11 @@
 package core.configuration;
 
+import core.configuration.registry.PropertiesRegistrationServiceImpl;
+import core.configuration.registry.tasks.RegisterLibraryPropertiesTask;
 import core.configuration.tasks.GetClasspathRootPathTask;
 import core.configuration.tasks.GetClasspathRootTask;
 import core.configuration.tasks.GetConfigurationPathTask;
-import core.configuration.tasks.LoadLibrariesPropertiesTask;
+import core.configuration.tasks.LoadLibraryPropertiesTask;
 import core.filesystem.FileSystemServiceImpl;
 import core.general.ObjectDependenciesBuilder;
 
@@ -15,6 +17,8 @@ public class ConfigurationServiceDependenciesBuilder extends ObjectDependenciesB
         object.setGetClasspathRootTask(new GetClasspathRootTask());
         object.setFileSystemService(new FileSystemServiceImpl());
         object.setGetConfigurationPathTask(new GetConfigurationPathTask());
-        object.setLoadLibrariesPropertiesTask(new LoadLibrariesPropertiesTask());
+        object.setPropertiesRegistrationService(new PropertiesRegistrationServiceImpl());
+        object.setRegisterLibraryPropertiesTask(new RegisterLibraryPropertiesTask());
+        object.setLoadLibraryPropertiesTask(new LoadLibraryPropertiesTask());
     }
 }
