@@ -32,10 +32,10 @@ public class LoadLibrariesAnnotationsTask implements OrionTask
             //we check for the annotations file path, because it is possible
             //a library not to have any custom annotations
             if(libraryConfiguration.getAnnotationsFilePath() != null
-                            && haveAnnotationsNotBeenRegistered(libraryConfiguration.getLibraryName()))
+                            && haveAnnotationsNotBeenRegisteredForLibrary(libraryConfiguration.getLibraryName()))
             {
                 registerLibraryAnnotations(libraryConfiguration);
-                setAnnotationsAsRegistered(libraryConfiguration.getLibraryName());
+                setAnnotationsAsRegisteredForLibrary(libraryConfiguration.getLibraryName());
             }
         }
     }
@@ -108,7 +108,7 @@ public class LoadLibrariesAnnotationsTask implements OrionTask
     }
     
     
-    private boolean haveAnnotationsBeenRegistered(String libraryName)
+    private boolean haveAnnotationsBeenRegisteredForLibrary(String libraryName)
     {
         if(LibrariesConfigurationMapper.LIBRARIES_AND_IF_ANNOTATIONS_HAVE_BEEN_REGISTERED_MAPPER.get(libraryName) != null)
         {
@@ -121,13 +121,13 @@ public class LoadLibrariesAnnotationsTask implements OrionTask
     }
     
     
-    private boolean haveAnnotationsNotBeenRegistered(String libraryName)
+    private boolean haveAnnotationsNotBeenRegisteredForLibrary(String libraryName)
     {
-        return !haveAnnotationsBeenRegistered(libraryName);
+        return !haveAnnotationsBeenRegisteredForLibrary(libraryName);
     }
     
     
-    private void setAnnotationsAsRegistered(String libraryName)
+    private void setAnnotationsAsRegisteredForLibrary(String libraryName)
     {
         LibrariesConfigurationMapper.LIBRARIES_AND_IF_ANNOTATIONS_HAVE_BEEN_REGISTERED_MAPPER.put(libraryName, true);
     }
