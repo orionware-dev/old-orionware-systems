@@ -1,0 +1,23 @@
+﻿http://projects-old.apache.org/indexes/alpha.html
+https://github.com/apache?utf8=%E2%9C%93&query=ace
+https://github.com/apache/ace
+https://github.com/apache/ace/tree/trunk/org.apache.ace.agent/src/org/apache/ace/agent
+https://github.com/apache/ace/blob/trunk/org.apache.ace.agent/src/org/apache/ace/agent/AgentConstants.java
+
+
+--create macrodef that signs JARs (MD5, SHA512). Uses gpg
+
+--create strings library
+
+--see if I can embed OSGi inside Orion so that I can
+use libraries as bundles, more easily. Put it in the core
+
+--a properties namespace is a prefix for a collection
+of related properties. For example, props like:
+core.my.new.property.1=hello
+core.my.other.property.2=world
+the namespace here is "core"
+For props like:
+designpatternsfacades.my.new.property.1=hello
+designpatternsfacades.my.other.property.2=world
+the namespace is "designpatternsfacades"
