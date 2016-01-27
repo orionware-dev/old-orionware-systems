@@ -5,7 +5,7 @@ https://github.com/apache/ace/tree/trunk/org.apache.ace.agent/src/org/apache/ace
 https://github.com/apache/ace/blob/trunk/org.apache.ace.agent/src/org/apache/ace/agent/AgentConstants.java
 
 
---create macrodef that signs JARs (MD5, SHA512). Uses gpg
+--create macrodef that signs JARs (MD5, SHA512). Use gpg
 
 --create strings library
 
@@ -21,3 +21,9 @@ For props like:
 designpatternsfacades.my.new.property.1=hello
 designpatternsfacades.my.other.property.2=world
 the namespace is "designpatternsfacades"
+
+--event-driven in libraries. How can we create something like a Spring or Tomcat container so that the libraries are executed in an environment the core project can control?
+
+--whenever something is "updated" at run-time, dynamically, use an "updater"
+
+--we could enable "in-library" permissions. You could "login" in the library in order to use it
