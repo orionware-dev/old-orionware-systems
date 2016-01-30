@@ -6,7 +6,6 @@ import java.util.List;
 import core.OrionObject;
 import core.annotations.processor.tasks.ApplyAnnotationsTask;
 import core.annotations.processor.tasks.GatherAllObjectAnnotationsTask;
-import core.dependencyinjection.Injector;
 import core.reflection.ReflectionService;
 
 public class AnnotationsProcessorServiceImpl implements AnnotationsProcessorService

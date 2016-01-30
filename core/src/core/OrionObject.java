@@ -1,7 +1,8 @@
 package core;
 
 import java.util.Set;
-import core.annotations.AnnotationsService;
+import core.annotations.configuration.AnnotationsConfigurationService;
+import core.annotations.processor.AnnotationsProcessorService;
 import core.configuration.ConfigurationService;
 import core.configuration.CoreConfigurationEnum;
 import core.configuration.LibraryConfiguration;
@@ -13,27 +14,28 @@ public abstract class OrionObject
     private LibraryConfiguration libraryConfiguration;
     private LibraryService libraryService;
     private ConfigurationService configurationService;
-    private AnnotationsService annotationsService;
+    private AnnotationsConfigurationService annotationsConfigurationService;
+    private AnnotationsProcessorService annotationsProcessorService;
     
     
     public OrionObject()
     {
         new OrionObjectDependenciesBuilder().injectDependencies(this);
-        loadCoreConfiguration(initialiseCoreConfiguration());
+        initialiseCoreConfiguration();
+        loadCoreConfiguration();
         processAllLibrariesConfigurationIfItIsTheCoreLibrary();
     }
     
     
-    private LibraryConfiguration initialiseCoreConfiguration()
+    private void initialiseCoreConfiguration()
     {
         libraryConfiguration.setLibraryName(CoreConfigurationEnum.LIBRARY_NAME.get());
         libraryConfiguration.setConfigurationFilePath(CoreConfigurationEnum.PROPERTIES_FILE_PATH.get());
         libraryConfiguration.setAnnotationsFilePath(CoreConfigurationEnum.ANNOTATIONS_DEFINITION_FILE_PATH.get());
-        return libraryConfiguration;
     }
     
     
-    private void loadCoreConfiguration(LibraryConfiguration libraryConfiguration)
+    private void loadCoreConfiguration()
     {
         librariesConfigurationSet.add(libraryConfiguration);
     }
@@ -42,7 +44,7 @@ public abstract class OrionObject
     //this method is called by this constructor if only the core is running.
     //If another library is running like datastructures, then that constructor
     //will call this method so that all the libraries configs are loaded in one go
-    protected void processAllLibrariesConfigurationIfItIsTheCoreLibrary()
+    private void processAllLibrariesConfigurationIfItIsTheCoreLibrary()
     {
         if(libraryService.isCoreLibrary(getClass()))
         {
@@ -53,13 +55,9 @@ public abstract class OrionObject
     
     protected void processAllLibrariesConfiguration()
     {
-        if(librariesConfigurationSet != null)
-        {
-            configurationService.loadLibrariesProperties(librariesConfigurationSet);
-            annotationsService.getAnnotationsConfigurationService().loadLibrariesAnnotations(librariesConfigurationSet);
-        }
-        
-        annotationsService.getAnnotationsProcessorService().processAllAnnotations(this);
+        configurationService.loadLibrariesProperties(librariesConfigurationSet);
+        annotationsConfigurationService.loadLibrariesAnnotations(librariesConfigurationSet);
+        annotationsProcessorService.processAllAnnotations(this);
     }
 
 
@@ -87,8 +85,14 @@ public abstract class OrionObject
     }
 
 
-    public void setAnnotationsService(AnnotationsService annotationsService)
+    public void setAnnotationsConfigurationService(AnnotationsConfigurationService annotationsConfigurationService)
     {
-        this.annotationsService = annotationsService;
+        this.annotationsConfigurationService = annotationsConfigurationService;
+    }
+
+
+    public void setAnnotationsProcessorService(AnnotationsProcessorService annotationsProcessorService)
+    {
+        this.annotationsProcessorService = annotationsProcessorService;
     }
 }
