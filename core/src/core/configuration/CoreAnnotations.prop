@@ -5,3 +5,7 @@ core.annotation.service.method.to.call.1=processDependencies
 core.annotation.2=core.servicedependencyinjection.ServiceInjector
 core.annotation.service.2=core.servicedependencyinjection.ServiceDependencyInjectorServiceImpl
 core.annotation.service.method.to.call.2=processServiceDependencies
+
+core.annotation.3=core.taskdependencyinjection.TaskInjector
+core.annotation.service.3=core.taskdependencyinjection.TaskDependencyInjectorServiceImpl
+core.annotation.service.method.to.call.3=processTaskDependencies
