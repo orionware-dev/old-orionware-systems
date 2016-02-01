@@ -6,7 +6,7 @@ import core.general.OrionProperties;
 
 public class AllProperties extends OrionConfiguration
 {
-    private static OrionProperties properties;
+    public static OrionProperties properties;
     
     
     static
@@ -18,12 +18,6 @@ public class AllProperties extends OrionConfiguration
     public static void loadProperties(InputStream propertiesFileInput)
     {
         properties.loadProperties(propertiesFileInput);
-    }
-    
-    
-    public static OrionProperties getProps()
-    {
-        return properties;
     }
     
     

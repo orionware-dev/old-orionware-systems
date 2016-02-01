@@ -16,7 +16,7 @@ public class OrionRegistry
     
     public static OrionProperties getProps()
     {
-        return AllProperties.getProps();
+        return AllProperties.properties;
     }
     
     
