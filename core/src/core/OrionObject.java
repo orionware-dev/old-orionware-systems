@@ -25,15 +25,21 @@ public abstract class OrionObject
     
     public OrionObject()
     {
+        initialiseDependencies();
+        initialiseCoreConfiguration();
+        loadCoreConfiguration();
+        processAllLibrariesConfigurationIfItIsTheCoreLibrary();
+    }
+    
+    
+    private void initialiseDependencies()
+    {
         this.librariesConfigurationSet = new HashSet<LibraryConfiguration>();
         this.libraryConfiguration = new LibraryConfiguration();
         this.libraryService = new LibraryServiceImpl();
         this.configurationService = new ConfigurationServiceImpl();
         this.annotationsConfigurationService = new AnnotationsConfigurationServiceImpl();
         this.annotationsProcessorService = new AnnotationsProcessorServiceImpl();
-        initialiseCoreConfiguration();
-        loadCoreConfiguration();
-        processAllLibrariesConfigurationIfItIsTheCoreLibrary();
     }
     
     
