@@ -28,6 +28,12 @@ public class AnnotationsConfigurationServiceImpl implements AnnotationsConfigura
     
     public AnnotationsConfigurationServiceImpl()
     {
+        initialiseDependencies();
+    }
+    
+    
+    private void initialiseDependencies()
+    {
         this.fileSystemService = new FileSystemServiceImpl();
         this.annotationsRegistrationService = new AnnotationsRegistrationServiceImpl();
         this.getClasspathRootPathTask = new GetClasspathRootPathTask();
