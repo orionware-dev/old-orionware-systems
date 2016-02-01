@@ -33,7 +33,7 @@ public class OrionRegistry
     
     
     @SuppressWarnings("unchecked")
-    public static void forEach(Consumer<?> action)
+    public static void forEachAnnotation(Consumer<?> action)
     {
         getAnnotations().forEach((Consumer<? super RegisteredAnnotation>)action);
     }
