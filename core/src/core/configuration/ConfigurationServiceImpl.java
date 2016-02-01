@@ -16,31 +16,13 @@ import core.filesystem.FileSystemServiceImpl;
 
 public class ConfigurationServiceImpl implements ConfigurationService
 {
-    private GetClasspathRootPathTask getClasspathRootPathTask;
-    private GetClasspathRootTask getClasspathRootTask;
-    private GetConfigurationPathTask getConfigurationPathTask;
-    private FileSystemService fileSystemService;
-    private PropertiesRegistrationService propertiesRegistrationService;
-    private RegisterLibraryPropertiesTask registerLibraryPropertiesTask;
-    private LoadLibraryPropertiesTask loadLibraryPropertiesTask;
-    
-    
-    public ConfigurationServiceImpl()
-    {
-        initialiseDependencies();
-    }
-    
-    
-    private void initialiseDependencies()
-    {
-        this.getClasspathRootPathTask = new GetClasspathRootPathTask();
-        this.getClasspathRootTask = new GetClasspathRootTask();
-        this.fileSystemService = new FileSystemServiceImpl();
-        this.getConfigurationPathTask = new GetConfigurationPathTask();
-        this.propertiesRegistrationService = new PropertiesRegistrationServiceImpl();
-        this.registerLibraryPropertiesTask = new RegisterLibraryPropertiesTask();
-        this.loadLibraryPropertiesTask = new LoadLibraryPropertiesTask();
-    }
+    private GetClasspathRootPathTask getClasspathRootPathTask = new GetClasspathRootPathTask();
+    private GetClasspathRootTask getClasspathRootTask = new GetClasspathRootTask();
+    private FileSystemService fileSystemService = new FileSystemServiceImpl();
+    private GetConfigurationPathTask getConfigurationPathTask = new GetConfigurationPathTask();
+    private PropertiesRegistrationService propertiesRegistrationService = new PropertiesRegistrationServiceImpl();
+    private RegisterLibraryPropertiesTask registerLibraryPropertiesTask = new RegisterLibraryPropertiesTask();
+    private LoadLibraryPropertiesTask loadLibraryPropertiesTask = new LoadLibraryPropertiesTask();
     
     
     @Override

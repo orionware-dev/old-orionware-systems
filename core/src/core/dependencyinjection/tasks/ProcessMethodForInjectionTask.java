@@ -11,7 +11,6 @@ public class ProcessMethodForInjectionTask implements OrionTask
 {
     private OrionObject object;
     private ReflectionService reflectionService;
-    private AnnotationsProcessorService annotationsProcessorService;
     
     
     public void run(OrionObject object, Method method, ReflectionService reflectionService, AnnotationsProcessorService annotationsProcessorService)
@@ -19,7 +18,6 @@ public class ProcessMethodForInjectionTask implements OrionTask
         this.reflectionService = reflectionService;
         this.object = object;
         reflectionService.makeMethodAccessible(method);
-        //Injector injection = extractAnnotationFromMethod(method);
         Injector injection = (Injector)annotationsProcessorService.extractAnnotationFromMethod(method, Injector.class);
         
         if(injection != null)

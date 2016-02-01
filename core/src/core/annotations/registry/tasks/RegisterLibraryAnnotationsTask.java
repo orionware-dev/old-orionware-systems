@@ -25,14 +25,16 @@ public class RegisterLibraryAnnotationsTask implements OrionTask
         if(annotationsDeclarations.isNotEmpty())
         {
             int annotationCounter = 1;
+            String annotationDeclaration = libraryConfiguration.getLibraryName() + ".annotation." + annotationCounter;
             
-            while(annotationsDeclarations.getProperty(libraryConfiguration.getLibraryName() + ".annotation." + annotationCounter) != null)
+            while(annotationsDeclarations.doesPropExist(annotationDeclaration))
             {
                 resolveCurrentAnnotationClass(libraryConfiguration.getLibraryName(), annotationCounter);
                 resolveCurrentAnnotationServiceClass(libraryConfiguration.getLibraryName(), annotationCounter);
                 resolveCurrentAnnotationServiceMethodToCall(libraryConfiguration.getLibraryName(), annotationCounter);
                 registerLibraryAnnotation();
                 ++annotationCounter;
+                annotationDeclaration = libraryConfiguration.getLibraryName() + ".annotation." + annotationCounter;
             }
         }
         
@@ -46,7 +48,7 @@ public class RegisterLibraryAnnotationsTask implements OrionTask
         sb1.append(libraryName);
         sb1.append(".annotation.");
         sb1.append(annotationCounter);
-        currentAnnotationClass = annotationsDeclarations.getProperty(sb1.toString());
+        currentAnnotationClass = annotationsDeclarations.getProp(sb1.toString());
     }
     
     
@@ -56,7 +58,7 @@ public class RegisterLibraryAnnotationsTask implements OrionTask
         sb2.append(libraryName);
         sb2.append(".annotation.service.");
         sb2.append(annotationCounter);
-        currentAnnotationServiceClass = annotationsDeclarations.getProperty(sb2.toString());
+        currentAnnotationServiceClass = annotationsDeclarations.getProp(sb2.toString());
     }
     
     
@@ -66,7 +68,7 @@ public class RegisterLibraryAnnotationsTask implements OrionTask
         sb3.append(libraryName);
         sb3.append(".annotation.service.method.to.call.");
         sb3.append(annotationCounter);
-        currentAnnotationServiceMethodToCall = annotationsDeclarations.getProperty(sb3.toString());
+        currentAnnotationServiceMethodToCall = annotationsDeclarations.getProp(sb3.toString());
     }
     
     

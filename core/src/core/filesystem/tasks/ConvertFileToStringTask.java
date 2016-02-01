@@ -8,7 +8,7 @@ import core.services.OrionTask;
 
 public class ConvertFileToStringTask implements OrionTask
 {
-    private StringBuilder fileStringBuilder;
+    private StringBuilder fileStringBuilder = new StringBuilder();
     private BufferedReader input;
     private String currentLine;
     
@@ -17,7 +17,6 @@ public class ConvertFileToStringTask implements OrionTask
     {
         String fileString = null;
         input = (BufferedReader)fileSystemService.getReaderForFile(filePath);
-        fileStringBuilder = new StringBuilder();
         currentLine = null;
         
         try

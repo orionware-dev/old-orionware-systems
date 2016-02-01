@@ -15,31 +15,19 @@ import core.libraries.LibraryServiceImpl;
 
 public abstract class OrionObject
 {
-    protected Set<LibraryConfiguration> librariesConfigurationSet;
-    private LibraryConfiguration libraryConfiguration;
-    private LibraryService libraryService;
-    private ConfigurationService configurationService;
-    private AnnotationsConfigurationService annotationsConfigurationService;
-    private AnnotationsProcessorService annotationsProcessorService;
+    protected Set<LibraryConfiguration> librariesConfigurationSet = new HashSet<LibraryConfiguration>();
+    private LibraryConfiguration libraryConfiguration = new LibraryConfiguration();
+    private LibraryService libraryService = new LibraryServiceImpl();
+    private ConfigurationService configurationService = new ConfigurationServiceImpl();
+    private AnnotationsConfigurationService annotationsConfigurationService = new AnnotationsConfigurationServiceImpl();
+    private AnnotationsProcessorService annotationsProcessorService = new AnnotationsProcessorServiceImpl();
     
     
     public OrionObject()
     {
-        initialiseDependencies();
         initialiseCoreConfiguration();
         loadCoreConfiguration();
         processAllLibrariesConfigurationIfItIsTheCoreLibrary();
-    }
-    
-    
-    private void initialiseDependencies()
-    {
-        this.librariesConfigurationSet = new HashSet<LibraryConfiguration>();
-        this.libraryConfiguration = new LibraryConfiguration();
-        this.libraryService = new LibraryServiceImpl();
-        this.configurationService = new ConfigurationServiceImpl();
-        this.annotationsConfigurationService = new AnnotationsConfigurationServiceImpl();
-        this.annotationsProcessorService = new AnnotationsProcessorServiceImpl();
     }
     
     

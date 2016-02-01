@@ -9,12 +9,11 @@ import core.services.OrionTask;
 
 public class GatherAllClassLevelAnnotationsTask implements OrionTask
 {
-    private List<Annotation> allClassLevelAnnotationsList;
+    private List<Annotation> allClassLevelAnnotationsList = new ArrayList<Annotation>();
     
     
     public List<Annotation> run(OrionObject object)
     {
-        allClassLevelAnnotationsList = new ArrayList<Annotation>();
         allClassLevelAnnotationsList.addAll(Arrays.asList(object.getClass().getAnnotations()));
         return allClassLevelAnnotationsList;
     }

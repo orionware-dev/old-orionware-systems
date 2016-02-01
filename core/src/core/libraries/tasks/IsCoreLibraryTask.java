@@ -5,11 +5,13 @@ import core.services.OrionTask;
 
 public class IsCoreLibraryTask implements OrionTask
 {
+    private StringBuilder sb1 = new StringBuilder();
+    private StringBuilder sb2 = new StringBuilder();
+    private StringBuilder sb3 = new StringBuilder();
+    
+    
     public boolean run(Class<?> classBeingRun)
     {
-        StringBuilder sb1 = new StringBuilder();
-        StringBuilder sb2 = new StringBuilder();
-        StringBuilder sb3 = new StringBuilder();
         sb1.append(CoreConfigurationEnum.CLASSPATH_ROOT.get());
         sb1.append(".");
         sb2.append(CoreConfigurationEnum.INTEGRATION_TESTS_CLASSPATH_ROOT.get());

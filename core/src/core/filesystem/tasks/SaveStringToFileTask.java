@@ -9,7 +9,7 @@ import core.services.OrionTask;
 
 public class SaveStringToFileTask implements OrionTask
 {
-    private String lineSeparator;
+    private String lineSeparator = System.lineSeparator();
     private BufferedWriter output = null;
     private int numberOfLines;
     private int lineCounter;
@@ -18,7 +18,6 @@ public class SaveStringToFileTask implements OrionTask
     
     public boolean run(FileSystemService fileSystemService, String filePath, String fileString)
     {
-        this.lineSeparator = System.lineSeparator();
         this.output = (BufferedWriter)fileSystemService.getWritterForFile(filePath);
         String[] lines = fileString.split(lineSeparator);
         this.numberOfLines = lines.length;

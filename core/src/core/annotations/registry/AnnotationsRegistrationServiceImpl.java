@@ -5,21 +5,8 @@ import core.annotations.registry.tasks.SetAnnotationsAsRegisteredForLibraryTask;
 
 public class AnnotationsRegistrationServiceImpl implements AnnotationsRegistrationService
 {
-    private HaveAnnotationsBeenRegisteredForLibraryTask haveAnnotationsBeenRegisteredForLibraryTask;
-    private SetAnnotationsAsRegisteredForLibraryTask setAnnotationsAsRegisteredForLibraryTask;
-    
-    
-    public AnnotationsRegistrationServiceImpl()
-    {
-        initialiseDependencies();
-    }
-    
-    
-    private void initialiseDependencies()
-    {
-        this.haveAnnotationsBeenRegisteredForLibraryTask = new HaveAnnotationsBeenRegisteredForLibraryTask();
-        this.setAnnotationsAsRegisteredForLibraryTask = new SetAnnotationsAsRegisteredForLibraryTask();
-    }
+    private HaveAnnotationsBeenRegisteredForLibraryTask haveAnnotationsBeenRegisteredForLibraryTask = new HaveAnnotationsBeenRegisteredForLibraryTask();
+    private SetAnnotationsAsRegisteredForLibraryTask setAnnotationsAsRegisteredForLibraryTask = new SetAnnotationsAsRegisteredForLibraryTask();
     
     
     @Override

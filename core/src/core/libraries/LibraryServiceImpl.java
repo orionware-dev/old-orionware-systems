@@ -4,19 +4,7 @@ import core.libraries.tasks.IsCoreLibraryTask;
 
 public class LibraryServiceImpl implements LibraryService
 {
-    private IsCoreLibraryTask isCoreLibraryTask;
-    
-    
-    public LibraryServiceImpl()
-    {
-        initialiseDependencies();
-    }
-    
-    
-    private void initialiseDependencies()
-    {
-        this.isCoreLibraryTask = new IsCoreLibraryTask();
-    }
+    private IsCoreLibraryTask isCoreLibraryTask = new IsCoreLibraryTask();
     
     
     //this method is accurate when it is called from a base object

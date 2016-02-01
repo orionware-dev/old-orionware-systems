@@ -10,12 +10,11 @@ import core.services.OrionTask;
 
 public class GatherAllObjectConstructorsAnnotationsTask implements OrionTask
 {
-    private List<Annotation> allObjectConstructorsAnnotationsList;
+    private List<Annotation> allObjectConstructorsAnnotationsList = new ArrayList<Annotation>();
     
     
     public List<Annotation> run(OrionObject object)
     {
-        allObjectConstructorsAnnotationsList = new ArrayList<Annotation>();
         Arrays.stream(object.getClass().getDeclaredConstructors())
             .forEach((constructor) -> gatherAllConstructorsAnnotations(constructor));
         return allObjectConstructorsAnnotationsList;

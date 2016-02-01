@@ -14,33 +14,15 @@ import core.configuration.tasks.GetClasspathRootPathTask;
 import core.filesystem.FileSystemService;
 import core.filesystem.FileSystemServiceImpl;
 import core.registry.OrionRegistry;
-import core.registry.RegisteredAnnotations;
 
 public class AnnotationsConfigurationServiceImpl implements AnnotationsConfigurationService
 {
-    private FileSystemService fileSystemService;
-    private GetClasspathRootPathTask getClasspathRootPathTask;
-    private GetAnnotationsFileStreamTask getAnnotationsFileStreamTask;
-    private AnnotationsRegistrationService annotationsRegistrationService;
-    private RegisterLibraryAnnotationsTask registerLibraryAnnotationsTask;
-    private LoadLibraryAnnotationsDefinitionsTask loadLibraryAnnotationsDefinitionsTask;
-    
-    
-    public AnnotationsConfigurationServiceImpl()
-    {
-        initialiseDependencies();
-    }
-    
-    
-    private void initialiseDependencies()
-    {
-        this.fileSystemService = new FileSystemServiceImpl();
-        this.annotationsRegistrationService = new AnnotationsRegistrationServiceImpl();
-        this.getClasspathRootPathTask = new GetClasspathRootPathTask();
-        this.getAnnotationsFileStreamTask = new GetAnnotationsFileStreamTask();
-        this.registerLibraryAnnotationsTask = new RegisterLibraryAnnotationsTask();
-        this.loadLibraryAnnotationsDefinitionsTask = new LoadLibraryAnnotationsDefinitionsTask();
-    }
+    private FileSystemService fileSystemService = new FileSystemServiceImpl();
+    private AnnotationsRegistrationService annotationsRegistrationService = new AnnotationsRegistrationServiceImpl();
+    private GetClasspathRootPathTask getClasspathRootPathTask = new GetClasspathRootPathTask();
+    private GetAnnotationsFileStreamTask getAnnotationsFileStreamTask = new GetAnnotationsFileStreamTask();
+    private RegisterLibraryAnnotationsTask registerLibraryAnnotationsTask = new RegisterLibraryAnnotationsTask();
+    private LoadLibraryAnnotationsDefinitionsTask loadLibraryAnnotationsDefinitionsTask = new LoadLibraryAnnotationsDefinitionsTask();
     
     
     @Override

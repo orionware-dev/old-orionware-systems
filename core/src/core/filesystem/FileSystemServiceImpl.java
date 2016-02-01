@@ -14,31 +14,13 @@ import core.filesystem.tasks.SaveStringToFileTask;
 
 public class FileSystemServiceImpl implements FileSystemService
 {
-    private GetFileStreamTask getFileStreamTask;
-    private ConvertFileToStringTask convertFileToStringTask;
-    private SaveStringToFileTask saveStringToFileTask;
-    private EmptyDirectoryTask emptyDirectoryTask;
-    private CloseResourceTask closeResourceTask;
-    private GetReaderFromFileTask getReaderFromFileTask;
-    private GetWriterForFileTask getWriterForFileTask;
-    
-    
-    public FileSystemServiceImpl()
-    {
-        initialiseDependencies();
-    }
-    
-    
-    private void initialiseDependencies()
-    {
-        this.getFileStreamTask = new GetFileStreamTask();
-        this.convertFileToStringTask = new ConvertFileToStringTask();
-        this.saveStringToFileTask = new SaveStringToFileTask();
-        this.emptyDirectoryTask = new EmptyDirectoryTask();
-        this.closeResourceTask = new CloseResourceTask();
-        this.getReaderFromFileTask = new GetReaderFromFileTask();
-        this.getWriterForFileTask = new GetWriterForFileTask();
-    }
+    private GetFileStreamTask getFileStreamTask = new GetFileStreamTask();
+    private ConvertFileToStringTask convertFileToStringTask = new ConvertFileToStringTask();
+    private SaveStringToFileTask saveStringToFileTask = new SaveStringToFileTask();
+    private EmptyDirectoryTask emptyDirectoryTask = new EmptyDirectoryTask();
+    private CloseResourceTask closeResourceTask = new CloseResourceTask();
+    private GetReaderFromFileTask getReaderFromFileTask = new GetReaderFromFileTask();
+    private GetWriterForFileTask getWriterForFileTask = new GetWriterForFileTask();
     
     
     @Override

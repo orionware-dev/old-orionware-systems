@@ -8,9 +8,11 @@ import core.services.OrionTask;
 
 public class LoadLibraryAnnotationsDefinitionsTask implements OrionTask
 {
+    private OrionProperties annotationsDeclarations = new OrionProperties();
+    
+    
     public OrionProperties run(AnnotationsConfigurationService annotationsConfigurationService, LibraryConfiguration libraryConfiguration)
     {
-        OrionProperties annotationsDeclarations = new OrionProperties();
         InputStream libraryAnnotationsFileStream = annotationsConfigurationService.getAnnotationsFileStream(libraryConfiguration.getLibraryName(), libraryConfiguration.getAnnotationsFilePath());
         annotationsDeclarations.loadProperties(libraryAnnotationsFileStream);
         annotationsConfigurationService.closeResource(libraryAnnotationsFileStream);

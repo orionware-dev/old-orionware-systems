@@ -2,7 +2,6 @@ package core.registry;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.function.Consumer;
 import core.annotations.RegisteredAnnotation;
 import core.general.OrionConfiguration;
 

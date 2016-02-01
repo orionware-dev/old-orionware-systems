@@ -13,31 +13,13 @@ import core.reflection.tasks.MakeMethodAccessibleTask;
 
 public class ReflectionServiceImpl implements ReflectionService
 {
-    private GetMethodsArrayTask getMethodsArrayTask;
-    private GetConstructorsArrayTask getConstructorsArrayTask;
-    private MakeMethodAccessibleTask makeMethodAccessibleTask;
-    private CallMethodTask callMethodTask;
-    private CallConstructorTask callConstructorTask;
-    private LoadClassTask loadClassTask;
-    private InstantiateClassTask instantiateClassTask;
-    
-    
-    public ReflectionServiceImpl()
-    {
-        initialiseDependencies();
-    }
-    
-    
-    private void initialiseDependencies()
-    {
-        this.getMethodsArrayTask = new GetMethodsArrayTask();
-        this.getConstructorsArrayTask = new GetConstructorsArrayTask();
-        this.makeMethodAccessibleTask = new MakeMethodAccessibleTask();
-        this.callMethodTask = new CallMethodTask();
-        this.callConstructorTask = new CallConstructorTask();
-        this.loadClassTask = new LoadClassTask();
-        this.instantiateClassTask = new InstantiateClassTask();
-    }
+    private GetMethodsArrayTask getMethodsArrayTask = new GetMethodsArrayTask();
+    private GetConstructorsArrayTask getConstructorsArrayTask = new GetConstructorsArrayTask();
+    private MakeMethodAccessibleTask makeMethodAccessibleTask = new MakeMethodAccessibleTask();
+    private CallMethodTask callMethodTask = new CallMethodTask();
+    private CallConstructorTask callConstructorTask = new CallConstructorTask();
+    private LoadClassTask loadClassTask = new LoadClassTask();
+    private InstantiateClassTask instantiateClassTask = new InstantiateClassTask();
     
     
     @Override

@@ -26,4 +26,16 @@ public class OrionProperties extends Properties
     {
         return !isEmpty();
     }
+    
+    
+    public String getProp(String prop)
+    {
+        return getProperty(prop);
+    }
+    
+    
+    public boolean doesPropExist(String prop)
+    {
+        return getProp(prop) != null;
+    }
 }

@@ -5,21 +5,8 @@ import core.configuration.registry.tasks.SetPropertiesAsRegisteredForLibraryTask
 
 public class PropertiesRegistrationServiceImpl implements PropertiesRegistrationService
 {
-    private HavePropertiesBeenRegisteredForLibraryTask havePropertiesBeenRegisteredForLibraryTask;
-    private SetPropertiesAsRegisteredForLibraryTask setPropertiesAsRegisteredForLibraryTask;
-    
-    
-    public PropertiesRegistrationServiceImpl()
-    {
-        initialiseDependencies();
-    }
-    
-    
-    private void initialiseDependencies()
-    {
-        this.havePropertiesBeenRegisteredForLibraryTask = new HavePropertiesBeenRegisteredForLibraryTask();
-        this.setPropertiesAsRegisteredForLibraryTask = new SetPropertiesAsRegisteredForLibraryTask();
-    }
+    private HavePropertiesBeenRegisteredForLibraryTask havePropertiesBeenRegisteredForLibraryTask = new HavePropertiesBeenRegisteredForLibraryTask();
+    private SetPropertiesAsRegisteredForLibraryTask setPropertiesAsRegisteredForLibraryTask = new SetPropertiesAsRegisteredForLibraryTask();
     
     
     @Override

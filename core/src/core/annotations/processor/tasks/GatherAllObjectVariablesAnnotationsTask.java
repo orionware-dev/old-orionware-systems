@@ -10,12 +10,11 @@ import core.services.OrionTask;
 
 public class GatherAllObjectVariablesAnnotationsTask implements OrionTask
 {
-    private List<Annotation> allObjectVariablesAnnotationsList;
+    private List<Annotation> allObjectVariablesAnnotationsList = new ArrayList<Annotation>();
     
     
     public List<Annotation> run(OrionObject object)
     {
-        allObjectVariablesAnnotationsList = new ArrayList<Annotation>();
         Arrays.stream(object.getClass().getDeclaredFields())
             .forEach((variable) -> gatherAllVariablesAnnotations(variable));
         return allObjectVariablesAnnotationsList;

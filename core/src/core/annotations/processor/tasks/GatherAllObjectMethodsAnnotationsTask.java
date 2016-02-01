@@ -10,12 +10,11 @@ import core.services.OrionTask;
 
 public class GatherAllObjectMethodsAnnotationsTask implements OrionTask
 {
-    private List<Annotation> allObjectMethodsAnnotationsList;
+    private List<Annotation> allObjectMethodsAnnotationsList = new ArrayList<Annotation>();
     
     
     public List<Annotation> run(OrionObject object)
     {
-        allObjectMethodsAnnotationsList = new ArrayList<Annotation>();
         Arrays.stream(object.getClass().getDeclaredMethods())
             .forEach((method) -> gatherAllMethodsAnnotations(method));        
         return allObjectMethodsAnnotationsList;

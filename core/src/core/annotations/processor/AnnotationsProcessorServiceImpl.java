@@ -11,23 +11,9 @@ import core.reflection.ReflectionServiceImpl;
 
 public class AnnotationsProcessorServiceImpl implements AnnotationsProcessorService
 {
-    private GatherAllObjectAnnotationsTask gatherAllObjectAnnotationsTask;
-    private ApplyAnnotationsTask applyAnnotationsTask;
-    private ReflectionService reflectionService;
-    
-    
-    public AnnotationsProcessorServiceImpl()
-    {
-        initialiseDependencies();
-    }
-    
-    
-    private void initialiseDependencies()
-    {
-        this.gatherAllObjectAnnotationsTask = new GatherAllObjectAnnotationsTask();
-        this.applyAnnotationsTask = new ApplyAnnotationsTask();
-        this.reflectionService = new ReflectionServiceImpl();
-    }
+    private GatherAllObjectAnnotationsTask gatherAllObjectAnnotationsTask = new GatherAllObjectAnnotationsTask();
+    private ApplyAnnotationsTask applyAnnotationsTask = new ApplyAnnotationsTask();
+    private ReflectionService reflectionService = new ReflectionServiceImpl();
     
     
     @Override
