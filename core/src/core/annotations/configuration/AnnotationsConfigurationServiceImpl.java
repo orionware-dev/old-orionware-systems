@@ -13,6 +13,7 @@ import core.configuration.LibraryConfiguration;
 import core.configuration.tasks.GetClasspathRootPathTask;
 import core.filesystem.FileSystemService;
 import core.filesystem.FileSystemServiceImpl;
+import core.registry.OrionRegistry;
 import core.registry.RegisteredAnnotations;
 
 public class AnnotationsConfigurationServiceImpl implements AnnotationsConfigurationService
@@ -39,7 +40,7 @@ public class AnnotationsConfigurationServiceImpl implements AnnotationsConfigura
     @Override
     public void registerAnnotation(RegisteredAnnotation registeredAnnotation)
     {
-        RegisteredAnnotations.add(registeredAnnotation);
+        OrionRegistry.registerAnnotation(registeredAnnotation);
     }
     
     

@@ -17,11 +17,11 @@ public class AllProperties extends OrionConfiguration
     
     public static void loadProperties(InputStream propertiesFileInput)
     {
-        getProperties().loadProperties(propertiesFileInput);
+        properties.loadProperties(propertiesFileInput);
     }
     
     
-    public static OrionProperties getProperties()
+    public static OrionProperties getProps()
     {
         return properties;
     }
@@ -29,7 +29,7 @@ public class AllProperties extends OrionConfiguration
     
     public static boolean isNotEmpty()
     {
-        return getProperties().isNotEmpty();
+        return properties.isNotEmpty();
     }
     
     
@@ -37,7 +37,7 @@ public class AllProperties extends OrionConfiguration
     {
         if(key != null && !key.isEmpty())
         {
-            return getProperties().getProperty(key);
+            return properties.getProperty(key);
         }
         
         return null;
