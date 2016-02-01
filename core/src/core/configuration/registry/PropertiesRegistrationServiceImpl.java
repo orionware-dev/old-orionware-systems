@@ -11,7 +11,8 @@ public class PropertiesRegistrationServiceImpl implements PropertiesRegistration
     
     public PropertiesRegistrationServiceImpl()
     {
-        new PropertiesRegistrationServiceDependenciesBuilder().injectDependencies(this);
+        this.havePropertiesBeenRegisteredForLibraryTask = new HavePropertiesBeenRegisteredForLibraryTask();
+        this.setPropertiesAsRegisteredForLibraryTask = new SetPropertiesAsRegisteredForLibraryTask();
     }
     
     
@@ -33,17 +34,5 @@ public class PropertiesRegistrationServiceImpl implements PropertiesRegistration
     public void setPropertiesAsRegisteredForLibrary(String libraryName)
     {
         setPropertiesAsRegisteredForLibraryTask.run(libraryName);
-    }
-
-
-    public void setHavePropertiesBeenRegisteredForLibraryTask(HavePropertiesBeenRegisteredForLibraryTask havePropertiesBeenRegisteredForLibraryTask)
-    {
-        this.havePropertiesBeenRegisteredForLibraryTask = havePropertiesBeenRegisteredForLibraryTask;
-    }
-
-
-    public void setSetPropertiesAsRegisteredForLibraryTask(SetPropertiesAsRegisteredForLibraryTask setPropertiesAsRegisteredForLibraryTask)
-    {
-        this.setPropertiesAsRegisteredForLibraryTask = setPropertiesAsRegisteredForLibraryTask;
     }
 }

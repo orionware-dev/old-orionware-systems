@@ -7,6 +7,7 @@ import core.OrionObject;
 import core.annotations.processor.tasks.ApplyAnnotationsTask;
 import core.annotations.processor.tasks.GatherAllObjectAnnotationsTask;
 import core.reflection.ReflectionService;
+import core.reflection.ReflectionServiceImpl;
 
 public class AnnotationsProcessorServiceImpl implements AnnotationsProcessorService
 {
@@ -17,7 +18,9 @@ public class AnnotationsProcessorServiceImpl implements AnnotationsProcessorServ
     
     public AnnotationsProcessorServiceImpl()
     {
-        new AnnotationsProcessorServiceDependenciesBuilder().injectDependencies(this);
+        this.gatherAllObjectAnnotationsTask = new GatherAllObjectAnnotationsTask();
+        this.applyAnnotationsTask = new ApplyAnnotationsTask();
+        this.reflectionService = new ReflectionServiceImpl();
     }
     
     
@@ -41,23 +44,5 @@ public class AnnotationsProcessorServiceImpl implements AnnotationsProcessorServ
     public Annotation extractAnnotationFromMethod(Method method, Class annotationClassToExtract)
     {
         return method.getAnnotation(annotationClassToExtract);
-    }
-
-
-    public void setGatherAllObjectAnnotationsTask(GatherAllObjectAnnotationsTask gatherAllObjectAnnotationsTask)
-    {
-        this.gatherAllObjectAnnotationsTask = gatherAllObjectAnnotationsTask;
-    }
-
-
-    public void setApplyAnnotationsTask(ApplyAnnotationsTask applyAnnotationsTask)
-    {
-        this.applyAnnotationsTask = applyAnnotationsTask;
-    }
-
-
-    public void setReflectionService(ReflectionService reflectionService)
-    {
-        this.reflectionService = reflectionService;
     }
 }

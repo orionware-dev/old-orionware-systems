@@ -7,10 +7,12 @@ import core.annotations.RegisteredAnnotation;
 import core.annotations.configuration.tasks.GetAnnotationsFileStreamTask;
 import core.annotations.configuration.tasks.LoadLibraryAnnotationsDefinitionsTask;
 import core.annotations.registry.AnnotationsRegistrationService;
+import core.annotations.registry.AnnotationsRegistrationServiceImpl;
 import core.annotations.registry.tasks.RegisterLibraryAnnotationsTask;
 import core.configuration.LibraryConfiguration;
 import core.configuration.tasks.GetClasspathRootPathTask;
 import core.filesystem.FileSystemService;
+import core.filesystem.FileSystemServiceImpl;
 import core.registry.RegisteredAnnotations;
 
 public class AnnotationsConfigurationServiceImpl implements AnnotationsConfigurationService
@@ -25,7 +27,12 @@ public class AnnotationsConfigurationServiceImpl implements AnnotationsConfigura
     
     public AnnotationsConfigurationServiceImpl()
     {
-        new AnnotationsConfigurationServiceDependenciesBuilder().injectDependencies(this);
+        this.fileSystemService = new FileSystemServiceImpl();
+        this.annotationsRegistrationService = new AnnotationsRegistrationServiceImpl();
+        this.getClasspathRootPathTask = new GetClasspathRootPathTask();
+        this.getAnnotationsFileStreamTask = new GetAnnotationsFileStreamTask();
+        this.registerLibraryAnnotationsTask = new RegisterLibraryAnnotationsTask();
+        this.loadLibraryAnnotationsDefinitionsTask = new LoadLibraryAnnotationsDefinitionsTask();
     }
     
     
@@ -64,41 +71,5 @@ public class AnnotationsConfigurationServiceImpl implements AnnotationsConfigura
     public void closeResource(Closeable stream)
     {
         fileSystemService.closeResource(stream);
-    }
-
-
-    public void setFileSystemService(FileSystemService fileSystemService)
-    {
-        this.fileSystemService = fileSystemService;
-    }
-
-
-    public void setGetClasspathRootPathTask(GetClasspathRootPathTask getClasspathRootPathTask)
-    {
-        this.getClasspathRootPathTask = getClasspathRootPathTask;
-    }
-
-
-    public void setGetAnnotationsFileStreamTask(GetAnnotationsFileStreamTask getAnnotationsFileStreamTask)
-    {
-        this.getAnnotationsFileStreamTask = getAnnotationsFileStreamTask;
-    }
-
-
-    public void setAnnotationsRegistrationService(AnnotationsRegistrationService annotationsRegistrationService)
-    {
-        this.annotationsRegistrationService = annotationsRegistrationService;
-    }
-
-
-    public void setRegisterLibraryAnnotationsTask(RegisterLibraryAnnotationsTask registerLibraryAnnotationsTask)
-    {
-        this.registerLibraryAnnotationsTask = registerLibraryAnnotationsTask;
-    }
-
-
-    public void setLoadLibraryAnnotationsDefinitionsTask(LoadLibraryAnnotationsDefinitionsTask loadLibraryAnnotationsDefinitionsTask)
-    {
-        this.loadLibraryAnnotationsDefinitionsTask = loadLibraryAnnotationsDefinitionsTask;
     }
 }

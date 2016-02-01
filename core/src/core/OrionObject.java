@@ -1,12 +1,17 @@
 package core;
 
+import java.util.HashSet;
 import java.util.Set;
 import core.annotations.configuration.AnnotationsConfigurationService;
+import core.annotations.configuration.AnnotationsConfigurationServiceImpl;
 import core.annotations.processor.AnnotationsProcessorService;
+import core.annotations.processor.AnnotationsProcessorServiceImpl;
 import core.configuration.ConfigurationService;
+import core.configuration.ConfigurationServiceImpl;
 import core.configuration.CoreConfigurationEnum;
 import core.configuration.LibraryConfiguration;
 import core.libraries.LibraryService;
+import core.libraries.LibraryServiceImpl;
 
 public abstract class OrionObject
 {
@@ -20,7 +25,12 @@ public abstract class OrionObject
     
     public OrionObject()
     {
-        new OrionObjectDependenciesBuilder().injectDependencies(this);
+        this.librariesConfigurationSet = new HashSet<LibraryConfiguration>();
+        this.libraryConfiguration = new LibraryConfiguration();
+        this.libraryService = new LibraryServiceImpl();
+        this.configurationService = new ConfigurationServiceImpl();
+        this.annotationsConfigurationService = new AnnotationsConfigurationServiceImpl();
+        this.annotationsProcessorService = new AnnotationsProcessorServiceImpl();
         initialiseCoreConfiguration();
         loadCoreConfiguration();
         processAllLibrariesConfigurationIfItIsTheCoreLibrary();
@@ -58,41 +68,5 @@ public abstract class OrionObject
         configurationService.loadLibrariesProperties(librariesConfigurationSet);
         annotationsConfigurationService.loadLibrariesAnnotations(librariesConfigurationSet);
         annotationsProcessorService.processAllAnnotations(this);
-    }
-
-
-    public void setLibrariesConfigurationSet(Set<LibraryConfiguration> librariesConfigurationSet)
-    {
-        this.librariesConfigurationSet = librariesConfigurationSet;
-    }
-
-
-    public void setLibraryConfiguration(LibraryConfiguration libraryConfiguration)
-    {
-        this.libraryConfiguration = libraryConfiguration;
-    }
-
-
-    public void setLibraryService(LibraryService libraryService)
-    {
-        this.libraryService = libraryService;
-    }
-
-
-    public void setConfigurationService(ConfigurationService configurationService)
-    {
-        this.configurationService = configurationService;
-    }
-
-
-    public void setAnnotationsConfigurationService(AnnotationsConfigurationService annotationsConfigurationService)
-    {
-        this.annotationsConfigurationService = annotationsConfigurationService;
-    }
-
-
-    public void setAnnotationsProcessorService(AnnotationsProcessorService annotationsProcessorService)
-    {
-        this.annotationsProcessorService = annotationsProcessorService;
     }
 }

@@ -9,7 +9,7 @@ public class LibraryServiceImpl implements LibraryService
     
     public LibraryServiceImpl()
     {
-        new LibraryServiceDependenciesBuilder().injectDependencies(this);
+        this.isCoreLibraryTask = new IsCoreLibraryTask();
     }
     
     
@@ -19,11 +19,5 @@ public class LibraryServiceImpl implements LibraryService
     public boolean isCoreLibrary(Class<?> classBeingRun)
     {
         return isCoreLibraryTask.run(classBeingRun);
-    }
-
-
-    public void setIsCoreLibraryTask(IsCoreLibraryTask isCoreLibraryTask)
-    {
-        this.isCoreLibraryTask = isCoreLibraryTask;
     }
 }

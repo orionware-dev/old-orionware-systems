@@ -11,7 +11,8 @@ public class AnnotationsRegistrationServiceImpl implements AnnotationsRegistrati
     
     public AnnotationsRegistrationServiceImpl()
     {
-        new AnnotationsRegistrationServiceDependenciesBuilder().injectDependencies(this);
+        this.haveAnnotationsBeenRegisteredForLibraryTask = new HaveAnnotationsBeenRegisteredForLibraryTask();
+        this.setAnnotationsAsRegisteredForLibraryTask = new SetAnnotationsAsRegisteredForLibraryTask();
     }
     
     
@@ -33,17 +34,5 @@ public class AnnotationsRegistrationServiceImpl implements AnnotationsRegistrati
     public void setAnnotationsAsRegisteredForLibrary(String libraryName)
     {
         setAnnotationsAsRegisteredForLibraryTask.run(libraryName);
-    }
-
-
-    public void setHaveAnnotationsBeenRegisteredForLibraryTask(HaveAnnotationsBeenRegisteredForLibraryTask haveAnnotationsBeenRegisteredForLibraryTask)
-    {
-        this.haveAnnotationsBeenRegisteredForLibraryTask = haveAnnotationsBeenRegisteredForLibraryTask;
-    }
-
-
-    public void setSetAnnotationsAsRegisteredForLibraryTask(SetAnnotationsAsRegisteredForLibraryTask setAnnotationsAsRegisteredForLibraryTask)
-    {
-        this.setAnnotationsAsRegisteredForLibraryTask = setAnnotationsAsRegisteredForLibraryTask;
     }
 }

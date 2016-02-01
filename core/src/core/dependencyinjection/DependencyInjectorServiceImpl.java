@@ -2,9 +2,11 @@ package core.dependencyinjection;
 
 import core.OrionObject;
 import core.annotations.processor.AnnotationsProcessorService;
+import core.annotations.processor.AnnotationsProcessorServiceImpl;
 import core.dependencyinjection.tasks.ProcessDependenciesTask;
 import core.dependencyinjection.tasks.ProcessMethodForInjectionTask;
 import core.reflection.ReflectionService;
+import core.reflection.ReflectionServiceImpl;
 
 public class DependencyInjectorServiceImpl implements DependencyInjectorService
 {
@@ -16,7 +18,10 @@ public class DependencyInjectorServiceImpl implements DependencyInjectorService
     
     public DependencyInjectorServiceImpl()
     {
-        new DependencyInjectorServiceDependenciesBuilder().injectDependencies(this);
+        this.processDependenciesTask = new ProcessDependenciesTask();
+        this.reflectionService = new ReflectionServiceImpl();
+        this.processMethodForInjectionTask = new ProcessMethodForInjectionTask();
+        this.annotationsProcessorService = new AnnotationsProcessorServiceImpl();
     }
     
     
@@ -24,29 +29,5 @@ public class DependencyInjectorServiceImpl implements DependencyInjectorService
     public void processDependencies(OrionObject object)
     {
         processDependenciesTask.run(object, reflectionService, processMethodForInjectionTask, annotationsProcessorService);
-    }
-
-
-    public void setProcessDependenciesTask(ProcessDependenciesTask processDependenciesTask)
-    {
-        this.processDependenciesTask = processDependenciesTask;
-    }
-
-
-    public void setReflectionService(ReflectionService reflectionService)
-    {
-        this.reflectionService = reflectionService;
-    }
-
-
-    public void setProcessMethodForInjectionTask(ProcessMethodForInjectionTask processMethodForInjectionTask)
-    {
-        this.processMethodForInjectionTask = processMethodForInjectionTask;
-    }
-
-
-    public void setAnnotationsProcessorService(AnnotationsProcessorService annotationsProcessorService)
-    {
-        this.annotationsProcessorService = annotationsProcessorService;
     }
 }

@@ -25,7 +25,13 @@ public class FileSystemServiceImpl implements FileSystemService
     
     public FileSystemServiceImpl()
     {
-        new FileSystemServiceDependenciesBuilder().injectDependencies(this);
+        this.getFileStreamTask = new GetFileStreamTask();
+        this.convertFileToStringTask = new ConvertFileToStringTask();
+        this.saveStringToFileTask = new SaveStringToFileTask();
+        this.emptyDirectoryTask = new EmptyDirectoryTask();
+        this.closeResourceTask = new CloseResourceTask();
+        this.getReaderFromFileTask = new GetReaderFromFileTask();
+        this.getWriterForFileTask = new GetWriterForFileTask();
     }
     
     
@@ -75,47 +81,5 @@ public class FileSystemServiceImpl implements FileSystemService
     public Writer getWritterForFile(String filePath)
     {
         return getWriterForFileTask.run(filePath);
-    }
-
-
-    public void setGetFileStreamTask(GetFileStreamTask getFileStreamTask)
-    {
-        this.getFileStreamTask = getFileStreamTask;
-    }
-
-
-    public void setConvertFileToStringTask(ConvertFileToStringTask convertFileToStringTask)
-    {
-        this.convertFileToStringTask = convertFileToStringTask;
-    }
-
-
-    public void setSaveStringToFileTask(SaveStringToFileTask saveStringToFileTask)
-    {
-        this.saveStringToFileTask = saveStringToFileTask;
-    }
-
-
-    public void setEmptyDirectoryTask(EmptyDirectoryTask emptyDirectoryTask)
-    {
-        this.emptyDirectoryTask = emptyDirectoryTask;
-    }
-
-
-    public void setCloseResourceTask(CloseResourceTask closeResourceTask)
-    {
-        this.closeResourceTask = closeResourceTask;
-    }
-
-
-    public void setGetReaderFromFileTask(GetReaderFromFileTask getReaderFromFileTask)
-    {
-        this.getReaderFromFileTask = getReaderFromFileTask;
-    }
-
-
-    public void setGetWriterForFileTask(GetWriterForFileTask getWriterForFileTask)
-    {
-        this.getWriterForFileTask = getWriterForFileTask;
     }
 }

@@ -24,7 +24,13 @@ public class ReflectionServiceImpl implements ReflectionService
     
     public ReflectionServiceImpl()
     {
-        new ReflectionServiceDependenciesBuilder().injectDependencies(this);
+        this.getMethodsArrayTask = new GetMethodsArrayTask();
+        this.getConstructorsArrayTask = new GetConstructorsArrayTask();
+        this.makeMethodAccessibleTask = new MakeMethodAccessibleTask();
+        this.callMethodTask = new CallMethodTask();
+        this.callConstructorTask = new CallConstructorTask();
+        this.loadClassTask = new LoadClassTask();
+        this.instantiateClassTask = new InstantiateClassTask();
     }
     
     
@@ -81,47 +87,5 @@ public class ReflectionServiceImpl implements ReflectionService
     public Object loadAndInstantiateClass(String className)
     {
         return instantiateClass(loadClass(className));
-    }
-
-
-    public void setGetMethodsArrayTask(GetMethodsArrayTask getMethodsArrayTask)
-    {
-        this.getMethodsArrayTask = getMethodsArrayTask;
-    }
-
-
-    public void setGetConstructorsArrayTask(GetConstructorsArrayTask getConstructorsArrayTask)
-    {
-        this.getConstructorsArrayTask = getConstructorsArrayTask;
-    }
-
-
-    public void setMakeMethodAccessibleTask(MakeMethodAccessibleTask makeMethodAccessibleTask)
-    {
-        this.makeMethodAccessibleTask = makeMethodAccessibleTask;
-    }
-
-
-    public void setCallMethodTask(CallMethodTask callMethodTask)
-    {
-        this.callMethodTask = callMethodTask;
-    }
-
-
-    public void setCallConstructorTask(CallConstructorTask callConstructorTask)
-    {
-        this.callConstructorTask = callConstructorTask;
-    }
-
-
-    public void setLoadClassTask(LoadClassTask loadClassTask)
-    {
-        this.loadClassTask = loadClassTask;
-    }
-
-
-    public void setInstantiateClassTask(InstantiateClassTask instantiateClassTask)
-    {
-        this.instantiateClassTask = instantiateClassTask;
     }
 }
