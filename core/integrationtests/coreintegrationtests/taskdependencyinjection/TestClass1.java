@@ -2,10 +2,12 @@ package coreintegrationtests.taskdependencyinjection;
 
 import core.OrionObject;
 import core.dependencyinjection.Injector;
+import core.servicedependencyinjection.ServiceInjector;
+import coreintegrationtests.taskdependencyinjection.impl.TestServiceImpl;
 
 public class TestClass1 extends OrionObject
 {
-    private TestClass2 testClass2;
+    private TestServiceImpl testService;
     
     
     public String testThisClassIsRunning()
@@ -14,21 +16,21 @@ public class TestClass1 extends OrionObject
     }
     
     
-    public String testTestClass2IsRunning()
+    public String testTestServiceIsRunning()
     {
-        return testClass2.testThisClassIsRunning();
+        return testService.testThisClassIsRunning();
     }
     
     
     public String testTestTaskIsRunning()
     {
-        return testClass2.testTestTaskIsRunning();
+        return testService.testTestTaskIsRunning();
     }
     
     
-    @Injector(ID = "coreintegrationtests.taskdependencyinjection.TestClass2")
-    private void setTestClass2(TestClass2 testClass2)
+    @ServiceInjector(ID = "coreintegrationtests.taskdependencyinjection.TestService")
+    private void setTestService(TestServiceImpl testService)
     {
-        this.testClass2 = testClass2;
+        this.testService = testService;
     }
 }

@@ -29,12 +29,24 @@ public class ProcessMethodForTaskInjectionTask implements OrionTask
     
     private void processInjection(Method method, TaskInjector taskInjection)
     {
-        //the format is package1.package2.services.servicename.TaskClassName
+        //the format is either package1.package2.services.servicename.TaskClassName
+        //or just ServiceTaskName. We check for the first and if the ID
+        //does not have a "." then we assume it is just the task class name
         String classToInject = taskInjection.ID();
-        //we transform it to package1.package2.services.servicename.impl.tasks.TaskClassName
-        String classNameToInject = classToInject.substring(classToInject.lastIndexOf(".") + 1);
-        classToInject = classToInject.substring(0, classToInject.lastIndexOf("."));
-        classToInject += ".impl.tasks." + classNameToInject;
+        
+        if(classToInject.indexOf(".") != -1)
+        {
+            //we transform it to package1.package2.services.servicename.impl.tasks.TaskClassName
+            String classNameToInject = classToInject.substring(classToInject.lastIndexOf(".") + 1);
+            classToInject = classToInject.substring(0, classToInject.lastIndexOf("."));
+            classToInject += ".impl.tasks." + classNameToInject;
+        }
+        else
+        {
+            String classNameThatHasThisMethod = method.getDeclaringClass().getName();
+            classNameThatHasThisMethod = classNameThatHasThisMethod.substring(0, classNameThatHasThisMethod.lastIndexOf("."));
+            classToInject = classNameThatHasThisMethod + ".tasks." + classToInject;
+        }
         
         try
         {

@@ -18,7 +18,7 @@ public class TaskDependencyInjectionTest
     {
         TestClass1 testClass1 = new TestClass1();
         Assert.assertEquals("Running coreintegrationtests.taskdependencyinjection.TestClass1...", testClass1.testThisClassIsRunning());
-        Assert.assertEquals("Running coreintegrationtests.taskdependencyinjection.TestClass2...", testClass1.testTestClass2IsRunning());
+        Assert.assertEquals("Running coreintegrationtests.taskdependencyinjection.impl.TestServiceImpl...", testClass1.testTestServiceIsRunning());
         Assert.assertEquals("Running coreintegrationtests.taskdependencyinjection.impl.tasks.TestTask...", testClass1.testTestTaskIsRunning());
     }
 }
