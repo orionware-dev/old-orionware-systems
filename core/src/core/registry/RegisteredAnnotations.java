@@ -8,7 +8,7 @@ import core.general.OrionConfiguration;
 
 public class RegisteredAnnotations extends OrionConfiguration
 {
-    private static Set<RegisteredAnnotation> registeredAnnotationsSet;
+    public static Set<RegisteredAnnotation> registeredAnnotationsSet;
     
     
     static
@@ -17,21 +17,8 @@ public class RegisteredAnnotations extends OrionConfiguration
     }
     
     
-    public static Set<RegisteredAnnotation> getAnnotations()
-    {
-        return registeredAnnotationsSet;
-    }
-    
-    
     public static void add(RegisteredAnnotation registeredAnnotation)
     {
         registeredAnnotationsSet.add(registeredAnnotation);
-    }
-    
-    
-    @SuppressWarnings("unchecked")
-    public static void forEach(Consumer<?> action)
-    {
-        registeredAnnotationsSet.forEach((Consumer<? super RegisteredAnnotation>)action);
     }
 }
