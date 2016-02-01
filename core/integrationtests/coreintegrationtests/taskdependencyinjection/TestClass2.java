@@ -1,8 +1,6 @@
 package coreintegrationtests.taskdependencyinjection;
 
 import core.OrionObject;
-import core.dependencyinjection.Injector;
-import core.servicedependencyinjection.ServiceInjector;
 import core.taskdependencyinjection.TaskInjector;
 import coreintegrationtests.taskdependencyinjection.impl.tasks.TestTask;
 

@@ -4,7 +4,6 @@ import java.lang.reflect.Method;
 import core.OrionObject;
 import core.annotations.processor.AnnotationsProcessorService;
 import core.reflection.ReflectionService;
-import core.servicedependencyinjection.ServiceInjector;
 import core.services.OrionTask;
 import core.taskdependencyinjection.TaskInjector;
 

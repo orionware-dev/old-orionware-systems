@@ -1,7 +1,6 @@
 package coreintegrationtests.taskdependencyinjection.impl.tasks;
 
 import core.OrionObject;
-import core.services.OrionService;
 import coreintegrationtests.servicedependencyinjection.TestService;
 
 public class TestTask extends OrionObject implements TestService

@@ -1,7 +1,6 @@
 package coreintegrationtests.servicedependencyinjection;
 
 import core.OrionObject;
-import core.dependencyinjection.Injector;
 import core.servicedependencyinjection.ServiceInjector;
 
 public class TestClass2 extends OrionObject
