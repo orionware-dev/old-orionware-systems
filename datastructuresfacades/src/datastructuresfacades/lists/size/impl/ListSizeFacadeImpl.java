@@ -1,6 +1,6 @@
 package datastructuresfacades.lists.size.impl;
 
-import core.dependencyinjection.Injector;
+import core.servicedependencyinjection.ServiceInjector;
 import datastructures.lists.OrionList;
 import datastructuresfacades.DataStructuresFacadesObject;
 import datastructuresfacades.lists.size.ListSizeFacade;
@@ -18,7 +18,7 @@ public class ListSizeFacadeImpl extends DataStructuresFacadesObject implements L
     }
 
 
-    @Injector(ID = "datastructuresservices.lists.size.impl.ListSizeServiceImpl")
+    @ServiceInjector(ID = "datastructuresservices.lists.size.ListSizeService")
     private void setListSizeService(ListSizeService listSizeService)
     {
         this.listSizeService = listSizeService;
