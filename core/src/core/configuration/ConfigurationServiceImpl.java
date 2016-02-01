@@ -27,6 +27,12 @@ public class ConfigurationServiceImpl implements ConfigurationService
     
     public ConfigurationServiceImpl()
     {
+        initialiseDependencies();
+    }
+    
+    
+    private void initialiseDependencies()
+    {
         this.getClasspathRootPathTask = new GetClasspathRootPathTask();
         this.getClasspathRootTask = new GetClasspathRootTask();
         this.fileSystemService = new FileSystemServiceImpl();

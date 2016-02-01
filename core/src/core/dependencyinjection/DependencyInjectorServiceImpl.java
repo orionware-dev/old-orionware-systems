@@ -18,6 +18,12 @@ public class DependencyInjectorServiceImpl implements DependencyInjectorService
     
     public DependencyInjectorServiceImpl()
     {
+        initialiseDependencies();
+    }
+    
+    
+    private void initialiseDependencies()
+    {
         this.processDependenciesTask = new ProcessDependenciesTask();
         this.reflectionService = new ReflectionServiceImpl();
         this.processMethodForInjectionTask = new ProcessMethodForInjectionTask();

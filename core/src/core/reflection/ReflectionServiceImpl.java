@@ -24,6 +24,12 @@ public class ReflectionServiceImpl implements ReflectionService
     
     public ReflectionServiceImpl()
     {
+        initialiseDependencies();
+    }
+    
+    
+    private void initialiseDependencies()
+    {
         this.getMethodsArrayTask = new GetMethodsArrayTask();
         this.getConstructorsArrayTask = new GetConstructorsArrayTask();
         this.makeMethodAccessibleTask = new MakeMethodAccessibleTask();

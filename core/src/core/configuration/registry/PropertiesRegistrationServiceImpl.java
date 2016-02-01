@@ -11,6 +11,12 @@ public class PropertiesRegistrationServiceImpl implements PropertiesRegistration
     
     public PropertiesRegistrationServiceImpl()
     {
+        initialiseDependencies();
+    }
+    
+    
+    private void initialiseDependencies()
+    {
         this.havePropertiesBeenRegisteredForLibraryTask = new HavePropertiesBeenRegisteredForLibraryTask();
         this.setPropertiesAsRegisteredForLibraryTask = new SetPropertiesAsRegisteredForLibraryTask();
     }

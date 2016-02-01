@@ -11,6 +11,12 @@ public class AnnotationsRegistrationServiceImpl implements AnnotationsRegistrati
     
     public AnnotationsRegistrationServiceImpl()
     {
+        initialiseDependencies();
+    }
+    
+    
+    private void initialiseDependencies()
+    {
         this.haveAnnotationsBeenRegisteredForLibraryTask = new HaveAnnotationsBeenRegisteredForLibraryTask();
         this.setAnnotationsAsRegisteredForLibraryTask = new SetAnnotationsAsRegisteredForLibraryTask();
     }

@@ -25,6 +25,12 @@ public class FileSystemServiceImpl implements FileSystemService
     
     public FileSystemServiceImpl()
     {
+        initialiseDependencies();
+    }
+    
+    
+    private void initialiseDependencies()
+    {
         this.getFileStreamTask = new GetFileStreamTask();
         this.convertFileToStringTask = new ConvertFileToStringTask();
         this.saveStringToFileTask = new SaveStringToFileTask();

@@ -9,6 +9,12 @@ public class LibraryServiceImpl implements LibraryService
     
     public LibraryServiceImpl()
     {
+        initialiseDependencies();
+    }
+    
+    
+    private void initialiseDependencies()
+    {
         this.isCoreLibraryTask = new IsCoreLibraryTask();
     }
     
