@@ -18,6 +18,12 @@ public class AnnotationsProcessorServiceImpl implements AnnotationsProcessorServ
     
     public AnnotationsProcessorServiceImpl()
     {
+        initialiseDependencies();
+    }
+    
+    
+    private void initialiseDependencies()
+    {
         this.gatherAllObjectAnnotationsTask = new GatherAllObjectAnnotationsTask();
         this.applyAnnotationsTask = new ApplyAnnotationsTask();
         this.reflectionService = new ReflectionServiceImpl();
