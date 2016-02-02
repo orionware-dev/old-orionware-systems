@@ -34,7 +34,12 @@ public class ProcessMethodForServiceInjectionTask implements OrionTask
         //we transform it to package1.package2.services.servicename.impl.ServiceInterfaceImpl
         String classNameToInject = classToInject.substring(classToInject.lastIndexOf(".") + 1);
         classToInject = classToInject.substring(0, classToInject.lastIndexOf("."));
-        classToInject += ".impl." + classNameToInject + "Impl";
+        StringBuilder sb = new StringBuilder();
+        sb.append(classToInject);
+        sb.append(".impl.");
+        sb.append(classNameToInject);
+        sb.append("Impl");
+        classToInject = sb.toString();
         
         try
         {

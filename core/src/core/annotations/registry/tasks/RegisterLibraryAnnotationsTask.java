@@ -25,7 +25,11 @@ public class RegisterLibraryAnnotationsTask implements OrionTask
         if(annotationsDeclarations.isNotEmpty())
         {
             int annotationCounter = 1;
-            String annotationDeclaration = libraryConfiguration.getLibraryName() + ".annotation." + annotationCounter;
+            StringBuilder sb = new StringBuilder();
+            sb.append(libraryConfiguration.getLibraryName());
+            sb.append(".annotation.");
+            sb.append(annotationCounter);
+            String annotationDeclaration = sb.toString();
             
             while(annotationsDeclarations.doesPropExist(annotationDeclaration))
             {
@@ -34,7 +38,11 @@ public class RegisterLibraryAnnotationsTask implements OrionTask
                 resolveCurrentAnnotationServiceMethodToCall(libraryConfiguration.getLibraryName(), annotationCounter);
                 registerLibraryAnnotation();
                 ++annotationCounter;
-                annotationDeclaration = libraryConfiguration.getLibraryName() + ".annotation." + annotationCounter;
+                sb = new StringBuilder();
+                sb.append(libraryConfiguration.getLibraryName());
+                sb.append(".annotation.");
+                sb.append(annotationCounter);
+                annotationDeclaration = sb.toString();
             }
         }
         
