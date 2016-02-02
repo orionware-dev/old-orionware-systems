@@ -6,6 +6,7 @@ import java.util.Set;
 import core.annotations.RegisteredAnnotation;
 import core.annotations.configuration.tasks.GetAnnotationsFileStreamTask;
 import core.annotations.configuration.tasks.LoadLibraryAnnotationsDefinitionsTask;
+import core.annotations.configuration.tasks.RegisterAnnotationTask;
 import core.annotations.registry.AnnotationsRegistrationService;
 import core.annotations.registry.AnnotationsRegistrationServiceImpl;
 import core.annotations.registry.tasks.RegisterLibraryAnnotationsTask;
@@ -19,6 +20,7 @@ public class AnnotationsConfigurationServiceImpl implements AnnotationsConfigura
 {
     private FileSystemService fileSystemService = new FileSystemServiceImpl();
     private AnnotationsRegistrationService annotationsRegistrationService = new AnnotationsRegistrationServiceImpl();
+    private RegisterAnnotationTask registerAnnotationTask = new RegisterAnnotationTask();
     private GetClasspathRootPathTask getClasspathRootPathTask = new GetClasspathRootPathTask();
     private GetAnnotationsFileStreamTask getAnnotationsFileStreamTask = new GetAnnotationsFileStreamTask();
     private RegisterLibraryAnnotationsTask registerLibraryAnnotationsTask = new RegisterLibraryAnnotationsTask();
@@ -28,7 +30,7 @@ public class AnnotationsConfigurationServiceImpl implements AnnotationsConfigura
     @Override
     public void registerAnnotation(RegisteredAnnotation registeredAnnotation)
     {
-        OrionRegistry.registerAnnotation(registeredAnnotation);
+        registerAnnotationTask.run(registeredAnnotation);
     }
     
     
