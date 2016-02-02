@@ -2,8 +2,10 @@ package core.annotations.registry.tasks;
 
 import core.annotations.RegisteredAnnotation;
 import core.annotations.configuration.AnnotationsConfigurationService;
+import core.annotations.configuration.AnnotationsConfigurationServiceImpl;
 import core.annotations.configuration.tasks.LoadLibraryAnnotationsDefinitionsTask;
 import core.annotations.registry.AnnotationsRegistrationService;
+import core.annotations.registry.AnnotationsRegistrationServiceImpl;
 import core.configuration.LibraryConfiguration;
 import core.general.OrionProperties;
 import core.services.OrionTask;
@@ -14,12 +16,13 @@ public class RegisterLibraryAnnotationsTask implements OrionTask
     private String currentAnnotationClass;
     private String currentAnnotationServiceClass;
     private String currentAnnotationServiceMethodToCall;
-    private AnnotationsConfigurationService annotationsConfigurationService;
+    private AnnotationsConfigurationService annotationsConfigurationService = new AnnotationsConfigurationServiceImpl();
+    private LoadLibraryAnnotationsDefinitionsTask loadLibraryAnnotationsDefinitionsTask = new LoadLibraryAnnotationsDefinitionsTask();
+    private AnnotationsRegistrationService annotationsRegistrationService = new AnnotationsRegistrationServiceImpl();
     
     
-    public void run(AnnotationsConfigurationService annotationsConfigurationService, LoadLibraryAnnotationsDefinitionsTask loadLibraryAnnotationsDefinitionsTask, AnnotationsRegistrationService annotationsRegistrationService, LibraryConfiguration libraryConfiguration)
+    public void run(LibraryConfiguration libraryConfiguration)
     {
-        this.annotationsConfigurationService = annotationsConfigurationService;
         annotationsDeclarations = loadLibraryAnnotationsDefinitionsTask.run(annotationsConfigurationService, libraryConfiguration);
         
         if(annotationsDeclarations.isNotEmpty())

@@ -3,11 +3,9 @@ package core.annotations.configuration;
 import java.io.Closeable;
 import java.io.InputStream;
 import java.util.Set;
-import java.util.stream.Stream;
 import core.annotations.RegisteredAnnotation;
 import core.annotations.configuration.loadlibrariesannotations.LoadLibrariesAnnotationsHelper;
 import core.annotations.configuration.registerannotation.RegisterAnnotationHelper;
-import core.annotations.configuration.registerannotation.tasks.RegisterAnnotationTask;
 import core.annotations.configuration.tasks.GetAnnotationsFileStreamTask;
 import core.configuration.LibraryConfiguration;
 import core.configuration.tasks.GetClasspathRootPathTask;
@@ -33,9 +31,7 @@ public class AnnotationsConfigurationServiceImpl implements AnnotationsConfigura
     @Override
     public void loadLibrariesAnnotations(Set<LibraryConfiguration> librariesConfiguration)
     {
-        Stream<LibraryConfiguration> notNullLibraryConfigurations = loadLibrariesAnnotationsHelper.filterNotNullLibraryConfigurations(librariesConfiguration);
-        notNullLibraryConfigurations = loadLibrariesAnnotationsHelper.filterAnnotationsNotBeenRegisteredForLibrary(notNullLibraryConfigurations);
-        loadLibrariesAnnotationsHelper.registerLibrariesAnnotations(notNullLibraryConfigurations);
+        loadLibrariesAnnotationsHelper.loadLibrariesAnnotations(librariesConfiguration);
     }
     
     
