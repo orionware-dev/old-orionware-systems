@@ -32,12 +32,18 @@ public class ApplyAnnotationsTask implements OrionTask
         //otherwise it means that we are processing an annotation that has not been registered
         //in which case we ignore it. It could be a Java/Spring/etc. annotation in which
         //case it is processed by the respective framework
-        if(allObjectAnnotationsList.stream()
-            .filter((annotation) -> annotation.annotationType().getName().equals(registeredAnnotation.getAnnotationClass()))
-            .count() == 1)
+        if(thisAnnotationIsRegistered(registeredAnnotation))
         {
             applyAnnotationToMethod(registeredAnnotation);
         }
+    }
+    
+    
+    private boolean thisAnnotationIsRegistered(RegisteredAnnotation registeredAnnotation)
+    {
+        return allObjectAnnotationsList.stream()
+                    .filter((annotation) -> annotation.annotationType().getName().equals(registeredAnnotation.getAnnotationClass()))
+                    .count() == 1;
     }
     
     

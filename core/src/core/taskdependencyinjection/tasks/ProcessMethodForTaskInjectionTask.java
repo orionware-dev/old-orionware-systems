@@ -35,7 +35,7 @@ public class ProcessMethodForTaskInjectionTask implements OrionTask
         String classToInject = taskInjection.ID();
         StringBuilder sb = new StringBuilder();
         
-        if(classToInject.indexOf(".") != -1)
+        if(annotationRepresentsAPackage(classToInject))
         {
             //we transform it to package1.package2.services.servicename.impl.tasks.TaskClassName
             String classNameToInject = classToInject.substring(classToInject.lastIndexOf(".") + 1);
@@ -71,5 +71,11 @@ public class ProcessMethodForTaskInjectionTask implements OrionTask
         {
             exception.printStackTrace();
         }
+    }
+    
+    
+    private boolean annotationRepresentsAPackage(String classToInject)
+    {
+        return classToInject.indexOf(".") != -1;
     }
 }

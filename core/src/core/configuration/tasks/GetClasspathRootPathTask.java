@@ -21,8 +21,8 @@ public class GetClasspathRootPathTask implements OrionTask
             sb.append(File.separator);
             sb.append(CoreConfigurationEnum.CLASSPATH_ROOT.get());
             
-            if(!CoreConfigurationEnum.CLASSPATH_ROOT.get().equals(libraryClasspathRootPath)
-                && classpathRoot.getAbsolutePath().endsWith(sb.toString()))
+            if(libraryClasspathRootPathDoesNotEqualCoreClasspathRoot(libraryClasspathRootPath)
+                && classpathRootEndsWithCoreClasspathRoot(classpathRoot, sb))
             {
                 classpathRoot = new File(classpathRoot.getParent());
                 sb = new StringBuilder();
@@ -30,7 +30,7 @@ public class GetClasspathRootPathTask implements OrionTask
                 sb.append(File.separator);
                 sb.append(DefaultConfigurationEnum.BIN_DIR.get());
                 
-                if(classpathRoot.getAbsolutePath().endsWith(sb.toString()))
+                if(classpathRootEndsWithCoreClasspathBinDir(classpathRoot, sb))
                 {
                     classpathRoot = new File(classpathRoot.getParent());
                     classpathRoot = new File(classpathRoot.getParent());
@@ -59,5 +59,23 @@ public class GetClasspathRootPathTask implements OrionTask
         while(!classpathRoot.getName().endsWith(libraryClasspathRootPath));
         
         return classpathRoot.getAbsolutePath();
+    }
+    
+    
+    private boolean libraryClasspathRootPathDoesNotEqualCoreClasspathRoot(String libraryClasspathRootPath)
+    {
+        return !CoreConfigurationEnum.CLASSPATH_ROOT.get().equals(libraryClasspathRootPath);
+    }
+    
+    
+    private boolean classpathRootEndsWithCoreClasspathRoot(File classpathRoot, StringBuilder sb)
+    {
+        return classpathRoot.getAbsolutePath().endsWith(sb.toString());
+    }
+    
+    
+    private boolean classpathRootEndsWithCoreClasspathBinDir(File classpathRoot, StringBuilder sb)
+    {
+        return classpathRoot.getAbsolutePath().endsWith(sb.toString());
     }
 }

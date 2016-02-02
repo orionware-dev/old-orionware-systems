@@ -2,13 +2,6 @@
 tasks and the service itself should gather results from tasks and call the appropriate ones in the order it needs
 
 
---use StringBuilder everywhere
-
-
---in ifs and whiles where we have conditions, put that line of
-condition in a private method and give it a good name
-
-
 --finish the template-project and apply everything I think of
 to all the projects. Use core and datastructures as examples
 

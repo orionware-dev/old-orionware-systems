@@ -42,6 +42,7 @@ public class SaveStringToFileTask implements OrionTask
         {
             output.write(lineToWrite);
             
+            //we avoid an empty line at the end of the file
             if(lineCounter != numberOfLines)
             {
                 output.write(lineSeparator);

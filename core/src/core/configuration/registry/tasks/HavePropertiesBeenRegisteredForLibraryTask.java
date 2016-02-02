@@ -7,7 +7,7 @@ public class HavePropertiesBeenRegisteredForLibraryTask implements OrionTask
 {
     public boolean run(String libraryName)
     {
-        if(LibrariesConfigurationMapper.LIBRARIES_AND_IF_PROPERTIES_HAVE_BEEN_REGISTERED_MAPPER.get(libraryName) != null)
+        if(libraryPropertiesHaveBeenRegistered(libraryName))
         {
             return LibrariesConfigurationMapper.LIBRARIES_AND_IF_PROPERTIES_HAVE_BEEN_REGISTERED_MAPPER.get(libraryName);
         }
@@ -15,5 +15,11 @@ public class HavePropertiesBeenRegisteredForLibraryTask implements OrionTask
         {
             return false;
         }
+    }
+    
+    
+    private boolean libraryPropertiesHaveBeenRegistered(String libraryName)
+    {
+        return LibrariesConfigurationMapper.LIBRARIES_AND_IF_PROPERTIES_HAVE_BEEN_REGISTERED_MAPPER.get(libraryName) != null;
     }
 }

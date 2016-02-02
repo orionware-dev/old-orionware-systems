@@ -7,7 +7,7 @@ public class HaveAnnotationsBeenRegisteredForLibraryTask implements OrionTask
 {
     public boolean run(String libraryName)
     {
-        if(LibrariesConfigurationMapper.LIBRARIES_AND_IF_ANNOTATIONS_HAVE_BEEN_REGISTERED_MAPPER.get(libraryName) != null)
+        if(thisLibraryAnnotationsHaveBeenRegistered(libraryName))
         {
             return LibrariesConfigurationMapper.LIBRARIES_AND_IF_ANNOTATIONS_HAVE_BEEN_REGISTERED_MAPPER.get(libraryName);
         }
@@ -15,5 +15,11 @@ public class HaveAnnotationsBeenRegisteredForLibraryTask implements OrionTask
         {
             return false;
         }
+    }
+    
+    
+    private boolean thisLibraryAnnotationsHaveBeenRegistered(String libraryName)
+    {
+        return LibrariesConfigurationMapper.LIBRARIES_AND_IF_ANNOTATIONS_HAVE_BEEN_REGISTERED_MAPPER.get(libraryName) != null;
     }
 }

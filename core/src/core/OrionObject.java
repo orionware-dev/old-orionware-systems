@@ -50,10 +50,16 @@ public abstract class OrionObject
     //will call this method so that all the libraries configs are loaded in one go
     private void processAllLibrariesConfigurationIfItIsTheCoreLibrary()
     {
-        if(libraryService.isCoreLibrary(getClass()))
+        if(thisIsCoreLibrary())
         {
             processAllLibrariesConfiguration();
         }
+    }
+    
+    
+    private boolean thisIsCoreLibrary()
+    {
+        return libraryService.isCoreLibrary(getClass());
     }
     
     
