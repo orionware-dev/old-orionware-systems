@@ -16,10 +16,4 @@ public interface AnnotationsConfigurationService extends OrionService
     
     
     public InputStream getAnnotationsFileStream(String libraryName, String libraryAnnotationsFilePath);
-
-
-    public InputStream getFileStream(String filePath);
-
-
-    public void closeResource(Closeable stream);
 }

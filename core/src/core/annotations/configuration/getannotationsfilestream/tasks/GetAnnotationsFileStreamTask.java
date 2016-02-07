@@ -3,11 +3,13 @@ package core.annotations.configuration.getannotationsfilestream.tasks;
 import java.io.InputStream;
 import core.annotations.configuration.AnnotationsConfigurationService;
 import core.annotations.configuration.AnnotationsConfigurationServiceImpl;
+import core.filesystem.FileSystemService;
+import core.filesystem.FileSystemServiceImpl;
 import core.services.OrionTask;
 
 public class GetAnnotationsFileStreamTask implements OrionTask
 {
-    private AnnotationsConfigurationService annotationsConfigurationService = new AnnotationsConfigurationServiceImpl();
+    private FileSystemService fileSystemService = new FileSystemServiceImpl();
     
     
     public InputStream run(String classpathRoot, String libraryAnnotationsFilePath, String libraryName)
@@ -15,6 +17,6 @@ public class GetAnnotationsFileStreamTask implements OrionTask
         StringBuilder sb = new StringBuilder();
         sb.append(classpathRoot);
         sb.append(libraryAnnotationsFilePath);
-        return annotationsConfigurationService.getFileStream(sb.toString());
+        return fileSystemService.getFileStream(sb.toString());
     }
 }
