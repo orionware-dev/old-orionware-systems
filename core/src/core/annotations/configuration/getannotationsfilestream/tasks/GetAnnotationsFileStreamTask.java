@@ -1,8 +1,6 @@
 package core.annotations.configuration.getannotationsfilestream.tasks;
 
 import java.io.InputStream;
-import core.annotations.configuration.AnnotationsConfigurationService;
-import core.annotations.configuration.AnnotationsConfigurationServiceImpl;
 import core.filesystem.FileSystemService;
 import core.filesystem.FileSystemServiceImpl;
 import core.services.OrionTask;

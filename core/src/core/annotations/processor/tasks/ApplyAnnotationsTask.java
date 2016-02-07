@@ -7,12 +7,14 @@ import core.OrionObject;
 import core.annotations.RegisteredAnnotation;
 import core.annotations.processor.AnnotationsProcessorService;
 import core.reflection.ReflectionService;
+import core.reflection.ReflectionServiceImpl;
 import core.registry.OrionRegistry;
 import core.services.OrionTask;
 
 public class ApplyAnnotationsTask implements OrionTask
 {
     private AnnotationsProcessorService annotationsProcessorService;
+    private ReflectionService reflectionService = new ReflectionServiceImpl();
     private OrionObject object;
     private List<Annotation> allObjectAnnotationsList;
     
@@ -51,7 +53,6 @@ public class ApplyAnnotationsTask implements OrionTask
     {
         try
         {
-            ReflectionService reflectionService = annotationsProcessorService.getReflectionService();
             //instantiate annotation service
             Object someAnnotationService = reflectionService.loadAndInstantiateClass(registeredAnnotation.getAnnotationService());
             //call annotation service method that will process this annotation

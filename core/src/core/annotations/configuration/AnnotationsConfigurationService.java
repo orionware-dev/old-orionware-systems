@@ -1,6 +1,5 @@
 package core.annotations.configuration;
 
-import java.io.Closeable;
 import java.io.InputStream;
 import java.util.Set;
 import core.annotations.RegisteredAnnotation;
