@@ -3,7 +3,6 @@ package core.annotations.registry.tasks;
 import core.annotations.RegisteredAnnotation;
 import core.annotations.configuration.AnnotationsConfigurationService;
 import core.annotations.configuration.AnnotationsConfigurationServiceImpl;
-import core.annotations.configuration.tasks.LoadLibraryAnnotationsDefinitionsTask;
 import core.annotations.registry.AnnotationsRegistrationService;
 import core.annotations.registry.AnnotationsRegistrationServiceImpl;
 import core.configuration.LibraryConfiguration;
