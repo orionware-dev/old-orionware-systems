@@ -1,4 +1,4 @@
-package core.annotations.configuration.loadlibrariesannotations.tasks;
+package core.annotations.registry.librariesannotations.tasks;
 
 import java.util.Set;
 import java.util.stream.Stream;

@@ -1,7 +1,7 @@
-package core.annotations.configuration.registerannotation;
+package core.annotations.registry.registerannotation;
 
 import core.annotations.RegisteredAnnotation;
-import core.annotations.configuration.registerannotation.tasks.RegisterAnnotationTask;
+import core.annotations.registry.registerannotation.tasks.RegisterAnnotationTask;
 import core.services.OrionServiceHelper;
 
 public class RegisterAnnotationHelper implements OrionServiceHelper

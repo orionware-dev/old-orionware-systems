@@ -2,10 +2,12 @@ package core;
 
 import java.util.HashSet;
 import java.util.Set;
-import core.annotations.configuration.AnnotationsConfigurationService;
-import core.annotations.configuration.AnnotationsConfigurationServiceImpl;
+import core.annotations.loader.AnnotationsLoaderService;
+import core.annotations.loader.AnnotationsLoaderServiceImpl;
 import core.annotations.processor.AnnotationsProcessorService;
 import core.annotations.processor.AnnotationsProcessorServiceImpl;
+import core.annotations.registry.AnnotationsRegistrationService;
+import core.annotations.registry.AnnotationsRegistrationServiceImpl;
 import core.configuration.ConfigurationService;
 import core.configuration.ConfigurationServiceImpl;
 import core.configuration.CoreConfigurationEnum;
@@ -19,7 +21,7 @@ public abstract class OrionObject
     private LibraryConfiguration libraryConfiguration = new LibraryConfiguration();
     private LibraryService libraryService = new LibraryServiceImpl();
     private ConfigurationService configurationService = new ConfigurationServiceImpl();
-    private AnnotationsConfigurationService annotationsConfigurationService = new AnnotationsConfigurationServiceImpl();
+    private AnnotationsRegistrationService annotationsRegistrationService = new AnnotationsRegistrationServiceImpl();
     private AnnotationsProcessorService annotationsProcessorService = new AnnotationsProcessorServiceImpl();
     
     
@@ -66,7 +68,7 @@ public abstract class OrionObject
     protected void processAllLibrariesConfiguration()
     {
         configurationService.loadLibrariesProperties(librariesConfigurationSet);
-        annotationsConfigurationService.loadLibrariesAnnotations(librariesConfigurationSet);
+        annotationsRegistrationService.registerLibrariesAnnotations(librariesConfigurationSet);
         annotationsProcessorService.processAllAnnotations(this);
     }
 }

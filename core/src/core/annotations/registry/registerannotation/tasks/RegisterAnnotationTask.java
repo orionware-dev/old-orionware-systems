@@ -1,4 +1,4 @@
-package core.annotations.configuration.registerannotation.tasks;
+package core.annotations.registry.registerannotation.tasks;
 
 import core.annotations.RegisteredAnnotation;
 import core.registry.OrionRegistry;
