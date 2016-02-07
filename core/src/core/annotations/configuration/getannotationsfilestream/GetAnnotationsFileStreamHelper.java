@@ -7,12 +7,12 @@ import core.services.OrionServiceHelper;
 
 public class GetAnnotationsFileStreamHelper implements OrionServiceHelper
 {
-    private GetCoreClasspathRootPathTask getClasspathRootTask = new GetCoreClasspathRootPathTask();
+    private GetCoreClasspathRootPathTask getCoreClasspathRootTask = new GetCoreClasspathRootPathTask();
     private GetAnnotationsFileStreamTask getAnnotationsFileStreamTask = new GetAnnotationsFileStreamTask();
     
     
     public InputStream run(String libraryName, String libraryAnnotationsFilePath)
     {
-        return getAnnotationsFileStreamTask.run(getClasspathRootTask.run(libraryName), libraryAnnotationsFilePath, libraryName);
+        return getAnnotationsFileStreamTask.run(getCoreClasspathRootTask.run(libraryName), libraryAnnotationsFilePath, libraryName);
     }
 }
