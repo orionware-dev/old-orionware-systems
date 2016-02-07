@@ -2,6 +2,9 @@
 tasks and the service itself should gather results from tasks and call the appropriate ones in the order it needs
 
 
+--see if some of the instance vars of a class belong to a separate data class
+
+
 --finish the template-project and apply everything I think of
 to all the projects. Use core and datastructures as examples
 
@@ -11,6 +14,82 @@ to all the projects. Use core and datastructures as examples
 
 --figure out how a DataStructure.java object will encapsulate its size:
 Use datastructuresservices.lists.size.impl.tasks.GetSizeTask
+
+
+--create the Orion Web Platform
+--create microservices
+--create my own OrionWebContextLoaderListener.java that implements
+ServletContextListener. Then, in contextInitialised() put code that
+creates a global web application context and registers the
+OrionBeanProcessor.java which will be executed every time an object
+we have has an @OrionBean annotation. I have to find a way to implement
+something like the spring bean post processor, that will be executed
+when we try to instantiate a class so that it can handle all Orion
+annotations of the class
+--put "synchronized" in static methods definitions
+--load all System.getProperties() to AllProperties.java
+--create OrionInt extends Integer and provide some convenience methods.
+If it works, then do that for double and long, as well
+--Integer.getInteger(string) gets a System.getProperty(string) and then
+converts it to an integer. Create something similar using OrionInt,
+that searches through AllProperties.java
+--in AllProperties, create methods like: getIntProp(string) that takes
+the property value and converts it to int. Similarly for doubles, booleans, etc.
+--create Index.java interface with methods finished() and increase().
+It represents an index in general. Create a class like DataStructureIndex.java
+implements Index. Keep a reference of DataStructureIndex inside
+OrionArrayList.java and use it somehow to iterate through the list
+using this new index. Think of a use case for this
+--create ObjectsEqualityCheckers.java in which we keep a HashMap of
+object to ObjectEqualityChecker.java. create ObjectEqualityCheckerService.java
+that takes 2 or more objects and using the checkers mapper it will determine
+if they equal each other. You can create an ObjectEqualityChecker with the
+equals(object, object) and you can provide the custom implementation of the
+equality check. Use the service to register the checkers.
+--create OrionArray.java and provide convenience methods
+--rename core.general package to core.abstraction
+--for different file types we want to create, create he corresponding
+builder and buffer like XMLBuilder extends StringBuilder
+And XMLBuffer extends StringBuffer
+--create a way to do method callbacks: method(s) to be invoked after
+a method returns. Use pipeline/filters or something else
+--create ThreadSafeList.java and ThreadSafeArrayList implements
+ThreadSafeList. Similarly for sets and maps
+--create event-driven dev framework
+--create lifecycle interceptor framework
+--create a service manager that will run if we want. It will manage
+services lifecycles. Maybe it will use the pipeline for service
+sequencing. It could be used for business processes
+--create KeyValueStore extends Pair
+--create Entry extends KeyValueStore
+--create ConfigurationEntry extends Entry which will ha e a prop
+key and it's value
+--create ConfigurationEntries that has List<ConfigurationEntry>
+--in config service create method getConfigurationEntries() that
+returns ConfigurAtionEntries
+--in config service create method getConfigurationEntriesAsList()
+that returns List<ConfigurationEntry>
+--sequential conditioning: it is like pipes and filters, but for
+if statements. See if I can create something for that. We see code
+like: if(cond1) then return
+If(cond2) then something
+We can have a class that represents an if, like IfStatement.java.
+inside we have a list of conditions and a method to be executed
+if the condition holds
+--see how to extend the tomcat classloader so that in the Orion
+platform we can have something like an Orion Objects Container
+--for every object I have and will create, create a complete
+object hierarchy
+--elements in Orion data structures can be expired (removed)
+at particular intervals or specific time or cron
+--create a SOA engine. It can be used in libraries and web
+--create a logger
+--the logger can print on the standard output, or it can take
+a path and it will print errors and exceptions in files in that path
+--implement many sorting and other algos and when the sorter
+takes in the data structure, it will determine the best algo
+to use for that structure
+--create features prop files in which we enable/disable features
 
 
 
