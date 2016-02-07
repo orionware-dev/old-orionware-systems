@@ -14,6 +14,6 @@ public class AnnotationsLoaderServiceImpl implements AnnotationsLoaderService
     @Override
     public InputStream getAnnotationsFileStream(String libraryName, String libraryAnnotationsFilePath)
     {
-        return getAnnotationsFileStreamHelper.run(libraryName, fileSystemService, libraryAnnotationsFilePath);
+        return getAnnotationsFileStreamHelper.run(fileSystemService, libraryName, libraryAnnotationsFilePath);
     }
 }
