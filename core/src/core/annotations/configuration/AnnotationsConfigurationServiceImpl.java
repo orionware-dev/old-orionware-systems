@@ -18,20 +18,20 @@ public class AnnotationsConfigurationServiceImpl implements AnnotationsConfigura
     @Override
     public void registerAnnotation(RegisteredAnnotation registeredAnnotation)
     {
-        registerAnnotationHelper.registerAnnotation(registeredAnnotation);
+        registerAnnotationHelper.run(registeredAnnotation);
     }
     
     
     @Override
     public void loadLibrariesAnnotations(Set<LibraryConfiguration> librariesConfiguration)
     {
-        loadLibrariesAnnotationsHelper.loadLibrariesAnnotations(librariesConfiguration);
+        loadLibrariesAnnotationsHelper.run(librariesConfiguration);
     }
     
     
     @Override
     public InputStream getAnnotationsFileStream(String libraryName, String libraryAnnotationsFilePath)
     {
-        return getAnnotationsFileStreamHelper.getAnnotationsFileStream(libraryName, libraryAnnotationsFilePath);
+        return getAnnotationsFileStreamHelper.run(libraryName, libraryAnnotationsFilePath);
     }
 }

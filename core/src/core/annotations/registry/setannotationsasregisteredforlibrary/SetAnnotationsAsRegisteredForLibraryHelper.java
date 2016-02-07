@@ -8,7 +8,7 @@ public class SetAnnotationsAsRegisteredForLibraryHelper implements OrionServiceH
     private SetAnnotationsAsRegisteredForLibraryTask setAnnotationsAsRegisteredForLibraryTask = new SetAnnotationsAsRegisteredForLibraryTask();
     
     
-    public void setAnnotationsAsRegisteredForLibrary(String libraryName)
+    public void run(String libraryName)
     {
         setAnnotationsAsRegisteredForLibraryTask.run(libraryName);
     }

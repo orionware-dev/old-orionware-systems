@@ -13,7 +13,7 @@ public class ProcessAllAnnotationsHelper implements OrionServiceHelper
     private ApplyAnnotationsTask applyAnnotationsTask = new ApplyAnnotationsTask();
     
     
-    public void processAllAnnotations(OrionObject OrionObject)
+    public void run(OrionObject OrionObject)
     {
         List<Annotation> allObjectAnnotationsList = gatherAllObjectAnnotationsTask.run(OrionObject);
         applyAnnotationsTask.run(OrionObject, allObjectAnnotationsList);

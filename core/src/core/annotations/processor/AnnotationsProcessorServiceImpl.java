@@ -15,7 +15,7 @@ public class AnnotationsProcessorServiceImpl implements AnnotationsProcessorServ
     @Override
     public void processAllAnnotations(OrionObject OrionObject)
     {
-        processAllAnnotationsHelper.processAllAnnotations(OrionObject);
+        processAllAnnotationsHelper.run(OrionObject);
     }
     
     
@@ -23,6 +23,6 @@ public class AnnotationsProcessorServiceImpl implements AnnotationsProcessorServ
     @Override
     public Annotation extractAnnotationFromMethod(Method method, Class annotationClassToExtract)
     {
-        return extractAnnotationFromMethodHelper.extractAnnotationFromMethod(method, annotationClassToExtract);
+        return extractAnnotationFromMethodHelper.run(method, annotationClassToExtract);
     }
 }

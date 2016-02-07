@@ -9,7 +9,7 @@ public class RegisterAnnotationHelper implements OrionServiceHelper
     private RegisterAnnotationTask registerAnnotationTask = new RegisterAnnotationTask();
     
     
-    public void registerAnnotation(RegisteredAnnotation registeredAnnotation)
+    public void run(RegisteredAnnotation registeredAnnotation)
     {
         registerAnnotationTask.run(registeredAnnotation);
     }

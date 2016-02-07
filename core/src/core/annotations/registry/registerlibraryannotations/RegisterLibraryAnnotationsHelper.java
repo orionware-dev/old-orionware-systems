@@ -9,7 +9,7 @@ public class RegisterLibraryAnnotationsHelper implements OrionServiceHelper
     private RegisterLibraryAnnotationsTask registerLibraryAnnotationsTask = new RegisterLibraryAnnotationsTask();
     
     
-    public void registerLibraryAnnotations(LibraryConfiguration libraryConfiguration)
+    public void run(LibraryConfiguration libraryConfiguration)
     {
         registerLibraryAnnotationsTask.run(libraryConfiguration);
     }

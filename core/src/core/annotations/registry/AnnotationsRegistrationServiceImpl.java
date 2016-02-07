@@ -17,7 +17,7 @@ public class AnnotationsRegistrationServiceImpl implements AnnotationsRegistrati
     @Override
     public boolean haveAnnotationsBeenRegisteredForLibrary(String libraryName)
     {
-        return haveAnnotationsBeenRegisteredForLibraryHelper.haveAnnotationsBeenRegisteredForLibrary(libraryName);
+        return haveAnnotationsBeenRegisteredForLibraryHelper.run(libraryName);
     }
 
     
@@ -31,20 +31,20 @@ public class AnnotationsRegistrationServiceImpl implements AnnotationsRegistrati
     @Override
     public void setAnnotationsAsRegisteredForLibrary(String libraryName)
     {
-        setAnnotationsAsRegisteredForLibraryHelper.setAnnotationsAsRegisteredForLibrary(libraryName);
+        setAnnotationsAsRegisteredForLibraryHelper.run(libraryName);
     }
 
 
     @Override
     public void registerLibraryAnnotations(LibraryConfiguration libraryConfiguration)
     {
-        registerLibraryAnnotationsHelper.registerLibraryAnnotations(libraryConfiguration);
+        registerLibraryAnnotationsHelper.run(libraryConfiguration);
     }
 
 
     @Override
     public void loadLibraryAnnotationsDefinitions(LibraryConfiguration libraryConfiguration)
     {
-        loadLibraryAnnotationsDefinitionsHelper.loadLibraryAnnotationsDefinitions(libraryConfiguration);
+        loadLibraryAnnotationsDefinitionsHelper.run(libraryConfiguration);
     }
 }

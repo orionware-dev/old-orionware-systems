@@ -11,7 +11,7 @@ public class GetAnnotationsFileStreamHelper implements OrionServiceHelper
     private GetAnnotationsFileStreamTask getAnnotationsFileStreamTask = new GetAnnotationsFileStreamTask();
     
     
-    public InputStream getAnnotationsFileStream(String libraryName, String libraryAnnotationsFilePath)
+    public InputStream run(String libraryName, String libraryAnnotationsFilePath)
     {
         return getAnnotationsFileStreamTask.run(getClasspathRootTask.run(libraryName), libraryAnnotationsFilePath, libraryName);
     }

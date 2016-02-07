@@ -15,7 +15,7 @@ public class LoadLibrariesAnnotationsHelper implements OrionServiceHelper
     private RegisterLibrariesAnnotationsTask registerLibrariesAnnotationsTask = new RegisterLibrariesAnnotationsTask();
     
     
-    public void loadLibrariesAnnotations(Set<LibraryConfiguration> librariesConfiguration)
+    public void run(Set<LibraryConfiguration> librariesConfiguration)
     {
         Stream<LibraryConfiguration> notNullLibraryConfigurations = filterNotNullLibraryConfigurationsTask.run(librariesConfiguration);
         notNullLibraryConfigurations = filterAnnotationsNotBeenRegisteredForLibraryTask.run(notNullLibraryConfigurations);

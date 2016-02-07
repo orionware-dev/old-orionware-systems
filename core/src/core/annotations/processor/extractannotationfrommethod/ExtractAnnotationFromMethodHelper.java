@@ -11,7 +11,7 @@ public class ExtractAnnotationFromMethodHelper implements OrionServiceHelper
     
     
     @SuppressWarnings("rawtypes")
-    public Annotation extractAnnotationFromMethod(Method method, Class annotationClassToExtract)
+    public Annotation run(Method method, Class annotationClassToExtract)
     {
         return extractAnnotationFromMethodTask.run(method, annotationClassToExtract);
     }

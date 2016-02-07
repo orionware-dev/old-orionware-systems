@@ -8,7 +8,7 @@ public class HaveAnnotationsBeenRegisteredForLibraryHelper implements OrionServi
     private HaveAnnotationsBeenRegisteredForLibraryTask haveAnnotationsBeenRegisteredForLibraryTask = new HaveAnnotationsBeenRegisteredForLibraryTask();
     
     
-    public boolean haveAnnotationsBeenRegisteredForLibrary(String libraryName)
+    public boolean run(String libraryName)
     {
         return haveAnnotationsBeenRegisteredForLibraryTask.run(libraryName);
     }

@@ -9,7 +9,7 @@ public class LoadLibraryAnnotationsDefinitionsHelper implements OrionServiceHelp
     private LoadLibraryAnnotationsDefinitionsTask loadLibraryAnnotationsDefinitionsTask = new LoadLibraryAnnotationsDefinitionsTask();
     
     
-    public void loadLibraryAnnotationsDefinitions(LibraryConfiguration libraryConfiguration)
+    public void run(LibraryConfiguration libraryConfiguration)
     {
         loadLibraryAnnotationsDefinitionsTask.run(libraryConfiguration);
     }
