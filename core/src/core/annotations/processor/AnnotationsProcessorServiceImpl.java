@@ -2,29 +2,27 @@ package core.annotations.processor;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
-import java.util.List;
 import core.OrionObject;
-import core.annotations.processor.tasks.ApplyAnnotationsTask;
-import core.annotations.processor.tasks.GatherAllObjectAnnotationsTask;
+import core.annotations.processor.extractannotationfrommethod.ExtractAnnotationFromMethodHelper;
+import core.annotations.processor.processallannotations.ProcessAllAnnotationsHelper;
 
 public class AnnotationsProcessorServiceImpl implements AnnotationsProcessorService
 {
-    private GatherAllObjectAnnotationsTask gatherAllObjectAnnotationsTask = new GatherAllObjectAnnotationsTask();
-    private ApplyAnnotationsTask applyAnnotationsTask = new ApplyAnnotationsTask();
+    private ProcessAllAnnotationsHelper processAllAnnotationsHelper = new ProcessAllAnnotationsHelper();
+    private ExtractAnnotationFromMethodHelper extractAnnotationFromMethodHelper = new ExtractAnnotationFromMethodHelper();
     
     
     @Override
     public void processAllAnnotations(OrionObject OrionObject)
     {
-        List<Annotation> allObjectAnnotationsList = gatherAllObjectAnnotationsTask.run(OrionObject);
-        applyAnnotationsTask.run(this, OrionObject, allObjectAnnotationsList);
+        processAllAnnotationsHelper.processAllAnnotations(OrionObject);
     }
     
     
-    @SuppressWarnings({"rawtypes", "unchecked"})
+    @SuppressWarnings("rawtypes")
     @Override
     public Annotation extractAnnotationFromMethod(Method method, Class annotationClassToExtract)
     {
-        return method.getAnnotation(annotationClassToExtract);
+        return extractAnnotationFromMethodHelper.extractAnnotationFromMethod(method, annotationClassToExtract);
     }
 }

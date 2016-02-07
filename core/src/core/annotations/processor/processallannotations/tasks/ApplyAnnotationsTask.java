@@ -1,11 +1,10 @@
-package core.annotations.processor.tasks;
+package core.annotations.processor.processallannotations.tasks;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.List;
 import core.OrionObject;
 import core.annotations.RegisteredAnnotation;
-import core.annotations.processor.AnnotationsProcessorService;
 import core.reflection.ReflectionService;
 import core.reflection.ReflectionServiceImpl;
 import core.registry.OrionRegistry;
@@ -13,15 +12,13 @@ import core.services.OrionTask;
 
 public class ApplyAnnotationsTask implements OrionTask
 {
-    private AnnotationsProcessorService annotationsProcessorService;
     private ReflectionService reflectionService = new ReflectionServiceImpl();
     private OrionObject object;
     private List<Annotation> allObjectAnnotationsList;
     
 
-    public void run(AnnotationsProcessorService annotationsProcessorService, OrionObject object, List<Annotation> allObjectAnnotationsList)
+    public void run(OrionObject object, List<Annotation> allObjectAnnotationsList)
     {
-        this.annotationsProcessorService = annotationsProcessorService;
         this.object = object;
         this.allObjectAnnotationsList = allObjectAnnotationsList;
         OrionRegistry.forEachAnnotation((annotation) -> applyAnnotation((RegisteredAnnotation)annotation));

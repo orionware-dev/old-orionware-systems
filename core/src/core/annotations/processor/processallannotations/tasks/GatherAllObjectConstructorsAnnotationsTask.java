@@ -1,4 +1,4 @@
-package core.annotations.processor.tasks;
+package core.annotations.processor.processallannotations.tasks;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
