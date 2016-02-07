@@ -5,7 +5,7 @@ import core.configuration.CoreConfigurationEnum;
 import core.general.DefaultConfigurationEnum;
 import core.services.OrionTask;
 
-public class GetClasspathRootPathTask implements OrionTask
+public class GetCoreClasspathRootPathTask implements OrionTask
 {
     public String run(String libraryClasspathRootPath)
     {

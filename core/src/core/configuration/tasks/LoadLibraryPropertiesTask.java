@@ -8,14 +8,14 @@ import core.services.OrionTask;
 
 public class LoadLibraryPropertiesTask implements OrionTask
 {
-    private GetClasspathRootPathTask getClasspathRootPathTask;
+    private GetCoreClasspathRootPathTask getCoreClasspathRootPathTask;
     private LibraryConfiguration libraryConfiguration;
     private StringBuilder sb = new StringBuilder();
     
     
-    public void run(GetClasspathRootPathTask getClasspathRootPathTask, ConfigurationService configurationService, LibraryConfiguration libraryConfiguration)
+    public void run(GetCoreClasspathRootPathTask getCoreClasspathRootPathTask, ConfigurationService configurationService, LibraryConfiguration libraryConfiguration)
     {
-        this.getClasspathRootPathTask = getClasspathRootPathTask;
+        this.getCoreClasspathRootPathTask = getCoreClasspathRootPathTask;
         this.libraryConfiguration = libraryConfiguration;
         InputStream propertiesFileInput = configurationService.getFileStream(buildLibraryPropertiesFilePath());
         OrionRegistry.loadProperties(propertiesFileInput);
@@ -25,7 +25,7 @@ public class LoadLibraryPropertiesTask implements OrionTask
     
     private String buildLibraryPropertiesFilePath()
     {
-        sb.append((String)getClasspathRootPathTask.run(libraryConfiguration.getLibraryName()));
+        sb.append((String)getCoreClasspathRootPathTask.run(libraryConfiguration.getLibraryName()));
         sb.append(libraryConfiguration.getConfigurationFilePath());
         return sb.toString();
     }
