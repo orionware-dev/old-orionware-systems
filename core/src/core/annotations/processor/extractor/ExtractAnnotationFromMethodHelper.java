@@ -1,8 +1,8 @@
-package core.annotations.processor.extractannotationfrommethod;
+package core.annotations.processor.extractor;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
-import core.annotations.processor.extractannotationfrommethod.tasks.ExtractAnnotationFromMethodTask;
+import core.annotations.processor.extractor.tasks.ExtractAnnotationFromMethodTask;
 import core.services.OrionServiceHelper;
 
 public class ExtractAnnotationFromMethodHelper implements OrionServiceHelper

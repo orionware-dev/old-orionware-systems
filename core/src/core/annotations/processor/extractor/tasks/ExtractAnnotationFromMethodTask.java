@@ -1,4 +1,4 @@
-package core.annotations.processor.extractannotationfrommethod.tasks;
+package core.annotations.processor.extractor.tasks;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;

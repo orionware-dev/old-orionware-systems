@@ -1,4 +1,4 @@
-package core.annotations.processor.processallannotations.tasks;
+package core.annotations.processor.process.tasks;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
