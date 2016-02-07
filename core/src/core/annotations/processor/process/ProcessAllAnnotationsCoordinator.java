@@ -6,9 +6,9 @@ import core.OrionObject;
 import core.annotations.processor.AnnotationsProcessorService;
 import core.annotations.processor.process.tasks.ApplyAnnotationsTask;
 import core.reflection.ReflectionService;
-import core.services.OrionServiceHelper;
+import core.services.OrionServiceCoordinator;
 
-public class ProcessAllAnnotationsHelper implements OrionServiceHelper
+public class ProcessAllAnnotationsCoordinator implements OrionServiceCoordinator
 {
     private ApplyAnnotationsTask applyAnnotationsTask = new ApplyAnnotationsTask();
     

@@ -3,9 +3,9 @@ package core.annotations.processor.extractor;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import core.annotations.processor.extractor.tasks.ExtractAnnotationFromMethodTask;
-import core.services.OrionServiceHelper;
+import core.services.OrionServiceCoordinator;
 
-public class ExtractAnnotationFromMethodHelper implements OrionServiceHelper
+public class ExtractAnnotationFromMethodCoordinator implements OrionServiceCoordinator
 {
     private ExtractAnnotationFromMethodTask extractAnnotationFromMethodTask = new ExtractAnnotationFromMethodTask();
     

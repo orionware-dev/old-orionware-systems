@@ -8,9 +8,9 @@ import core.annotations.registry.librariesannotations.tasks.FilterAnnotationsNot
 import core.annotations.registry.librariesannotations.tasks.FilterNotNullLibraryConfigurationsTask;
 import core.annotations.registry.librariesannotations.tasks.RegisterLibrariesAnnotationsTask;
 import core.configuration.LibraryConfiguration;
-import core.services.OrionServiceHelper;
+import core.services.OrionServiceCoordinator;
 
-public class RegisterLibrariesAnnotationsHelper implements OrionServiceHelper
+public class RegisterLibrariesAnnotationsCoordinator implements OrionServiceCoordinator
 {
     private FilterNotNullLibraryConfigurationsTask filterNotNullLibraryConfigurationsTask = new FilterNotNullLibraryConfigurationsTask();
     private FilterAnnotationsNotBeenRegisteredForLibraryTask filterAnnotationsNotBeenRegisteredForLibraryTask = new FilterAnnotationsNotBeenRegisteredForLibraryTask();

@@ -1,9 +1,9 @@
 package core.annotations.registry.setannotationsasregisteredforlibrary;
 
 import core.annotations.registry.setannotationsasregisteredforlibrary.tasks.SetAnnotationsAsRegisteredForLibraryTask;
-import core.services.OrionServiceHelper;
+import core.services.OrionServiceCoordinator;
 
-public class SetAnnotationsAsRegisteredForLibraryHelper implements OrionServiceHelper
+public class SetAnnotationsAsRegisteredForLibraryCoordinator implements OrionServiceCoordinator
 {
     private SetAnnotationsAsRegisteredForLibraryTask setAnnotationsAsRegisteredForLibraryTask = new SetAnnotationsAsRegisteredForLibraryTask();
     

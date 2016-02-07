@@ -4,9 +4,9 @@ import java.io.InputStream;
 import core.annotations.loader.filestream.tasks.GetAnnotationsFilePathTask;
 import core.configuration.tasks.GetCoreClasspathRootPathTask;
 import core.filesystem.FileSystemService;
-import core.services.OrionServiceHelper;
+import core.services.OrionServiceCoordinator;
 
-public class GetAnnotationsFileStreamHelper implements OrionServiceHelper
+public class GetAnnotationsFileStreamCoordinator implements OrionServiceCoordinator
 {
     private GetCoreClasspathRootPathTask getCoreClasspathRootTask = new GetCoreClasspathRootPathTask();
     private GetAnnotationsFilePathTask getAnnotationsFileStreamTask = new GetAnnotationsFilePathTask();

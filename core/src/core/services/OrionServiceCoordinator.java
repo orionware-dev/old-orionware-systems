@@ -2,7 +2,7 @@ package core.services;
 
 import core.general.OrionInterface;
 
-public interface OrionServiceHelper extends OrionInterface
+public interface OrionServiceCoordinator extends OrionInterface
 {
     
 }

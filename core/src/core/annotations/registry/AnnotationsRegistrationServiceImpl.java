@@ -4,50 +4,50 @@ import java.util.Set;
 import core.annotations.RegisteredAnnotation;
 import core.annotations.loader.AnnotationsLoaderService;
 import core.annotations.loader.AnnotationsLoaderServiceImpl;
-import core.annotations.registry.annotationsdefinitions.RegisterLibraryAnnotationsDefinitionsHelper;
-import core.annotations.registry.haveannotationsbeenregisteredforlibrary.HaveAnnotationsBeenRegisteredForLibraryHelper;
-import core.annotations.registry.librariesannotations.RegisterLibrariesAnnotationsHelper;
-import core.annotations.registry.registerannotation.RegisterAnnotationHelper;
-import core.annotations.registry.registerlibraryannotations.RegisterLibraryAnnotationsHelper;
-import core.annotations.registry.setannotationsasregisteredforlibrary.SetAnnotationsAsRegisteredForLibraryHelper;
+import core.annotations.registry.annotationsdefinitions.RegisterLibraryAnnotationsDefinitionsCoordinator;
+import core.annotations.registry.haveannotationsbeenregisteredforlibrary.HaveAnnotationsBeenRegisteredForLibraryCoordinator;
+import core.annotations.registry.librariesannotations.RegisterLibrariesAnnotationsCoordinator;
+import core.annotations.registry.registerannotation.RegisterAnnotationCoordinator;
+import core.annotations.registry.registerlibraryannotations.RegisterLibraryAnnotationsCoordinator;
+import core.annotations.registry.setannotationsasregisteredforlibrary.SetAnnotationsAsRegisteredForLibraryCoordinator;
 import core.configuration.LibraryConfiguration;
 
 public class AnnotationsRegistrationServiceImpl implements AnnotationsRegistrationService
 {
-    private RegisterLibrariesAnnotationsHelper registerLibrariesAnnotationsHelper = new RegisterLibrariesAnnotationsHelper();
-    private RegisterLibraryAnnotationsDefinitionsHelper registerLibraryAnnotationsDefinitionsHelper = new RegisterLibraryAnnotationsDefinitionsHelper();
-    private RegisterAnnotationHelper registerAnnotationHelper = new RegisterAnnotationHelper();
-    private HaveAnnotationsBeenRegisteredForLibraryHelper haveAnnotationsBeenRegisteredForLibraryHelper = new HaveAnnotationsBeenRegisteredForLibraryHelper();
-    private SetAnnotationsAsRegisteredForLibraryHelper setAnnotationsAsRegisteredForLibraryHelper = new SetAnnotationsAsRegisteredForLibraryHelper();
-    private RegisterLibraryAnnotationsHelper registerLibraryAnnotationsHelper = new RegisterLibraryAnnotationsHelper();
+    private RegisterLibrariesAnnotationsCoordinator registerLibrariesAnnotationsCoordinator = new RegisterLibrariesAnnotationsCoordinator();
+    private RegisterLibraryAnnotationsDefinitionsCoordinator registerLibraryAnnotationsDefinitionsCoordinator = new RegisterLibraryAnnotationsDefinitionsCoordinator();
+    private RegisterAnnotationCoordinator registerAnnotationCoordinator = new RegisterAnnotationCoordinator();
+    private HaveAnnotationsBeenRegisteredForLibraryCoordinator haveAnnotationsBeenRegisteredForLibraryCoordinator = new HaveAnnotationsBeenRegisteredForLibraryCoordinator();
+    private SetAnnotationsAsRegisteredForLibraryCoordinator setAnnotationsAsRegisteredForLibraryCoordinator = new SetAnnotationsAsRegisteredForLibraryCoordinator();
+    private RegisterLibraryAnnotationsCoordinator registerLibraryAnnotationsCoordinator = new RegisterLibraryAnnotationsCoordinator();
     private AnnotationsLoaderService annotationsLoaderService = new AnnotationsLoaderServiceImpl();
     
     
     @Override
     public void registerLibrariesAnnotations(Set<LibraryConfiguration> librariesConfiguration)
     {
-        registerLibrariesAnnotationsHelper.run(this, annotationsLoaderService, librariesConfiguration);
+        registerLibrariesAnnotationsCoordinator.run(this, annotationsLoaderService, librariesConfiguration);
     }
     
     
     @Override
     public void registerLibraryAnnotationsDefinitions(LibraryConfiguration libraryConfiguration)
     {
-        registerLibraryAnnotationsDefinitionsHelper.run(annotationsLoaderService, libraryConfiguration);
+        registerLibraryAnnotationsDefinitionsCoordinator.run(annotationsLoaderService, libraryConfiguration);
     }
     
     
     @Override
     public void registerAnnotation(RegisteredAnnotation registeredAnnotation)
     {
-        registerAnnotationHelper.run(registeredAnnotation);
+        registerAnnotationCoordinator.run(registeredAnnotation);
     }
     
     
     @Override
     public boolean haveAnnotationsBeenRegisteredForLibrary(String libraryName)
     {
-        return haveAnnotationsBeenRegisteredForLibraryHelper.run(libraryName);
+        return haveAnnotationsBeenRegisteredForLibraryCoordinator.run(libraryName);
     }
 
     
@@ -61,13 +61,13 @@ public class AnnotationsRegistrationServiceImpl implements AnnotationsRegistrati
     @Override
     public void setAnnotationsAsRegisteredForLibrary(String libraryName)
     {
-        setAnnotationsAsRegisteredForLibraryHelper.run(libraryName);
+        setAnnotationsAsRegisteredForLibraryCoordinator.run(libraryName);
     }
 
 
     @Override
     public void registerLibraryAnnotations(LibraryConfiguration libraryConfiguration)
     {
-        registerLibraryAnnotationsHelper.run(this, annotationsLoaderService, libraryConfiguration);
+        registerLibraryAnnotationsCoordinator.run(this, annotationsLoaderService, libraryConfiguration);
     }
 }

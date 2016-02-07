@@ -4,9 +4,9 @@ import java.lang.annotation.Annotation;
 import java.util.List;
 import core.OrionObject;
 import core.annotations.processor.gatherer.tasks.GatherAllObjectAnnotationsTask;
-import core.services.OrionServiceHelper;
+import core.services.OrionServiceCoordinator;
 
-public class GatherAllAnnotationsHelper implements OrionServiceHelper
+public class GatherAllAnnotationsCoordinator implements OrionServiceCoordinator
 {
     private GatherAllObjectAnnotationsTask gatherAllObjectAnnotationsTask = new GatherAllObjectAnnotationsTask();
     
