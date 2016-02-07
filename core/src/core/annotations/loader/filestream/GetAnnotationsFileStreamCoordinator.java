@@ -6,7 +6,7 @@ import core.configuration.tasks.GetCoreClasspathRootPathTask;
 import core.filesystem.FileSystemService;
 import core.services.OrionServiceCoordinator;
 
-public class AnnotationsFileStreamCoordinator implements OrionServiceCoordinator
+public class GetAnnotationsFileStreamCoordinator implements OrionServiceCoordinator
 {
     private GetCoreClasspathRootPathTask getCoreClasspathRootTask = new GetCoreClasspathRootPathTask();
     private GetAnnotationsFilePathTask getAnnotationsFilePathTask = new GetAnnotationsFilePathTask();
