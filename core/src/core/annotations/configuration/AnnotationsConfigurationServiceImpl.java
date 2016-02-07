@@ -4,11 +4,10 @@ import java.io.Closeable;
 import java.io.InputStream;
 import java.util.Set;
 import core.annotations.RegisteredAnnotation;
+import core.annotations.configuration.getannotationsfilestream.GetAnnotationsFileStreamHelper;
 import core.annotations.configuration.loadlibrariesannotations.LoadLibrariesAnnotationsHelper;
 import core.annotations.configuration.registerannotation.RegisterAnnotationHelper;
-import core.annotations.configuration.tasks.GetAnnotationsFileStreamTask;
 import core.configuration.LibraryConfiguration;
-import core.configuration.tasks.GetClasspathRootPathTask;
 import core.filesystem.FileSystemService;
 import core.filesystem.FileSystemServiceImpl;
 
@@ -16,9 +15,8 @@ public class AnnotationsConfigurationServiceImpl implements AnnotationsConfigura
 {
     private RegisterAnnotationHelper registerAnnotationHelper = new RegisterAnnotationHelper();
     private LoadLibrariesAnnotationsHelper loadLibrariesAnnotationsHelper = new LoadLibrariesAnnotationsHelper();
+    private GetAnnotationsFileStreamHelper getAnnotationsFileStreamHelper = new GetAnnotationsFileStreamHelper();
     private FileSystemService fileSystemService = new FileSystemServiceImpl();
-    private GetClasspathRootPathTask getClasspathRootPathTask = new GetClasspathRootPathTask();
-    private GetAnnotationsFileStreamTask getAnnotationsFileStreamTask = new GetAnnotationsFileStreamTask();
     
     
     @Override
@@ -38,7 +36,7 @@ public class AnnotationsConfigurationServiceImpl implements AnnotationsConfigura
     @Override
     public InputStream getAnnotationsFileStream(String libraryName, String libraryAnnotationsFilePath)
     {
-        return getAnnotationsFileStreamTask.run(this, getClasspathRootPathTask, libraryAnnotationsFilePath, libraryName);
+        return getAnnotationsFileStreamHelper.getAnnotationsFileStream(libraryName, libraryAnnotationsFilePath);
     }
     
     
