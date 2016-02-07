@@ -7,12 +7,15 @@ import core.OrionObject;
 import core.annotations.processor.extractor.ExtractAnnotationFromMethodHelper;
 import core.annotations.processor.gatherer.GatherAllAnnotationsHelper;
 import core.annotations.processor.process.ProcessAllAnnotationsHelper;
+import core.reflection.ReflectionService;
+import core.reflection.ReflectionServiceImpl;
 
 public class AnnotationsProcessorServiceImpl implements AnnotationsProcessorService
 {
     private GatherAllAnnotationsHelper gatherAllAnnotationsHelper = new GatherAllAnnotationsHelper();
     private ProcessAllAnnotationsHelper processAllAnnotationsHelper = new ProcessAllAnnotationsHelper();
     private ExtractAnnotationFromMethodHelper extractAnnotationFromMethodHelper = new ExtractAnnotationFromMethodHelper();
+    private ReflectionService reflectionService = new ReflectionServiceImpl();
     
     
     @Override
@@ -25,7 +28,7 @@ public class AnnotationsProcessorServiceImpl implements AnnotationsProcessorServ
     @Override
     public void processAllAnnotations(OrionObject OrionObject)
     {
-        processAllAnnotationsHelper.run(this, OrionObject);
+        processAllAnnotationsHelper.run(this, reflectionService, OrionObject);
     }
     
     

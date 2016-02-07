@@ -6,19 +6,19 @@ import java.util.List;
 import core.OrionObject;
 import core.annotations.RegisteredAnnotation;
 import core.reflection.ReflectionService;
-import core.reflection.ReflectionServiceImpl;
 import core.registry.OrionRegistry;
 import core.services.OrionTask;
 
 public class ApplyAnnotationsTask implements OrionTask
 {
-    private ReflectionService reflectionService = new ReflectionServiceImpl();
+    private ReflectionService reflectionService;
     private OrionObject object;
     private List<Annotation> allObjectAnnotationsList;
     
 
-    public void run(OrionObject object, List<Annotation> allObjectAnnotationsList)
+    public void run(ReflectionService reflectionService, OrionObject object, List<Annotation> allObjectAnnotationsList)
     {
+        this.reflectionService = reflectionService;
         this.object = object;
         this.allObjectAnnotationsList = allObjectAnnotationsList;
         OrionRegistry.forEachAnnotation((annotation) -> applyAnnotation((RegisteredAnnotation)annotation));
