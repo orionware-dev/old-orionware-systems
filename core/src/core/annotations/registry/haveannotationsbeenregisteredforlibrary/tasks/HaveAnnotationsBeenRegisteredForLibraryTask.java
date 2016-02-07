@@ -1,4 +1,4 @@
-package core.annotations.registry.tasks;
+package core.annotations.registry.haveannotationsbeenregisteredforlibrary.tasks;
 
 import core.configuration.LibrariesConfigurationMapper;
 import core.services.OrionTask;

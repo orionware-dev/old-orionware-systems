@@ -1,10 +1,11 @@
-package core.annotations.registry.tasks;
+package core.annotations.registry.registerlibraryannotations.tasks;
 
 import core.annotations.RegisteredAnnotation;
 import core.annotations.configuration.AnnotationsConfigurationService;
 import core.annotations.configuration.AnnotationsConfigurationServiceImpl;
 import core.annotations.registry.AnnotationsRegistrationService;
 import core.annotations.registry.AnnotationsRegistrationServiceImpl;
+import core.annotations.registry.loadlibraryannotationsdefinitions.tasks.LoadLibraryAnnotationsDefinitionsTask;
 import core.configuration.LibraryConfiguration;
 import core.general.OrionProperties;
 import core.services.OrionTask;
@@ -22,7 +23,7 @@ public class RegisterLibraryAnnotationsTask implements OrionTask
     
     public void run(LibraryConfiguration libraryConfiguration)
     {
-        annotationsDeclarations = loadLibraryAnnotationsDefinitionsTask.run(annotationsConfigurationService, libraryConfiguration);
+        annotationsDeclarations = loadLibraryAnnotationsDefinitionsTask.run(libraryConfiguration);
         
         if(annotationsDeclarations.isNotEmpty())
         {

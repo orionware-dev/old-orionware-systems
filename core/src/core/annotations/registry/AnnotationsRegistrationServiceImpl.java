@@ -1,18 +1,23 @@
 package core.annotations.registry;
 
-import core.annotations.registry.tasks.HaveAnnotationsBeenRegisteredForLibraryTask;
-import core.annotations.registry.tasks.SetAnnotationsAsRegisteredForLibraryTask;
+import core.annotations.registry.haveannotationsbeenregisteredforlibrary.HaveAnnotationsBeenRegisteredForLibraryHelper;
+import core.annotations.registry.loadlibraryannotationsdefinitions.LoadLibraryAnnotationsDefinitionsHelper;
+import core.annotations.registry.registerlibraryannotations.RegisterLibraryAnnotationsHelper;
+import core.annotations.registry.setannotationsasregisteredforlibrary.SetAnnotationsAsRegisteredForLibraryHelper;
+import core.configuration.LibraryConfiguration;
 
 public class AnnotationsRegistrationServiceImpl implements AnnotationsRegistrationService
 {
-    private HaveAnnotationsBeenRegisteredForLibraryTask haveAnnotationsBeenRegisteredForLibraryTask = new HaveAnnotationsBeenRegisteredForLibraryTask();
-    private SetAnnotationsAsRegisteredForLibraryTask setAnnotationsAsRegisteredForLibraryTask = new SetAnnotationsAsRegisteredForLibraryTask();
+    private HaveAnnotationsBeenRegisteredForLibraryHelper haveAnnotationsBeenRegisteredForLibraryHelper = new HaveAnnotationsBeenRegisteredForLibraryHelper();
+    private SetAnnotationsAsRegisteredForLibraryHelper setAnnotationsAsRegisteredForLibraryHelper = new SetAnnotationsAsRegisteredForLibraryHelper();
+    private RegisterLibraryAnnotationsHelper registerLibraryAnnotationsHelper = new RegisterLibraryAnnotationsHelper();
+    private LoadLibraryAnnotationsDefinitionsHelper loadLibraryAnnotationsDefinitionsHelper = new LoadLibraryAnnotationsDefinitionsHelper();
     
     
     @Override
     public boolean haveAnnotationsBeenRegisteredForLibrary(String libraryName)
     {
-        return haveAnnotationsBeenRegisteredForLibraryTask.run(libraryName);
+        return haveAnnotationsBeenRegisteredForLibraryHelper.haveAnnotationsBeenRegisteredForLibrary(libraryName);
     }
 
     
@@ -26,6 +31,20 @@ public class AnnotationsRegistrationServiceImpl implements AnnotationsRegistrati
     @Override
     public void setAnnotationsAsRegisteredForLibrary(String libraryName)
     {
-        setAnnotationsAsRegisteredForLibraryTask.run(libraryName);
+        setAnnotationsAsRegisteredForLibraryHelper.setAnnotationsAsRegisteredForLibrary(libraryName);
+    }
+
+
+    @Override
+    public void registerLibraryAnnotations(LibraryConfiguration libraryConfiguration)
+    {
+        registerLibraryAnnotationsHelper.registerLibraryAnnotations(libraryConfiguration);
+    }
+
+
+    @Override
+    public void loadLibraryAnnotationsDefinitions(LibraryConfiguration libraryConfiguration)
+    {
+        loadLibraryAnnotationsDefinitionsHelper.loadLibraryAnnotationsDefinitions(libraryConfiguration);
     }
 }
