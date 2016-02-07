@@ -6,16 +6,16 @@ import core.configuration.tasks.GetCoreClasspathRootPathTask;
 import core.filesystem.FileSystemService;
 import core.services.OrionServiceCoordinator;
 
-public class GetAnnotationsFileStreamCoordinator implements OrionServiceCoordinator
+public class AnnotationsFileStreamCoordinator implements OrionServiceCoordinator
 {
     private GetCoreClasspathRootPathTask getCoreClasspathRootTask = new GetCoreClasspathRootPathTask();
-    private GetAnnotationsFilePathTask getAnnotationsFileStreamTask = new GetAnnotationsFilePathTask();
+    private GetAnnotationsFilePathTask getAnnotationsFilePathTask = new GetAnnotationsFilePathTask();
     
     
     public InputStream run(FileSystemService fileSystemService, String libraryName, String libraryAnnotationsFilePath)
     {
         String coreClasspathRoot = getCoreClasspathRootTask.run(libraryName);
-        String annotationsFilePath = getAnnotationsFileStreamTask.run(coreClasspathRoot, libraryAnnotationsFilePath);
+        String annotationsFilePath = getAnnotationsFilePathTask.run(coreClasspathRoot, libraryAnnotationsFilePath);
         return fileSystemService.getFileStream(annotationsFilePath);
     }
 }
