@@ -9,14 +9,18 @@ import core.services.OrionTask;
 public class GatherAllObjectAnnotationsTask implements OrionTask
 {
     private List<Annotation> allObjectAnnotationsList = new ArrayList<Annotation>();
+    private GatherAllClassLevelAnnotationsTask gatherAllClassLevelAnnotationsTask = new GatherAllClassLevelAnnotationsTask();
+    private GatherAllObjectConstructorsAnnotationsTask gatherAllObjectConstructorsAnnotationsTask = new GatherAllObjectConstructorsAnnotationsTask();
+    private GatherAllObjectMethodsAnnotationsTask gatherAllObjectMethodsAnnotationsTask = new GatherAllObjectMethodsAnnotationsTask();
+    private GatherAllObjectVariablesAnnotationsTask gatherAllObjectVariablesAnnotationsTask = new GatherAllObjectVariablesAnnotationsTask();
     
     
     public List<Annotation> run(OrionObject object)
     {
-        allObjectAnnotationsList.addAll(new GatherAllClassLevelAnnotationsTask().run(object));
-        allObjectAnnotationsList.addAll(new GatherAllObjectConstructorsAnnotationsTask().run(object));
-        allObjectAnnotationsList.addAll(new GatherAllObjectMethodsAnnotationsTask().run(object));
-        allObjectAnnotationsList.addAll(new GatherAllObjectVariablesAnnotationsTask().run(object));
+        allObjectAnnotationsList.addAll(gatherAllClassLevelAnnotationsTask.run(object));
+        allObjectAnnotationsList.addAll(gatherAllObjectConstructorsAnnotationsTask.run(object));
+        allObjectAnnotationsList.addAll(gatherAllObjectMethodsAnnotationsTask.run(object));
+        allObjectAnnotationsList.addAll(gatherAllObjectVariablesAnnotationsTask.run(object));
         return allObjectAnnotationsList;
     }
 }
