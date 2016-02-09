@@ -1,9 +1,8 @@
-package core.annotations.registry.librariesannotations.tasks;
+package core.annotations.registry.tasks;
 
 import java.util.stream.Stream;
 import core.annotations.loader.AnnotationsLoaderService;
 import core.annotations.registry.AnnotationsRegistrationService;
-import core.annotations.registry.registerlibraryannotations.tasks.RegisterLibraryAnnotationsTask;
 import core.configuration.LibraryConfiguration;
 import core.services.OrionTask;
 

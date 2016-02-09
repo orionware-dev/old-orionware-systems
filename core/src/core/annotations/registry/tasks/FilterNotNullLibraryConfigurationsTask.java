@@ -1,4 +1,4 @@
-package core.annotations.registry.librariesannotations.tasks;
+package core.annotations.registry.tasks;
 
 import java.util.Set;
 import java.util.stream.Stream;

@@ -1,53 +1,60 @@
 package core.annotations.registry;
 
 import java.util.Set;
+import java.util.stream.Stream;
 import core.annotations.RegisteredAnnotation;
 import core.annotations.loader.AnnotationsLoaderService;
 import core.annotations.loader.AnnotationsLoaderServiceImpl;
-import core.annotations.registry.annotationsdefinitions.RegisterLibraryAnnotationsDefinitionsCoordinator;
-import core.annotations.registry.haveannotationsbeenregisteredforlibrary.HaveAnnotationsBeenRegisteredForLibraryCoordinator;
-import core.annotations.registry.librariesannotations.RegisterLibrariesAnnotationsCoordinator;
-import core.annotations.registry.registerannotation.RegisterAnnotationCoordinator;
-import core.annotations.registry.registerlibraryannotations.RegisterLibraryAnnotationsCoordinator;
-import core.annotations.registry.setannotationsasregisteredforlibrary.SetAnnotationsAsRegisteredForLibraryCoordinator;
+import core.annotations.registry.tasks.FilterAnnotationsNotBeenRegisteredForLibraryTask;
+import core.annotations.registry.tasks.FilterNotNullLibraryConfigurationsTask;
+import core.annotations.registry.tasks.HaveAnnotationsBeenRegisteredForLibraryTask;
+import core.annotations.registry.tasks.LoadLibraryAnnotationsDefinitionsTask;
+import core.annotations.registry.tasks.RegisterAnnotationTask;
+import core.annotations.registry.tasks.RegisterLibrariesAnnotationsTask;
+import core.annotations.registry.tasks.RegisterLibraryAnnotationsTask;
+import core.annotations.registry.tasks.SetAnnotationsAsRegisteredForLibraryTask;
 import core.configuration.LibraryConfiguration;
 
 public class AnnotationsRegistrationServiceImpl implements AnnotationsRegistrationService
 {
-    private RegisterLibrariesAnnotationsCoordinator registerLibrariesAnnotationsCoordinator = new RegisterLibrariesAnnotationsCoordinator();
-    private RegisterLibraryAnnotationsDefinitionsCoordinator registerLibraryAnnotationsDefinitionsCoordinator = new RegisterLibraryAnnotationsDefinitionsCoordinator();
-    private RegisterAnnotationCoordinator registerAnnotationCoordinator = new RegisterAnnotationCoordinator();
-    private HaveAnnotationsBeenRegisteredForLibraryCoordinator haveAnnotationsBeenRegisteredForLibraryCoordinator = new HaveAnnotationsBeenRegisteredForLibraryCoordinator();
-    private SetAnnotationsAsRegisteredForLibraryCoordinator setAnnotationsAsRegisteredForLibraryCoordinator = new SetAnnotationsAsRegisteredForLibraryCoordinator();
-    private RegisterLibraryAnnotationsCoordinator registerLibraryAnnotationsCoordinator = new RegisterLibraryAnnotationsCoordinator();
+    private FilterNotNullLibraryConfigurationsTask filterNotNullLibraryConfigurationsTask = new FilterNotNullLibraryConfigurationsTask();
+    private FilterAnnotationsNotBeenRegisteredForLibraryTask filterAnnotationsNotBeenRegisteredForLibraryTask = new FilterAnnotationsNotBeenRegisteredForLibraryTask();
+    private RegisterLibrariesAnnotationsTask registerLibrariesAnnotationsTask = new RegisterLibrariesAnnotationsTask();
+    private LoadLibraryAnnotationsDefinitionsTask loadLibraryAnnotationsDefinitionsTask = new LoadLibraryAnnotationsDefinitionsTask();
+    private RegisterAnnotationTask registerAnnotationTask = new RegisterAnnotationTask();
+    private RegisterLibraryAnnotationsTask registerLibraryAnnotationsTask = new RegisterLibraryAnnotationsTask();
+    private HaveAnnotationsBeenRegisteredForLibraryTask haveAnnotationsBeenRegisteredForLibraryTask = new HaveAnnotationsBeenRegisteredForLibraryTask();
+    private SetAnnotationsAsRegisteredForLibraryTask setAnnotationsAsRegisteredForLibraryTask = new SetAnnotationsAsRegisteredForLibraryTask();
     private AnnotationsLoaderService annotationsLoaderService = new AnnotationsLoaderServiceImpl();
     
     
     @Override
     public void registerLibrariesAnnotations(Set<LibraryConfiguration> librariesConfiguration)
     {
-        registerLibrariesAnnotationsCoordinator.run(this, annotationsLoaderService, librariesConfiguration);
+        Stream<LibraryConfiguration> notNullLibraryConfigurations = filterNotNullLibraryConfigurationsTask.run(librariesConfiguration);
+        notNullLibraryConfigurations = filterAnnotationsNotBeenRegisteredForLibraryTask.run(this, notNullLibraryConfigurations);
+        registerLibrariesAnnotationsTask.run(this, annotationsLoaderService, notNullLibraryConfigurations);
     }
     
     
     @Override
     public void registerLibraryAnnotationsDefinitions(LibraryConfiguration libraryConfiguration)
     {
-        registerLibraryAnnotationsDefinitionsCoordinator.run(annotationsLoaderService, libraryConfiguration);
+        loadLibraryAnnotationsDefinitionsTask.run(annotationsLoaderService, libraryConfiguration);
     }
     
     
     @Override
     public void registerAnnotation(RegisteredAnnotation registeredAnnotation)
     {
-        registerAnnotationCoordinator.run(registeredAnnotation);
+        registerAnnotationTask.run(registeredAnnotation);
     }
     
     
     @Override
     public boolean haveAnnotationsBeenRegisteredForLibrary(String libraryName)
     {
-        return haveAnnotationsBeenRegisteredForLibraryCoordinator.run(libraryName);
+        return haveAnnotationsBeenRegisteredForLibraryTask.run(libraryName);
     }
 
     
@@ -61,13 +68,13 @@ public class AnnotationsRegistrationServiceImpl implements AnnotationsRegistrati
     @Override
     public void setAnnotationsAsRegisteredForLibrary(String libraryName)
     {
-        setAnnotationsAsRegisteredForLibraryCoordinator.run(libraryName);
+        setAnnotationsAsRegisteredForLibraryTask.run(libraryName);
     }
 
 
     @Override
     public void registerLibraryAnnotations(LibraryConfiguration libraryConfiguration)
     {
-        registerLibraryAnnotationsCoordinator.run(this, annotationsLoaderService, libraryConfiguration);
+        registerLibraryAnnotationsTask.run(this, annotationsLoaderService, libraryConfiguration);
     }
 }

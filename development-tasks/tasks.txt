@@ -1,4 +1,24 @@
-﻿--instead of tasks calling other tasks, split them into smaller
+﻿--remove service helpers and move their code inside services
+
+
+--OrionObject = annotations, configuration (See if I can
+create an initialiser instead, so that OrionObject depends
+only on it
+--annotations = filesystem, reflection, registry, configuration
+--configuration = filesystem, registry
+--injector = annotations, reflection
+
+--move libraries to configuration
+--put RegisteredAnnotation to core.general to remove annotations/registry cyclic
+--put OrionObject in core.general
+--create Orion initialiser that is called by OrionObject and uses annotations and configuration to initialise
+
+
+
+
+
+
+--instead of tasks calling other tasks, split them into smaller
 tasks and the service itself should gather results from tasks and call the appropriate ones in the order it needs
 
 
@@ -90,6 +110,27 @@ a path and it will print errors and exceptions in files in that path
 takes in the data structure, it will determine the best algo
 to use for that structure
 --create features prop files in which we enable/disable features
+--see if I can convert so of the core code to annotations
+--create DataStructureIterator extends Iterator for convenience
+--create generic Converter<SOURCE_TYPE, TARGET_TYPE>
+--create ReverseConverter<TARGET_TYPE, SOURCE_TYPE>
+--create a generic data structure operator. For example, it will
+have add method, that takes a structure, elementToAdd or HashMap,
+key, value and it will check what kind of instance the structure
+is and based on that it will call .add(element) it .put(key, value),
+depending
+--create a stopwatch with nanoseconds by default or any other timing
+provided by the user like milliseconds, etc.
+--create ConditionEvaluator that takes a boolean expression and
+returns it's result
+--create Cache.java which will have a ConcurrentHashMap internally
+--create Cacheable annotation that can be used on classes and
+automatically, they will be added to the cache
+--create Cached annotation that can be used on setters and method
+arguments and automatically they will be retrieved from the cach
+ if they exist. If not the user has to say if he wants to create
+ a new instance and put it on the cache automatically
+--create CacheConfiguration.prop and CacheConfiguration.java to load the props
 
 
 

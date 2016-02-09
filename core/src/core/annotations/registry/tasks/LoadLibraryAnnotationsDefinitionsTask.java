@@ -1,4 +1,4 @@
-package core.annotations.registry.annotationsdefinitions.tasks;
+package core.annotations.registry.tasks;
 
 import java.io.InputStream;
 import core.annotations.loader.AnnotationsLoaderService;
