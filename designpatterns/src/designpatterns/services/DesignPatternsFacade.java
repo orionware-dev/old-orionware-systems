@@ -1,6 +1,6 @@
 package designpatterns.services;
 
-import core.services.OrionFacade;
+import core.general.services.OrionFacade;
 
 public interface DesignPatternsFacade extends OrionFacade
 {

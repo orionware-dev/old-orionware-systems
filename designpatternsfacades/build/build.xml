@@ -6,6 +6,6 @@
 
     
     <target name="all">
-        <buildProject sourceDir="${orion.design.patterns.facades.source.dir}" binariesDir="${orion.design.patterns.facades.binaries.dir}" JARPath="${orion.design.patterns.facades.jar.file.name}" projectName="${orion.design.patterns.facades}"/>
+        <buildProjectAndPackage sourceDir="${orion.design.patterns.facades.source.dir}" binariesDir="${orion.design.patterns.facades.binaries.dir}" JARPath="${orion.design.patterns.facades.jar.file.name}" projectName="${orion.design.patterns.facades}"/>
     </target>
 </project>

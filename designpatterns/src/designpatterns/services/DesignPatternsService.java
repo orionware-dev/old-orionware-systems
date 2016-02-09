@@ -1,6 +1,6 @@
 package designpatterns.services;
 
-import core.services.OrionService;
+import core.general.services.OrionService;
 
 public interface DesignPatternsService extends OrionService
 {

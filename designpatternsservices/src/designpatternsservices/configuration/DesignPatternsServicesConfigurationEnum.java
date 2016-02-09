@@ -1,6 +1,6 @@
 package designpatternsservices.configuration;
 
-import core.general.OrionConfigurationEnum;
+import core.configuration.OrionConfigurationEnum;
 
 public enum DesignPatternsServicesConfigurationEnum implements OrionConfigurationEnum
 {

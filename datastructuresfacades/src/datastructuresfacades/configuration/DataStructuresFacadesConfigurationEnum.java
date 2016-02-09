@@ -1,6 +1,6 @@
 package datastructuresfacades.configuration;
 
-import core.general.OrionConfigurationEnum;
+import core.configuration.OrionConfigurationEnum;
 
 public enum DataStructuresFacadesConfigurationEnum implements OrionConfigurationEnum
 {

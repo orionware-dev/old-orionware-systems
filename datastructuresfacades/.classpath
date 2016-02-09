@@ -4,9 +4,11 @@
 	<classpathentry kind="src" path="integrationtests"/>
 	<classpathentry kind="src" path="unittests"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/core"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/datastructuresservices"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/datastructures"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/coreconfiguration"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/coregeneral"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/coredependencyinjection"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

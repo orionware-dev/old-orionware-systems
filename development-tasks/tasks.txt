@@ -5,10 +5,17 @@ only on it
 --configuration = filesystem, registry
 --injector = annotations, reflection
 
---move libraries to configuration
---put RegisteredAnnotation to core.general to remove annotations/registry cyclic
 --put OrionObject in core.general
 --create Orion initialiser that is called by OrionObject and uses annotations and configuration to initialise
+
+
+--create Ant task for merging the bin dirs of the core porjects in one JAR
+
+
+--go through services packages and split services according
+to what they do and put them in appropriate packages
+
+
 
 
 

@@ -9,7 +9,7 @@ public abstract class DataStructuresServicesObject extends DataStructuresObject
     {
         LibraryConfiguration libraryConfiguration = new LibraryConfiguration();
         libraryConfiguration.setLibraryName("datastructuresservices");
-        librariesConfigurationSet.add(libraryConfiguration);
+        registerLibraryConfiguration(libraryConfiguration);
         processAllLibrariesConfiguration();
     }
 }

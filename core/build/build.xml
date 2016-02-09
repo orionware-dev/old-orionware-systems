@@ -2,10 +2,53 @@
 <project name="OrionCoreBuilder" default="all" basedir=".">
     <property file="CoreBuild.prop"/>
     <property name="orion.core.binaries.dir" value="${orion.core.dir}/${default.binaries.dir.name}"/>
-    <property name="orion.core.source.dir" value="${orion.core.dir}/${default.source.dir.name}"/>
+    <property name="orion.core.reflection.binaries.dir" value="${orion.core.reflection.dir}/${default.binaries.dir.name}"/>
+    <property name="orion.core.reflection.source.dir" value="${orion.core.reflection.dir}/${default.source.dir.name}"/>
+    <property name="orion.core.file.system.binaries.dir" value="${orion.core.file.system.dir}/${default.binaries.dir.name}"/>
+    <property name="orion.core.file.system.source.dir" value="${orion.core.file.system.dir}/${default.source.dir.name}"/>
+    <property name="orion.core.configuration.binaries.dir" value="${orion.core.configuration.dir}/${default.binaries.dir.name}"/>
+    <property name="orion.core.configuration.source.dir" value="${orion.core.configuration.dir}/${default.source.dir.name}"/>
+    <property name="orion.core.annotations.binaries.dir" value="${orion.core.annotations.dir}/${default.binaries.dir.name}"/>
+    <property name="orion.core.annotations.source.dir" value="${orion.core.annotations.dir}/${default.source.dir.name}"/>
+    <property name="orion.core.dependency.injection.binaries.dir" value="${orion.core.dependency.injection.dir}/${default.binaries.dir.name}"/>
+    <property name="orion.core.dependency.injection.source.dir" value="${orion.core.dependency.injection.dir}/${default.source.dir.name}"/>
+    <property name="orion.core.initialisation.binaries.dir" value="${orion.core.initialisation.dir}/${default.binaries.dir.name}"/>
+    <property name="orion.core.initialisation.source.dir" value="${orion.core.initialisation.dir}/${default.source.dir.name}"/>
+    <property name="orion.core.general.binaries.dir" value="${orion.core.general.dir}/${default.binaries.dir.name}"/>
+    <property name="orion.core.general.source.dir" value="${orion.core.general.dir}/${default.source.dir.name}"/>
 
     
     <target name="all">
-    	<buildProject sourceDir="${orion.core.source.dir}" binariesDir="${orion.core.binaries.dir}" JARPath="${orion.core.jar.file.name}" projectName="${orion.core}"/>
+    	<emptyPath path="${orion.core.binaries.dir}"/>
+    	<buildProject sourceDir="${orion.core.reflection.source.dir}" binariesDir="${orion.core.reflection.binaries.dir}"/>
+    	<copy todir="${orion.core.binaries.dir}" verbose="yes" failonerror="false" overwrite="true">
+            <fileset dir="${orion.core.reflection.binaries.dir}" includes="**/**"/>
+        </copy>
+    	<buildProject sourceDir="${orion.core.file.system.source.dir}" binariesDir="${orion.core.file.system.binaries.dir}"/>
+    	<copy todir="${orion.core.binaries.dir}" verbose="yes" failonerror="false" overwrite="true">
+            <fileset dir="${orion.core.file.system.binaries.dir}" includes="**/**"/>
+        </copy>
+    	<buildProject sourceDir="${orion.core.configuration.source.dir}" binariesDir="${orion.core.configuration.binaries.dir}"/>
+    	<copy todir="${orion.core.binaries.dir}" verbose="yes" failonerror="false" overwrite="true">
+            <fileset dir="${orion.core.configuration.binaries.dir}" includes="**/**"/>
+        </copy>
+    	<buildProject sourceDir="${orion.core.annotations.source.dir}" binariesDir="${orion.core.annotations.binaries.dir}"/>
+    	<copy todir="${orion.core.binaries.dir}" verbose="yes" failonerror="false" overwrite="true">
+            <fileset dir="${orion.core.annotations.binaries.dir}" includes="**/**"/>
+        </copy>
+    	<buildProject sourceDir="${orion.core.dependency.injection.source.dir}" binariesDir="${orion.core.dependency.injection.binaries.dir}"/>
+    	<copy todir="${orion.core.binaries.dir}" verbose="yes" failonerror="false" overwrite="true">
+            <fileset dir="${orion.core.dependency.injection.binaries.dir}" includes="**/**"/>
+        </copy>
+    	<buildProject sourceDir="${orion.core.initialisation.source.dir}" binariesDir="${orion.core.initialisation.binaries.dir}"/>
+    	<copy todir="${orion.core.binaries.dir}" verbose="yes" failonerror="false" overwrite="true">
+            <fileset dir="${orion.core.initialisation.binaries.dir}" includes="**/**"/>
+        </copy>
+    	<buildProject sourceDir="${orion.core.general.source.dir}" binariesDir="${orion.core.general.binaries.dir}"/>
+    	<copy todir="${orion.core.binaries.dir}" verbose="yes" failonerror="false" overwrite="true">
+            <fileset dir="${orion.core.general.binaries.dir}" includes="**/**"/>
+        </copy>
+    	
+    	<packageProject binariesDir="${orion.core.binaries.dir}" JARPath="${orion.core.jar.file.name}" projectName="${orion.core}"/>
     </target>
 </project>

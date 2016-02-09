@@ -1,6 +1,6 @@
 package datastructures.services;
 
-import core.services.OrionService;
+import core.general.services.OrionService;
 
 public interface DataStructuresService extends OrionService
 {

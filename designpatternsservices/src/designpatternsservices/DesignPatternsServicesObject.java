@@ -9,7 +9,7 @@ public abstract class DesignPatternsServicesObject extends OrionObject
     {
         LibraryConfiguration libraryConfiguration = new LibraryConfiguration();
         libraryConfiguration.setLibraryName("designpatternsservices");
-        librariesConfigurationSet.add(libraryConfiguration);
+        registerLibraryConfiguration(libraryConfiguration);
         processAllLibrariesConfiguration();
     }
 }

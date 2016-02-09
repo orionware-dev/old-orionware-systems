@@ -1,6 +1,6 @@
 package designpatternsintegrationtests.pipeline;
 
-import core.functions.OrionAbstractFunction;
+import core.general.functions.OrionAbstractFunction;
 
 public class TestFunctionImpl extends OrionAbstractFunction implements TestFunction
 {
@@ -22,7 +22,7 @@ public class TestFunctionImpl extends OrionAbstractFunction implements TestFunct
 
 
     @Override
-    public Object execute()
+    public Object run()
     {
         return functionName();
     }

@@ -2,12 +2,34 @@
 	<macrodef name="buildProject">
         <attribute name="sourceDir" default=""/>
         <attribute name="binariesDir" default=""/>
+        
+        <sequential>
+            <emptyPath path="@{binariesDir}"/>
+            <compile sourceDir="@{sourceDir}" binariesDir="@{binariesDir}"/>
+        </sequential>
+    </macrodef>
+	
+	
+	<macrodef name="packageProject">
+        <attribute name="binariesDir" default=""/>
         <attribute name="JARPath" default=""/>
         <attribute name="projectName" default=""/>
         
         <sequential>
-        	<emptyPath path="@{binariesDir}"/>
-	        <compile sourceDir="@{sourceDir}" binariesDir="@{binariesDir}"/>
+            <buildJARFile JARPath="${orion.libraries.orionware.libraries.dir}/@{JARPath}" binariesDir="@{binariesDir}" projectName="@{projectName}"/>
+            <print a="${orion.libraries.orionware.libraries.dir}/@{JARPath}"/>
+        </sequential>
+    </macrodef>
+	
+	
+	<macrodef name="buildProjectAndPackage">
+        <attribute name="sourceDir" default=""/>
+        <attribute name="binariesDir" default=""/>
+        <attribute name="JARPath" default=""/>
+        <attribute name="projectName" default=""/>
+        
+        <sequential>
+        	<buildProject sourceDir="@{sourceDir}" binariesDir="@{binariesDir}"/>
 	        <buildJARFile JARPath="${orion.libraries.orionware.libraries.dir}/@{JARPath}" binariesDir="@{binariesDir}" projectName="@{projectName}"/>
 	        <print a="${orion.libraries.orionware.libraries.dir}/@{JARPath}"/>
         </sequential>

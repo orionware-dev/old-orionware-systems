@@ -6,6 +6,6 @@
 
     
     <target name="all">
-    	<buildProject sourceDir="${orion.data.structures.facades.source.dir}" binariesDir="${orion.data.structures.facades.binaries.dir}" JARPath="${orion.data.structures.facades.jar.file.name}" projectName="${orion.data.structures.facades}"/>
+    	<buildProjectAndPackage sourceDir="${orion.data.structures.facades.source.dir}" binariesDir="${orion.data.structures.facades.binaries.dir}" JARPath="${orion.data.structures.facades.jar.file.name}" projectName="${orion.data.structures.facades}"/>
     </target>
 </project>

@@ -1,1 +1,9 @@
+orion.core.reflection.dir=${orion.libraries.home.dir}/corereflection
+orion.core.file.system.dir=${orion.libraries.home.dir}/corefilesystem
+orion.core.configuration.dir=${orion.libraries.home.dir}/coreconfiguration
+orion.core.annotations.dir=${orion.libraries.home.dir}/coreannotations
+orion.core.dependency.injection.dir=${orion.libraries.home.dir}/coredependencyinjection
+orion.core.initialisation.dir=${orion.libraries.home.dir}/coreinitialisation
+orion.core.general.dir=${orion.libraries.home.dir}/coregeneral
+
 orion.core.jar.file.name=OrionCore_${orion.version}.jar

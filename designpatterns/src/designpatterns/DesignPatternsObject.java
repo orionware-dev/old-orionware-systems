@@ -10,7 +10,7 @@ public abstract class DesignPatternsObject extends OrionObject
         LibraryConfiguration libraryConfiguration = new LibraryConfiguration();
         libraryConfiguration.setLibraryName("designpatterns");
         libraryConfiguration.setConfigurationFilePath("/configuration/Pipeline.prop");
-        librariesConfigurationSet.add(libraryConfiguration);
+        registerLibraryConfiguration(libraryConfiguration);
         processAllLibrariesConfiguration();
     }
 }

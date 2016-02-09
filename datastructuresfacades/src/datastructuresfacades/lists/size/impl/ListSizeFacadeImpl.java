@@ -1,6 +1,6 @@
 package datastructuresfacades.lists.size.impl;
 
-import core.servicedependencyinjection.ServiceInjector;
+import core.dependencyinjection.service.ServiceInjector;
 import datastructures.lists.OrionList;
 import datastructuresfacades.DataStructuresFacadesObject;
 import datastructuresfacades.lists.size.ListSizeFacade;
