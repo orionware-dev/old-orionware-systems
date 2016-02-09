@@ -10,12 +10,14 @@ import core.configuration.registry.tasks.RegisterLibraryPropertiesTask;
 import core.configuration.tasks.GetCoreClasspathRootPathTask;
 import core.configuration.tasks.GetCoreClasspathRootTask;
 import core.configuration.tasks.GetCoreConfigurationPathTask;
+import core.configuration.tasks.IsCoreLibraryTask;
 import core.configuration.tasks.LoadLibraryPropertiesTask;
 import core.filesystem.FileSystemService;
 import core.filesystem.FileSystemServiceImpl;
 
 public class ConfigurationServiceImpl implements ConfigurationService
 {
+    private IsCoreLibraryTask isCoreLibraryTask = new IsCoreLibraryTask();
     private GetCoreClasspathRootPathTask getCoreClasspathRootPathTask = new GetCoreClasspathRootPathTask();
     private GetCoreClasspathRootTask getCoreClasspathRootTask = new GetCoreClasspathRootTask();
     private FileSystemService fileSystemService = new FileSystemServiceImpl();
@@ -23,6 +25,15 @@ public class ConfigurationServiceImpl implements ConfigurationService
     private PropertiesRegistrationService propertiesRegistrationService = new PropertiesRegistrationServiceImpl();
     private RegisterLibraryPropertiesTask registerLibraryPropertiesTask = new RegisterLibraryPropertiesTask();
     private LoadLibraryPropertiesTask loadLibraryPropertiesTask = new LoadLibraryPropertiesTask();
+    
+    
+    //this method is accurate when it is called from a base object
+    //like inside OrionObject.java or DataStructureObject.java
+    @Override
+    public boolean isCoreLibrary(Class<?> classBeingRun)
+    {
+        return isCoreLibraryTask.run(classBeingRun);
+    }
     
     
     @Override

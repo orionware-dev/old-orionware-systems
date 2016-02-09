@@ -1,4 +1,4 @@
-package core.libraries.tasks;
+package core.configuration.tasks;
 
 import core.configuration.CoreConfigurationEnum;
 import core.services.OrionTask;

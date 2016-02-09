@@ -8,6 +8,9 @@ import core.services.OrionService;
 
 public interface ConfigurationService extends OrionService
 {
+    public boolean isCoreLibrary(Class<?> classBeingRun);
+    
+    
     public String getCoreClasspathRootPath(String libraryClasspathRootPath);
     
     

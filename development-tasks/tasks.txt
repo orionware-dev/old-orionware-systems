@@ -1,7 +1,4 @@
-﻿--remove service helpers and move their code inside services
-
-
---OrionObject = annotations, configuration (See if I can
+﻿--OrionObject = annotations, configuration (See if I can
 create an initialiser instead, so that OrionObject depends
 only on it
 --annotations = filesystem, reflection, registry, configuration

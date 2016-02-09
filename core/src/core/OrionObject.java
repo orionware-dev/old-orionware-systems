@@ -10,14 +10,11 @@ import core.configuration.ConfigurationService;
 import core.configuration.ConfigurationServiceImpl;
 import core.configuration.CoreConfigurationEnum;
 import core.configuration.LibraryConfiguration;
-import core.libraries.LibraryService;
-import core.libraries.LibraryServiceImpl;
 
 public abstract class OrionObject
 {
     protected Set<LibraryConfiguration> librariesConfigurationSet = new HashSet<LibraryConfiguration>();
     private LibraryConfiguration libraryConfiguration = new LibraryConfiguration();
-    private LibraryService libraryService = new LibraryServiceImpl();
     private ConfigurationService configurationService = new ConfigurationServiceImpl();
     private AnnotationsRegistrationService annotationsRegistrationService = new AnnotationsRegistrationServiceImpl();
     private AnnotationsProcessorService annotationsProcessorService = new AnnotationsProcessorServiceImpl();
@@ -59,7 +56,7 @@ public abstract class OrionObject
     
     private boolean thisIsCoreLibrary()
     {
-        return libraryService.isCoreLibrary(getClass());
+        return configurationService.isCoreLibrary(getClass());
     }
     
     
