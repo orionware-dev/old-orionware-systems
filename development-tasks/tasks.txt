@@ -1,4 +1,6 @@
-﻿--OrionObject = annotations, configuration (See if I can
+﻿--in ConfigurationService create mehods: registerProp, updateProp, deleteProp
+
+--OrionObject = annotations, configuration (See if I can
 create an initialiser instead, so that OrionObject depends
 only on it
 --annotations = filesystem, reflection, registry, configuration

@@ -4,10 +4,8 @@
         <attribute name="binariesDir" default=""/>
         
         <sequential>
-            <path id="compilation_classpath">
-                <fileset dir="${orion.libraries.dir}">
-                    <include name="**/*.jar"/>
-                </fileset>
+        	<path id="compilation_classpath">
+        		<fileset dir="${orion.libraries.dir}" includes="**/*.jar"/>
             </path>
             
             <print a="Compiling source path @{sourceDir}"/>

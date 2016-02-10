@@ -13,7 +13,7 @@
         <attribute name="path" default=""/>
         
         <sequential>
-            <delete file="@{path}"/>
+        	<delete file="@{path}"/>
         </sequential>
     </macrodef>
     
