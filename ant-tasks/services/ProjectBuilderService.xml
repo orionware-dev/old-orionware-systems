@@ -6,6 +6,10 @@
         <sequential>
             <emptyPath path="@{binariesDir}"/>
             <compile sourceDir="@{sourceDir}" binariesDir="@{binariesDir}"/>
+        	
+        	<copy todir="@{binariesDir}">
+        	    <fileset dir="@{sourceDir}" includes="**/*.prop,**/*.xml"/>
+        	</copy>
         </sequential>
     </macrodef>
 	

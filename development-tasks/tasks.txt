@@ -1,27 +1,5 @@
-﻿--in ConfigurationService create mehods: registerProp, updateProp, deleteProp
-
---OrionObject = annotations, configuration (See if I can
-create an initialiser instead, so that OrionObject depends
-only on it
---annotations = filesystem, reflection, registry, configuration
---configuration = filesystem, registry
---injector = annotations, reflection
-
---put OrionObject in core.general
---create Orion initialiser that is called by OrionObject and uses annotations and configuration to initialise
-
-
---create Ant task for merging the bin dirs of the core porjects in one JAR
-
-
---go through services packages and split services according
+﻿--go through services packages and split services according
 to what they do and put them in appropriate packages
-
-
-
-
-
-
 
 
 --instead of tasks calling other tasks, split them into smaller
