@@ -2,28 +2,15 @@ orion.core.reflection=Core Reflection
 orion.core.reflection.dir=${orion.libraries.home.dir}/corereflection
 orion.core.reflection.jar.file.name=OrionCoreReflection_${orion.version}.jar
 
-orion.core.file.system=Core File System
-orion.core.file.system.dir=${orion.libraries.home.dir}/corefilesystem
-orion.core.file.system.jar.file.name=OrionCoreFileSystem_${orion.version}.jar
-
-orion.core.configuration=Core Configuration
-orion.core.configuration.dir=${orion.libraries.home.dir}/coreconfiguration
-orion.core.configuration.jar.file.name=OrionCoreConfiguration_${orion.version}.jar
-
-orion.core.annotations=Core Annotations
-orion.core.annotations.dir=${orion.libraries.home.dir}/coreannotations
-orion.core.annotations.jar.file.name=OrionCoreAnnotations_${orion.version}.jar
-
-orion.core.dependency.injection=Core Dependency Injection
-orion.core.dependency.injection.dir=${orion.libraries.home.dir}/coredependencyinjection
-orion.core.dependency.injection.jar.file.name=OrionCoreDependencyInjection_${orion.version}.jar
+orion.core.file.system.builder.dir=${orion.libraries.home.dir}/corefilesystem/build
+orion.core.configuration.builder.dir=${orion.libraries.home.dir}/coreconfiguration/build
+orion.core.annotations.builder.dir=${orion.libraries.home.dir}/coreannotations/build
+orion.core.dependency.injection.builder.dir=${orion.libraries.home.dir}/coredependencyinjection/build
 
 orion.core.initialisation=Core Initialisation
 orion.core.initialisation.dir=${orion.libraries.home.dir}/coreinitialisation
 orion.core.initialisation.jar.file.name=OrionCoreInitialisation_${orion.version}.jar
 
-orion.core.general=Core General
-orion.core.general.dir=${orion.libraries.home.dir}/coregeneral
-orion.core.general.jar.file.name=OrionCoreGeneral_${orion.version}.jar
+orion.core.general.builder.dir=${orion.libraries.home.dir}/coregeneral/build
 
 orion.core.jar.file.name=OrionCore_${orion.version}.jar

@@ -1,0 +1,3 @@
+orion.core.initialisation=Core Initialisation
+orion.core.initialisation.dir=${orion.libraries.home.dir}/coreinitialisation
+orion.core.initialisation.jar.file.name=OrionCoreInitialisation_${orion.version}.jar

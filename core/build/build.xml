@@ -2,68 +2,26 @@
 <project name="OrionCoreBuilder" default="all" basedir=".">
     <property file="CoreBuild.prop"/>
     <property name="orion.core.binaries.dir" value="${orion.core.dir}/${default.binaries.dir.name}"/>
-    <property name="orion.core.reflection.binaries.dir" value="${orion.core.reflection.dir}/${default.binaries.dir.name}"/>
-    <property name="orion.core.reflection.source.dir" value="${orion.core.reflection.dir}/${default.source.dir.name}"/>
-    <property name="orion.core.file.system.binaries.dir" value="${orion.core.file.system.dir}/${default.binaries.dir.name}"/>
-    <property name="orion.core.file.system.source.dir" value="${orion.core.file.system.dir}/${default.source.dir.name}"/>
-    <property name="orion.core.configuration.binaries.dir" value="${orion.core.configuration.dir}/${default.binaries.dir.name}"/>
-    <property name="orion.core.configuration.source.dir" value="${orion.core.configuration.dir}/${default.source.dir.name}"/>
-    <property name="orion.core.annotations.binaries.dir" value="${orion.core.annotations.dir}/${default.binaries.dir.name}"/>
-    <property name="orion.core.annotations.source.dir" value="${orion.core.annotations.dir}/${default.source.dir.name}"/>
-    <property name="orion.core.dependency.injection.binaries.dir" value="${orion.core.dependency.injection.dir}/${default.binaries.dir.name}"/>
-    <property name="orion.core.dependency.injection.source.dir" value="${orion.core.dependency.injection.dir}/${default.source.dir.name}"/>
-    <property name="orion.core.initialisation.binaries.dir" value="${orion.core.initialisation.dir}/${default.binaries.dir.name}"/>
-    <property name="orion.core.initialisation.source.dir" value="${orion.core.initialisation.dir}/${default.source.dir.name}"/>
-    <property name="orion.core.general.binaries.dir" value="${orion.core.general.dir}/${default.binaries.dir.name}"/>
-    <property name="orion.core.general.source.dir" value="${orion.core.general.dir}/${default.source.dir.name}"/>
 
     
     <target name="all">
     	<emptyPath path="${orion.core.binaries.dir}"/>
     	
-    	<buildProjectAndPackage sourceDir="${orion.core.reflection.source.dir}" binariesDir="${orion.core.reflection.binaries.dir}" JARPath="${orion.core.reflection.jar.file.name}" projectName="${orion.core.reflection}"/>
-    	<buildProjectAndPackage sourceDir="${orion.core.file.system.source.dir}" binariesDir="${orion.core.file.system.binaries.dir}" JARPath="${orion.core.file.system.jar.file.name}" projectName="${orion.core.file.system}"/>
-    	<buildProjectAndPackage sourceDir="${orion.core.configuration.source.dir}" binariesDir="${orion.core.configuration.binaries.dir}" JARPath="${orion.core.configuration.jar.file.name}" projectName="${orion.core.configuration}"/>
-    	<buildProjectAndPackage sourceDir="${orion.core.annotations.source.dir}" binariesDir="${orion.core.annotations.binaries.dir}" JARPath="${orion.core.annotations.jar.file.name}" projectName="${orion.core.annotations}"/>
-    	<buildProjectAndPackage sourceDir="${orion.core.dependency.injection.source.dir}" binariesDir="${orion.core.dependency.injection.binaries.dir}" JARPath="${orion.core.dependency.injection.jar.file.name}" projectName="${orion.core.dependency.injection}"/>
-    	<buildProjectAndPackage sourceDir="${orion.core.initialisation.source.dir}" binariesDir="${orion.core.initialisation.binaries.dir}" JARPath="${orion.core.initialisation.jar.file.name}" projectName="${orion.core.initialisation}"/>
-    	<buildProjectAndPackage sourceDir="${orion.core.general.source.dir}" binariesDir="${orion.core.general.binaries.dir}" JARPath="${orion.core.general.jar.file.name}" projectName="${orion.core.general}"/>
-
-    	<copy todir="${orion.core.binaries.dir}" verbose="yes" failonerror="false" overwrite="true">
-            <fileset dir="${orion.core.reflection.binaries.dir}" includes="**/**"/>
-        </copy>
-        
-        <copy todir="${orion.core.binaries.dir}" verbose="yes" failonerror="false" overwrite="true">
-            <fileset dir="${orion.core.file.system.binaries.dir}" includes="**/**"/>
-        </copy>
-        
-        <copy todir="${orion.core.binaries.dir}" verbose="yes" failonerror="false" overwrite="true">
-            <fileset dir="${orion.core.configuration.binaries.dir}" includes="**/**"/>
-        </copy>
-        
-        <copy todir="${orion.core.binaries.dir}" verbose="yes" failonerror="false" overwrite="true">
-            <fileset dir="${orion.core.annotations.binaries.dir}" includes="**/**"/>
-        </copy>
-        
-        <copy todir="${orion.core.binaries.dir}" verbose="yes" failonerror="false" overwrite="true">
-            <fileset dir="${orion.core.dependency.injection.binaries.dir}" includes="**/**"/>
-        </copy>
-        
-        <copy todir="${orion.core.binaries.dir}" verbose="yes" failonerror="false" overwrite="true">
-            <fileset dir="${orion.core.initialisation.binaries.dir}" includes="**/**"/>
-        </copy>
-        
-        <copy todir="${orion.core.binaries.dir}" verbose="yes" failonerror="false" overwrite="true">
-            <fileset dir="${orion.core.general.binaries.dir}" includes="**/**"/>
-        </copy>
+    	<callAnt file="${orion.core.reflection.builder.dir}/build.xml"/>
+    	<callAnt file="${orion.core.file.system.builder.dir}/build.xml"/>
+    	<callAnt file="${orion.core.configuration.builder.dir}/build.xml"/>
+        <callAnt file="${orion.core.annotations.builder.dir}/build.xml"/>
+        <callAnt file="${orion.core.dependency.injection.builder.dir}/build.xml"/>
+    	<callAnt file="${orion.core.initialisation.builder.dir}/build.xml"/>
+    	<callAnt file="${orion.core.general.builder.dir}/build.xml"/>
     	
-    	<deleteFile path="${orion.libraries.orionware.libraries.dir}/${orion.core.reflection.jar.file.name}"/>
-    	<deleteFile path="${orion.libraries.orionware.libraries.dir}/${orion.core.file.system.jar.file.name}"/>
-    	<deleteFile path="${orion.libraries.orionware.libraries.dir}/${orion.core.configuration.jar.file.name}"/>
-    	<deleteFile path="${orion.libraries.orionware.libraries.dir}/${orion.core.annotations.jar.file.name}"/>
-    	<deleteFile path="${orion.libraries.orionware.libraries.dir}/${orion.core.dependency.injection.jar.file.name}"/>
-    	<deleteFile path="${orion.libraries.orionware.libraries.dir}/${orion.core.initialisation.jar.file.name}"/>
-    	<deleteFile path="${orion.libraries.orionware.libraries.dir}/${orion.core.general.jar.file.name}"/>
+    	<callAnt file="${orion.core.reflection.builder.dir}/build.xml" target="delete_JAR"/>
+    	<callAnt file="${orion.core.file.system.builder.dir}/build.xml" target="delete_JAR"/>
+    	<callAnt file="${orion.core.configuration.builder.dir}/build.xml" target="delete_JAR"/>
+    	<callAnt file="${orion.core.annotations.builder.dir}/build.xml" target="delete_JAR"/>
+    	<callAnt file="${orion.core.dependency.injection.builder.dir}/build.xml" target="delete_JAR"/>
+    	<callAnt file="${orion.core.initialisation.builder.dir}/build.xml" target="delete_JAR"/>
+    	<callAnt file="${orion.core.general.builder.dir}/build.xml" target="delete_JAR"/>
     	
     	<packageProject binariesDir="${orion.core.binaries.dir}" JARPath="${orion.core.jar.file.name}" projectName="${orion.core}"/>
     </target>

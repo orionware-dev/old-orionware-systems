@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<project name="OrionCoreAnnotationsBuilder" default="all" basedir=".">
+    <property file="CoreAnnotationsBuild.prop"/>
+    <property name="orion.core.binaries.dir" value="${orion.core.dir}/${default.binaries.dir.name}"/>
+    <property name="orion.core.annotations.binaries.dir" value="${orion.core.annotations.dir}/${default.binaries.dir.name}"/>
+    <property name="orion.core.annotations.source.dir" value="${orion.core.annotations.dir}/${default.source.dir.name}"/>
+
+    
+    <target name="all">
+    	<buildProjectAndPackage sourceDir="${orion.core.annotations.source.dir}" binariesDir="${orion.core.annotations.binaries.dir}" JARPath="${orion.core.annotations.jar.file.name}" projectName="${orion.core.annotations}"/>
+        
+        <copy todir="${orion.core.binaries.dir}" verbose="yes" failonerror="false" overwrite="true">
+            <fileset dir="${orion.core.annotations.binaries.dir}" includes="**/**"/>
+        </copy>
+    </target>
+	
+	
+	<target name="delete_JAR">
+		<deleteFile path="${orion.libraries.orionware.libraries.dir}/${orion.core.annotations.jar.file.name}"/>
+    </target>
+</project>

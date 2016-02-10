@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<project name="OrionCoreConfigurationBuilder" default="all" basedir=".">
+    <property file="CoreConfigurationBuild.prop"/>
+    <property name="orion.core.binaries.dir" value="${orion.core.dir}/${default.binaries.dir.name}"/>
+    <property name="orion.core.configuration.binaries.dir" value="${orion.core.configuration.dir}/${default.binaries.dir.name}"/>
+    <property name="orion.core.configuration.source.dir" value="${orion.core.configuration.dir}/${default.source.dir.name}"/>
+
+    
+    <target name="all">
+    	<buildProjectAndPackage sourceDir="${orion.core.configuration.source.dir}" binariesDir="${orion.core.configuration.binaries.dir}" JARPath="${orion.core.configuration.jar.file.name}" projectName="${orion.core.configuration}"/>
+        
+        <copy todir="${orion.core.binaries.dir}" verbose="yes" failonerror="false" overwrite="true">
+            <fileset dir="${orion.core.configuration.binaries.dir}" includes="**/**"/>
+        </copy>
+    </target>
+	
+	
+	<target name="delete_JAR">
+		<deleteFile path="${orion.libraries.orionware.libraries.dir}/${orion.core.configuration.jar.file.name}"/>
+    </target>
+</project>
