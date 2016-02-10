@@ -11,4 +11,13 @@ public interface PropertiesRegistrationService extends OrionConfigurationService
     
     
     public void setPropertiesAsRegisteredForLibrary(String libraryName);
+    
+    
+    public void registerProp(String key, String value);
+    
+    
+    public void updateProp(String key, String value);
+    
+    
+    public void deleteProp(String key);
 }

@@ -20,6 +20,24 @@ public class AllProperties
     }
     
     
+    public static void registerProp(String key, String value)
+    {
+        properties.registerProp(key, value);
+    }
+    
+    
+    public static void updateProp(String key, String value)
+    {
+        properties.updateProp(key, value);
+    }
+    
+    
+    public static void deleteProp(String key)
+    {
+        properties.deleteProp(key);
+    }
+    
+    
     public static boolean isNotEmpty()
     {
         return properties.isNotEmpty();

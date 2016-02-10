@@ -22,6 +22,24 @@ public class OrionProperties extends Properties
     }
     
     
+    public void registerProp(String key, String value)
+    {
+        put(key, value);
+    }
+    
+    
+    public void updateProp(String key, String value)
+    {
+        put(key, value);
+    }
+    
+    
+    public void deleteProp(String key)
+    {
+        remove(key);
+    }
+    
+    
     public boolean isNotEmpty()
     {
         return !isEmpty();
