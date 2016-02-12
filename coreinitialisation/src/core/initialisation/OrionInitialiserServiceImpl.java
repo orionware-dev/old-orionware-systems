@@ -2,10 +2,10 @@ package core.initialisation;
 
 import java.util.HashSet;
 import java.util.Set;
-import core.annotations.processor.AnnotationsProcessorService;
-import core.annotations.processor.AnnotationsProcessorServiceImpl;
-import core.annotations.registry.AnnotationsRegistrationService;
-import core.annotations.registry.AnnotationsRegistrationServiceImpl;
+import core.annotations.services.processor.AnnotationsProcessorService;
+import core.annotations.services.processor.AnnotationsProcessorServiceImpl;
+import core.annotations.services.registry.AnnotationsRegistrationService;
+import core.annotations.services.registry.AnnotationsRegistrationServiceImpl;
 import core.configuration.CoreConfigurationEnum;
 import core.configuration.LibraryConfiguration;
 import core.configuration.classpath.ConfigurationService;

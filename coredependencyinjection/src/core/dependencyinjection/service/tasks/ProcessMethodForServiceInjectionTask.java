@@ -1,7 +1,7 @@
 package core.dependencyinjection.service.tasks;
 
 import java.lang.reflect.Method;
-import core.annotations.processor.AnnotationsProcessorService;
+import core.annotations.services.processor.AnnotationsProcessorService;
 import core.dependencyinjection.DependencyInjectionTask;
 import core.dependencyinjection.service.ServiceInjector;
 import core.reflection.loader.ReflectionService;
