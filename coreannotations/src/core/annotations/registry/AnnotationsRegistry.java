@@ -1,21 +1,18 @@
 package core.annotations.registry;
 
-import java.io.InputStream;
 import java.util.Set;
 import java.util.function.Consumer;
-import core.annotations.RegisteredAnnotation;
-import core.annotations.registry.RegisteredAnnotations;
-import core.configuration.OrionProperties;
+import core.annotations.OrionAnnotation;
 
 public class AnnotationsRegistry
 {
-    public static void registerAnnotation(RegisteredAnnotation registeredAnnotation)
+    public static void registerAnnotation(OrionAnnotation registeredAnnotation)
     {
         RegisteredAnnotations.add(registeredAnnotation);
     }
     
     
-    public static Set<RegisteredAnnotation> getAnnotations()
+    public static Set<OrionAnnotation> getAnnotations()
     {
         return RegisteredAnnotations.registeredAnnotationsSet;
     }
@@ -24,6 +21,6 @@ public class AnnotationsRegistry
     @SuppressWarnings("unchecked")
     public static void forEachAnnotation(Consumer<?> action)
     {
-        getAnnotations().forEach((Consumer<? super RegisteredAnnotation>)action);
+        getAnnotations().forEach((Consumer<? super OrionAnnotation>)action);
     }
 }

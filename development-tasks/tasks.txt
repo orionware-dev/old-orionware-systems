@@ -1,16 +1,16 @@
-﻿--go through services packages and split services according
-to what they do and put them in appropriate packages
+﻿--create corefacades
+
+--go through services packages and split services according
+to what they do and put them in appropriate packages and
+create services hierarchy and composition
 
 
 --instead of tasks calling other tasks, split them into smaller
-tasks and the service itself should gather results from tasks and call the appropriate ones in the order it needs
+tasks and the service itself should gather results from tasks
+and call the appropriate ones in the order it needs
 
 
 --see if some of the instance vars of a class belong to a separate data class
-
-
---finish the template-project and apply everything I think of
-to all the projects. Use core and datastructures as examples
 
 
 --delete datastructures.testannotation.TestAnnotation
@@ -20,6 +20,7 @@ to all the projects. Use core and datastructures as examples
 Use datastructuresservices.lists.size.impl.tasks.GetSizeTask
 
 
+--don't return nulls
 --create the Orion Web Platform
 --create microservices
 --create my own OrionWebContextLoaderListener.java that implements
@@ -115,6 +116,10 @@ arguments and automatically they will be retrieved from the cach
  if they exist. If not the user has to say if he wants to create
  a new instance and put it on the cache automatically
 --create CacheConfiguration.prop and CacheConfiguration.java to load the props
+
+
+--finish the template-project and apply everything I think of
+to all the projects. Use core and datastructures as examples
 
 
 

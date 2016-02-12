@@ -2,7 +2,7 @@ package core.annotations.registry;
 
 import java.util.Set;
 import java.util.stream.Stream;
-import core.annotations.RegisteredAnnotation;
+import core.annotations.OrionAnnotation;
 import core.annotations.loader.AnnotationsLoaderService;
 import core.annotations.loader.AnnotationsLoaderServiceImpl;
 import core.annotations.registry.tasks.FilterAnnotationsNotBeenRegisteredForLibraryTask;
@@ -45,7 +45,7 @@ public class AnnotationsRegistrationServiceImpl implements AnnotationsRegistrati
     
     
     @Override
-    public void registerAnnotation(RegisteredAnnotation registeredAnnotation)
+    public void registerAnnotation(OrionAnnotation registeredAnnotation)
     {
         registerAnnotationTask.run(registeredAnnotation);
     }

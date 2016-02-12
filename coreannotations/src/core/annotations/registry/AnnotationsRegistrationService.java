@@ -1,8 +1,8 @@
 package core.annotations.registry;
 
 import java.util.Set;
+import core.annotations.OrionAnnotation;
 import core.annotations.OrionAnnotationService;
-import core.annotations.RegisteredAnnotation;
 import core.configuration.LibraryConfiguration;
 
 public interface AnnotationsRegistrationService extends OrionAnnotationService
@@ -13,7 +13,7 @@ public interface AnnotationsRegistrationService extends OrionAnnotationService
     public void registerLibraryAnnotationsDefinitions(LibraryConfiguration libraryConfiguration);
     
     
-    public void registerAnnotation(RegisteredAnnotation registeredAnnotation);
+    public void registerAnnotation(OrionAnnotation registeredAnnotation);
     
     
     public boolean haveAnnotationsBeenRegisteredForLibrary(String libraryName);

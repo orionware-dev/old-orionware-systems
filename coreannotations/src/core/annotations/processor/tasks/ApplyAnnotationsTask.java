@@ -3,10 +3,9 @@ package core.annotations.processor.tasks;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.List;
+import core.annotations.OrionAnnotation;
 import core.annotations.OrionAnnotationTask;
-import core.annotations.RegisteredAnnotation;
 import core.annotations.registry.AnnotationsRegistry;
-import core.configuration.registry.ConfigurationRegistry;
 import core.reflection.loader.ReflectionService;
 
 public class ApplyAnnotationsTask implements OrionAnnotationTask
@@ -21,11 +20,11 @@ public class ApplyAnnotationsTask implements OrionAnnotationTask
         this.reflectionService = reflectionService;
         this.object = object;
         this.allObjectAnnotationsList = allObjectAnnotationsList;
-        AnnotationsRegistry.forEachAnnotation((annotation) -> applyAnnotation((RegisteredAnnotation)annotation));
+        AnnotationsRegistry.forEachAnnotation((annotation) -> applyAnnotation((OrionAnnotation)annotation));
     }
     
     
-    private void applyAnnotation(RegisteredAnnotation registeredAnnotation)
+    private void applyAnnotation(OrionAnnotation registeredAnnotation)
     {
         //if it finds a registered annotation that matches the one it is processing now then process it
         //otherwise it means that we are processing an annotation that has not been registered
@@ -38,7 +37,7 @@ public class ApplyAnnotationsTask implements OrionAnnotationTask
     }
     
     
-    private boolean thisAnnotationIsRegistered(RegisteredAnnotation registeredAnnotation)
+    private boolean thisAnnotationIsRegistered(OrionAnnotation registeredAnnotation)
     {
         return allObjectAnnotationsList.stream()
                     .filter((annotation) -> annotation.annotationType().getName().equals(registeredAnnotation.getAnnotationClass()))
@@ -46,7 +45,7 @@ public class ApplyAnnotationsTask implements OrionAnnotationTask
     }
     
     
-    private void applyAnnotationToMethod(RegisteredAnnotation registeredAnnotation)
+    private void applyAnnotationToMethod(OrionAnnotation registeredAnnotation)
     {
         try
         {

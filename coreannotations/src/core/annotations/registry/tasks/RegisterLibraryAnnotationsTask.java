@@ -1,7 +1,7 @@
 package core.annotations.registry.tasks;
 
+import core.annotations.OrionAnnotation;
 import core.annotations.OrionAnnotationTask;
-import core.annotations.RegisteredAnnotation;
 import core.annotations.loader.AnnotationsLoaderService;
 import core.annotations.registry.AnnotationsRegistrationService;
 import core.configuration.LibraryConfiguration;
@@ -88,7 +88,7 @@ public class RegisterLibraryAnnotationsTask implements OrionAnnotationTask
     
     private void registerLibraryAnnotation()
     {
-        annotationsRegistrationService.registerAnnotation(new RegisteredAnnotation
+        annotationsRegistrationService.registerAnnotation(new OrionAnnotation
             (currentAnnotationClass, currentAnnotationServiceClass, currentAnnotationServiceMethodToCall));
     }
 }
