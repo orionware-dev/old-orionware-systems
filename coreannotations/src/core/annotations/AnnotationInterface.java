@@ -1,6 +1,6 @@
 package core.annotations;
 
-public interface OrionAnnotationTask
+public interface AnnotationInterface
 {
     
 }

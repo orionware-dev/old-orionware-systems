@@ -1,8 +1,8 @@
 package core.annotations.loader.tasks;
 
-import core.annotations.OrionAnnotationTask;
+import core.annotations.AnnotationTask;
 
-public class GetAnnotationsFilePathTask implements OrionAnnotationTask
+public class GetAnnotationsFilePathTask implements AnnotationTask
 {
     public String run(String classpathRoot, String libraryAnnotationsFilePath)
     {

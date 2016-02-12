@@ -1,14 +1,14 @@
 package core.annotations.registry.tasks;
 
 import java.io.InputStream;
-import core.annotations.OrionAnnotationTask;
+import core.annotations.AnnotationTask;
 import core.annotations.loader.AnnotationsLoaderService;
 import core.configuration.LibraryConfiguration;
 import core.configuration.OrionProperties;
 import core.filesystem.streams.FileSystemService;
 import core.filesystem.streams.FileSystemServiceImpl;
 
-public class LoadLibraryAnnotationsDefinitionsTask implements OrionAnnotationTask
+public class LoadLibraryAnnotationsDefinitionsTask implements AnnotationTask
 {
     private OrionProperties annotationsDeclarations = new OrionProperties();
     private FileSystemService fileSystemService = new FileSystemServiceImpl();

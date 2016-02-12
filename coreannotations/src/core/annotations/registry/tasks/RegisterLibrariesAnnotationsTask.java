@@ -1,12 +1,12 @@
 package core.annotations.registry.tasks;
 
 import java.util.stream.Stream;
-import core.annotations.OrionAnnotationTask;
+import core.annotations.AnnotationTask;
 import core.annotations.loader.AnnotationsLoaderService;
 import core.annotations.registry.AnnotationsRegistrationService;
 import core.configuration.LibraryConfiguration;
 
-public class RegisterLibrariesAnnotationsTask implements OrionAnnotationTask
+public class RegisterLibrariesAnnotationsTask implements AnnotationTask
 {
     private RegisterLibraryAnnotationsTask registerLibraryAnnotationsTask = new RegisterLibraryAnnotationsTask();
     

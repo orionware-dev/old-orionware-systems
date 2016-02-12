@@ -5,9 +5,9 @@ import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import core.annotations.OrionAnnotationTask;
+import core.annotations.AnnotationTask;
 
-public class GatherAllObjectConstructorsAnnotationsTask implements OrionAnnotationTask
+public class GatherAllObjectConstructorsAnnotationsTask implements AnnotationTask
 {
     private List<Annotation> allObjectConstructorsAnnotationsList = new ArrayList<Annotation>();
     

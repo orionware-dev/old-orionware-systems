@@ -3,9 +3,9 @@ package core.annotations.processor.tasks;
 import java.lang.annotation.Annotation;
 import java.util.ArrayList;
 import java.util.List;
-import core.annotations.OrionAnnotationTask;
+import core.annotations.AnnotationTask;
 
-public class GatherAllObjectAnnotationsTask implements OrionAnnotationTask
+public class GatherAllObjectAnnotationsTask implements AnnotationTask
 {
     private List<Annotation> allObjectAnnotationsList = new ArrayList<Annotation>();
     private GatherAllClassLevelAnnotationsTask gatherAllClassLevelAnnotationsTask = new GatherAllClassLevelAnnotationsTask();

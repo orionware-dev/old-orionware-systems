@@ -1,9 +1,9 @@
 package core.annotations.loader;
 
 import java.io.InputStream;
-import core.annotations.OrionAnnotationService;
+import core.annotations.AnnotationService;
 
-public interface AnnotationsLoaderService extends OrionAnnotationService
+public interface AnnotationsLoaderService extends AnnotationService
 {
     public InputStream getAnnotationsFileStream(String libraryName, String libraryAnnotationsFilePath);
 }

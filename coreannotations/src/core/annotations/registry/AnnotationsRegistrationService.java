@@ -2,10 +2,10 @@ package core.annotations.registry;
 
 import java.util.Set;
 import core.annotations.OrionAnnotation;
-import core.annotations.OrionAnnotationService;
+import core.annotations.AnnotationService;
 import core.configuration.LibraryConfiguration;
 
-public interface AnnotationsRegistrationService extends OrionAnnotationService
+public interface AnnotationsRegistrationService extends AnnotationService
 {
     public void registerLibrariesAnnotations(Set<LibraryConfiguration> librariesConfiguration);
     

@@ -3,9 +3,9 @@ package core.annotations.processor;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.List;
-import core.annotations.OrionAnnotationService;
+import core.annotations.AnnotationService;
 
-public interface AnnotationsProcessorService extends OrionAnnotationService
+public interface AnnotationsProcessorService extends AnnotationService
 {
     public List<Annotation> gatherAllAnnotationsFromObject(Object OrionObject);
     
