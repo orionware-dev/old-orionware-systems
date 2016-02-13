@@ -1,3 +1,0 @@
-orion.core.file.system=Core File System
-orion.core.file.system.dir=${orion.libraries.home.dir}/corefilesystem
-orion.core.file.system.jar.file.name=OrionCoreFileSystem_${orion.version}.jar

@@ -1,3 +1,0 @@
-orion.core.general=Core General
-orion.core.general.dir=${orion.libraries.home.dir}/coregeneral
-orion.core.general.jar.file.name=OrionCoreGeneral_${orion.version}.jar

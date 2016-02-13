@@ -1,0 +1,9 @@
+orion.core.file.system.builder.dir=${orion.core.projects.dir}/corefilesystem/build
+orion.core.reflection.builder.dir=${orion.core.projects.dir}/corereflection/build
+orion.core.configuration.builder.dir=${orion.core.projects.dir}/coreconfiguration/build
+orion.core.annotations.builder.dir=${orion.core.projects.dir}/coreannotations/build
+orion.core.annotations.services.builder.dir=${orion.core.projects.dir}/coreannotationsservices/build
+orion.core.dependency.injection.builder.dir=${orion.core.projects.dir}/coredependencyinjection/build
+orion.core.general.builder.dir=${orion.core.projects.dir}/coregeneral/build
+
+orion.core.jar.file.name=OrionCore_${orion.version}.jar

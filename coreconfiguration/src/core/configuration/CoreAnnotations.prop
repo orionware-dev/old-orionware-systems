@@ -1,7 +1,0 @@
-core.annotation.1=core.dependencyinjection.Injector
-core.annotation.service.1=core.dependencyinjection.processor.DependencyInjectorServiceImpl
-core.annotation.service.method.to.call.1=processDependencies
-
-core.annotation.2=core.dependencyinjection.service.ServiceInjector
-core.annotation.service.2=core.dependencyinjection.service.ServiceDependencyInjectorServiceImpl
-core.annotation.service.method.to.call.2=processServiceDependencies
