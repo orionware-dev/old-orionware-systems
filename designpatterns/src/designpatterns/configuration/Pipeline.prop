@@ -1,5 +1,0 @@
-orion.libraries.design.patterns.pipeline.filter.allowed.instance.1=core.OrionAbstractFunction
-orion.libraries.design.patterns.pipeline.filter.allowed.instance.2=core.OrionServiceTask
-
-orion.libraries.design.patterns.pipeline.filter.allowed.instance.1.method.name=executeFunction
-orion.libraries.design.patterns.pipeline.filter.allowed.instance.2.method.name=execute
