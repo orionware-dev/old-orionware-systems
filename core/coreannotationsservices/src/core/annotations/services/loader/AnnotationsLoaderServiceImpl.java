@@ -8,7 +8,7 @@ import core.filesystem.streams.FileSystemServiceImpl;
 
 public class AnnotationsLoaderServiceImpl implements AnnotationsLoaderService
 {
-    private GetClasspathRootPathTask getCoreClasspathRootTask = new GetClasspathRootPathTask();
+    private GetClasspathRootPathTask getClasspathRootTask = new GetClasspathRootPathTask();
     private GetAnnotationsFilePathTask getAnnotationsFilePathTask = new GetAnnotationsFilePathTask();
     private FileSystemService fileSystemService = new FileSystemServiceImpl();
     
@@ -16,7 +16,7 @@ public class AnnotationsLoaderServiceImpl implements AnnotationsLoaderService
     @Override
     public InputStream getAnnotationsFileStream(String libraryName, String libraryAnnotationsFilePath)
     {
-        String coreClasspathRoot = getCoreClasspathRootTask.run(libraryName);
+        String coreClasspathRoot = getClasspathRootTask.run(libraryName);
         String annotationsFilePath = getAnnotationsFilePathTask.run(coreClasspathRoot, libraryAnnotationsFilePath);
         return fileSystemService.getFileStream(annotationsFilePath);
     }

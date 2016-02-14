@@ -12,10 +12,10 @@ public interface ConfigurationService extends OrionConfigurationService
     public boolean isCoreLibrary(Class<?> classBeingRun);
     
     
-    public String getCoreClasspathRootPath(String libraryClasspathRootPath);
+    public String getClasspathRootPath(String libraryClasspathRootPath);
     
     
-    public File getCoreClasspathRoot(String libraryClasspathRootPath);
+    public File getClasspathRoot(String libraryClasspathRootPath);
     
     
     public String getCoreConfigurationPath();

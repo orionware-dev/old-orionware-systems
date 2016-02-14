@@ -9,9 +9,9 @@ import core.configuration.registry.PropertiesRegistrationService;
 
 public class RegisterLibraryPropertiesTask implements OrionConfigurationTask
 {
-    public void run(ConfigurationService configurationService, GetClasspathRootPathTask getCoreClasspathRootPathTask, LoadLibraryPropertiesTask loadLibraryPropertiesTask, PropertiesRegistrationService propertiesRegistrationService, LibraryConfiguration libraryConfiguration)
+    public void run(ConfigurationService configurationService, GetClasspathRootPathTask getClasspathRootPathTask, LoadLibraryPropertiesTask loadLibraryPropertiesTask, PropertiesRegistrationService propertiesRegistrationService, LibraryConfiguration libraryConfiguration)
     {
-        loadLibraryPropertiesTask.run(getCoreClasspathRootPathTask, configurationService, libraryConfiguration);
+        loadLibraryPropertiesTask.run(getClasspathRootPathTask, configurationService, libraryConfiguration);
         propertiesRegistrationService.setPropertiesAsRegisteredForLibrary(libraryConfiguration.getLibraryName());
     }
 }

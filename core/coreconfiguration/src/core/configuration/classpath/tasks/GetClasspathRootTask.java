@@ -5,8 +5,8 @@ import core.configuration.OrionConfigurationTask;
 
 public class GetClasspathRootTask implements OrionConfigurationTask
 {
-    public File run(String libraryClasspathRootPath, GetClasspathRootPathTask getCoreClasspathRootPathTask)
+    public File run(String libraryClasspathRootPath, GetClasspathRootPathTask getClasspathRootPathTask)
     {
-        return new File(getCoreClasspathRootPathTask.run(libraryClasspathRootPath));
+        return new File(getClasspathRootPathTask.run(libraryClasspathRootPath));
     }
 }

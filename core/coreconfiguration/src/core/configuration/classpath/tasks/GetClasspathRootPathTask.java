@@ -21,8 +21,8 @@ public class GetClasspathRootPathTask implements OrionConfigurationTask
             sb.append(File.separator);
             sb.append(CoreConfigurationEnum.CLASSPATH_ROOT.get());
             
-            if(libraryClasspathRootPathDoesNotEqualCoreClasspathRoot(libraryClasspathRootPath)
-                && classpathRootEndsWithCoreClasspathRoot(classpathRoot, sb))
+            if(libraryClasspathRootPathDoesNotEqualClasspathRoot(libraryClasspathRootPath)
+                && classpathRootEndsWithClasspathRoot(classpathRoot, sb))
             {
                 classpathRoot = new File(classpathRoot.getParent());
                 sb = new StringBuilder();
@@ -30,7 +30,7 @@ public class GetClasspathRootPathTask implements OrionConfigurationTask
                 sb.append(File.separator);
                 sb.append(DefaultConfigurationEnum.BIN_DIR.get());
                 
-                if(classpathRootEndsWithCoreClasspathBinDir(classpathRoot, sb))
+                if(classpathRootEndsWithClasspathBinDir(classpathRoot, sb))
                 {
                     classpathRoot = new File(classpathRoot.getParent());
                     classpathRoot = new File(classpathRoot.getParent());
@@ -87,19 +87,19 @@ public class GetClasspathRootPathTask implements OrionConfigurationTask
     }
     
     
-    private boolean libraryClasspathRootPathDoesNotEqualCoreClasspathRoot(String libraryClasspathRootPath)
+    private boolean libraryClasspathRootPathDoesNotEqualClasspathRoot(String libraryClasspathRootPath)
     {
         return !CoreConfigurationEnum.CLASSPATH_ROOT.get().equals(libraryClasspathRootPath);
     }
     
     
-    private boolean classpathRootEndsWithCoreClasspathRoot(File classpathRoot, StringBuilder sb)
+    private boolean classpathRootEndsWithClasspathRoot(File classpathRoot, StringBuilder sb)
     {
         return classpathRoot.getAbsolutePath().endsWith(sb.toString());
     }
     
     
-    private boolean classpathRootEndsWithCoreClasspathBinDir(File classpathRoot, StringBuilder sb)
+    private boolean classpathRootEndsWithClasspathBinDir(File classpathRoot, StringBuilder sb)
     {
         return classpathRoot.getAbsolutePath().endsWith(sb.toString());
     }

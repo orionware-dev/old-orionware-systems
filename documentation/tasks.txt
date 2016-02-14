@@ -1,29 +1,20 @@
-﻿--core annotations are not loaded in AnnotationsRegistry
+﻿--create dir /orionware-libraries/datastructures
+and put in there the data structures projects
 
+--create dir /orionware-libraries/designpatterns
+and put in there the design patterns projects
 
---rename variables that used to be "coreClasspathRoot"
-to "classpathRoot"
+--rename coregeneral to core
 
-
---copy the stuff from coreinitialisation
-to OrionObject. Delete coreinitialisation.
-use reflection to use the services in
-OrionObject. This way we eliminate coreinitialisation
-and cyclic dependencies
-
---make dependency injection a separate project
+--move /orionware-libraries/orioncore/build
+/orionware-libraries/core/build and delete
+orioncore project
 
 --create service projects
 
-
 --create facade projects
 
-
 --create general corefacades
-
-
-
-
 
 --update OrionObject reflection to use the facade projects
 instead of the services directly
