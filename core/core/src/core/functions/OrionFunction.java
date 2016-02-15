@@ -1,4 +1,4 @@
-package core.general.functions;
+package core.functions;
 
 import core.general.OrionInterface;
 

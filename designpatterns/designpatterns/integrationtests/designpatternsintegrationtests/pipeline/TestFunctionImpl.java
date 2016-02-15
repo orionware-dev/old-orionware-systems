@@ -1,6 +1,6 @@
 package designpatternsintegrationtests.pipeline;
 
-import core.general.functions.OrionAbstractFunction;
+import core.functions.OrionAbstractFunction;
 
 public class TestFunctionImpl extends OrionAbstractFunction implements TestFunction
 {

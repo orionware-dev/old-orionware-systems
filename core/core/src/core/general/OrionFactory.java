@@ -1,6 +1,6 @@
 package core.general;
 
-import core.general.services.OrionService;
+import core.services.OrionService;
 
 public interface OrionFactory extends OrionService
 {

@@ -1,6 +1,6 @@
 package designpatternsintegrationtests.pipeline;
 
-import core.general.functions.OrionFunction;
+import core.functions.OrionFunction;
 
 @FunctionalInterface
 public interface TestFunction extends OrionFunction

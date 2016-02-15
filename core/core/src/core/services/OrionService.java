@@ -1,4 +1,4 @@
-package core.general.services;
+package core.services;
 
 import core.general.OrionInterface;
 

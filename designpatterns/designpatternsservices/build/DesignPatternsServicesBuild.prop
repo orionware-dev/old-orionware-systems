@@ -1,1 +1,3 @@
+orion.design.patterns.services=Design Patterns Services
+orion.design.patterns.services.dir=${orion.design.patterns.projects.dir}/designpatternsservices
 orion.design.patterns.services.jar.file.name=OrionDesignPatternsServices_${orion.version}.jar

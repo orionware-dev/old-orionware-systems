@@ -1,4 +1,4 @@
-package core.general.functions;
+package core.functions;
 
 public abstract class OrionAbstractFunction
 {

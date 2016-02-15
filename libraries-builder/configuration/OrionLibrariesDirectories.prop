@@ -1,4 +1,4 @@
-#${orion.libraries.home.dir} is declared inside the build.xml
+#${orion.libraries.home.dir} is declared inside the main build.xml
 
 orion.ant.tasks=Ant Tasks
 orion.ant.tasks.dir=${orion.libraries.home.dir}/ant-tasks
@@ -9,31 +9,16 @@ orion.libraries.ant.dir=${orion.libraries.dir}/ant
 orion.libraries.orionware.libraries.dir=${orion.libraries.dir}/orionware/platform
 
 orion.core=Orion Core
-orion.core.dir=${orion.libraries.home.dir}/orioncore
+orion.core.dir=${orion.libraries.home.dir}/core
 orion.core.builder.dir=${orion.core.dir}/build
-
-orion.core.projects.dir=${orion.libraries.home.dir}/core
+orion.core.projects.dir=${orion.core.dir}
 
 orion.data.structures=Data Structures
 orion.data.structures.dir=${orion.libraries.home.dir}/datastructures
 orion.data.structures.builder.dir=${orion.data.structures.dir}/build
-
-orion.data.structures.services=Data Structures Services
-orion.data.structures.services.dir=${orion.libraries.home.dir}/datastructuresservices
-orion.data.structures.services.builder.dir=${orion.data.structures.services.dir}/build
-
-orion.data.structures.facades=Data Structures Facades
-orion.data.structures.facades.dir=${orion.libraries.home.dir}/datastructuresfacades
-orion.data.structures.facades.builder.dir=${orion.data.structures.facades.dir}/build
+orion.data.structures.projects.dir=${orion.data.structures.dir}
 
 orion.design.patterns=Design Patterns
 orion.design.patterns.dir=${orion.libraries.home.dir}/designpatterns
 orion.design.patterns.builder.dir=${orion.design.patterns.dir}/build
-
-orion.design.patterns.services=Design Patterns Services
-orion.design.patterns.services.dir=${orion.libraries.home.dir}/designpatternsservices
-orion.design.patterns.services.builder.dir=${orion.design.patterns.services.dir}/build
-
-orion.design.patterns.facades=Design Patterns Facades
-orion.design.patterns.facades.dir=${orion.libraries.home.dir}/designpatternsfacades
-orion.design.patterns.facades.builder.dir=${orion.design.patterns.facades.dir}/build
+orion.design.patterns.projects.dir=${orion.design.patterns.dir}

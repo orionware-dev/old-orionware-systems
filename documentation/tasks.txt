@@ -10,6 +10,20 @@ and put in there the design patterns projects
 /orionware-libraries/core/build and delete
 orioncore project
 
+--rename datastructures project to datastructuresgeneral
+
+--rename designpatterns project to designpatternsgeneral
+
+--take care of all the libraries builders
+
+--create a File object in OrionObject called libraryConfigurationDirectoryPath
+with a setter.
+Create a File object in OrionObject called mainLibraryObjectPath
+with a setter. Do whatever mainLibraryObjectPath.getParent()
+necessary to get the config dir of this library and put it in
+setLibraryConfigurationDirectoryPath(); Use libraryConfigurationDirectoryPath
+to load the prop/config files
+
 --create service projects
 
 --create facade projects
@@ -137,6 +151,7 @@ arguments and automatically they will be retrieved from the cach
  if they exist. If not the user has to say if he wants to create
  a new instance and put it on the cache automatically
 --create CacheConfiguration.prop and CacheConfiguration.java to load the props
+--find list of types of diagrams and create library that represents each on the back-end
 
 
 --finish the template-project and apply everything I think of

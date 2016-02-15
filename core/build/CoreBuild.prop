@@ -4,6 +4,6 @@ orion.core.configuration.builder.dir=${orion.core.projects.dir}/coreconfiguratio
 orion.core.annotations.builder.dir=${orion.core.projects.dir}/coreannotations/build
 orion.core.annotations.services.builder.dir=${orion.core.projects.dir}/coreannotationsservices/build
 orion.core.dependency.injection.builder.dir=${orion.core.projects.dir}/coredependencyinjection/build
-orion.core.general.builder.dir=${orion.core.projects.dir}/coregeneral/build
+orion.core.core.builder.dir=${orion.core.projects.dir}/core/build
 
 orion.core.jar.file.name=OrionCore_${orion.version}.jar

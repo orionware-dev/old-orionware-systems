@@ -1,7 +1,7 @@
 package designpatterns.pipeline.impl;
 
-import core.general.functions.OrionAbstractFunction;
-import core.general.services.OrionTask;
+import core.functions.OrionAbstractFunction;
+import core.services.OrionTask;
 import designpatterns.pipeline.AbstractFilter;
 
 public class Filter extends AbstractFilter
