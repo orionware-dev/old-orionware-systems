@@ -2,7 +2,6 @@ package core.annotations.services.registry;
 
 import java.util.HashSet;
 import java.util.Set;
-import core.OrionSimpleObject;
 import core.annotations.AnnotationObject;
 import core.annotations.OrionAnnotation;
 

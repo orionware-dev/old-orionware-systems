@@ -1,7 +1,6 @@
 package core.annotations.services.loader;
 
 import java.io.InputStream;
-import core.OrionSimpleObject;
 import core.annotations.AnnotationObject;
 import core.annotations.services.loader.tasks.GetAnnotationsFilePathTask;
 import core.configuration.classpath.tasks.GetClasspathRootPathTask;

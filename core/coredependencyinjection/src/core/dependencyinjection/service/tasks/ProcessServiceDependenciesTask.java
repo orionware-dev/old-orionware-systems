@@ -1,7 +1,6 @@
 package core.dependencyinjection.service.tasks;
 
 import java.util.Arrays;
-import core.OrionSimpleObject;
 import core.annotations.services.processor.AnnotationsProcessorService;
 import core.dependencyinjection.DependencyInjectionObject;
 import core.dependencyinjection.DependencyInjectionTask;

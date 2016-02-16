@@ -1,7 +1,6 @@
 package core.configuration.registry;
 
 import java.io.InputStream;
-import core.OrionSimpleObject;
 import core.configuration.OrionProperties;
 import core.general.OrionRegistry;
 

@@ -3,7 +3,6 @@ package core.annotations.services.processor.tasks;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.List;
-import core.OrionSimpleObject;
 import core.annotations.AnnotationObject;
 import core.annotations.AnnotationTask;
 import core.annotations.OrionAnnotation;

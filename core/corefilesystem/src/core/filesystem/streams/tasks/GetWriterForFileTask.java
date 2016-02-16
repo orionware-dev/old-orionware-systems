@@ -5,7 +5,6 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
-import core.OrionSimpleObject;
 import core.filesystem.FileSystemObject;
 import core.filesystem.FileSystemTask;
 

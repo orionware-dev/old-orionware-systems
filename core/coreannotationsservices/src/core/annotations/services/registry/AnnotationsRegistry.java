@@ -2,7 +2,6 @@ package core.annotations.services.registry;
 
 import java.util.Set;
 import java.util.function.Consumer;
-import core.OrionSimpleObject;
 import core.annotations.OrionAnnotation;
 import core.general.OrionRegistry;
 

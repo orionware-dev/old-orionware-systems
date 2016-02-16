@@ -2,7 +2,6 @@ package core.filesystem.streams.tasks;
 
 import java.io.Closeable;
 import java.io.IOException;
-import core.OrionSimpleObject;
 import core.filesystem.FileSystemObject;
 import core.filesystem.FileSystemTask;
 

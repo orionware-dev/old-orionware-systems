@@ -4,7 +4,6 @@ import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Arrays;
-import core.OrionSimpleObject;
 import core.filesystem.FileSystemObject;
 import core.filesystem.FileSystemTask;
 import core.filesystem.streams.FileSystemService;

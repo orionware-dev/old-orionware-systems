@@ -1,6 +1,5 @@
 package core.annotations.services.loader.tasks;
 
-import core.OrionSimpleObject;
 import core.annotations.AnnotationObject;
 import core.annotations.AnnotationTask;
 

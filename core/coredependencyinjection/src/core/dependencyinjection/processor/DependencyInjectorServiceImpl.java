@@ -1,6 +1,5 @@
 package core.dependencyinjection.processor;
 
-import core.OrionSimpleObject;
 import core.annotations.services.processor.AnnotationsProcessorService;
 import core.annotations.services.processor.AnnotationsProcessorServiceImpl;
 import core.dependencyinjection.DependencyInjectionObject;

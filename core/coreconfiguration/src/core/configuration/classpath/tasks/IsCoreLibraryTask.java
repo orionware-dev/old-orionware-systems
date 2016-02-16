@@ -1,7 +1,6 @@
 package core.configuration.classpath.tasks;
 
 import java.io.File;
-import core.OrionSimpleObject;
 import core.configuration.ConfigurationObject;
 import core.configuration.OrionConfigurationTask;
 

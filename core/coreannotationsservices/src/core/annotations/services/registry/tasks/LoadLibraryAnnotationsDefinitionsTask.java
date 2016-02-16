@@ -1,7 +1,6 @@
 package core.annotations.services.registry.tasks;
 
 import java.io.InputStream;
-import core.OrionSimpleObject;
 import core.annotations.AnnotationObject;
 import core.annotations.AnnotationTask;
 import core.annotations.services.loader.AnnotationsLoaderService;

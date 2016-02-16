@@ -1,6 +1,5 @@
 package core.configuration.registry.tasks;
 
-import core.OrionSimpleObject;
 import core.configuration.ConfigurationObject;
 import core.configuration.OrionConfigurationTask;
 import core.configuration.registry.ConfigurationRegistry;

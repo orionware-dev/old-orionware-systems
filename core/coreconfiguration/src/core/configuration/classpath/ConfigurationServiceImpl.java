@@ -4,7 +4,6 @@ import java.io.Closeable;
 import java.io.File;
 import java.io.InputStream;
 import java.util.Set;
-import core.OrionSimpleObject;
 import core.configuration.ConfigurationObject;
 import core.configuration.LibraryConfiguration;
 import core.configuration.classpath.tasks.GetClasspathRootPathTask;

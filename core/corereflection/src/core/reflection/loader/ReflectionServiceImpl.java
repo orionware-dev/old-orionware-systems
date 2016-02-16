@@ -2,7 +2,6 @@ package core.reflection.loader;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
-import core.OrionSimpleObject;
 import core.reflection.ReflectionObject;
 import core.reflection.loader.tasks.CallConstructorTask;
 import core.reflection.loader.tasks.CallMethodTask;

@@ -1,7 +1,5 @@
 package core.annotations;
 
-import core.OrionSimpleObject;
-
 public class OrionAnnotation extends AnnotationObject
 {
     private String annotationClass;

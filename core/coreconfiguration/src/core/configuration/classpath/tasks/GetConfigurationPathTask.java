@@ -1,6 +1,5 @@
 package core.configuration.classpath.tasks;
 
-import core.OrionSimpleObject;
 import core.configuration.ConfigurationObject;
 import core.configuration.DefaultConfigurationEnum;
 import core.configuration.OrionConfigurationTask;

@@ -2,7 +2,6 @@ package core.annotations.services.registry;
 
 import java.util.Set;
 import java.util.stream.Stream;
-import core.OrionSimpleObject;
 import core.annotations.AnnotationObject;
 import core.annotations.OrionAnnotation;
 import core.annotations.services.loader.AnnotationsLoaderService;

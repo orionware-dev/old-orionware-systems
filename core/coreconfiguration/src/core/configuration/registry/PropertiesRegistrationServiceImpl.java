@@ -1,6 +1,5 @@
 package core.configuration.registry;
 
-import core.OrionSimpleObject;
 import core.configuration.ConfigurationObject;
 import core.configuration.registry.tasks.DeletePropertyTask;
 import core.configuration.registry.tasks.HavePropertiesBeenRegisteredForLibraryTask;

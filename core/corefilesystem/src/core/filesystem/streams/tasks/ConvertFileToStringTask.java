@@ -3,7 +3,6 @@ package core.filesystem.streams.tasks;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import core.OrionSimpleObject;
 import core.filesystem.FileSystemObject;
 import core.filesystem.FileSystemTask;
 import core.filesystem.streams.FileSystemService;

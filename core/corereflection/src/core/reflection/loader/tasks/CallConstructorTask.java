@@ -2,7 +2,6 @@ package core.reflection.loader.tasks;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import core.OrionSimpleObject;
 import core.reflection.ReflectionObject;
 import core.reflection.ReflectionTask;
 

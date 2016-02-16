@@ -2,7 +2,6 @@ package core.filesystem.streams.tasks;
 
 import java.io.File;
 import org.apache.commons.io.FileUtils;
-import core.OrionSimpleObject;
 import core.filesystem.FileSystemObject;
 import core.filesystem.FileSystemTask;
 

@@ -1,6 +1,5 @@
 package core.reflection.loader.tasks;
 
-import core.OrionSimpleObject;
 import core.reflection.ReflectionObject;
 import core.reflection.ReflectionTask;
 

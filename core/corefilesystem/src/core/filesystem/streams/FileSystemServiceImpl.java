@@ -4,7 +4,6 @@ import java.io.Closeable;
 import java.io.InputStream;
 import java.io.Reader;
 import java.io.Writer;
-import core.OrionSimpleObject;
 import core.filesystem.FileSystemObject;
 import core.filesystem.streams.tasks.CloseResourceTask;
 import core.filesystem.streams.tasks.ConvertFileToStringTask;
