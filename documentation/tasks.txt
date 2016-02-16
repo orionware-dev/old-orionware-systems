@@ -28,6 +28,10 @@ and call the appropriate ones in the order it needs
 
 --see if some of the instance vars of a class belong to a separate data class
 
+--make the packages of datastructures, designpatterns, etc. to be like
+the core: "datastructures.services", "datastructures.facades", etc.
+
+--make use of the facade projects
 
 --delete datastructures.testannotation.TestAnnotation
 

@@ -3,6 +3,7 @@ orion.core.reflection.builder.dir=${orion.core.projects.dir}/corereflection/buil
 orion.core.configuration.builder.dir=${orion.core.projects.dir}/coreconfiguration/build
 orion.core.annotations.builder.dir=${orion.core.projects.dir}/coreannotations/build
 orion.core.annotations.services.builder.dir=${orion.core.projects.dir}/coreannotationsservices/build
+orion.core.annotations.facades.builder.dir=${orion.core.projects.dir}/coreannotationsfacades/build
 orion.core.dependency.injection.builder.dir=${orion.core.projects.dir}/coredependencyinjection/build
 orion.core.core.builder.dir=${orion.core.projects.dir}/core/build
 

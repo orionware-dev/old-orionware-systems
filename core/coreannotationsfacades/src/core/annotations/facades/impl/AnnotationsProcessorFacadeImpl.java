@@ -1,0 +1,37 @@
+package core.annotations.facades.impl;
+
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
+import java.util.List;
+import core.annotations.facades.AnnotationsFacade;
+import core.annotations.facades.AnnotationsLoaderFacade;
+import core.annotations.facades.AnnotationsProcessorFacade;
+import core.annotations.services.processor.AnnotationsProcessorService;
+import core.annotations.services.processor.AnnotationsProcessorServiceImpl;
+
+public class AnnotationsProcessorFacadeImpl implements AnnotationsProcessorFacade
+{
+    private AnnotationsProcessorService annotationsProcessorService = new AnnotationsProcessorServiceImpl();
+    
+    
+    @Override
+    public List<Annotation> gatherAllAnnotationsFromObject(Object OrionObject)
+    {
+        return annotationsProcessorService.gatherAllAnnotationsFromObject(OrionObject);
+    }
+    
+    
+    @Override
+    public void processAllAnnotations(Object OrionObject)
+    {
+        annotationsProcessorService.processAllAnnotations(OrionObject);
+    }
+    
+    
+    @SuppressWarnings("rawtypes")
+    @Override
+    public Annotation extractAnnotationFromMethod(Method method, Class annotationClassToExtract)
+    {
+        return annotationsProcessorService.extractAnnotationFromMethod(method, annotationClassToExtract);
+    }
+}
