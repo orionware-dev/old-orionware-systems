@@ -1,8 +1,8 @@
 package core.configuration.registry.tasks;
 
-import core.configuration.OrionConfigurationTask;
 import core.OrionSimpleObject;
 import core.configuration.LibrariesConfigurationMapper;
+import core.configuration.OrionConfigurationTask;
 
 public class HavePropertiesBeenRegisteredForLibraryTask extends OrionSimpleObject implements OrionConfigurationTask
 {

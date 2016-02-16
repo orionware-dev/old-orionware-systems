@@ -1,8 +1,8 @@
 package core.configuration.classpath.tasks;
 
+import java.io.File;
 import core.OrionSimpleObject;
 import core.configuration.OrionConfigurationTask;
-import java.io.File;
 
 public class IsCoreLibraryTask extends OrionSimpleObject implements OrionConfigurationTask
 {

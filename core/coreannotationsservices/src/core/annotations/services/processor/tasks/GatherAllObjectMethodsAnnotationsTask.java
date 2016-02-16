@@ -5,12 +5,8 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 import core.OrionSimpleObject;
 import core.annotations.AnnotationTask;
-import core.annotations.OrionAnnotation;
-import core.annotations.services.registry.RegisteredAnnotations;
-import core.configuration.registry.AllProperties;
 
 public class GatherAllObjectMethodsAnnotationsTask extends OrionSimpleObject implements AnnotationTask
 {

@@ -4,11 +4,9 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.List;
 import core.OrionSimpleObject;
-import core.annotations.OrionAnnotation;
 import core.annotations.services.processor.tasks.ApplyAnnotationsTask;
 import core.annotations.services.processor.tasks.ExtractAnnotationFromMethodTask;
 import core.annotations.services.processor.tasks.GatherAllObjectAnnotationsTask;
-import core.annotations.services.registry.RegisteredAnnotations;
 import core.reflection.loader.ReflectionService;
 import core.reflection.loader.ReflectionServiceImpl;
 

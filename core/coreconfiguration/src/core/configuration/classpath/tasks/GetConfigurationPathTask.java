@@ -1,8 +1,8 @@
 package core.configuration.classpath.tasks;
 
-import core.configuration.OrionConfigurationTask;
 import core.OrionSimpleObject;
 import core.configuration.DefaultConfigurationEnum;
+import core.configuration.OrionConfigurationTask;
 
 public class GetConfigurationPathTask extends OrionSimpleObject implements OrionConfigurationTask
 {

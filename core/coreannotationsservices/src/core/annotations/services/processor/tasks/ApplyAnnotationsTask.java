@@ -3,11 +3,11 @@ package core.annotations.services.processor.tasks;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.List;
+import core.OrionSimpleObject;
+import core.annotations.AnnotationTask;
 import core.annotations.OrionAnnotation;
 import core.annotations.services.registry.AnnotationsRegistry;
 import core.reflection.loader.ReflectionService;
-import core.OrionSimpleObject;
-import core.annotations.AnnotationTask;
 
 public class ApplyAnnotationsTask extends OrionSimpleObject implements AnnotationTask
 {

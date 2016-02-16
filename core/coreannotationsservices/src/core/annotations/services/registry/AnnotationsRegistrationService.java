@@ -1,8 +1,8 @@
 package core.annotations.services.registry;
 
 import java.util.Set;
-import core.annotations.OrionAnnotation;
 import core.annotations.AnnotationService;
+import core.annotations.OrionAnnotation;
 import core.configuration.LibraryConfiguration;
 
 public interface AnnotationsRegistrationService extends AnnotationService

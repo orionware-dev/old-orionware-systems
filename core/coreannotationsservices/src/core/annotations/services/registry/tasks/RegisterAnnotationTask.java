@@ -1,9 +1,9 @@
 package core.annotations.services.registry.tasks;
 
-import core.annotations.OrionAnnotation;
-import core.annotations.services.registry.AnnotationsRegistry;
 import core.OrionSimpleObject;
 import core.annotations.AnnotationTask;
+import core.annotations.OrionAnnotation;
+import core.annotations.services.registry.AnnotationsRegistry;
 
 public class RegisterAnnotationTask extends OrionSimpleObject implements AnnotationTask
 {

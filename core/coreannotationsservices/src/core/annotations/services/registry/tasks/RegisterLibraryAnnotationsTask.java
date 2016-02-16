@@ -1,8 +1,8 @@
 package core.annotations.services.registry.tasks;
 
-import core.annotations.OrionAnnotation;
 import core.OrionSimpleObject;
 import core.annotations.AnnotationTask;
+import core.annotations.OrionAnnotation;
 import core.annotations.services.loader.AnnotationsLoaderService;
 import core.annotations.services.registry.AnnotationsRegistrationService;
 import core.configuration.LibraryConfiguration;
