@@ -1,12 +1,13 @@
 package core.dependencyinjection.processor.tasks;
 
 import java.lang.reflect.Method;
+import core.OrionSimpleObject;
 import core.annotations.services.processor.AnnotationsProcessorService;
 import core.dependencyinjection.DependencyInjectionTask;
 import core.dependencyinjection.Injector;
 import core.reflection.loader.ReflectionService;
 
-public class ProcessMethodForInjectionTask implements DependencyInjectionTask
+public class ProcessMethodForInjectionTask extends OrionSimpleObject implements DependencyInjectionTask
 {
     private Object object;
     private ReflectionService reflectionService;

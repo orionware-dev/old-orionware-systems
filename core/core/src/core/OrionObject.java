@@ -3,7 +3,7 @@ package core;
 import java.util.HashSet;
 import java.util.Set;
 
-public abstract class OrionObject
+public abstract class OrionObject extends OrionSimpleObject
 {
     private OrionObjectInitialiser OrionObjectInitialiser;
     private Set<Object> librariesConfigurationSet = new HashSet<Object>();

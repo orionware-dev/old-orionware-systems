@@ -1,6 +1,8 @@
 package core.functions;
 
-public abstract class OrionAbstractFunction
+import core.OrionSimpleObject;
+
+public abstract class OrionAbstractFunction extends OrionSimpleObject
 {
     public abstract Object run();
 }

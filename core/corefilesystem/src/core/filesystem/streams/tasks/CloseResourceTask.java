@@ -2,9 +2,10 @@ package core.filesystem.streams.tasks;
 
 import java.io.Closeable;
 import java.io.IOException;
+import core.OrionSimpleObject;
 import core.filesystem.OrionFileSystemTask;
 
-public class CloseResourceTask implements OrionFileSystemTask
+public class CloseResourceTask extends OrionSimpleObject implements OrionFileSystemTask
 {
     public boolean run(Closeable closeable)
     {

@@ -4,6 +4,7 @@ import java.io.Closeable;
 import java.io.InputStream;
 import java.io.Reader;
 import java.io.Writer;
+import core.OrionSimpleObject;
 import core.filesystem.streams.tasks.CloseResourceTask;
 import core.filesystem.streams.tasks.ConvertFileToStringTask;
 import core.filesystem.streams.tasks.EmptyDirectoryTask;
@@ -12,7 +13,7 @@ import core.filesystem.streams.tasks.GetReaderFromFileTask;
 import core.filesystem.streams.tasks.GetWriterForFileTask;
 import core.filesystem.streams.tasks.SaveStringToFileTask;
 
-public class FileSystemServiceImpl implements FileSystemService
+public class FileSystemServiceImpl extends OrionSimpleObject implements FileSystemService
 {
     private GetFileStreamTask getFileStreamTask = new GetFileStreamTask();
     private ConvertFileToStringTask convertFileToStringTask = new ConvertFileToStringTask();

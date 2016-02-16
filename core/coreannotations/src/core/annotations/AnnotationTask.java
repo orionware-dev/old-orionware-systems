@@ -1,6 +1,8 @@
 package core.annotations;
 
-public interface AnnotationTask
+import core.services.OrionTask;
+
+public interface AnnotationTask extends OrionTask
 {
     
 }

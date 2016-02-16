@@ -1,6 +1,8 @@
 package core.annotations;
 
-public class OrionAnnotation
+import core.OrionSimpleObject;
+
+public class OrionAnnotation extends OrionSimpleObject
 {
     private String annotationClass;
     private String annotationService;

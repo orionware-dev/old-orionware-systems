@@ -1,8 +1,9 @@
 package core.reflection.loader.tasks;
 
+import core.OrionSimpleObject;
 import core.reflection.OrionReflectionTask;
 
-public class LoadClassTask implements OrionReflectionTask
+public class LoadClassTask extends OrionSimpleObject implements OrionReflectionTask
 {
     public Class<?> run(String className)
     {

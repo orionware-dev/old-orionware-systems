@@ -3,7 +3,7 @@ package core;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Set;
 
-public class OrionObjectInitialiser
+public class OrionObjectInitialiser extends OrionSimpleObject
 {
     public Object instantiateLibraryConfiguration()
     {

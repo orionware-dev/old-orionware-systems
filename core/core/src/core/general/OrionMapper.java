@@ -1,6 +1,8 @@
 package core.general;
 
-public abstract class OrionMapper
+import core.OrionSimpleObject;
+
+public abstract class OrionMapper extends OrionSimpleObject
 {
     
 }

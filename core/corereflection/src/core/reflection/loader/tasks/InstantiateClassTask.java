@@ -1,9 +1,10 @@
 package core.reflection.loader.tasks;
 
 import java.lang.reflect.InvocationTargetException;
+import core.OrionSimpleObject;
 import core.reflection.OrionReflectionTask;
 
-public class InstantiateClassTask implements OrionReflectionTask
+public class InstantiateClassTask extends OrionSimpleObject implements OrionReflectionTask
 {
     public Object run(Class<?> classToInstantiate)
     {

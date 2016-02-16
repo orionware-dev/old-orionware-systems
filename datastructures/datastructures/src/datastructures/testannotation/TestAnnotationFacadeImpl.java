@@ -1,8 +1,9 @@
 package datastructures.testannotation;
 
 import core.OrionObject;
+import core.OrionSimpleObject;
 
-public class TestAnnotationFacadeImpl
+public class TestAnnotationFacadeImpl extends OrionSimpleObject
 {
     private OrionObject object;
     

@@ -1,9 +1,10 @@
 package core.configuration.registry.tasks;
 
 import core.configuration.OrionConfigurationTask;
+import core.OrionSimpleObject;
 import core.configuration.LibrariesConfigurationMapper;
 
-public class SetPropertiesAsRegisteredForLibraryTask implements OrionConfigurationTask
+public class SetPropertiesAsRegisteredForLibraryTask extends OrionSimpleObject implements OrionConfigurationTask
 {
     public void run(String libraryName)
     {

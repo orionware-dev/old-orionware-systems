@@ -1,12 +1,13 @@
 package core.configuration.registry;
 
+import core.OrionSimpleObject;
 import core.configuration.registry.tasks.DeletePropertyTask;
 import core.configuration.registry.tasks.HavePropertiesBeenRegisteredForLibraryTask;
 import core.configuration.registry.tasks.RegisterPropertyTask;
 import core.configuration.registry.tasks.SetPropertiesAsRegisteredForLibraryTask;
 import core.configuration.registry.tasks.UpdatePropertyTask;
 
-public class PropertiesRegistrationServiceImpl implements PropertiesRegistrationService
+public class PropertiesRegistrationServiceImpl extends OrionSimpleObject implements PropertiesRegistrationService
 {
     private HavePropertiesBeenRegisteredForLibraryTask havePropertiesBeenRegisteredForLibraryTask = new HavePropertiesBeenRegisteredForLibraryTask();
     private SetPropertiesAsRegisteredForLibraryTask setPropertiesAsRegisteredForLibraryTask = new SetPropertiesAsRegisteredForLibraryTask();

@@ -1,6 +1,8 @@
 package core.annotations;
 
-public interface AnnotationInterface
+import core.general.OrionInterface;
+
+public interface AnnotationInterface extends OrionInterface
 {
     
 }

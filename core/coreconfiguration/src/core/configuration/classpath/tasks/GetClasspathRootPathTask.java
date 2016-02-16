@@ -2,10 +2,11 @@ package core.configuration.classpath.tasks;
 
 import java.io.File;
 import core.configuration.OrionConfigurationTask;
+import core.OrionSimpleObject;
 import core.configuration.CoreConfigurationEnum;
 import core.configuration.DefaultConfigurationEnum;
 
-public class GetClasspathRootPathTask implements OrionConfigurationTask
+public class GetClasspathRootPathTask extends OrionSimpleObject implements OrionConfigurationTask
 {
     public String run(String libraryClasspathRootPath)
     {

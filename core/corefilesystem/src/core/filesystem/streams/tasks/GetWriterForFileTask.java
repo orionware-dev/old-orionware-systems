@@ -5,9 +5,10 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
+import core.OrionSimpleObject;
 import core.filesystem.OrionFileSystemTask;
 
-public class GetWriterForFileTask implements OrionFileSystemTask
+public class GetWriterForFileTask extends OrionSimpleObject implements OrionFileSystemTask
 {
     public Writer run(String filePath)
     {

@@ -1,13 +1,14 @@
 package core.annotations.services.registry.tasks;
 
 import core.annotations.OrionAnnotation;
+import core.OrionSimpleObject;
 import core.annotations.AnnotationTask;
 import core.annotations.services.loader.AnnotationsLoaderService;
 import core.annotations.services.registry.AnnotationsRegistrationService;
 import core.configuration.LibraryConfiguration;
 import core.configuration.OrionProperties;
 
-public class RegisterLibraryAnnotationsTask implements AnnotationTask
+public class RegisterLibraryAnnotationsTask extends OrionSimpleObject implements AnnotationTask
 {
     private OrionProperties annotationsDeclarations;
     private String currentAnnotationClass;

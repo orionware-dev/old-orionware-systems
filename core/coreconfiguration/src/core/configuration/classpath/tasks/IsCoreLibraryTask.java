@@ -1,9 +1,10 @@
 package core.configuration.classpath.tasks;
 
+import core.OrionSimpleObject;
 import core.configuration.OrionConfigurationTask;
 import java.io.File;
 
-public class IsCoreLibraryTask implements OrionConfigurationTask
+public class IsCoreLibraryTask extends OrionSimpleObject implements OrionConfigurationTask
 {
     public boolean run(Class<?> classBeingRun)
     {

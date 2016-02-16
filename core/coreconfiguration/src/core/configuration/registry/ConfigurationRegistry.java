@@ -1,9 +1,10 @@
 package core.configuration.registry;
 
 import java.io.InputStream;
+import core.OrionSimpleObject;
 import core.configuration.OrionProperties;
 
-public class ConfigurationRegistry
+public class ConfigurationRegistry extends OrionSimpleObject
 {
     public static void loadProperties(InputStream propertiesFileInput)
     {

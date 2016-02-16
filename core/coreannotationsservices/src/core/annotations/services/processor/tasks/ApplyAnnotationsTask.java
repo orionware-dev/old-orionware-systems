@@ -6,9 +6,10 @@ import java.util.List;
 import core.annotations.OrionAnnotation;
 import core.annotations.services.registry.AnnotationsRegistry;
 import core.reflection.loader.ReflectionService;
+import core.OrionSimpleObject;
 import core.annotations.AnnotationTask;
 
-public class ApplyAnnotationsTask implements AnnotationTask
+public class ApplyAnnotationsTask extends OrionSimpleObject implements AnnotationTask
 {
     private ReflectionService reflectionService;
     private Object object;

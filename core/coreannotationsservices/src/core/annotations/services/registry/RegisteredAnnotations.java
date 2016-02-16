@@ -2,9 +2,10 @@ package core.annotations.services.registry;
 
 import java.util.HashSet;
 import java.util.Set;
+import core.OrionSimpleObject;
 import core.annotations.OrionAnnotation;
 
-public class RegisteredAnnotations
+public class RegisteredAnnotations extends OrionSimpleObject
 {
     public static Set<OrionAnnotation> registeredAnnotationsSet;
     

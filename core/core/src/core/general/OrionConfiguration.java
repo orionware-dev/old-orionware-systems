@@ -1,6 +1,8 @@
 package core.general;
 
-public abstract class OrionConfiguration
+import core.OrionSimpleObject;
+
+public abstract class OrionConfiguration extends OrionSimpleObject
 {
     
 }

@@ -5,9 +5,10 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import core.OrionSimpleObject;
 import core.annotations.AnnotationTask;
 
-public class GatherAllObjectVariablesAnnotationsTask implements AnnotationTask
+public class GatherAllObjectVariablesAnnotationsTask extends OrionSimpleObject implements AnnotationTask
 {
     private List<Annotation> allObjectVariablesAnnotationsList = new ArrayList<Annotation>();
     

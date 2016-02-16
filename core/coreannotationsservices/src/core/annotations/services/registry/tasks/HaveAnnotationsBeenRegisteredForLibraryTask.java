@@ -1,9 +1,10 @@
 package core.annotations.services.registry.tasks;
 
+import core.OrionSimpleObject;
 import core.annotations.AnnotationTask;
 import core.configuration.LibrariesConfigurationMapper;
 
-public class HaveAnnotationsBeenRegisteredForLibraryTask implements AnnotationTask
+public class HaveAnnotationsBeenRegisteredForLibraryTask extends OrionSimpleObject implements AnnotationTask
 {
     public boolean run(String libraryName)
     {

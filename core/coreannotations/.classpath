@@ -7,5 +7,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/coreconfiguration"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/corefilesystem"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/corereflection"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/core"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

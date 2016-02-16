@@ -2,9 +2,10 @@ package core.annotations.services.registry;
 
 import java.util.Set;
 import java.util.function.Consumer;
+import core.OrionSimpleObject;
 import core.annotations.OrionAnnotation;
 
-public class AnnotationsRegistry
+public class AnnotationsRegistry extends OrionSimpleObject
 {
     public static void registerAnnotation(OrionAnnotation registeredAnnotation)
     {

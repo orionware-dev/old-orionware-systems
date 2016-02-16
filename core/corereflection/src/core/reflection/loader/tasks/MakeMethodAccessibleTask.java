@@ -1,9 +1,10 @@
 package core.reflection.loader.tasks;
 
 import java.lang.reflect.Method;
+import core.OrionSimpleObject;
 import core.reflection.OrionReflectionTask;
 
-public class MakeMethodAccessibleTask implements OrionReflectionTask
+public class MakeMethodAccessibleTask extends OrionSimpleObject implements OrionReflectionTask
 {
     public void run(Method method)
     {
