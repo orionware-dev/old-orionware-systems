@@ -1,6 +1,8 @@
 package core.annotations;
 
-public interface AnnotationService extends AnnotationInterface
+import core.services.OrionService;
+
+public interface AnnotationService extends OrionService
 {
     
 }

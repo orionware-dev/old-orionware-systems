@@ -1,7 +1,7 @@
 package datastructuresfacades.lists.size;
 
+import datastructures.DataStructuresFacade;
 import datastructures.lists.OrionList;
-import datastructures.services.DataStructuresFacade;
 
 public interface ListSizeFacade extends DataStructuresFacade
 {

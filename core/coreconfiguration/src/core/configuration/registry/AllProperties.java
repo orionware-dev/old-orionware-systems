@@ -2,9 +2,10 @@ package core.configuration.registry;
 
 import java.io.InputStream;
 import core.OrionSimpleObject;
+import core.configuration.ConfigurationObject;
 import core.configuration.OrionProperties;
 
-public class AllProperties extends OrionSimpleObject
+public class AllProperties extends ConfigurationObject
 {
     public static OrionProperties properties;
     

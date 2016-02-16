@@ -2,11 +2,12 @@ package core.annotations.services.registry.tasks;
 
 import java.util.stream.Stream;
 import core.OrionSimpleObject;
+import core.annotations.AnnotationObject;
 import core.annotations.AnnotationTask;
 import core.annotations.services.registry.AnnotationsRegistrationService;
 import core.configuration.LibraryConfiguration;
 
-public class FilterAnnotationsNotBeenRegisteredForLibraryTask extends OrionSimpleObject implements AnnotationTask
+public class FilterAnnotationsNotBeenRegisteredForLibraryTask extends AnnotationObject implements AnnotationTask
 {
     public Stream<LibraryConfiguration> run(AnnotationsRegistrationService annotationsRegistrationService, Stream<LibraryConfiguration> librariesConfiguration)
     {

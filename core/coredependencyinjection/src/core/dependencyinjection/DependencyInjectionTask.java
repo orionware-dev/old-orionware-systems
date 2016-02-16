@@ -1,6 +1,8 @@
 package core.dependencyinjection;
 
-public interface DependencyInjectionTask
+import core.services.OrionTask;
+
+public interface DependencyInjectionTask extends OrionTask
 {
     
 }

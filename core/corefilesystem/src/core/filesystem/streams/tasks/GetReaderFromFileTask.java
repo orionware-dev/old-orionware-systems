@@ -5,9 +5,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.Reader;
 import core.OrionSimpleObject;
-import core.filesystem.OrionFileSystemTask;
+import core.filesystem.FileSystemObject;
+import core.filesystem.FileSystemTask;
 
-public class GetReaderFromFileTask extends OrionSimpleObject implements OrionFileSystemTask
+public class GetReaderFromFileTask extends FileSystemObject implements FileSystemTask
 {
     public Reader run(String filePath)
     {

@@ -1,8 +1,8 @@
 package core.configuration;
 
-import core.OrionSimpleObject;
+import core.general.OrionMapper;
 
-public abstract class ConfigurationMapper extends OrionSimpleObject
+public abstract class ConfigurationMapper extends OrionMapper
 {
     
 }

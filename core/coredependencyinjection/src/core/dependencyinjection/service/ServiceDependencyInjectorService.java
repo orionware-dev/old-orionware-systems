@@ -1,8 +1,8 @@
 package core.dependencyinjection.service;
 
-import core.dependencyinjection.OrionDependencyInjectionService;
+import core.dependencyinjection.DependencyInjectionService;
 
-public interface ServiceDependencyInjectorService extends OrionDependencyInjectionService
+public interface ServiceDependencyInjectorService extends DependencyInjectionService
 {
     public void processServiceDependencies(Object object);
 }

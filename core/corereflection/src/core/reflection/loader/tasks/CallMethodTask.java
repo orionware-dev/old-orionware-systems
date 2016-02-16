@@ -3,9 +3,10 @@ package core.reflection.loader.tasks;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import core.OrionSimpleObject;
-import core.reflection.OrionReflectionTask;
+import core.reflection.ReflectionObject;
+import core.reflection.ReflectionTask;
 
-public class CallMethodTask extends OrionSimpleObject implements OrionReflectionTask
+public class CallMethodTask extends ReflectionObject implements ReflectionTask
 {
     public boolean run(Method method, Object objectMethodBelongsTo, Object... methodArguments)
     {

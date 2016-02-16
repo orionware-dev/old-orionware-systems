@@ -3,6 +3,7 @@ package core.reflection.loader;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import core.OrionSimpleObject;
+import core.reflection.ReflectionObject;
 import core.reflection.loader.tasks.CallConstructorTask;
 import core.reflection.loader.tasks.CallMethodTask;
 import core.reflection.loader.tasks.GetConstructorsArrayTask;
@@ -11,7 +12,7 @@ import core.reflection.loader.tasks.InstantiateClassTask;
 import core.reflection.loader.tasks.LoadClassTask;
 import core.reflection.loader.tasks.MakeMethodAccessibleTask;
 
-public class ReflectionServiceImpl extends OrionSimpleObject implements ReflectionService
+public class ReflectionServiceImpl extends ReflectionObject implements ReflectionService
 {
     private GetMethodsArrayTask getMethodsArrayTask = new GetMethodsArrayTask();
     private GetConstructorsArrayTask getConstructorsArrayTask = new GetConstructorsArrayTask();

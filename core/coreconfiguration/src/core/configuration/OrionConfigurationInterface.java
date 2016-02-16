@@ -1,6 +1,8 @@
 package core.configuration;
 
-public interface OrionConfigurationInterface
+import core.general.OrionInterface;
+
+public interface OrionConfigurationInterface extends OrionInterface
 {
     
 }

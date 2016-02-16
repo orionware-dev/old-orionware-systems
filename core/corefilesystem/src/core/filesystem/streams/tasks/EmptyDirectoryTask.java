@@ -3,9 +3,10 @@ package core.filesystem.streams.tasks;
 import java.io.File;
 import org.apache.commons.io.FileUtils;
 import core.OrionSimpleObject;
-import core.filesystem.OrionFileSystemTask;
+import core.filesystem.FileSystemObject;
+import core.filesystem.FileSystemTask;
 
-public class EmptyDirectoryTask extends OrionSimpleObject implements OrionFileSystemTask
+public class EmptyDirectoryTask extends FileSystemObject implements FileSystemTask
 {
     public boolean run(String directory)
     {

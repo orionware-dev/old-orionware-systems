@@ -1,8 +1,8 @@
 package core.configuration;
 
-import core.OrionSimpleObject;
+import core.general.OrionConfiguration;
 
-public class LibraryConfiguration extends OrionSimpleObject implements ConfigurationTriple<String, String, String>
+public class LibraryConfiguration extends OrionConfiguration implements ConfigurationTriple<String, String, String>
 {
     private String libraryName;
     private String configurationFilePath;

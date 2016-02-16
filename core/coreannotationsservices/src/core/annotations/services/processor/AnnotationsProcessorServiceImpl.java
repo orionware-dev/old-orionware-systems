@@ -4,13 +4,14 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.List;
 import core.OrionSimpleObject;
+import core.annotations.AnnotationObject;
 import core.annotations.services.processor.tasks.ApplyAnnotationsTask;
 import core.annotations.services.processor.tasks.ExtractAnnotationFromMethodTask;
 import core.annotations.services.processor.tasks.GatherAllObjectAnnotationsTask;
 import core.reflection.loader.ReflectionService;
 import core.reflection.loader.ReflectionServiceImpl;
 
-public class AnnotationsProcessorServiceImpl extends OrionSimpleObject implements AnnotationsProcessorService
+public class AnnotationsProcessorServiceImpl extends AnnotationObject implements AnnotationsProcessorService
 {
     private GatherAllObjectAnnotationsTask gatherAllObjectAnnotationsTask = new GatherAllObjectAnnotationsTask();
     private ApplyAnnotationsTask applyAnnotationsTask = new ApplyAnnotationsTask();

@@ -1,6 +1,8 @@
 package core.configuration;
 
-public interface OrionConfigurationEnum
+import core.general.OrionEnum;
+
+public interface OrionConfigurationEnum extends OrionEnum
 {
     public String get();
 }

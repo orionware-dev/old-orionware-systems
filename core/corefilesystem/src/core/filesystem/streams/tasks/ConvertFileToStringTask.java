@@ -4,10 +4,11 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import core.OrionSimpleObject;
-import core.filesystem.OrionFileSystemTask;
+import core.filesystem.FileSystemObject;
+import core.filesystem.FileSystemTask;
 import core.filesystem.streams.FileSystemService;
 
-public class ConvertFileToStringTask extends OrionSimpleObject implements OrionFileSystemTask
+public class ConvertFileToStringTask extends FileSystemObject implements FileSystemTask
 {
     private StringBuilder fileStringBuilder = new StringBuilder();
     private BufferedReader input;

@@ -6,9 +6,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 import core.OrionSimpleObject;
-import core.filesystem.OrionFileSystemTask;
+import core.filesystem.FileSystemObject;
+import core.filesystem.FileSystemTask;
 
-public class GetWriterForFileTask extends OrionSimpleObject implements OrionFileSystemTask
+public class GetWriterForFileTask extends FileSystemObject implements FileSystemTask
 {
     public Writer run(String filePath)
     {

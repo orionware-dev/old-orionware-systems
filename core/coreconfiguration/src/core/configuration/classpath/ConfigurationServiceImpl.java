@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.InputStream;
 import java.util.Set;
 import core.OrionSimpleObject;
+import core.configuration.ConfigurationObject;
 import core.configuration.LibraryConfiguration;
 import core.configuration.classpath.tasks.GetClasspathRootPathTask;
 import core.configuration.classpath.tasks.GetClasspathRootTask;
@@ -17,7 +18,7 @@ import core.configuration.registry.tasks.RegisterLibraryPropertiesTask;
 import core.filesystem.streams.FileSystemService;
 import core.filesystem.streams.FileSystemServiceImpl;
 
-public class ConfigurationServiceImpl extends OrionSimpleObject implements ConfigurationService
+public class ConfigurationServiceImpl extends ConfigurationObject implements ConfigurationService
 {
     private IsCoreLibraryTask isCoreLibraryTask = new IsCoreLibraryTask();
     private GetClasspathRootPathTask getClasspathRootPathTask = new GetClasspathRootPathTask();

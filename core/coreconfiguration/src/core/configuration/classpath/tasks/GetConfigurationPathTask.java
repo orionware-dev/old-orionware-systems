@@ -1,10 +1,11 @@
 package core.configuration.classpath.tasks;
 
 import core.OrionSimpleObject;
+import core.configuration.ConfigurationObject;
 import core.configuration.DefaultConfigurationEnum;
 import core.configuration.OrionConfigurationTask;
 
-public class GetConfigurationPathTask extends OrionSimpleObject implements OrionConfigurationTask
+public class GetConfigurationPathTask extends ConfigurationObject implements OrionConfigurationTask
 {
     private StringBuilder sb = new StringBuilder();
     

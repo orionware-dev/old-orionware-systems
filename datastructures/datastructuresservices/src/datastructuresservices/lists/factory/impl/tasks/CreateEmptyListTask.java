@@ -1,10 +1,10 @@
 package datastructuresservices.lists.factory.impl.tasks;
 
+import datastructures.DataStructuresTask;
 import datastructures.lists.OrionArrayList;
 import datastructures.lists.OrionList;
-import datastructures.services.DataStructuresTask;
 
-public class CreateEmptyListTask<T> extends DataStructuresTask
+public class CreateEmptyListTask<T> implements DataStructuresTask
 {
     public OrionList<T> run(Class<T> listType)
     {

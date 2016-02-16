@@ -2,6 +2,7 @@ package core.annotations.services.registry.tasks;
 
 import java.io.InputStream;
 import core.OrionSimpleObject;
+import core.annotations.AnnotationObject;
 import core.annotations.AnnotationTask;
 import core.annotations.services.loader.AnnotationsLoaderService;
 import core.configuration.LibraryConfiguration;
@@ -9,7 +10,7 @@ import core.configuration.OrionProperties;
 import core.filesystem.streams.FileSystemService;
 import core.filesystem.streams.FileSystemServiceImpl;
 
-public class LoadLibraryAnnotationsDefinitionsTask extends OrionSimpleObject implements AnnotationTask
+public class LoadLibraryAnnotationsDefinitionsTask extends AnnotationObject implements AnnotationTask
 {
     private OrionProperties annotationsDeclarations = new OrionProperties();
     private FileSystemService fileSystemService = new FileSystemServiceImpl();

@@ -6,9 +6,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import core.OrionSimpleObject;
+import core.annotations.AnnotationObject;
 import core.annotations.AnnotationTask;
 
-public class GatherAllObjectMethodsAnnotationsTask extends OrionSimpleObject implements AnnotationTask
+public class GatherAllObjectMethodsAnnotationsTask extends AnnotationObject implements AnnotationTask
 {
     private List<Annotation> allObjectMethodsAnnotationsList = new ArrayList<Annotation>();
     

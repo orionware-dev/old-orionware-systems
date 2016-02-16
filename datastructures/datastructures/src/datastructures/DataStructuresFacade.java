@@ -1,4 +1,4 @@
-package datastructures.services;
+package datastructures;
 
 import core.services.OrionFacade;
 

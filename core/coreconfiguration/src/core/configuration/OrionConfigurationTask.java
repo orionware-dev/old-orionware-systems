@@ -1,6 +1,8 @@
 package core.configuration;
 
-public interface OrionConfigurationTask
+import core.services.OrionTask;
+
+public interface OrionConfigurationTask extends OrionTask
 {
     
 }

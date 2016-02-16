@@ -4,12 +4,13 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.List;
 import core.OrionSimpleObject;
+import core.annotations.AnnotationObject;
 import core.annotations.AnnotationTask;
 import core.annotations.OrionAnnotation;
 import core.annotations.services.registry.AnnotationsRegistry;
 import core.reflection.loader.ReflectionService;
 
-public class ApplyAnnotationsTask extends OrionSimpleObject implements AnnotationTask
+public class ApplyAnnotationsTask extends AnnotationObject implements AnnotationTask
 {
     private ReflectionService reflectionService;
     private Object object;

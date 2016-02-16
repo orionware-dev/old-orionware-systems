@@ -1,6 +1,8 @@
 package core.reflection;
 
-public interface OrionReflectionService extends OrionReflectionInterface
+import core.services.OrionService;
+
+public interface OrionReflectionService extends OrionService
 {
     
 }

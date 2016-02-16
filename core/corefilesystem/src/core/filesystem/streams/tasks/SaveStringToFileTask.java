@@ -5,10 +5,11 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Arrays;
 import core.OrionSimpleObject;
-import core.filesystem.OrionFileSystemTask;
+import core.filesystem.FileSystemObject;
+import core.filesystem.FileSystemTask;
 import core.filesystem.streams.FileSystemService;
 
-public class SaveStringToFileTask extends OrionSimpleObject implements OrionFileSystemTask
+public class SaveStringToFileTask extends FileSystemObject implements FileSystemTask
 {
     private String lineSeparator = System.lineSeparator();
     private BufferedWriter output = null;

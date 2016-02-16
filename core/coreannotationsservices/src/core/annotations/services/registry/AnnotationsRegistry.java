@@ -4,8 +4,9 @@ import java.util.Set;
 import java.util.function.Consumer;
 import core.OrionSimpleObject;
 import core.annotations.OrionAnnotation;
+import core.general.OrionRegistry;
 
-public class AnnotationsRegistry extends OrionSimpleObject
+public class AnnotationsRegistry extends OrionRegistry
 {
     public static void registerAnnotation(OrionAnnotation registeredAnnotation)
     {

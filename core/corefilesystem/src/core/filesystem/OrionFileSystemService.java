@@ -1,6 +1,8 @@
 package core.filesystem;
 
-public interface OrionFileSystemService extends OrionFileSystemInterface
+import core.services.OrionService;
+
+public interface OrionFileSystemService extends OrionService
 {
     
 }

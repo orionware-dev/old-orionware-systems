@@ -3,12 +3,13 @@ package core.dependencyinjection.processor;
 import core.OrionSimpleObject;
 import core.annotations.services.processor.AnnotationsProcessorService;
 import core.annotations.services.processor.AnnotationsProcessorServiceImpl;
+import core.dependencyinjection.DependencyInjectionObject;
 import core.dependencyinjection.processor.tasks.ProcessDependenciesTask;
 import core.dependencyinjection.processor.tasks.ProcessMethodForInjectionTask;
 import core.reflection.loader.ReflectionService;
 import core.reflection.loader.ReflectionServiceImpl;
 
-public class DependencyInjectorServiceImpl extends OrionSimpleObject implements DependencyInjectorService
+public class DependencyInjectorServiceImpl extends DependencyInjectionObject implements DependencyInjectorService
 {
     private ProcessDependenciesTask processDependenciesTask = new ProcessDependenciesTask();
     private ReflectionService reflectionService = new ReflectionServiceImpl();

@@ -1,4 +1,4 @@
-package datastructures.general;
+package datastructures;
 
 import core.general.OrionInterface;
 

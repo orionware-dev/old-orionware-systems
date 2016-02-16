@@ -4,9 +4,10 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import core.OrionSimpleObject;
-import core.filesystem.OrionFileSystemTask;
+import core.filesystem.FileSystemObject;
+import core.filesystem.FileSystemTask;
 
-public class GetFileStreamTask extends OrionSimpleObject implements OrionFileSystemTask
+public class GetFileStreamTask extends FileSystemObject implements FileSystemTask
 {
     public InputStream run(String filePath)
     {
