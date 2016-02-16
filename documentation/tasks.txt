@@ -1,22 +1,4 @@
-﻿--create dir /orionware-libraries/datastructures
-and put in there the data structures projects
-
---create dir /orionware-libraries/designpatterns
-and put in there the design patterns projects
-
---rename coregeneral to core
-
---move /orionware-libraries/orioncore/build
-/orionware-libraries/core/build and delete
-orioncore project
-
---rename datastructures project to datastructuresgeneral
-
---rename designpatterns project to designpatternsgeneral
-
---take care of all the libraries builders
-
---create a File object in OrionObject called libraryConfigurationDirectoryPath
+﻿--create a File object in OrionObject called libraryConfigurationDirectoryPath
 with a setter.
 Create a File object in OrionObject called mainLibraryObjectPath
 with a setter. Do whatever mainLibraryObjectPath.getParent()
@@ -150,8 +132,66 @@ automatically, they will be added to the cache
 arguments and automatically they will be retrieved from the cach
  if they exist. If not the user has to say if he wants to create
  a new instance and put it on the cache automatically
---create CacheConfiguration.prop and CacheConfiguration.java to load the props
---find list of types of diagrams and create library that represents each on the back-end
+--create CacheConfiguration.prop and CacheConfiguration.java to
+load the props
+--find list of types of diagrams and create library that represents
+each on the back-end
+--in the events engine, create an EventContext which has all the
+variables that are circumstantial to the event
+--use contexts in other situations, as well
+--the core should have just not code that is required by the
+core itself. Other stuff will go to libraries
+--datasources lib. Also handles in-memory databases
+--make OrionRegistry extensible and move it's current content
+to other subclasses of OrionRegistry
+--create OrionRegistryMapper that holds a map of (string)
+registryKey -> OrionRegistry
+--create complete object hierarchy from current classes
+--the facade projects have a ServicesRegistry extends OrionRegistry
+that takes a string (service name) and uses factory to instantiate
+the service and returns it. Inside the ServicesRegistry there are
+constant strings with the service names and a mapper of these names
+to their instance
+--create project coreserviceframework which implements the service
+framework which I have in GDrive/Orion/documentation/services.txt
+--create metadata lib and use the metadata article in Wikipedia as guide
+--create monitor lib which is a configurable monitor of things like
+which services execute, what data sources are accessed, etc.
+--create reporter lib that uses logger to report stuff on the standard
+output, files, etc. It also generates PDFs, etc.
+--create datavalidation lib for generic input validation
+--create charts lib that builds the back-end of many charts
+--create corecache lib that implements many caching strategies
+--create data lib that aggregates, converts, formats data
+--create dataevents lib that uses data and events engine to do
+data-driven event programming
+--create coding lib that does encoding/decoding
+--create cryptology lib for encryption/decryption
+--create security lib for authorisation and accessibility and
+password generator, unique ID generator
+--create datasourcessecurity lib that uses security lib for
+databases accessibility
+--create systemstatistics lib that creates stats for services
+and data usage, etc.
+--create lib-specific loggers like CoreAnnotationsLogger extends
+OrionLogger
+--create messaging lib that uses spring integration or similar
+to exchange messages with remote services
+--create CronJobs lib
+--create emailer lib
+--create objectorientedsql lib which is like jOOQ
+--create webservices lib as the RESTful engine
+--create coreexecutor lib and put in it an asynchronous executor
+like we do for the PollPlug emailer
+--see if services and tasks could be configurable. If yes then
+create prop file in the for of the service or task
+--implement escapers like XSS, HTML escape, etc.
+--create datetime lib for calendar ops, stopwatch, timestamps, etc.
+--create XML lib
+--create json lib
+--create csv lib
+--create ClasspathService that replaces ConfigurationService
+
 
 
 --finish the template-project and apply everything I think of
