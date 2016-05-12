@@ -41,9 +41,13 @@ Use datastructuresservices.lists.size.impl.tasks.GetSizeTask
 
 
 --convert streams to forEach
+
 --don't return nulls
+
 --create the Orion Web Platform
+
 --create microservices
+
 --create my own OrionWebContextLoaderListener.java that implements
 ServletContextListener. Then, in contextInitialised() put code that
 creates a global web application context and registers the
@@ -52,49 +56,71 @@ we have has an @OrionBean annotation. I have to find a way to implement
 something like the spring bean post processor, that will be executed
 when we try to instantiate a class so that it can handle all Orion
 annotations of the class
+
 --put "synchronized" in static methods definitions
+
 --load all System.getProperties() to AllProperties.java
+
 --create OrionInt extends Integer and provide some convenience methods.
 If it works, then do that for double and long, as well
+
 --Integer.getInteger(string) gets a System.getProperty(string) and then
 converts it to an integer. Create something similar using OrionInt,
 that searches through AllProperties.java
+
 --in AllProperties, create methods like: getIntProp(string) that takes
 the property value and converts it to int. Similarly for doubles, booleans, etc.
+
 --create Index.java interface with methods finished() and increase().
 It represents an index in general. Create a class like DataStructureIndex.java
 implements Index. Keep a reference of DataStructureIndex inside
 OrionArrayList.java and use it somehow to iterate through the list
 using this new index. Think of a use case for this
+
 --create ObjectsEqualityCheckers.java in which we keep a HashMap of
 object to ObjectEqualityChecker.java. create ObjectEqualityCheckerService.java
 that takes 2 or more objects and using the checkers mapper it will determine
 if they equal each other. You can create an ObjectEqualityChecker with the
 equals(object, object) and you can provide the custom implementation of the
 equality check. Use the service to register the checkers.
+
 --create OrionArray.java and provide convenience methods
+
 --rename core.general package to core.abstraction
+
 --for different file types we want to create, create he corresponding
 builder and buffer like XMLBuilder extends StringBuilder
 And XMLBuffer extends StringBuffer
+
 --create a way to do method callbacks: method(s) to be invoked after
 a method returns. Use pipeline/filters or something else
+
 --create ThreadSafeList.java and ThreadSafeArrayList implements
 ThreadSafeList. Similarly for sets and maps
+
 --create event-driven dev framework
+
 --create lifecycle interceptor framework
+
 --create a service manager that will run if we want. It will manage
 services lifecycles. Maybe it will use the pipeline for service
 sequencing. It could be used for business processes
+
 --create KeyValueStore extends Pair
+
 --create Entry extends KeyValueStore
+
 --create ConfigurationEntry extends Entry which will ha e a prop
 key and it's value
+
 --create ConfigurationEntries that has List<ConfigurationEntry>
+
 --in config service create method getConfigurationEntries() that
 returns ConfigurAtionEntries
+
 --in config service create method getConfigurationEntriesAsList()
 that returns List<ConfigurationEntry>
+
 --sequential conditioning: it is like pipes and filters, but for
 if statements. See if I can create something for that. We see code
 like: if(cond1) then return
@@ -102,98 +128,154 @@ If(cond2) then something
 We can have a class that represents an if, like IfStatement.java.
 inside we have a list of conditions and a method to be executed
 if the condition holds
+
 --see how to extend the tomcat classloader so that in the Orion
 platform we can have something like an Orion Objects Container
+
 --for every object I have and will create, create a complete
 object hierarchy
+
 --elements in Orion data structures can be expired (removed)
 at particular intervals or specific time or cron
+
 --create a SOA engine. It can be used in libraries and web
+
 --create a logger
+
 --the logger can print on the standard output, or it can take
 a path and it will print errors and exceptions in files in that path
+
 --implement many sorting and other algos and when the sorter
 takes in the data structure, it will determine the best algo
 to use for that structure
+
 --create features prop files in which we enable/disable features
+
 --see if I can convert so of the core code to annotations
+
 --create DataStructureIterator extends Iterator for convenience
+
 --create generic Converter<SOURCE_TYPE, TARGET_TYPE>
+
 --create ReverseConverter<TARGET_TYPE, SOURCE_TYPE>
+
 --create a generic data structure operator. For example, it will
 have add method, that takes a structure, elementToAdd or HashMap,
 key, value and it will check what kind of instance the structure
 is and based on that it will call .add(element) it .put(key, value),
 depending
+
 --create a stopwatch with nanoseconds by default or any other timing
 provided by the user like milliseconds, etc.
+
 --create ConditionEvaluator that takes a boolean expression and
 returns it's result
+
 --create Cache.java which will have a ConcurrentHashMap internally
+
 --create Cacheable annotation that can be used on classes and
 automatically, they will be added to the cache
+
 --create Cached annotation that can be used on setters and method
-arguments and automatically they will be retrieved from the cach
- if they exist. If not the user has to say if he wants to create
- a new instance and put it on the cache automatically
+arguments and automatically they will be retrieved from the cache
+if they exist. If not the user has to say if he wants to create
+a new instance and put it on the cache automatically
+ 
 --create CacheConfiguration.prop and CacheConfiguration.java to
 load the props
+
 --find list of types of diagrams and create library that represents
 each on the back-end
+
 --in the events engine, create an EventContext which has all the
 variables that are circumstantial to the event
+
 --use contexts in other situations, as well
+
 --the core should have just not code that is required by the
 core itself. Other stuff will go to libraries
+
 --datasources lib. Also handles in-memory databases
+
 --make OrionRegistry extensible and move it's current content
 to other subclasses of OrionRegistry
+
 --create OrionRegistryMapper that holds a map of (string)
 registryKey -> OrionRegistry
+
 --create complete object hierarchy from current classes
+
 --the facade projects have a ServicesRegistry extends OrionRegistry
 that takes a string (service name) and uses factory to instantiate
 the service and returns it. Inside the ServicesRegistry there are
 constant strings with the service names and a mapper of these names
 to their instance
+
 --create project coreserviceframework which implements the service
 framework which I have in GDrive/Orion/documentation/services.txt
+
 --create metadata lib and use the metadata article in Wikipedia as guide
+
 --create monitor lib which is a configurable monitor of things like
 which services execute, what data sources are accessed, etc.
+
 --create reporter lib that uses logger to report stuff on the standard
 output, files, etc. It also generates PDFs, etc.
+
 --create datavalidation lib for generic input validation
+
 --create charts lib that builds the back-end of many charts
+
 --create corecache lib that implements many caching strategies
+
 --create data lib that aggregates, converts, formats data
+
 --create dataevents lib that uses data and events engine to do
 data-driven event programming
+
 --create coding lib that does encoding/decoding
+
 --create cryptology lib for encryption/decryption
+
 --create security lib for authorisation and accessibility and
 password generator, unique ID generator
+
 --create datasourcessecurity lib that uses security lib for
 databases accessibility
+
 --create systemstatistics lib that creates stats for services
 and data usage, etc.
+
 --create lib-specific loggers like CoreAnnotationsLogger extends
 OrionLogger
+
 --create messaging lib that uses spring integration or similar
 to exchange messages with remote services
+
 --create CronJobs lib
+
 --create emailer lib
+
 --create objectorientedsql lib which is like jOOQ
+
 --create webservices lib as the RESTful engine
+
 --create coreexecutor lib and put in it an asynchronous executor
 like we do for the PollPlug emailer
+
 --see if services and tasks could be configurable. If yes then
 create prop file in the for of the service or task
+
 --implement escapers like XSS, HTML escape, etc.
+
 --create datetime lib for calendar ops, stopwatch, timestamps, etc.
+
 --create XML lib
+
 --create json lib
+
 --create csv lib
+
 --create ClasspathService that replaces ConfigurationService
 
 
