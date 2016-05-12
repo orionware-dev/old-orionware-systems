@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <project name="OrionLibrariesBuilder" default="all" basedir=".">
     <property name="orion.libraries.home.dir" location="${basedir}/.."/>
-	<property name="orion.all.libraries.dir" location="${basedir}/../all-libraries"/>
+	<property name="orion.all.libraries.dir" location="${orion.libraries.home.dir}/all-libraries"/>
     <import file="${basedir}/services/BuildPropertiesImporter.xml"/>
 	<import file="${orion.ant.tasks.services.dir}/AntService.xml"/>
 
