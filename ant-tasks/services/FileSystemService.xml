@@ -16,6 +16,15 @@
         	<delete file="@{path}"/>
         </sequential>
     </macrodef>
+	
+	
+	<macrodef name="deleteDirectory">
+        <attribute name="path" default=""/>
+        
+        <sequential>
+            <delete dir="@{path}"/>
+        </sequential>
+    </macrodef>
     
     
     <macrodef name="emptyPath">
