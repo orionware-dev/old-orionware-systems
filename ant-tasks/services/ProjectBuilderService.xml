@@ -26,7 +26,7 @@
     </macrodef>
 	
 	
-	<macrodef name="buildProjectAndPackage">
+	<macrodef name="buildAndPackageProject">
         <attribute name="sourceDir" default=""/>
         <attribute name="binariesDir" default=""/>
         <attribute name="JARPath" default=""/>
@@ -34,8 +34,7 @@
         
         <sequential>
         	<buildProject sourceDir="@{sourceDir}" binariesDir="@{binariesDir}"/>
-	        <buildJARFile JARPath="${orion.libraries.orionware.libraries.dir}/@{JARPath}" binariesDir="@{binariesDir}" projectName="@{projectName}"/>
-	        <print a="${orion.libraries.orionware.libraries.dir}/@{JARPath}"/>
+	        <packageProject JARPath="${orion.libraries.orionware.libraries.dir}/@{JARPath}" binariesDir="@{binariesDir}" projectName="@{projectName}"/>
         </sequential>
     </macrodef>
 </project>

@@ -7,7 +7,7 @@
 
     
     <target name="all">
-    	<buildProjectAndPackage sourceDir="${orion.data.structures.services.source.dir}" binariesDir="${orion.data.structures.services.binaries.dir}" JARPath="${orion.data.structures.services.jar.file.name}" projectName="${orion.data.structures.services}"/>
+    	<buildAndPackageProject sourceDir="${orion.data.structures.services.source.dir}" binariesDir="${orion.data.structures.services.binaries.dir}" JARPath="${orion.data.structures.services.jar.file.name}" projectName="${orion.data.structures.services}"/>
     	                
         <copy todir="${orion.data.structures.binaries.dir}" verbose="yes" failonerror="false" overwrite="true">
             <fileset dir="${orion.data.structures.services.binaries.dir}" includes="**/**"/>

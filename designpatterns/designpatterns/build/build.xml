@@ -7,7 +7,7 @@
 
     
     <target name="all">
-    	<buildProjectAndPackage sourceDir="${orion.design.patterns.design.patterns.source.dir}" binariesDir="${orion.design.patterns.design.patterns.binaries.dir}" JARPath="${orion.design.patterns.design.patterns.jar.file.name}" projectName="${orion.design.patterns.design.patterns}"/>
+    	<buildAndPackageProject sourceDir="${orion.design.patterns.design.patterns.source.dir}" binariesDir="${orion.design.patterns.design.patterns.binaries.dir}" JARPath="${orion.design.patterns.design.patterns.jar.file.name}" projectName="${orion.design.patterns.design.patterns}"/>
     	                
         <copy todir="${orion.design.patterns.binaries.dir}" verbose="yes" failonerror="false" overwrite="true">
             <fileset dir="${orion.design.patterns.design.patterns.binaries.dir}" includes="**/**"/>

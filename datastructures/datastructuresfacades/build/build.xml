@@ -7,7 +7,7 @@
 
     
     <target name="all">
-    	<buildProjectAndPackage sourceDir="${orion.data.structures.facades.source.dir}" binariesDir="${orion.data.structures.facades.binaries.dir}" JARPath="${orion.data.structures.facades.jar.file.name}" projectName="${orion.data.structures.facades}"/>
+    	<buildAndPackageProject sourceDir="${orion.data.structures.facades.source.dir}" binariesDir="${orion.data.structures.facades.binaries.dir}" JARPath="${orion.data.structures.facades.jar.file.name}" projectName="${orion.data.structures.facades}"/>
     	                
         <copy todir="${orion.data.structures.binaries.dir}" verbose="yes" failonerror="false" overwrite="true">
             <fileset dir="${orion.data.structures.facades.binaries.dir}" includes="**/**"/>
