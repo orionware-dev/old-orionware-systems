@@ -20,12 +20,13 @@
     
     <macrodef name="emptyPath">
         <attribute name="path" default=""/>
+    	<attribute name="include" default="**/*"/>
         
         <sequential>
             <mkdir dir="@{path}"/>
             
             <delete includeemptydirs="true">
-                <fileset dir="@{path}" includes="**/*"/>
+                <fileset dir="@{path}" includes="@{include}"/>
             </delete>
         </sequential>
     </macrodef>
