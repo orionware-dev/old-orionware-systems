@@ -1,11 +1,19 @@
 <?xml version="1.0"?>
 <project name="AntService" basedir=".">
-    <macrodef name="initialiseAntService">
+	<macrodef name="importMacrodefs">
+		<attribute name="fileset" default=""/>
+		
+		<sequential>
+            <import>
+                <fileset dir="@{fileset}" includes="*.xml"/>
+            </import>
+        </sequential>
+    </macrodef>
+	
+	
+	<macrodef name="initialiseAntService">
         <sequential>
-        	<import>
-        		<fileset dir="${orion.ant.tasks.services.dir}" includes="*.xml"/>
-        	</import>
-        	
+        	<importMacrodefs fileset="${orion.ant.tasks.services.dir}"/>
             <taskdef resource="net/sf/antcontrib/antlib.xml" classpath="${orion.libraries.ant.dir}/ant-contrib-1.0b3.jar"/>
         </sequential>
     </macrodef>
