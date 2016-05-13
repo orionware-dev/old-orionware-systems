@@ -1,13 +1,19 @@
 <project name="JavaCompilationService" basedir=".">
-    <macrodef name="compile">
+	<macrodef name="importClasspath">
+        <sequential>
+            <path id="compilation_classpath">
+                <fileset dir="${orion.libraries.dir}" includes="**/*.jar"/>
+            </path>
+        </sequential>
+    </macrodef>
+	
+	
+	<macrodef name="compile">
         <attribute name="sourceDir" default=""/>
         <attribute name="binariesDir" default=""/>
         
         <sequential>
-        	<path id="compilation_classpath">
-        		<fileset dir="${orion.libraries.dir}" includes="**/*.jar"/>
-            </path>
-            
+            <importClasspath/>
             <print a="Compiling source path @{sourceDir}"/>
             
             <javac srcdir="@{sourceDir}" destdir="@{binariesDir}" includeantruntime="false" debug="true" debuglevel="lines,vars,source" target="${default.java.version}" source="${default.java.version}" >
