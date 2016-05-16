@@ -1,4 +1,16 @@
-﻿--create a File object in OrionObject called libraryConfigurationDirectoryPath
+﻿--delete /workspaces/orion/platform dir.
+--move orionware-libraries dir to /workspaces/orion.
+--update git repo.
+--in /workspaces/orion/ create dir orionware-platform.
+--create dir /workspaces/orion/orionware-general.
+--put delivery-engine project and whatever else from orionware-libraries to /workspaces/orion/orionware-general, abstractise ant-tasks, etc.
+--create documentation project in platform.
+--put tomcat in platform.
+--use HSQL as an embedded database. Make it configurable for the dev to select which database he wants to use.
+--find a way to have multiple database engines.
+
+
+--create a File object in OrionObject called libraryConfigurationDirectoryPath
 with a setter.
 Create a File object in OrionObject called mainLibraryObjectPath
 with a setter. Do whatever mainLibraryObjectPath.getParent()
