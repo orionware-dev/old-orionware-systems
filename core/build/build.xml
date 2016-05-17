@@ -25,6 +25,6 @@
         <callAnt file="${orion.core.annotations.facades.builder.dir}/build.xml" target="delete_JAR"/>
         <callAnt file="${orion.core.dependency.injection.builder.dir}/build.xml" target="delete_JAR"/>
         
-        <packageProject binariesDir="${orion.core.binaries.dir}" JARPath="${orion.core.jar.file.name}" projectName="${orion.core}"/>
+        <packageProject binariesDir="${orion.core.binaries.dir}" JARPath="${orion.libraries.orionware.libraries.dir}/${orion.core.jar.file.name}" projectName="${orion.core}"/>
     </target>
 </project>
