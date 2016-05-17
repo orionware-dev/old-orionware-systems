@@ -20,7 +20,7 @@
         <attribute name="projectName" default=""/>
         
         <sequential>
-            <buildJARFile JARPath="${orion.libraries.orionware.libraries.dir}/@{JARPath}" binariesDir="@{binariesDir}" projectName="@{projectName}"/>
+            <buildJARFile JARPath="@{JARPath}" binariesDir="@{binariesDir}" projectName="@{projectName}"/>
             <print a="${orion.libraries.orionware.libraries.dir}/@{JARPath}"/>
         </sequential>
     </macrodef>
