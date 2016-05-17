@@ -1,0 +1,9 @@
+<project name="OutputService" basedir=".">
+    <macrodef name="print">
+        <attribute name="a" default=""/>
+        
+        <sequential>
+            <echo message="@{a}"/>
+        </sequential>
+    </macrodef>
+</project>

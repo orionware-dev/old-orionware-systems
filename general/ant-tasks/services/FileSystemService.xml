@@ -1,0 +1,42 @@
+<project name="FileSystemService" basedir=".">
+    <macrodef name="normalisePath">
+        <attribute name="path" default=""/>
+        <attribute name="propertyToSet" default=""/>
+        
+        <sequential>
+            <propertyregex property="@{propertyToSet}" input="@{path}" regexp="\\" replace="/" global="true" override="true"/>
+        </sequential>
+    </macrodef>
+    
+    
+    <macrodef name="deleteFile">
+        <attribute name="path" default=""/>
+        
+        <sequential>
+        	<delete file="@{path}"/>
+        </sequential>
+    </macrodef>
+	
+	
+	<macrodef name="deleteDirectory">
+        <attribute name="path" default=""/>
+        
+        <sequential>
+            <delete dir="@{path}"/>
+        </sequential>
+    </macrodef>
+    
+    
+    <macrodef name="emptyPath">
+        <attribute name="path" default=""/>
+    	<attribute name="include" default="**/*"/>
+        
+        <sequential>
+            <mkdir dir="@{path}"/>
+            
+            <delete includeemptydirs="true">
+                <fileset dir="@{path}" includes="@{include}"/>
+            </delete>
+        </sequential>
+    </macrodef>
+</project>
