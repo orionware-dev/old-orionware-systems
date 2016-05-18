@@ -1,4 +1,8 @@
 <project name="JavaCompilationService" basedir=".">
+	<dirname property="this.basedir" file="${ant.file.JavaCompilationService}"/>
+	<property file="${this.basedir}/AntDelivery.prop"/>
+	
+	
 	<macrodef name="importClasspath">
         <sequential>
             <path id="compilation_classpath">

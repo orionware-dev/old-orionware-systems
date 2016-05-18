@@ -1,5 +1,9 @@
-<project name="JavaCompilationService" basedir=".">
-    <macrodef name="buildJARFile">
+<project name="ProjectPackagingService" basedir=".">
+	<dirname property="this.basedir" file="${ant.file.ProjectPackagingService}"/>
+	<property file="${this.basedir}/AntDelivery.prop"/>
+	
+	
+	<macrodef name="buildJARFile">
         <attribute name="JARPath" default=""/>
         <attribute name="binariesDir" default=""/>
         <attribute name="projectName" default=""/>
