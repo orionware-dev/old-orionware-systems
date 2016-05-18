@@ -1,11 +1,12 @@
 <?xml version="1.0"?>
 <project name="AntMacrodefService" basedir=".">
-	<macrodef name="importMacrodefsFile">
+	<macrodef name="importMacrodefs">
 		<attribute name="dir" default=""/>
+		<attribute name="include" default="*.xml"/>
 		
 		<sequential>
             <import>
-                <fileset dir="@{fileset}" includes="*.xml"/>
+                <fileset dir="@{fileset}" includes="@{include}"/>
             </import>
         </sequential>
     </macrodef>
