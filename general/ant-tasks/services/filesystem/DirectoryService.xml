@@ -18,7 +18,7 @@
     </macrodef>
     
     
-    <macrodef name="emptyPath">
+    <macrodef name="emptyDirectory">
         <attribute name="path" default=""/>
     	<attribute name="include" default="**/*"/>
         
