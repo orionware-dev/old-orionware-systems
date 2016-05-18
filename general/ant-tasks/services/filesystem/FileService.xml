@@ -6,4 +6,16 @@
         	<delete file="@{path}"/>
         </sequential>
     </macrodef>
+	
+	
+	<macrodef name="deleteFiles">
+        <attribute name="dir" default=""/>
+		<attribute name="include" default=""/>
+        
+        <sequential>
+            <delete>
+            	<fileset dir="@{dir}" includes="@{include}"/>
+            </delete>
+        </sequential>
+    </macrodef>
 </project>
