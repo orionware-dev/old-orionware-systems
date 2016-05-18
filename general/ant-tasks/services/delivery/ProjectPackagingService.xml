@@ -7,7 +7,7 @@
         <sequential>
             <jar jarfile="@{JARPath}" >
             	<manifest>
-    	            <attribute name="Implementation-Title" value="Orionware Libraries - @{projectName}"/>
+    	            <attribute name="Implementation-Title" value="${project.name} - @{projectName}"/>
     	            <attribute name="Implementation-Version" value="${orion.libraries.version}"/>
     	            <attribute name="Implementation-Vendor" value="${orionware.website.url}"/>
     	            <attribute name="Built-By" value="${my.name}"/>
