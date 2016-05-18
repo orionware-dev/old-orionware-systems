@@ -7,4 +7,4 @@ orion.core.annotations.facades.builder.dir=${orion.core.projects.dir}/coreannota
 orion.core.dependency.injection.builder.dir=${orion.core.projects.dir}/coredependencyinjection/build
 orion.core.core.builder.dir=${orion.core.projects.dir}/core/build
 
-orion.core.jar.file.name=OrionCore_${orion.version}.jar
+orion.core.jar.file.name=OrionCore_${orion.libraries.version}.jar

@@ -4,7 +4,7 @@
     
     <macrodef name="importBuildProperties">
         <sequential>
-        	<property file="${builder.configuration.path}/OrionVersion.prop"/>
+        	<property file="${builder.configuration.path}/OrionLibrariesVersion.prop"/>
             <property file="${builder.configuration.path}/OrionLibrariesDirectories.prop"/>
             <property file="${builder.configuration.path}/OrionLibrariesDefaultBuild.prop"/>
         </sequential>

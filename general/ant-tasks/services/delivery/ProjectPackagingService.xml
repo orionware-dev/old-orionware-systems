@@ -8,7 +8,7 @@
             <jar jarfile="@{JARPath}" >
             	<manifest>
     	            <attribute name="Implementation-Title" value="Orionware Libraries - @{projectName}"/>
-    	            <attribute name="Implementation-Version" value="${orion.version}"/>
+    	            <attribute name="Implementation-Version" value="${orion.libraries.version}"/>
     	            <attribute name="Implementation-Vendor" value="http://orionware.co"/>
     	            <attribute name="Built-By" value="Dimitrios Efthymiou"/>
     	        </manifest>

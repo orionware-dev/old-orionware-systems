@@ -4,3 +4,6 @@ orion.ant.extensions.file.path=${orion.libraries.ant.dir}/ant-contrib-1.0b3.jar
 running.java.version=1.8
 
 java.compilation.debug.level=lines,vars,source
+
+default.source.dir.name=src
+default.binaries.dir.name=bin
