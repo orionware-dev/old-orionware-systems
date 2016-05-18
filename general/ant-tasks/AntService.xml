@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <project name="AntService" basedir=".">
+	<dirname property="this.basedir" file="${ant.file.AntService}"/>
+	
+	
 	<macrodef name="importMacrodefs">
 		<attribute name="dir" default=""/>
 		
@@ -13,8 +16,9 @@
 	
 	<macrodef name="initialiseAntService">
         <sequential>
+        	<taskdef resource="${orion.ant.extensions.definitions.file.path}" classpath="${orion.ant.extensions.file.path}"/>
         	<importMacrodefs dir="${orion.ant.services.dir}"/>
-            <taskdef resource="net/sf/antcontrib/antlib.xml" classpath="${orion.libraries.ant.dir}/ant-contrib-1.0b3.jar"/>
+        	<property file="${this.basedir}/Ant.prop"/>
         </sequential>
     </macrodef>
     

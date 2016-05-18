@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project name="AntService" basedir=".">
+<project name="AntMacrodefService" basedir=".">
 	<macrodef name="importMacrodefsFile">
 		<attribute name="dir" default=""/>
 		
