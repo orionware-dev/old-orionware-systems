@@ -16,6 +16,6 @@
 	
 	
 	<target name="delete_JAR">
-		<deleteFile path="${orion.libraries.orionware.libraries.dir}/${orion.core.annotations.jar.file.name}"/>
+		<deleteFile path="${orion.orionware.libraries.libraries.dir}/${orion.core.annotations.jar.file.name}"/>
     </target>
 </project>

@@ -7,8 +7,8 @@ orion.ant.tasks.dir=${orion.libraries.general.dir}/ant-tasks
 orion.ant.services.xml=${orion.ant.tasks.dir}/AntService.xml
 orion.ant.services.dir=${orion.ant.tasks.dir}/services
 
-orion.libraries.ant.dir=${orion.all.libraries.dir}/ant
-orion.libraries.orionware.libraries.dir=${orion.all.libraries.dir}/platform
+orion.libraries.ant.dir=${orion.external.libraries.dir}/ant
+orion.orionware.libraries.libraries.dir=${orion.orionware.libraries.dir}/libraries
 
 orion.core=Orion Core
 orion.core.dir=${orion.libraries.home.dir}/core
