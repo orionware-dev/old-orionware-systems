@@ -17,7 +17,7 @@
             <importClasspath/>
             <print a="Compiling source path @{sourceDir}"/>
             
-            <javac srcdir="@{sourceDir}" destdir="@{binariesDir}" includeantruntime="false" debug="true" debuglevel="lines,vars,source" target="${default.java.version}" source="${default.java.version}" >
+            <javac srcdir="@{sourceDir}" destdir="@{binariesDir}" includeantruntime="false" debug="true" debuglevel="lines,vars,source" target="${target.java.version}" source="${running.java.version}" >
                 <classpath refid="compilation_classpath"/>
             </javac>
         </sequential>

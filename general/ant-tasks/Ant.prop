@@ -1,2 +1,4 @@
 orion.ant.extensions.definitions.file.path=net/sf/antcontrib/antlib.xml
 orion.ant.extensions.file.path=${orion.libraries.ant.dir}/ant-contrib-1.0b3.jar
+
+running.java.version=1.8
