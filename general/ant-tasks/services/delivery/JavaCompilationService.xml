@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project name="JavaCompilationService" basedir=".">
 	<dirname property="JavaCompilationService.basedir" file="${ant.file.JavaCompilationService}"/>
 	<property file="${JavaCompilationService.basedir}/AntDelivery.prop"/>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ImportService" basedir=".">
+	<macrodef name="importFiles">
+		<attribute name="dir" default=""/>
+		<attribute name="include" default=""/>
+		
+		<sequential>
+			<import>
+                <fileset dir="@{dir}" includes="@{include}"/>
+            </import>
+        </sequential>
+    </macrodef>
+	
+	
+	<macrodef name="importPropFiles">
+        <attribute name="dir" default=""/>
+        <attribute name="include" default="${default.prop.file.extension.pattern}"/>
+        
+        <sequential>
+        	<importFiles dir="@{dir}" includes="@{include}"/>
+        </sequential>
+    </macrodef>
+	
+	
+	<macrodef name="importAntFiles">
+        <attribute name="dir" default=""/>
+        <attribute name="include" default="${default.ant.file.extension.pattern}"/>
+        
+        <sequential>
+            <importFiles dir="@{dir}" includes="@{include}"/>
+        </sequential>
+    </macrodef>
+</project>

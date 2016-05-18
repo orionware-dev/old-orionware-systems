@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project name="OrionCoreAnnotationsBuilder" default="all" basedir=".">
     <property file="CoreAnnotationsBuild.prop"/>
     <property name="orion.core.binaries.dir" value="${orion.core.dir}/${default.binaries.dir.name}"/>

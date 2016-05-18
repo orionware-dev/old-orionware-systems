@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project name="ProjectPackagingService" basedir=".">
 	<dirname property="ProjectPackagingService.basedir" file="${ant.file.ProjectPackagingService}"/>
 	<property file="${ProjectPackagingService.basedir}/AntDelivery.prop"/>

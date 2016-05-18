@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project name="AntService" basedir=".">
 	<dirname property="AntService.basedir" file="${ant.file.AntService}"/>
 	<property file="${AntService.basedir}/AntService.prop"/>
