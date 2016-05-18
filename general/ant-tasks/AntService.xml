@@ -5,7 +5,7 @@
 		
 		<sequential>
             <import>
-                <fileset dir="@{dir}" includes="*.xml"/>
+                <fileset dir="@{dir}" includes="**/*.xml"/>
             </import>
         </sequential>
     </macrodef>
