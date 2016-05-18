@@ -13,7 +13,7 @@
 	
 	<macrodef name="initialiseAntService">
         <sequential>
-        	<importMacrodefs dir="${orion.ant.tasks.services.dir}"/>
+        	<importMacrodefs dir="${orion.ant.services.dir}"/>
             <taskdef resource="net/sf/antcontrib/antlib.xml" classpath="${orion.libraries.ant.dir}/ant-contrib-1.0b3.jar"/>
         </sequential>
     </macrodef>

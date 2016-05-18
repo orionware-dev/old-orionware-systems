@@ -2,7 +2,7 @@
 	<macrodef name="importClasspath">
         <sequential>
             <path id="compilation_classpath">
-                <fileset dir="${orion.libraries.dir}" includes="**/*.jar"/>
+                <fileset dir="${orion.all.libraries.dir}" includes="**/*.jar"/>
             </path>
         </sequential>
     </macrodef>
