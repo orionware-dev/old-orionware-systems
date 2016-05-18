@@ -19,14 +19,14 @@
     
     
     <macrodef name="emptyDirectory">
-        <attribute name="path" default=""/>
+        <attribute name="dir" default=""/>
     	<attribute name="include" default="**/*"/>
         
         <sequential>
-            <mkdir dir="@{path}"/>
+            <mkdir dir="@{dir}"/>
             
             <delete includeemptydirs="true">
-                <fileset dir="@{path}" includes="@{include}"/>
+                <fileset dir="@{dir}" includes="@{include}"/>
             </delete>
         </sequential>
     </macrodef>

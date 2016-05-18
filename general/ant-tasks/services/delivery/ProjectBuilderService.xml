@@ -4,7 +4,7 @@
         <attribute name="binariesDir" default=""/>
         
         <sequential>
-            <emptyDirectory path="@{binariesDir}"/>
+            <emptyDirectory dir="@{binariesDir}"/>
             <compile sourceDir="@{sourceDir}" binariesDir="@{binariesDir}"/>
         	
         	<copy todir="@{binariesDir}">
