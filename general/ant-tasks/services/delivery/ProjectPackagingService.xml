@@ -9,8 +9,8 @@
             	<manifest>
     	            <attribute name="Implementation-Title" value="Orionware Libraries - @{projectName}"/>
     	            <attribute name="Implementation-Version" value="${orion.libraries.version}"/>
-    	            <attribute name="Implementation-Vendor" value="http://orionware.co"/>
-    	            <attribute name="Built-By" value="Dimitrios Efthymiou"/>
+    	            <attribute name="Implementation-Vendor" value="${orionware.website.url}"/>
+    	            <attribute name="Built-By" value="${my.name}"/>
     	        </manifest>
             	
             	<fileset dir="@{binariesDir}">

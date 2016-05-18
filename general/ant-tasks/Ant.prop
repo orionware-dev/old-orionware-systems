@@ -7,3 +7,7 @@ java.compilation.debug.level=lines,vars,source
 
 default.source.dir.name=src
 default.binaries.dir.name=bin
+
+orionware.website.url=http://orionware.co
+
+my.name=Dimitrios Efthymiou
