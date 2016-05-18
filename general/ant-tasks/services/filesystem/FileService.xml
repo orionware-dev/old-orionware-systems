@@ -10,7 +10,7 @@
 	
 	<macrodef name="deleteFiles">
         <attribute name="dir" default=""/>
-		<attribute name="include" default=""/>
+		<attribute name="include" default="*"/>
         
         <sequential>
             <delete>
