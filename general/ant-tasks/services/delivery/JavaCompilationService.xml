@@ -22,29 +22,4 @@
             </javac>
         </sequential>
     </macrodef>
-    
-    
-    <macrodef name="buildJARFile">
-        <attribute name="JARPath" default=""/>
-        <attribute name="binariesDir" default=""/>
-        <attribute name="projectName" default=""/>
-        
-        <sequential>
-            <jar jarfile="@{JARPath}" >
-            	<manifest>
-    	            <attribute name="Implementation-Title" value="Orionware Libraries - @{projectName}"/>
-    	            <attribute name="Implementation-Version" value="${orion.version}"/>
-    	            <attribute name="Implementation-Vendor" value="http://orionware.co"/>
-    	            <attribute name="Built-By" value="Dimitrios Efthymiou"/>
-    	        </manifest>
-            	
-            	<fileset dir="@{binariesDir}">
-                    <include name="**/**"/>
-                    <exclude name="WEB-INF/**"/>
-                </fileset>
-            	
-            	<!--<zipfileset dir="@{binariesDir}/../configuration" includes="**/**" prefix="configuration" erroronmissingdir="false"/>-->
-            </jar>
-        </sequential>
-    </macrodef>
 </project>
