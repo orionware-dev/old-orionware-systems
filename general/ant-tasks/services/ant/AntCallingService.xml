@@ -1,11 +1,15 @@
 <project name="AntCallingService" basedir=".">
-    <macrodef name="callAnt">
+	<dirname property="AntCallingService.basedir" file="${ant.file.AntCallingService}"/>
+	<property file="${AntCallingService.basedir}/Ant.prop"/>
+	
+	
+	<macrodef name="callAnt">
         <attribute name="file" default=""/>
-        <attribute name="target" default="all"/>
-        <attribute name="useNativeBasedir" default="true"/>
+        <attribute name="target" default="${default.ant.target.name}"/>
+        <attribute name="useNativeBasedir" default="${default.use.native.ant.file.basedir}"/>
         
         <sequential>
-            <ant antfile="@{file}" target="@{target}" useNativeBasedir="@{useNativeBasedir}"/>
+        	<ant antfile="@{file}" target="@{target}" useNativeBasedir="@{useNativeBasedir}"/>
         </sequential>
     </macrodef>
 </project>

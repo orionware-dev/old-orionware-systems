@@ -1,6 +1,6 @@
 <project name="JavaCompilationService" basedir=".">
-	<dirname property="this.basedir" file="${ant.file.JavaCompilationService}"/>
-	<property file="${this.basedir}/AntDelivery.prop"/>
+	<dirname property="JavaCompilationService.basedir" file="${ant.file.JavaCompilationService}"/>
+	<property file="${JavaCompilationService.basedir}/AntDelivery.prop"/>
 	
 	
 	<macrodef name="importClasspath">

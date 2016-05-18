@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <project name="AntService" basedir=".">
-	<dirname property="this.basedir" file="${ant.file.AntService}"/>
+	<dirname property="AntService.basedir" file="${ant.file.AntService}"/>
+	<property file="${AntService.basedir}/AntService.prop"/>
 	
 	
 	<macrodef name="importAllMacrodefs">
@@ -18,7 +19,6 @@
         <sequential>
         	<taskdef resource="${orion.ant.extensions.definitions.file.path}" classpath="${orion.ant.extensions.file.path}"/>
         	<importAllMacrodefs dir="${orion.ant.services.dir}"/>
-        	<property file="${this.basedir}/AntService.prop"/>
         </sequential>
     </macrodef>
     

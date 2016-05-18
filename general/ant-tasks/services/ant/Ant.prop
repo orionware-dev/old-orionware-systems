@@ -1,0 +1,3 @@
+default.ant.target.name=all
+default.use.native.ant.file.basedir=true
+default.ant.file.extension.pattern=*.xml

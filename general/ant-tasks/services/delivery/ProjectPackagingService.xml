@@ -1,6 +1,6 @@
 <project name="ProjectPackagingService" basedir=".">
-	<dirname property="this.basedir" file="${ant.file.ProjectPackagingService}"/>
-	<property file="${this.basedir}/AntDelivery.prop"/>
+	<dirname property="ProjectPackagingService.basedir" file="${ant.file.ProjectPackagingService}"/>
+	<property file="${ProjectPackagingService.basedir}/AntDelivery.prop"/>
 	
 	
 	<macrodef name="buildJARFile">
