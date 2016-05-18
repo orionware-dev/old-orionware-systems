@@ -1,0 +1,9 @@
+<project name="FileService" basedir=".">
+    <macrodef name="deleteFile">
+        <attribute name="path" default=""/>
+        
+        <sequential>
+        	<delete file="@{path}"/>
+        </sequential>
+    </macrodef>
+</project>

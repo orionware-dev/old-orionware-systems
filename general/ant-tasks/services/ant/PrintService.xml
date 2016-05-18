@@ -1,4 +1,4 @@
-<project name="OutputService" basedir=".">
+<project name="PrintService" basedir=".">
     <macrodef name="print">
         <attribute name="a" default=""/>
         

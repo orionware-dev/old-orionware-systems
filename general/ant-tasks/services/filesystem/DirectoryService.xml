@@ -1,19 +1,10 @@
-<project name="FileSystemService" basedir=".">
+<project name="DirectoryService" basedir=".">
     <macrodef name="normalisePath">
         <attribute name="path" default=""/>
         <attribute name="propertyToSet" default=""/>
         
         <sequential>
             <propertyregex property="@{propertyToSet}" input="@{path}" regexp="\\" replace="/" global="true" override="true"/>
-        </sequential>
-    </macrodef>
-    
-    
-    <macrodef name="deleteFile">
-        <attribute name="path" default=""/>
-        
-        <sequential>
-        	<delete file="@{path}"/>
         </sequential>
     </macrodef>
 	
