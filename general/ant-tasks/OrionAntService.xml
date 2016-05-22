@@ -15,7 +15,7 @@
     </macrodef>
 	
 	
-	<macrodef name="initialiseAntService">
+	<macrodef name="initialiseOrionAntService">
         <sequential>
         	<taskdef resource="${orion.ant.extensions.definitions.file.path}" classpath="${orion.ant.extensions.file.path}"/>
         	<importAllMacrodefs dir="${orion.ant.services.dir}"/>
@@ -23,5 +23,5 @@
     </macrodef>
     
     
-    <initialiseAntService/>
+    <initialiseOrionAntService/>
 </project>
