@@ -6,7 +6,7 @@
     <property name="orion.orionware.libraries.dir" location="${orion.libraries.home.dir}/orionware-libraries"/>
 	<property name="orion.builder.configuration.path" location="${basedir}/configuration"/>
 	<property name="orion.builder.services.path" location="${basedir}/services"/>
-	<import file="${orion.builder.services.path}/BuildPropertiesImporter.xml"/>
+	<import file="${orion.builder.services.path}/OrionBuildPropertiesImporter.xml"/>
 	<import file="${orion.ant.services.xml}"/>
 
     
