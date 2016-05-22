@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="AntService" basedir=".">
-	<dirname property="AntService.basedir" file="${ant.file.AntService}"/>
-	<property file="${AntService.basedir}/AntService.prop"/>
+<project name="OrionAntService" basedir=".">
+	<dirname property="OrionAntService.basedir" file="${ant.file.OrionAntService}"/>
+	<property file="${OrionAntService.basedir}/OrionAntService.prop"/>
 	
 	
 	<macrodef name="importAllMacrodefs">

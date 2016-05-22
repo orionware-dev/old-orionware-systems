@@ -4,7 +4,7 @@
 
 orion.ant.tasks=Ant Tasks
 orion.ant.tasks.dir=${orion.libraries.general.dir}/ant-tasks
-orion.ant.service.xml=${orion.ant.tasks.dir}/AntService.xml
+orion.ant.service.xml=${orion.ant.tasks.dir}/OrionAntService.xml
 orion.ant.services.dir=${orion.ant.tasks.dir}/services
 
 orion.external.libraries.ant.dir=${orion.external.libraries.dir}/ant
