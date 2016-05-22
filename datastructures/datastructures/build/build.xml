@@ -10,7 +10,7 @@
     	<buildAndPackageProject sourceDir="${orion.data.structures.data.structures.source.dir}" binariesDir="${orion.data.structures.data.structures.binaries.dir}" JARPath="${orion.data.structures.data.structures.jar.file.name}" projectName="${orion.data.structures.data.structures}"/>
     	                
         <copy todir="${orion.data.structures.binaries.dir}" verbose="yes" failonerror="false" overwrite="true">
-            <fileset dir="${orion.data.structures.data.structures.binaries.dir}" includes="**/**"/>
+            <fileset dir="${orion.data.structures.data.structures.binaries.dir}" includes="${default.any.file.extension.pattern}"/>
         </copy>
     </target>
 </project>

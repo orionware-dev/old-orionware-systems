@@ -10,7 +10,7 @@
     	<buildAndPackageProject sourceDir="${orion.design.patterns.services.source.dir}" binariesDir="${orion.design.patterns.services.binaries.dir}" JARPath="${orion.design.patterns.services.jar.file.name}" projectName="${orion.design.patterns.services}"/>
     	                
         <copy todir="${orion.design.patterns.binaries.dir}" verbose="yes" failonerror="false" overwrite="true">
-            <fileset dir="${orion.design.patterns.services.binaries.dir}" includes="**/**"/>
+            <fileset dir="${orion.design.patterns.services.binaries.dir}" includes="${default.any.file.extension.pattern}"/>
         </copy>
     </target>
 </project>

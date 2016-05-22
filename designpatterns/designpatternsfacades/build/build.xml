@@ -10,7 +10,7 @@
     	<buildAndPackageProject sourceDir="${orion.design.patterns.facades.source.dir}" binariesDir="${orion.design.patterns.facades.binaries.dir}" JARPath="${orion.design.patterns.facades.jar.file.name}" projectName="${orion.design.patterns.facades}"/>
     	                
         <copy todir="${orion.design.patterns.binaries.dir}" verbose="yes" failonerror="false" overwrite="true">
-            <fileset dir="${orion.design.patterns.facades.binaries.dir}" includes="**/**"/>
+            <fileset dir="${orion.design.patterns.facades.binaries.dir}" includes="${default.any.file.extension.pattern}"/>
         </copy>
     </target>
 </project>
