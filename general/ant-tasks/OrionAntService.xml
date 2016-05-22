@@ -4,7 +4,7 @@
 	<property file="${OrionAntService.basedir}/OrionAntService.prop"/>
 	
 	
-	<macrodef name="importAllMacrodefs">
+	<macrodef name="importAllOrionMacrodefs">
 		<attribute name="dir" default=""/>
 		
 		<sequential>
@@ -18,7 +18,7 @@
 	<macrodef name="initialiseOrionAntService">
         <sequential>
         	<taskdef resource="${orion.ant.extensions.definitions.file.path}" classpath="${orion.ant.extensions.file.path}"/>
-        	<importAllMacrodefs dir="${orion.ant.services.dir}"/>
+        	<importAllOrionMacrodefs dir="${orion.ant.services.dir}"/>
         </sequential>
     </macrodef>
     
