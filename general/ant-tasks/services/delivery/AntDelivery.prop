@@ -1,4 +1,6 @@
 default.jar.file.extension.pattern=**/*.jar
+default.prop.file.extension.pattern=**/*.prop
+default.xml.file.extension.pattern=**/*.xml
 
 running.java.version=1.8
 java.compilation.debug.level=lines,vars,source
