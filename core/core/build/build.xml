@@ -10,7 +10,7 @@
     	<buildAndPackageProject sourceDir="${orion.core.core.source.dir}" binariesDir="${orion.core.core.binaries.dir}" JARPath="${orion.core.core.jar.file.name}" projectName="${orion.core.core}"/>
     	        
         <copy todir="${orion.core.binaries.dir}" verbose="yes" failonerror="false" overwrite="true">
-            <fileset dir="${orion.core.core.binaries.dir}" includes="**/**"/>
+            <fileset dir="${orion.core.core.binaries.dir}" includes="${default.any.file.extension.pattern}"/>
         </copy>
     </target>
 	
