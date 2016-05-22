@@ -1,6 +1,6 @@
 package core.general;
 
-public interface Triple<T1, T2, T3>
+public interface Triple<T1, T2, T3> extends Tuple
 {
     
 }
