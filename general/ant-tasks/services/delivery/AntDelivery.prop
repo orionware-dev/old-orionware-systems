@@ -1,5 +1,6 @@
-running.java.version=1.8
+default.jar.file.extension.pattern=**/*.jar
 
+running.java.version=1.8
 java.compilation.debug.level=lines,vars,source
 
 project.name=Orionware Libraries

@@ -7,8 +7,8 @@
 	<macrodef name="importClasspath">
         <sequential>
             <path id="compilation_classpath">
-                <fileset dir="${orion.external.libraries.dir}" includes="**/*.jar"/>
-            	<fileset dir="${orion.orionware.libraries.dir}" includes="**/*.jar"/>
+                <fileset dir="${orion.external.libraries.dir}" includes="${default.jar.file.extension.pattern}"/>
+            	<fileset dir="${orion.orionware.libraries.dir}" includes="${default.jar.file.extension.pattern}"/>
             </path>
         </sequential>
     </macrodef>
