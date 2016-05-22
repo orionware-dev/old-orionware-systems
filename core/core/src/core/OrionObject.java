@@ -6,7 +6,7 @@ import java.util.Set;
 public abstract class OrionObject extends OrionSimpleObject
 {
     private OrionObjectInitialiser OrionObjectInitialiser;
-    private Set<Object> librariesConfigurationSet = new HashSet<Object>();
+    private Set<Object> librariesConfigurationSet;
     private Object libraryConfiguration;
     private Object configurationService;
     private Object annotationsRegistrationService;
@@ -15,6 +15,7 @@ public abstract class OrionObject extends OrionSimpleObject
     
     public OrionObject()
     {
+        librariesConfigurationSet = new HashSet<Object>();
         OrionObjectInitialiser = new OrionObjectInitialiser();
         libraryConfiguration = OrionObjectInitialiser.instantiateLibraryConfiguration();
         configurationService = OrionObjectInitialiser.instantiateConfigurationService();
