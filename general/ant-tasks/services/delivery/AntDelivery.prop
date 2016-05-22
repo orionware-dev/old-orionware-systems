@@ -1,3 +1,4 @@
+default.any.file.extension.pattern=**/**
 default.jar.file.extension.pattern=**/*.jar
 default.prop.file.extension.pattern=**/*.prop
 default.xml.file.extension.pattern=**/*.xml

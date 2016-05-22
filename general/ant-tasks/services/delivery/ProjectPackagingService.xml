@@ -19,7 +19,7 @@
     	        </manifest>
             	
             	<fileset dir="@{binariesDir}">
-                    <include name="**/**"/>
+                    <include name="${default.any.file.extension.pattern}"/>
                     <exclude name="WEB-INF/**"/>
                 </fileset>
             	
