@@ -2,9 +2,6 @@ running.java.version=1.8
 
 java.compilation.debug.level=lines,vars,source
 
-default.source.dir.name=src
-default.binaries.dir.name=bin
-
 project.name=Orionware Libraries
 orionware.website.url=http://orionware.co
 my.name=Dimitrios Efthymiou
