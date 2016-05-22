@@ -7,7 +7,7 @@
 	<property name="orion.builder.configuration.path" location="${basedir}/configuration"/>
 	<property name="orion.builder.services.path" location="${basedir}/services"/>
 	<import file="${orion.builder.services.path}/OrionBuildPropertiesImporter.xml"/>
-	<import file="${orion.ant.services.xml}"/>
+	<import file="${orion.ant.service.xml}"/>
 
     
     <target name="all">
