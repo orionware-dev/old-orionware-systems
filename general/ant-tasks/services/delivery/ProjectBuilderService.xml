@@ -9,7 +9,7 @@
             <compile sourceDir="@{sourceDir}" binariesDir="@{binariesDir}"/>
         	
         	<copy todir="@{binariesDir}">
-        	    <fileset dir="@{sourceDir}" includes="${default.prop.file.extension.pattern},${default.xml.file.extension.pattern}"/>
+        	    <fileset dir="@{sourceDir}" includes="**/${default.prop.file.extension.pattern},**/${default.xml.file.extension.pattern}"/>
         	</copy>
         </sequential>
     </macrodef>
