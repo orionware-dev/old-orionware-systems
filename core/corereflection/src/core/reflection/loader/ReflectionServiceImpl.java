@@ -13,13 +13,25 @@ import core.reflection.loader.tasks.MakeMethodAccessibleTask;
 
 public class ReflectionServiceImpl extends ReflectionObject implements ReflectionService
 {
-    private GetMethodsArrayTask getMethodsArrayTask = new GetMethodsArrayTask();
-    private GetConstructorsArrayTask getConstructorsArrayTask = new GetConstructorsArrayTask();
-    private MakeMethodAccessibleTask makeMethodAccessibleTask = new MakeMethodAccessibleTask();
-    private CallMethodTask callMethodTask = new CallMethodTask();
-    private CallConstructorTask callConstructorTask = new CallConstructorTask();
-    private LoadClassTask loadClassTask = new LoadClassTask();
-    private InstantiateClassTask instantiateClassTask = new InstantiateClassTask();
+    private GetMethodsArrayTask getMethodsArrayTask;
+    private GetConstructorsArrayTask getConstructorsArrayTask;
+    private MakeMethodAccessibleTask makeMethodAccessibleTask;
+    private CallMethodTask callMethodTask;
+    private CallConstructorTask callConstructorTask;
+    private LoadClassTask loadClassTask;
+    private InstantiateClassTask instantiateClassTask;
+    
+    
+    public ReflectionServiceImpl()
+    {
+        getMethodsArrayTask = new GetMethodsArrayTask();
+        getConstructorsArrayTask = new GetConstructorsArrayTask();
+        makeMethodAccessibleTask = new MakeMethodAccessibleTask();
+        callMethodTask = new CallMethodTask();
+        callConstructorTask = new CallConstructorTask();
+        loadClassTask = new LoadClassTask();
+        instantiateClassTask = new InstantiateClassTask();
+    }
     
     
     @Override
