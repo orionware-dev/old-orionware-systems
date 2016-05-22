@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="OrionCoreBuilder" default="all" basedir=".">
-    <property file="CoreBuild.prop"/>
+    <property file="CoreBuilder.prop"/>
     <property name="orion.core.binaries.dir" value="${orion.core.dir}/${default.binaries.dir.name}"/>
 
     
