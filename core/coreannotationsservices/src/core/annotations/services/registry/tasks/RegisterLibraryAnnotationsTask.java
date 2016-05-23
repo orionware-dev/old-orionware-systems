@@ -81,7 +81,7 @@ public class RegisterLibraryAnnotationsTask extends AnnotationObject implements 
     {
         StringBuilder sb3 = new StringBuilder();
         sb3.append(libraryName);
-        sb3.append(".annotation.service.method.to.call.");
+        sb3.append(".annotation.service.processing.method.");
         sb3.append(annotationCounter);
         currentAnnotationServiceMethodToCall = annotationsDeclarations.getProp(sb3.toString());
     }
