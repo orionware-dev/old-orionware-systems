@@ -7,7 +7,13 @@ import datastructuresservices.lists.size.impl.tasks.GetSizeTask;
 
 public class ListSizeServiceImpl extends DataStructuresObject implements ListSizeService
 {
-    private GetSizeTask getSizeTask = new GetSizeTask();
+    private GetSizeTask getSizeTask;
+    
+    
+    public ListSizeServiceImpl()
+    {
+        getSizeTask = new GetSizeTask();
+    }
     
     
     @Override
