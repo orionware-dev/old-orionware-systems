@@ -5,5 +5,5 @@ import core.annotations.AnnotationService;
 
 public interface AnnotationsLoaderService extends AnnotationService
 {
-    public InputStream getAnnotationsFileStream(String libraryAnnotationsDefinitionFilePath);
+    public InputStream getAnnotationsDefinitionFileStream(String libraryAnnotationsDefinitionFilePath);
 }

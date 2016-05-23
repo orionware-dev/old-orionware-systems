@@ -19,6 +19,6 @@ public class AnnotationsLoaderFacadeImpl implements AnnotationsLoaderFacade
     @Override
     public InputStream getAnnotationsFileStream(String libraryAnnotationsFilePath)
     {
-        return annotationsLoaderService.getAnnotationsFileStream(libraryAnnotationsFilePath);
+        return annotationsLoaderService.getAnnotationsDefinitionFileStream(libraryAnnotationsFilePath);
     }
 }
