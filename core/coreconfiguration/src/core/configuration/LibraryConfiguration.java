@@ -7,7 +7,7 @@ public class LibraryConfiguration extends OrionConfiguration implements Configur
     private String libraryName;
     private String libraryClassPath;
     private String configurationFilePath;
-    private String annotationsFilePath;
+    private String annotationsDefinitionFilePath;
 
 
     public String getLibraryName()
@@ -46,14 +46,14 @@ public class LibraryConfiguration extends OrionConfiguration implements Configur
     }
 
 
-    public String getAnnotationsFilePath()
+    public String getAnnotationsDefinitionFilePath()
     {
-        return this.annotationsFilePath;
+        return this.annotationsDefinitionFilePath;
     }
 
 
-    public void setAnnotationsFilePath(String annotationsFilePath)
+    public void setAnnotationsDefinitionFilePath(String annotationsDefinitionFilePath)
     {
-        this.annotationsFilePath = annotationsFilePath;
+        this.annotationsDefinitionFilePath = annotationsDefinitionFilePath;
     }
 }

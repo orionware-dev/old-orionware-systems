@@ -1,7 +1,7 @@
 package datastructures.configuration;
 
-import core.configuration.OrionConfigurationEnum;
 import core.configuration.DefaultConfigurationEnum;
+import core.configuration.OrionConfigurationEnum;
 
 public enum DataStructuresConfigurationEnum implements OrionConfigurationEnum
 {

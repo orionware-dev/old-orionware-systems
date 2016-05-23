@@ -1,35 +1,27 @@
 package core.configuration.classpath.tasks;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Properties;
 import core.configuration.ConfigurationObject;
-import core.configuration.CoreConfigurationEnum;
-import core.configuration.DefaultConfigurationEnum;
 import core.configuration.OrionConfigurationTask;
 
 public class GetClasspathRootPathTask extends ConfigurationObject implements OrionConfigurationTask
 {
+    /*InputStream stream = this.getClass().getResourceAsStream("/core/services/CoreTest.prop");
+    Properties props = new Properties();
+    
+    try
+    {
+        props.load(stream);
+    }
+    catch(IOException exception)
+    {
+        exception.printStackTrace();
+    }*/
+    
+    
     public String run(String libraryClasspathRootPath)
     {
-        /*InputStream stream = this.getClass().getResourceAsStream("/core/services/CoreTest.prop");
-        Properties props = new Properties();
-        
-        try
-        {
-            props.load(stream);
-        }
-        catch(IOException exception)
-        {
-            exception.printStackTrace();
-        }*/
-        
-        
-        
-        
         //use this class to get the path of this class
-        File classpathRoot = new File(this.getClass().getResource("").getPath());
+        /*File classpathRoot = new File(this.getClass().getResource("").getPath());
         StringBuilder sb = null;
         
         //get parent dir until we reach the classpath root which is the "core" dir
@@ -102,11 +94,13 @@ public class GetClasspathRootPathTask extends ConfigurationObject implements Ori
             classpathRoot = new File(sb.toString());
         }
         
-        return classpathRoot.getAbsolutePath();
+        return classpathRoot.getAbsolutePath();*/
+        
+        return "";
     }
     
     
-    private boolean libraryClasspathRootPathDoesNotEqualClasspathRoot(String libraryClasspathRootPath)
+    /*private boolean libraryClasspathRootPathDoesNotEqualClasspathRoot(String libraryClasspathRootPath)
     {
         return !CoreConfigurationEnum.CLASSPATH_ROOT.get().equals(libraryClasspathRootPath);
     }
@@ -121,5 +115,5 @@ public class GetClasspathRootPathTask extends ConfigurationObject implements Ori
     private boolean classpathRootEndsWithClasspathBinDir(File classpathRoot, StringBuilder sb)
     {
         return classpathRoot.getAbsolutePath().endsWith(sb.toString());
-    }
+    }*/
 }

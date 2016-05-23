@@ -9,13 +9,13 @@ import core.configuration.registry.ConfigurationRegistry;
 
 public class LoadLibraryPropertiesTask extends ConfigurationObject implements OrionConfigurationTask
 {
-    private GetClasspathRootPathTask getClasspathRootPathTask;
+    //private GetClasspathRootPathTask getClasspathRootPathTask;
     private LibraryConfiguration libraryConfiguration;
     
     
     public void run(GetClasspathRootPathTask getClasspathRootPathTask, ConfigurationService configurationService, LibraryConfiguration libraryConfiguration)
     {
-        this.getClasspathRootPathTask = getClasspathRootPathTask;
+        //this.getClasspathRootPathTask = getClasspathRootPathTask;
         this.libraryConfiguration = libraryConfiguration;
         InputStream propertiesFileInput = configurationService.getFileStream(buildLibraryPropertiesFilePath());
         ConfigurationRegistry.loadProperties(propertiesFileInput);
@@ -26,7 +26,7 @@ public class LoadLibraryPropertiesTask extends ConfigurationObject implements Or
     private String buildLibraryPropertiesFilePath()
     {
         StringBuilder sb = new StringBuilder();
-        sb.append((String)getClasspathRootPathTask.run(libraryConfiguration.getLibraryName()));
+        //sb.append((String)getClasspathRootPathTask.run(libraryConfiguration.getLibraryName()));
         sb.append(libraryConfiguration.getConfigurationFilePath());
         return sb.toString();
     }

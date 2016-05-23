@@ -50,13 +50,6 @@ public class ConfigurationServiceImpl extends ConfigurationObject implements Con
     {
         return getClasspathRootTask.run(libraryClasspathRootPath, getClasspathRootPathTask);
     }
-    
-    
-    @Override
-    public String getCoreConfigurationPath()
-    {
-        return getConfigurationPathTask.run(null, getClasspathRootPathTask);
-    }
 
 
     @Override

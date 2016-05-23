@@ -46,7 +46,7 @@ public class OrionObjectInitialiser extends OrionSimpleObject
             libraryConfiguration.getClass().getMethod("setLibraryName", String.class).invoke(libraryConfiguration, coreLibraryNameValue);
             libraryConfiguration.getClass().getMethod("setLibraryClassPath", String.class).invoke(libraryConfiguration, coreLibraryClassPathValue);
             libraryConfiguration.getClass().getMethod("setConfigurationFilePath", String.class).invoke(libraryConfiguration, corePropertiesFilePathValue);
-            libraryConfiguration.getClass().getMethod("setAnnotationsFilePath", String.class).invoke(libraryConfiguration, coreAnnotationsDefinitionFilePathValue);
+            libraryConfiguration.getClass().getMethod("setAnnotationsDefinitionFilePath", String.class).invoke(libraryConfiguration, coreAnnotationsDefinitionFilePathValue);
         }
         catch(ClassNotFoundException exception)
         {

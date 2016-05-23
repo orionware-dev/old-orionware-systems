@@ -18,9 +18,6 @@ public interface ConfigurationService extends OrionConfigurationService
     public File getClasspathRoot(String libraryClasspathRootPath);
     
     
-    public String getCoreConfigurationPath();
-    
-    
     public void loadLibrariesProperties(Set<LibraryConfiguration> librariesConfiguration);
     
     
