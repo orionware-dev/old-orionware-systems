@@ -5,5 +5,5 @@ import core.services.OrionFacade;
 
 public interface AnnotationsLoaderFacade extends OrionFacade
 {
-    public InputStream getAnnotationsFileStream(String libraryName, String libraryAnnotationsFilePath);
+    public InputStream getAnnotationsFileStream(String libraryAnnotationsFilePath);
 }

@@ -17,7 +17,7 @@ public class LoadLibraryAnnotationsDefinitionsTask extends AnnotationObject impl
     
     public OrionProperties run(AnnotationsLoaderService annotationsLoaderService, LibraryConfiguration libraryConfiguration)
     {
-        InputStream libraryAnnotationsFileStream = annotationsLoaderService.getAnnotationsFileStream(libraryConfiguration.getLibraryClassPath(), libraryConfiguration.getAnnotationsDefinitionFilePath());
+        InputStream libraryAnnotationsFileStream = annotationsLoaderService.getAnnotationsFileStream(libraryConfiguration.getAnnotationsDefinitionFilePath());
         annotationsDeclarations.loadProperties(libraryAnnotationsFileStream);
         fileSystemService.closeResource(libraryAnnotationsFileStream);
         return annotationsDeclarations;

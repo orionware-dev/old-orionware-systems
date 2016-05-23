@@ -17,7 +17,7 @@ public class AnnotationsLoaderServiceImpl extends AnnotationObject implements An
     
     
     @Override
-    public InputStream getAnnotationsFileStream(String libraryClassPath, String libraryAnnotationsDefinitionFilePath)
+    public InputStream getAnnotationsFileStream(String libraryAnnotationsDefinitionFilePath)
     {
         return fileSystemService.getFileStream(libraryAnnotationsDefinitionFilePath);
     }

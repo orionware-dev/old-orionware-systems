@@ -10,7 +10,6 @@ public class TestClass1 extends DataStructuresObject
     
     public String testThisClassIsRunning()
     {
-        System.out.println("Running datastructuresintegrationtests.dependencyinjection.TestClass1...");
         return "Running datastructuresintegrationtests.dependencyinjection.TestClass1...";
     }
     
