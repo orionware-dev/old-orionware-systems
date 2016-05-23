@@ -11,8 +11,8 @@ public abstract class DataStructuresObject extends OrionObject
         LibraryConfiguration libraryConfiguration = new LibraryConfiguration();
         libraryConfiguration.setLibraryName("datastructures");
         libraryConfiguration.setLibraryClassPath("/" + libraryConfiguration.getLibraryName());
-        libraryConfiguration.setConfigurationFilePath("/" + libraryConfiguration.getLibraryName() + "/" + configurationName + "/DataStructures.prop");
-        libraryConfiguration.setAnnotationsFilePath("/" + libraryConfiguration.getLibraryName() + "/" + configurationName + "/DataStructuresAnnotations.prop");
+        libraryConfiguration.setConfigurationFilePath(libraryConfiguration.getLibraryClassPath() + "/" + configurationName + "/DataStructures.prop");
+        libraryConfiguration.setAnnotationsFilePath(libraryConfiguration.getLibraryClassPath() + "/" + configurationName + "/DataStructuresAnnotations.prop");
         registerLibraryConfiguration(libraryConfiguration);
         processAllLibrariesConfiguration();
     }
