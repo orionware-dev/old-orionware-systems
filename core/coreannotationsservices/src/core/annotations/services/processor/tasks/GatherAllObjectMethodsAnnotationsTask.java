@@ -10,7 +10,13 @@ import core.annotations.AnnotationTask;
 
 public class GatherAllObjectMethodsAnnotationsTask extends AnnotationObject implements AnnotationTask
 {
-    private List<Annotation> allObjectMethodsAnnotationsList = new ArrayList<Annotation>();
+    private List<Annotation> allObjectMethodsAnnotationsList;
+    
+    
+    public GatherAllObjectMethodsAnnotationsTask()
+    {
+        allObjectMethodsAnnotationsList = new ArrayList<Annotation>();
+    }
     
     
     public List<Annotation> run(Object object)

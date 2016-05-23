@@ -11,8 +11,15 @@ import core.filesystem.streams.FileSystemServiceImpl;
 
 public class LoadLibraryAnnotationsDefinitionsTask extends AnnotationObject implements AnnotationTask
 {
-    private OrionProperties annotationsDeclarations = new OrionProperties();
-    private FileSystemService fileSystemService = new FileSystemServiceImpl();
+    private OrionProperties annotationsDeclarations;
+    private FileSystemService fileSystemService;
+    
+    
+    public LoadLibraryAnnotationsDefinitionsTask()
+    {
+        annotationsDeclarations = new OrionProperties();
+        fileSystemService = new FileSystemServiceImpl();
+    }
     
     
     public OrionProperties run(AnnotationsLoaderService annotationsLoaderService, LibraryConfiguration libraryConfiguration)

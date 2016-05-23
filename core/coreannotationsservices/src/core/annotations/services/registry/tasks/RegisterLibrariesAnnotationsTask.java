@@ -9,7 +9,13 @@ import core.configuration.LibraryConfiguration;
 
 public class RegisterLibrariesAnnotationsTask extends AnnotationObject implements AnnotationTask
 {
-    private RegisterLibraryAnnotationsTask registerLibraryAnnotationsTask = new RegisterLibraryAnnotationsTask();
+    private RegisterLibraryAnnotationsTask registerLibraryAnnotationsTask;
+    
+    
+    public RegisterLibrariesAnnotationsTask()
+    {
+        registerLibraryAnnotationsTask = new RegisterLibraryAnnotationsTask();
+    }
     
     
     public void run(AnnotationsRegistrationService annotationsRegistrationService, AnnotationsLoaderService annotationsLoaderService, Stream<LibraryConfiguration> librariesConfiguration)

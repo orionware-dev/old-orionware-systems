@@ -9,11 +9,21 @@ import core.configuration.registry.tasks.UpdatePropertyTask;
 
 public class PropertiesRegistrationServiceImpl extends ConfigurationObject implements PropertiesRegistrationService
 {
-    private HavePropertiesBeenRegisteredForLibraryTask havePropertiesBeenRegisteredForLibraryTask = new HavePropertiesBeenRegisteredForLibraryTask();
-    private SetPropertiesAsRegisteredForLibraryTask setPropertiesAsRegisteredForLibraryTask = new SetPropertiesAsRegisteredForLibraryTask();
-    private RegisterPropertyTask registerPropertyTask = new RegisterPropertyTask();
-    private UpdatePropertyTask updatePropertyTask = new UpdatePropertyTask();
-    private DeletePropertyTask deletePropertyTask = new DeletePropertyTask();
+    private HavePropertiesBeenRegisteredForLibraryTask havePropertiesBeenRegisteredForLibraryTask;
+    private SetPropertiesAsRegisteredForLibraryTask setPropertiesAsRegisteredForLibraryTask;
+    private RegisterPropertyTask registerPropertyTask;
+    private UpdatePropertyTask updatePropertyTask;
+    private DeletePropertyTask deletePropertyTask;
+    
+    
+    public PropertiesRegistrationServiceImpl()
+    {
+        havePropertiesBeenRegisteredForLibraryTask = new HavePropertiesBeenRegisteredForLibraryTask();
+        setPropertiesAsRegisteredForLibraryTask = new SetPropertiesAsRegisteredForLibraryTask();
+        registerPropertyTask = new RegisterPropertyTask();
+        updatePropertyTask = new UpdatePropertyTask();
+        deletePropertyTask = new DeletePropertyTask();
+    }
     
     
     @Override

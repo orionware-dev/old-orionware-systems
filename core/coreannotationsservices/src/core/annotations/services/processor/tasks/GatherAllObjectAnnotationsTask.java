@@ -8,11 +8,21 @@ import core.annotations.AnnotationTask;
 
 public class GatherAllObjectAnnotationsTask extends AnnotationObject implements AnnotationTask
 {
-    private List<Annotation> allObjectAnnotationsList = new ArrayList<Annotation>();
-    private GatherAllClassLevelAnnotationsTask gatherAllClassLevelAnnotationsTask = new GatherAllClassLevelAnnotationsTask();
-    private GatherAllObjectConstructorsAnnotationsTask gatherAllObjectConstructorsAnnotationsTask = new GatherAllObjectConstructorsAnnotationsTask();
-    private GatherAllObjectMethodsAnnotationsTask gatherAllObjectMethodsAnnotationsTask = new GatherAllObjectMethodsAnnotationsTask();
-    private GatherAllObjectVariablesAnnotationsTask gatherAllObjectVariablesAnnotationsTask = new GatherAllObjectVariablesAnnotationsTask();
+    private List<Annotation> allObjectAnnotationsList;
+    private GatherAllClassLevelAnnotationsTask gatherAllClassLevelAnnotationsTask;
+    private GatherAllObjectConstructorsAnnotationsTask gatherAllObjectConstructorsAnnotationsTask;
+    private GatherAllObjectMethodsAnnotationsTask gatherAllObjectMethodsAnnotationsTask;
+    private GatherAllObjectVariablesAnnotationsTask gatherAllObjectVariablesAnnotationsTask;
+    
+    
+    public GatherAllObjectAnnotationsTask()
+    {
+        allObjectAnnotationsList = new ArrayList<Annotation>();
+        gatherAllClassLevelAnnotationsTask = new GatherAllClassLevelAnnotationsTask();
+        gatherAllObjectConstructorsAnnotationsTask = new GatherAllObjectConstructorsAnnotationsTask();
+        gatherAllObjectMethodsAnnotationsTask = new GatherAllObjectMethodsAnnotationsTask();
+        gatherAllObjectVariablesAnnotationsTask = new GatherAllObjectVariablesAnnotationsTask();
+    }
     
     
     public List<Annotation> run(Object object)

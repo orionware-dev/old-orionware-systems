@@ -10,11 +10,18 @@ import core.filesystem.streams.FileSystemService;
 
 public class SaveStringToFileTask extends FileSystemObject implements FileSystemTask
 {
-    private String lineSeparator = System.lineSeparator();
-    private BufferedWriter output = null;
+    private String lineSeparator;
+    private BufferedWriter output;
     private int numberOfLines;
     private int lineCounter;
-    private boolean error = false;
+    private boolean error;
+    
+    
+    public SaveStringToFileTask()
+    {
+        lineSeparator = System.lineSeparator();
+        error = false;
+    }
     
     
     public boolean run(FileSystemService fileSystemService, String filePath, String fileString)

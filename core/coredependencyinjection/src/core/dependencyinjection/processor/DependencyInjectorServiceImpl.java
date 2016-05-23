@@ -10,10 +10,19 @@ import core.reflection.loader.ReflectionServiceImpl;
 
 public class DependencyInjectorServiceImpl extends DependencyInjectionObject implements DependencyInjectorService
 {
-    private ProcessDependenciesTask processDependenciesTask = new ProcessDependenciesTask();
-    private ReflectionService reflectionService = new ReflectionServiceImpl();
-    private ProcessMethodForInjectionTask processMethodForInjectionTask = new ProcessMethodForInjectionTask();
-    private AnnotationsProcessorService annotationsProcessorService = new AnnotationsProcessorServiceImpl();
+    private ProcessDependenciesTask processDependenciesTask;
+    private ReflectionService reflectionService;
+    private ProcessMethodForInjectionTask processMethodForInjectionTask;
+    private AnnotationsProcessorService annotationsProcessorService;
+    
+    
+    public DependencyInjectorServiceImpl()
+    {
+        processDependenciesTask = new ProcessDependenciesTask();
+        reflectionService = new ReflectionServiceImpl();
+        processMethodForInjectionTask = new ProcessMethodForInjectionTask();
+        annotationsProcessorService = new AnnotationsProcessorServiceImpl();
+    }
     
     
     @Override

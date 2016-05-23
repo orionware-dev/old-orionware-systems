@@ -1,14 +1,10 @@
 package core.configuration.classpath;
 
 import java.io.Closeable;
-import java.io.File;
 import java.io.InputStream;
 import java.util.Set;
 import core.configuration.ConfigurationObject;
 import core.configuration.LibraryConfiguration;
-import core.configuration.classpath.tasks.GetClasspathRootPathTask;
-import core.configuration.classpath.tasks.GetClasspathRootTask;
-import core.configuration.classpath.tasks.GetConfigurationPathTask;
 import core.configuration.classpath.tasks.IsCoreLibraryTask;
 import core.configuration.classpath.tasks.LoadLibraryPropertiesTask;
 import core.configuration.registry.PropertiesRegistrationService;
@@ -19,14 +15,21 @@ import core.filesystem.streams.FileSystemServiceImpl;
 
 public class ConfigurationServiceImpl extends ConfigurationObject implements ConfigurationService
 {
-    private IsCoreLibraryTask isCoreLibraryTask = new IsCoreLibraryTask();
-    private GetClasspathRootPathTask getClasspathRootPathTask = new GetClasspathRootPathTask();
-    private GetClasspathRootTask getClasspathRootTask = new GetClasspathRootTask();
-    private FileSystemService fileSystemService = new FileSystemServiceImpl();
-    private GetConfigurationPathTask getConfigurationPathTask = new GetConfigurationPathTask();
-    private PropertiesRegistrationService propertiesRegistrationService = new PropertiesRegistrationServiceImpl();
-    private RegisterLibraryPropertiesTask registerLibraryPropertiesTask = new RegisterLibraryPropertiesTask();
-    private LoadLibraryPropertiesTask loadLibraryPropertiesTask = new LoadLibraryPropertiesTask();
+    private IsCoreLibraryTask isCoreLibraryTask;
+    private FileSystemService fileSystemService;
+    private PropertiesRegistrationService propertiesRegistrationService;
+    private RegisterLibraryPropertiesTask registerLibraryPropertiesTask;
+    private LoadLibraryPropertiesTask loadLibraryPropertiesTask;
+    
+    
+    public ConfigurationServiceImpl()
+    {
+        isCoreLibraryTask = new IsCoreLibraryTask();
+        fileSystemService = new FileSystemServiceImpl();
+        propertiesRegistrationService = new PropertiesRegistrationServiceImpl();
+        registerLibraryPropertiesTask = new RegisterLibraryPropertiesTask();
+        loadLibraryPropertiesTask = new LoadLibraryPropertiesTask();
+    }
     
     
     //this method is accurate when it is called from a base object
@@ -36,20 +39,6 @@ public class ConfigurationServiceImpl extends ConfigurationObject implements Con
     {
         return isCoreLibraryTask.run(classBeingRun);
     }
-    
-    
-    @Override
-    public String getClasspathRootPath(String libraryClasspathRootPath)
-    {
-        return getClasspathRootPathTask.run(libraryClasspathRootPath);
-    }
-    
-    
-    @Override
-    public File getClasspathRoot(String libraryClasspathRootPath)
-    {
-        return getClasspathRootTask.run(libraryClasspathRootPath, getClasspathRootPathTask);
-    }
 
 
     @Override
@@ -58,7 +47,7 @@ public class ConfigurationServiceImpl extends ConfigurationObject implements Con
         librariesConfiguration.stream()
             .filter((libraryConfiguration) -> libraryConfiguration.getConfigurationFilePath() != null)
             .filter((libraryConfiguration) -> propertiesRegistrationService.havePropertiesNotBeenRegisteredForLibrary(libraryConfiguration.getLibraryName()))
-            .forEach((libraryConfiguration) -> registerLibraryPropertiesTask.run(this, getClasspathRootPathTask, loadLibraryPropertiesTask, propertiesRegistrationService, libraryConfiguration));
+            .forEach((libraryConfiguration) -> registerLibraryPropertiesTask.run(this, loadLibraryPropertiesTask, propertiesRegistrationService, libraryConfiguration));
     }
     
     

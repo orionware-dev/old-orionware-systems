@@ -10,7 +10,13 @@ import core.annotations.AnnotationTask;
 
 public class GatherAllObjectConstructorsAnnotationsTask extends AnnotationObject implements AnnotationTask
 {
-    private List<Annotation> allObjectConstructorsAnnotationsList = new ArrayList<Annotation>();
+    private List<Annotation> allObjectConstructorsAnnotationsList;
+    
+    
+    public GatherAllObjectConstructorsAnnotationsTask()
+    {
+        allObjectConstructorsAnnotationsList = new ArrayList<Annotation>();
+    }
     
     
     public List<Annotation> run(Object object)

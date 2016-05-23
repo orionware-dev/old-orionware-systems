@@ -9,9 +9,15 @@ import core.filesystem.streams.FileSystemService;
 
 public class ConvertFileToStringTask extends FileSystemObject implements FileSystemTask
 {
-    private StringBuilder fileStringBuilder = new StringBuilder();
+    private StringBuilder fileStringBuilder;
     private BufferedReader input;
     private String currentLine;
+    
+    
+    public ConvertFileToStringTask()
+    {
+        fileStringBuilder = new StringBuilder();
+    }
     
     
     public String run(FileSystemService fileSystemService, String filePath)
