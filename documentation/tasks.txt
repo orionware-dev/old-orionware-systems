@@ -1,5 +1,6 @@
 ﻿--general cleanup
 --move instance var initialisations to the constructors
+--prepend "orionware" to all project packages
 
 
 
