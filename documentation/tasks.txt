@@ -1,5 +1,4 @@
-﻿--move instance var initialisations to the constructors
---general cleanup
+﻿--general cleanup
 --prepend "orionware" to all project packages
 --AnnotationsLoaderServiceImpl is not using ConfigurationService and it is using the tasks directly
 --for methods like "havePropertiesNotBeenRegisteredForLibrary", instead of using "libraryConfiguration.getLibraryName()", use "libraryConfiguration.getLibraryClassPath()"
