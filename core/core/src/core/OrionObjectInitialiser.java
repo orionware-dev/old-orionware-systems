@@ -5,32 +5,32 @@ import java.util.Set;
 
 public class OrionObjectInitialiser extends OrionSimpleObject
 {
-    public Object instantiateLibraryConfiguration()
+    public Object getLibraryConfigurationInstance()
     {
         return instantiateClass("core.configuration.LibraryConfiguration");
     }
     
     
-    public Object instantiateConfigurationService()
+    public Object getConfigurationServiceInstance()
     {
         return instantiateClass("core.configuration.classpath.ConfigurationServiceImpl");
     }
     
     
-    public Object instantiateAnnotationsRegistrationService()
+    public Object getAnnotationsRegistrationServiceInstance()
     {
         return instantiateClass("core.annotations.services.registry.AnnotationsRegistrationServiceImpl");
     }
     
     
-    public Object instantiateAnnotationsProcessorService()
+    public Object getAnnotationsProcessorServiceInstance()
     {
         return instantiateClass("core.annotations.services.processor.AnnotationsProcessorServiceImpl");
     }
     
     
     @SuppressWarnings({"rawtypes", "unchecked"})
-    public Object initialiseCoreConfiguration(Object libraryConfiguration)
+    public Object getInitialisedCoreConfiguration(Object libraryConfiguration)
     {
         try
         {
