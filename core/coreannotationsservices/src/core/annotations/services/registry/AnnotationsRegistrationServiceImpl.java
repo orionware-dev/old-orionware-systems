@@ -18,15 +18,29 @@ import core.configuration.LibraryConfiguration;
 
 public class AnnotationsRegistrationServiceImpl extends AnnotationObject implements AnnotationsRegistrationService
 {
-    private FilterNotNullLibraryConfigurationsTask filterNotNullLibraryConfigurationsTask = new FilterNotNullLibraryConfigurationsTask();
-    private FilterAnnotationsNotBeenRegisteredForLibraryTask filterAnnotationsNotBeenRegisteredForLibraryTask = new FilterAnnotationsNotBeenRegisteredForLibraryTask();
-    private RegisterLibrariesAnnotationsTask registerLibrariesAnnotationsTask = new RegisterLibrariesAnnotationsTask();
-    private LoadLibraryAnnotationsDefinitionsTask loadLibraryAnnotationsDefinitionsTask = new LoadLibraryAnnotationsDefinitionsTask();
-    private RegisterAnnotationTask registerAnnotationTask = new RegisterAnnotationTask();
-    private RegisterLibraryAnnotationsTask registerLibraryAnnotationsTask = new RegisterLibraryAnnotationsTask();
-    private HaveAnnotationsBeenRegisteredForLibraryTask haveAnnotationsBeenRegisteredForLibraryTask = new HaveAnnotationsBeenRegisteredForLibraryTask();
-    private SetAnnotationsAsRegisteredForLibraryTask setAnnotationsAsRegisteredForLibraryTask = new SetAnnotationsAsRegisteredForLibraryTask();
-    private AnnotationsLoaderService annotationsLoaderService = new AnnotationsLoaderServiceImpl();
+    private FilterNotNullLibraryConfigurationsTask filterNotNullLibraryConfigurationsTask;
+    private FilterAnnotationsNotBeenRegisteredForLibraryTask filterAnnotationsNotBeenRegisteredForLibraryTask;
+    private RegisterLibrariesAnnotationsTask registerLibrariesAnnotationsTask;
+    private LoadLibraryAnnotationsDefinitionsTask loadLibraryAnnotationsDefinitionsTask;
+    private RegisterAnnotationTask registerAnnotationTask;
+    private RegisterLibraryAnnotationsTask registerLibraryAnnotationsTask;
+    private HaveAnnotationsBeenRegisteredForLibraryTask haveAnnotationsBeenRegisteredForLibraryTask;
+    private SetAnnotationsAsRegisteredForLibraryTask setAnnotationsAsRegisteredForLibraryTask;
+    private AnnotationsLoaderService annotationsLoaderService;
+    
+    
+    public AnnotationsRegistrationServiceImpl()
+    {
+        filterNotNullLibraryConfigurationsTask = new FilterNotNullLibraryConfigurationsTask();
+        filterAnnotationsNotBeenRegisteredForLibraryTask = new FilterAnnotationsNotBeenRegisteredForLibraryTask();
+        registerLibrariesAnnotationsTask = new RegisterLibrariesAnnotationsTask();
+        loadLibraryAnnotationsDefinitionsTask = new LoadLibraryAnnotationsDefinitionsTask();
+        registerAnnotationTask = new RegisterAnnotationTask();
+        registerLibraryAnnotationsTask = new RegisterLibraryAnnotationsTask();
+        haveAnnotationsBeenRegisteredForLibraryTask = new HaveAnnotationsBeenRegisteredForLibraryTask();
+        setAnnotationsAsRegisteredForLibraryTask = new SetAnnotationsAsRegisteredForLibraryTask();
+        annotationsLoaderService = new AnnotationsLoaderServiceImpl();
+    }
     
     
     @Override

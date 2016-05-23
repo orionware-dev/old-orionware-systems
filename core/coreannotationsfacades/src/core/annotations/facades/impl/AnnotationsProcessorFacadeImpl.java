@@ -9,7 +9,13 @@ import core.annotations.services.processor.AnnotationsProcessorServiceImpl;
 
 public class AnnotationsProcessorFacadeImpl implements AnnotationsProcessorFacade
 {
-    private AnnotationsProcessorService annotationsProcessorService = new AnnotationsProcessorServiceImpl();
+    private AnnotationsProcessorService annotationsProcessorService;
+    
+    
+    public AnnotationsProcessorFacadeImpl()
+    {
+        annotationsProcessorService = new AnnotationsProcessorServiceImpl();
+    }
     
     
     @Override

@@ -9,7 +9,13 @@ import core.configuration.LibraryConfiguration;
 
 public class AnnotationsRegistrationFacadeImpl implements AnnotationsRegistrationFacade
 {
-    private AnnotationsRegistrationService annotationsRegistrationService = new AnnotationsRegistrationServiceImpl();
+    private AnnotationsRegistrationService annotationsRegistrationService;
+    
+    
+    public AnnotationsRegistrationFacadeImpl()
+    {
+        annotationsRegistrationService = new AnnotationsRegistrationServiceImpl();
+    }
     
     
     @Override

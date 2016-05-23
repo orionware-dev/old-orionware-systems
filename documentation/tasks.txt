@@ -1,4 +1,9 @@
-﻿--in /workspaces/orion/ create dir orionware-platform.
+﻿--general cleanup
+--move instance var initialisations to the constructors
+
+
+
+--in /workspaces/orion/ create dir orionware-platform.
 --create dir /workspaces/orion/orionware-general.
 --put delivery-engine project and whatever else from orionware-libraries to /workspaces/orion/orionware-general, abstractise ant-tasks, etc.
 --create documentation project in platform.

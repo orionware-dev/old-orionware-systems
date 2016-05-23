@@ -15,13 +15,25 @@ import core.filesystem.streams.tasks.SaveStringToFileTask;
 
 public class FileSystemServiceImpl extends FileSystemObject implements FileSystemService
 {
-    private GetFileStreamTask getFileStreamTask = new GetFileStreamTask();
-    private ConvertFileToStringTask convertFileToStringTask = new ConvertFileToStringTask();
-    private SaveStringToFileTask saveStringToFileTask = new SaveStringToFileTask();
-    private EmptyDirectoryTask emptyDirectoryTask = new EmptyDirectoryTask();
-    private CloseResourceTask closeResourceTask = new CloseResourceTask();
-    private GetReaderFromFileTask getReaderFromFileTask = new GetReaderFromFileTask();
-    private GetWriterForFileTask getWriterForFileTask = new GetWriterForFileTask();
+    private GetFileStreamTask getFileStreamTask;
+    private ConvertFileToStringTask convertFileToStringTask;
+    private SaveStringToFileTask saveStringToFileTask;
+    private EmptyDirectoryTask emptyDirectoryTask;
+    private CloseResourceTask closeResourceTask;
+    private GetReaderFromFileTask getReaderFromFileTask;
+    private GetWriterForFileTask getWriterForFileTask;
+    
+    
+    public FileSystemServiceImpl()
+    {
+        getFileStreamTask = new GetFileStreamTask();
+        convertFileToStringTask = new ConvertFileToStringTask();
+        saveStringToFileTask = new SaveStringToFileTask();
+        emptyDirectoryTask = new EmptyDirectoryTask();
+        closeResourceTask = new CloseResourceTask();
+        getReaderFromFileTask = new GetReaderFromFileTask();
+        getWriterForFileTask = new GetWriterForFileTask();
+    }
     
     
     @Override

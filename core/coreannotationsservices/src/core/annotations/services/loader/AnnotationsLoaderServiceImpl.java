@@ -9,9 +9,17 @@ import core.filesystem.streams.FileSystemServiceImpl;
 
 public class AnnotationsLoaderServiceImpl extends AnnotationObject implements AnnotationsLoaderService
 {
-    private GetClasspathRootPathTask getClasspathRootTask = new GetClasspathRootPathTask();
-    private GetAnnotationsFilePathTask getAnnotationsFilePathTask = new GetAnnotationsFilePathTask();
-    private FileSystemService fileSystemService = new FileSystemServiceImpl();
+    private GetClasspathRootPathTask getClasspathRootTask;
+    private GetAnnotationsFilePathTask getAnnotationsFilePathTask;
+    private FileSystemService fileSystemService;
+    
+    
+    public AnnotationsLoaderServiceImpl()
+    {
+        getClasspathRootTask = new GetClasspathRootPathTask();
+        getAnnotationsFilePathTask = new GetAnnotationsFilePathTask();
+        fileSystemService = new FileSystemServiceImpl();
+    }
     
     
     @Override

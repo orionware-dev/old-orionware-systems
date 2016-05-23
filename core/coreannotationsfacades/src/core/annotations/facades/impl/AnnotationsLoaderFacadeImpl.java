@@ -7,7 +7,13 @@ import core.annotations.services.loader.AnnotationsLoaderServiceImpl;
 
 public class AnnotationsLoaderFacadeImpl implements AnnotationsLoaderFacade
 {
-    private AnnotationsLoaderService annotationsLoaderService = new AnnotationsLoaderServiceImpl();
+    private AnnotationsLoaderService annotationsLoaderService;
+    
+    
+    public AnnotationsLoaderFacadeImpl()
+    {
+        annotationsLoaderService = new AnnotationsLoaderServiceImpl();
+    }
     
     
     @Override

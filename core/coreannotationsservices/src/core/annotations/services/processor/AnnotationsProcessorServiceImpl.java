@@ -12,10 +12,19 @@ import core.reflection.loader.ReflectionServiceImpl;
 
 public class AnnotationsProcessorServiceImpl extends AnnotationObject implements AnnotationsProcessorService
 {
-    private GatherAllObjectAnnotationsTask gatherAllObjectAnnotationsTask = new GatherAllObjectAnnotationsTask();
-    private ApplyAnnotationsTask applyAnnotationsTask = new ApplyAnnotationsTask();
-    private ExtractAnnotationFromMethodTask extractAnnotationFromMethodTask = new ExtractAnnotationFromMethodTask();
-    private ReflectionService reflectionService = new ReflectionServiceImpl();
+    private GatherAllObjectAnnotationsTask gatherAllObjectAnnotationsTask;
+    private ApplyAnnotationsTask applyAnnotationsTask;
+    private ExtractAnnotationFromMethodTask extractAnnotationFromMethodTask;
+    private ReflectionService reflectionService;
+    
+    
+    public AnnotationsProcessorServiceImpl()
+    {
+        gatherAllObjectAnnotationsTask = new GatherAllObjectAnnotationsTask();
+        applyAnnotationsTask = new ApplyAnnotationsTask();
+        extractAnnotationFromMethodTask = new ExtractAnnotationFromMethodTask();
+        reflectionService = new ReflectionServiceImpl();
+    }
     
     
     @Override
