@@ -10,20 +10,20 @@
         <attribute name="projectName" default=""/>
         
         <sequential>
-            <jar jarfile="@{JARPath}" >
-            	<manifest>
-    	            <attribute name="Implementation-Title" value="${project.name} - @{projectName}"/>
-    	            <attribute name="Implementation-Version" value="${orion.libraries.version}"/>
-    	            <attribute name="Implementation-Vendor" value="${orionware.website.url}"/>
-    	            <attribute name="Built-By" value="${my.name}"/>
-    	        </manifest>
-            	
-            	<fileset dir="@{binariesDir}">
+            <jar jarfile="@{JARPath}">
+                	<manifest>
+        	            <attribute name="Implementation-Title" value="${project.name} - @{projectName}"/>
+        	            <attribute name="Implementation-Version" value="${orion.libraries.version}"/>
+        	            <attribute name="Implementation-Vendor" value="${orionware.website.url}"/>
+        	            <attribute name="Built-By" value="${my.name}"/>
+        	        </manifest>
+                	
+                	<fileset dir="@{binariesDir}">
                     <include name="${default.any.file.extension.pattern}"/>
                     <exclude name="WEB-INF/**"/>
                 </fileset>
-            	
-            	<!--<zipfileset dir="@{binariesDir}/../configuration" includes="**/**" prefix="configuration" erroronmissingdir="false"/>-->
+                	
+                	<!--<zipfileset dir="@{binariesDir}/../configuration" includes="**/**" prefix="configuration" erroronmissingdir="false"/>-->
             </jar>
         </sequential>
     </macrodef>
