@@ -14,7 +14,7 @@ public class RegisterLibrariesAnnotationsTask extends AnnotationServiceObject im
     
     public RegisterLibrariesAnnotationsTask()
     {
-        registerLibraryAnnotationsTask = new RegisterLibraryAnnotationsTask();
+        this.registerLibraryAnnotationsTask = new RegisterLibraryAnnotationsTask();
     }
     
     

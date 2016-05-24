@@ -17,8 +17,8 @@ public class LoadLibraryAnnotationsDefinitionsTask extends AnnotationServiceObje
     
     public LoadLibraryAnnotationsDefinitionsTask()
     {
-        annotationsDeclarations = new OrionProperties();
-        fileSystemService = new FileSystemServiceImpl();
+        this.annotationsDeclarations = new OrionProperties();
+        this.fileSystemService = new FileSystemServiceImpl();
     }
     
     

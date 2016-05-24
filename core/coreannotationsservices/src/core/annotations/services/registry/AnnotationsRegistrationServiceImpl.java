@@ -31,15 +31,15 @@ public class AnnotationsRegistrationServiceImpl extends AnnotationServiceObject 
     
     public AnnotationsRegistrationServiceImpl()
     {
-        filterNotNullLibraryConfigurationsTask = new FilterNotNullLibraryConfigurationsTask();
-        filterAnnotationsNotBeenRegisteredForLibraryTask = new FilterAnnotationsNotBeenRegisteredForLibraryTask();
-        registerLibrariesAnnotationsTask = new RegisterLibrariesAnnotationsTask();
-        loadLibraryAnnotationsDefinitionsTask = new LoadLibraryAnnotationsDefinitionsTask();
-        registerAnnotationTask = new RegisterAnnotationTask();
-        registerLibraryAnnotationsTask = new RegisterLibraryAnnotationsTask();
-        haveAnnotationsBeenRegisteredForLibraryTask = new HaveAnnotationsBeenRegisteredForLibraryTask();
-        setAnnotationsAsRegisteredForLibraryTask = new SetAnnotationsAsRegisteredForLibraryTask();
-        annotationsLoaderService = new AnnotationsLoaderServiceImpl();
+        this.filterNotNullLibraryConfigurationsTask = new FilterNotNullLibraryConfigurationsTask();
+        this.filterAnnotationsNotBeenRegisteredForLibraryTask = new FilterAnnotationsNotBeenRegisteredForLibraryTask();
+        this.registerLibrariesAnnotationsTask = new RegisterLibrariesAnnotationsTask();
+        this.loadLibraryAnnotationsDefinitionsTask = new LoadLibraryAnnotationsDefinitionsTask();
+        this.registerAnnotationTask = new RegisterAnnotationTask();
+        this.registerLibraryAnnotationsTask = new RegisterLibraryAnnotationsTask();
+        this.haveAnnotationsBeenRegisteredForLibraryTask = new HaveAnnotationsBeenRegisteredForLibraryTask();
+        this.setAnnotationsAsRegisteredForLibraryTask = new SetAnnotationsAsRegisteredForLibraryTask();
+        this.annotationsLoaderService = new AnnotationsLoaderServiceImpl();
     }
     
     

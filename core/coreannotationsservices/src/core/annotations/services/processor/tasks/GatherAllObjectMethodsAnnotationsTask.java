@@ -15,7 +15,7 @@ public class GatherAllObjectMethodsAnnotationsTask extends AnnotationServiceObje
     
     public GatherAllObjectMethodsAnnotationsTask()
     {
-        allObjectMethodsAnnotationsList = new ArrayList<Annotation>();
+        this.allObjectMethodsAnnotationsList = new ArrayList<Annotation>();
     }
     
     

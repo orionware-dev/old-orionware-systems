@@ -12,7 +12,7 @@ public class ListSizeServiceImpl extends DataStructuresObject implements ListSiz
     
     public ListSizeServiceImpl()
     {
-        getSizeTask = new GetSizeTask();
+        this.getSizeTask = new GetSizeTask();
     }
     
     

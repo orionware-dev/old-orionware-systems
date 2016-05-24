@@ -15,12 +15,12 @@ public abstract class OrionObject extends OrionSimpleObject
     
     public OrionObject()
     {
-        librariesConfigurationSet = new HashSet<Object>();
-        OrionObjectInitialiser = new OrionObjectInitialiser();
-        libraryConfiguration = OrionObjectInitialiser.getLibraryConfigurationInstance();
-        configurationService = OrionObjectInitialiser.getConfigurationServiceInstance();
-        annotationsRegistrationService = OrionObjectInitialiser.getAnnotationsRegistrationServiceInstance();
-        annotationsProcessorService = OrionObjectInitialiser.getAnnotationsProcessorServiceInstance();
+        this.librariesConfigurationSet = new HashSet<Object>();
+        this.OrionObjectInitialiser = new OrionObjectInitialiser();
+        this.libraryConfiguration = OrionObjectInitialiser.getLibraryConfigurationInstance();
+        this.configurationService = OrionObjectInitialiser.getConfigurationServiceInstance();
+        this.annotationsRegistrationService = OrionObjectInitialiser.getAnnotationsRegistrationServiceInstance();
+        this.annotationsProcessorService = OrionObjectInitialiser.getAnnotationsProcessorServiceInstance();
         initialiseCoreConfiguration();
         loadCoreConfiguration();
         processAllLibrariesConfigurationIfItIsTheCoreLibrary();

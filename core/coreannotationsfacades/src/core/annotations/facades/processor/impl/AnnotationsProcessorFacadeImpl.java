@@ -15,7 +15,7 @@ public class AnnotationsProcessorFacadeImpl extends AnnotationFacadeObject imple
     
     public AnnotationsProcessorFacadeImpl()
     {
-        annotationsProcessorService = new AnnotationsProcessorServiceImpl();
+        this.annotationsProcessorService = new AnnotationsProcessorServiceImpl();
     }
     
     

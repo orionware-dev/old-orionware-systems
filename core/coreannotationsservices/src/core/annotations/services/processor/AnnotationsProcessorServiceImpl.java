@@ -24,10 +24,10 @@ public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject imp
     
     public AnnotationsProcessorServiceImpl()
     {
-        gatherAllObjectAnnotationsTask = new GatherAllObjectAnnotationsTask();
-        extractAnnotationFromMethodTask = new ExtractAnnotationFromMethodTask();
-        reflectionService = new ReflectionServiceImpl();
-        isAnnotationRegisteredTask = new IsAnnotationRegisteredTask();
+        this.gatherAllObjectAnnotationsTask = new GatherAllObjectAnnotationsTask();
+        this.extractAnnotationFromMethodTask = new ExtractAnnotationFromMethodTask();
+        this.reflectionService = new ReflectionServiceImpl();
+        this.isAnnotationRegisteredTask = new IsAnnotationRegisteredTask();
     }
     
     

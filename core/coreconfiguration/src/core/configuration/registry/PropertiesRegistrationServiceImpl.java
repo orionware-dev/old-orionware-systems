@@ -18,11 +18,11 @@ public class PropertiesRegistrationServiceImpl extends ConfigurationObject imple
     
     public PropertiesRegistrationServiceImpl()
     {
-        havePropertiesBeenRegisteredForLibraryTask = new HavePropertiesBeenRegisteredForLibraryTask();
-        setPropertiesAsRegisteredForLibraryTask = new SetPropertiesAsRegisteredForLibraryTask();
-        registerPropertyTask = new RegisterPropertyTask();
-        updatePropertyTask = new UpdatePropertyTask();
-        deletePropertyTask = new DeletePropertyTask();
+        this.havePropertiesBeenRegisteredForLibraryTask = new HavePropertiesBeenRegisteredForLibraryTask();
+        this.setPropertiesAsRegisteredForLibraryTask = new SetPropertiesAsRegisteredForLibraryTask();
+        this.registerPropertyTask = new RegisterPropertyTask();
+        this.updatePropertyTask = new UpdatePropertyTask();
+        this.deletePropertyTask = new DeletePropertyTask();
     }
     
     

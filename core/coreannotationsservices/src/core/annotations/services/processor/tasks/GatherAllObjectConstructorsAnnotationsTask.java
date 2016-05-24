@@ -15,7 +15,7 @@ public class GatherAllObjectConstructorsAnnotationsTask extends AnnotationServic
     
     public GatherAllObjectConstructorsAnnotationsTask()
     {
-        allObjectConstructorsAnnotationsList = new ArrayList<Annotation>();
+        this.allObjectConstructorsAnnotationsList = new ArrayList<Annotation>();
     }
     
     

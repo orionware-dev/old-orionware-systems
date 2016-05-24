@@ -18,10 +18,10 @@ public class DependencyInjectorServiceImpl extends DependencyInjectionObject imp
     
     public DependencyInjectorServiceImpl()
     {
-        processDependenciesTask = new ProcessDependenciesTask();
-        reflectionService = new ReflectionServiceImpl();
-        processMethodForInjectionTask = new ProcessMethodForInjectionTask();
-        annotationsProcessorService = new AnnotationsProcessorServiceImpl();
+        this.processDependenciesTask = new ProcessDependenciesTask();
+        this.reflectionService = new ReflectionServiceImpl();
+        this.processMethodForInjectionTask = new ProcessMethodForInjectionTask();
+        this.annotationsProcessorService = new AnnotationsProcessorServiceImpl();
     }
     
     

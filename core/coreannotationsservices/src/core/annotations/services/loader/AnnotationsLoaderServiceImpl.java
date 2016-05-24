@@ -12,7 +12,7 @@ public class AnnotationsLoaderServiceImpl extends AnnotationServiceObject implem
     
     public AnnotationsLoaderServiceImpl()
     {
-        fileSystemService = new FileSystemServiceImpl();
+        this.fileSystemService = new FileSystemServiceImpl();
     }
     
     

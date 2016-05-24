@@ -26,13 +26,13 @@ public class FileSystemServiceImpl extends FileSystemObject implements FileSyste
     
     public FileSystemServiceImpl()
     {
-        getFileStreamTask = new GetFileStreamTask();
-        convertFileToStringTask = new ConvertFileToStringTask();
-        saveStringToFileTask = new SaveStringToFileTask();
-        emptyDirectoryTask = new EmptyDirectoryTask();
-        closeResourceTask = new CloseResourceTask();
-        getReaderFromFileTask = new GetReaderFromFileTask();
-        getWriterForFileTask = new GetWriterForFileTask();
+        this.getFileStreamTask = new GetFileStreamTask();
+        this.convertFileToStringTask = new ConvertFileToStringTask();
+        this.saveStringToFileTask = new SaveStringToFileTask();
+        this.emptyDirectoryTask = new EmptyDirectoryTask();
+        this.closeResourceTask = new CloseResourceTask();
+        this.getReaderFromFileTask = new GetReaderFromFileTask();
+        this.getWriterForFileTask = new GetWriterForFileTask();
     }
     
     

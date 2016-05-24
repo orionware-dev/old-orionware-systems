@@ -24,13 +24,13 @@ public class ReflectionServiceImpl extends ReflectionObject implements Reflectio
     
     public ReflectionServiceImpl()
     {
-        getMethodsArrayTask = new GetMethodsArrayTask();
-        getConstructorsArrayTask = new GetConstructorsArrayTask();
-        makeMethodAccessibleTask = new MakeMethodAccessibleTask();
-        callMethodTask = new CallMethodTask();
-        callConstructorTask = new CallConstructorTask();
-        loadClassTask = new LoadClassTask();
-        instantiateClassTask = new InstantiateClassTask();
+        this.getMethodsArrayTask = new GetMethodsArrayTask();
+        this.getConstructorsArrayTask = new GetConstructorsArrayTask();
+        this.makeMethodAccessibleTask = new MakeMethodAccessibleTask();
+        this.callMethodTask = new CallMethodTask();
+        this.callConstructorTask = new CallConstructorTask();
+        this.loadClassTask = new LoadClassTask();
+        this.instantiateClassTask = new InstantiateClassTask();
     }
     
     

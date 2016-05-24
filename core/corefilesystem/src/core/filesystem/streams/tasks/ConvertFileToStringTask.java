@@ -16,15 +16,15 @@ public class ConvertFileToStringTask extends FileSystemObject implements FileSys
     
     public ConvertFileToStringTask()
     {
-        fileStringBuilder = new StringBuilder();
+        this.fileStringBuilder = new StringBuilder();
     }
     
     
     public String run(FileSystemService fileSystemService, String filePath)
     {
         String fileString = null;
-        input = (BufferedReader)fileSystemService.getReaderForFile(filePath);
-        currentLine = null;
+        this.input = (BufferedReader)fileSystemService.getReaderForFile(filePath);
+        this.currentLine = null;
         
         try
         {

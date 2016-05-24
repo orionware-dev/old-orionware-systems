@@ -19,8 +19,8 @@ public class SaveStringToFileTask extends FileSystemObject implements FileSystem
     
     public SaveStringToFileTask()
     {
-        lineSeparator = System.lineSeparator();
-        error = false;
+        this.lineSeparator = System.lineSeparator();
+        this.error = false;
     }
     
     

@@ -15,7 +15,7 @@ public class AnnotationsRegistrationFacadeImpl extends AnnotationFacadeObject im
     
     public AnnotationsRegistrationFacadeImpl()
     {
-        annotationsRegistrationService = new AnnotationsRegistrationServiceImpl();
+        this.annotationsRegistrationService = new AnnotationsRegistrationServiceImpl();
     }
     
     

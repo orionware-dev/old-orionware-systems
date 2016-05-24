@@ -24,11 +24,11 @@ public class ConfigurationServiceImpl extends ConfigurationObject implements Con
     
     public ConfigurationServiceImpl()
     {
-        isCoreLibraryTask = new IsCoreLibraryTask();
-        fileSystemService = new FileSystemServiceImpl();
-        propertiesRegistrationService = new PropertiesRegistrationServiceImpl();
-        registerLibraryPropertiesTask = new RegisterLibraryPropertiesTask();
-        loadLibraryPropertiesTask = new LoadLibraryPropertiesTask();
+        this.isCoreLibraryTask = new IsCoreLibraryTask();
+        this.fileSystemService = new FileSystemServiceImpl();
+        this.propertiesRegistrationService = new PropertiesRegistrationServiceImpl();
+        this.registerLibraryPropertiesTask = new RegisterLibraryPropertiesTask();
+        this.loadLibraryPropertiesTask = new LoadLibraryPropertiesTask();
     }
     
     

@@ -15,7 +15,7 @@ public class GatherAllObjectVariablesAnnotationsTask extends AnnotationServiceOb
     
     public GatherAllObjectVariablesAnnotationsTask()
     {
-        allObjectVariablesAnnotationsList = new ArrayList<Annotation>();
+        this.allObjectVariablesAnnotationsList = new ArrayList<Annotation>();
     }
     
     

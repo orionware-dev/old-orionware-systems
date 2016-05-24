@@ -20,7 +20,7 @@ public class RegisterLibraryAnnotationsTask extends AnnotationServiceObject impl
     
     public RegisterLibraryAnnotationsTask()
     {
-        loadLibraryAnnotationsDefinitionsTask = new LoadLibraryAnnotationsDefinitionsTask();
+        this.loadLibraryAnnotationsDefinitionsTask = new LoadLibraryAnnotationsDefinitionsTask();
     }
     
     

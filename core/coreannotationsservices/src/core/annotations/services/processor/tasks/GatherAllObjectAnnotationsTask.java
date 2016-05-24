@@ -17,11 +17,11 @@ public class GatherAllObjectAnnotationsTask extends AnnotationServiceObject impl
     
     public GatherAllObjectAnnotationsTask()
     {
-        allObjectAnnotationsList = new ArrayList<Annotation>();
-        gatherAllClassLevelAnnotationsTask = new GatherAllClassLevelAnnotationsTask();
-        gatherAllObjectConstructorsAnnotationsTask = new GatherAllObjectConstructorsAnnotationsTask();
-        gatherAllObjectMethodsAnnotationsTask = new GatherAllObjectMethodsAnnotationsTask();
-        gatherAllObjectVariablesAnnotationsTask = new GatherAllObjectVariablesAnnotationsTask();
+        this.allObjectAnnotationsList = new ArrayList<Annotation>();
+        this.gatherAllClassLevelAnnotationsTask = new GatherAllClassLevelAnnotationsTask();
+        this.gatherAllObjectConstructorsAnnotationsTask = new GatherAllObjectConstructorsAnnotationsTask();
+        this.gatherAllObjectMethodsAnnotationsTask = new GatherAllObjectMethodsAnnotationsTask();
+        this.gatherAllObjectVariablesAnnotationsTask = new GatherAllObjectVariablesAnnotationsTask();
     }
     
     
