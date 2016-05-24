@@ -1,4 +1,4 @@
-package designpatternsfacades.general;
+package designpatternsfacades;
 
 import core.general.OrionInterface;
 

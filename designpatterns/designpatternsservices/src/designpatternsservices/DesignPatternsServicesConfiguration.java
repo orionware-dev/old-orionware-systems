@@ -1,4 +1,4 @@
-package designpatternsservices.general;
+package designpatternsservices;
 
 import core.general.OrionConfiguration;
 

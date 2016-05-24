@@ -1,4 +1,4 @@
-package datastructuresservices.general;
+package datastructuresservices;
 
 import core.general.OrionInterface;
 
