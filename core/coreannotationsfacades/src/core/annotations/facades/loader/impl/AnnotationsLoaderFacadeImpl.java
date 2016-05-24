@@ -13,7 +13,7 @@ public class AnnotationsLoaderFacadeImpl extends AnnotationFacadeObject implemen
     
     public AnnotationsLoaderFacadeImpl()
     {
-        annotationsLoaderService = new AnnotationsLoaderServiceImpl();
+        this.annotationsLoaderService = new AnnotationsLoaderServiceImpl();
     }
     
     
