@@ -3,6 +3,8 @@
 --AnnotationsLoaderServiceImpl is not using ConfigurationService and it is using the tasks directly
 --for methods like "havePropertiesNotBeenRegisteredForLibrary", instead of using "libraryConfiguration.getLibraryName()", use "libraryConfiguration.getLibraryClassPath()"
 --try to abstract as much code as I can
+--for composite tasks, create functions subpackage and put in there functions to be used form within the task only
+--improve modularisation
 
 
 
