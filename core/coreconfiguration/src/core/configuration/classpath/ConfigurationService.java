@@ -1,7 +1,6 @@
 package core.configuration.classpath;
 
 import java.io.Closeable;
-import java.io.File;
 import java.io.InputStream;
 import java.util.Set;
 import core.configuration.LibraryConfiguration;
