@@ -28,6 +28,7 @@ public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject imp
         this.extractAnnotationFromMethodTask = new ExtractAnnotationFromMethodTask();
         this.reflectionService = new ReflectionServiceImpl();
         this.isAnnotationRegisteredTask = new IsAnnotationRegisteredTask();
+        this.applyAnnotationToMethodTask = new ApplyAnnotationToMethodTask();
     }
     
     
@@ -42,13 +43,12 @@ public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject imp
     public void processAllAnnotations(Object OrionObject)
     {
         List<Annotation> allObjectAnnotationsList = gatherAllAnnotationsFromObject(OrionObject);
-        applyAnnotationToMethodTask = new ApplyAnnotationToMethodTask(reflectionService, OrionObject);
         //we filter the annotations, because if it finds a registered annotation that matches
         //the one it is processing now then process it otherwise it means that we are
         //processing an annotation that has not been registered in which case we ignore it.
         //It could be a Java/Spring/etc. annotation in which case it is processed by the respective framework
         AnnotationsRegistry.filterAnnotations((annotation) -> isAnnotationRegisteredTask.run(allObjectAnnotationsList, (OrionAnnotation)annotation))
-            .forEach((annotation) -> applyAnnotationToMethodTask.run((OrionAnnotation)annotation));
+            .forEach((annotation) -> applyAnnotationToMethodTask.run(reflectionService, OrionObject, (OrionAnnotation)annotation));
     }
     
     
