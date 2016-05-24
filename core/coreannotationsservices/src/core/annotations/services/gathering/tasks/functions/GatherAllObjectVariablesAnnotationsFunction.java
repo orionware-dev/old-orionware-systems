@@ -1,4 +1,4 @@
-package core.annotations.services.gathering.tasks;
+package core.annotations.services.gathering.tasks.functions;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
@@ -7,13 +7,14 @@ import java.util.Arrays;
 import java.util.List;
 import core.annotations.AnnotationTask;
 import core.annotations.services.AnnotationServiceObject;
+import core.functions.OrionAbstractFunction;
 
-public class GatherAllObjectVariablesAnnotationsTask extends AnnotationServiceObject implements AnnotationTask
+public class GatherAllObjectVariablesAnnotationsFunction extends OrionAbstractFunction
 {
     private List<Annotation> allObjectVariablesAnnotationsList;
     
     
-    public GatherAllObjectVariablesAnnotationsTask()
+    public GatherAllObjectVariablesAnnotationsFunction()
     {
         this.allObjectVariablesAnnotationsList = new ArrayList<Annotation>();
     }

@@ -1,4 +1,4 @@
-package core.annotations.services.gathering.tasks;
+package core.annotations.services.gathering.tasks.functions;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
@@ -7,13 +7,14 @@ import java.util.Arrays;
 import java.util.List;
 import core.annotations.AnnotationTask;
 import core.annotations.services.AnnotationServiceObject;
+import core.functions.OrionAbstractFunction;
 
-public class GatherAllObjectConstructorsAnnotationsTask extends AnnotationServiceObject implements AnnotationTask
+public class GatherAllObjectConstructorsAnnotationsFunction extends OrionAbstractFunction
 {
     private List<Annotation> allObjectConstructorsAnnotationsList;
     
     
-    public GatherAllObjectConstructorsAnnotationsTask()
+    public GatherAllObjectConstructorsAnnotationsFunction()
     {
         this.allObjectConstructorsAnnotationsList = new ArrayList<Annotation>();
     }

@@ -1,12 +1,13 @@
-package core.annotations.services.gathering.tasks;
+package core.annotations.services.gathering.tasks.functions;
 
 import java.lang.annotation.Annotation;
 import java.util.Arrays;
 import java.util.List;
 import core.annotations.AnnotationTask;
 import core.annotations.services.AnnotationServiceObject;
+import core.functions.OrionAbstractFunction;
 
-public class GatherAllClassLevelAnnotationsTask extends AnnotationServiceObject implements AnnotationTask
+public class GatherAllClassLevelAnnotationsFunction extends OrionAbstractFunction
 {
     public List<Annotation> run(Object object)
     {
