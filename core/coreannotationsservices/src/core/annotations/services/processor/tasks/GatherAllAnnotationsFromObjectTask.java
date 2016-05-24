@@ -6,7 +6,7 @@ import java.util.List;
 import core.annotations.AnnotationTask;
 import core.annotations.services.AnnotationServiceObject;
 
-public class GatherAllObjectAnnotationsTask extends AnnotationServiceObject implements AnnotationTask
+public class GatherAllAnnotationsFromObjectTask extends AnnotationServiceObject implements AnnotationTask
 {
     private List<Annotation> allObjectAnnotationsList;
     private GatherAllClassLevelAnnotationsTask gatherAllClassLevelAnnotationsTask;
@@ -15,7 +15,7 @@ public class GatherAllObjectAnnotationsTask extends AnnotationServiceObject impl
     private GatherAllObjectVariablesAnnotationsTask gatherAllObjectVariablesAnnotationsTask;
     
     
-    public GatherAllObjectAnnotationsTask()
+    public GatherAllAnnotationsFromObjectTask()
     {
         this.allObjectAnnotationsList = new ArrayList<Annotation>();
         this.gatherAllClassLevelAnnotationsTask = new GatherAllClassLevelAnnotationsTask();

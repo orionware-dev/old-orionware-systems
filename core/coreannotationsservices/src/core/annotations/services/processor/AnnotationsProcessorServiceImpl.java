@@ -7,7 +7,7 @@ import core.annotations.OrionAnnotation;
 import core.annotations.services.AnnotationServiceObject;
 import core.annotations.services.processor.tasks.ApplyAnnotationToMethodTask;
 import core.annotations.services.processor.tasks.ExtractAnnotationFromMethodTask;
-import core.annotations.services.processor.tasks.GatherAllObjectAnnotationsTask;
+import core.annotations.services.processor.tasks.GatherAllAnnotationsFromObjectTask;
 import core.annotations.services.processor.tasks.IsAnnotationRegisteredTask;
 import core.annotations.services.registry.AnnotationsRegistry;
 import core.reflection.loader.ReflectionService;
@@ -15,7 +15,7 @@ import core.reflection.loader.ReflectionServiceImpl;
 
 public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject implements AnnotationsProcessorService
 {
-    private GatherAllObjectAnnotationsTask gatherAllObjectAnnotationsTask;
+    private GatherAllAnnotationsFromObjectTask gatherAllAnnotationsFromObjectTask;
     private ApplyAnnotationToMethodTask applyAnnotationToMethodTask;
     private ExtractAnnotationFromMethodTask extractAnnotationFromMethodTask;
     private ReflectionService reflectionService;
@@ -24,7 +24,7 @@ public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject imp
     
     public AnnotationsProcessorServiceImpl()
     {
-        this.gatherAllObjectAnnotationsTask = new GatherAllObjectAnnotationsTask();
+        this.gatherAllAnnotationsFromObjectTask = new GatherAllAnnotationsFromObjectTask();
         this.extractAnnotationFromMethodTask = new ExtractAnnotationFromMethodTask();
         this.reflectionService = new ReflectionServiceImpl();
         this.isAnnotationRegisteredTask = new IsAnnotationRegisteredTask();
@@ -35,7 +35,7 @@ public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject imp
     @Override
     public List<Annotation> gatherAllAnnotationsFromObject(Object OrionObject)
     {
-        return gatherAllObjectAnnotationsTask.run(OrionObject);
+        return gatherAllAnnotationsFromObjectTask.run(OrionObject);
     }
     
     

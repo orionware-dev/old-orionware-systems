@@ -1,4 +1,7 @@
-﻿--tasks should be independent. If not then take the "steps" inside the service
+﻿--if a task needs another task or service then they should instantiate them and
+not have them injected by the parent service so that high-level policy (service)
+knows less about low-level (task implementation) policy
+--tasks should be independent. If not then take the "steps" inside the service
 --general cleanup
 --AnnotationsLoaderServiceImpl is not using ConfigurationService and it is using the tasks directly
 --for methods like "havePropertiesNotBeenRegisteredForLibrary", instead of using "libraryConfiguration.getLibraryName()", use "libraryConfiguration.getLibraryClassPath()"
