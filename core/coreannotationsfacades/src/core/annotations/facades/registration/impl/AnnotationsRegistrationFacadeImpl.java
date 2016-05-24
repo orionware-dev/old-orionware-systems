@@ -1,9 +1,9 @@
-package core.annotations.facades.impl;
+package core.annotations.facades.registration.impl;
 
 import java.util.Set;
 import core.annotations.OrionAnnotation;
 import core.annotations.facades.AnnotationFacadeObject;
-import core.annotations.facades.AnnotationsRegistrationFacade;
+import core.annotations.facades.registration.AnnotationsRegistrationFacade;
 import core.annotations.services.registry.AnnotationsRegistrationService;
 import core.annotations.services.registry.AnnotationsRegistrationServiceImpl;
 import core.configuration.LibraryConfiguration;

@@ -1,4 +1,4 @@
-package core.annotations.facades;
+package core.annotations.facades.registration;
 
 import java.util.Set;
 import core.annotations.OrionAnnotation;

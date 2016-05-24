@@ -1,10 +1,10 @@
-package core.annotations.facades.impl;
+package core.annotations.facades.processor.impl;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.List;
 import core.annotations.facades.AnnotationFacadeObject;
-import core.annotations.facades.AnnotationsProcessorFacade;
+import core.annotations.facades.processor.AnnotationsProcessorFacade;
 import core.annotations.services.processor.AnnotationsProcessorService;
 import core.annotations.services.processor.AnnotationsProcessorServiceImpl;
 

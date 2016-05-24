@@ -1,4 +1,4 @@
-package core.annotations.facades;
+package core.annotations.facades.processor;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
