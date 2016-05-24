@@ -21,7 +21,6 @@ public class GatherAllAnnotationsFromObjectTask extends AnnotationServiceObject 
     
     public GatherAllAnnotationsFromObjectTask()
     {
-        this.allObjectAnnotationsList = new ArrayList<Annotation>();
         this.gatherAllClassLevelAnnotationsFunction = new GatherAllClassLevelAnnotationsFunction();
         this.gatherAllObjectConstructorsAnnotationsFunction = new GatherAllObjectConstructorsAnnotationsFunction();
         this.gatherAllObjectMethodsAnnotationsFunction = new GatherAllObjectMethodsAnnotationsFunction();
@@ -31,6 +30,7 @@ public class GatherAllAnnotationsFromObjectTask extends AnnotationServiceObject 
     
     public List<Annotation> run(Object object)
     {
+        allObjectAnnotationsList = new ArrayList<Annotation>();
         allObjectAnnotationsList.addAll(gatherAllClassLevelAnnotationsFunction.run(object));
         allObjectAnnotationsList.addAll(gatherAllObjectConstructorsAnnotationsFunction.run(object));
         allObjectAnnotationsList.addAll(gatherAllObjectMethodsAnnotationsFunction.run(object));
