@@ -1,7 +1,7 @@
 package core.dependencyinjection.service.tasks;
 
 import java.lang.reflect.Method;
-import core.annotations.services.processor.AnnotationsProcessorService;
+import core.annotations.services.gathering.AnnotationsGatheringService;
 import core.dependencyinjection.DependencyInjectionObject;
 import core.dependencyinjection.DependencyInjectionTask;
 import core.dependencyinjection.service.ServiceInjector;
@@ -13,12 +13,12 @@ public class ProcessMethodForServiceInjectionTask extends DependencyInjectionObj
     private ReflectionService reflectionService;
     
     
-    public void run(Object object, Method method, ReflectionService reflectionService, AnnotationsProcessorService annotationsProcessorService)
+    public void run(Object object, Method method, ReflectionService reflectionService, AnnotationsGatheringService annotationsGatheringService)
     {
         this.reflectionService = reflectionService;
         this.object = object;
         reflectionService.makeMethodAccessible(method);
-        ServiceInjector serviceInjection = (ServiceInjector)annotationsProcessorService.extractAnnotationFromMethod(method, ServiceInjector.class);
+        ServiceInjector serviceInjection = (ServiceInjector)annotationsGatheringService.extractAnnotationFromMethod(method, ServiceInjector.class);
         
         if(serviceInjection != null)
         {

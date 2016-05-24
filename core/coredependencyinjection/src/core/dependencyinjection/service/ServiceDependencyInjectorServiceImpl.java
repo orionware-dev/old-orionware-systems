@@ -1,7 +1,7 @@
 package core.dependencyinjection.service;
 
-import core.annotations.services.processor.AnnotationsProcessorService;
-import core.annotations.services.processor.AnnotationsProcessorServiceImpl;
+import core.annotations.services.gathering.AnnotationsGatheringService;
+import core.annotations.services.gathering.AnnotationsGatheringServiceImpl;
 import core.dependencyinjection.DependencyInjectionObject;
 import core.dependencyinjection.service.tasks.ProcessMethodForServiceInjectionTask;
 import core.dependencyinjection.service.tasks.ProcessServiceDependenciesTask;
@@ -13,7 +13,7 @@ public class ServiceDependencyInjectorServiceImpl extends DependencyInjectionObj
     private ProcessServiceDependenciesTask processServiceDependenciesTask;
     private ReflectionService reflectionService;
     private ProcessMethodForServiceInjectionTask processMethodForServiceInjectionTask;
-    private AnnotationsProcessorService annotationsProcessorService;
+    private AnnotationsGatheringService annotationsGatheringService;
     
     
     public ServiceDependencyInjectorServiceImpl()
@@ -21,13 +21,13 @@ public class ServiceDependencyInjectorServiceImpl extends DependencyInjectionObj
         this.processServiceDependenciesTask = new ProcessServiceDependenciesTask();
         this.reflectionService = new ReflectionServiceImpl();
         this.processMethodForServiceInjectionTask = new ProcessMethodForServiceInjectionTask();
-        this.annotationsProcessorService = new AnnotationsProcessorServiceImpl();
+        this.annotationsGatheringService = new AnnotationsGatheringServiceImpl();
     }
     
     
     @Override
     public void processServiceDependencies(Object object)
     {
-        processServiceDependenciesTask.run(object, reflectionService, processMethodForServiceInjectionTask, annotationsProcessorService);
+        processServiceDependenciesTask.run(object, reflectionService, processMethodForServiceInjectionTask, annotationsGatheringService);
     }
 }

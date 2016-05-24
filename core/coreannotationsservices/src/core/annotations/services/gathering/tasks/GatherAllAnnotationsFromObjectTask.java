@@ -1,4 +1,4 @@
-package core.annotations.services.processor.tasks;
+package core.annotations.services.gathering.tasks;
 
 import java.lang.annotation.Annotation;
 import java.util.ArrayList;
