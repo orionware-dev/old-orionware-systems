@@ -3,11 +3,12 @@ package core.annotations.facades.impl;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.List;
+import core.annotations.facades.AnnotationFacadeObject;
 import core.annotations.facades.AnnotationsProcessorFacade;
 import core.annotations.services.processor.AnnotationsProcessorService;
 import core.annotations.services.processor.AnnotationsProcessorServiceImpl;
 
-public class AnnotationsProcessorFacadeImpl implements AnnotationsProcessorFacade
+public class AnnotationsProcessorFacadeImpl extends AnnotationFacadeObject implements AnnotationsProcessorFacade
 {
     private AnnotationsProcessorService annotationsProcessorService;
     

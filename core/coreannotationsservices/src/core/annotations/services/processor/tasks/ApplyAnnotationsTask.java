@@ -3,13 +3,13 @@ package core.annotations.services.processor.tasks;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.List;
-import core.annotations.AnnotationObject;
 import core.annotations.AnnotationTask;
 import core.annotations.OrionAnnotation;
+import core.annotations.services.AnnotationServiceObject;
 import core.annotations.services.registry.AnnotationsRegistry;
 import core.reflection.loader.ReflectionService;
 
-public class ApplyAnnotationsTask extends AnnotationObject implements AnnotationTask
+public class ApplyAnnotationsTask extends AnnotationServiceObject implements AnnotationTask
 {
     private ReflectionService reflectionService;
     private Object object;

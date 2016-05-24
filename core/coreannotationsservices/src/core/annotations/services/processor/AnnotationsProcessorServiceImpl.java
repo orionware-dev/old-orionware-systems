@@ -3,14 +3,14 @@ package core.annotations.services.processor;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.List;
-import core.annotations.AnnotationObject;
+import core.annotations.services.AnnotationServiceObject;
 import core.annotations.services.processor.tasks.ApplyAnnotationsTask;
 import core.annotations.services.processor.tasks.ExtractAnnotationFromMethodTask;
 import core.annotations.services.processor.tasks.GatherAllObjectAnnotationsTask;
 import core.reflection.loader.ReflectionService;
 import core.reflection.loader.ReflectionServiceImpl;
 
-public class AnnotationsProcessorServiceImpl extends AnnotationObject implements AnnotationsProcessorService
+public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject implements AnnotationsProcessorService
 {
     private GatherAllObjectAnnotationsTask gatherAllObjectAnnotationsTask;
     private ApplyAnnotationsTask applyAnnotationsTask;

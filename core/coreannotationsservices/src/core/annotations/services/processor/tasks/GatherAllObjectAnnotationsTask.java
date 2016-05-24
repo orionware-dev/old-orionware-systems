@@ -3,10 +3,10 @@ package core.annotations.services.processor.tasks;
 import java.lang.annotation.Annotation;
 import java.util.ArrayList;
 import java.util.List;
-import core.annotations.AnnotationObject;
 import core.annotations.AnnotationTask;
+import core.annotations.services.AnnotationServiceObject;
 
-public class GatherAllObjectAnnotationsTask extends AnnotationObject implements AnnotationTask
+public class GatherAllObjectAnnotationsTask extends AnnotationServiceObject implements AnnotationTask
 {
     private List<Annotation> allObjectAnnotationsList;
     private GatherAllClassLevelAnnotationsTask gatherAllClassLevelAnnotationsTask;

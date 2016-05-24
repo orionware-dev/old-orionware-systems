@@ -1,11 +1,12 @@
 package core.annotations.facades.impl;
 
 import java.io.InputStream;
+import core.annotations.facades.AnnotationFacadeObject;
 import core.annotations.facades.AnnotationsLoaderFacade;
 import core.annotations.services.loader.AnnotationsLoaderService;
 import core.annotations.services.loader.AnnotationsLoaderServiceImpl;
 
-public class AnnotationsLoaderFacadeImpl implements AnnotationsLoaderFacade
+public class AnnotationsLoaderFacadeImpl extends AnnotationFacadeObject implements AnnotationsLoaderFacade
 {
     private AnnotationsLoaderService annotationsLoaderService;
     

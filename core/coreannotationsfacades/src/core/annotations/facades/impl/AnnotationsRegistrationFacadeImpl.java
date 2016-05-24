@@ -2,12 +2,13 @@ package core.annotations.facades.impl;
 
 import java.util.Set;
 import core.annotations.OrionAnnotation;
+import core.annotations.facades.AnnotationFacadeObject;
 import core.annotations.facades.AnnotationsRegistrationFacade;
 import core.annotations.services.registry.AnnotationsRegistrationService;
 import core.annotations.services.registry.AnnotationsRegistrationServiceImpl;
 import core.configuration.LibraryConfiguration;
 
-public class AnnotationsRegistrationFacadeImpl implements AnnotationsRegistrationFacade
+public class AnnotationsRegistrationFacadeImpl extends AnnotationFacadeObject implements AnnotationsRegistrationFacade
 {
     private AnnotationsRegistrationService annotationsRegistrationService;
     

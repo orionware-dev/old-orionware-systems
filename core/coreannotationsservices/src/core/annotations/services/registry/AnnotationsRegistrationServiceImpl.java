@@ -2,8 +2,8 @@ package core.annotations.services.registry;
 
 import java.util.Set;
 import java.util.stream.Stream;
-import core.annotations.AnnotationObject;
 import core.annotations.OrionAnnotation;
+import core.annotations.services.AnnotationServiceObject;
 import core.annotations.services.loader.AnnotationsLoaderService;
 import core.annotations.services.loader.AnnotationsLoaderServiceImpl;
 import core.annotations.services.registry.tasks.FilterAnnotationsNotBeenRegisteredForLibraryTask;
@@ -16,7 +16,7 @@ import core.annotations.services.registry.tasks.RegisterLibraryAnnotationsTask;
 import core.annotations.services.registry.tasks.SetAnnotationsAsRegisteredForLibraryTask;
 import core.configuration.LibraryConfiguration;
 
-public class AnnotationsRegistrationServiceImpl extends AnnotationObject implements AnnotationsRegistrationService
+public class AnnotationsRegistrationServiceImpl extends AnnotationServiceObject implements AnnotationsRegistrationService
 {
     private FilterNotNullLibraryConfigurationsTask filterNotNullLibraryConfigurationsTask;
     private FilterAnnotationsNotBeenRegisteredForLibraryTask filterAnnotationsNotBeenRegisteredForLibraryTask;

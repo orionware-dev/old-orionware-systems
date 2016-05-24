@@ -1,10 +1,10 @@
 package core.annotations.services.registry.tasks;
 
-import core.annotations.AnnotationObject;
 import core.annotations.AnnotationTask;
+import core.annotations.services.AnnotationServiceObject;
 import core.configuration.LibrariesConfigurationMapper;
 
-public class HaveAnnotationsBeenRegisteredForLibraryTask extends AnnotationObject implements AnnotationTask
+public class HaveAnnotationsBeenRegisteredForLibraryTask extends AnnotationServiceObject implements AnnotationTask
 {
     public boolean run(String libraryName)
     {

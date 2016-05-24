@@ -5,10 +5,10 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import core.annotations.AnnotationObject;
 import core.annotations.AnnotationTask;
+import core.annotations.services.AnnotationServiceObject;
 
-public class GatherAllObjectVariablesAnnotationsTask extends AnnotationObject implements AnnotationTask
+public class GatherAllObjectVariablesAnnotationsTask extends AnnotationServiceObject implements AnnotationTask
 {
     private List<Annotation> allObjectVariablesAnnotationsList;
     
