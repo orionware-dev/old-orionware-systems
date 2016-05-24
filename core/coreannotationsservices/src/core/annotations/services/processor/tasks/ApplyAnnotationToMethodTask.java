@@ -8,17 +8,6 @@ import core.reflection.loader.ReflectionService;
 
 public class ApplyAnnotationToMethodTask extends AnnotationServiceObject implements AnnotationTask
 {
-    /*private ReflectionService reflectionService;
-    private Object object;
-    
-    
-    public ApplyAnnotationToMethodTask(ReflectionService reflectionService, Object object)
-    {
-        this.reflectionService = reflectionService;
-        this.object = object;
-    }*/
-    
-
     public void run(ReflectionService reflectionService, Object object, OrionAnnotation registeredAnnotation)
     {
         try
