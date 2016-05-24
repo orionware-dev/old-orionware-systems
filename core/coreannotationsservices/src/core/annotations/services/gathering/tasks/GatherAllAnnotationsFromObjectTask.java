@@ -12,7 +12,6 @@ import core.annotations.services.gathering.tasks.functions.GatherAllObjectVariab
 
 public class GatherAllAnnotationsFromObjectTask extends AnnotationServiceObject implements AnnotationTask
 {
-    private List<Annotation> allObjectAnnotationsList;
     private GatherAllClassLevelAnnotationsFunction gatherAllClassLevelAnnotationsFunction;
     private GatherAllObjectConstructorsAnnotationsFunction gatherAllObjectConstructorsAnnotationsFunction;
     private GatherAllObjectMethodsAnnotationsFunction gatherAllObjectMethodsAnnotationsFunction;
@@ -30,7 +29,7 @@ public class GatherAllAnnotationsFromObjectTask extends AnnotationServiceObject 
     
     public List<Annotation> run(Object object)
     {
-        allObjectAnnotationsList = new ArrayList<Annotation>();
+        List<Annotation> allObjectAnnotationsList = new ArrayList<Annotation>();
         allObjectAnnotationsList.addAll(gatherAllClassLevelAnnotationsFunction.run(object));
         allObjectAnnotationsList.addAll(gatherAllObjectConstructorsAnnotationsFunction.run(object));
         allObjectAnnotationsList.addAll(gatherAllObjectMethodsAnnotationsFunction.run(object));
