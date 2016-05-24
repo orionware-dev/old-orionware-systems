@@ -5,8 +5,6 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import core.annotations.AnnotationTask;
-import core.annotations.services.AnnotationServiceObject;
 import core.functions.OrionAbstractFunction;
 
 public class GatherAllObjectMethodsAnnotationsFunction extends OrionAbstractFunction
