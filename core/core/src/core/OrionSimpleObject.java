@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
-public abstract class OrionSimpleObject implements Consumer
+public abstract class OrionSimpleObject// implements Consumer
 {
-    private List<Object> actionSequence;
+    /*private List<Object> actionSequence;
     
     
     protected void first(Object object)
@@ -26,5 +26,5 @@ public abstract class OrionSimpleObject implements Consumer
         {
             actionSequence.add(method.andThen(after));
         }
-    }
+    }*/
 }
