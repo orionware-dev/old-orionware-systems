@@ -17,15 +17,15 @@ public class RegisterLibraryAnnotationsTask extends AnnotationServiceObject impl
     private String currentAnnotationServiceClass;
     private String currentAnnotationServiceMethodToCall;
     private LoadLibraryAnnotationsDefinitionsTask loadLibraryAnnotationsDefinitionsTask;
-    private AnnotationsRegistrationService annotationsRegistrationService;
     private RegisterAnnotationTask registerAnnotationTask;
+    private SetAnnotationsAsRegisteredForLibraryTask setAnnotationsAsRegisteredForLibraryTask;
     
     
     public RegisterLibraryAnnotationsTask()
     {
-        this.annotationsRegistrationService = new AnnotationsRegistrationServiceImpl();
         this.loadLibraryAnnotationsDefinitionsTask = new LoadLibraryAnnotationsDefinitionsTask();
         this.registerAnnotationTask = new RegisterAnnotationTask();
+        this.setAnnotationsAsRegisteredForLibraryTask = new SetAnnotationsAsRegisteredForLibraryTask();
     }
     
     
@@ -57,7 +57,7 @@ public class RegisterLibraryAnnotationsTask extends AnnotationServiceObject impl
             }
         }
         
-        annotationsRegistrationService.setAnnotationsAsRegisteredForLibrary(libraryConfiguration.getLibraryName());
+        setAnnotationsAsRegisteredForLibraryTask.run(libraryConfiguration.getLibraryName());
     }
     
     

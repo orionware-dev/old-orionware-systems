@@ -7,9 +7,9 @@ import core.configuration.LibraryConfiguration;
 
 public class RegisterLibrariesAnnotationsTask extends AnnotationServiceObject implements AnnotationTask
 {
-    public void run(Stream<LibraryConfiguration> librariesConfiguration)
+    public void run(Stream<LibraryConfiguration> librariesConfigurationStream)
     {
         RegisterLibraryAnnotationsTask registerLibraryAnnotationsTask = new RegisterLibraryAnnotationsTask();
-        librariesConfiguration.forEach((libraryConfiguration) -> registerLibraryAnnotationsTask.run(libraryConfiguration));
+        librariesConfigurationStream.forEach((libraryConfiguration) -> registerLibraryAnnotationsTask.run(libraryConfiguration));
     }
 }

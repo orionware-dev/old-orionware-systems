@@ -10,9 +10,6 @@ public interface AnnotationsRegistrationService extends AnnotationService
     public void registerLibrariesAnnotations(Set<LibraryConfiguration> librariesConfiguration);
     
     
-    public void registerLibraryAnnotationsDefinitions(LibraryConfiguration libraryConfiguration);
-    
-    
     public void registerAnnotation(OrionAnnotation registeredAnnotation);
     
     

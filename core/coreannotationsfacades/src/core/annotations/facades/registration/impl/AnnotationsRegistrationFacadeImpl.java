@@ -27,13 +27,6 @@ public class AnnotationsRegistrationFacadeImpl extends AnnotationFacadeObject im
     
     
     @Override
-    public void registerLibraryAnnotationsDefinitions(LibraryConfiguration libraryConfiguration)
-    {
-        annotationsRegistrationService.registerLibraryAnnotationsDefinitions(libraryConfiguration);
-    }
-    
-    
-    @Override
     public void registerAnnotation(OrionAnnotation registeredAnnotation)
     {
         annotationsRegistrationService.registerAnnotation(registeredAnnotation);
