@@ -19,12 +19,6 @@ public class AnnotationsRegistry extends OrionRegistry
     }
     
     
-    public static void add(OrionAnnotation registeredAnnotation)
-    {
-        getAnnotations().add(registeredAnnotation);
-    }
-    
-    
     public static boolean isAnnotationRegistered(OrionAnnotation annotation)
     {
         boolean isAnnotationRegistered = false;
@@ -44,9 +38,9 @@ public class AnnotationsRegistry extends OrionRegistry
     }
     
     
-    public static void registerAnnotation(OrionAnnotation registeredAnnotation)
+    public static void registerAnnotation(OrionAnnotation annotationToRegister)
     {
-        getAnnotations().add(registeredAnnotation);
+        getAnnotations().add(annotationToRegister);
     }
     
     
