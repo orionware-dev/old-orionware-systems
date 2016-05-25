@@ -11,7 +11,6 @@ import core.functions.OrionAbstractFunction;
 public class GatherAllObjectConstructorsAnnotationsFunction extends OrionAbstractFunction
 {
     private List<Annotation> allObjectConstructorsAnnotationsList;
-    private Object object;
     
     
     public GatherAllObjectConstructorsAnnotationsFunction()
@@ -22,44 +21,16 @@ public class GatherAllObjectConstructorsAnnotationsFunction extends OrionAbstrac
     
     public List<Annotation> run(Object object)
     {
-        this.object = object;
-        gatherConstructorsAnnotationsAndPutThemInAList();
+        Constructor<?>[] constructors = object.getClass().getDeclaredConstructors();
+        Stream<Constructor<?>> constructorsStream = Arrays.stream(constructors);
+        constructorsStream.forEach((constructor) -> getConstructorAnnotationsAndAppendThemToList(constructor));
         return allObjectConstructorsAnnotationsList;
-    }
-    
-    
-    private void gatherConstructorsAnnotationsAndPutThemInAList()
-    {
-        getStreamForConstructors().forEach((constructor) -> getConstructorAnnotationsAndAppendThemToList(constructor));
-    }
-    
-    
-    private Constructor<?>[] getConstructors()
-    {
-        return object.getClass().getDeclaredConstructors();
-    }
-    
-    
-    private Stream<Constructor<?>> getStreamForConstructors()
-    {
-        return Arrays.stream(getConstructors());
-    }
-    
-    
-    private Annotation[] getConstructorAnnotations(Constructor<?> constructor)
-    {
-        return constructor.getAnnotations();
-    }
-    
-    
-    private void appendConstructorAnnotationsToList(Annotation[] annotations)
-    {
-        allObjectConstructorsAnnotationsList.addAll(Arrays.asList(annotations));
     }
     
     
     private void getConstructorAnnotationsAndAppendThemToList(Constructor<?> constructor)
     {
-        appendConstructorAnnotationsToList(getConstructorAnnotations(constructor));
+        Annotation[] annotations = constructor.getAnnotations();
+        allObjectConstructorsAnnotationsList.addAll(Arrays.asList(annotations));
     }
 }

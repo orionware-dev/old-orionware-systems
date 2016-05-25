@@ -11,7 +11,6 @@ import core.functions.OrionAbstractFunction;
 public class GatherAllObjectMethodsAnnotationsFunction extends OrionAbstractFunction
 {
     private List<Annotation> allObjectMethodsAnnotationsList;
-    private Object object;
     
     
     public GatherAllObjectMethodsAnnotationsFunction()
@@ -22,44 +21,16 @@ public class GatherAllObjectMethodsAnnotationsFunction extends OrionAbstractFunc
     
     public List<Annotation> run(Object object)
     {
-        this.object = object;
-        gatherMethodsAnnotationsAndPutThemInAList();
+        Method[] methods = object.getClass().getDeclaredMethods();
+        Stream<Method> methodsStream = Arrays.stream(methods);
+        methodsStream.forEach((method) -> getMethodAnnotationsAndAppendThemToList(method));
         return allObjectMethodsAnnotationsList;
-    }
-    
-    
-    private void gatherMethodsAnnotationsAndPutThemInAList()
-    {
-        getStreamForMethods().forEach((method) -> getMethodAnnotationsAndAppendThemToList(method));
-    }
-    
-    
-    private Method[] getMethods()
-    {
-        return object.getClass().getDeclaredMethods();
-    }
-    
-    
-    private Stream<Method> getStreamForMethods()
-    {
-        return Arrays.stream(getMethods());
-    }
-    
-    
-    private Annotation[] getMethodAnnotations(Method method)
-    {
-        return method.getAnnotations();
-    }
-    
-    
-    private void appendMethodAnnotationsToList(Annotation[] annotations)
-    {
-        allObjectMethodsAnnotationsList.addAll(Arrays.asList(annotations));
     }
     
     
     private void getMethodAnnotationsAndAppendThemToList(Method method)
     {
-        appendMethodAnnotationsToList(getMethodAnnotations(method));
+        Annotation[] annotations = method.getAnnotations();
+        allObjectMethodsAnnotationsList.addAll(Arrays.asList(annotations));
     }
 }
