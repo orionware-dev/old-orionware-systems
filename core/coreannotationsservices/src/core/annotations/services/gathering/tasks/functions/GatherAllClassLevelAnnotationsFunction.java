@@ -9,10 +9,13 @@ public class GatherAllClassLevelAnnotationsFunction extends OrionAbstractFunctio
 {
     public List<Annotation> run(Object object)
     {
-        first(getClassLevelAnnotations(object)).then(convertThemToList());
-        //getClassLevelAnnotations(object);
-        //andConvertThemToList();
-        return Arrays.asList(object.getClass().getAnnotations());
+        return getClassLevelAnnotationsAndConvertThemToList(object);
+    }
+    
+    
+    private List<Annotation> getClassLevelAnnotationsAndConvertThemToList(Object object)
+    {
+        return convertThemToList(getClassLevelAnnotations(object));
     }
     
     
