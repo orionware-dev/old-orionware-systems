@@ -19,25 +19,6 @@ public class AnnotationsRegistry extends OrionRegistry
     }
     
     
-    public static boolean isAnnotationRegistered(OrionAnnotation annotation)
-    {
-        boolean isAnnotationRegistered = false;
-        
-        for(OrionAnnotation registeredAnnotation : getAnnotations())
-        {
-            if(registeredAnnotation != null
-                   && registeredAnnotation.getAnnotationClass().equals(annotation.getAnnotationClass())
-                   && registeredAnnotation.getAnnotationService().equals(annotation.getAnnotationService())
-                   && registeredAnnotation.getAnnotationServiceMethodToCall().equals(annotation.getAnnotationServiceMethodToCall()))
-            {
-                return true;
-            }
-        }
-        
-        return isAnnotationRegistered;
-    }
-    
-    
     public static void registerAnnotation(OrionAnnotation annotationToRegister)
     {
         getAnnotations().add(annotationToRegister);
@@ -61,5 +42,24 @@ public class AnnotationsRegistry extends OrionRegistry
     public static void forEachAnnotation(Consumer<?> action)
     {
         getAnnotations().forEach((Consumer<? super OrionAnnotation>)action);
+    }
+    
+    
+    public static boolean isAnnotationRegistered(OrionAnnotation annotation)
+    {
+        boolean isAnnotationRegistered = false;
+        
+        for(OrionAnnotation registeredAnnotation : getAnnotations())
+        {
+            if(registeredAnnotation != null
+                   && registeredAnnotation.getAnnotationClass().equals(annotation.getAnnotationClass())
+                   && registeredAnnotation.getAnnotationService().equals(annotation.getAnnotationService())
+                   && registeredAnnotation.getAnnotationServiceMethodToCall().equals(annotation.getAnnotationServiceMethodToCall()))
+            {
+                return true;
+            }
+        }
+        
+        return isAnnotationRegistered;
     }
 }
