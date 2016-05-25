@@ -1,24 +1,58 @@
 package core.annotations.services.registry;
 
+import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 import core.annotations.OrionAnnotation;
-import core.annotations.RegisteredAnnotations;
 import core.general.OrionRegistry;
 
 public class AnnotationsRegistry extends OrionRegistry
 {
+    public static Set<OrionAnnotation> registeredAnnotationsSet;
+    
+    
+    static
+    {
+        registeredAnnotationsSet = new HashSet<OrionAnnotation>();
+    }
+    
+    
+    public static void add(OrionAnnotation registeredAnnotation)
+    {
+        getAnnotations().add(registeredAnnotation);
+    }
+    
+    
+    public static boolean isAnnotationRegistered(OrionAnnotation annotation)
+    {
+        boolean isAnnotationRegistered = false;
+        
+        for(OrionAnnotation registeredAnnotation : getAnnotations())
+        {
+            if(registeredAnnotation != null
+                   && registeredAnnotation.getAnnotationClass().equals(annotation.getAnnotationClass())
+                   && registeredAnnotation.getAnnotationService().equals(annotation.getAnnotationService())
+                   && registeredAnnotation.getAnnotationServiceMethodToCall().equals(annotation.getAnnotationServiceMethodToCall()))
+            {
+                return true;
+            }
+        }
+        
+        return isAnnotationRegistered;
+    }
+    
+    
     public static void registerAnnotation(OrionAnnotation registeredAnnotation)
     {
-        RegisteredAnnotations.add(registeredAnnotation);
+        getAnnotations().add(registeredAnnotation);
     }
     
     
     public static Set<OrionAnnotation> getAnnotations()
     {
-        return RegisteredAnnotations.registeredAnnotationsSet;
+        return registeredAnnotationsSet;
     }
     
     
@@ -33,11 +67,5 @@ public class AnnotationsRegistry extends OrionRegistry
     public static void forEachAnnotation(Consumer<?> action)
     {
         getAnnotations().forEach((Consumer<? super OrionAnnotation>)action);
-    }
-    
-    
-    public static boolean isAnnotationRegistered(OrionAnnotation annotation)
-    {
-        return RegisteredAnnotations.isAnnotationRegistered(annotation);
     }
 }
