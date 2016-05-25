@@ -11,7 +11,10 @@ public class DoesObjectHaveRegisteredAnnotationTask extends AnnotationServiceObj
     public boolean run(List<Annotation> allObjectAnnotationsList, OrionAnnotation registeredAnnotation)
     {
         return allObjectAnnotationsList.stream()
-                    .filter((annotation) -> annotation.annotationType().getName().equals(registeredAnnotation.getAnnotationClass()))
-                    .count() == 1;
+                   .filter((annotation) -> 
+                       {
+                           String annotationName = annotation.annotationType().getName();
+                           return annotationName.equals(registeredAnnotation.getAnnotationClass());
+                       }).count() == 1;
     }
 }
