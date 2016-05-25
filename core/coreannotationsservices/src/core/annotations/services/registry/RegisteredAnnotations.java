@@ -20,4 +20,23 @@ public class RegisteredAnnotations extends AnnotationObject
     {
         registeredAnnotationsSet.add(registeredAnnotation);
     }
+    
+    
+    public static boolean isAnnotationRegistered(OrionAnnotation annotation)
+    {
+        boolean isAnnotationRegistered = false;
+        
+        for(OrionAnnotation registeredAnnotation : registeredAnnotationsSet)
+        {
+            if(registeredAnnotation != null
+                   && registeredAnnotation.getAnnotationClass().equals(annotation.getAnnotationClass())
+                   && registeredAnnotation.getAnnotationService().equals(annotation.getAnnotationService())
+                   && registeredAnnotation.getAnnotationServiceMethodToCall().equals(annotation.getAnnotationServiceMethodToCall()))
+            {
+                return true;
+            }
+        }
+        
+        return isAnnotationRegistered;
+    }
 }

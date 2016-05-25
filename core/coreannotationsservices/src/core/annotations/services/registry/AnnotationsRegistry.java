@@ -33,4 +33,10 @@ public class AnnotationsRegistry extends OrionRegistry
     {
         getAnnotations().forEach((Consumer<? super OrionAnnotation>)action);
     }
+    
+    
+    public static boolean isAnnotationRegistered(OrionAnnotation annotation)
+    {
+        return RegisteredAnnotations.isAnnotationRegistered(annotation);
+    }
 }

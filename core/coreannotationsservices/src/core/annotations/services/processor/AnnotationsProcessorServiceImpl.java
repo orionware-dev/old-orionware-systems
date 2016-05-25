@@ -8,18 +8,15 @@ import core.annotations.services.AnnotationServiceObject;
 import core.annotations.services.gathering.AnnotationsGatheringService;
 import core.annotations.services.gathering.AnnotationsGatheringServiceImpl;
 import core.annotations.services.processor.tasks.ApplyAnnotationsToMethodTask;
-import core.annotations.services.processor.tasks.GetRegisteredAnnotationsTask;
 
 public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject implements AnnotationsProcessorService
 {
     private ApplyAnnotationsToMethodTask applyAnnotationsToMethodTask;
-    private GetRegisteredAnnotationsTask getRegisteredAnnotationsTask;
     private AnnotationsGatheringService annotationsGatheringService;
     
     
     public AnnotationsProcessorServiceImpl()
     {
-        this.getRegisteredAnnotationsTask = new GetRegisteredAnnotationsTask();
         this.applyAnnotationsToMethodTask = new ApplyAnnotationsToMethodTask();
         this.annotationsGatheringService = new AnnotationsGatheringServiceImpl();
     }
@@ -33,7 +30,7 @@ public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject imp
         //the one it is processing now then we can process it otherwise it means that we are
         //processing an annotation that has not been registered in which case we ignore it:
         //It could be a Java/Spring/etc. annotation in which case it is processed by the respective framework
-        Stream<OrionAnnotation> registeredAnnotations = getRegisteredAnnotationsTask.run(allObjectAnnotationsList);
+        Stream<OrionAnnotation> registeredAnnotations = annotationsGatheringService.filterRegisteredAnnotationsStreamFromObjectAnnotations(allObjectAnnotationsList);
         applyAnnotationsToMethodTask.run(registeredAnnotations, OrionObject);
     }
 }
