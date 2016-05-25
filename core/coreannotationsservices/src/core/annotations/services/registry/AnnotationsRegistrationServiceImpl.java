@@ -26,7 +26,6 @@ public class AnnotationsRegistrationServiceImpl extends AnnotationServiceObject 
     private RegisterLibraryAnnotationsTask registerLibraryAnnotationsTask;
     private HaveAnnotationsBeenRegisteredForLibraryTask haveAnnotationsBeenRegisteredForLibraryTask;
     private SetAnnotationsAsRegisteredForLibraryTask setAnnotationsAsRegisteredForLibraryTask;
-    private AnnotationsLoaderService annotationsLoaderService;
     
     
     public AnnotationsRegistrationServiceImpl()
@@ -39,23 +38,22 @@ public class AnnotationsRegistrationServiceImpl extends AnnotationServiceObject 
         this.registerLibraryAnnotationsTask = new RegisterLibraryAnnotationsTask();
         this.haveAnnotationsBeenRegisteredForLibraryTask = new HaveAnnotationsBeenRegisteredForLibraryTask();
         this.setAnnotationsAsRegisteredForLibraryTask = new SetAnnotationsAsRegisteredForLibraryTask();
-        this.annotationsLoaderService = new AnnotationsLoaderServiceImpl();
     }
     
     
     @Override
     public void registerLibrariesAnnotations(Set<LibraryConfiguration> librariesConfiguration)
     {
-        Stream<LibraryConfiguration> notNullLibraryConfigurations = filterNotNullLibraryConfigurationsTask.run(librariesConfiguration);
-        notNullLibraryConfigurations = filterAnnotationsNotBeenRegisteredForLibraryTask.run(this, notNullLibraryConfigurations);
-        registerLibrariesAnnotationsTask.run(this, annotationsLoaderService, notNullLibraryConfigurations);
+        Stream<LibraryConfiguration> notNullLibrariesConfiguration = filterNotNullLibraryConfigurationsTask.run(librariesConfiguration);
+        notNullLibrariesConfiguration = filterAnnotationsNotBeenRegisteredForLibraryTask.run(notNullLibrariesConfiguration);
+        registerLibrariesAnnotationsTask.run(notNullLibrariesConfiguration);
     }
     
     
     @Override
     public void registerLibraryAnnotationsDefinitions(LibraryConfiguration libraryConfiguration)
     {
-        loadLibraryAnnotationsDefinitionsTask.run(annotationsLoaderService, libraryConfiguration);
+        loadLibraryAnnotationsDefinitionsTask.run(libraryConfiguration);
     }
     
     
@@ -90,6 +88,6 @@ public class AnnotationsRegistrationServiceImpl extends AnnotationServiceObject 
     @Override
     public void registerLibraryAnnotations(LibraryConfiguration libraryConfiguration)
     {
-        registerLibraryAnnotationsTask.run(this, annotationsLoaderService, libraryConfiguration);
+        registerLibraryAnnotationsTask.run(libraryConfiguration);
     }
 }

@@ -4,7 +4,9 @@ import core.annotations.AnnotationTask;
 import core.annotations.OrionAnnotation;
 import core.annotations.services.AnnotationServiceObject;
 import core.annotations.services.loader.AnnotationsLoaderService;
+import core.annotations.services.loader.AnnotationsLoaderServiceImpl;
 import core.annotations.services.registry.AnnotationsRegistrationService;
+import core.annotations.services.registry.AnnotationsRegistrationServiceImpl;
 import core.configuration.LibraryConfiguration;
 import core.configuration.OrionProperties;
 
@@ -16,18 +18,20 @@ public class RegisterLibraryAnnotationsTask extends AnnotationServiceObject impl
     private String currentAnnotationServiceMethodToCall;
     private LoadLibraryAnnotationsDefinitionsTask loadLibraryAnnotationsDefinitionsTask;
     private AnnotationsRegistrationService annotationsRegistrationService;
+    private RegisterAnnotationTask registerAnnotationTask;
     
     
     public RegisterLibraryAnnotationsTask()
     {
+        this.annotationsRegistrationService = new AnnotationsRegistrationServiceImpl();
         this.loadLibraryAnnotationsDefinitionsTask = new LoadLibraryAnnotationsDefinitionsTask();
+        this.registerAnnotationTask = new RegisterAnnotationTask();
     }
     
     
-    public void run(AnnotationsRegistrationService annotationsRegistrationService, AnnotationsLoaderService annotationsLoaderService, LibraryConfiguration libraryConfiguration)
+    public void run(LibraryConfiguration libraryConfiguration)
     {
-        this.annotationsRegistrationService = annotationsRegistrationService;
-        annotationsDeclarations = loadLibraryAnnotationsDefinitionsTask.run(annotationsLoaderService, libraryConfiguration);
+        annotationsDeclarations = loadLibraryAnnotationsDefinitionsTask.run(libraryConfiguration);
         
         if(annotationsDeclarations.isNotEmpty())
         {
@@ -95,7 +99,6 @@ public class RegisterLibraryAnnotationsTask extends AnnotationServiceObject impl
     
     private void registerLibraryAnnotation()
     {
-        annotationsRegistrationService.registerAnnotation(new OrionAnnotation
-            (currentAnnotationClass, currentAnnotationServiceClass, currentAnnotationServiceMethodToCall));
+        registerAnnotationTask.run(new OrionAnnotation(currentAnnotationClass, currentAnnotationServiceClass, currentAnnotationServiceMethodToCall));
     }
 }
