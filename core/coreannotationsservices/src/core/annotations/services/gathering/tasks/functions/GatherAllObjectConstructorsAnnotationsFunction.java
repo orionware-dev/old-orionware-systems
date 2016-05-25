@@ -11,6 +11,7 @@ import core.functions.OrionAbstractFunction;
 public class GatherAllObjectConstructorsAnnotationsFunction extends OrionAbstractFunction
 {
     private List<Annotation> allObjectConstructorsAnnotationsList;
+    private Object object;
     
     
     public GatherAllObjectConstructorsAnnotationsFunction()
@@ -21,33 +22,44 @@ public class GatherAllObjectConstructorsAnnotationsFunction extends OrionAbstrac
     
     public List<Annotation> run(Object object)
     {
-        gatherConstructorsAnnotationsAndPutThemInAList(object);
+        this.object = object;
+        gatherConstructorsAnnotationsAndPutThemInAList();
         return allObjectConstructorsAnnotationsList;
     }
     
     
-    private void gatherConstructorsAnnotationsAndPutThemInAList(Object object)
+    private void gatherConstructorsAnnotationsAndPutThemInAList()
     {
-        Constructor<?>[] constructorAnnotations = getConstructorsAnnotations(object);
-        Stream<Constructor<?>> annotationsStream = createStreamForAnnotations(constructorAnnotations);
-        annotationsStream.forEach((constructor) -> appendAnnotationsToList(constructor));
+        getStreamForConstructors().forEach((constructor) -> getConstructorAnnotationsAndAppendThemToList(constructor));
     }
     
     
-    private Constructor<?>[] getConstructorsAnnotations(Object object)
+    private Constructor<?>[] getConstructors()
     {
         return object.getClass().getDeclaredConstructors();
     }
     
     
-    private Stream<Constructor<?>> createStreamForAnnotations(Constructor<?>[] annotations)
+    private Stream<Constructor<?>> getStreamForConstructors()
     {
-        return Arrays.stream(getConstructorsAnnotations(annotations));
+        return Arrays.stream(getConstructors());
     }
     
     
-    private void appendAnnotationsToList(Constructor<?> constructor)
+    private Annotation[] getConstructorAnnotations(Constructor<?> constructor)
     {
-        allObjectConstructorsAnnotationsList.addAll(Arrays.asList(constructor.getAnnotations()));
+        return constructor.getAnnotations();
+    }
+    
+    
+    private void appendConstructorAnnotationsToList(Annotation[] annotations)
+    {
+        allObjectConstructorsAnnotationsList.addAll(Arrays.asList(annotations));
+    }
+    
+    
+    private void getConstructorAnnotationsAndAppendThemToList(Constructor<?> constructor)
+    {
+        appendConstructorAnnotationsToList(getConstructorAnnotations(constructor));
     }
 }

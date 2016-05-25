@@ -8,6 +8,7 @@ knows less about low-level (task implementation) policy
 --try to abstract as much code as I can
 --for composite tasks, create functions subpackage and put in there functions to be used form within the task only
 --improve modularisation
+--check functions and see if I can move some stuff from them to separate services and tasks
 
 
 
