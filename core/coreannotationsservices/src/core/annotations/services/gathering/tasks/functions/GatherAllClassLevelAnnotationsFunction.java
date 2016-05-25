@@ -15,7 +15,7 @@ public class GatherAllClassLevelAnnotationsFunction extends OrionAbstractFunctio
     
     private List<Annotation> getClassLevelAnnotationsAndConvertThemToList(Object object)
     {
-        return convertThemToList(getClassLevelAnnotations(object));
+        return convertAnnotationsToList(getClassLevelAnnotations(object));
     }
     
     
@@ -25,7 +25,7 @@ public class GatherAllClassLevelAnnotationsFunction extends OrionAbstractFunctio
     }
     
     
-    private List<Annotation> convertThemToList(Annotation[] classLevelAnnotations)
+    private List<Annotation> convertAnnotationsToList(Annotation[] classLevelAnnotations)
     {
         return Arrays.asList(classLevelAnnotations);
     }
