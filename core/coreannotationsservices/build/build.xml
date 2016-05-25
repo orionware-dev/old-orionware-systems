@@ -7,7 +7,7 @@
 
     
     <target name="all">
-    	    <buildAndPackageProject sourceDir="${orion.core.annotations.services.source.dir}" binariesDir="${orion.core.annotations.services.binaries.dir}" JARPath="${orion.core.annotations.services.jar.file.name}" projectName="${orion.core.annotations.services}"/>
+    	    <buildAndPackageProject sourceDir="${orion.core.annotations.services.source.dir}" binariesDir="${orion.core.annotations.services.binaries.dir}" JARPath="${orion.orionware.libraries.libraries.dir}/${orion.core.annotations.services.jar.file.name}" projectName="${orion.core.annotations.services}"/>
         
         <copy todir="${orion.core.binaries.dir}" verbose="yes" failonerror="false" overwrite="true">
             <fileset dir="${orion.core.annotations.services.binaries.dir}" includes="${default.any.file.extension.pattern}"/>

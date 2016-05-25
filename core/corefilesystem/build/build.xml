@@ -7,7 +7,7 @@
 
     
     <target name="all">
-    	<buildAndPackageProject sourceDir="${orion.core.file.system.source.dir}" binariesDir="${orion.core.file.system.binaries.dir}" JARPath="${orion.core.file.system.jar.file.name}" projectName="${orion.core.file.system}"/>
+    	   <buildAndPackageProject sourceDir="${orion.core.file.system.source.dir}" binariesDir="${orion.core.file.system.binaries.dir}" JARPath="${orion.orionware.libraries.libraries.dir}/${orion.core.file.system.jar.file.name}" projectName="${orion.core.file.system}"/>
         
         <copy todir="${orion.core.binaries.dir}" verbose="yes" failonerror="false" overwrite="true">
             <fileset dir="${orion.core.file.system.binaries.dir}" includes="${default.any.file.extension.pattern}"/>
