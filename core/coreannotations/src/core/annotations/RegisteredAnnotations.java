@@ -1,9 +1,7 @@
-package core.annotations.services.registry;
+package core.annotations;
 
 import java.util.HashSet;
 import java.util.Set;
-import core.annotations.AnnotationObject;
-import core.annotations.OrionAnnotation;
 
 public class RegisteredAnnotations extends AnnotationObject
 {

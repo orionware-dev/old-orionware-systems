@@ -5,6 +5,7 @@ import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 import core.annotations.OrionAnnotation;
+import core.annotations.RegisteredAnnotations;
 import core.general.OrionRegistry;
 
 public class AnnotationsRegistry extends OrionRegistry
