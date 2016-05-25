@@ -42,12 +42,18 @@ public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject imp
     }
     
     
+    //returns true if annotation has been applied to method and false if it is not registered
     @Override
-    public void applyMethodAnnotation(Object OrionObject, OrionAnnotation annotationToProcess)
+    public boolean applyMethodAnnotation(Object OrionObject, OrionAnnotation annotationToProcess)
     {
+        boolean isAnnotationApplicable = false;
+        
         if(annotationsGatheringService.isAnnotationRegisteredTask(annotationToProcess))
         {
             applyAnnotationToMethodTask.run(reflectionService, OrionObject, annotationToProcess);
+            isAnnotationApplicable = true;
         }
+        
+        return isAnnotationApplicable;
     }
 }
