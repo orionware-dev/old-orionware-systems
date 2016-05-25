@@ -2,29 +2,25 @@ package core.annotations.services.processor;
 
 import java.lang.annotation.Annotation;
 import java.util.List;
+import java.util.stream.Stream;
 import core.annotations.OrionAnnotation;
 import core.annotations.services.AnnotationServiceObject;
 import core.annotations.services.gathering.AnnotationsGatheringService;
 import core.annotations.services.gathering.AnnotationsGatheringServiceImpl;
-import core.annotations.services.processor.tasks.ApplyAnnotationToMethodTask;
-import core.annotations.services.processor.tasks.IsAnnotationRegisteredTask;
-import core.annotations.services.registry.AnnotationsRegistry;
-import core.reflection.loader.ReflectionService;
-import core.reflection.loader.ReflectionServiceImpl;
+import core.annotations.services.processor.tasks.ApplyAnnotationsToMethodTask;
+import core.annotations.services.processor.tasks.GetRegisteredAnnotationsTask;
 
 public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject implements AnnotationsProcessorService
 {
-    private ApplyAnnotationToMethodTask applyAnnotationToMethodTask;
-    private ReflectionService reflectionService;
-    private IsAnnotationRegisteredTask isAnnotationRegisteredTask;
+    private ApplyAnnotationsToMethodTask applyAnnotationsToMethodTask;
+    private GetRegisteredAnnotationsTask getRegisteredAnnotationsTask;
     private AnnotationsGatheringService annotationsGatheringService;
     
     
     public AnnotationsProcessorServiceImpl()
     {
-        this.reflectionService = new ReflectionServiceImpl();
-        this.isAnnotationRegisteredTask = new IsAnnotationRegisteredTask();
-        this.applyAnnotationToMethodTask = new ApplyAnnotationToMethodTask();
+        this.getRegisteredAnnotationsTask = new GetRegisteredAnnotationsTask();
+        this.applyAnnotationsToMethodTask = new ApplyAnnotationsToMethodTask();
         this.annotationsGatheringService = new AnnotationsGatheringServiceImpl();
     }
     
@@ -37,9 +33,7 @@ public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject imp
         //the one it is processing now then we can process it otherwise it means that we are
         //processing an annotation that has not been registered in which case we ignore it:
         //It could be a Java/Spring/etc. annotation in which case it is processed by the respective framework
-        //getRegisteredAnnotationsTask();
-        //applyAnnotationsToMethodTask();
-        AnnotationsRegistry.filterAnnotations((annotation) -> isAnnotationRegisteredTask.run(allObjectAnnotationsList, (OrionAnnotation)annotation))
-            .forEach((annotation) -> applyAnnotationToMethodTask.run(reflectionService, OrionObject, (OrionAnnotation)annotation));
+        Stream<OrionAnnotation> registeredAnnotations = getRegisteredAnnotationsTask.run(allObjectAnnotationsList);
+        applyAnnotationsToMethodTask.run(registeredAnnotations, OrionObject);
     }
 }
