@@ -7,9 +7,6 @@ needs other functions/tasks/services/facades then split
 the function into more functions or have the taskthe
 task that uses the function
 
---a task should be composed by functions. If a task needs another task
-then it should be split
-
 --general cleanup
 --AnnotationsLoaderServiceImpl is not using ConfigurationService and it is using the tasks directly
 --for methods like "havePropertiesNotBeenRegisteredForLibrary", instead of using "libraryConfiguration.getLibraryName()", use "libraryConfiguration.getLibraryClassPath()"
