@@ -8,21 +8,27 @@ the function into more functions or have the taskthe
 task that uses the function
 
 --general cleanup
---AnnotationsLoaderServiceImpl is not using ConfigurationService and it is using the tasks directly
---for methods like "havePropertiesNotBeenRegisteredForLibrary", instead of using "libraryConfiguration.getLibraryName()", use "libraryConfiguration.getLibraryClassPath()"
+--AnnotationsLoaderServiceImpl is not using ConfigurationService
+and it is using the tasks directly
+--for methods like "havePropertiesNotBeenRegisteredForLibrary", instead of using
+"libraryConfiguration.getLibraryName()", use "libraryConfiguration.getLibraryClassPath()"
 --try to abstract as much code as I can
---for composite tasks, create functions subpackage and put in there functions to be used form within the task only
+--for composite tasks, create functions subpackage and put in there functions to be
+used form within the task only
 --improve modularisation
 --check functions and see if I can move some stuff from them to separate services and tasks
+--replace AnnotationsRegistry.filterAnnotations() with a generic streaming service
 
 
 
 --in /workspaces/orion/ create dir orionware-platform.
 --create dir /workspaces/orion/orionware-general.
---put delivery-engine project and whatever else from orionware-libraries to /workspaces/orion/orionware-general, abstractise ant-tasks, etc.
+--put delivery-engine project and whatever else from orionware-libraries to
+/workspaces/orion/orionware-general, abstractise ant-tasks, etc.
 --create documentation project in platform.
 --put tomcat in platform.
---use HSQL as an embedded database. Make it configurable for the dev to select which database he wants to use.
+--use HSQL as an embedded database. Make it configurable for the dev to select
+which database he wants to use.
 --find a way to have multiple database engines.
 
 
@@ -403,7 +409,8 @@ designpatternsfacades.my.new.property.1=hello
 designpatternsfacades.my.other.property.2=world
 the namespace is "designpatternsfacades"
 
---event-driven in libraries. How can we create something like a Spring or Tomcat container so that the libraries are executed in an environment the core project can control?
+--event-driven in libraries. How can we create something like a Spring
+or Tomcat container so that the libraries are executed in an environment the core project can control?
 
 --whenever something is "updated" at run-time, dynamically, use an "updater"
 

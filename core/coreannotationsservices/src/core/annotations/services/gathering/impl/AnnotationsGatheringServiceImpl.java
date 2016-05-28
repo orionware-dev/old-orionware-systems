@@ -7,7 +7,6 @@ import java.util.stream.Stream;
 import core.annotations.OrionAnnotation;
 import core.annotations.services.AnnotationServiceObject;
 import core.annotations.services.gathering.AnnotationsGatheringService;
-import core.annotations.services.gathering.impl.tasks.DoesObjectHaveRegisteredAnnotationTask;
 import core.annotations.services.gathering.impl.tasks.ExtractAnnotationFromMethodTask;
 import core.annotations.services.gathering.impl.tasks.FilterRegisteredAnnotationsStreamFromObjectAnnotationsTask;
 import core.annotations.services.gathering.impl.tasks.GatherAllAnnotationsFromObjectTask;
@@ -18,7 +17,6 @@ public class AnnotationsGatheringServiceImpl extends AnnotationServiceObject imp
     private GatherAllAnnotationsFromObjectTask gatherAllAnnotationsFromObjectTask;
     private ExtractAnnotationFromMethodTask extractAnnotationFromMethodTask;
     private FilterRegisteredAnnotationsStreamFromObjectAnnotationsTask filterRegisteredAnnotationsStreamFromObjectAnnotationsTask;
-    private DoesObjectHaveRegisteredAnnotationTask doesObjectHaveRegisteredAnnotationTask;
     private IsAnnotationRegisteredTask isAnnotationRegisteredTask;
     
     
@@ -27,7 +25,6 @@ public class AnnotationsGatheringServiceImpl extends AnnotationServiceObject imp
         this.gatherAllAnnotationsFromObjectTask = new GatherAllAnnotationsFromObjectTask();
         this.extractAnnotationFromMethodTask = new ExtractAnnotationFromMethodTask();
         this.filterRegisteredAnnotationsStreamFromObjectAnnotationsTask = new FilterRegisteredAnnotationsStreamFromObjectAnnotationsTask();
-        this.doesObjectHaveRegisteredAnnotationTask = new DoesObjectHaveRegisteredAnnotationTask();
         this.isAnnotationRegisteredTask = new IsAnnotationRegisteredTask();
     }
     
@@ -51,13 +48,6 @@ public class AnnotationsGatheringServiceImpl extends AnnotationServiceObject imp
     public Stream<OrionAnnotation> filterRegisteredAnnotationsStreamFromObjectAnnotations(List<Annotation> allObjectAnnotationsList)
     {
         return filterRegisteredAnnotationsStreamFromObjectAnnotationsTask.run(allObjectAnnotationsList);
-    }
-
-
-    @Override
-    public boolean doesObjectHaveRegisteredAnnotationTask(List<Annotation> allObjectAnnotationsList, OrionAnnotation registeredAnnotation)
-    {
-        return doesObjectHaveRegisteredAnnotationTask.run(allObjectAnnotationsList, registeredAnnotation);
     }
 
 
