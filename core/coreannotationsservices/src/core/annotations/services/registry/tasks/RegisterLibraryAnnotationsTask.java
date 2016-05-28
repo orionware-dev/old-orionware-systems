@@ -3,10 +3,6 @@ package core.annotations.services.registry.tasks;
 import core.annotations.AnnotationTask;
 import core.annotations.OrionAnnotation;
 import core.annotations.services.AnnotationServiceObject;
-import core.annotations.services.loader.AnnotationsLoaderService;
-import core.annotations.services.loader.AnnotationsLoaderServiceImpl;
-import core.annotations.services.registry.AnnotationsRegistrationService;
-import core.annotations.services.registry.AnnotationsRegistrationServiceImpl;
 import core.configuration.LibraryConfiguration;
 import core.configuration.OrionProperties;
 

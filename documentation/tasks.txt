@@ -306,6 +306,14 @@ create prop file in the for of the service or task
 --finish the template-project and apply everything I think of
 to all the projects. Use core and datastructures as examples
 
+Implement jocl and cuda and when we use collection.parallelStream()
+Orion will detect what kind of graphics card you have and the number
+of CPU cores and based on the size of the stream it will decide if
+it will use the CPU it jocl or cuda
+
+Integrate many existing Java etc. Libraries and systems like Apache
+and spring systems
+
 
 
 --CREATE CONVENIENT filter() AND forEach() IN OrionArrayList=========

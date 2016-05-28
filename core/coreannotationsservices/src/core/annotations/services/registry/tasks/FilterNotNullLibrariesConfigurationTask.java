@@ -6,7 +6,7 @@ import core.annotations.AnnotationTask;
 import core.annotations.services.AnnotationServiceObject;
 import core.configuration.LibraryConfiguration;
 
-public class FilterNotNullLibraryConfigurationsTask extends AnnotationServiceObject implements AnnotationTask
+public class FilterNotNullLibrariesConfigurationTask extends AnnotationServiceObject implements AnnotationTask
 {
     public Stream<LibraryConfiguration> run(Set<LibraryConfiguration> librariesConfiguration)
     {
