@@ -13,19 +13,19 @@ public class OrionObjectInitialiser extends OrionSimpleObject
     
     public Object getConfigurationServiceInstance()
     {
-        return instantiateClass("core.configuration.classpath.ConfigurationServiceImpl");
+        return instantiateClass("core.configuration.classpath.impl.ConfigurationServiceImpl");
     }
     
     
     public Object getAnnotationsRegistrationServiceInstance()
     {
-        return instantiateClass("core.annotations.services.registry.AnnotationsRegistrationServiceImpl");
+        return instantiateClass("core.annotations.services.registry.impl.AnnotationsRegistrationServiceImpl");
     }
     
     
     public Object getAnnotationsProcessorServiceInstance()
     {
-        return instantiateClass("core.annotations.services.processor.AnnotationsProcessorServiceImpl");
+        return instantiateClass("core.annotations.services.processor.impl.AnnotationsProcessorServiceImpl");
     }
     
     

@@ -1,6 +1,6 @@
 ﻿--facades should be composed by facades and services.
 --services should be composed by other services and tasks.
---tasks should be composed by other tasks and functions.
+--tasks should be composed by other tasks.
 
 --a function should be independent of other classes. If a function
 needs other functions/tasks/services/facades then split
@@ -10,10 +10,6 @@ task that uses the function
 --a task should be composed by functions. If a task needs another task
 then it should be split
 
---if a task needs another task or service then they should instantiate them and
-not have them injected by the parent service so that high-level policy (service)
-knows less about low-level (task implementation) policy
---tasks should be independent. If not then take the "steps" inside the service
 --general cleanup
 --AnnotationsLoaderServiceImpl is not using ConfigurationService and it is using the tasks directly
 --for methods like "havePropertiesNotBeenRegisteredForLibrary", instead of using "libraryConfiguration.getLibraryName()", use "libraryConfiguration.getLibraryClassPath()"

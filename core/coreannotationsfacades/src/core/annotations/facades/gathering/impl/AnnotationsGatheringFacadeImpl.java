@@ -6,7 +6,7 @@ import java.util.List;
 import core.annotations.facades.AnnotationFacadeObject;
 import core.annotations.facades.gathering.AnnotationsGatheringFacade;
 import core.annotations.services.gathering.AnnotationsGatheringService;
-import core.annotations.services.gathering.AnnotationsGatheringServiceImpl;
+import core.annotations.services.gathering.impl.AnnotationsGatheringServiceImpl;
 
 public class AnnotationsGatheringFacadeImpl extends AnnotationFacadeObject implements AnnotationsGatheringFacade
 {

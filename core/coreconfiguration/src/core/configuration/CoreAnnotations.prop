@@ -1,5 +1,5 @@
 coreconfiguration.annotation.1=core.dependencyinjection.Injector
-coreconfiguration.annotation.service.1=core.dependencyinjection.processor.DependencyInjectorServiceImpl
+coreconfiguration.annotation.service.1=core.dependencyinjection.processor.impl.DependencyInjectorServiceImpl
 coreconfiguration.annotation.service.processing.method.1=processDependencies
 
 coreconfiguration.annotation.2=core.dependencyinjection.service.ServiceInjector

@@ -5,7 +5,7 @@ import core.annotations.OrionAnnotation;
 import core.annotations.facades.AnnotationFacadeObject;
 import core.annotations.facades.registration.AnnotationsRegistrationFacade;
 import core.annotations.services.registry.AnnotationsRegistrationService;
-import core.annotations.services.registry.AnnotationsRegistrationServiceImpl;
+import core.annotations.services.registry.impl.AnnotationsRegistrationServiceImpl;
 import core.configuration.LibraryConfiguration;
 
 public class AnnotationsRegistrationFacadeImpl extends AnnotationFacadeObject implements AnnotationsRegistrationFacade
