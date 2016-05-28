@@ -5,7 +5,7 @@ import java.io.InputStream;
 import java.io.Reader;
 import java.io.Writer;
 import core.filesystem.FileSystemObject;
-import core.filesystem.streams.FileSystemService;
+import core.filesystem.streams.FileSystemStreamsService;
 import core.filesystem.streams.impl.tasks.CloseResourceTask;
 import core.filesystem.streams.impl.tasks.ConvertFileToStringTask;
 import core.filesystem.streams.impl.tasks.EmptyDirectoryTask;
@@ -14,7 +14,7 @@ import core.filesystem.streams.impl.tasks.GetReaderFromFileTask;
 import core.filesystem.streams.impl.tasks.GetWriterForFileTask;
 import core.filesystem.streams.impl.tasks.SaveStringToFileTask;
 
-public class FileSystemServiceImpl extends FileSystemObject implements FileSystemService
+public class FileSystemStreamsServiceImpl extends FileSystemObject implements FileSystemStreamsService
 {
     private GetFileStreamTask getFileStreamTask;
     private ConvertFileToStringTask convertFileToStringTask;
@@ -25,7 +25,7 @@ public class FileSystemServiceImpl extends FileSystemObject implements FileSyste
     private GetWriterForFileTask getWriterForFileTask;
     
     
-    public FileSystemServiceImpl()
+    public FileSystemStreamsServiceImpl()
     {
         this.getFileStreamTask = new GetFileStreamTask();
         this.convertFileToStringTask = new ConvertFileToStringTask();

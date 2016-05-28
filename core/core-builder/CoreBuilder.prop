@@ -1,4 +1,5 @@
 orion.core.file.system.builder.dir=${orion.core.projects.dir}/corefilesystem/build
+orion.core.file.system.facades.builder.dir=${orion.core.projects.dir}/corefilesystemfacades/build
 orion.core.reflection.builder.dir=${orion.core.projects.dir}/corereflection/build
 orion.core.configuration.builder.dir=${orion.core.projects.dir}/coreconfiguration/build
 orion.core.annotations.builder.dir=${orion.core.projects.dir}/coreannotations/build

@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import core.filesystem.FileSystemObject;
 import core.filesystem.FileSystemTask;
-import core.filesystem.streams.FileSystemService;
+import core.filesystem.streams.FileSystemStreamsService;
 
 public class SaveStringToFileTask extends FileSystemObject implements FileSystemTask
 {
@@ -24,9 +24,9 @@ public class SaveStringToFileTask extends FileSystemObject implements FileSystem
     }
     
     
-    public boolean run(FileSystemService fileSystemService, String filePath, String fileString)
+    public boolean run(FileSystemStreamsService fileSystemStreamsService, String filePath, String fileString)
     {
-        this.output = (BufferedWriter)fileSystemService.getWritterForFile(filePath);
+        this.output = (BufferedWriter)fileSystemStreamsService.getWritterForFile(filePath);
         String[] lines = fileString.split(lineSeparator);
         this.numberOfLines = lines.length;
         this.lineCounter = 1;
@@ -37,7 +37,7 @@ public class SaveStringToFileTask extends FileSystemObject implements FileSystem
         }
         finally
         {
-            fileSystemService.closeResource(output);
+            fileSystemStreamsService.closeResource(output);
         }
         
         return error;

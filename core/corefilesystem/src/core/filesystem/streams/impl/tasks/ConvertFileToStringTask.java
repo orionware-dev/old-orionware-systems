@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import core.filesystem.FileSystemObject;
 import core.filesystem.FileSystemTask;
-import core.filesystem.streams.FileSystemService;
+import core.filesystem.streams.FileSystemStreamsService;
 
 public class ConvertFileToStringTask extends FileSystemObject implements FileSystemTask
 {
@@ -20,10 +20,10 @@ public class ConvertFileToStringTask extends FileSystemObject implements FileSys
     }
     
     
-    public String run(FileSystemService fileSystemService, String filePath)
+    public String run(FileSystemStreamsService fileSystemStreamsService, String filePath)
     {
         String fileString = null;
-        this.input = (BufferedReader)fileSystemService.getReaderForFile(filePath);
+        this.input = (BufferedReader)fileSystemStreamsService.getReaderForFile(filePath);
         this.currentLine = null;
         
         try
@@ -36,7 +36,7 @@ public class ConvertFileToStringTask extends FileSystemObject implements FileSys
         }
         finally
         {
-            fileSystemService.closeResource(input);
+            fileSystemStreamsService.closeResource(input);
         }
         
         fileString = fileStringBuilder.toString();

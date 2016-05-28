@@ -1,0 +1,3 @@
+orion.core.file.system.facades=Core File System Facades
+orion.core.file.system.facades.dir=${orion.core.projects.dir}/corefilesystemfacades
+orion.core.file.system.facades.jar.file.name=OrionCoreFileSystemFacades_${orion.libraries.version}.jar

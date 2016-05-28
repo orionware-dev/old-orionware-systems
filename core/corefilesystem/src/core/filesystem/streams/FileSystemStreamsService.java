@@ -6,7 +6,7 @@ import java.io.Reader;
 import java.io.Writer;
 import core.filesystem.OrionFileSystemService;
 
-public interface FileSystemService extends OrionFileSystemService
+public interface FileSystemStreamsService extends OrionFileSystemService
 {
     public InputStream getFileStream(String fileLocation);
     

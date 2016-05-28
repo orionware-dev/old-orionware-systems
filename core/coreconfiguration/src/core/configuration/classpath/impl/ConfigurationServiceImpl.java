@@ -11,13 +11,13 @@ import core.configuration.classpath.impl.tasks.LoadLibraryPropertiesTask;
 import core.configuration.registry.PropertiesRegistrationService;
 import core.configuration.registry.impl.PropertiesRegistrationServiceImpl;
 import core.configuration.registry.impl.tasks.RegisterLibraryPropertiesTask;
-import core.filesystem.streams.FileSystemService;
-import core.filesystem.streams.impl.FileSystemServiceImpl;
+import core.filesystem.streams.FileSystemStreamsService;
+import core.filesystem.streams.impl.FileSystemStreamsServiceImpl;
 
 public class ConfigurationServiceImpl extends ConfigurationObject implements ConfigurationService
 {
     private IsCoreLibraryTask isCoreLibraryTask;
-    private FileSystemService fileSystemService;
+    private FileSystemStreamsService fileSystemStreamsService;
     private PropertiesRegistrationService propertiesRegistrationService;
     private RegisterLibraryPropertiesTask registerLibraryPropertiesTask;
     private LoadLibraryPropertiesTask loadLibraryPropertiesTask;
@@ -26,7 +26,7 @@ public class ConfigurationServiceImpl extends ConfigurationObject implements Con
     public ConfigurationServiceImpl()
     {
         this.isCoreLibraryTask = new IsCoreLibraryTask();
-        this.fileSystemService = new FileSystemServiceImpl();
+        this.fileSystemStreamsService = new FileSystemStreamsServiceImpl();
         this.propertiesRegistrationService = new PropertiesRegistrationServiceImpl();
         this.registerLibraryPropertiesTask = new RegisterLibraryPropertiesTask();
         this.loadLibraryPropertiesTask = new LoadLibraryPropertiesTask();
@@ -55,13 +55,13 @@ public class ConfigurationServiceImpl extends ConfigurationObject implements Con
     @Override
     public InputStream getFileStream(String filePath)
     {
-        return fileSystemService.getFileStream(filePath);
+        return fileSystemStreamsService.getFileStream(filePath);
     }
     
     
     @Override
     public void closeResource(Closeable stream)
     {
-        fileSystemService.closeResource(stream);
+        fileSystemStreamsService.closeResource(stream);
     }
 }
