@@ -7,20 +7,20 @@ import core.annotations.services.loader.AnnotationsLoaderService;
 import core.annotations.services.loader.impl.AnnotationsLoaderServiceImpl;
 import core.configuration.LibraryConfiguration;
 import core.configuration.OrionProperties;
-import core.filesystem.streams.FileSystemStreamsService;
-import core.filesystem.streams.impl.FileSystemStreamsServiceImpl;
+import core.filesystem.facades.streams.FileSystemStreamsFacade;
+import core.filesystem.facades.streams.impl.FileSystemStreamsFacadeImpl;
 
 public class LoadLibraryAnnotationsDefinitionsTask extends AnnotationServiceObject implements AnnotationTask
 {
     private OrionProperties annotationsDeclarations;
-    private FileSystemStreamsService fileSystemStreamsService;
+    private FileSystemStreamsFacade fileSystemStreamsFacade;
     private AnnotationsLoaderService annotationsLoaderService;
     
     
     public LoadLibraryAnnotationsDefinitionsTask()
     {
         this.annotationsDeclarations = new OrionProperties();
-        this.fileSystemStreamsService = new FileSystemStreamsServiceImpl();
+        this.fileSystemStreamsFacade = new FileSystemStreamsFacadeImpl();
         this.annotationsLoaderService = new AnnotationsLoaderServiceImpl();
     }
     
@@ -29,7 +29,7 @@ public class LoadLibraryAnnotationsDefinitionsTask extends AnnotationServiceObje
     {
         InputStream libraryAnnotationsFileStream = annotationsLoaderService.getAnnotationsDefinitionFileStream(libraryConfiguration.getAnnotationsDefinitionFilePath());
         annotationsDeclarations.loadProperties(libraryAnnotationsFileStream);
-        fileSystemStreamsService.closeResource(libraryAnnotationsFileStream);
+        fileSystemStreamsFacade.closeResource(libraryAnnotationsFileStream);
         return annotationsDeclarations;
     }
 }
