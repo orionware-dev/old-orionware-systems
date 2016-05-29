@@ -6,21 +6,14 @@
 
 --update tests, annotations.prop and OrionObjectInitialiser.java to use facades instead of services
 
---a function should be independent of other classes. If a function
-needs other functions/tasks/services/facades then split
-the function into more functions or have the taskthe
-task that uses the function
-
 --general cleanup
 --AnnotationsLoaderServiceImpl is not using ConfigurationService
 and it is using the tasks directly
 --for methods like "havePropertiesNotBeenRegisteredForLibrary", instead of using
 "libraryConfiguration.getLibraryName()", use "libraryConfiguration.getLibraryClassPath()"
 --try to abstract as much code as I can
---for composite tasks, create functions subpackage and put in there functions to be
-used form within the task only
 --improve modularisation
---check functions and see if I can move some stuff from them to separate services and tasks
+--check methods and see if I can move some stuff from them to separate services and tasks
 --replace AnnotationsRegistry.filterAnnotations() with a generic streaming service
 
 
@@ -44,11 +37,7 @@ necessary to get the config dir of this library and put it in
 setLibraryConfigurationDirectoryPath(); Use libraryConfigurationDirectoryPath
 to load the prop/config files
 
---create service projects
-
---create facade projects
-
---create general corefacades
+--create general corefacades that use the other core facade projects
 
 --update OrionObject reflection to use the facade projects
 instead of the services directly
@@ -59,17 +48,10 @@ to what they do and put them in appropriate packages and
 create services hierarchy and composition
 
 
---instead of tasks calling other tasks, split them into smaller
-tasks and the service itself should gather results from tasks
-and call the appropriate ones in the order it needs
-
-
 --see if some of the instance vars of a class belong to a separate data class
 
 --make the packages of datastructures, designpatterns, etc. to be like
 the core: "datastructures.services", "datastructures.facades", etc.
-
---make use of the facade projects
 
 --delete datastructures.testannotation.TestAnnotation
 
@@ -77,14 +59,9 @@ the core: "datastructures.services", "datastructures.facades", etc.
 --figure out how a DataStructure.java object will encapsulate its size:
 Use datastructuresservices.lists.size.impl.tasks.GetSizeTask
 
-
---convert streams to forEach
-
 --don't return nulls
 
 --create the Orion Web Platform
-
---create microservices
 
 --create my own OrionWebContextLoaderListener.java that implements
 ServletContextListener. Then, in contextInitialised() put code that
@@ -97,13 +74,14 @@ annotations of the class
 
 --put "synchronized" in static methods definitions
 
---load all System.getProperties() to AllProperties.java
+--load all System.getProperties() to AllProperties.java and
+make sure that that is loaded only once
 
---create OrionInt extends Integer and provide some convenience methods.
+--create OrionInteger extends Integer and provide some convenience methods.
 If it works, then do that for double and long, as well
 
 --Integer.getInteger(string) gets a System.getProperty(string) and then
-converts it to an integer. Create something similar using OrionInt,
+converts it to an integer. Create something similar using OrionInteger,
 that searches through AllProperties.java
 
 --in AllProperties, create methods like: getIntProp(string) that takes
@@ -120,7 +98,10 @@ object to ObjectEqualityChecker.java. create ObjectEqualityCheckerService.java
 that takes 2 or more objects and using the checkers mapper it will determine
 if they equal each other. You can create an ObjectEqualityChecker with the
 equals(object, object) and you can provide the custom implementation of the
-equality check. Use the service to register the checkers.
+equality check. Use the service to register the checkers. Create annotation
+@EqualityAttribute that can be put above instance vars or getters for the
+vars we want to be compared by the equality checker to determine if the
+2 objects are equal
 
 --create OrionArray.java and provide convenience methods
 
@@ -132,9 +113,6 @@ And XMLBuffer extends StringBuffer
 
 --create a way to do method callbacks: method(s) to be invoked after
 a method returns. Use pipeline/filters or something else
-
---create ThreadSafeList.java and ThreadSafeArrayList implements
-ThreadSafeList. Similarly for sets and maps
 
 --create event-driven dev framework
 
@@ -222,32 +200,24 @@ a new instance and put it on the cache automatically
 --create CacheConfiguration.prop and CacheConfiguration.java to
 load the props
 
---find list of types of diagrams and create library that represents
+--find list of types of diagrams/charts and create library that represents
 each on the back-end
 
 --in the events engine, create an EventContext which has all the
 variables that are circumstantial to the event
 
---use contexts in other situations, as well
-
---the core should have just not code that is required by the
-core itself. Other stuff will go to libraries
-
 --datasources lib. Also handles in-memory databases
 
 --make OrionRegistry extensible and move it's current content
-to other subclasses of OrionRegistry
-
---create OrionRegistryMapper that holds a map of (string)
-registryKey -> OrionRegistry
-
---create complete object hierarchy from current classes
-
---the facade projects have a ServicesRegistry extends OrionRegistry
+to other subclasses of OrionRegistry. The facade projects have
+a ServicesRegistry extends OrionRegistry
 that takes a string (service name) and uses factory to instantiate
 the service and returns it. Inside the ServicesRegistry there are
 constant strings with the service names and a mapper of these names
 to their instance
+
+--create OrionRegistryMapper that holds a map of (string)
+registryKey -> OrionRegistry
 
 --create project coreserviceframework which implements the service
 framework which I have in GDrive/Orion/documentation/services.txt
@@ -261,8 +231,6 @@ which services execute, what data sources are accessed, etc.
 output, files, etc. It also generates PDFs, etc.
 
 --create datavalidation lib for generic input validation
-
---create charts lib that builds the back-end of many charts
 
 --create corecache lib that implements many caching strategies
 
@@ -299,12 +267,12 @@ to exchange messages with remote services
 --create webservices lib as the RESTful engine
 
 --create coreexecutor lib and put in it an asynchronous executor
-like we do for the PollPlug emailer
+like we do for the PollPlug emailer and command-line process calls
 
 --see if services and tasks could be configurable. If yes then
 create prop file in the for of the service or task
 
---implement escapers like XSS, HTML escape, etc.
+--implement escapers like XSS, HTML escape, XML escape, etc.
 
 --create datetime lib for calendar ops, stopwatch, timestamps, etc.
 
@@ -315,6 +283,8 @@ create prop file in the for of the service or task
 --create csv lib
 
 --create ClasspathService that replaces ConfigurationService
+
+--use fork/join framework
 
 
 
@@ -416,6 +386,6 @@ the namespace is "designpatternsfacades"
 --event-driven in libraries. How can we create something like a Spring
 or Tomcat container so that the libraries are executed in an environment the core project can control?
 
---whenever something is "updated" at run-time, dynamically, use an "updater"
+--whenever something is "updated" at run-time, dynamically, use an "updater service"
 
 --we could enable "in-library" permissions. You could "login" in the library in order to use it
