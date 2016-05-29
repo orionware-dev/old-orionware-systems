@@ -9,6 +9,7 @@
 --general cleanup
 --AnnotationsLoaderServiceImpl is not using ConfigurationClasspathService
 and it is using the tasks directly
+--use Optional<TYPE>
 --for methods like "havePropertiesNotBeenRegisteredForLibrary", instead of using
 "libraryConfiguration.getLibraryName()", use "libraryConfiguration.getLibraryClassPath()"
 --try to abstract as much code as I can
