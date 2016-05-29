@@ -7,38 +7,29 @@ public abstract class OrionObject extends OrionSimpleObject
 {
     private OrionObjectInitialiser OrionObjectInitialiser;
     private Set<Object> librariesConfigurationSet;
-    private Object libraryConfiguration;
-    private Object configurationFacade;
-    private Object annotationsRegistrationFacade;
-    private Object annotationsProcessorFacade;
     
     
     public OrionObject()
     {
         this.librariesConfigurationSet = new HashSet<Object>();
         this.OrionObjectInitialiser = new OrionObjectInitialiser();
-        this.libraryConfiguration = OrionObjectInitialiser.getLibraryConfigurationInstance();
-        this.configurationFacade = OrionObjectInitialiser.getConfigurationFacadeInstance();
-        this.annotationsRegistrationFacade = OrionObjectInitialiser.getAnnotationsRegistrationFacadeInstance();
-        this.annotationsProcessorFacade = OrionObjectInitialiser.getAnnotationsProcessorFacadeInstance();
-        initialiseCoreConfiguration();
-        loadCoreConfiguration();
+        loadCoreConfiguration(OrionObjectInitialiser.getInitialisedCoreConfiguration());
         processAllLibrariesConfigurationIfItIsTheCoreLibrary();
     }
     
     
-    private void initialiseCoreConfiguration()
-    {
-        libraryConfiguration = OrionObjectInitialiser.getInitialisedCoreConfiguration(libraryConfiguration);
-    }
-    
-    
-    private void loadCoreConfiguration()
+    private void loadCoreConfiguration(Object libraryConfiguration)
     {
         registerLibraryConfiguration(libraryConfiguration);
     }
     
     
+    //if the original class that was executed belongs to
+    //the core projects then we explicitly call the
+    //configuration processor. Otherwise the processor
+    //is called by the OrionObject subclasses directly
+    //so that all the libraries that have objects
+    //that extend OrionObject will be configured
     private void processAllLibrariesConfigurationIfItIsTheCoreLibrary()
     {
         if(thisIsCoreLibrary())
@@ -50,7 +41,7 @@ public abstract class OrionObject extends OrionSimpleObject
     
     private boolean thisIsCoreLibrary()
     {
-        return OrionObjectInitialiser.thisIsCoreLibrary(configurationFacade, getClass());
+        return OrionObjectInitialiser.thisIsCoreLibrary(getClass());
     }
     
     
@@ -58,9 +49,9 @@ public abstract class OrionObject extends OrionSimpleObject
     //then this method is called so that all the libraries configs are loaded in one go
     protected void processAllLibrariesConfiguration()
     {
-        OrionObjectInitialiser.processAllLibrariesConfiguration(configurationFacade, librariesConfigurationSet);
-        OrionObjectInitialiser.registerLibrariesAnnotations(annotationsRegistrationFacade, librariesConfigurationSet);
-        OrionObjectInitialiser.processAllAnnotations(annotationsProcessorFacade, this);
+        OrionObjectInitialiser.processAllLibrariesConfiguration(librariesConfigurationSet);
+        OrionObjectInitialiser.registerLibrariesAnnotations(librariesConfigurationSet);
+        OrionObjectInitialiser.processAllAnnotations(this);
     }
     
     
