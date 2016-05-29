@@ -13,17 +13,13 @@ public class OrionObjectInitialiser extends OrionSimpleObject
         try
         {
             Class<Enum> coreConfigurationEnumClass = (Class<Enum>)Class.forName("core.configuration.CoreConfigurationEnum");
-            Enum coreLibraryNameEnum = Enum.valueOf(coreConfigurationEnumClass, "LIBRARY_NAME");
-            String coreLibraryNameValue = (String)coreConfigurationEnumClass.getMethod("get", new Class<?>[]{}).invoke(coreLibraryNameEnum, new Object[]{});
-            Enum coreLibraryClassPathEnum = Enum.valueOf(coreConfigurationEnumClass, "LIBRARY_CLASS_PATH");
-            String coreLibraryClassPathValue = (String)coreConfigurationEnumClass.getMethod("get", new Class<?>[]{}).invoke(coreLibraryClassPathEnum, new Object[]{});
-            Enum corePropertiesFilePathEnum = Enum.valueOf(coreConfigurationEnumClass, "PROPERTIES_FILE_PATH");
-            String corePropertiesFilePathValue = (String)coreConfigurationEnumClass.getMethod("get", new Class<?>[]{}).invoke(corePropertiesFilePathEnum, new Object[]{});
-            Enum coreAnnotationsDefinitionFilePathEnum = Enum.valueOf(coreConfigurationEnumClass, "ANNOTATIONS_DEFINITION_FILE_PATH");
-            String coreAnnotationsDefinitionFilePathValue = (String)coreConfigurationEnumClass.getMethod("get", new Class<?>[]{}).invoke(coreAnnotationsDefinitionFilePathEnum, new Object[]{});
+            String coreLibraryNameValue = getEnumValue(coreConfigurationEnumClass, "LIBRARY_NAME");
             libraryConfiguration.getClass().getMethod("setLibraryName", String.class).invoke(libraryConfiguration, coreLibraryNameValue);
+            String coreLibraryClassPathValue = getEnumValue(coreConfigurationEnumClass, "LIBRARY_CLASS_PATH");
             libraryConfiguration.getClass().getMethod("setLibraryClassPath", String.class).invoke(libraryConfiguration, coreLibraryClassPathValue);
+            String corePropertiesFilePathValue = getEnumValue(coreConfigurationEnumClass, "PROPERTIES_FILE_PATH");
             libraryConfiguration.getClass().getMethod("setConfigurationFilePath", String.class).invoke(libraryConfiguration, corePropertiesFilePathValue);
+            String coreAnnotationsDefinitionFilePathValue = getEnumValue(coreConfigurationEnumClass, "ANNOTATIONS_DEFINITION_FILE_PATH");
             libraryConfiguration.getClass().getMethod("setAnnotationsDefinitionFilePath", String.class).invoke(libraryConfiguration, coreAnnotationsDefinitionFilePathValue);
         }
         catch(ClassNotFoundException exception)
@@ -52,6 +48,32 @@ public class OrionObjectInitialiser extends OrionSimpleObject
         }
         
         return libraryConfiguration;
+    }
+    
+    
+    @SuppressWarnings({"rawtypes", "unchecked"})
+    private String getEnumValue(Class<Enum> coreConfigurationEnumClass, String enumName)
+    {
+        String enumValue = null;
+        Enum coreLibraryNameEnum = Enum.valueOf(coreConfigurationEnumClass, enumName);
+        
+        try
+        {
+            enumValue = (String)coreConfigurationEnumClass.getMethod("get", new Class<?>[]{}).invoke(coreLibraryNameEnum, new Object[]{});
+        }
+        catch(NoSuchMethodException exception)
+        {
+            exception.printStackTrace();
+        }
+        catch(IllegalAccessException exception)
+        {
+            exception.printStackTrace();
+        }
+        catch(InvocationTargetException exception)
+        {
+            exception.printStackTrace();
+        }
+        return enumValue;
     }
     
     
