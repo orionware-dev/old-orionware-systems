@@ -49,7 +49,7 @@ public abstract class OrionObject extends OrionSimpleObject
     //then this method is called so that all the libraries configs are loaded in one go
     protected void processAllLibrariesConfiguration()
     {
-        OrionObjectInitialiser.processAllLibrariesConfiguration(librariesConfigurationSet);
+        OrionObjectInitialiser.loadLibrariesProperties(librariesConfigurationSet);
         OrionObjectInitialiser.registerLibrariesAnnotations(librariesConfigurationSet);
         OrionObjectInitialiser.processAllAnnotations(this);
     }

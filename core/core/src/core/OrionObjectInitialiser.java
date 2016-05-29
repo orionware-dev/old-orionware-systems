@@ -127,7 +127,7 @@ public class OrionObjectInitialiser extends OrionSimpleObject
     }
     
     
-    public void processAllLibrariesConfiguration(Set<Object> librariesConfigurationSet)
+    public void loadLibrariesProperties(Set<Object> librariesConfigurationSet)
     {
         try
         {
