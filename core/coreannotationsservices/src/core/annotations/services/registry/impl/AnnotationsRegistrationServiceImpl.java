@@ -16,47 +16,26 @@ import core.configuration.LibraryConfiguration;
 
 public class AnnotationsRegistrationServiceImpl extends AnnotationServiceObject implements AnnotationsRegistrationService
 {
-    private FilterNotNullLibrariesConfigurationTask filterNotNullLibrariesConfigurationTask;
-    private FilterAnnotationsNotBeenRegisteredForLibraryTask filterAnnotationsNotBeenRegisteredForLibraryTask;
-    private RegisterLibrariesAnnotationsTask registerLibrariesAnnotationsTask;
-    private RegisterAnnotationTask registerAnnotationTask;
-    private RegisterLibraryAnnotationsTask registerLibraryAnnotationsTask;
-    private HaveAnnotationsBeenRegisteredForLibraryTask haveAnnotationsBeenRegisteredForLibraryTask;
-    private SetAnnotationsAsRegisteredForLibraryTask setAnnotationsAsRegisteredForLibraryTask;
-    
-    
-    public AnnotationsRegistrationServiceImpl()
-    {
-        this.filterNotNullLibrariesConfigurationTask = new FilterNotNullLibrariesConfigurationTask();
-        this.filterAnnotationsNotBeenRegisteredForLibraryTask = new FilterAnnotationsNotBeenRegisteredForLibraryTask();
-        this.registerLibrariesAnnotationsTask = new RegisterLibrariesAnnotationsTask();
-        this.registerAnnotationTask = new RegisterAnnotationTask();
-        this.registerLibraryAnnotationsTask = new RegisterLibraryAnnotationsTask();
-        this.haveAnnotationsBeenRegisteredForLibraryTask = new HaveAnnotationsBeenRegisteredForLibraryTask();
-        this.setAnnotationsAsRegisteredForLibraryTask = new SetAnnotationsAsRegisteredForLibraryTask();
-    }
-    
-    
     @Override
     public void registerLibrariesAnnotations(Set<LibraryConfiguration> librariesConfiguration)
     {
-        Stream<LibraryConfiguration> notNullLibrariesConfigurationStream = filterNotNullLibrariesConfigurationTask.run(librariesConfiguration);
-        notNullLibrariesConfigurationStream = filterAnnotationsNotBeenRegisteredForLibraryTask.run(notNullLibrariesConfigurationStream);
-        registerLibrariesAnnotationsTask.run(notNullLibrariesConfigurationStream);
+        Stream<LibraryConfiguration> notNullLibrariesConfigurationStream = new FilterNotNullLibrariesConfigurationTask().run(librariesConfiguration);
+        notNullLibrariesConfigurationStream = new FilterAnnotationsNotBeenRegisteredForLibraryTask().run(notNullLibrariesConfigurationStream);
+        new RegisterLibrariesAnnotationsTask().run(notNullLibrariesConfigurationStream);
     }
     
     
     @Override
     public void registerAnnotation(OrionAnnotation registeredAnnotation)
     {
-        registerAnnotationTask.run(registeredAnnotation);
+        new RegisterAnnotationTask().run(registeredAnnotation);
     }
     
     
     @Override
     public boolean haveAnnotationsBeenRegisteredForLibrary(String libraryName)
     {
-        return haveAnnotationsBeenRegisteredForLibraryTask.run(libraryName);
+        return new HaveAnnotationsBeenRegisteredForLibraryTask().run(libraryName);
     }
 
     
@@ -70,13 +49,13 @@ public class AnnotationsRegistrationServiceImpl extends AnnotationServiceObject 
     @Override
     public void setAnnotationsAsRegisteredForLibrary(String libraryName)
     {
-        setAnnotationsAsRegisteredForLibraryTask.run(libraryName);
+        new SetAnnotationsAsRegisteredForLibraryTask().run(libraryName);
     }
 
 
     @Override
     public void registerLibraryAnnotations(LibraryConfiguration libraryConfiguration)
     {
-        registerLibraryAnnotationsTask.run(libraryConfiguration);
+        new RegisterLibraryAnnotationsTask().run(libraryConfiguration);
     }
 }

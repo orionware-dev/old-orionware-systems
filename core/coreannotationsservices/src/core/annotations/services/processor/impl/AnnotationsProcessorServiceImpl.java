@@ -15,18 +15,12 @@ import core.reflection.facades.loader.impl.ReflectionLoaderFacadeImpl;
 
 public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject implements AnnotationsProcessorService
 {
-    private ApplyAnnotationsToMethodTask applyAnnotationsToMethodTask;
     private AnnotationsGatheringService annotationsGatheringService;
-    private ApplyAnnotationToMethodTask applyAnnotationToMethodTask;
-    private ReflectionLoaderFacade reflectionLoaderFacade;
     
     
     public AnnotationsProcessorServiceImpl()
     {
-        this.applyAnnotationsToMethodTask = new ApplyAnnotationsToMethodTask();
         this.annotationsGatheringService = new AnnotationsGatheringServiceImpl();
-        this.applyAnnotationToMethodTask = new ApplyAnnotationToMethodTask();
-        this.reflectionLoaderFacade = new ReflectionLoaderFacadeImpl();
     }
     
     
@@ -39,7 +33,7 @@ public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject imp
         //will have to try to process non-Orion-based annotations like Java/Spring/etc. annotations
         //in which case it is processed by the respective framework
         Stream<OrionAnnotation> registeredAnnotations = annotationsGatheringService.filterRegisteredAnnotationsStreamFromObjectAnnotations(allObjectAnnotationsList);
-        applyAnnotationsToMethodTask.run(registeredAnnotations, OrionObject);
+        new ApplyAnnotationsToMethodTask().run(registeredAnnotations, OrionObject);
     }
     
     
@@ -51,7 +45,7 @@ public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject imp
         
         if(annotationsGatheringService.isAnnotationRegisteredTask(annotationToProcess))
         {
-            applyAnnotationToMethodTask.run(reflectionLoaderFacade, OrionObject, annotationToProcess);
+            new ApplyAnnotationToMethodTask().run(new ReflectionLoaderFacadeImpl(), OrionObject, annotationToProcess);
             isAnnotationApplicable = true;
         }
         

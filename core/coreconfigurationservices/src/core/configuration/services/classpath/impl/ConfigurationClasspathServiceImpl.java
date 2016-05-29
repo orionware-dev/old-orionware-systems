@@ -16,20 +16,12 @@ import core.filesystem.facades.streams.impl.FileSystemStreamsFacadeImpl;
 
 public class ConfigurationClasspathServiceImpl extends ConfigurationServiceObject implements ConfigurationClasspathService
 {
-    private IsCoreLibraryTask isCoreLibraryTask;
     private FileSystemStreamsFacade fileSystemStreamsFacade;
-    private PropertiesRegistrationService propertiesRegistrationService;
-    private RegisterLibraryPropertiesTask registerLibraryPropertiesTask;
-    private LoadLibraryPropertiesTask loadLibraryPropertiesTask;
     
     
     public ConfigurationClasspathServiceImpl()
     {
-        this.isCoreLibraryTask = new IsCoreLibraryTask();
         this.fileSystemStreamsFacade = new FileSystemStreamsFacadeImpl();
-        this.propertiesRegistrationService = new PropertiesRegistrationServiceImpl();
-        this.registerLibraryPropertiesTask = new RegisterLibraryPropertiesTask();
-        this.loadLibraryPropertiesTask = new LoadLibraryPropertiesTask();
     }
     
     
@@ -38,13 +30,16 @@ public class ConfigurationClasspathServiceImpl extends ConfigurationServiceObjec
     @Override
     public boolean isCoreLibrary(Class<?> classBeingRun)
     {
-        return isCoreLibraryTask.run(classBeingRun);
+        return new IsCoreLibraryTask().run(classBeingRun);
     }
 
 
     @Override
     public void loadLibrariesProperties(Set<LibraryConfiguration> librariesConfiguration)
     {
+        PropertiesRegistrationService propertiesRegistrationService = new PropertiesRegistrationServiceImpl();
+        RegisterLibraryPropertiesTask registerLibraryPropertiesTask = new RegisterLibraryPropertiesTask();
+        LoadLibraryPropertiesTask loadLibraryPropertiesTask = new LoadLibraryPropertiesTask();
         librariesConfiguration.stream()
             .filter((libraryConfiguration) -> libraryConfiguration.getConfigurationFilePath() != null)
             .filter((libraryConfiguration) -> propertiesRegistrationService.havePropertiesNotBeenRegisteredForLibrary(libraryConfiguration.getLibraryName()))

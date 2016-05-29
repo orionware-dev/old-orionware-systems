@@ -8,18 +8,9 @@ import core.annotations.services.loader.impl.AnnotationsLoaderServiceImpl;
 
 public class AnnotationsLoaderFacadeImpl extends AnnotationFacadeObject implements AnnotationsLoaderFacade
 {
-    private AnnotationsLoaderService annotationsLoaderService;
-    
-    
-    public AnnotationsLoaderFacadeImpl()
-    {
-        this.annotationsLoaderService = new AnnotationsLoaderServiceImpl();
-    }
-    
-    
     @Override
     public InputStream getAnnotationsFileStream(String libraryAnnotationsFilePath)
     {
-        return annotationsLoaderService.getAnnotationsDefinitionFileStream(libraryAnnotationsFilePath);
+        return new AnnotationsLoaderServiceImpl().getAnnotationsDefinitionFileStream(libraryAnnotationsFilePath);
     }
 }

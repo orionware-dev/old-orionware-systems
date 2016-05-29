@@ -14,73 +14,52 @@ import core.reflection.services.loader.impl.tasks.MakeMethodAccessibleTask;
 
 public class ReflectionLoaderServiceImpl extends ReflectionServiceObject implements ReflectionLoaderService
 {
-    private GetMethodsArrayTask getMethodsArrayTask;
-    private GetConstructorsArrayTask getConstructorsArrayTask;
-    private MakeMethodAccessibleTask makeMethodAccessibleTask;
-    private CallMethodTask callMethodTask;
-    private CallConstructorTask callConstructorTask;
-    private LoadClassTask loadClassTask;
-    private InstantiateClassTask instantiateClassTask;
-    
-    
-    public ReflectionLoaderServiceImpl()
-    {
-        this.getMethodsArrayTask = new GetMethodsArrayTask();
-        this.getConstructorsArrayTask = new GetConstructorsArrayTask();
-        this.makeMethodAccessibleTask = new MakeMethodAccessibleTask();
-        this.callMethodTask = new CallMethodTask();
-        this.callConstructorTask = new CallConstructorTask();
-        this.loadClassTask = new LoadClassTask();
-        this.instantiateClassTask = new InstantiateClassTask();
-    }
-    
-    
     @Override
     public Method[] getMethodsArray(Object object)
     {
-        return getMethodsArrayTask.run(object);
+        return new GetMethodsArrayTask().run(object);
     }
     
     
     @Override
     public Constructor<?>[] getConstructorsArray(Object object)
     {
-        return getConstructorsArrayTask.run(object);
+        return new GetConstructorsArrayTask().run(object);
     }
     
     
     @Override
     public void makeMethodAccessible(Method method)
     {
-        makeMethodAccessibleTask.run(method);
+        new MakeMethodAccessibleTask().run(method);
     }
 
 
     @Override
     public void callMethod(Method method, Object objectMethodBelongsTo, Object... methodArguments)
     {
-        callMethodTask.run(method, objectMethodBelongsTo, methodArguments);
+        new CallMethodTask().run(method, objectMethodBelongsTo, methodArguments);
     }
     
     
     @Override
     public void callConstructor(Constructor<?> constructor, Object... constructorArguments)
     {
-        callConstructorTask.run(constructor, constructorArguments);
+        new CallConstructorTask().run(constructor, constructorArguments);
     }
     
     
     @Override
     public Class<?> loadClass(String className)
     {
-        return loadClassTask.run(className);
+        return new LoadClassTask().run(className);
     }
     
     
     @Override
     public Object instantiateClass(Class<?> classToInstantiate)
     {
-        return instantiateClassTask.run(classToInstantiate);
+        return new InstantiateClassTask().run(classToInstantiate);
     }
     
     

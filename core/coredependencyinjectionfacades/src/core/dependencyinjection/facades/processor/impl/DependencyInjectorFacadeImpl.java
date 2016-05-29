@@ -7,18 +7,9 @@ import core.dependencyinjection.services.processor.impl.DependencyInjectorServic
 
 public class DependencyInjectorFacadeImpl extends DependencyInjectionFacadeObject implements DependencyInjectorFacade
 {
-    private DependencyInjectorService dependencyInjectorService;
-    
-    
-    public DependencyInjectorFacadeImpl()
-    {
-        this.dependencyInjectorService = new DependencyInjectorServiceImpl();
-    }
-    
-    
     @Override
     public void processDependencies(Object object)
     {
-        dependencyInjectorService.processDependencies(object);
+        new DependencyInjectorServiceImpl().processDependencies(object);
     }
 }

@@ -7,18 +7,9 @@ import core.annotations.services.loader.impl.tasks.GetAnnotationsDefinitionFileS
 
 public class AnnotationsLoaderServiceImpl extends AnnotationServiceObject implements AnnotationsLoaderService
 {
-    private GetAnnotationsDefinitionFileStreamTask getAnnotationsDefinitionFileStreamTask;
-    
-    
-    public AnnotationsLoaderServiceImpl()
-    {
-        this.getAnnotationsDefinitionFileStreamTask = new GetAnnotationsDefinitionFileStreamTask();
-    }
-    
-    
     @Override
     public InputStream getAnnotationsDefinitionFileStream(String libraryAnnotationsDefinitionFilePath)
     {
-        return getAnnotationsDefinitionFileStreamTask.run(libraryAnnotationsDefinitionFilePath);
+        return new GetAnnotationsDefinitionFileStreamTask().run(libraryAnnotationsDefinitionFilePath);
     }
 }
