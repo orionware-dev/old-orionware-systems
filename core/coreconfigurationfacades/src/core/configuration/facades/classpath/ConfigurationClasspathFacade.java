@@ -5,7 +5,6 @@ import java.io.InputStream;
 import java.util.Set;
 import core.configuration.ConfigurationFacade;
 import core.configuration.LibraryConfiguration;
-import core.services.OrionFacade;
 
 public interface ConfigurationClasspathFacade extends ConfigurationFacade
 {

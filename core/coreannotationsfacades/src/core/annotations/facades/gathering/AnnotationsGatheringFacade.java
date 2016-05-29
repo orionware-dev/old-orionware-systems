@@ -4,7 +4,6 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.List;
 import core.annotations.AnnotationFacade;
-import core.services.OrionFacade;
 
 public interface AnnotationsGatheringFacade extends AnnotationFacade
 {

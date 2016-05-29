@@ -1,8 +1,8 @@
 package core.configuration.services.registry.impl.tasks;
 
 import core.configuration.ConfigurationObject;
-import core.configuration.LibrariesConfigurationMapper;
 import core.configuration.ConfigurationTask;
+import core.configuration.LibrariesConfigurationMapper;
 
 public class SetPropertiesAsRegisteredForLibraryTask extends ConfigurationObject implements ConfigurationTask
 {

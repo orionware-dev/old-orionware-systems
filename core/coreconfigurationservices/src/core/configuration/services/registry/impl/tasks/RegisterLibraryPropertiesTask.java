@@ -1,8 +1,8 @@
 package core.configuration.services.registry.impl.tasks;
 
 import core.configuration.ConfigurationObject;
-import core.configuration.LibraryConfiguration;
 import core.configuration.ConfigurationTask;
+import core.configuration.LibraryConfiguration;
 import core.configuration.services.classpath.ConfigurationClasspathService;
 import core.configuration.services.classpath.impl.tasks.LoadLibraryPropertiesTask;
 import core.configuration.services.registry.PropertiesRegistrationService;

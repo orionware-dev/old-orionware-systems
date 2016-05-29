@@ -1,32 +1,28 @@
 package core;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Arrays;
 import java.util.Set;
 
 public class OrionObjectInitialiser extends OrionSimpleObject
 {
+    private static final String LIBRARY_CONFIGURATION_CLASS_PATH = "core.configuration.LibraryConfiguration";
+    private static final String CORE_CONFIGURATION_ENUM_PATH = "core.configuration.CoreConfigurationEnum";
+    
+    
     @SuppressWarnings({"rawtypes", "unchecked"})
     public Object getInitialisedCoreConfiguration()
     {
-        Object libraryConfiguration = instantiateClass("core.configuration.LibraryConfiguration");
+        Object libraryConfiguration = instantiateClass(LIBRARY_CONFIGURATION_CLASS_PATH);
         
         try
         {
-            Class<Enum> coreConfigurationEnumClass = (Class<Enum>)Class.forName("core.configuration.CoreConfigurationEnum");
-            String coreLibraryNameValue = getEnumValue(coreConfigurationEnumClass, "LIBRARY_NAME");
-            libraryConfiguration.getClass().getMethod("setLibraryName", String.class).invoke(libraryConfiguration, coreLibraryNameValue);
-            String coreLibraryClassPathValue = getEnumValue(coreConfigurationEnumClass, "LIBRARY_CLASS_PATH");
-            libraryConfiguration.getClass().getMethod("setLibraryClassPath", String.class).invoke(libraryConfiguration, coreLibraryClassPathValue);
-            String corePropertiesFilePathValue = getEnumValue(coreConfigurationEnumClass, "PROPERTIES_FILE_PATH");
-            libraryConfiguration.getClass().getMethod("setConfigurationFilePath", String.class).invoke(libraryConfiguration, corePropertiesFilePathValue);
-            String coreAnnotationsDefinitionFilePathValue = getEnumValue(coreConfigurationEnumClass, "ANNOTATIONS_DEFINITION_FILE_PATH");
-            libraryConfiguration.getClass().getMethod("setAnnotationsDefinitionFilePath", String.class).invoke(libraryConfiguration, coreAnnotationsDefinitionFilePathValue);
+            Class<Enum> coreConfigurationEnumClass = (Class<Enum>)Class.forName(CORE_CONFIGURATION_ENUM_PATH);
+            Enum[] enumDefinitionsArray = coreConfigurationEnumClass.getEnumConstants();
+            Arrays.stream(enumDefinitionsArray)
+                .forEach((enumDefinition) -> getEnumValueAndSetItToLibraryConfiguration(coreConfigurationEnumClass, enumDefinition, libraryConfiguration));
         }
         catch(ClassNotFoundException exception)
-        {
-            exception.printStackTrace();
-        }
-        catch(NoSuchMethodException exception)
         {
             exception.printStackTrace();
         }
@@ -34,15 +30,7 @@ public class OrionObjectInitialiser extends OrionSimpleObject
         {
             exception.printStackTrace();
         }
-        catch(IllegalAccessException exception)
-        {
-            exception.printStackTrace();
-        }
         catch(IllegalArgumentException exception)
-        {
-            exception.printStackTrace();
-        }
-        catch(InvocationTargetException exception)
         {
             exception.printStackTrace();
         }
@@ -52,14 +40,27 @@ public class OrionObjectInitialiser extends OrionSimpleObject
     
     
     @SuppressWarnings({"rawtypes", "unchecked"})
-    private String getEnumValue(Class<Enum> coreConfigurationEnumClass, String enumName)
+    private void getEnumValueAndSetItToLibraryConfiguration(Class<Enum> coreConfigurationEnumClass, Enum enumDefinition, Object libraryConfiguration)
     {
-        String enumValue = null;
+        String enumName = enumDefinition.name();
+        String setterMethodToCallInLibraryConfiguration = "set";
+        String[] enumNameTokens = enumName.split("_");
+        
+        for(String enumNameToken : enumNameTokens)
+        {
+            enumNameToken = enumNameToken.toLowerCase();
+            char[] enumNameTokenCharactersArray = enumNameToken.toCharArray();
+            enumNameTokenCharactersArray[0] = Character.toUpperCase(enumNameTokenCharactersArray[0]);
+            setterMethodToCallInLibraryConfiguration += String.copyValueOf(enumNameTokenCharactersArray);
+        }
+        
         Enum coreLibraryNameEnum = Enum.valueOf(coreConfigurationEnumClass, enumName);
+        String enumValue = null;
         
         try
         {
             enumValue = (String)coreConfigurationEnumClass.getMethod("get", new Class<?>[]{}).invoke(coreLibraryNameEnum, new Object[]{});
+            libraryConfiguration.getClass().getMethod(setterMethodToCallInLibraryConfiguration, String.class).invoke(libraryConfiguration, enumValue);
         }
         catch(NoSuchMethodException exception)
         {
@@ -73,7 +74,6 @@ public class OrionObjectInitialiser extends OrionSimpleObject
         {
             exception.printStackTrace();
         }
-        return enumValue;
     }
     
     

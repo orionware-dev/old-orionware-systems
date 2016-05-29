@@ -5,7 +5,6 @@ import java.io.InputStream;
 import java.io.Reader;
 import java.io.Writer;
 import core.filesystem.FileSystemFacade;
-import core.services.OrionFacade;
 
 public interface FileSystemStreamsFacade extends FileSystemFacade
 {

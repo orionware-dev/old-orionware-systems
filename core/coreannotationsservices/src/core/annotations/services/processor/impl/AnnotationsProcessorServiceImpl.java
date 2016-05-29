@@ -10,7 +10,6 @@ import core.annotations.services.gathering.impl.AnnotationsGatheringServiceImpl;
 import core.annotations.services.processor.AnnotationsProcessorService;
 import core.annotations.services.processor.impl.tasks.ApplyAnnotationToMethodTask;
 import core.annotations.services.processor.impl.tasks.ApplyAnnotationsToMethodTask;
-import core.reflection.facades.loader.ReflectionLoaderFacade;
 import core.reflection.facades.loader.impl.ReflectionLoaderFacadeImpl;
 
 public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject implements AnnotationsProcessorService

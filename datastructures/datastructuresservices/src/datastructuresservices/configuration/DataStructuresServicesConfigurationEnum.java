@@ -5,7 +5,7 @@ import core.configuration.ConfigurationEnum;
 public enum DataStructuresServicesConfigurationEnum implements ConfigurationEnum
 {
     LIBRARY_NAME("datastructuresservices"),
-    //PROPERTIES_FILE_PATH("/" + DefaultConfigurationEnum.DEFAULT_CONFIGURATION_DIR.get() + "/DataStructures.prop"),
+    //CONFIGURATION_FILE_PATH("/" + DefaultConfigurationEnum.DEFAULT_CONFIGURATION_DIR.get() + "/DataStructures.prop"),
     //ANNOTATIONS_DEFINITION_FILE_PATH("/" + DefaultConfigurationEnum.DEFAULT_CONFIGURATION_DIR.get() + "/DataStructuresAnnotations.prop"),
     //put an empty string as a prefix, because it complaints that there
     //is no constructor with argument of type CoreConfigurationEnum

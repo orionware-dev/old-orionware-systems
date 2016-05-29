@@ -4,7 +4,6 @@ import java.util.Set;
 import core.annotations.AnnotationFacade;
 import core.annotations.OrionAnnotation;
 import core.configuration.LibraryConfiguration;
-import core.services.OrionFacade;
 
 public interface AnnotationsRegistrationFacade extends AnnotationFacade
 {

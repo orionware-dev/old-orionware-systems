@@ -2,8 +2,8 @@ package core.configuration.services.classpath.impl.tasks;
 
 import java.io.InputStream;
 import core.configuration.ConfigurationObject;
-import core.configuration.LibraryConfiguration;
 import core.configuration.ConfigurationTask;
+import core.configuration.LibraryConfiguration;
 import core.configuration.registry.ConfigurationRegistry;
 import core.configuration.services.classpath.ConfigurationClasspathService;
 
