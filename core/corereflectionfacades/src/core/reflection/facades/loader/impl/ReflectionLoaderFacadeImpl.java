@@ -44,6 +44,13 @@ public class ReflectionLoaderFacadeImpl extends ReflectionFacadeObject implement
     {
         reflectionLoaderService.callMethod(method, objectMethodBelongsTo, methodArguments);
     }
+    
+    
+    @Override
+    public void callMethod(String methodName, Object objectMethodBelongsTo, Object... methodArguments)
+    {
+        reflectionLoaderService.callMethod(methodName, objectMethodBelongsTo, methodArguments);
+    }
 
     
     @Override

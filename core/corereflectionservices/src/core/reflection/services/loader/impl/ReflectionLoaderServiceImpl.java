@@ -38,7 +38,15 @@ public class ReflectionLoaderServiceImpl extends ReflectionServiceObject impleme
     @Override
     public void callMethod(Method method, Object objectMethodBelongsTo, Object... methodArguments)
     {
+        makeMethodAccessible(method);
         new CallMethodTask().run(method, objectMethodBelongsTo, methodArguments);
+    }
+    
+    
+    @Override
+    public void callMethod(String methodName, Object objectMethodBelongsTo, Object... methodArguments)
+    {
+        new CallMethodTask().run(methodName, objectMethodBelongsTo, methodArguments);
     }
     
     

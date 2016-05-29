@@ -9,11 +9,13 @@ public class OrionObjectInitialiser extends OrionSimpleObject
     private static final String LIBRARY_CONFIGURATION_CLASS_PATH = "core.configuration.LibraryConfiguration";
     private static final String CORE_CONFIGURATION_ENUM_PATH = "core.configuration.CoreConfigurationEnum";
     private Object reflectionEnumerationFacade;
+    private Object reflectionLoaderFacade;
     
     
     public OrionObjectInitialiser()
     {
         this.reflectionEnumerationFacade = instantiateClass("core.reflection.facades.enumerations.impl.ReflectionEnumerationFacadeImpl");
+        this.reflectionLoaderFacade = instantiateClass("core.reflection.facades.loader.impl.ReflectionLoaderFacadeImpl");
     }
     
     
@@ -28,8 +30,8 @@ public class OrionObjectInitialiser extends OrionSimpleObject
                                                          .getMethod("instantiateEnumeration", String.class)
                                                          .invoke(reflectionEnumerationFacade, CORE_CONFIGURATION_ENUM_PATH);
             Enum[] enumDefinitionsArray = (Enum[])reflectionEnumerationFacade.getClass()
-                                             .getMethod("getEnumerationDefinitions", Class.class)
-                                             .invoke(reflectionEnumerationFacade, coreConfigurationEnumClass);
+                                              .getMethod("getEnumerationDefinitions", Class.class)
+                                              .invoke(reflectionEnumerationFacade, coreConfigurationEnumClass);
             Arrays.stream(enumDefinitionsArray)
                 .forEach((enumDefinition) -> getEnumValueAndSetItToLibraryConfiguration(coreConfigurationEnumClass, enumDefinition, libraryConfiguration));
         }

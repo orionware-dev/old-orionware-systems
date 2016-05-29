@@ -18,6 +18,9 @@ public interface ReflectionLoaderService extends ReflectionService
     public void callMethod(Method method, Object objectMethodBelongsTo, Object... methodArguments);
     
     
+    public void callMethod(String methodName, Object objectMethodBelongsTo, Object... methodArguments);
+    
+    
     public void callConstructor(Constructor<?> constructor, Object... constructorArguments);
     
     
