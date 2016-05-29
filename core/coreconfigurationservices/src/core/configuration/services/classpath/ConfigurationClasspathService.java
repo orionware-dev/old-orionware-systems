@@ -3,10 +3,10 @@ package core.configuration.services.classpath;
 import java.io.Closeable;
 import java.io.InputStream;
 import java.util.Set;
+import core.configuration.ConfigurationService;
 import core.configuration.LibraryConfiguration;
-import core.configuration.OrionConfigurationService;
 
-public interface ConfigurationService extends OrionConfigurationService
+public interface ConfigurationClasspathService extends ConfigurationService
 {
     public boolean isCoreLibrary(Class<?> classBeingRun);
     

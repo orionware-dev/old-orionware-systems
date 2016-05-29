@@ -1,8 +1,9 @@
 package core.configuration.facades.registry;
 
+import core.configuration.ConfigurationFacade;
 import core.services.OrionFacade;
 
-public interface PropertiesRegistrationFacade extends OrionFacade
+public interface PropertiesRegistrationFacade extends ConfigurationFacade
 {
     public boolean havePropertiesBeenRegisteredForLibrary(String libraryName);
     

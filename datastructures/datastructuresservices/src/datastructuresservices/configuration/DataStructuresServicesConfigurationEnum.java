@@ -1,8 +1,8 @@
 package datastructuresservices.configuration;
 
-import core.configuration.OrionConfigurationEnum;
+import core.configuration.ConfigurationEnum;
 
-public enum DataStructuresServicesConfigurationEnum implements OrionConfigurationEnum
+public enum DataStructuresServicesConfigurationEnum implements ConfigurationEnum
 {
     LIBRARY_NAME("datastructuresservices"),
     //PROPERTIES_FILE_PATH("/" + DefaultConfigurationEnum.DEFAULT_CONFIGURATION_DIR.get() + "/DataStructures.prop"),

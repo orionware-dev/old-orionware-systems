@@ -3,7 +3,7 @@ package core.reflection.services.loader.impl;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import core.reflection.services.ReflectionServiceObject;
-import core.reflection.services.loader.ReflectionService;
+import core.reflection.services.loader.ReflectionLoaderService;
 import core.reflection.services.loader.impl.tasks.CallConstructorTask;
 import core.reflection.services.loader.impl.tasks.CallMethodTask;
 import core.reflection.services.loader.impl.tasks.GetConstructorsArrayTask;
@@ -12,7 +12,7 @@ import core.reflection.services.loader.impl.tasks.InstantiateClassTask;
 import core.reflection.services.loader.impl.tasks.LoadClassTask;
 import core.reflection.services.loader.impl.tasks.MakeMethodAccessibleTask;
 
-public class ReflectionServiceImpl extends ReflectionServiceObject implements ReflectionService
+public class ReflectionLoaderServiceImpl extends ReflectionServiceObject implements ReflectionLoaderService
 {
     private GetMethodsArrayTask getMethodsArrayTask;
     private GetConstructorsArrayTask getConstructorsArrayTask;
@@ -23,7 +23,7 @@ public class ReflectionServiceImpl extends ReflectionServiceObject implements Re
     private InstantiateClassTask instantiateClassTask;
     
     
-    public ReflectionServiceImpl()
+    public ReflectionLoaderServiceImpl()
     {
         this.getMethodsArrayTask = new GetMethodsArrayTask();
         this.getConstructorsArrayTask = new GetConstructorsArrayTask();

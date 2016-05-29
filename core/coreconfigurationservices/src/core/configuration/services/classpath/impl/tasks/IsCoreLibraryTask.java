@@ -2,9 +2,9 @@ package core.configuration.services.classpath.impl.tasks;
 
 import java.io.File;
 import core.configuration.ConfigurationObject;
-import core.configuration.OrionConfigurationTask;
+import core.configuration.ConfigurationTask;
 
-public class IsCoreLibraryTask extends ConfigurationObject implements OrionConfigurationTask
+public class IsCoreLibraryTask extends ConfigurationObject implements ConfigurationTask
 {
     public boolean run(Class<?> classBeingRun)
     {

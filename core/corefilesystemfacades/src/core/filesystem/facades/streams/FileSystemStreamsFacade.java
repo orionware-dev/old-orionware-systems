@@ -4,9 +4,10 @@ import java.io.Closeable;
 import java.io.InputStream;
 import java.io.Reader;
 import java.io.Writer;
+import core.filesystem.FileSystemFacade;
 import core.services.OrionFacade;
 
-public interface FileSystemStreamsFacade extends OrionFacade
+public interface FileSystemStreamsFacade extends FileSystemFacade
 {
     public InputStream getFileStream(String fileLocation);
     

@@ -2,9 +2,10 @@ package core.reflection.facades.loader;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
+import core.reflection.ReflectionFacade;
 import core.services.OrionFacade;
 
-public interface ReflectionFacade extends OrionFacade
+public interface ReflectionLoaderFacade extends ReflectionFacade
 {
     public Method[] getMethodsArray(Object object);
     

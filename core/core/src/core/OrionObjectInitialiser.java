@@ -99,7 +99,7 @@ public class OrionObjectInitialiser extends OrionSimpleObject
     {
         try
         {
-            Object configurationFacade = instantiateClass("core.configuration.facades.classpath.impl.ConfigurationFacadeImpl");
+            Object configurationFacade = instantiateClass("core.configuration.facades.classpath.impl.ConfigurationClasspathFacadeImpl");
             return (boolean)configurationFacade.getClass().getMethod("isCoreLibrary", Class.class).invoke(configurationFacade, aClass);
         }
         catch(IllegalAccessException exception)
@@ -131,7 +131,7 @@ public class OrionObjectInitialiser extends OrionSimpleObject
     {
         try
         {
-            Object configurationFacade = instantiateClass("core.configuration.facades.classpath.impl.ConfigurationFacadeImpl");
+            Object configurationFacade = instantiateClass("core.configuration.facades.classpath.impl.ConfigurationClasspathFacadeImpl");
             configurationFacade.getClass().getMethod("loadLibrariesProperties", Set.class).invoke(configurationFacade, librariesConfigurationSet);
         }
         catch(IllegalAccessException exception)

@@ -1,8 +1,8 @@
 package core.configuration.services.registry;
 
-import core.configuration.OrionConfigurationService;
+import core.configuration.ConfigurationService;
 
-public interface PropertiesRegistrationService extends OrionConfigurationService
+public interface PropertiesRegistrationService extends ConfigurationService
 {
     public boolean havePropertiesBeenRegisteredForLibrary(String libraryName);
     

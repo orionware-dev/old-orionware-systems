@@ -5,7 +5,7 @@ import java.io.InputStream;
 import java.util.Set;
 import core.configuration.LibraryConfiguration;
 import core.configuration.services.ConfigurationServiceObject;
-import core.configuration.services.classpath.ConfigurationService;
+import core.configuration.services.classpath.ConfigurationClasspathService;
 import core.configuration.services.classpath.impl.tasks.IsCoreLibraryTask;
 import core.configuration.services.classpath.impl.tasks.LoadLibraryPropertiesTask;
 import core.configuration.services.registry.PropertiesRegistrationService;
@@ -14,7 +14,7 @@ import core.configuration.services.registry.impl.tasks.RegisterLibraryProperties
 import core.filesystem.facades.streams.FileSystemStreamsFacade;
 import core.filesystem.facades.streams.impl.FileSystemStreamsFacadeImpl;
 
-public class ConfigurationServiceImpl extends ConfigurationServiceObject implements ConfigurationService
+public class ConfigurationClasspathServiceImpl extends ConfigurationServiceObject implements ConfigurationClasspathService
 {
     private IsCoreLibraryTask isCoreLibraryTask;
     private FileSystemStreamsFacade fileSystemStreamsFacade;
@@ -23,7 +23,7 @@ public class ConfigurationServiceImpl extends ConfigurationServiceObject impleme
     private LoadLibraryPropertiesTask loadLibraryPropertiesTask;
     
     
-    public ConfigurationServiceImpl()
+    public ConfigurationClasspathServiceImpl()
     {
         this.isCoreLibraryTask = new IsCoreLibraryTask();
         this.fileSystemStreamsFacade = new FileSystemStreamsFacadeImpl();

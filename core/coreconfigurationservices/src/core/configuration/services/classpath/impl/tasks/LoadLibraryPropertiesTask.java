@@ -3,16 +3,16 @@ package core.configuration.services.classpath.impl.tasks;
 import java.io.InputStream;
 import core.configuration.ConfigurationObject;
 import core.configuration.LibraryConfiguration;
-import core.configuration.OrionConfigurationTask;
+import core.configuration.ConfigurationTask;
 import core.configuration.registry.ConfigurationRegistry;
-import core.configuration.services.classpath.ConfigurationService;
+import core.configuration.services.classpath.ConfigurationClasspathService;
 
-public class LoadLibraryPropertiesTask extends ConfigurationObject implements OrionConfigurationTask
+public class LoadLibraryPropertiesTask extends ConfigurationObject implements ConfigurationTask
 {
-    public void run(ConfigurationService configurationService, LibraryConfiguration libraryConfiguration)
+    public void run(ConfigurationClasspathService configurationClasspathService, LibraryConfiguration libraryConfiguration)
     {
-        InputStream propertiesFileInput = configurationService.getFileStream(libraryConfiguration.getConfigurationFilePath());
+        InputStream propertiesFileInput = configurationClasspathService.getFileStream(libraryConfiguration.getConfigurationFilePath());
         ConfigurationRegistry.loadProperties(propertiesFileInput);
-        configurationService.closeResource(propertiesFileInput);
+        configurationClasspathService.closeResource(propertiesFileInput);
     }
 }

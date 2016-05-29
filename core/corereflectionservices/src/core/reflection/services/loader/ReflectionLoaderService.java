@@ -2,9 +2,9 @@ package core.reflection.services.loader;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
-import core.reflection.OrionReflectionService;
+import core.reflection.ReflectionService;
 
-public interface ReflectionService extends OrionReflectionService
+public interface ReflectionLoaderService extends ReflectionService
 {
     public Method[] getMethodsArray(Object object);
     

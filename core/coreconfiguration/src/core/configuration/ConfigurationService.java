@@ -2,7 +2,7 @@ package core.configuration;
 
 import core.services.OrionService;
 
-public interface OrionConfigurationService extends OrionService
+public interface ConfigurationService extends OrionService
 {
     
 }

@@ -10,15 +10,15 @@ import core.annotations.services.gathering.impl.AnnotationsGatheringServiceImpl;
 import core.annotations.services.processor.AnnotationsProcessorService;
 import core.annotations.services.processor.impl.tasks.ApplyAnnotationToMethodTask;
 import core.annotations.services.processor.impl.tasks.ApplyAnnotationsToMethodTask;
-import core.reflection.facades.loader.ReflectionFacade;
-import core.reflection.facades.loader.impl.ReflectionFacadeImpl;
+import core.reflection.facades.loader.ReflectionLoaderFacade;
+import core.reflection.facades.loader.impl.ReflectionLoaderFacadeImpl;
 
 public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject implements AnnotationsProcessorService
 {
     private ApplyAnnotationsToMethodTask applyAnnotationsToMethodTask;
     private AnnotationsGatheringService annotationsGatheringService;
     private ApplyAnnotationToMethodTask applyAnnotationToMethodTask;
-    private ReflectionFacade reflectionFacade;
+    private ReflectionLoaderFacade reflectionLoaderFacade;
     
     
     public AnnotationsProcessorServiceImpl()
@@ -26,7 +26,7 @@ public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject imp
         this.applyAnnotationsToMethodTask = new ApplyAnnotationsToMethodTask();
         this.annotationsGatheringService = new AnnotationsGatheringServiceImpl();
         this.applyAnnotationToMethodTask = new ApplyAnnotationToMethodTask();
-        this.reflectionFacade = new ReflectionFacadeImpl();
+        this.reflectionLoaderFacade = new ReflectionLoaderFacadeImpl();
     }
     
     
@@ -51,7 +51,7 @@ public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject imp
         
         if(annotationsGatheringService.isAnnotationRegisteredTask(annotationToProcess))
         {
-            applyAnnotationToMethodTask.run(reflectionFacade, OrionObject, annotationToProcess);
+            applyAnnotationToMethodTask.run(reflectionLoaderFacade, OrionObject, annotationToProcess);
             isAnnotationApplicable = true;
         }
         

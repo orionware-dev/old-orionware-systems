@@ -6,13 +6,13 @@ import core.dependencyinjection.services.DependencyInjectionServiceObject;
 import core.dependencyinjection.services.processor.DependencyInjectorService;
 import core.dependencyinjection.services.processor.impl.tasks.ProcessDependenciesTask;
 import core.dependencyinjection.services.processor.impl.tasks.ProcessMethodForInjectionTask;
-import core.reflection.facades.loader.ReflectionFacade;
-import core.reflection.facades.loader.impl.ReflectionFacadeImpl;
+import core.reflection.facades.loader.ReflectionLoaderFacade;
+import core.reflection.facades.loader.impl.ReflectionLoaderFacadeImpl;
 
 public class DependencyInjectorServiceImpl extends DependencyInjectionServiceObject implements DependencyInjectorService
 {
     private ProcessDependenciesTask processDependenciesTask;
-    private ReflectionFacade reflectionFacade;
+    private ReflectionLoaderFacade reflectionLoaderFacade;
     private ProcessMethodForInjectionTask processMethodForInjectionTask;
     private AnnotationsGatheringFacade annotationsGatheringFacade;
     
@@ -20,7 +20,7 @@ public class DependencyInjectorServiceImpl extends DependencyInjectionServiceObj
     public DependencyInjectorServiceImpl()
     {
         this.processDependenciesTask = new ProcessDependenciesTask();
-        this.reflectionFacade = new ReflectionFacadeImpl();
+        this.reflectionLoaderFacade = new ReflectionLoaderFacadeImpl();
         this.processMethodForInjectionTask = new ProcessMethodForInjectionTask();
         this.annotationsGatheringFacade = new AnnotationsGatheringFacadeImpl();
     }
@@ -29,6 +29,6 @@ public class DependencyInjectorServiceImpl extends DependencyInjectionServiceObj
     @Override
     public void processDependencies(Object object)
     {
-        processDependenciesTask.run(object, reflectionFacade, processMethodForInjectionTask, annotationsGatheringFacade);
+        processDependenciesTask.run(object, reflectionLoaderFacade, processMethodForInjectionTask, annotationsGatheringFacade);
     }
 }

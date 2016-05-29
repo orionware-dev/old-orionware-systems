@@ -1,8 +1,8 @@
 package datastructuresfacades.configuration;
 
-import core.configuration.OrionConfigurationEnum;
+import core.configuration.ConfigurationEnum;
 
-public enum DataStructuresFacadesConfigurationEnum implements OrionConfigurationEnum
+public enum DataStructuresFacadesConfigurationEnum implements ConfigurationEnum
 {
     LIBRARY_NAME("datastructuresfacades"),
     //PROPERTIES_FILE_PATH("/" + DefaultConfigurationEnum.DEFAULT_CONFIGURATION_DIR.get() + "/DataStructures.prop"),

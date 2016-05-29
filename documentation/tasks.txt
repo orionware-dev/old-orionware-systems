@@ -7,7 +7,7 @@
 --update tests, annotations.prop and OrionObjectInitialiser.java to use facades instead of services
 
 --general cleanup
---AnnotationsLoaderServiceImpl is not using ConfigurationService
+--AnnotationsLoaderServiceImpl is not using ConfigurationClasspathService
 and it is using the tasks directly
 --for methods like "havePropertiesNotBeenRegisteredForLibrary", instead of using
 "libraryConfiguration.getLibraryName()", use "libraryConfiguration.getLibraryClassPath()"
@@ -279,8 +279,6 @@ create prop file in the for of the service or task
 --create json lib
 
 --create csv lib
-
---create ClasspathService that replaces ConfigurationService
 
 --use fork/join framework
 

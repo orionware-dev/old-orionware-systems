@@ -2,7 +2,7 @@ package core.configuration;
 
 import core.services.OrionTask;
 
-public interface OrionConfigurationTask extends OrionTask
+public interface ConfigurationTask extends OrionTask
 {
     
 }

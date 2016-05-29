@@ -6,13 +6,13 @@ import core.dependencyinjection.services.DependencyInjectionServiceObject;
 import core.dependencyinjection.services.service.ServiceDependencyInjectorService;
 import core.dependencyinjection.services.service.impl.tasks.ProcessMethodForServiceInjectionTask;
 import core.dependencyinjection.services.service.impl.tasks.ProcessServiceDependenciesTask;
-import core.reflection.facades.loader.ReflectionFacade;
-import core.reflection.facades.loader.impl.ReflectionFacadeImpl;
+import core.reflection.facades.loader.ReflectionLoaderFacade;
+import core.reflection.facades.loader.impl.ReflectionLoaderFacadeImpl;
 
 public class ServiceDependencyInjectorServiceImpl extends DependencyInjectionServiceObject implements ServiceDependencyInjectorService
 {
     private ProcessServiceDependenciesTask processServiceDependenciesTask;
-    private ReflectionFacade reflectionFacade;
+    private ReflectionLoaderFacade reflectionLoaderFacade;
     private ProcessMethodForServiceInjectionTask processMethodForServiceInjectionTask;
     private AnnotationsGatheringFacade annotationsGatheringFacade;
     
@@ -20,7 +20,7 @@ public class ServiceDependencyInjectorServiceImpl extends DependencyInjectionSer
     public ServiceDependencyInjectorServiceImpl()
     {
         this.processServiceDependenciesTask = new ProcessServiceDependenciesTask();
-        this.reflectionFacade = new ReflectionFacadeImpl();
+        this.reflectionLoaderFacade = new ReflectionLoaderFacadeImpl();
         this.processMethodForServiceInjectionTask = new ProcessMethodForServiceInjectionTask();
         this.annotationsGatheringFacade = new AnnotationsGatheringFacadeImpl();
     }
@@ -29,6 +29,6 @@ public class ServiceDependencyInjectorServiceImpl extends DependencyInjectionSer
     @Override
     public void processServiceDependencies(Object object)
     {
-        processServiceDependenciesTask.run(object, reflectionFacade, processMethodForServiceInjectionTask, annotationsGatheringFacade);
+        processServiceDependenciesTask.run(object, reflectionLoaderFacade, processMethodForServiceInjectionTask, annotationsGatheringFacade);
     }
 }

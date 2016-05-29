@@ -5,19 +5,19 @@ import core.annotations.facades.gathering.AnnotationsGatheringFacade;
 import core.dependencyinjection.DependencyInjectionObject;
 import core.dependencyinjection.DependencyInjectionTask;
 import core.dependencyinjection.service.ServiceInjector;
-import core.reflection.facades.loader.ReflectionFacade;
+import core.reflection.facades.loader.ReflectionLoaderFacade;
 
 public class ProcessMethodForServiceInjectionTask extends DependencyInjectionObject implements DependencyInjectionTask
 {
     private Object object;
-    private ReflectionFacade reflectionFacade;
+    private ReflectionLoaderFacade reflectionLoaderFacade;
     
     
-    public void run(Object object, Method method, ReflectionFacade reflectionFacade, AnnotationsGatheringFacade annotationsGatheringFacade)
+    public void run(Object object, Method method, ReflectionLoaderFacade reflectionLoaderFacade, AnnotationsGatheringFacade annotationsGatheringFacade)
     {
-        this.reflectionFacade = reflectionFacade;
+        this.reflectionLoaderFacade = reflectionLoaderFacade;
         this.object = object;
-        reflectionFacade.makeMethodAccessible(method);
+        reflectionLoaderFacade.makeMethodAccessible(method);
         ServiceInjector serviceInjection = (ServiceInjector)annotationsGatheringFacade.extractAnnotationFromMethod(method, ServiceInjector.class);
         
         if(serviceInjection != null)
@@ -43,7 +43,7 @@ public class ProcessMethodForServiceInjectionTask extends DependencyInjectionObj
         
         try
         {
-            reflectionFacade.callMethod(method, object, Class.forName(classToInject).newInstance());
+            reflectionLoaderFacade.callMethod(method, object, Class.forName(classToInject).newInstance());
         }
         catch(InstantiationException exception)
         {

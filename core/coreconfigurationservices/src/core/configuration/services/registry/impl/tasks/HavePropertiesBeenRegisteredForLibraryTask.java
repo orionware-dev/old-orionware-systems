@@ -2,9 +2,9 @@ package core.configuration.services.registry.impl.tasks;
 
 import core.configuration.ConfigurationObject;
 import core.configuration.LibrariesConfigurationMapper;
-import core.configuration.OrionConfigurationTask;
+import core.configuration.ConfigurationTask;
 
-public class HavePropertiesBeenRegisteredForLibraryTask extends ConfigurationObject implements OrionConfigurationTask
+public class HavePropertiesBeenRegisteredForLibraryTask extends ConfigurationObject implements ConfigurationTask
 {
     public boolean run(String libraryName)
     {

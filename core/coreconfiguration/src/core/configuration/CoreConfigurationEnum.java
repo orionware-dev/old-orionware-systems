@@ -1,6 +1,6 @@
 package core.configuration;
 
-public enum CoreConfigurationEnum implements OrionConfigurationEnum
+public enum CoreConfigurationEnum implements ConfigurationEnum
 {
     LIBRARY_NAME("coreconfiguration"),
     LIBRARY_CLASS_PATH("/core/" + DefaultConfigurationEnum.DEFAULT_CONFIGURATION_DIR.get()),

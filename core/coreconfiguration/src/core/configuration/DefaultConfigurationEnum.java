@@ -1,6 +1,6 @@
 package core.configuration;
 
-public enum DefaultConfigurationEnum implements OrionConfigurationEnum
+public enum DefaultConfigurationEnum implements ConfigurationEnum
 {
     DEFAULT_CONFIGURATION_DIR("configuration");
     
