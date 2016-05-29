@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="OrionCoreReflectionFacadesBuilder" default="all" basedir=".">
+    <property file="CoreReflectionFacadesBuild.prop"/>
+    <property name="orion.core.binaries.dir" value="${orion.core.dir}/${default.binaries.dir.name}"/>
+    <property name="orion.core.reflection.facades.binaries.dir" value="${orion.core.reflection.facades.dir}/${default.binaries.dir.name}"/>
+    <property name="orion.core.reflection.facades.source.dir" value="${orion.core.reflection.facades.dir}/${default.source.dir.name}"/>
+
+    
+    <target name="all">
+    	   <buildAndPackageProject sourceDir="${orion.core.reflection.facades.source.dir}" binariesDir="${orion.core.reflection.facades.binaries.dir}" JARPath="${orion.orionware.libraries.libraries.dir}/${orion.core.reflection.facades.jar.file.name}" projectName="${orion.core.reflection.facades}"/>
+        
+        <copy todir="${orion.core.binaries.dir}" verbose="yes" failonerror="false" overwrite="true">
+            <fileset dir="${orion.core.reflection.facades.binaries.dir}" includes="${default.any.file.extension.pattern}"/>
+        </copy>
+    </target>
+	
+	
+	<target name="delete_JAR">
+		<deleteFile path="${orion.orionware.libraries.libraries.dir}/${orion.core.reflection.facades.jar.file.name}"/>
+    </target>
+</project>

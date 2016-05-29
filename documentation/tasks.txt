@@ -2,6 +2,10 @@
 --services should be composed by other services and tasks.
 --tasks should be composed by other tasks.
 
+--remove unused projects from build paths
+
+--update tests, annotations.prop and OrionObjectInitialiser.java to use facades instead of services
+
 --a function should be independent of other classes. If a function
 needs other functions/tasks/services/facades then split
 the function into more functions or have the taskthe

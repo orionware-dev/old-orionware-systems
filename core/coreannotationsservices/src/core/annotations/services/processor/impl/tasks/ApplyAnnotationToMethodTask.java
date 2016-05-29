@@ -4,19 +4,19 @@ import java.lang.reflect.Method;
 import core.annotations.AnnotationTask;
 import core.annotations.OrionAnnotation;
 import core.annotations.services.AnnotationServiceObject;
-import core.reflection.loader.ReflectionService;
+import core.reflection.facades.loader.ReflectionFacade;
 
 public class ApplyAnnotationToMethodTask extends AnnotationServiceObject implements AnnotationTask
 {
-    public void run(ReflectionService reflectionService, Object object, OrionAnnotation registeredAnnotation)
+    public void run(ReflectionFacade reflectionFacade, Object object, OrionAnnotation registeredAnnotation)
     {
         try
         {
             //instantiate annotation service
-            Object someAnnotationService = reflectionService.loadAndInstantiateClass(registeredAnnotation.getAnnotationService());
+            Object someAnnotationService = reflectionFacade.loadAndInstantiateClass(registeredAnnotation.getAnnotationService());
             //call annotation service method that will process this annotation
             Method someMethod = someAnnotationService.getClass().getMethod(registeredAnnotation.getAnnotationServiceMethodToCall(), Object.class);
-            reflectionService.callMethod(someMethod, someAnnotationService, object);
+            reflectionFacade.callMethod(someMethod, someAnnotationService, object);
         }
         catch(NoSuchMethodException exception)
         {

@@ -6,8 +6,8 @@ import java.io.Reader;
 import java.io.Writer;
 import core.filesystem.facades.FileSystemFacadeObject;
 import core.filesystem.facades.streams.FileSystemStreamsFacade;
-import core.filesystem.streams.FileSystemStreamsService;
-import core.filesystem.streams.impl.FileSystemStreamsServiceImpl;
+import core.filesystem.services.streams.FileSystemStreamsService;
+import core.filesystem.services.streams.impl.FileSystemStreamsServiceImpl;
 
 public class FileSystemStreamsFacadeImpl extends FileSystemFacadeObject implements FileSystemStreamsFacade
 {

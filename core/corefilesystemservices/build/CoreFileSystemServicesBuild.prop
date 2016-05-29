@@ -1,0 +1,3 @@
+orion.core.filesystem.services=Core File System Services
+orion.core.filesystem.services.dir=${orion.core.projects.dir}/corefilesystemservices
+orion.core.filesystem.services.jar.file.name=OrionCoreFileSystemServices_${orion.libraries.version}.jar

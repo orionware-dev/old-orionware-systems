@@ -1,11 +1,18 @@
 orion.core.file.system.builder.dir=${orion.core.projects.dir}/corefilesystem/build
+orion.core.file.system.services.builder.dir=${orion.core.projects.dir}/corefilesystemservices/build
 orion.core.file.system.facades.builder.dir=${orion.core.projects.dir}/corefilesystemfacades/build
 orion.core.reflection.builder.dir=${orion.core.projects.dir}/corereflection/build
+orion.core.reflection.services.builder.dir=${orion.core.projects.dir}/corereflectionservices/build
+orion.core.reflection.facades.builder.dir=${orion.core.projects.dir}/corereflectionfacades/build
 orion.core.configuration.builder.dir=${orion.core.projects.dir}/coreconfiguration/build
+orion.core.configuration.services.builder.dir=${orion.core.projects.dir}/coreconfigurationservices/build
+orion.core.configuration.facades.builder.dir=${orion.core.projects.dir}/coreconfigurationfacades/build
 orion.core.annotations.builder.dir=${orion.core.projects.dir}/coreannotations/build
 orion.core.annotations.services.builder.dir=${orion.core.projects.dir}/coreannotationsservices/build
 orion.core.annotations.facades.builder.dir=${orion.core.projects.dir}/coreannotationsfacades/build
 orion.core.dependency.injection.builder.dir=${orion.core.projects.dir}/coredependencyinjection/build
+orion.core.dependency.injection.services.builder.dir=${orion.core.projects.dir}/coredependencyinjectionservices/build
+orion.core.dependency.injection.facades.builder.dir=${orion.core.projects.dir}/coredependencyinjectionfacades/build
 orion.core.core.builder.dir=${orion.core.projects.dir}/core/build
 
 orion.core.jar.file.name=OrionCore_${orion.libraries.version}.jar

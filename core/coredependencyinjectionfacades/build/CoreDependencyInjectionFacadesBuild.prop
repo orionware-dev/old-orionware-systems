@@ -1,0 +1,3 @@
+orion.core.dependencyinjection.facades=Core Dependency Injection Facades
+orion.core.dependencyinjection.facades.dir=${orion.core.projects.dir}/coredependencyinjectionfacades
+orion.core.dependencyinjection.facades.jar.file.name=OrionCoreDependencyInjectionFacades_${orion.libraries.version}.jar
