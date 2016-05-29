@@ -1,6 +1,6 @@
 package core.filesystem;
 
-import core.general.OrionInterface;
+import core.abstraction.OrionInterface;
 
 public interface FileSystemInterface extends OrionInterface
 {

@@ -1,8 +1,8 @@
 package core.configuration.registry;
 
 import java.io.InputStream;
+import core.abstraction.OrionRegistry;
 import core.configuration.OrionProperties;
-import core.general.OrionRegistry;
 
 public class ConfigurationRegistry extends OrionRegistry
 {

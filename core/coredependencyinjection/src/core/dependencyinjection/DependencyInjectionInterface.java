@@ -1,6 +1,6 @@
 package core.dependencyinjection;
 
-import core.general.OrionInterface;
+import core.abstraction.OrionInterface;
 
 public interface DependencyInjectionInterface extends OrionInterface
 {

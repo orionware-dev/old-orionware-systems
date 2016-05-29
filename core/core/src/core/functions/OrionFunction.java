@@ -1,6 +1,6 @@
 package core.functions;
 
-import core.general.OrionInterface;
+import core.abstraction.OrionInterface;
 
 public interface OrionFunction extends OrionInterface
 {

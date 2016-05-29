@@ -1,6 +1,6 @@
 package datastructuresservices.factories;
 
-import core.general.OrionFactory;
+import core.abstraction.OrionFactory;
 
 public interface DataStructureFactory extends OrionFactory
 {

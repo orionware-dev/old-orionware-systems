@@ -1,6 +1,6 @@
 package datastructures.general;
 
-import core.general.OrionConfiguration;
+import core.abstraction.OrionConfiguration;
 
 public abstract class DataStructuresConfiguration extends OrionConfiguration
 {

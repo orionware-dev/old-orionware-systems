@@ -1,6 +1,6 @@
 package core.configuration;
 
-import core.general.OrionEnum;
+import core.abstraction.OrionEnum;
 
 public interface OrionConfigurationEnum extends OrionEnum
 {

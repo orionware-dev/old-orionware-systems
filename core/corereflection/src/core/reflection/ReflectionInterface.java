@@ -1,6 +1,6 @@
 package core.reflection;
 
-import core.general.OrionInterface;
+import core.abstraction.OrionInterface;
 
 public interface ReflectionInterface extends OrionInterface
 {

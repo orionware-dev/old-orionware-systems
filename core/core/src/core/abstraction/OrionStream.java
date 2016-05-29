@@ -1,4 +1,4 @@
-package core.general;
+package core.abstraction;
 
 import java.util.function.Consumer;
 import java.util.stream.Stream;

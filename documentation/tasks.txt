@@ -105,8 +105,6 @@ vars we want to be compared by the equality checker to determine if the
 
 --create OrionArray.java and provide convenience methods
 
---rename core.general package to core.abstraction
-
 --for different file types we want to create, create he corresponding
 builder and buffer like XMLBuilder extends StringBuilder
 And XMLBuffer extends StringBuffer

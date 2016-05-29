@@ -1,6 +1,6 @@
 package core.configuration;
 
-import core.general.OrionConfiguration;
+import core.abstraction.OrionConfiguration;
 
 public class LibraryConfiguration extends OrionConfiguration implements ConfigurationTriple<String, String, String>
 {

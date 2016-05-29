@@ -1,6 +1,6 @@
 package datastructuresfacades;
 
-import core.general.OrionConfiguration;
+import core.abstraction.OrionConfiguration;
 
 public abstract class DataStructuresFacadesConfiguration extends OrionConfiguration
 {

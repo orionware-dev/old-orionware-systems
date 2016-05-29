@@ -1,6 +1,6 @@
 package core.services;
 
-import core.general.OrionInterface;
+import core.abstraction.OrionInterface;
 
 public interface OrionService extends OrionInterface
 {
