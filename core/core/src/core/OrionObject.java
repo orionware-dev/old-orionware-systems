@@ -8,9 +8,9 @@ public abstract class OrionObject extends OrionSimpleObject
     private OrionObjectInitialiser OrionObjectInitialiser;
     private Set<Object> librariesConfigurationSet;
     private Object libraryConfiguration;
-    private Object configurationService;
-    private Object annotationsRegistrationService;
-    private Object annotationsProcessorService;
+    private Object configurationFacade;
+    private Object annotationsRegistrationFacade;
+    private Object annotationsProcessorFacade;
     
     
     public OrionObject()
@@ -18,9 +18,9 @@ public abstract class OrionObject extends OrionSimpleObject
         this.librariesConfigurationSet = new HashSet<Object>();
         this.OrionObjectInitialiser = new OrionObjectInitialiser();
         this.libraryConfiguration = OrionObjectInitialiser.getLibraryConfigurationInstance();
-        this.configurationService = OrionObjectInitialiser.getConfigurationServiceInstance();
-        this.annotationsRegistrationService = OrionObjectInitialiser.getAnnotationsRegistrationServiceInstance();
-        this.annotationsProcessorService = OrionObjectInitialiser.getAnnotationsProcessorServiceInstance();
+        this.configurationFacade = OrionObjectInitialiser.getConfigurationFacadeInstance();
+        this.annotationsRegistrationFacade = OrionObjectInitialiser.getAnnotationsRegistrationFacadeInstance();
+        this.annotationsProcessorFacade = OrionObjectInitialiser.getAnnotationsProcessorFacadeInstance();
         initialiseCoreConfiguration();
         loadCoreConfiguration();
         processAllLibrariesConfigurationIfItIsTheCoreLibrary();
@@ -50,7 +50,7 @@ public abstract class OrionObject extends OrionSimpleObject
     
     private boolean thisIsCoreLibrary()
     {
-        return OrionObjectInitialiser.thisIsCoreLibrary(configurationService, getClass());
+        return OrionObjectInitialiser.thisIsCoreLibrary(configurationFacade, getClass());
     }
     
     
@@ -58,9 +58,9 @@ public abstract class OrionObject extends OrionSimpleObject
     //then this method is called so that all the libraries configs are loaded in one go
     protected void processAllLibrariesConfiguration()
     {
-        OrionObjectInitialiser.processAllLibrariesConfiguration(configurationService, librariesConfigurationSet);
-        OrionObjectInitialiser.registerLibrariesAnnotations(annotationsRegistrationService, librariesConfigurationSet);
-        OrionObjectInitialiser.processAllAnnotations(annotationsProcessorService, this);
+        OrionObjectInitialiser.processAllLibrariesConfiguration(configurationFacade, librariesConfigurationSet);
+        OrionObjectInitialiser.registerLibrariesAnnotations(annotationsRegistrationFacade, librariesConfigurationSet);
+        OrionObjectInitialiser.processAllAnnotations(annotationsProcessorFacade, this);
     }
     
     

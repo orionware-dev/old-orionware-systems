@@ -11,21 +11,21 @@ public class OrionObjectInitialiser extends OrionSimpleObject
     }
     
     
-    public Object getConfigurationServiceInstance()
+    public Object getConfigurationFacadeInstance()
     {
-        return instantiateClass("core.configuration.services.classpath.impl.ConfigurationServiceImpl");
+        return instantiateClass("core.configuration.facades.classpath.impl.ConfigurationFacadeImpl");
     }
     
     
-    public Object getAnnotationsRegistrationServiceInstance()
+    public Object getAnnotationsRegistrationFacadeInstance()
     {
-        return instantiateClass("core.annotations.services.registry.impl.AnnotationsRegistrationServiceImpl");
+        return instantiateClass("core.annotations.facades.registration.impl.AnnotationsRegistrationFacadeImpl");
     }
     
     
-    public Object getAnnotationsProcessorServiceInstance()
+    public Object getAnnotationsProcessorFacadeInstance()
     {
-        return instantiateClass("core.annotations.services.processor.impl.AnnotationsProcessorServiceImpl");
+        return instantiateClass("core.annotations.facades.processor.impl.AnnotationsProcessorFacadeImpl");
     }
     
     
@@ -117,11 +117,11 @@ public class OrionObjectInitialiser extends OrionSimpleObject
     }
     
     
-    public boolean thisIsCoreLibrary(Object configurationService, Class<?> aClass)
+    public boolean thisIsCoreLibrary(Object configurationFacade, Class<?> aClass)
     {
         try
         {
-            return (boolean)configurationService.getClass().getMethod("isCoreLibrary", Class.class).invoke(configurationService, aClass);
+            return (boolean)configurationFacade.getClass().getMethod("isCoreLibrary", Class.class).invoke(configurationFacade, aClass);
         }
         catch(IllegalAccessException exception)
         {
@@ -148,11 +148,11 @@ public class OrionObjectInitialiser extends OrionSimpleObject
     }
     
     
-    public void processAllLibrariesConfiguration(Object configurationService, Set<Object> librariesConfigurationSet)
+    public void processAllLibrariesConfiguration(Object configurationFacade, Set<Object> librariesConfigurationSet)
     {
         try
         {
-            configurationService.getClass().getMethod("loadLibrariesProperties", Set.class).invoke(configurationService, librariesConfigurationSet);
+            configurationFacade.getClass().getMethod("loadLibrariesProperties", Set.class).invoke(configurationFacade, librariesConfigurationSet);
         }
         catch(IllegalAccessException exception)
         {
@@ -177,11 +177,11 @@ public class OrionObjectInitialiser extends OrionSimpleObject
     }
     
     
-    public void registerLibrariesAnnotations(Object annotationsRegistrationService, Set<Object> librariesConfigurationSet)
+    public void registerLibrariesAnnotations(Object annotationsRegistrationFacade, Set<Object> librariesConfigurationSet)
     {
         try
         {
-            annotationsRegistrationService.getClass().getMethod("registerLibrariesAnnotations", Set.class).invoke(annotationsRegistrationService, librariesConfigurationSet);
+            annotationsRegistrationFacade.getClass().getMethod("registerLibrariesAnnotations", Set.class).invoke(annotationsRegistrationFacade, librariesConfigurationSet);
         }
         catch(IllegalAccessException exception)
         {
@@ -206,11 +206,11 @@ public class OrionObjectInitialiser extends OrionSimpleObject
     }
     
     
-    public void processAllAnnotations(Object annotationsProcessorService, Object object)
+    public void processAllAnnotations(Object annotationsProcessorFacade, Object object)
     {
         try
         {
-            annotationsProcessorService.getClass().getMethod("processAllAnnotations", Object.class).invoke(annotationsProcessorService, object);
+            annotationsProcessorFacade.getClass().getMethod("processAllAnnotations", Object.class).invoke(annotationsProcessorFacade, object);
         }
         catch(IllegalAccessException exception)
         {
