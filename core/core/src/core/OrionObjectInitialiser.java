@@ -8,12 +8,13 @@ public class OrionObjectInitialiser extends OrionSimpleObject
 {
     private static final String LIBRARY_CONFIGURATION_CLASS_PATH = "core.configuration.LibraryConfiguration";
     private static final String CORE_CONFIGURATION_ENUM_PATH = "core.configuration.CoreConfigurationEnum";
+    private static final String REFLECTION_ENUMERATION_FACADE_CLASS_PATH = "core.reflection.facades.enumerations.impl.ReflectionEnumerationFacadeImpl";
     private Object reflectionEnumerationFacade;
     
     
     public OrionObjectInitialiser()
     {
-        this.reflectionEnumerationFacade = instantiateClass("core.reflection.facades.enumerations.impl.ReflectionEnumerationFacadeImpl");
+        this.reflectionEnumerationFacade = instantiateClass(REFLECTION_ENUMERATION_FACADE_CLASS_PATH);
     }
     
     
@@ -129,8 +130,7 @@ public class OrionObjectInitialiser extends OrionSimpleObject
         enumNameToken = enumNameToken.toLowerCase();
         char[] enumNameTokenCharactersArray = enumNameToken.toCharArray();
         enumNameTokenCharactersArray[0] = Character.toUpperCase(enumNameTokenCharactersArray[0]);
-        setterMethodToCallInLibraryConfiguration += String.copyValueOf(enumNameTokenCharactersArray);
-        return setterMethodToCallInLibraryConfiguration;
+        return setterMethodToCallInLibraryConfiguration + String.copyValueOf(enumNameTokenCharactersArray);
     }
     
     
