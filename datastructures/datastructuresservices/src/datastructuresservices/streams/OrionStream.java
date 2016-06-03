@@ -1,4 +1,4 @@
-package core.abstraction;
+package datastructuresservices.streams;
 
 import java.util.function.Consumer;
 import java.util.stream.Stream;
