@@ -11,6 +11,6 @@ public class ProcessServiceDependenciesTask extends DependencyInjectionObject im
     public void run(Object object, ReflectionLoaderFacade reflectionLoaderFacade, ProcessMethodForServiceInjectionTask processMethodForServiceInjectionTask, AnnotationsGatheringFacade annotationsGatheringFacade)
     {
         Arrays.stream(reflectionLoaderFacade.getMethodsArray(object))
-            .forEach((method) -> processMethodForServiceInjectionTask.run(object, method, reflectionLoaderFacade, annotationsGatheringFacade));
+            .forEach(method -> processMethodForServiceInjectionTask.run(object, method, reflectionLoaderFacade, annotationsGatheringFacade));
     }
 }

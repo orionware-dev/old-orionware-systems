@@ -13,6 +13,6 @@ public class ApplyAnnotationsToMethodTask extends AnnotationServiceObject implem
     {
         ApplyAnnotationToMethodTask applyAnnotationToMethodTask = new ApplyAnnotationToMethodTask();
         ReflectionLoaderFacade reflectionLoaderFacade = new ReflectionLoaderFacadeImpl();
-        annotationsStream.forEach((annotation) -> applyAnnotationToMethodTask.run(reflectionLoaderFacade, OrionObject, (OrionAnnotation)annotation));
+        annotationsStream.forEach(annotation -> applyAnnotationToMethodTask.run(reflectionLoaderFacade, OrionObject, (OrionAnnotation)annotation));
     }
 }

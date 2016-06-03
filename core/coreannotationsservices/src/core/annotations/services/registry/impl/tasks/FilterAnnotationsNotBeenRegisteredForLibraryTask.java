@@ -10,6 +10,6 @@ public class FilterAnnotationsNotBeenRegisteredForLibraryTask extends Annotation
     public Stream<LibraryConfiguration> run(Stream<LibraryConfiguration> librariesConfigurationStream)
     {
         HaveAnnotationsBeenRegisteredForLibraryTask haveAnnotationsBeenRegisteredForLibraryTask = new HaveAnnotationsBeenRegisteredForLibraryTask();
-        return librariesConfigurationStream.filter((libraryConfiguration) -> !haveAnnotationsBeenRegisteredForLibraryTask.run(libraryConfiguration.getLibraryName()));
+        return librariesConfigurationStream.filter(libraryConfiguration -> !haveAnnotationsBeenRegisteredForLibraryTask.run(libraryConfiguration.getLibraryName()));
     }
 }

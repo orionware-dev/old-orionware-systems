@@ -32,7 +32,7 @@ public class OrionObjectInitialiser extends OrionSimpleObject
                                               .getMethod("getEnumerationDefinitions", Class.class)
                                               .invoke(reflectionEnumerationFacade, coreConfigurationEnumClass);
             Arrays.stream(enumDefinitionsArray)
-                .forEach((enumDefinition) -> getEnumValueAndSetItToLibraryConfiguration(coreConfigurationEnumClass, enumDefinition, libraryConfiguration));
+                .forEach(enumDefinition -> getEnumValueAndSetItToLibraryConfiguration(coreConfigurationEnumClass, enumDefinition, libraryConfiguration));
         }
         catch(SecurityException exception)
         {

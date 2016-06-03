@@ -22,14 +22,14 @@ public class FilterRegisteredAnnotationsStreamFromObjectAnnotationsTask extends 
         //and the ones the developer created using the Orion Annotations Engine.
         //The rest of the annotations in allObjectAnnotationsList are Java/Spring/etc. annotations
         //and Orion does not concern itself with those
-        return AnnotationsRegistry.filterAnnotations((annotation) -> doesObjectHaveRegisteredAnnotationTask((OrionAnnotation)annotation));
+        return AnnotationsRegistry.filterAnnotations(annotation -> doesObjectHaveRegisteredAnnotationTask((OrionAnnotation)annotation));
     }
     
     
     private boolean doesObjectHaveRegisteredAnnotationTask(OrionAnnotation registeredAnnotation)
     {
         return allObjectAnnotationsList.stream()
-                    .filter((annotation) -> 
+                    .filter(annotation -> 
                         {
                             String annotationName = annotation.annotationType().getName();
                             return annotationName.equals(registeredAnnotation.getAnnotationClass());

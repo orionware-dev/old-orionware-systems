@@ -47,7 +47,7 @@ public class GatherAllAnnotationsFromObjectTask extends AnnotationServiceObject 
     {
         Constructor<?>[] constructors = object.getClass().getDeclaredConstructors();
         Stream<Constructor<?>> constructorsStream = Arrays.stream(constructors);
-        constructorsStream.forEach((constructor) -> getObjectElementAnnotationsAndAppendThemToList(constructor));
+        constructorsStream.forEach(constructor -> getObjectElementAnnotationsAndAppendThemToList(constructor));
     }
     
     
@@ -55,7 +55,7 @@ public class GatherAllAnnotationsFromObjectTask extends AnnotationServiceObject 
     {
         Method[] methods = object.getClass().getDeclaredMethods();
         Stream<Method> methodsStream = Arrays.stream(methods);
-        methodsStream.forEach((method) -> getObjectElementAnnotationsAndAppendThemToList(method));
+        methodsStream.forEach(method -> getObjectElementAnnotationsAndAppendThemToList(method));
     }
     
     
@@ -63,6 +63,6 @@ public class GatherAllAnnotationsFromObjectTask extends AnnotationServiceObject 
     {
         Field[] variables = object.getClass().getDeclaredFields();
         Stream<Field> variablesStream = Arrays.stream(variables);
-        variablesStream.forEach((method) -> getObjectElementAnnotationsAndAppendThemToList(method));
+        variablesStream.forEach(method -> getObjectElementAnnotationsAndAppendThemToList(method));
     }
 }
