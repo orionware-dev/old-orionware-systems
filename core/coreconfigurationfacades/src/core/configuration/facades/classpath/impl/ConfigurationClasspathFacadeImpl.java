@@ -2,8 +2,6 @@ package core.configuration.facades.classpath.impl;
 
 import java.io.Closeable;
 import java.io.InputStream;
-import java.util.Set;
-import core.configuration.LibraryConfiguration;
 import core.configuration.facades.ConfigurationFacadeObject;
 import core.configuration.facades.classpath.ConfigurationClasspathFacade;
 import core.configuration.services.classpath.ConfigurationClasspathService;
@@ -28,9 +26,9 @@ public class ConfigurationClasspathFacadeImpl extends ConfigurationFacadeObject 
 
     
     @Override
-    public void loadLibrariesProperties(Set<LibraryConfiguration> librariesConfiguration)
+    public void loadLibrariesProperties()
     {
-        configurationClasspathService.loadLibrariesProperties(librariesConfiguration);
+        configurationClasspathService.loadLibrariesProperties();
     }
 
     

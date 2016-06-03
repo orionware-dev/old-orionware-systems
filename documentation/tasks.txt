@@ -1,4 +1,7 @@
-﻿--facades should be composed by facades and services.
+﻿--use ConfigurationFacades in DataStructuresObject.java
+
+
+--facades should be composed by facades and services.
 --services should be composed by other services and tasks.
 --tasks should be composed by other tasks.
 

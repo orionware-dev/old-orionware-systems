@@ -2,7 +2,7 @@ package core.configuration;
 
 import core.abstraction.OrionConfiguration;
 
-public class LibraryConfiguration extends OrionConfiguration implements ConfigurationTriple<String, String, String>
+public class LibraryConfiguration extends OrionConfiguration
 {
     private String libraryName;
     private String libraryClassPath;

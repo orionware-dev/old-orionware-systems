@@ -1,6 +1,5 @@
 package core.annotations.services.registry.impl;
 
-import java.util.Set;
 import java.util.stream.Stream;
 import core.annotations.OrionAnnotation;
 import core.annotations.services.AnnotationServiceObject;
@@ -12,14 +11,15 @@ import core.annotations.services.registry.impl.tasks.RegisterAnnotationTask;
 import core.annotations.services.registry.impl.tasks.RegisterLibrariesAnnotationsTask;
 import core.annotations.services.registry.impl.tasks.RegisterLibraryAnnotationsTask;
 import core.annotations.services.registry.impl.tasks.SetAnnotationsAsRegisteredForLibraryTask;
+import core.configuration.LibrariesConfiguration;
 import core.configuration.LibraryConfiguration;
 
 public class AnnotationsRegistrationServiceImpl extends AnnotationServiceObject implements AnnotationsRegistrationService
 {
     @Override
-    public void registerLibrariesAnnotations(Set<LibraryConfiguration> librariesConfiguration)
+    public void registerLibrariesAnnotations()
     {
-        Stream<LibraryConfiguration> notNullLibrariesConfigurationStream = new FilterNotNullLibrariesConfigurationTask().run(librariesConfiguration);
+        Stream<LibraryConfiguration> notNullLibrariesConfigurationStream = new FilterNotNullLibrariesConfigurationTask().run(LibrariesConfiguration.getLibrariesConfigurationSet());
         notNullLibrariesConfigurationStream = new FilterAnnotationsNotBeenRegisteredForLibraryTask().run(notNullLibrariesConfigurationStream);
         new RegisterLibrariesAnnotationsTask().run(notNullLibrariesConfigurationStream);
     }

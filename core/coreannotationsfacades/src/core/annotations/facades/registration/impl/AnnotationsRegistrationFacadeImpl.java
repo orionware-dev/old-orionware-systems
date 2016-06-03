@@ -1,6 +1,5 @@
 package core.annotations.facades.registration.impl;
 
-import java.util.Set;
 import core.annotations.OrionAnnotation;
 import core.annotations.facades.AnnotationFacadeObject;
 import core.annotations.facades.registration.AnnotationsRegistrationFacade;
@@ -20,9 +19,9 @@ public class AnnotationsRegistrationFacadeImpl extends AnnotationFacadeObject im
     
     
     @Override
-    public void registerLibrariesAnnotations(Set<LibraryConfiguration> librariesConfiguration)
+    public void registerLibrariesAnnotations()
     {
-        annotationsRegistrationService.registerLibrariesAnnotations(librariesConfiguration);
+        annotationsRegistrationService.registerLibrariesAnnotations();
     }
     
     

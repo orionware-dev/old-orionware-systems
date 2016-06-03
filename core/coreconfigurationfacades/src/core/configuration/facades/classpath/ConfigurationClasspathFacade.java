@@ -2,16 +2,14 @@ package core.configuration.facades.classpath;
 
 import java.io.Closeable;
 import java.io.InputStream;
-import java.util.Set;
 import core.configuration.ConfigurationFacade;
-import core.configuration.LibraryConfiguration;
 
 public interface ConfigurationClasspathFacade extends ConfigurationFacade
 {
     public boolean isCoreLibrary(Class<?> classBeingRun);
     
     
-    public void loadLibrariesProperties(Set<LibraryConfiguration> librariesConfiguration);
+    public void loadLibrariesProperties();
     
     
     public InputStream getFileStream(String filePath);

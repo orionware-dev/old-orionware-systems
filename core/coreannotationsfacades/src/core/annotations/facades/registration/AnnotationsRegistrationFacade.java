@@ -1,13 +1,12 @@
 package core.annotations.facades.registration;
 
-import java.util.Set;
 import core.annotations.AnnotationFacade;
 import core.annotations.OrionAnnotation;
 import core.configuration.LibraryConfiguration;
 
 public interface AnnotationsRegistrationFacade extends AnnotationFacade
 {
-    public void registerLibrariesAnnotations(Set<LibraryConfiguration> librariesConfiguration);
+    public void registerLibrariesAnnotations();
     
     
     public void registerAnnotation(OrionAnnotation registeredAnnotation);

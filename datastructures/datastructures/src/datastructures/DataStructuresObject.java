@@ -1,7 +1,7 @@
 package datastructures;
 
-import core.OrionObject;
 import core.configuration.LibraryConfiguration;
+import core.objects.OrionObject;
 
 public abstract class DataStructuresObject extends OrionObject
 {

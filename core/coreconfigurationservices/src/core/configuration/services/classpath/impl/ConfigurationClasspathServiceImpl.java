@@ -2,8 +2,7 @@ package core.configuration.services.classpath.impl;
 
 import java.io.Closeable;
 import java.io.InputStream;
-import java.util.Set;
-import core.configuration.LibraryConfiguration;
+import core.configuration.LibrariesConfiguration;
 import core.configuration.services.ConfigurationServiceObject;
 import core.configuration.services.classpath.ConfigurationClasspathService;
 import core.configuration.services.classpath.impl.tasks.IsCoreLibraryTask;
@@ -35,12 +34,12 @@ public class ConfigurationClasspathServiceImpl extends ConfigurationServiceObjec
 
 
     @Override
-    public void loadLibrariesProperties(Set<LibraryConfiguration> librariesConfiguration)
+    public void loadLibrariesProperties()
     {
         PropertiesRegistrationService propertiesRegistrationService = new PropertiesRegistrationServiceImpl();
         RegisterLibraryPropertiesTask registerLibraryPropertiesTask = new RegisterLibraryPropertiesTask();
         LoadLibraryPropertiesTask loadLibraryPropertiesTask = new LoadLibraryPropertiesTask();
-        librariesConfiguration.stream()
+        LibrariesConfiguration.getLibrariesConfigurationSet().stream()
             .filter(libraryConfiguration -> libraryConfiguration.getConfigurationFilePath() != null)
             .filter(libraryConfiguration -> propertiesRegistrationService.havePropertiesNotBeenRegisteredForLibrary(libraryConfiguration.getLibraryName()))
             .forEach(libraryConfiguration -> registerLibraryPropertiesTask.run(this, loadLibraryPropertiesTask, propertiesRegistrationService, libraryConfiguration));
