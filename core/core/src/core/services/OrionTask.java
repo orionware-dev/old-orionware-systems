@@ -1,6 +1,8 @@
 package core.services;
 
-public interface OrionTask
+import core.abstraction.OrionInterface;
+
+public interface OrionTask extends OrionInterface
 {
     
 }

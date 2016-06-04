@@ -1,8 +1,9 @@
 package core.configuration;
 
+import core.OrionSimpleObject;
 import core.abstraction.OrionConfiguration;
 
-public class LibraryConfiguration extends OrionConfiguration
+public class LibraryConfiguration extends OrionSimpleObject implements OrionConfiguration
 {
     private String libraryName;
     private String libraryClassPath;

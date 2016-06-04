@@ -2,9 +2,10 @@ package core.configuration;
 
 import java.util.HashSet;
 import java.util.Set;
+import core.OrionSimpleObject;
 import core.abstraction.OrionConfiguration;
 
-public class LibrariesConfiguration extends OrionConfiguration
+public class LibrariesConfiguration extends OrionSimpleObject implements OrionConfiguration
 {
     private static boolean haveCoreLibrariesNotBeenRegistered;
     private static Set<LibraryConfiguration> librariesConfigurationSet;
