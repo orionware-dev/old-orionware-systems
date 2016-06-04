@@ -39,9 +39,9 @@ public class OrionObjectProcessor extends OrionSimpleObject
     
     
     @SuppressWarnings({"rawtypes"})
-    private void getEnumerationValueAndSetItToLibraryConfiguration(Class<CoreConfigurationEnumeration> coreConfigurationEnumClass, Enum enumDefinition, LibraryConfiguration libraryConfiguration)
+    private void getEnumerationValueAndSetItToLibraryConfiguration(Class<CoreConfigurationEnumeration> coreConfigurationEnumClass, Enum enumerationDefinition, LibraryConfiguration libraryConfiguration)
     {
-        String enumName = enumDefinition.name();
+        String enumName = enumerationDefinition.name();
         String setterMethodToCallInLibraryConfiguration = "set";
         String[] enumNameTokens = enumName.split("_");
         
