@@ -116,6 +116,14 @@ public class OrionObjectProcessor extends OrionSimpleObject
     }
     
     
+    public void processAllLibrariesConfiguration(OrionObject OrionObject)
+    {
+        loadLibrariesProperties();
+        registerLibrariesAnnotations();
+        processAllAnnotations(OrionObject);
+    }
+    
+    
     public void loadLibrariesProperties()
     {
         try
