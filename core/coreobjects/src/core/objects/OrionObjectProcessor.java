@@ -3,14 +3,11 @@ package core.objects;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import core.OrionSimpleObject;
-import core.annotations.facades.processor.AnnotationsProcessorFacade;
 import core.annotations.facades.processor.impl.AnnotationsProcessorFacadeImpl;
-import core.annotations.facades.registration.AnnotationsRegistrationFacade;
 import core.annotations.facades.registration.impl.AnnotationsRegistrationFacadeImpl;
 import core.configuration.CoreConfigurationEnumeration;
 import core.configuration.LibrariesConfiguration;
 import core.configuration.LibraryConfiguration;
-import core.configuration.facades.classpath.ConfigurationClasspathFacade;
 import core.configuration.facades.classpath.impl.ConfigurationClasspathFacadeImpl;
 
 public class OrionObjectProcessor extends OrionSimpleObject
@@ -20,7 +17,7 @@ public class OrionObjectProcessor extends OrionSimpleObject
         LibraryConfiguration coreLibraryConfiguration = getInitialisedCoreConfiguration();
         LibrariesConfiguration.registerLibraryConfiguration(coreLibraryConfiguration);
         
-        if(thisIsCoreLibrary(getClass()))
+        if(new IsCoreLibraryTask().run(getClass()))
         {
             loadLibrariesProperties();
             registerLibrariesAnnotations();
@@ -39,7 +36,7 @@ public class OrionObjectProcessor extends OrionSimpleObject
     
     
     @SuppressWarnings({"rawtypes"})
-    private void getEnumerationValueAndSetItToLibraryConfiguration(Class<CoreConfigurationEnumeration> coreConfigurationEnumClass, Enum enumerationDefinition, LibraryConfiguration libraryConfiguration)
+    private void getEnumerationValueAndSetItToLibraryConfiguration(Class<CoreConfigurationEnumeration> coreConfigurationEnumerationClass, Enum enumerationDefinition, LibraryConfiguration libraryConfiguration)
     {
         String enumName = enumerationDefinition.name();
         String setterMethodToCallInLibraryConfiguration = "set";
@@ -54,17 +51,17 @@ public class OrionObjectProcessor extends OrionSimpleObject
         
         try
         {
-            enumValue = (String)coreConfigurationEnumClass.getMethod("get", new Class<?>[]{})
-                            .invoke(Enum.valueOf(coreConfigurationEnumClass, enumName), new Object[]{});
+            enumValue = (String)coreConfigurationEnumerationClass.getMethod("get", new Class<?>[]{})
+                            .invoke(Enum.valueOf(coreConfigurationEnumerationClass, enumName), new Object[]{});
             libraryConfiguration.getClass()
                 .getMethod(setterMethodToCallInLibraryConfiguration, String.class)
                 .invoke(libraryConfiguration, enumValue);
         }
-        catch(NoSuchMethodException exception)
+        catch(IllegalAccessException exception)
         {
             exception.printStackTrace();
         }
-        catch(IllegalAccessException exception)
+        catch(IllegalArgumentException exception)
         {
             exception.printStackTrace();
         }
@@ -72,25 +69,7 @@ public class OrionObjectProcessor extends OrionSimpleObject
         {
             exception.printStackTrace();
         }
-    }
-    
-    
-    private String createSetterMethodToCallInLibraryConfiguration(String enumNameToken, String setterMethodToCallInLibraryConfiguration)
-    {
-        enumNameToken = enumNameToken.toLowerCase();
-        char[] enumNameTokenCharactersArray = enumNameToken.toCharArray();
-        enumNameTokenCharactersArray[0] = Character.toUpperCase(enumNameTokenCharactersArray[0]);
-        return setterMethodToCallInLibraryConfiguration + String.copyValueOf(enumNameTokenCharactersArray);
-    }
-    
-    
-    public boolean thisIsCoreLibrary(Class<?> aClass)
-    {
-        try
-        {
-            return new IsCoreLibraryTask().run(aClass);
-        }
-        catch(IllegalArgumentException exception)
+        catch(NoSuchMethodException exception)
         {
             exception.printStackTrace();
         }
@@ -98,8 +77,15 @@ public class OrionObjectProcessor extends OrionSimpleObject
         {
             exception.printStackTrace();
         }
-        
-        return false;
+    }
+    
+    
+    private String createSetterMethodToCallInLibraryConfiguration(String enumerationNameToken, String setterMethodToCallInLibraryConfiguration)
+    {
+        enumerationNameToken = enumerationNameToken.toLowerCase();
+        char[] enumNameTokenCharactersArray = enumerationNameToken.toCharArray();
+        enumNameTokenCharactersArray[0] = Character.toUpperCase(enumNameTokenCharactersArray[0]);
+        return setterMethodToCallInLibraryConfiguration + String.copyValueOf(enumNameTokenCharactersArray);
     }
     
     
@@ -113,54 +99,18 @@ public class OrionObjectProcessor extends OrionSimpleObject
     
     private void loadLibrariesProperties()
     {
-        try
-        {
-            ConfigurationClasspathFacade configurationFacade = new ConfigurationClasspathFacadeImpl();
-            configurationFacade.loadLibrariesProperties();
-        }
-        catch(IllegalArgumentException exception)
-        {
-            exception.printStackTrace();
-        }
-        catch(SecurityException exception)
-        {
-            exception.printStackTrace();
-        }
+        new ConfigurationClasspathFacadeImpl().loadLibrariesProperties();
     }
     
     
     private void registerLibrariesAnnotations()
     {
-        try
-        {
-            AnnotationsRegistrationFacade annotationsRegistrationFacade = new AnnotationsRegistrationFacadeImpl();
-            annotationsRegistrationFacade.registerLibrariesAnnotations();
-        }
-        catch(IllegalArgumentException exception)
-        {
-            exception.printStackTrace();
-        }
-        catch(SecurityException exception)
-        {
-            exception.printStackTrace();
-        }
+        new AnnotationsRegistrationFacadeImpl().registerLibrariesAnnotations();
     }
     
     
     private void processAllAnnotations(Object object)
     {
-        try
-        {
-            AnnotationsProcessorFacade annotationsProcessorFacade = new AnnotationsProcessorFacadeImpl();
-            annotationsProcessorFacade.processAllAnnotations(object);
-        }
-        catch(IllegalArgumentException exception)
-        {
-            exception.printStackTrace();
-        }
-        catch(SecurityException exception)
-        {
-            exception.printStackTrace();
-        }
+        new AnnotationsProcessorFacadeImpl().processAllAnnotations(object);
     }
 }
