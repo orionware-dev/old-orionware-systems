@@ -116,15 +116,15 @@ public class OrionObjectProcessor extends OrionSimpleObject
     }
     
     
-    public void processAllLibrariesConfiguration(OrionObject OrionObject)
+    public void processAllLibrariesConfiguration(Object object)
     {
         loadLibrariesProperties();
         registerLibrariesAnnotations();
-        processAllAnnotations(OrionObject);
+        processAllAnnotations(object);
     }
     
     
-    public void loadLibrariesProperties()
+    private void loadLibrariesProperties()
     {
         try
         {
@@ -142,7 +142,7 @@ public class OrionObjectProcessor extends OrionSimpleObject
     }
     
     
-    public void registerLibrariesAnnotations()
+    private void registerLibrariesAnnotations()
     {
         try
         {
@@ -160,7 +160,7 @@ public class OrionObjectProcessor extends OrionSimpleObject
     }
     
     
-    public void processAllAnnotations(Object object)
+    private void processAllAnnotations(Object object)
     {
         try
         {
