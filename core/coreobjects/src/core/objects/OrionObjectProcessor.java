@@ -32,27 +32,14 @@ public class OrionObjectProcessor extends OrionSimpleObject
     public LibraryConfiguration getInitialisedCoreConfiguration()
     {
         LibraryConfiguration libraryConfiguration = new LibraryConfiguration();
-        
-        try
-        {
-            Arrays.stream(CoreConfigurationEnumeration.values())
-                .forEach(enumDefinition -> getEnumValueAndSetItToLibraryConfiguration(CoreConfigurationEnumeration.class, enumDefinition, libraryConfiguration));
-        }
-        catch(SecurityException exception)
-        {
-            exception.printStackTrace();
-        }
-        catch(IllegalArgumentException exception)
-        {
-            exception.printStackTrace();
-        }
-        
+        Arrays.stream(CoreConfigurationEnumeration.values())
+            .forEach(enumerationDefinition -> getEnumerationValueAndSetItToLibraryConfiguration(CoreConfigurationEnumeration.class, enumerationDefinition, libraryConfiguration));
         return libraryConfiguration;
     }
     
     
     @SuppressWarnings({"rawtypes"})
-    private void getEnumValueAndSetItToLibraryConfiguration(Class<CoreConfigurationEnumeration> coreConfigurationEnumClass, Enum enumDefinition, Object libraryConfiguration)
+    private void getEnumerationValueAndSetItToLibraryConfiguration(Class<CoreConfigurationEnumeration> coreConfigurationEnumClass, Enum enumDefinition, LibraryConfiguration libraryConfiguration)
     {
         String enumName = enumDefinition.name();
         String setterMethodToCallInLibraryConfiguration = "set";
