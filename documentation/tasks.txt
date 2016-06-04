@@ -1,11 +1,8 @@
-﻿--use ConfigurationFacades in DataStructuresObject.java
+﻿--facades should be composed by facades and services.
+--services should be composed by services and tasks.
+--tasks should be composed by other tasks in the same package.
 
-
---facades should be composed by facades and services.
---services should be composed by other services and tasks.
---tasks should be composed by other tasks.
-
---remove unused projects from build paths
+--create annotations @Injectable and @Uninjectable
 
 --update tests, annotations.prop and OrionObjectInitialiser.java to use facades instead of services
 

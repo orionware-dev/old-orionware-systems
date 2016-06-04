@@ -1,8 +1,8 @@
 package datastructuresfacades.configuration;
 
-import core.configuration.ConfigurationEnum;
+import core.configuration.ConfigurationEnumeration;
 
-public enum DataStructuresFacadesConfigurationEnum implements ConfigurationEnum
+public enum DataStructuresFacadesConfigurationEnum implements ConfigurationEnumeration
 {
     LIBRARY_NAME("datastructuresfacades"),
     //CONFIGURATION_FILE_PATH("/" + DefaultConfigurationEnum.DEFAULT_CONFIGURATION_DIR.get() + "/DataStructures.prop"),

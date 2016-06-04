@@ -1,6 +1,6 @@
 package core.configuration;
 
-public enum DefaultConfigurationEnum implements ConfigurationEnum
+public enum DefaultConfigurationEnumeration implements ConfigurationEnumeration
 {
     DEFAULT_CONFIGURATION_DIR("configuration");
     
@@ -8,7 +8,7 @@ public enum DefaultConfigurationEnum implements ConfigurationEnum
     private final String defaultConfigurationValue;
     
     
-    private DefaultConfigurationEnum(String defaultConfigurationValue)
+    private DefaultConfigurationEnumeration(String defaultConfigurationValue)
     {
         this.defaultConfigurationValue = defaultConfigurationValue;
     }

@@ -1,13 +1,13 @@
 package datastructures.configuration;
 
-import core.configuration.ConfigurationEnum;
-import core.configuration.DefaultConfigurationEnum;
+import core.configuration.ConfigurationEnumeration;
+import core.configuration.DefaultConfigurationEnumeration;
 
-public enum DataStructuresConfigurationEnum implements ConfigurationEnum
+public enum DataStructuresConfigurationEnum implements ConfigurationEnumeration
 {
     LIBRARY_NAME("datastructures"),
-    CONFIGURATION_FILE_PATH("/datastructures/" + DefaultConfigurationEnum.DEFAULT_CONFIGURATION_DIR.get() + "/DataStructures.prop"),
-    ANNOTATIONS_DEFINITION_FILE_PATH("/datastructures/" + DefaultConfigurationEnum.DEFAULT_CONFIGURATION_DIR.get() + "/DataStructuresAnnotations.prop"),
+    CONFIGURATION_FILE_PATH("/datastructures/" + DefaultConfigurationEnumeration.DEFAULT_CONFIGURATION_DIR.get() + "/DataStructures.prop"),
+    ANNOTATIONS_DEFINITION_FILE_PATH("/datastructures/" + DefaultConfigurationEnumeration.DEFAULT_CONFIGURATION_DIR.get() + "/DataStructuresAnnotations.prop"),
     //put an empty string as a prefix, because it complaints that there
     //is no constructor with argument of type CoreConfigurationEnum
     //since LIBRARY_NAME by itself is of type CoreConfigurationEnum

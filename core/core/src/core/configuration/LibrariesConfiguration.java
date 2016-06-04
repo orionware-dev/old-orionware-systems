@@ -29,12 +29,12 @@ public class LibrariesConfiguration extends OrionConfiguration
         {
             getLibrariesConfigurationSet().add(libraryConfiguration);
             
-            if(libraryConfiguration.getLibraryName().equals(CoreConfigurationEnum.LIBRARY_NAME))
+            if(libraryConfiguration.getLibraryName().equals(CoreConfigurationEnumeration.LIBRARY_NAME))
             {
                 haveCoreLibrariesNotBeenRegistered = false;
             }
         }
-        else if(!libraryConfiguration.getLibraryName().equals(CoreConfigurationEnum.LIBRARY_NAME))
+        else if(!libraryConfiguration.getLibraryName().equals(CoreConfigurationEnumeration.LIBRARY_NAME))
         {
             getLibrariesConfigurationSet().add(libraryConfiguration);
         }

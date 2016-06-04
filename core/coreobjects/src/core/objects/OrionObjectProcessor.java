@@ -7,7 +7,7 @@ import core.annotations.facades.processor.AnnotationsProcessorFacade;
 import core.annotations.facades.processor.impl.AnnotationsProcessorFacadeImpl;
 import core.annotations.facades.registration.AnnotationsRegistrationFacade;
 import core.annotations.facades.registration.impl.AnnotationsRegistrationFacadeImpl;
-import core.configuration.CoreConfigurationEnum;
+import core.configuration.CoreConfigurationEnumeration;
 import core.configuration.LibrariesConfiguration;
 import core.configuration.LibraryConfiguration;
 import core.configuration.facades.classpath.ConfigurationClasspathFacade;
@@ -35,8 +35,8 @@ public class OrionObjectProcessor extends OrionSimpleObject
         
         try
         {
-            Arrays.stream(CoreConfigurationEnum.values())
-                .forEach(enumDefinition -> getEnumValueAndSetItToLibraryConfiguration(CoreConfigurationEnum.class, enumDefinition, libraryConfiguration));
+            Arrays.stream(CoreConfigurationEnumeration.values())
+                .forEach(enumDefinition -> getEnumValueAndSetItToLibraryConfiguration(CoreConfigurationEnumeration.class, enumDefinition, libraryConfiguration));
         }
         catch(SecurityException exception)
         {
@@ -52,7 +52,7 @@ public class OrionObjectProcessor extends OrionSimpleObject
     
     
     @SuppressWarnings({"rawtypes"})
-    private void getEnumValueAndSetItToLibraryConfiguration(Class<CoreConfigurationEnum> coreConfigurationEnumClass, Enum enumDefinition, Object libraryConfiguration)
+    private void getEnumValueAndSetItToLibraryConfiguration(Class<CoreConfigurationEnumeration> coreConfigurationEnumClass, Enum enumDefinition, Object libraryConfiguration)
     {
         String enumName = enumDefinition.name();
         String setterMethodToCallInLibraryConfiguration = "set";

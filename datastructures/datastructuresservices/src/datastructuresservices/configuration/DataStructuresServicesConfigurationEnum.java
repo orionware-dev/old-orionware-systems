@@ -1,8 +1,8 @@
 package datastructuresservices.configuration;
 
-import core.configuration.ConfigurationEnum;
+import core.configuration.ConfigurationEnumeration;
 
-public enum DataStructuresServicesConfigurationEnum implements ConfigurationEnum
+public enum DataStructuresServicesConfigurationEnum implements ConfigurationEnumeration
 {
     LIBRARY_NAME("datastructuresservices"),
     //CONFIGURATION_FILE_PATH("/" + DefaultConfigurationEnum.DEFAULT_CONFIGURATION_DIR.get() + "/DataStructures.prop"),
