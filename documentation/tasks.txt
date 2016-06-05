@@ -1,8 +1,4 @@
-﻿--facades should be composed by facades and services.
---services should be composed by services and tasks.
---tasks should be composed by other tasks in the same package
-
---create custom exceptions
+﻿--create custom exceptions
 
 --pass around method references as consumers
 
