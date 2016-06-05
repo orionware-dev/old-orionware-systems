@@ -2,11 +2,13 @@
 --services should be composed by services and tasks.
 --tasks should be composed by other tasks in the same package
 
---go through the try/catches and see what I can do inside the catches.
+--create custom exceptions
 
 --pass around method references as consumers
 
 --create annotations @Injectable and @Uninjectable
+
+--create more service methods that reuse existing ones
 
 --update tests, annotations.prop and OrionObjectInitialiser.java to use facades instead of services
 

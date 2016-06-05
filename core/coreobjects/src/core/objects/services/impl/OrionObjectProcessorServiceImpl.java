@@ -1,4 +1,4 @@
-package core.objects;
+package core.objects.services.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
@@ -9,10 +9,12 @@ import core.configuration.CoreConfigurationEnumeration;
 import core.configuration.LibrariesConfiguration;
 import core.configuration.LibraryConfiguration;
 import core.configuration.facades.classpath.impl.ConfigurationClasspathFacadeImpl;
+import core.objects.services.OrionObjectProcessorService;
+import core.objects.services.impl.tasks.IsCoreLibraryTask;
 
-public class OrionObjectProcessor extends OrionSimpleObject
+public class OrionObjectProcessorServiceImpl extends OrionSimpleObject implements OrionObjectProcessorService
 {
-    public OrionObjectProcessor(Object object)
+    public OrionObjectProcessorServiceImpl(Object object)
     {
         LibraryConfiguration coreLibraryConfiguration = getInitialisedCoreConfiguration();
         LibrariesConfiguration.registerLibraryConfiguration(coreLibraryConfiguration);
@@ -26,7 +28,7 @@ public class OrionObjectProcessor extends OrionSimpleObject
     }
     
     
-    public LibraryConfiguration getInitialisedCoreConfiguration()
+    private LibraryConfiguration getInitialisedCoreConfiguration()
     {
         LibraryConfiguration libraryConfiguration = new LibraryConfiguration();
         Arrays.stream(CoreConfigurationEnumeration.values())
@@ -89,6 +91,7 @@ public class OrionObjectProcessor extends OrionSimpleObject
     }
     
     
+    @Override
     public void processAllLibrariesConfiguration(Object object)
     {
         loadLibrariesProperties();

@@ -3,15 +3,17 @@ package core.objects;
 import core.OrionSimpleObject;
 import core.configuration.LibrariesConfiguration;
 import core.configuration.LibraryConfiguration;
+import core.objects.services.OrionObjectProcessorService;
+import core.objects.services.impl.OrionObjectProcessorServiceImpl;
 
 public abstract class OrionObject extends OrionSimpleObject
 {
-    private OrionObjectProcessor OrionObjectProcessor;
+    private OrionObjectProcessorService orionObjectProcessorService;
     
     
     public OrionObject()
     {
-        OrionObjectProcessor = new OrionObjectProcessor(this);
+        this.orionObjectProcessorService = new OrionObjectProcessorServiceImpl(this);
     }
     
     
@@ -27,6 +29,6 @@ public abstract class OrionObject extends OrionSimpleObject
     //then this method is called so that all the libraries configs are loaded in one go
     protected void processAllLibrariesConfiguration()
     {
-        OrionObjectProcessor.processAllLibrariesConfiguration(this);
+        orionObjectProcessorService.processAllLibrariesConfiguration(this);
     }
 }
