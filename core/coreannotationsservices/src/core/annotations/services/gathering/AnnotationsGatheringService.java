@@ -18,5 +18,5 @@ public interface AnnotationsGatheringService extends AnnotationService
     public Stream<OrionAnnotation> filterRegisteredAnnotationsStreamFromObjectAnnotations(List<Annotation> allObjectAnnotationsList);
     
     
-    public boolean isAnnotationRegisteredTask(OrionAnnotation annotation);
+    public boolean isAnnotationRegistered(OrionAnnotation annotation);
 }

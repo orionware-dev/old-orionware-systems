@@ -37,7 +37,7 @@ public class AnnotationsGatheringServiceImpl extends AnnotationServiceObject imp
 
 
     @Override
-    public boolean isAnnotationRegisteredTask(OrionAnnotation annotation)
+    public boolean isAnnotationRegistered(OrionAnnotation annotation)
     {
         return new IsAnnotationRegisteredTask().run(annotation);
     }

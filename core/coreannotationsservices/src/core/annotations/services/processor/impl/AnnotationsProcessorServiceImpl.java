@@ -42,7 +42,7 @@ public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject imp
     {
         boolean isAnnotationApplicable = false;
         
-        if(annotationsGatheringService.isAnnotationRegisteredTask(annotationToProcess))
+        if(annotationsGatheringService.isAnnotationRegistered(annotationToProcess))
         {
             new ApplyAnnotationToMethodTask().run(new ReflectionLoaderFacadeImpl(), OrionObject, annotationToProcess);
             isAnnotationApplicable = true;
