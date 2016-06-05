@@ -3,6 +3,7 @@ package core.reflection.services.enumerations.impl;
 import java.lang.reflect.InvocationTargetException;
 import core.reflection.services.ReflectionServiceObject;
 import core.reflection.services.enumerations.ReflectionEnumerationService;
+import core.reflection.services.enumerations.impl.tasks.GetEnumerationDefinitionsTask;
 import core.reflection.services.enumerations.impl.tasks.InstantiateEnumerationTask;
 
 public class ReflectionEnumerationServiceImpl extends ReflectionServiceObject implements ReflectionEnumerationService
@@ -19,7 +20,7 @@ public class ReflectionEnumerationServiceImpl extends ReflectionServiceObject im
     @Override
     public Enum[] getEnumerationDefinitions(Class<Enum> enumerationClass)
     {
-        return enumerationClass.getEnumConstants();
+        return new GetEnumerationDefinitionsTask().run(enumerationClass);
     }
 
 
