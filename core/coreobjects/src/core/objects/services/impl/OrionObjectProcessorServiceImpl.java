@@ -61,6 +61,15 @@ public class OrionObjectProcessorServiceImpl extends OrionSimpleObject implement
     }
     
     
+    private String createSetterMethodToCallInLibraryConfiguration(String enumerationNameToken, String setterMethodToCallInLibraryConfiguration)
+    {
+        enumerationNameToken = enumerationNameToken.toLowerCase();
+        char[] enumNameTokenCharactersArray = enumerationNameToken.toCharArray();
+        enumNameTokenCharactersArray[0] = Character.toUpperCase(enumNameTokenCharactersArray[0]);
+        return setterMethodToCallInLibraryConfiguration + String.copyValueOf(enumNameTokenCharactersArray);
+    }
+    
+    
     private String getEnumerationValue(Class<CoreConfigurationEnumeration> coreConfigurationEnumerationClass, String enumerationName)
     {
         try
@@ -90,15 +99,6 @@ public class OrionObjectProcessorServiceImpl extends OrionSimpleObject implement
         }
         
         return null;
-    }
-    
-    
-    private String createSetterMethodToCallInLibraryConfiguration(String enumerationNameToken, String setterMethodToCallInLibraryConfiguration)
-    {
-        enumerationNameToken = enumerationNameToken.toLowerCase();
-        char[] enumNameTokenCharactersArray = enumerationNameToken.toCharArray();
-        enumNameTokenCharactersArray[0] = Character.toUpperCase(enumNameTokenCharactersArray[0]);
-        return setterMethodToCallInLibraryConfiguration + String.copyValueOf(enumNameTokenCharactersArray);
     }
     
     
