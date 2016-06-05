@@ -25,22 +25,20 @@ public class ReflectionEnumerationServiceImpl extends ReflectionServiceObject im
 
     @SuppressWarnings("rawtypes")
     @Override
-    public String getEnumerationName(Enum enumDefinition)
+    public String getEnumerationName(Enum enumerationDefinition)
     {
-        return enumDefinition.name();
+        return enumerationDefinition.name();
     }
 
 
     @SuppressWarnings({"rawtypes", "unchecked"})
     @Override
-    public String getEnumerationValue(Class<Enum> enumerationClass, String enumName)
+    public String getEnumerationValue(Class<Enum> enumerationClass, String enumerationName)
     {
-        String enumerationValue = null;
-        
         try
         {
-            enumerationValue = (String)enumerationClass.getMethod("get", new Class<?>[]{})
-                                   .invoke(Enum.valueOf(enumerationClass, enumName), new Object[]{});
+            return (String)enumerationClass.getMethod("get", new Class<?>[]{})
+                       .invoke(Enum.valueOf(enumerationClass, enumerationName), new Object[]{});
         }
         catch(IllegalAccessException exception)
         {
@@ -63,6 +61,6 @@ public class ReflectionEnumerationServiceImpl extends ReflectionServiceObject im
             exception.printStackTrace();
         }
         
-        return enumerationValue;
+        return null;
     }
 }

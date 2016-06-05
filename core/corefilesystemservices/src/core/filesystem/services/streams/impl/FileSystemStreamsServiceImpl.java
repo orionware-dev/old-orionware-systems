@@ -1,5 +1,6 @@
 package core.filesystem.services.streams.impl;
 
+import java.io.BufferedReader;
 import java.io.Closeable;
 import java.io.InputStream;
 import java.io.Reader;
@@ -26,7 +27,7 @@ public class FileSystemStreamsServiceImpl extends FileSystemServiceObject implem
     @Override
     public String convertFileToString(String filePath)
     {
-        return new ConvertFileToStringTask().run(this, filePath);
+        return new ConvertFileToStringTask().run(filePath, (BufferedReader)getReaderForFile(filePath), this::closeResource);
     }
 
 

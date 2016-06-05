@@ -3,9 +3,11 @@ package core.filesystem.services.streams.impl.tasks;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.function.Consumer;
 import core.filesystem.FileSystemObject;
 import core.filesystem.FileSystemTask;
 import core.filesystem.services.streams.FileSystemStreamsService;
+import core.filesystem.services.streams.impl.FileSystemStreamsServiceImpl;
 
 public class ConvertFileToStringTask extends FileSystemObject implements FileSystemTask
 {
@@ -17,14 +19,14 @@ public class ConvertFileToStringTask extends FileSystemObject implements FileSys
     public ConvertFileToStringTask()
     {
         this.fileStringBuilder = new StringBuilder();
+        this.currentLine = null;
     }
     
     
-    public String run(FileSystemStreamsService fileSystemStreamsService, String filePath)
+    public String run(String filePath, BufferedReader input, Consumer<BufferedReader> closeResourceMethod)
     {
         String fileString = null;
-        this.input = (BufferedReader)fileSystemStreamsService.getReaderForFile(filePath);
-        this.currentLine = null;
+        this.input = input;
         
         try
         {
@@ -36,7 +38,7 @@ public class ConvertFileToStringTask extends FileSystemObject implements FileSys
         }
         finally
         {
-            fileSystemStreamsService.closeResource(input);
+            closeResourceMethod.accept(input);
         }
         
         fileString = fileStringBuilder.toString();

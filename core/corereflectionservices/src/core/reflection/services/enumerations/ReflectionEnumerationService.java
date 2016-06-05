@@ -13,9 +13,9 @@ public interface ReflectionEnumerationService extends ReflectionService
     
     
     @SuppressWarnings("rawtypes")
-    public String getEnumerationName(Enum enumDefinition);
+    public String getEnumerationName(Enum enumerationDefinition);
     
     
     @SuppressWarnings("rawtypes")
-    public String getEnumerationValue(Class<Enum> enumerationClass, String enumName);
+    public String getEnumerationValue(Class<Enum> enumerationClass, String enumerationName);
 }

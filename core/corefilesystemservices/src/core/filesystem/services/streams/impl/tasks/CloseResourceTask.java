@@ -28,7 +28,8 @@ public class CloseResourceTask extends FileSystemObject implements FileSystemTas
         catch(IOException exception)
         {
             exception.printStackTrace();
-            return false;
         }
+        
+        return false;
     }
 }

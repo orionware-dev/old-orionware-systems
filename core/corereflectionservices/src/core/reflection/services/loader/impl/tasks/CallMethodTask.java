@@ -30,7 +30,7 @@ public class CallMethodTask extends ReflectionObject implements ReflectionTask
     }
     
     
-    public Object run(String methodName, Object objectMethodBelongsTo, Object... methodArguments)
+    /*public Object run(String methodName, Object objectMethodBelongsTo, Object... methodArguments)
     {
         try
         {
@@ -53,5 +53,5 @@ public class CallMethodTask extends ReflectionObject implements ReflectionTask
         }
         
         return Boolean.FALSE;
-    }
+    }*/
 }

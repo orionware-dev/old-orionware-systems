@@ -34,16 +34,16 @@ public class ReflectionEnumerationFacadeImpl extends ReflectionFacadeObject impl
 
     @SuppressWarnings("rawtypes")
     @Override
-    public String getEnumerationName(Enum enumDefinition)
+    public String getEnumerationName(Enum enumerationDefinition)
     {
-        return reflectionEnumerationService.getEnumerationName(enumDefinition);
+        return reflectionEnumerationService.getEnumerationName(enumerationDefinition);
     }
 
 
     @SuppressWarnings("rawtypes")
     @Override
-    public String getEnumerationValue(Class<Enum> enumerationClass, String enumName)
+    public String getEnumerationValue(Class<Enum> enumerationClass, String enumerationName)
     {
-        return reflectionEnumerationService.getEnumerationValue(enumerationClass, enumName);
+        return reflectionEnumerationService.getEnumerationValue(enumerationClass, enumerationName);
     }
 }
