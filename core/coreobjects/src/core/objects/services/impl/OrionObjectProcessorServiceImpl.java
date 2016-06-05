@@ -40,24 +40,33 @@ public class OrionObjectProcessorServiceImpl extends OrionSimpleObject implement
     @SuppressWarnings({"rawtypes"})
     private void getEnumerationValueAndSetItToLibraryConfiguration(Class<CoreConfigurationEnumeration> coreConfigurationEnumerationClass, Enum enumerationDefinition, LibraryConfiguration libraryConfiguration)
     {
-        String enumName = enumerationDefinition.name();
+        String enumerationName = enumerationDefinition.name();
+        String setterMethodToCallInLibraryConfiguration = buildSetterMethodToCallInLibraryConfiguration(enumerationName);
+        String enumerationValue = getEnumerationValue(coreConfigurationEnumerationClass, enumerationName);
+        setEnumerationValueToLibraryConfiguration(libraryConfiguration, setterMethodToCallInLibraryConfiguration, enumerationValue);
+    }
+    
+    
+    private String buildSetterMethodToCallInLibraryConfiguration(String enumerationName)
+    {
         String setterMethodToCallInLibraryConfiguration = "set";
-        String[] enumNameTokens = enumName.split("_");
+        String[] enumerationNameTokens = enumerationName.split("_");
         
-        for(String enumNameToken : enumNameTokens)
+        for(String enumerationNameToken : enumerationNameTokens)
         {
-            setterMethodToCallInLibraryConfiguration = createSetterMethodToCallInLibraryConfiguration(enumNameToken, setterMethodToCallInLibraryConfiguration);
+            setterMethodToCallInLibraryConfiguration = createSetterMethodToCallInLibraryConfiguration(enumerationNameToken, setterMethodToCallInLibraryConfiguration);
         }
         
-        String enumValue = null;
-        
+        return setterMethodToCallInLibraryConfiguration;
+    }
+    
+    
+    private String getEnumerationValue(Class<CoreConfigurationEnumeration> coreConfigurationEnumerationClass, String enumerationName)
+    {
         try
         {
-            enumValue = (String)coreConfigurationEnumerationClass.getMethod("get", new Class<?>[]{})
-                            .invoke(Enum.valueOf(coreConfigurationEnumerationClass, enumName), new Object[]{});
-            libraryConfiguration.getClass()
-                .getMethod(setterMethodToCallInLibraryConfiguration, String.class)
-                .invoke(libraryConfiguration, enumValue);
+            return (String)coreConfigurationEnumerationClass.getMethod("get", new Class<?>[]{})
+                       .invoke(Enum.valueOf(coreConfigurationEnumerationClass, enumerationName), new Object[]{});
         }
         catch(IllegalAccessException exception)
         {
@@ -79,6 +88,8 @@ public class OrionObjectProcessorServiceImpl extends OrionSimpleObject implement
         {
             exception.printStackTrace();
         }
+        
+        return null;
     }
     
     
@@ -88,6 +99,37 @@ public class OrionObjectProcessorServiceImpl extends OrionSimpleObject implement
         char[] enumNameTokenCharactersArray = enumerationNameToken.toCharArray();
         enumNameTokenCharactersArray[0] = Character.toUpperCase(enumNameTokenCharactersArray[0]);
         return setterMethodToCallInLibraryConfiguration + String.copyValueOf(enumNameTokenCharactersArray);
+    }
+    
+    
+    private void setEnumerationValueToLibraryConfiguration(LibraryConfiguration libraryConfiguration, String setterMethodToCallInLibraryConfiguration, String enumerationValue)
+    {
+        try
+        {
+            libraryConfiguration.getClass()
+                .getMethod(setterMethodToCallInLibraryConfiguration, String.class)
+                .invoke(libraryConfiguration, enumerationValue);
+        }
+        catch(IllegalAccessException exception)
+        {
+            exception.printStackTrace();
+        }
+        catch(IllegalArgumentException exception)
+        {
+            exception.printStackTrace();
+        }
+        catch(InvocationTargetException exception)
+        {
+            exception.printStackTrace();
+        }
+        catch(NoSuchMethodException exception)
+        {
+            exception.printStackTrace();
+        }
+        catch(SecurityException exception)
+        {
+            exception.printStackTrace();
+        }
     }
     
     
