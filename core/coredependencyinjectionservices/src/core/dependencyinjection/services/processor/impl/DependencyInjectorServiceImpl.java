@@ -5,7 +5,6 @@ import core.dependencyinjection.services.DependencyInjectionServiceObject;
 import core.dependencyinjection.services.processor.DependencyInjectorService;
 import core.dependencyinjection.services.processor.impl.tasks.ProcessDependenciesTask;
 import core.dependencyinjection.services.processor.impl.tasks.ProcessMethodForInjectionTask;
-import core.filesystem.services.streams.impl.FileSystemStreamsServiceImpl;
 import core.reflection.facades.loader.impl.ReflectionLoaderFacadeImpl;
 
 public class DependencyInjectorServiceImpl extends DependencyInjectionServiceObject implements DependencyInjectorService
