@@ -3,8 +3,12 @@ package core.annotations.services.registry.impl.tasks;
 import core.annotations.AnnotationTask;
 import core.annotations.OrionAnnotation;
 import core.annotations.services.AnnotationServiceObject;
+import core.annotations.services.loader.AnnotationsLoaderService;
+import core.annotations.services.loader.impl.AnnotationsLoaderServiceImpl;
 import core.configuration.LibraryConfiguration;
 import core.configuration.OrionProperties;
+import core.filesystem.facades.streams.FileSystemStreamsFacade;
+import core.filesystem.facades.streams.impl.FileSystemStreamsFacadeImpl;
 
 public class RegisterLibraryAnnotationsTask extends AnnotationServiceObject implements AnnotationTask
 {
@@ -15,6 +19,8 @@ public class RegisterLibraryAnnotationsTask extends AnnotationServiceObject impl
     private LoadLibraryAnnotationsDefinitionsTask loadLibraryAnnotationsDefinitionsTask;
     private RegisterAnnotationTask registerAnnotationTask;
     private SetAnnotationsAsRegisteredForLibraryTask setAnnotationsAsRegisteredForLibraryTask;
+    private AnnotationsLoaderService annotationsLoaderService;
+    private FileSystemStreamsFacade fileSystemStreamsFacade;
     
     
     public RegisterLibraryAnnotationsTask()
@@ -22,12 +28,14 @@ public class RegisterLibraryAnnotationsTask extends AnnotationServiceObject impl
         this.loadLibraryAnnotationsDefinitionsTask = new LoadLibraryAnnotationsDefinitionsTask();
         this.registerAnnotationTask = new RegisterAnnotationTask();
         this.setAnnotationsAsRegisteredForLibraryTask = new SetAnnotationsAsRegisteredForLibraryTask();
+        this.annotationsLoaderService = new AnnotationsLoaderServiceImpl();
+        this.fileSystemStreamsFacade = new FileSystemStreamsFacadeImpl();
     }
     
     
     public void run(LibraryConfiguration libraryConfiguration)
     {
-        annotationsDeclarations = loadLibraryAnnotationsDefinitionsTask.run(libraryConfiguration);
+        annotationsDeclarations = loadLibraryAnnotationsDefinitionsTask.run(libraryConfiguration, annotationsLoaderService::getAnnotationsDefinitionFileStream, fileSystemStreamsFacade::closeResource);
         
         if(annotationsDeclarations.isNotEmpty())
         {

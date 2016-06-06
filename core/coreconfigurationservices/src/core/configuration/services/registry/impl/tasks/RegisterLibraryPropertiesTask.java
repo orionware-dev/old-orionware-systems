@@ -2,8 +2,6 @@ package core.configuration.services.registry.impl.tasks;
 
 import java.io.Closeable;
 import java.io.InputStream;
-import java.util.function.Consumer;
-import java.util.function.Function;
 import core.configuration.ConfigurationObject;
 import core.configuration.ConfigurationTask;
 import core.configuration.LibraryConfiguration;

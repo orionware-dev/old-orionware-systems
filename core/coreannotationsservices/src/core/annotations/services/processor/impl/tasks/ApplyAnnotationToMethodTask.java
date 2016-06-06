@@ -9,10 +9,10 @@ import core.functions.Function1x1;
 
 public class ApplyAnnotationToMethodTask extends AnnotationServiceObject implements AnnotationTask
 {
-    public void run(Object object, OrionAnnotation registeredAnnotation, Function1x1<String, Object> loadAndInstantiateClass, Consumer3<Method, Object, Object> callMethodMethod)
+    public void run(Object object, OrionAnnotation registeredAnnotation, Function1x1<String, Object> loadAndInstantiateClassMethod, Consumer3<Method, Object, Object> callMethodMethod)
     {
         //instantiate annotation service
-        Object someAnnotationService = loadAndInstantiateClass.run(registeredAnnotation.getAnnotationService());
+        Object someAnnotationService = loadAndInstantiateClassMethod.run(registeredAnnotation.getAnnotationService());
         
         try
         {
@@ -23,7 +23,6 @@ public class ApplyAnnotationToMethodTask extends AnnotationServiceObject impleme
         }
         catch(NoSuchMethodException exception)
         {
-            System.out.println("Method " + registeredAnnotation.getAnnotationServiceMethodToCall() + " does not exist");
             exception.printStackTrace();
         }
         catch(SecurityException exception)

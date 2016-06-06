@@ -1,7 +1,6 @@
 package core.annotations.services.loader.impl.tasks;
 
 import java.io.InputStream;
-import java.util.function.Function;
 import core.annotations.AnnotationTask;
 import core.annotations.services.AnnotationServiceObject;
 import core.functions.Function1x1;

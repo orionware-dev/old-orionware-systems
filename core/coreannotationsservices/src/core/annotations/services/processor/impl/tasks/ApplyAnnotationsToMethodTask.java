@@ -10,9 +10,9 @@ import core.functions.Function1x1;
 
 public class ApplyAnnotationsToMethodTask extends AnnotationServiceObject implements AnnotationTask
 {
-    public void run(Stream<OrionAnnotation> annotationsStream, Object OrionObject, Function1x1<String, Object> loadAndInstantiateClass, Consumer3<Method, Object, Object> callMethodMethod)
+    public void run(Stream<OrionAnnotation> annotationsStream, Object OrionObject, Function1x1<String, Object> loadAndInstantiateClassMethod, Consumer3<Method, Object, Object> callMethodMethod)
     {
         ApplyAnnotationToMethodTask applyAnnotationToMethodTask = new ApplyAnnotationToMethodTask();
-        annotationsStream.forEach(annotation -> applyAnnotationToMethodTask.run(OrionObject, (OrionAnnotation)annotation, loadAndInstantiateClass, callMethodMethod));
+        annotationsStream.forEach(annotation -> applyAnnotationToMethodTask.run(OrionObject, (OrionAnnotation)annotation, loadAndInstantiateClassMethod, callMethodMethod));
     }
 }

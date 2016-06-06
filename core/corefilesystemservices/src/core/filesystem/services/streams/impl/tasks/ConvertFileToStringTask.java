@@ -3,7 +3,6 @@ package core.filesystem.services.streams.impl.tasks;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.function.Consumer;
 import core.consumers.Consumer1;
 import core.filesystem.FileSystemObject;
 import core.filesystem.FileSystemTask;
