@@ -8,13 +8,15 @@ import core.configuration.ConfigurationObject;
 import core.configuration.ConfigurationTask;
 import core.configuration.LibraryConfiguration;
 import core.configuration.registry.ConfigurationRegistry;
+import core.consumers.Consumer1;
+import core.functions.Function1x1;
 
 public class LoadLibraryPropertiesTask extends ConfigurationObject implements ConfigurationTask
 {
-    public void run(LibraryConfiguration libraryConfiguration, Function<String, InputStream> getFileStreamMethod, Consumer<Closeable> closeResourceMethod)
+    public void run(LibraryConfiguration libraryConfiguration, Function1x1<String, InputStream> getFileStreamMethod, Consumer1<Closeable> closeResourceMethod)
     {
-        InputStream propertiesFileInput = getFileStreamMethod.apply(libraryConfiguration.getConfigurationFilePath());
+        InputStream propertiesFileInput = getFileStreamMethod.run(libraryConfiguration.getConfigurationFilePath());
         ConfigurationRegistry.loadProperties(propertiesFileInput);
-        closeResourceMethod.accept(propertiesFileInput);
+        closeResourceMethod.run(propertiesFileInput);
     }
 }

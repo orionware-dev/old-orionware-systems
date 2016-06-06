@@ -1,27 +1,25 @@
 package core.annotations.services.processor.impl.tasks;
 
 import java.lang.reflect.Method;
-import java.util.function.Consumer;
-import java.util.function.Function;
 import core.annotations.AnnotationTask;
 import core.annotations.OrionAnnotation;
 import core.annotations.services.AnnotationServiceObject;
-import core.functions.ConsumerWithThreeArguments;
-import core.reflection.facades.loader.ReflectionLoaderFacade;
+import core.consumers.Consumer3;
+import core.functions.Function1x1;
 
 public class ApplyAnnotationToMethodTask extends AnnotationServiceObject implements AnnotationTask
 {
-    public void run(Object object, OrionAnnotation registeredAnnotation, Function<String, Object> loadAndInstantiateClass, ConsumerWithThreeArguments<Method, Object, Object> callMethodMethod)
+    public void run(Object object, OrionAnnotation registeredAnnotation, Function1x1<String, Object> loadAndInstantiateClass, Consumer3<Method, Object, Object> callMethodMethod)
     {
         //instantiate annotation service
-        Object someAnnotationService = loadAndInstantiateClass.apply(registeredAnnotation.getAnnotationService());
+        Object someAnnotationService = loadAndInstantiateClass.run(registeredAnnotation.getAnnotationService());
         
         try
         {
             //call annotation service method that will process this annotation
             Method someMethod = someAnnotationService.getClass()
                                     .getMethod(registeredAnnotation.getAnnotationServiceMethodToCall(), Object.class);
-            callMethodMethod.accept(someMethod, someAnnotationService, object);
+            callMethodMethod.run(someMethod, someAnnotationService, object);
         }
         catch(NoSuchMethodException exception)
         {

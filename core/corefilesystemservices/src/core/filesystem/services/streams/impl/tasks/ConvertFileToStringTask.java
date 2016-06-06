@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.function.Consumer;
+import core.consumers.Consumer1;
 import core.filesystem.FileSystemObject;
 import core.filesystem.FileSystemTask;
 
@@ -21,7 +22,7 @@ public class ConvertFileToStringTask extends FileSystemObject implements FileSys
     }
     
     
-    public String run(String filePath, BufferedReader input, Consumer<BufferedReader> closeResourceMethod)
+    public String run(String filePath, BufferedReader input, Consumer1<BufferedReader> closeResourceMethod)
     {
         String fileString = null;
         this.input = input;
@@ -36,7 +37,7 @@ public class ConvertFileToStringTask extends FileSystemObject implements FileSys
         }
         finally
         {
-            closeResourceMethod.accept(input);
+            closeResourceMethod.run(input);
         }
         
         fileString = fileStringBuilder.toString();
