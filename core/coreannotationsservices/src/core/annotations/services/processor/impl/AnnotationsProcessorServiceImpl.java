@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.stream.Stream;
 import core.annotations.OrionAnnotation;
 import core.annotations.services.AnnotationServiceObject;
+import core.annotations.services.filtering.AnnotationsFilteringService;
+import core.annotations.services.filtering.impl.AnnotationsFilteringServiceImpl;
 import core.annotations.services.gathering.AnnotationsGatheringService;
 import core.annotations.services.gathering.impl.AnnotationsGatheringServiceImpl;
 import core.annotations.services.processor.AnnotationsProcessorService;
@@ -14,11 +16,13 @@ import core.reflection.facades.loader.impl.ReflectionLoaderFacadeImpl;
 
 public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject implements AnnotationsProcessorService
 {
+    private AnnotationsFilteringService annotationsFilteringService;
     private AnnotationsGatheringService annotationsGatheringService;
     
     
     public AnnotationsProcessorServiceImpl()
     {
+        this.annotationsFilteringService = new AnnotationsFilteringServiceImpl();
         this.annotationsGatheringService = new AnnotationsGatheringServiceImpl();
     }
     
@@ -31,7 +35,7 @@ public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject imp
         //one in the list of object annotations then we can process it otherwise it means that Orion
         //will have to try to process non-Orion-based annotations like Java/Spring/etc. annotations
         //in which case it is processed by the respective framework
-        Stream<OrionAnnotation> registeredAnnotations = annotationsGatheringService.filterRegisteredAnnotationsStreamFromObjectAnnotations(allObjectAnnotationsList);
+        Stream<OrionAnnotation> registeredAnnotations = annotationsFilteringService.filterRegisteredAnnotationsStreamFromObjectAnnotations(allObjectAnnotationsList);
         new ApplyAnnotationsToMethodTask().run(registeredAnnotations, OrionObject);
     }
     
@@ -42,7 +46,7 @@ public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject imp
     {
         boolean isAnnotationApplicable = false;
         
-        if(annotationsGatheringService.isAnnotationRegistered(annotationToProcess))
+        if(annotationsFilteringService.isAnnotationRegistered(annotationToProcess))
         {
             new ApplyAnnotationToMethodTask().run(new ReflectionLoaderFacadeImpl(), OrionObject, annotationToProcess);
             isAnnotationApplicable = true;

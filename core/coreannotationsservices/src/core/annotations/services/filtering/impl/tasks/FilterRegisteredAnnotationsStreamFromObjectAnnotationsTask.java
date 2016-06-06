@@ -1,4 +1,4 @@
-package core.annotations.services.gathering.impl.tasks;
+package core.annotations.services.filtering.impl.tasks;
 
 import java.lang.annotation.Annotation;
 import java.util.List;
@@ -29,10 +29,10 @@ public class FilterRegisteredAnnotationsStreamFromObjectAnnotationsTask extends 
     private boolean doesObjectHaveRegisteredAnnotationTask(OrionAnnotation registeredAnnotation)
     {
         return allObjectAnnotationsList.stream()
-                    .filter(annotation -> 
-                        {
-                            String annotationName = annotation.annotationType().getName();
-                            return annotationName.equals(registeredAnnotation.getAnnotationClass());
-                        }).count() == 1;
+                   .filter(annotation -> 
+                       {
+                           String annotationName = annotation.annotationType().getName();
+                           return annotationName.equals(registeredAnnotation.getAnnotationClass());
+                       }).count() == 1;
     }
 }
