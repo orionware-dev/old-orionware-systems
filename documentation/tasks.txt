@@ -1,4 +1,7 @@
-﻿--create custom exceptions
+﻿--pass Consumer<TYPE> and Function<INPUT_TYPE, RETURN_TYPE> to tasks
+instead of whole services
+
+--create custom exceptions
 
 --pass around method references as consumers
 

@@ -1,18 +1,20 @@
 package core.configuration.services.classpath.impl.tasks;
 
+import java.io.Closeable;
 import java.io.InputStream;
+import java.util.function.Consumer;
+import java.util.function.Function;
 import core.configuration.ConfigurationObject;
 import core.configuration.ConfigurationTask;
 import core.configuration.LibraryConfiguration;
 import core.configuration.registry.ConfigurationRegistry;
-import core.configuration.services.classpath.ConfigurationClasspathService;
 
 public class LoadLibraryPropertiesTask extends ConfigurationObject implements ConfigurationTask
 {
-    public void run(ConfigurationClasspathService configurationClasspathService, LibraryConfiguration libraryConfiguration)
+    public void run(LibraryConfiguration libraryConfiguration, Function<String, InputStream> getFileStreamMethod, Consumer<Closeable> closeResourceMethod)
     {
-        InputStream propertiesFileInput = configurationClasspathService.getFileStream(libraryConfiguration.getConfigurationFilePath());
+        InputStream propertiesFileInput = getFileStreamMethod.apply(libraryConfiguration.getConfigurationFilePath());
         ConfigurationRegistry.loadProperties(propertiesFileInput);
-        configurationClasspathService.closeResource(propertiesFileInput);
+        closeResourceMethod.accept(propertiesFileInput);
     }
 }
