@@ -1,7 +1,5 @@
 ﻿--create custom exceptions
 
---pass around method references as consumers
-
 --create annotations @Injectable and @Uninjectable
 
 --create more service methods that reuse existing ones
