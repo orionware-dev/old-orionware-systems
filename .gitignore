@@ -1,3 +1,4 @@
 **/bin
+!**/core/bin
 !**/ant/bin
 **/.DS_Store
