@@ -28,30 +28,4 @@ public class CallMethodTask extends ReflectionObject implements ReflectionTask
         
         return Boolean.FALSE;
     }
-    
-    
-    /*public Object run(String methodName, Object objectMethodBelongsTo, Object... methodArguments)
-    {
-        try
-        {
-            if(methodArguments.length == 1)
-            {
-                return run(objectMethodBelongsTo.getClass().getMethod(methodName, methodArguments[0].getClass()), objectMethodBelongsTo, methodArguments[0]);
-            }
-            else
-            {
-                return run(objectMethodBelongsTo.getClass().getMethod(methodName, methodArguments.getClass()), objectMethodBelongsTo, methodArguments);
-            }
-        }
-        catch(NoSuchMethodException exception)
-        {
-            exception.printStackTrace();
-        }
-        catch(SecurityException exception)
-        {
-            exception.printStackTrace();
-        }
-        
-        return Boolean.FALSE;
-    }*/
 }

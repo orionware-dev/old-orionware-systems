@@ -21,7 +21,7 @@ public class GatherAllAnnotationsFromObjectTask extends AnnotationServiceObject 
     public List<Annotation> run(Object object)
     {
         this.object = object;
-        allObjectAnnotationsList = new ArrayList<Annotation>();
+        this.allObjectAnnotationsList = new ArrayList<Annotation>();
         gatherAllClassLevelAnnotations();
         gatherAllObjectConstructorsAnnotations();
         gatherAllObjectMethodsAnnotations();

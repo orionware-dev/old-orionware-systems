@@ -5,11 +5,13 @@ import core.annotations.AnnotationTask;
 import core.annotations.OrionAnnotation;
 import core.annotations.services.AnnotationServiceObject;
 import core.reflection.facades.loader.ReflectionLoaderFacade;
+import core.reflection.facades.loader.impl.ReflectionLoaderFacadeImpl;
 
 public class ApplyAnnotationToMethodTask extends AnnotationServiceObject implements AnnotationTask
 {
-    public void run(ReflectionLoaderFacade reflectionLoaderFacade, Object object, OrionAnnotation registeredAnnotation)
+    public void run(Object object, OrionAnnotation registeredAnnotation)
     {
+        ReflectionLoaderFacade reflectionLoaderFacade = new ReflectionLoaderFacadeImpl();
         //instantiate annotation service
         Object someAnnotationService = reflectionLoaderFacade.loadAndInstantiateClass(registeredAnnotation.getAnnotationService());
         

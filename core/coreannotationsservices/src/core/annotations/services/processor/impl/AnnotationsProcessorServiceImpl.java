@@ -12,7 +12,6 @@ import core.annotations.services.gathering.impl.AnnotationsGatheringServiceImpl;
 import core.annotations.services.processor.AnnotationsProcessorService;
 import core.annotations.services.processor.impl.tasks.ApplyAnnotationToMethodTask;
 import core.annotations.services.processor.impl.tasks.ApplyAnnotationsToMethodTask;
-import core.reflection.facades.loader.impl.ReflectionLoaderFacadeImpl;
 
 public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject implements AnnotationsProcessorService
 {
@@ -48,7 +47,7 @@ public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject imp
         
         if(annotationsFilteringService.isAnnotationRegistered(annotationToProcess))
         {
-            new ApplyAnnotationToMethodTask().run(new ReflectionLoaderFacadeImpl(), OrionObject, annotationToProcess);
+            new ApplyAnnotationToMethodTask().run(OrionObject, annotationToProcess);
             isAnnotationApplicable = true;
         }
         

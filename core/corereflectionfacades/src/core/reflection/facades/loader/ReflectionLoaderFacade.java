@@ -18,9 +18,6 @@ public interface ReflectionLoaderFacade extends ReflectionFacade
     public void callMethod(Method method, Object objectMethodBelongsTo, Object... methodArguments);
     
     
-    public void callMethod(String methodName, Object objectMethodBelongsTo, Object... methodArguments);
-    
-    
     public void callConstructor(Constructor<?> constructor, Object... constructorArguments);
     
     

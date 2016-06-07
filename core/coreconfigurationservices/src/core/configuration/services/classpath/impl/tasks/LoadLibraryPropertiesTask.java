@@ -5,14 +5,16 @@ import core.configuration.ConfigurationObject;
 import core.configuration.ConfigurationTask;
 import core.configuration.LibraryConfiguration;
 import core.configuration.registry.ConfigurationRegistry;
-import core.configuration.services.classpath.ConfigurationClasspathService;
+import core.filesystem.facades.streams.FileSystemStreamsFacade;
+import core.filesystem.facades.streams.impl.FileSystemStreamsFacadeImpl;
 
 public class LoadLibraryPropertiesTask extends ConfigurationObject implements ConfigurationTask
 {
-    public void run(ConfigurationClasspathService configurationClasspathService, LibraryConfiguration libraryConfiguration)
+    public void run(LibraryConfiguration libraryConfiguration)
     {
-        InputStream propertiesFileInput = configurationClasspathService.getFileStream(libraryConfiguration.getConfigurationFilePath());
+        FileSystemStreamsFacade fileSystemStreamsFacade = new FileSystemStreamsFacadeImpl();
+        InputStream propertiesFileInput = fileSystemStreamsFacade.getFileStream(libraryConfiguration.getConfigurationFilePath());
         ConfigurationRegistry.loadProperties(propertiesFileInput);
-        configurationClasspathService.closeResource(propertiesFileInput);
+        fileSystemStreamsFacade.closeResource(propertiesFileInput);
     }
 }

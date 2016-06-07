@@ -12,21 +12,11 @@ public class RegisterLibraryAnnotationsTask extends AnnotationServiceObject impl
     private String currentAnnotationClass;
     private String currentAnnotationServiceClass;
     private String currentAnnotationServiceMethodToCall;
-    private LoadLibraryAnnotationsDefinitionsTask loadLibraryAnnotationsDefinitionsTask;
-    private RegisterAnnotationTask registerAnnotationTask;
-    private SetAnnotationsAsRegisteredForLibraryTask setAnnotationsAsRegisteredForLibraryTask;
-    
-    
-    public RegisterLibraryAnnotationsTask()
-    {
-        this.loadLibraryAnnotationsDefinitionsTask = new LoadLibraryAnnotationsDefinitionsTask();
-        this.registerAnnotationTask = new RegisterAnnotationTask();
-        this.setAnnotationsAsRegisteredForLibraryTask = new SetAnnotationsAsRegisteredForLibraryTask();
-    }
     
     
     public void run(LibraryConfiguration libraryConfiguration)
     {
+        LoadLibraryAnnotationsDefinitionsTask loadLibraryAnnotationsDefinitionsTask = new LoadLibraryAnnotationsDefinitionsTask();
         annotationsDeclarations = loadLibraryAnnotationsDefinitionsTask.run(libraryConfiguration);
         
         if(annotationsDeclarations.isNotEmpty())
@@ -53,7 +43,7 @@ public class RegisterLibraryAnnotationsTask extends AnnotationServiceObject impl
             }
         }
         
-        setAnnotationsAsRegisteredForLibraryTask.run(libraryConfiguration.getLibraryName());
+        new SetAnnotationsAsRegisteredForLibraryTask().run(libraryConfiguration.getLibraryName());
     }
     
     
@@ -95,6 +85,6 @@ public class RegisterLibraryAnnotationsTask extends AnnotationServiceObject impl
     
     private void registerLibraryAnnotation()
     {
-        registerAnnotationTask.run(new OrionAnnotation(currentAnnotationClass, currentAnnotationServiceClass, currentAnnotationServiceMethodToCall));
+        new RegisterAnnotationTask().run(new OrionAnnotation(currentAnnotationClass, currentAnnotationServiceClass, currentAnnotationServiceMethodToCall));
     }
 }

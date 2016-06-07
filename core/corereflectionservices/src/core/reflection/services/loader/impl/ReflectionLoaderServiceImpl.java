@@ -44,13 +44,6 @@ public class ReflectionLoaderServiceImpl extends ReflectionServiceObject impleme
     
     
     @Override
-    public void callMethod(String methodName, Object objectMethodBelongsTo, Object... methodArguments)
-    {
-        //new CallMethodTask().run(methodName, objectMethodBelongsTo, methodArguments);
-    }
-    
-    
-    @Override
     public void callConstructor(Constructor<?> constructor, Object... constructorArguments)
     {
         new CallConstructorTask().run(constructor, constructorArguments);

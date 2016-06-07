@@ -2,10 +2,12 @@ package core.dependencyinjection.services.processor.impl.tasks;
 
 import java.lang.reflect.Method;
 import core.annotations.facades.gathering.AnnotationsGatheringFacade;
+import core.annotations.facades.gathering.impl.AnnotationsGatheringFacadeImpl;
 import core.dependencyinjection.DependencyInjectionObject;
 import core.dependencyinjection.DependencyInjectionTask;
 import core.dependencyinjection.Injector;
 import core.reflection.facades.loader.ReflectionLoaderFacade;
+import core.reflection.facades.loader.impl.ReflectionLoaderFacadeImpl;
 
 public class ProcessMethodForInjectionTask extends DependencyInjectionObject implements DependencyInjectionTask
 {
@@ -13,11 +15,17 @@ public class ProcessMethodForInjectionTask extends DependencyInjectionObject imp
     private ReflectionLoaderFacade reflectionLoaderFacade;
     
     
-    public void run(Object object, Method method, ReflectionLoaderFacade reflectionLoaderFacade, AnnotationsGatheringFacade annotationsGatheringFacade)
+    public ProcessMethodForInjectionTask()
     {
-        this.reflectionLoaderFacade = reflectionLoaderFacade;
+        this.reflectionLoaderFacade = new ReflectionLoaderFacadeImpl();
+    }
+    
+    
+    public void run(Object object, Method method)
+    {
         this.object = object;
         reflectionLoaderFacade.makeMethodAccessible(method);
+        AnnotationsGatheringFacade annotationsGatheringFacade = new AnnotationsGatheringFacadeImpl();
         Injector injection = (Injector)annotationsGatheringFacade.extractAnnotationFromMethod(method, Injector.class);
         
         if(injection != null)

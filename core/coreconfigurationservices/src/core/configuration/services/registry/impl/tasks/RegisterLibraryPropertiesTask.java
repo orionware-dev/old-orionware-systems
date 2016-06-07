@@ -3,15 +3,14 @@ package core.configuration.services.registry.impl.tasks;
 import core.configuration.ConfigurationObject;
 import core.configuration.ConfigurationTask;
 import core.configuration.LibraryConfiguration;
-import core.configuration.services.classpath.ConfigurationClasspathService;
 import core.configuration.services.classpath.impl.tasks.LoadLibraryPropertiesTask;
-import core.configuration.services.registry.PropertiesRegistrationService;
+import core.configuration.services.registry.impl.PropertiesRegistrationServiceImpl;
 
 public class RegisterLibraryPropertiesTask extends ConfigurationObject implements ConfigurationTask
 {
-    public void run(ConfigurationClasspathService configurationClasspathService, LoadLibraryPropertiesTask loadLibraryPropertiesTask, PropertiesRegistrationService propertiesRegistrationService, LibraryConfiguration libraryConfiguration)
+    public void run(LibraryConfiguration libraryConfiguration)
     {
-        loadLibraryPropertiesTask.run(configurationClasspathService, libraryConfiguration);
-        propertiesRegistrationService.setPropertiesAsRegisteredForLibrary(libraryConfiguration.getLibraryName());
+        new LoadLibraryPropertiesTask().run(libraryConfiguration);
+        new PropertiesRegistrationServiceImpl().setPropertiesAsRegisteredForLibrary(libraryConfiguration.getLibraryName());
     }
 }
