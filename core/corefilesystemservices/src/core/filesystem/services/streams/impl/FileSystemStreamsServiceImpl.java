@@ -27,7 +27,7 @@ public class FileSystemStreamsServiceImpl extends FileSystemServiceObject implem
     @Override
     public String convertFileToString(String filePath)
     {
-        return new ConvertFileToStringTask().run(filePath, (BufferedReader)getReaderForFile(filePath), this::closeResource);
+        return new ConvertFileToStringTask().run(filePath, (BufferedReader)getReaderForFile(filePath));
     }
 
 
