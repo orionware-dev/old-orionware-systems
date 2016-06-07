@@ -4,25 +4,25 @@ import java.lang.reflect.Method;
 import core.annotations.AnnotationTask;
 import core.annotations.OrionAnnotation;
 import core.annotations.services.AnnotationServiceObject;
-import core.runnables.consumers.Consumer3;
-import core.runnables.functions.Function1x1;
+import core.reflection.facades.loader.ReflectionLoaderFacade;
 
 public class ApplyAnnotationToMethodTask extends AnnotationServiceObject implements AnnotationTask
 {
-    public void run(Object object, OrionAnnotation registeredAnnotation, Function1x1<String, Object> loadAndInstantiateClassMethod, Consumer3<Method, Object, Object> callMethodMethod)
+    public void run(ReflectionLoaderFacade reflectionLoaderFacade, Object object, OrionAnnotation registeredAnnotation)
     {
         //instantiate annotation service
-        Object someAnnotationService = loadAndInstantiateClassMethod.run(registeredAnnotation.getAnnotationService());
+        Object someAnnotationService = reflectionLoaderFacade.loadAndInstantiateClass(registeredAnnotation.getAnnotationService());
         
         try
         {
             //call annotation service method that will process this annotation
             Method someMethod = someAnnotationService.getClass()
                                     .getMethod(registeredAnnotation.getAnnotationServiceMethodToCall(), Object.class);
-            callMethodMethod.run(someMethod, someAnnotationService, object);
+            reflectionLoaderFacade.callMethod(someMethod, someAnnotationService, object);
         }
         catch(NoSuchMethodException exception)
         {
+            System.out.println("Method " + registeredAnnotation.getAnnotationServiceMethodToCall() + " does not exist");
             exception.printStackTrace();
         }
         catch(SecurityException exception)

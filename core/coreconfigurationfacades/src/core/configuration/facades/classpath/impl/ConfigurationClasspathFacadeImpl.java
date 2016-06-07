@@ -1,5 +1,7 @@
 package core.configuration.facades.classpath.impl;
 
+import java.io.Closeable;
+import java.io.InputStream;
 import core.configuration.facades.ConfigurationFacadeObject;
 import core.configuration.facades.classpath.ConfigurationClasspathFacade;
 import core.configuration.services.classpath.ConfigurationClasspathService;
@@ -27,5 +29,19 @@ public class ConfigurationClasspathFacadeImpl extends ConfigurationFacadeObject 
     public void loadLibrariesProperties()
     {
         configurationClasspathService.loadLibrariesProperties();
+    }
+
+    
+    @Override
+    public InputStream getFileStream(String filePath)
+    {
+        return configurationClasspathService.getFileStream(filePath);
+    }
+
+    
+    @Override
+    public void closeResource(Closeable stream)
+    {
+        configurationClasspathService.closeResource(stream);
     }
 }

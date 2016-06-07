@@ -3,12 +3,12 @@ package core.annotations.services.loader.impl.tasks;
 import java.io.InputStream;
 import core.annotations.AnnotationTask;
 import core.annotations.services.AnnotationServiceObject;
-import core.runnables.functions.Function1x1;
+import core.filesystem.facades.streams.impl.FileSystemStreamsFacadeImpl;
 
 public class GetAnnotationsDefinitionFileStreamTask extends AnnotationServiceObject implements AnnotationTask
 {
-    public InputStream run(String libraryAnnotationsDefinitionFilePath, Function1x1<String, InputStream> getFileStreamMethod)
+    public InputStream run(String libraryAnnotationsDefinitionFilePath)
     {
-        return getFileStreamMethod.run(libraryAnnotationsDefinitionFilePath);
+        return new FileSystemStreamsFacadeImpl().getFileStream(libraryAnnotationsDefinitionFilePath);
     }
 }

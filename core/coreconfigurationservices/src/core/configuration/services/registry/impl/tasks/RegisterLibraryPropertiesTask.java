@@ -1,19 +1,17 @@
 package core.configuration.services.registry.impl.tasks;
 
-import java.io.Closeable;
-import java.io.InputStream;
 import core.configuration.ConfigurationObject;
 import core.configuration.ConfigurationTask;
 import core.configuration.LibraryConfiguration;
-import core.runnables.consumers.Consumer1;
-import core.runnables.consumers.Consumer3;
-import core.runnables.functions.Function1x1;
+import core.configuration.services.classpath.ConfigurationClasspathService;
+import core.configuration.services.classpath.impl.tasks.LoadLibraryPropertiesTask;
+import core.configuration.services.registry.PropertiesRegistrationService;
 
 public class RegisterLibraryPropertiesTask extends ConfigurationObject implements ConfigurationTask
 {
-    public void run(Consumer3<LibraryConfiguration, Function1x1<String, InputStream>, Consumer1<Closeable>> loadLibraryPropertiesMethod, Consumer1<String> setPropertiesAsRegisteredForLibraryMethod, LibraryConfiguration libraryConfiguration, Function1x1<String, InputStream> getFileStreamMethod, Consumer1<Closeable> closeResourceMethod)
+    public void run(ConfigurationClasspathService configurationClasspathService, LoadLibraryPropertiesTask loadLibraryPropertiesTask, PropertiesRegistrationService propertiesRegistrationService, LibraryConfiguration libraryConfiguration)
     {
-        loadLibraryPropertiesMethod.run(libraryConfiguration, getFileStreamMethod, closeResourceMethod);
-        setPropertiesAsRegisteredForLibraryMethod.run(libraryConfiguration.getLibraryName());
+        loadLibraryPropertiesTask.run(configurationClasspathService, libraryConfiguration);
+        propertiesRegistrationService.setPropertiesAsRegisteredForLibrary(libraryConfiguration.getLibraryName());
     }
 }

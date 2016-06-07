@@ -1,5 +1,7 @@
 package core.configuration.services.classpath.impl;
 
+import java.io.Closeable;
+import java.io.InputStream;
 import core.configuration.LibrariesConfiguration;
 import core.configuration.services.ConfigurationServiceObject;
 import core.configuration.services.classpath.ConfigurationClasspathService;
@@ -40,6 +42,20 @@ public class ConfigurationClasspathServiceImpl extends ConfigurationServiceObjec
         LibrariesConfiguration.getLibrariesConfigurationSet().stream()
             .filter(libraryConfiguration -> libraryConfiguration.getConfigurationFilePath() != null)
             .filter(libraryConfiguration -> propertiesRegistrationService.havePropertiesNotBeenRegisteredForLibrary(libraryConfiguration.getLibraryName()))
-            .forEach(libraryConfiguration -> registerLibraryPropertiesTask.run(loadLibraryPropertiesTask::run, propertiesRegistrationService::setPropertiesAsRegisteredForLibrary, libraryConfiguration, fileSystemStreamsFacade::getFileStream, fileSystemStreamsFacade::closeResource));
+            .forEach(libraryConfiguration -> registerLibraryPropertiesTask.run(this, loadLibraryPropertiesTask, propertiesRegistrationService, libraryConfiguration));
+    }
+    
+    
+    @Override
+    public InputStream getFileStream(String filePath)
+    {
+        return fileSystemStreamsFacade.getFileStream(filePath);
+    }
+    
+    
+    @Override
+    public void closeResource(Closeable stream)
+    {
+        fileSystemStreamsFacade.closeResource(stream);
     }
 }

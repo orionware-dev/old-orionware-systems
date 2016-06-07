@@ -3,12 +3,8 @@ package core.annotations.services.registry.impl.tasks;
 import core.annotations.AnnotationTask;
 import core.annotations.OrionAnnotation;
 import core.annotations.services.AnnotationServiceObject;
-import core.annotations.services.loader.AnnotationsLoaderService;
-import core.annotations.services.loader.impl.AnnotationsLoaderServiceImpl;
 import core.configuration.LibraryConfiguration;
 import core.configuration.OrionProperties;
-import core.filesystem.facades.streams.FileSystemStreamsFacade;
-import core.filesystem.facades.streams.impl.FileSystemStreamsFacadeImpl;
 
 public class RegisterLibraryAnnotationsTask extends AnnotationServiceObject implements AnnotationTask
 {
@@ -16,22 +12,22 @@ public class RegisterLibraryAnnotationsTask extends AnnotationServiceObject impl
     private String currentAnnotationClass;
     private String currentAnnotationServiceClass;
     private String currentAnnotationServiceMethodToCall;
+    private LoadLibraryAnnotationsDefinitionsTask loadLibraryAnnotationsDefinitionsTask;
     private RegisterAnnotationTask registerAnnotationTask;
+    private SetAnnotationsAsRegisteredForLibraryTask setAnnotationsAsRegisteredForLibraryTask;
     
     
     public RegisterLibraryAnnotationsTask()
     {
+        this.loadLibraryAnnotationsDefinitionsTask = new LoadLibraryAnnotationsDefinitionsTask();
         this.registerAnnotationTask = new RegisterAnnotationTask();
+        this.setAnnotationsAsRegisteredForLibraryTask = new SetAnnotationsAsRegisteredForLibraryTask();
     }
     
     
     public void run(LibraryConfiguration libraryConfiguration)
     {
-        SetAnnotationsAsRegisteredForLibraryTask setAnnotationsAsRegisteredForLibraryTask = new SetAnnotationsAsRegisteredForLibraryTask();
-        AnnotationsLoaderService annotationsLoaderService = new AnnotationsLoaderServiceImpl();
-        FileSystemStreamsFacade fileSystemStreamsFacade = new FileSystemStreamsFacadeImpl();
-        LoadLibraryAnnotationsDefinitionsTask loadLibraryAnnotationsDefinitionsTask = new LoadLibraryAnnotationsDefinitionsTask();
-        annotationsDeclarations = loadLibraryAnnotationsDefinitionsTask.run(libraryConfiguration, annotationsLoaderService::getAnnotationsDefinitionFileStream, fileSystemStreamsFacade::closeResource);
+        annotationsDeclarations = loadLibraryAnnotationsDefinitionsTask.run(libraryConfiguration);
         
         if(annotationsDeclarations.isNotEmpty())
         {
