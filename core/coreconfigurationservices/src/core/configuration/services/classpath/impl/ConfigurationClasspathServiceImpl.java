@@ -40,6 +40,6 @@ public class ConfigurationClasspathServiceImpl extends ConfigurationServiceObjec
         LibrariesConfiguration.getLibrariesConfigurationSet().stream()
             .filter(libraryConfiguration -> libraryConfiguration.getConfigurationFilePath() != null)
             .filter(libraryConfiguration -> propertiesRegistrationService.havePropertiesNotBeenRegisteredForLibrary(libraryConfiguration.getLibraryName()))
-            .forEach(libraryConfiguration -> registerLibraryPropertiesTask.run(loadLibraryPropertiesTask, propertiesRegistrationService, libraryConfiguration, fileSystemStreamsFacade::getFileStream, fileSystemStreamsFacade::closeResource));
+            .forEach(libraryConfiguration -> registerLibraryPropertiesTask.run(loadLibraryPropertiesTask::run, propertiesRegistrationService::setPropertiesAsRegisteredForLibrary, libraryConfiguration, fileSystemStreamsFacade::getFileStream, fileSystemStreamsFacade::closeResource));
     }
 }

@@ -5,16 +5,15 @@ import java.io.InputStream;
 import core.configuration.ConfigurationObject;
 import core.configuration.ConfigurationTask;
 import core.configuration.LibraryConfiguration;
-import core.configuration.services.classpath.impl.tasks.LoadLibraryPropertiesTask;
-import core.configuration.services.registry.PropertiesRegistrationService;
 import core.consumers.Consumer1;
+import core.consumers.Consumer3;
 import core.functions.Function1x1;
 
 public class RegisterLibraryPropertiesTask extends ConfigurationObject implements ConfigurationTask
 {
-    public void run(LoadLibraryPropertiesTask loadLibraryPropertiesTask, PropertiesRegistrationService propertiesRegistrationService, LibraryConfiguration libraryConfiguration, Function1x1<String, InputStream> getFileStreamMethod, Consumer1<Closeable> closeResourceMethod)
+    public void run(Consumer3<LibraryConfiguration, Function1x1<String, InputStream>, Consumer1<Closeable>> loadLibraryPropertiesMethod, Consumer1<String> setPropertiesAsRegisteredForLibraryMethod, LibraryConfiguration libraryConfiguration, Function1x1<String, InputStream> getFileStreamMethod, Consumer1<Closeable> closeResourceMethod)
     {
-        loadLibraryPropertiesTask.run(libraryConfiguration, getFileStreamMethod, closeResourceMethod);
-        propertiesRegistrationService.setPropertiesAsRegisteredForLibrary(libraryConfiguration.getLibraryName());
+        loadLibraryPropertiesMethod.run(libraryConfiguration, getFileStreamMethod, closeResourceMethod);
+        setPropertiesAsRegisteredForLibraryMethod.run(libraryConfiguration.getLibraryName());
     }
 }
