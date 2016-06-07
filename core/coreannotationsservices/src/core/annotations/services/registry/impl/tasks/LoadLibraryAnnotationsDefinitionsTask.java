@@ -10,18 +10,10 @@ import core.functions.Function1x1;
 
 public class LoadLibraryAnnotationsDefinitionsTask extends AnnotationServiceObject implements AnnotationTask
 {
-    private OrionProperties annotationsDeclarations;
-    
-    
-    public LoadLibraryAnnotationsDefinitionsTask()
-    {
-        this.annotationsDeclarations = new OrionProperties();
-    }
-    
-    
     public OrionProperties run(LibraryConfiguration libraryConfiguration, Function1x1<String, InputStream> getAnnotationsDefinitionFileStreamMethod, Consumer1<InputStream> closeResourceMethod)
     {
         InputStream libraryAnnotationsFileStream = getAnnotationsDefinitionFileStreamMethod.run(libraryConfiguration.getAnnotationsDefinitionFilePath());
+        OrionProperties annotationsDeclarations = new OrionProperties();
         annotationsDeclarations.loadProperties(libraryAnnotationsFileStream);
         closeResourceMethod.run(libraryAnnotationsFileStream);
         return annotationsDeclarations;

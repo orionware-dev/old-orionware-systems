@@ -16,25 +16,21 @@ public class RegisterLibraryAnnotationsTask extends AnnotationServiceObject impl
     private String currentAnnotationClass;
     private String currentAnnotationServiceClass;
     private String currentAnnotationServiceMethodToCall;
-    private LoadLibraryAnnotationsDefinitionsTask loadLibraryAnnotationsDefinitionsTask;
     private RegisterAnnotationTask registerAnnotationTask;
-    private SetAnnotationsAsRegisteredForLibraryTask setAnnotationsAsRegisteredForLibraryTask;
-    private AnnotationsLoaderService annotationsLoaderService;
-    private FileSystemStreamsFacade fileSystemStreamsFacade;
     
     
     public RegisterLibraryAnnotationsTask()
     {
-        this.loadLibraryAnnotationsDefinitionsTask = new LoadLibraryAnnotationsDefinitionsTask();
         this.registerAnnotationTask = new RegisterAnnotationTask();
-        this.setAnnotationsAsRegisteredForLibraryTask = new SetAnnotationsAsRegisteredForLibraryTask();
-        this.annotationsLoaderService = new AnnotationsLoaderServiceImpl();
-        this.fileSystemStreamsFacade = new FileSystemStreamsFacadeImpl();
     }
     
     
     public void run(LibraryConfiguration libraryConfiguration)
     {
+        SetAnnotationsAsRegisteredForLibraryTask setAnnotationsAsRegisteredForLibraryTask = new SetAnnotationsAsRegisteredForLibraryTask();
+        AnnotationsLoaderService annotationsLoaderService = new AnnotationsLoaderServiceImpl();
+        FileSystemStreamsFacade fileSystemStreamsFacade = new FileSystemStreamsFacadeImpl();
+        LoadLibraryAnnotationsDefinitionsTask loadLibraryAnnotationsDefinitionsTask = new LoadLibraryAnnotationsDefinitionsTask();
         annotationsDeclarations = loadLibraryAnnotationsDefinitionsTask.run(libraryConfiguration, annotationsLoaderService::getAnnotationsDefinitionFileStream, fileSystemStreamsFacade::closeResource);
         
         if(annotationsDeclarations.isNotEmpty())
