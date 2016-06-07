@@ -5,8 +5,8 @@ import core.annotations.AnnotationTask;
 import core.annotations.services.AnnotationServiceObject;
 import core.configuration.LibraryConfiguration;
 import core.configuration.OrionProperties;
-import core.consumers.Consumer1;
-import core.functions.Function1x1;
+import core.runnables.consumers.Consumer1;
+import core.runnables.functions.Function1x1;
 
 public class LoadLibraryAnnotationsDefinitionsTask extends AnnotationServiceObject implements AnnotationTask
 {

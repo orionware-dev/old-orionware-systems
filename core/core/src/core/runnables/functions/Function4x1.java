@@ -1,4 +1,4 @@
-package core.functions;
+package core.runnables.functions;
 
 @FunctionalInterface
 public interface Function4x1<T1, T2, T3, T4, R> extends OrionFunction

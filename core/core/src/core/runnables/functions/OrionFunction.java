@@ -1,4 +1,4 @@
-package core.functions;
+package core.runnables.functions;
 
 import core.abstraction.OrionInterface;
 

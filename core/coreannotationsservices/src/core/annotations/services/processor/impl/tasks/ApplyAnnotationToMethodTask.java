@@ -4,8 +4,8 @@ import java.lang.reflect.Method;
 import core.annotations.AnnotationTask;
 import core.annotations.OrionAnnotation;
 import core.annotations.services.AnnotationServiceObject;
-import core.consumers.Consumer3;
-import core.functions.Function1x1;
+import core.runnables.consumers.Consumer3;
+import core.runnables.functions.Function1x1;
 
 public class ApplyAnnotationToMethodTask extends AnnotationServiceObject implements AnnotationTask
 {

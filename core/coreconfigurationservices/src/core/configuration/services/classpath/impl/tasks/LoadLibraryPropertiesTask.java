@@ -6,8 +6,8 @@ import core.configuration.ConfigurationObject;
 import core.configuration.ConfigurationTask;
 import core.configuration.LibraryConfiguration;
 import core.configuration.registry.ConfigurationRegistry;
-import core.consumers.Consumer1;
-import core.functions.Function1x1;
+import core.runnables.consumers.Consumer1;
+import core.runnables.functions.Function1x1;
 
 public class LoadLibraryPropertiesTask extends ConfigurationObject implements ConfigurationTask
 {

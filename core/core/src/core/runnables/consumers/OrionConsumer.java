@@ -1,4 +1,4 @@
-package core.consumers;
+package core.runnables.consumers;
 
 import core.abstraction.OrionInterface;
 

@@ -1,4 +1,4 @@
-package core.consumers;
+package core.runnables.consumers;
 
 @FunctionalInterface
 public interface Consumer4<T1, T2, T3, T4> extends OrionConsumer

@@ -5,9 +5,9 @@ import java.io.InputStream;
 import core.configuration.ConfigurationObject;
 import core.configuration.ConfigurationTask;
 import core.configuration.LibraryConfiguration;
-import core.consumers.Consumer1;
-import core.consumers.Consumer3;
-import core.functions.Function1x1;
+import core.runnables.consumers.Consumer1;
+import core.runnables.consumers.Consumer3;
+import core.runnables.functions.Function1x1;
 
 public class RegisterLibraryPropertiesTask extends ConfigurationObject implements ConfigurationTask
 {
