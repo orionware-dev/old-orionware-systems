@@ -3,8 +3,8 @@ package core.objects;
 import core.OrionSimpleObject;
 import core.configuration.LibrariesConfiguration;
 import core.configuration.LibraryConfiguration;
-import core.objects.services.OrionObjectProcessorService;
-import core.objects.services.impl.OrionObjectProcessorServiceImpl;
+import core.objects.services.orionobject.OrionObjectProcessorService;
+import core.objects.services.orionobject.impl.OrionObjectProcessorServiceImpl;
 
 public abstract class OrionObject extends OrionSimpleObject
 {

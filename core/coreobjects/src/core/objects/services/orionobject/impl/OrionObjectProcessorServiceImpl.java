@@ -1,4 +1,4 @@
-package core.objects.services.impl;
+package core.objects.services.orionobject.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
@@ -9,8 +9,8 @@ import core.configuration.CoreConfigurationEnumeration;
 import core.configuration.LibrariesConfiguration;
 import core.configuration.LibraryConfiguration;
 import core.configuration.facades.classpath.impl.ConfigurationClasspathFacadeImpl;
-import core.objects.services.OrionObjectProcessorService;
-import core.objects.services.impl.tasks.IsCoreLibraryTask;
+import core.objects.services.orionobject.OrionObjectProcessorService;
+import core.objects.services.orionobject.impl.tasks.IsCoreLibraryTask;
 
 public class OrionObjectProcessorServiceImpl extends OrionSimpleObject implements OrionObjectProcessorService
 {

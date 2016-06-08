@@ -1,4 +1,4 @@
-package core.objects.services;
+package core.objects.services.orionobject;
 
 import core.services.OrionService;
 

@@ -19,24 +19,11 @@ annotations of the class
 converts it to an integer. Create something similar using OrionInteger,
 that searches in AllProperties.java
 
---in AllProperties, create methods like: getIntProp(string) that takes
-the property value and converts it to int. Similarly for doubles, booleans, etc.
-
 --create Index.java interface with methods finished() and increase().
 It represents an index in general. Create a class like DataStructureIndex.java
 implements Index. Keep a reference of DataStructureIndex inside
 OrionArrayList.java and use it somehow to iterate through the list
 using this new index. Think of a use case for this
-
---create ObjectsEqualityCheckers.java in which we keep a HashMap of
-object to ObjectEqualityChecker.java. create ObjectEqualityCheckerService.java
-that takes 2 or more objects and using the checkers mapper it will determine
-if they equal each other. You can create an ObjectEqualityChecker with the
-equals(object, object) and you can provide the custom implementation of the
-equality check. Use the service to register the checkers. Create annotation
-@EqualityAttribute that can be put above instance vars or getters for the
-vars we want to be compared by the equality checker to determine if the
-2 objects are equal
 
 --create OrionArray.java and provide convenience methods
 
