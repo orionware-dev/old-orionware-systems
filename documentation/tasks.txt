@@ -42,9 +42,6 @@ a method returns. Use pipeline/filters or something else
 services lifecycles. Maybe it will use the pipeline for service
 sequencing. It could be used for business processes
 
---in config service create method getConfigurationEntriesAsList()
-that returns List<ConfigurationEntry>
-
 --sequential conditioning: it is like pipes and filters, but for
 if statements. See if I can create something for that. We see code
 like: if(cond1) then return

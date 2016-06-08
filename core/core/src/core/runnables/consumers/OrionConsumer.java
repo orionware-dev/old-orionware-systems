@@ -1,8 +1,8 @@
 package core.runnables.consumers;
 
-import core.abstraction.OrionInterface;
+import core.runnables.OrionExecutable;
 
-public interface OrionConsumer extends OrionInterface
+public interface OrionConsumer extends OrionExecutable
 {
     
 }

@@ -1,8 +1,8 @@
 package core.runnables.functions;
 
-import core.abstraction.OrionInterface;
+import core.runnables.OrionExecutable;
 
-public interface OrionFunction extends OrionInterface
+public interface OrionFunction extends OrionExecutable
 {
     
 }
