@@ -15,12 +15,9 @@ something like the spring bean post processor, that will be executed
 when we try to instantiate a class so that it can handle all Orion
 annotations of the class
 
---create OrionInteger extends Integer and provide some convenience methods.
-If it works, then do that for double and long, as well
-
 --Integer.getInteger(string) gets a System.getProperty(string) and then
 converts it to an integer. Create something similar using OrionInteger,
-that searches through AllProperties.java
+that searches in AllProperties.java
 
 --in AllProperties, create methods like: getIntProp(string) that takes
 the property value and converts it to int. Similarly for doubles, booleans, etc.

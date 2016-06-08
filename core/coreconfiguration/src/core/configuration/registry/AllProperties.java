@@ -59,6 +59,12 @@ public class AllProperties extends ConfigurationObject
     }
     
     
+    private static boolean keyIsNotEmpty(String key)
+    {
+        return key != null && !key.isEmpty();
+    }
+    
+    
     public static String getProperty(String key)
     {
         if(keyIsNotEmpty(key))
@@ -70,8 +76,56 @@ public class AllProperties extends ConfigurationObject
     }
     
     
-    private static boolean keyIsNotEmpty(String key)
+    public static Integer getIntegerProperty(String key)
     {
-        return key != null && !key.isEmpty();
+        if(keyIsNotEmpty(key))
+        {
+            try
+            {
+                return Integer.parseInt(properties.getProperty(key));
+            }
+            catch(NumberFormatException e)
+            {
+                
+            }
+        }
+        
+        return Integer.MIN_VALUE;
+    }
+    
+    
+    public static Double getDoubleProperty(String key)
+    {
+        if(keyIsNotEmpty(key))
+        {
+            try
+            {
+                return Double.parseDouble(properties.getProperty(key));
+            }
+            catch(NumberFormatException e)
+            {
+                
+            }
+        }
+        
+        return Double.MIN_VALUE;
+    }
+    
+    
+    public static Boolean getBooleanProperty(String key)
+    {
+        if(keyIsNotEmpty(key))
+        {
+            try
+            {
+                return Boolean.parseBoolean(properties.getProperty(key));
+            }
+            catch(NumberFormatException e)
+            {
+                
+            }
+        }
+        
+        return Boolean.FALSE;
     }
 }
