@@ -1,9 +1,12 @@
 package core.configuration.services.classpath.impl;
 
+import java.util.List;
 import core.configuration.ConfigurationEntries;
+import core.configuration.ConfigurationEntry;
 import core.configuration.LibrariesConfiguration;
 import core.configuration.services.ConfigurationServiceObject;
 import core.configuration.services.classpath.ConfigurationClasspathService;
+import core.configuration.services.classpath.impl.tasks.GetConfigurationEntriesAsListTask;
 import core.configuration.services.classpath.impl.tasks.GetConfigurationEntriesTask;
 import core.configuration.services.classpath.impl.tasks.IsCoreLibraryTask;
 import core.configuration.services.classpath.impl.tasks.LoadLibraryPropertiesTask;
@@ -49,5 +52,12 @@ public class ConfigurationClasspathServiceImpl extends ConfigurationServiceObjec
     public ConfigurationEntries getConfigurationEntries()
     {
         return GetConfigurationEntriesTask.run();
+    }
+    
+    
+    @Override
+    public List<ConfigurationEntry<Object, Object>> getConfigurationEntriesAsList()
+    {
+        return GetConfigurationEntriesAsListTask.run();
     }
 }

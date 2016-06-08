@@ -1,6 +1,8 @@
 package core.configuration.facades.classpath.impl;
 
+import java.util.List;
 import core.configuration.ConfigurationEntries;
+import core.configuration.ConfigurationEntry;
 import core.configuration.facades.ConfigurationFacadeObject;
 import core.configuration.facades.classpath.ConfigurationClasspathFacade;
 import core.configuration.services.classpath.ConfigurationClasspathService;
@@ -43,5 +45,12 @@ public class ConfigurationClasspathFacadeImpl extends ConfigurationFacadeObject 
     public ConfigurationEntries getConfigurationEntries()
     {
         return configurationClasspathService.getConfigurationEntries();
+    }
+    
+    
+    @Override
+    public List<ConfigurationEntry<Object, Object>> getConfigurationEntriesAsList()
+    {
+        return configurationClasspathService.getConfigurationEntriesAsList();
     }
 }

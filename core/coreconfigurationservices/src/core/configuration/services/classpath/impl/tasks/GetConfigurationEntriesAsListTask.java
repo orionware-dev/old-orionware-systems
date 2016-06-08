@@ -3,20 +3,18 @@ package core.configuration.services.classpath.impl.tasks;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map.Entry;
-import core.configuration.ConfigurationEntries;
 import core.configuration.ConfigurationEntry;
 import core.configuration.ConfigurationObject;
 import core.configuration.ConfigurationTask;
 import core.configuration.OrionProperties;
 import core.configuration.registry.ConfigurationRegistry;
 
-public class GetConfigurationEntriesTask extends ConfigurationObject implements ConfigurationTask
+public class GetConfigurationEntriesAsListTask extends ConfigurationObject implements ConfigurationTask
 {
-    public static ConfigurationEntries<Object, Object> run()
+    public static List<ConfigurationEntry<Object, Object>> run()
     {
         OrionProperties allOrionProperties = ConfigurationRegistry.getProps();
         List<ConfigurationEntry<Object, Object>> configurationEntriesList = new ArrayList<ConfigurationEntry<Object, Object>>(allOrionProperties.size());
-        ConfigurationEntries<Object, Object> configurationEntries = new ConfigurationEntries<Object, Object>(configurationEntriesList);
         
         if(allOrionProperties.isNotEmpty())
         {
@@ -29,6 +27,6 @@ public class GetConfigurationEntriesTask extends ConfigurationObject implements 
             }
         }
         
-        return configurationEntries;
+        return configurationEntriesList;
     }
 }
