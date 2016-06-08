@@ -1,0 +1,3 @@
+orion.core.flow.facades=Core Flow Facades
+orion.core.flow.facades.dir=${orion.core.projects.dir}/coreflowfacades
+orion.core.flow.facades.jar.file.name=OrionCoreFlowFacades_${orion.libraries.version}.jar
