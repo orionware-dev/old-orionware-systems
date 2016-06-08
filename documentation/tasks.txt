@@ -42,10 +42,6 @@ a method returns. Use pipeline/filters or something else
 services lifecycles. Maybe it will use the pipeline for service
 sequencing. It could be used for business processes
 
---create KeyValueStore extends Pair
-
---create Entry extends KeyValueStore
-
 --create ConfigurationEntry extends Entry which will ha e a prop
 key and it's value
 
