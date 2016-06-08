@@ -7,11 +7,11 @@ import core.configuration.LibraryConfiguration;
 
 public class HaveAnnotationsBeenRegisteredForLibraryTask extends AnnotationServiceObject implements AnnotationTask
 {
-    public boolean run(String libraryName)
+    public boolean run(String libraryClassPath)
     {
-        if(thisLibraryAnnotationsHaveBeenRegistered(libraryName))
+        if(thisLibraryAnnotationsHaveBeenRegistered(libraryClassPath))
         {
-            return LibrariesConfigurationMapper.LIBRARIES_AND_IF_ANNOTATIONS_HAVE_BEEN_REGISTERED_MAPPER.get(libraryName);
+            return LibrariesConfigurationMapper.LIBRARIES_AND_IF_ANNOTATIONS_HAVE_BEEN_REGISTERED_MAPPER.get(libraryClassPath);
         }
         else
         {
@@ -22,12 +22,12 @@ public class HaveAnnotationsBeenRegisteredForLibraryTask extends AnnotationServi
     
     public boolean run(LibraryConfiguration libraryConfiguration)
     {
-        return run(libraryConfiguration.getLibraryName());
+        return run(libraryConfiguration.getLibraryClassPath());
     }
     
     
-    private boolean thisLibraryAnnotationsHaveBeenRegistered(String libraryName)
+    private boolean thisLibraryAnnotationsHaveBeenRegistered(String libraryClassPath)
     {
-        return LibrariesConfigurationMapper.LIBRARIES_AND_IF_ANNOTATIONS_HAVE_BEEN_REGISTERED_MAPPER.get(libraryName) != null;
+        return LibrariesConfigurationMapper.LIBRARIES_AND_IF_ANNOTATIONS_HAVE_BEEN_REGISTERED_MAPPER.get(libraryClassPath) != null;
     }
 }
