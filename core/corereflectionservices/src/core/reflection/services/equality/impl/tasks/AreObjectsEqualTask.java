@@ -1,6 +1,5 @@
 package core.reflection.services.equality.impl.tasks;
 
-import java.io.File;
 import core.reflection.ReflectionObject;
 import core.reflection.ReflectionTask;
 

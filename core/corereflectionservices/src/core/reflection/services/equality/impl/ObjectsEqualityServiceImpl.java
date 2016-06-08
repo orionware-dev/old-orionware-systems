@@ -1,8 +1,5 @@
 package core.reflection.services.equality.impl;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 import core.OrionSimpleObject;
 import core.reflection.services.equality.ObjectsEqualityService;
 import core.reflection.services.equality.impl.tasks.AreObjectsEqualTask;
