@@ -9,6 +9,7 @@ public class HavePropertiesBeenRegisteredForLibraryTask extends ConfigurationObj
 {
     public boolean run(String libraryName)
     {
+        System.out.println(libraryName);
         if(libraryPropertiesHaveBeenRegistered(libraryName))
         {
             return LibrariesConfigurationMapper.LIBRARIES_AND_IF_PROPERTIES_HAVE_BEEN_REGISTERED_MAPPER.get(libraryName);
