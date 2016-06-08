@@ -7,7 +7,7 @@ import core.configuration.LibraryConfiguration;
 
 public class HavePropertiesBeenRegisteredForLibraryTask extends ConfigurationObject implements ConfigurationTask
 {
-    public static boolean run(String libraryClassPath)
+    public static synchronized boolean run(String libraryClassPath)
     {
         if(libraryPropertiesHaveBeenRegistered(libraryClassPath))
         {
@@ -20,7 +20,7 @@ public class HavePropertiesBeenRegisteredForLibraryTask extends ConfigurationObj
     }
     
     
-    public static boolean run(LibraryConfiguration libraryConfiguration)
+    public static synchronized boolean run(LibraryConfiguration libraryConfiguration)
     {
         return run(libraryConfiguration.getLibraryClassPath());
     }

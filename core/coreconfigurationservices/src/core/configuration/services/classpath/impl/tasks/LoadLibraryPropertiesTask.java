@@ -10,7 +10,7 @@ import core.filesystem.facades.streams.impl.FileSystemStreamsFacadeImpl;
 
 public class LoadLibraryPropertiesTask extends ConfigurationObject implements ConfigurationTask
 {
-    public static void run(LibraryConfiguration libraryConfiguration)
+    public static synchronized void run(LibraryConfiguration libraryConfiguration)
     {
         FileSystemStreamsFacade fileSystemStreamsFacade = new FileSystemStreamsFacadeImpl();
         InputStream propertiesFileInput = fileSystemStreamsFacade.getFileStream(libraryConfiguration.getConfigurationFilePath());

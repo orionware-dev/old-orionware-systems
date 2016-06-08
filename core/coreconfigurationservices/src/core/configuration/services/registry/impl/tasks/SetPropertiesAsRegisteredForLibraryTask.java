@@ -7,13 +7,13 @@ import core.configuration.LibraryConfiguration;
 
 public class SetPropertiesAsRegisteredForLibraryTask extends ConfigurationObject implements ConfigurationTask
 {
-    public static void run(String libraryClassPath)
+    public static synchronized void run(String libraryClassPath)
     {
         LibrariesConfigurationMapper.LIBRARIES_AND_IF_PROPERTIES_HAVE_BEEN_REGISTERED_MAPPER.put(libraryClassPath, true);
     }
     
     
-    public static void run(LibraryConfiguration libraryConfiguration)
+    public static synchronized void run(LibraryConfiguration libraryConfiguration)
     {
         run(libraryConfiguration.getLibraryClassPath());
     }

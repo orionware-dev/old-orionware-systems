@@ -24,7 +24,7 @@ public class LibrariesConfiguration extends OrionSimpleObject implements OrionCo
     }
     
     
-    public static void registerLibraryConfiguration(LibraryConfiguration libraryConfiguration)
+    public static synchronized void registerLibraryConfiguration(LibraryConfiguration libraryConfiguration)
     {
         if(haveCoreLibrariesNotBeenRegistered)
         {

@@ -1,5 +1,6 @@
 package core.annotations.services.registry;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Consumer;
@@ -15,11 +16,11 @@ public class AnnotationsRegistry extends OrionRegistry
     
     static
     {
-        registeredAnnotationsSet = new HashSet<OrionAnnotation>();
+        registeredAnnotationsSet = Collections.synchronizedSet(new HashSet<OrionAnnotation>());
     }
     
     
-    public static void registerAnnotation(OrionAnnotation annotationToRegister)
+    public static synchronized void registerAnnotation(OrionAnnotation annotationToRegister)
     {
         getAnnotations().add(annotationToRegister);
     }
