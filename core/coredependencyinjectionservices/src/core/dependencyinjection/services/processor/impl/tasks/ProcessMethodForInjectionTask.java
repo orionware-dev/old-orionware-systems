@@ -1,6 +1,7 @@
 package core.dependencyinjection.services.processor.impl.tasks;
 
 import java.lang.reflect.Method;
+import core.annotations.Injectable;
 import core.annotations.facades.gathering.AnnotationsGatheringFacade;
 import core.annotations.facades.gathering.impl.AnnotationsGatheringFacadeImpl;
 import core.dependencyinjection.DependencyInjectionObject;
@@ -37,23 +38,13 @@ public class ProcessMethodForInjectionTask extends DependencyInjectionObject imp
     
     private void processInjection(Method method, Injector injection)
     {
-        String classToInject = injection.ID();
+        String classToInjectString = injection.ID();
+        Class<?> classToInject = reflectionLoaderFacade.loadClass(classToInjectString);
+        Injectable injectableAnnotation = classToInject.getAnnotation(Injectable.class);
         
-        try
+        if(injectableAnnotation != null)
         {
-            reflectionLoaderFacade.callMethod(method, object, Class.forName(classToInject).newInstance());
-        }
-        catch(InstantiationException exception)
-        {
-            exception.printStackTrace();
-        }
-        catch(IllegalAccessException exception)
-        {
-            exception.printStackTrace();
-        }
-        catch(ClassNotFoundException exception)
-        {
-            exception.printStackTrace();
+            reflectionLoaderFacade.callMethod(method, object, reflectionLoaderFacade.instantiateClass(classToInject));
         }
     }
 }

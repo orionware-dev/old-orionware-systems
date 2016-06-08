@@ -4,7 +4,6 @@ import core.configuration.ConfigurationObject;
 import core.configuration.ConfigurationTask;
 import core.configuration.registry.ConfigurationRegistry;
 import core.tuples.KeyValuePair;
-import core.tuples.Pair;
 
 public class UpdatePropertyTask extends ConfigurationObject implements ConfigurationTask
 {

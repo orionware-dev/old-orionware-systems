@@ -4,7 +4,6 @@ import java.io.InputStream;
 import core.abstraction.OrionRegistry;
 import core.configuration.OrionProperties;
 import core.tuples.KeyValuePair;
-import core.tuples.Pair;
 
 public class ConfigurationRegistry extends OrionRegistry
 {

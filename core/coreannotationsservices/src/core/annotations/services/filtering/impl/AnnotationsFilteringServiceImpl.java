@@ -2,7 +2,6 @@ package core.annotations.services.filtering.impl;
 
 import java.lang.annotation.Annotation;
 import java.util.Collection;
-import java.util.List;
 import java.util.stream.Stream;
 import core.annotations.OrionAnnotation;
 import core.annotations.services.AnnotationServiceObject;

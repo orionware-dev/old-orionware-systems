@@ -1,6 +1,5 @@
 package core.reflection.services.loader.impl.tasks;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import core.reflection.ReflectionObject;
 import core.reflection.ReflectionTask;

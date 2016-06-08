@@ -3,7 +3,6 @@ package core.annotations.services.filtering.impl.tasks;
 import java.lang.annotation.Annotation;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 import java.util.stream.Stream;
 import core.annotations.AnnotationTask;
 import core.annotations.OrionAnnotation;
