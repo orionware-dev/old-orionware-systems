@@ -2,7 +2,7 @@ package datastructuresfacadesintegrationtests.dependencyinjection;
 
 import core.dependencyinjection.Injector;
 import datastructures.DataStructuresObject;
-import datastructuresfacades.lists.size.ListSizeFacade;
+import datastructures.facades.lists.size.ListSizeFacade;
 
 public class TestClass2 extends DataStructuresObject
 {

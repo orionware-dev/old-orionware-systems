@@ -4,10 +4,10 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import datastructures.lists.OrionList;
-import datastructuresservices.lists.factory.ListFactoryService;
-import datastructuresservices.lists.factory.impl.ListFactoryServiceImpl;
-import datastructuresservices.lists.size.ListSizeService;
-import datastructuresservices.lists.size.impl.ListSizeServiceImpl;
+import datastructures.services.lists.factory.ListFactoryService;
+import datastructures.services.lists.factory.impl.ListFactoryServiceImpl;
+import datastructures.services.lists.size.ListSizeService;
+import datastructures.services.lists.size.impl.ListSizeServiceImpl;
 
 public class DataStructureSizeTest
 {

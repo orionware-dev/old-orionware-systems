@@ -2,7 +2,7 @@ package datastructuresservicesintegrationtests.dependencyinjection;
 
 import core.dependencyinjection.Injector;
 import datastructures.DataStructuresObject;
-import datastructuresservices.lists.size.ListSizeService;
+import datastructures.services.lists.size.ListSizeService;
 
 public class TestClass2 extends DataStructuresObject
 {
@@ -21,7 +21,7 @@ public class TestClass2 extends DataStructuresObject
     }
     
     
-    @Injector(ID = "datastructuresservices.lists.size.impl.ListSizeServiceImpl")
+    @Injector(ID = "datastructures.services.lists.size.impl.ListSizeServiceImpl")
     private void setListSizeService(ListSizeService listSizeService)
     {
         this.listSizeService = listSizeService;

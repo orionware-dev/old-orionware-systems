@@ -1,8 +1,4 @@
-﻿--override hashcode and equals for objects I use in collections
-
---see if some of the instance vars of a class belong to a separate data class
-
---make the packages of datastructures, designpatterns, etc. to be like
+﻿--make the unit and integration tests packages of datastructures, designpatterns, etc. to be like
 the core: "datastructures.services", "datastructures.facades", etc.
 
 --delete datastructures.testannotation.TestAnnotation
