@@ -14,7 +14,14 @@ public class GetEnumerationValueTask extends ReflectionObject implements Reflect
         
         try
         {
-            return (String)reflectionLoaderService.callMethod(enumerationClass.getMethod("get", new Class<?>[]{}), enumerationClass, new Object[]{});
+            String enumerationValue = (String)reflectionLoaderService.callMethod(enumerationClass.getMethod("get", new Class<?>[]{}), enumerationClass, new Object[]{});
+            
+            if(enumerationValue == null)
+            {
+                enumerationValue = "";
+            }
+            
+            return enumerationValue;
         }
         catch(NoSuchMethodException exception)
         {
