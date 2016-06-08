@@ -1,9 +1,5 @@
 ﻿--create custom exceptions
 
---create annotations @Injectable and @Uninjectable
-
---update tests, annotations.prop and OrionObjectInitialiser.java to use facades instead of services
-
 --AnnotationsLoaderServiceImpl is not using ConfigurationClasspathService
 and it is using the tasks directly
 --use Optional<TYPE>

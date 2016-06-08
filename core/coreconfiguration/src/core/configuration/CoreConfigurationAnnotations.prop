@@ -1,7 +1,3 @@
 coreconfiguration.annotation.1=core.dependencyinjection.Injector
 coreconfiguration.annotation.facade.1=core.dependencyinjection.facades.processor.impl.DependencyInjectorFacadeImpl
 coreconfiguration.annotation.facade.processing.method.1=processDependencies
-
-coreconfiguration.annotation.2=core.dependencyinjection.service.ServiceInjector
-coreconfiguration.annotation.facade.2=core.dependencyinjection.facades.service.impl.ServiceDependencyInjectorFacadeImpl
-coreconfiguration.annotation.facade.processing.method.2=processServiceDependencies
