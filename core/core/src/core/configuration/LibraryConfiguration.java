@@ -9,7 +9,7 @@ public class LibraryConfiguration extends OrionSimpleObject implements OrionConf
     private String libraryClassPath;
     private String configurationFilePath;
     private String annotationsDefinitionFilePath;
-
+    
 
     public String getLibraryName()
     {
@@ -56,5 +56,42 @@ public class LibraryConfiguration extends OrionSimpleObject implements OrionConf
     public void setAnnotationsDefinitionFilePath(String annotationsDefinitionFilePath)
     {
         this.annotationsDefinitionFilePath = annotationsDefinitionFilePath;
+    }
+    
+    
+    @Override
+    public int hashCode()
+    {
+        int defaultPrimeNumberForHashing = 31;
+        int hash = 3;
+        hash = defaultPrimeNumberForHashing * hash + this.getLibraryName().hashCode();
+        hash = defaultPrimeNumberForHashing * hash + this.getLibraryClassPath().hashCode();
+        hash = defaultPrimeNumberForHashing * hash + this.getConfigurationFilePath().hashCode();
+        hash = defaultPrimeNumberForHashing * hash + this.getAnnotationsDefinitionFilePath().hashCode();
+        return hash;
+    }
+
+
+    @Override
+    public boolean equals(Object object)
+    {
+        if(object == null || object.getClass() != getClass())
+        {
+            return false;
+        }
+        else
+        {
+            LibraryConfiguration otherLibraryConfiguration = (LibraryConfiguration)object;
+            
+            if(this.getLibraryName().equals(otherLibraryConfiguration.getLibraryName())
+                   && this.getLibraryClassPath().equals(otherLibraryConfiguration.getLibraryClassPath())
+                   && this.getConfigurationFilePath().equals(otherLibraryConfiguration.getConfigurationFilePath())
+                   && this.getAnnotationsDefinitionFilePath().equals(otherLibraryConfiguration.getAnnotationsDefinitionFilePath()))
+            {
+                return true;
+            }
+        }
+        
+        return false;
     }
 }

@@ -9,6 +9,7 @@ public abstract class DataStructuresFacadesObject extends DataStructuresObject
     {
         LibraryConfiguration libraryConfiguration = new LibraryConfiguration();
         libraryConfiguration.setLibraryName("datastructuresfacades");
+        libraryConfiguration.setLibraryClassPath("/datastructures/facades");
         registerLibraryConfiguration(libraryConfiguration);
         processAllLibrariesConfiguration();
     }
