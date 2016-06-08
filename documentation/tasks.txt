@@ -53,9 +53,6 @@ if the condition holds
 --see how to extend the tomcat classloader so that in the Orion
 platform we can have something like an Orion Objects Container
 
---for every object I have and will create, create a complete
-object hierarchy
-
 --elements in Orion data structures can be expired (removed)
 at particular intervals or specific time or cron
 

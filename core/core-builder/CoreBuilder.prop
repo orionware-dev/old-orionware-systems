@@ -15,5 +15,6 @@ orion.core.dependency.injection.builder.dir=${orion.core.projects.dir}/coredepen
 orion.core.dependency.injection.services.builder.dir=${orion.core.projects.dir}/coredependencyinjectionservices/build
 orion.core.dependency.injection.facades.builder.dir=${orion.core.projects.dir}/coredependencyinjectionfacades/build
 orion.core.objects.builder.dir=${orion.core.projects.dir}/coreobjects/build
+orion.core.flow.builder.dir=${orion.core.projects.dir}/coreflow/build
 
 orion.core.jar.file.name=OrionCore_${orion.libraries.version}.jar

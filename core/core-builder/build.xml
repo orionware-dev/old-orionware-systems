@@ -24,6 +24,7 @@
         <callAnt file="${orion.core.dependency.injection.services.builder.dir}/build.xml"/>
     	<callAnt file="${orion.core.dependency.injection.facades.builder.dir}/build.xml"/>
     	<callAnt file="${orion.core.objects.builder.dir}/build.xml"/>
+    	<callAnt file="${orion.core.flow.builder.dir}/build.xml"/>
         
         <callAnt file="${orion.core.core.builder.dir}/build.xml" target="delete_JAR"/>
         <callAnt file="${orion.core.reflection.builder.dir}/build.xml" target="delete_JAR"/>
@@ -41,6 +42,7 @@
         <callAnt file="${orion.core.dependency.injection.builder.dir}/build.xml" target="delete_JAR"/>
         <callAnt file="${orion.core.dependency.injection.services.builder.dir}/build.xml" target="delete_JAR"/>
         <callAnt file="${orion.core.dependency.injection.facades.builder.dir}/build.xml" target="delete_JAR"/>
+    	<callAnt file="${orion.core.flow.builder.dir}/build.xml" target="delete_JAR"/>
     	<callAnt file="${orion.core.objects.builder.dir}/build.xml" target="delete_JAR"/>
         
         <packageProject binariesDir="${orion.core.binaries.dir}" JARPath="${orion.orionware.libraries.libraries.dir}/${orion.core.jar.file.name}" projectName="${orion.core}"/>

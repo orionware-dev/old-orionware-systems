@@ -1,0 +1,3 @@
+orion.core.flow=Core Flow
+orion.core.flow.dir=${orion.core.projects.dir}/coreflow
+orion.core.flow.jar.file.name=OrionCoreFlow_${orion.libraries.version}.jar
