@@ -1,5 +1,6 @@
 package core.configuration.services.classpath;
 
+import core.configuration.ConfigurationEntries;
 import core.configuration.ConfigurationService;
 
 public interface ConfigurationClasspathService extends ConfigurationService
@@ -11,4 +12,8 @@ public interface ConfigurationClasspathService extends ConfigurationService
     
     
     public void loadLibrariesProperties();
+    
+    
+    @SuppressWarnings("rawtypes")
+    public ConfigurationEntries getConfigurationEntries();
 }

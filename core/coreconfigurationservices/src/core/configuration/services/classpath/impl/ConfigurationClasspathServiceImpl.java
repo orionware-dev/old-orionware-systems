@@ -1,8 +1,10 @@
 package core.configuration.services.classpath.impl;
 
+import core.configuration.ConfigurationEntries;
 import core.configuration.LibrariesConfiguration;
 import core.configuration.services.ConfigurationServiceObject;
 import core.configuration.services.classpath.ConfigurationClasspathService;
+import core.configuration.services.classpath.impl.tasks.GetConfigurationEntriesTask;
 import core.configuration.services.classpath.impl.tasks.IsCoreLibraryTask;
 import core.configuration.services.classpath.impl.tasks.LoadLibraryPropertiesTask;
 import core.configuration.services.registry.PropertiesRegistrationService;
@@ -39,5 +41,13 @@ public class ConfigurationClasspathServiceImpl extends ConfigurationServiceObjec
                     LoadLibraryPropertiesTask.run(libraryConfiguration);
                     new PropertiesRegistrationServiceImpl().setPropertiesAsRegisteredForLibrary(libraryConfiguration.getLibraryName());
                 });
+    }
+
+
+    @SuppressWarnings("rawtypes")
+    @Override
+    public ConfigurationEntries getConfigurationEntries()
+    {
+        return GetConfigurationEntriesTask.run();
     }
 }

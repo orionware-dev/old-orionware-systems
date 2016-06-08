@@ -1,5 +1,6 @@
 package core.configuration.facades.classpath.impl;
 
+import core.configuration.ConfigurationEntries;
 import core.configuration.facades.ConfigurationFacadeObject;
 import core.configuration.facades.classpath.ConfigurationClasspathFacade;
 import core.configuration.services.classpath.ConfigurationClasspathService;
@@ -21,11 +22,26 @@ public class ConfigurationClasspathFacadeImpl extends ConfigurationFacadeObject 
     {
         return configurationClasspathService.isCoreLibrary(classBeingRun);
     }
+    
+    
+    @Override
+    public boolean isCoreLibrary(Object objectBeingRun)
+    {
+        return configurationClasspathService.isCoreLibrary(objectBeingRun);
+    }
 
     
     @Override
     public void loadLibrariesProperties()
     {
         configurationClasspathService.loadLibrariesProperties();
+    }
+
+
+    @SuppressWarnings("rawtypes")
+    @Override
+    public ConfigurationEntries getConfigurationEntries()
+    {
+        return configurationClasspathService.getConfigurationEntries();
     }
 }

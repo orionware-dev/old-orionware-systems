@@ -42,10 +42,8 @@ a method returns. Use pipeline/filters or something else
 services lifecycles. Maybe it will use the pipeline for service
 sequencing. It could be used for business processes
 
---create ConfigurationEntries that has List<ConfigurationEntry>
-
 --in config service create method getConfigurationEntries() that
-returns ConfigurAtionEntries
+returns ConfigurationEntries
 
 --in config service create method getConfigurationEntriesAsList()
 that returns List<ConfigurationEntry>
