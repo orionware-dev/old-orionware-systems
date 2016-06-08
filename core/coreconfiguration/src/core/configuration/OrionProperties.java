@@ -22,6 +22,12 @@ public class OrionProperties extends Properties
     }
     
     
+    public void loadProperties(Properties properties)
+    {
+        putAll(properties);
+    }
+    
+    
     public void registerProp(String key, String value)
     {
         put(key, value);

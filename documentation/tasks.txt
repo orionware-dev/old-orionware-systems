@@ -15,11 +15,6 @@ something like the spring bean post processor, that will be executed
 when we try to instantiate a class so that it can handle all Orion
 annotations of the class
 
---put "synchronized" in static methods definitions
-
---load all System.getProperties() to AllProperties.java and
-make sure that that is loaded only once
-
 --create OrionInteger extends Integer and provide some convenience methods.
 If it works, then do that for double and long, as well
 
