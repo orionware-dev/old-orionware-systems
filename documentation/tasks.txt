@@ -86,9 +86,6 @@ depending
 --create a stopwatch with nanoseconds by default or any other timing
 provided by the user like milliseconds, etc.
 
---create ConditionEvaluator that takes a boolean expression and
-returns it's result
-
 --create Cache.java which will have a ConcurrentHashMap internally
 
 --create Cacheable annotation that can be used on classes and
