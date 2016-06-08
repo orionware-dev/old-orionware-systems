@@ -42,9 +42,6 @@ a method returns. Use pipeline/filters or something else
 services lifecycles. Maybe it will use the pipeline for service
 sequencing. It could be used for business processes
 
---create ConfigurationEntry extends Entry which will has a prop
-key and it's value
-
 --create ConfigurationEntries that has List<ConfigurationEntry>
 
 --in config service create method getConfigurationEntries() that
