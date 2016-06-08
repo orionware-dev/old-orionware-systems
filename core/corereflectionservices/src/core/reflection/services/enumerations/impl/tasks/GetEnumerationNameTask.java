@@ -6,7 +6,7 @@ import core.reflection.ReflectionTask;
 public class GetEnumerationNameTask extends ReflectionObject implements ReflectionTask
 {
     @SuppressWarnings({"rawtypes"})
-    public String run(Enum enumerationDefinition)
+    public static String run(Enum enumerationDefinition)
     {
         return enumerationDefinition.name();
     }

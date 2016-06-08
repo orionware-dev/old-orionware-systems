@@ -12,7 +12,7 @@ import core.filesystem.facades.streams.impl.FileSystemStreamsFacadeImpl;
 
 public class LoadLibraryAnnotationsDefinitionsTask extends AnnotationServiceObject implements AnnotationTask
 {
-    public OrionProperties run(LibraryConfiguration libraryConfiguration)
+    public static OrionProperties run(LibraryConfiguration libraryConfiguration)
     {
         AnnotationsLoaderService annotationsLoaderService = new AnnotationsLoaderServiceImpl();
         InputStream libraryAnnotationsFileStream = annotationsLoaderService.getAnnotationsDefinitionFileStream(libraryConfiguration.getAnnotationsDefinitionFilePath());

@@ -8,14 +8,13 @@ import core.annotations.services.AnnotationServiceObject;
 
 public class ApplyAnnotationsToMethodTask extends AnnotationServiceObject implements AnnotationTask
 {
-    public void run(Stream<OrionAnnotation> annotationsStream, Object OrionObject)
+    public static void run(Stream<OrionAnnotation> annotationsStream, Object OrionObject)
     {
-        ApplyAnnotationToMethodTask applyAnnotationToMethodTask = new ApplyAnnotationToMethodTask();
-        annotationsStream.forEach(annotation -> applyAnnotationToMethodTask.run(OrionObject, (OrionAnnotation)annotation));
+        annotationsStream.forEach(annotation -> ApplyAnnotationToMethodTask.run(OrionObject, (OrionAnnotation)annotation));
     }
     
     
-    public void run(Collection<OrionAnnotation> annotationsStream, Object OrionObject)
+    public static void run(Collection<OrionAnnotation> annotationsStream, Object OrionObject)
     {
         run(annotationsStream.stream(), OrionObject);
     }

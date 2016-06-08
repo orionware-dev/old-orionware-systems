@@ -5,7 +5,7 @@ import core.reflection.ReflectionTask;
 
 public class LoadClassTask extends ReflectionObject implements ReflectionTask
 {
-    public Class<?> run(String className)
+    public static Class<?> run(String className)
     {
         try
         {

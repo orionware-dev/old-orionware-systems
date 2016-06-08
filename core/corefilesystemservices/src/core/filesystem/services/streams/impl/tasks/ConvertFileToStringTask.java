@@ -35,7 +35,7 @@ public class ConvertFileToStringTask extends FileSystemObject implements FileSys
         }
         finally
         {
-            new CloseResourceTask().run(input);
+            CloseResourceTask.run(input);
         }
         
         fileString = fileStringBuilder.toString();

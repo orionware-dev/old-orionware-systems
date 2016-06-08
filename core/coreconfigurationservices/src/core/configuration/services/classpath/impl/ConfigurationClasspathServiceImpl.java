@@ -15,14 +15,14 @@ public class ConfigurationClasspathServiceImpl extends ConfigurationServiceObjec
     @Override
     public boolean isCoreLibrary(Class<?> classBeingRun)
     {
-        return new IsCoreLibraryTask().run(classBeingRun);
+        return IsCoreLibraryTask.run(classBeingRun);
     }
     
     
     @Override
     public boolean isCoreLibrary(Object objectBeingRun)
     {
-        return new IsCoreLibraryTask().run(objectBeingRun);
+        return IsCoreLibraryTask.run(objectBeingRun);
     }
 
 
@@ -36,7 +36,7 @@ public class ConfigurationClasspathServiceImpl extends ConfigurationServiceObjec
             .filter(libraryConfiguration -> propertiesRegistrationService.havePropertiesNotBeenRegisteredForLibrary(libraryConfiguration.getLibraryClassPath()))
             .forEach(libraryConfiguration -> 
                 {
-                    new LoadLibraryPropertiesTask().run(libraryConfiguration);
+                    LoadLibraryPropertiesTask.run(libraryConfiguration);
                     new PropertiesRegistrationServiceImpl().setPropertiesAsRegisteredForLibrary(libraryConfiguration.getLibraryName());
                 });
     }

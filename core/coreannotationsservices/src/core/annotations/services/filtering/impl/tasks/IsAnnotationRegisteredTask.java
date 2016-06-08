@@ -7,7 +7,7 @@ import core.annotations.services.registry.AnnotationsRegistry;
 
 public class IsAnnotationRegisteredTask extends AnnotationServiceObject implements AnnotationTask
 {
-    public boolean run(OrionAnnotation annotation)
+    public static boolean run(OrionAnnotation annotation)
     {
         return AnnotationsRegistry.isAnnotationRegistered(annotation);
     }

@@ -7,7 +7,7 @@ import core.filesystem.FileSystemTask;
 
 public class CloseResourceTask extends FileSystemObject implements FileSystemTask
 {
-    public boolean run(Closeable closeable)
+    public static boolean run(Closeable closeable)
     {
         if(closeable != null)
         {
@@ -18,7 +18,7 @@ public class CloseResourceTask extends FileSystemObject implements FileSystemTas
     }
     
     
-    private boolean closeResource(Closeable closeable)
+    private static boolean closeResource(Closeable closeable)
     {
         try
         {

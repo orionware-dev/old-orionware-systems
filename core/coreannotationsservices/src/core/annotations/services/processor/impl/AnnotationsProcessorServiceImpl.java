@@ -35,7 +35,7 @@ public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject imp
         //will have to try to process non-Orion-based annotations like Java/Spring/etc. annotations
         //in which case it is processed by the respective framework
         Stream<OrionAnnotation> registeredAnnotations = annotationsFilteringService.filterRegisteredAnnotationsStreamFromObjectAnnotations(allObjectAnnotationsList);
-        new ApplyAnnotationsToMethodTask().run(registeredAnnotations, OrionObject);
+        ApplyAnnotationsToMethodTask.run(registeredAnnotations, OrionObject);
     }
     
     
@@ -47,7 +47,7 @@ public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject imp
         
         if(annotationsFilteringService.isAnnotationRegistered(annotationToProcess))
         {
-            new ApplyAnnotationToMethodTask().run(OrionObject, annotationToProcess);
+            ApplyAnnotationToMethodTask.run(OrionObject, annotationToProcess);
             isAnnotationApplicable = true;
         }
         

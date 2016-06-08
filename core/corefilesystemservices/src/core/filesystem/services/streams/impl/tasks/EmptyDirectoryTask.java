@@ -7,7 +7,7 @@ import core.filesystem.FileSystemTask;
 
 public class EmptyDirectoryTask extends FileSystemObject implements FileSystemTask
 {
-    public boolean run(File directory)
+    public static boolean run(File directory)
     {
         try
         {
@@ -23,7 +23,7 @@ public class EmptyDirectoryTask extends FileSystemObject implements FileSystemTa
     }
     
     
-    public boolean run(String directory)
+    public static boolean run(String directory)
     {
         return run(new File(directory));
     }

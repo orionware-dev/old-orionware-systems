@@ -15,14 +15,14 @@ public class PropertiesRegistrationServiceImpl extends ConfigurationServiceObjec
     @Override
     public boolean havePropertiesBeenRegisteredForLibrary(String libraryName)
     {
-        return new HavePropertiesBeenRegisteredForLibraryTask().run(libraryName);
+        return HavePropertiesBeenRegisteredForLibraryTask.run(libraryName);
     }
     
     
     @Override
     public boolean havePropertiesBeenRegisteredForLibrary(LibraryConfiguration libraryConfiguration)
     {
-        return new HavePropertiesBeenRegisteredForLibraryTask().run(libraryConfiguration.getLibraryName());
+        return HavePropertiesBeenRegisteredForLibraryTask.run(libraryConfiguration.getLibraryName());
     }
 
     
@@ -43,48 +43,48 @@ public class PropertiesRegistrationServiceImpl extends ConfigurationServiceObjec
     @Override
     public void setPropertiesAsRegisteredForLibrary(String libraryName)
     {
-        new SetPropertiesAsRegisteredForLibraryTask().run(libraryName);
+        SetPropertiesAsRegisteredForLibraryTask.run(libraryName);
     }
     
     
     @Override
     public void setPropertiesAsRegisteredForLibrary(LibraryConfiguration libraryConfiguration)
     {
-        new SetPropertiesAsRegisteredForLibraryTask().run(libraryConfiguration.getLibraryName());
+        SetPropertiesAsRegisteredForLibraryTask.run(libraryConfiguration.getLibraryName());
     }
     
     
     @Override
     public void registerProp(String key, String value)
     {
-        new RegisterPropertyTask().run(key, value);
+        RegisterPropertyTask.run(key, value);
     }
     
     
     @Override
     public void registerProp(KeyValuePair<String, String> keyValuePair)
     {
-        new RegisterPropertyTask().run(keyValuePair);
+        RegisterPropertyTask.run(keyValuePair);
     }
     
     
     @Override
     public void updateProp(String key, String value)
     {
-        new UpdatePropertyTask().run(key, value);
+        UpdatePropertyTask.run(key, value);
     }
     
     
     @Override
     public void updateProp(KeyValuePair<String, String> keyValuePair)
     {
-        new UpdatePropertyTask().run(keyValuePair);
+        UpdatePropertyTask.run(keyValuePair);
     }
     
     
     @Override
     public void deleteProp(String key)
     {
-        new DeletePropertyTask().run(key);
+        DeletePropertyTask.run(key);
     }
 }

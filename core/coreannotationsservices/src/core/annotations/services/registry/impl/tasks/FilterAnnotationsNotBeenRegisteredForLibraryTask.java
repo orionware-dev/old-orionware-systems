@@ -8,14 +8,14 @@ import core.configuration.LibraryConfiguration;
 
 public class FilterAnnotationsNotBeenRegisteredForLibraryTask extends AnnotationServiceObject implements AnnotationTask
 {
-    public Stream<LibraryConfiguration> run(Stream<LibraryConfiguration> librariesConfigurationStream)
+    public static Stream<LibraryConfiguration> run(Stream<LibraryConfiguration> librariesConfigurationStream)
     {
         HaveAnnotationsBeenRegisteredForLibraryTask haveAnnotationsBeenRegisteredForLibraryTask = new HaveAnnotationsBeenRegisteredForLibraryTask();
         return librariesConfigurationStream.filter(libraryConfiguration -> !haveAnnotationsBeenRegisteredForLibraryTask.run(libraryConfiguration.getLibraryName()));
     }
     
     
-    public Stream<LibraryConfiguration> run(Collection<LibraryConfiguration> librariesConfigurationStream)
+    public static Stream<LibraryConfiguration> run(Collection<LibraryConfiguration> librariesConfigurationStream)
     {
         return run(librariesConfigurationStream.stream());
     }

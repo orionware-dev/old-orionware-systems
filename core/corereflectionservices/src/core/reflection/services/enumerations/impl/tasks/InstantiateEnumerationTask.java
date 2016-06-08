@@ -7,8 +7,8 @@ import core.reflection.services.loader.impl.tasks.LoadClassTask;
 public class InstantiateEnumerationTask extends ReflectionObject implements ReflectionTask
 {
     @SuppressWarnings({"unchecked", "rawtypes"})
-    public Class<Enum> run(String enumerationPath)
+    public static Class<Enum> run(String enumerationPath)
     {
-        return (Class<Enum>)new LoadClassTask().run(enumerationPath);
+        return (Class<Enum>)LoadClassTask.run(enumerationPath);
     }
 }

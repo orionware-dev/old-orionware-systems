@@ -19,23 +19,23 @@ public class AnnotationsRegistrationServiceImpl extends AnnotationServiceObject 
     @Override
     public void registerLibrariesAnnotations()
     {
-        Stream<LibraryConfiguration> notNullLibrariesConfigurationStream = new FilterNotNullLibrariesConfigurationTask().run(LibrariesConfiguration.getLibrariesConfigurationSet());
-        notNullLibrariesConfigurationStream = new FilterAnnotationsNotBeenRegisteredForLibraryTask().run(notNullLibrariesConfigurationStream);
-        new RegisterLibrariesAnnotationsTask().run(notNullLibrariesConfigurationStream);
+        Stream<LibraryConfiguration> notNullLibrariesConfigurationStream = FilterNotNullLibrariesConfigurationTask.run(LibrariesConfiguration.getLibrariesConfigurationSet());
+        notNullLibrariesConfigurationStream = FilterAnnotationsNotBeenRegisteredForLibraryTask.run(notNullLibrariesConfigurationStream);
+        RegisterLibrariesAnnotationsTask.run(notNullLibrariesConfigurationStream);
     }
     
     
     @Override
     public void registerAnnotation(OrionAnnotation registeredAnnotation)
     {
-        new RegisterAnnotationTask().run(registeredAnnotation);
+        RegisterAnnotationTask.run(registeredAnnotation);
     }
     
     
     @Override
     public boolean haveAnnotationsBeenRegisteredForLibrary(String libraryName)
     {
-        return new HaveAnnotationsBeenRegisteredForLibraryTask().run(libraryName);
+        return HaveAnnotationsBeenRegisteredForLibraryTask.run(libraryName);
     }
     
     
@@ -63,7 +63,7 @@ public class AnnotationsRegistrationServiceImpl extends AnnotationServiceObject 
     @Override
     public void setAnnotationsAsRegisteredForLibrary(String libraryName)
     {
-        new SetAnnotationsAsRegisteredForLibraryTask().run(libraryName);
+        SetAnnotationsAsRegisteredForLibraryTask.run(libraryName);
     }
     
     

@@ -7,7 +7,7 @@ import core.reflection.ReflectionTask;
 
 public class CallConstructorTask extends ReflectionObject implements ReflectionTask
 {
-    public boolean run(Constructor<?> constructor, Object... methodArguments)
+    public static boolean run(Constructor<?> constructor, Object... methodArguments)
     {
         try
         {

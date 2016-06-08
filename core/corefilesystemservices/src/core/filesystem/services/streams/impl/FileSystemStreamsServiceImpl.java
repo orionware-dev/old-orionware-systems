@@ -42,34 +42,34 @@ public class FileSystemStreamsServiceImpl extends FileSystemServiceObject implem
     @Override
     public void emptyDirectory(File directory)
     {
-        new EmptyDirectoryTask().run(directory);
+        EmptyDirectoryTask.run(directory);
     }
     
     
     @Override
     public void emptyDirectory(String directory)
     {
-        new EmptyDirectoryTask().run(directory);
+        EmptyDirectoryTask.run(directory);
     }
     
     
     @Override
     public void closeResource(Closeable closeable)
     {
-        new CloseResourceTask().run(closeable);
+        CloseResourceTask.run(closeable);
     }
     
     
     @Override
     public Reader getReaderForFile(String filePath)
     {
-        return new GetReaderFromFileTask().run(filePath);
+        return GetReaderFromFileTask.run(filePath);
     }
     
     
     @Override
     public Writer getWritterForFile(String filePath)
     {
-        return new GetWriterForFileTask().run(filePath);
+        return GetWriterForFileTask.run(filePath);
     }
 }

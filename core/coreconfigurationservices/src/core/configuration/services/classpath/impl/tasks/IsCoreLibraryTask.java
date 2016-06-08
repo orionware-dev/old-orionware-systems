@@ -6,7 +6,7 @@ import core.configuration.ConfigurationTask;
 
 public class IsCoreLibraryTask extends ConfigurationObject implements ConfigurationTask
 {
-    public boolean run(Class<?> classBeingRun)
+    public static boolean run(Class<?> classBeingRun)
     {
         File classpathRoot = new File(classBeingRun.getResource("").getPath());
         StringBuilder sb = new StringBuilder();
@@ -24,7 +24,7 @@ public class IsCoreLibraryTask extends ConfigurationObject implements Configurat
     }
     
     
-    public boolean run(Object objectBeingRun)
+    public static boolean run(Object objectBeingRun)
     {
         return run(objectBeingRun.getClass());
     }
