@@ -1,6 +1,5 @@
 ﻿--create custom exceptions
 
---try to abstract as much code as I can
 --improve modularisation
 --check methods and see if I can move some stuff from them to separate services and tasks
 --replace AnnotationsRegistry.filterAnnotations() with a generic streaming service

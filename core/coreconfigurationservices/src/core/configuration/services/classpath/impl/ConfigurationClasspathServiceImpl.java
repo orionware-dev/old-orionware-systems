@@ -4,9 +4,9 @@ import core.configuration.LibrariesConfiguration;
 import core.configuration.services.ConfigurationServiceObject;
 import core.configuration.services.classpath.ConfigurationClasspathService;
 import core.configuration.services.classpath.impl.tasks.IsCoreLibraryTask;
+import core.configuration.services.classpath.impl.tasks.LoadLibraryPropertiesTask;
 import core.configuration.services.registry.PropertiesRegistrationService;
 import core.configuration.services.registry.impl.PropertiesRegistrationServiceImpl;
-import core.configuration.services.registry.impl.tasks.RegisterLibraryPropertiesTask;
 
 public class ConfigurationClasspathServiceImpl extends ConfigurationServiceObject implements ConfigurationClasspathService
 {
@@ -30,10 +30,14 @@ public class ConfigurationClasspathServiceImpl extends ConfigurationServiceObjec
     public void loadLibrariesProperties()
     {
         PropertiesRegistrationService propertiesRegistrationService = new PropertiesRegistrationServiceImpl();
-        RegisterLibraryPropertiesTask registerLibraryPropertiesTask = new RegisterLibraryPropertiesTask();
-        LibrariesConfiguration.getLibrariesConfigurationSet().stream()
+        LibrariesConfiguration.getLibrariesConfigurationSet()
+            .stream()
             .filter(libraryConfiguration -> libraryConfiguration.getConfigurationFilePath() != null)
             .filter(libraryConfiguration -> propertiesRegistrationService.havePropertiesNotBeenRegisteredForLibrary(libraryConfiguration.getLibraryClassPath()))
-            .forEach(libraryConfiguration -> registerLibraryPropertiesTask.run(libraryConfiguration));
+            .forEach(libraryConfiguration -> 
+                {
+                    new LoadLibraryPropertiesTask().run(libraryConfiguration);
+                    new PropertiesRegistrationServiceImpl().setPropertiesAsRegisteredForLibrary(libraryConfiguration.getLibraryName());
+                });
     }
 }
