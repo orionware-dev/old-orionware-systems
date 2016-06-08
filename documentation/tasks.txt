@@ -1,40 +1,4 @@
-﻿--create custom exceptions
-
---improve modularisation
---check methods and see if I can move some stuff from them to separate services and tasks
---replace AnnotationsRegistry.filterAnnotations() with a generic streaming service
-
-
-
---in /workspaces/orion/ create dir orionware-platform.
---create dir /workspaces/orion/orionware-general.
---put delivery-engine project and whatever else from orionware-libraries to
-/workspaces/orion/orionware-general, abstractise ant-tasks, etc.
---create documentation project in platform.
---put tomcat in platform.
---use HSQL as an embedded database. Make it configurable for the dev to select
-which database he wants to use.
---find a way to have multiple database engines.
-
-
---create a File object in OrionObject called libraryConfigurationDirectoryPath
-with a setter.
-Create a File object in OrionObject called mainLibraryObjectPath
-with a setter. Do whatever mainLibraryObjectPath.getParent()
-necessary to get the config dir of this library and put it in
-setLibraryConfigurationDirectoryPath(); Use libraryConfigurationDirectoryPath
-to load the prop/config files
-
---create general corefacades that use the other core facade projects
-
---update OrionObject reflection to use the facade projects
-instead of the services directly
-
-
---go through services packages and split services according
-to what they do and put them in appropriate packages and
-create services hierarchy and composition
-
+﻿--override hashcode and equals for objects I use in collections
 
 --see if some of the instance vars of a class belong to a separate data class
 
@@ -373,3 +337,15 @@ or Tomcat container so that the libraries are executed in an environment the cor
 --whenever something is "updated" at run-time, dynamically, use an "updater service"
 
 --we could enable "in-library" permissions. You could "login" in the library in order to use it
+
+--create custom exceptions
+
+--in /workspaces/orion/ create dir orionware-platform.
+--create dir /workspaces/orion/orionware-general.
+--put delivery-engine project and whatever else from orionware-libraries to
+/workspaces/orion/orionware-general, abstractise ant-tasks, etc.
+--create documentation project in platform.
+--put tomcat in platform.
+--use HSQL as an embedded database. Make it configurable for the dev to select
+which database he wants to use.
+--find a way to have multiple database engines.
