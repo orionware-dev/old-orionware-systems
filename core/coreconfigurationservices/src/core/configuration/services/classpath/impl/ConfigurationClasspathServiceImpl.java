@@ -17,6 +17,13 @@ public class ConfigurationClasspathServiceImpl extends ConfigurationServiceObjec
     {
         return new IsCoreLibraryTask().run(classBeingRun);
     }
+    
+    
+    @Override
+    public boolean isCoreLibrary(Object objectBeingRun)
+    {
+        return new IsCoreLibraryTask().run(objectBeingRun);
+    }
 
 
     @Override

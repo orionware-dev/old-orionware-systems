@@ -3,6 +3,7 @@ package core.configuration.services.registry.impl.tasks;
 import core.configuration.ConfigurationObject;
 import core.configuration.ConfigurationTask;
 import core.configuration.LibrariesConfigurationMapper;
+import core.configuration.LibraryConfiguration;
 
 public class HavePropertiesBeenRegisteredForLibraryTask extends ConfigurationObject implements ConfigurationTask
 {
@@ -16,6 +17,12 @@ public class HavePropertiesBeenRegisteredForLibraryTask extends ConfigurationObj
         {
             return false;
         }
+    }
+    
+    
+    public boolean run(LibraryConfiguration libraryConfiguration)
+    {
+        return run(libraryConfiguration.getLibraryName());
     }
     
     

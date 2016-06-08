@@ -1,6 +1,8 @@
 package core.annotations.services.filtering.impl.tasks;
 
 import java.lang.annotation.Annotation;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Stream;
 import core.annotations.AnnotationTask;
@@ -10,10 +12,10 @@ import core.annotations.services.registry.AnnotationsRegistry;
 
 public class FilterRegisteredAnnotationsStreamFromObjectAnnotationsTask extends AnnotationServiceObject implements AnnotationTask
 {
-    private List<Annotation> allObjectAnnotationsList;
+    private Collection<Annotation> allObjectAnnotationsList;
     
     
-    public Stream<OrionAnnotation> run(List<Annotation> allObjectAnnotationsList)
+    public Stream<OrionAnnotation> run(Collection<Annotation> allObjectAnnotationsList)
     {
         this.allObjectAnnotationsList = allObjectAnnotationsList;
         //takes registered annotations 1-by-1 and it returns the ones that are both registered
@@ -23,6 +25,13 @@ public class FilterRegisteredAnnotationsStreamFromObjectAnnotationsTask extends 
         //The rest of the annotations in allObjectAnnotationsList are Java/Spring/etc. annotations
         //and Orion does not concern itself with those
         return AnnotationsRegistry.filterAnnotations(annotation -> doesObjectHaveRegisteredAnnotationTask((OrionAnnotation)annotation));
+    }
+    
+    
+    public Stream<OrionAnnotation> run(Annotation[] allObjectAnnotationsArray)
+    {
+        this.allObjectAnnotationsList = Arrays.asList(allObjectAnnotationsArray);
+        return run(allObjectAnnotationsList);
     }
     
     

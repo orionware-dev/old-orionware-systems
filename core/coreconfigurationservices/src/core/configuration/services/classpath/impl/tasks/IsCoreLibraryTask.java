@@ -22,4 +22,10 @@ public class IsCoreLibraryTask extends ConfigurationObject implements Configurat
         
         return false;
     }
+    
+    
+    public boolean run(Object objectBeingRun)
+    {
+        return run(objectBeingRun.getClass());
+    }
 }

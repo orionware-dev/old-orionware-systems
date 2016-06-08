@@ -1,6 +1,7 @@
 package core.annotations.services.filtering.impl;
 
 import java.lang.annotation.Annotation;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Stream;
 import core.annotations.OrionAnnotation;
@@ -12,7 +13,7 @@ import core.annotations.services.filtering.impl.tasks.IsAnnotationRegisteredTask
 public class AnnotationsFilteringServiceImpl extends AnnotationServiceObject implements AnnotationsFilteringService
 {
     @Override
-    public Stream<OrionAnnotation> filterRegisteredAnnotationsStreamFromObjectAnnotations(List<Annotation> allObjectAnnotationsList)
+    public Stream<OrionAnnotation> filterRegisteredAnnotationsStreamFromObjectAnnotations(Collection<Annotation> allObjectAnnotationsList)
     {
         return new FilterRegisteredAnnotationsStreamFromObjectAnnotationsTask().run(allObjectAnnotationsList);
     }

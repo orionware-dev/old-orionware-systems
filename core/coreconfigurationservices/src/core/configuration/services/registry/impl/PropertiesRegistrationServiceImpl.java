@@ -1,5 +1,6 @@
 package core.configuration.services.registry.impl;
 
+import core.configuration.LibraryConfiguration;
 import core.configuration.services.ConfigurationServiceObject;
 import core.configuration.services.registry.PropertiesRegistrationService;
 import core.configuration.services.registry.impl.tasks.DeletePropertyTask;
@@ -7,6 +8,7 @@ import core.configuration.services.registry.impl.tasks.HavePropertiesBeenRegiste
 import core.configuration.services.registry.impl.tasks.RegisterPropertyTask;
 import core.configuration.services.registry.impl.tasks.SetPropertiesAsRegisteredForLibraryTask;
 import core.configuration.services.registry.impl.tasks.UpdatePropertyTask;
+import core.tuples.KeyValuePair;
 
 public class PropertiesRegistrationServiceImpl extends ConfigurationServiceObject implements PropertiesRegistrationService
 {
@@ -15,12 +17,26 @@ public class PropertiesRegistrationServiceImpl extends ConfigurationServiceObjec
     {
         return new HavePropertiesBeenRegisteredForLibraryTask().run(libraryName);
     }
+    
+    
+    @Override
+    public boolean havePropertiesBeenRegisteredForLibrary(LibraryConfiguration libraryConfiguration)
+    {
+        return new HavePropertiesBeenRegisteredForLibraryTask().run(libraryConfiguration.getLibraryName());
+    }
 
     
     @Override
     public boolean havePropertiesNotBeenRegisteredForLibrary(String libraryName)
     {
         return !havePropertiesBeenRegisteredForLibrary(libraryName);
+    }
+    
+    
+    @Override
+    public boolean havePropertiesNotBeenRegisteredForLibrary(LibraryConfiguration libraryConfiguration)
+    {
+        return !havePropertiesBeenRegisteredForLibrary(libraryConfiguration);
     }
 
     
@@ -32,6 +48,13 @@ public class PropertiesRegistrationServiceImpl extends ConfigurationServiceObjec
     
     
     @Override
+    public void setPropertiesAsRegisteredForLibrary(LibraryConfiguration libraryConfiguration)
+    {
+        new SetPropertiesAsRegisteredForLibraryTask().run(libraryConfiguration.getLibraryName());
+    }
+    
+    
+    @Override
     public void registerProp(String key, String value)
     {
         new RegisterPropertyTask().run(key, value);
@@ -39,9 +62,23 @@ public class PropertiesRegistrationServiceImpl extends ConfigurationServiceObjec
     
     
     @Override
+    public void registerProp(KeyValuePair<String, String> keyValuePair)
+    {
+        new RegisterPropertyTask().run(keyValuePair);
+    }
+    
+    
+    @Override
     public void updateProp(String key, String value)
     {
         new UpdatePropertyTask().run(key, value);
+    }
+    
+    
+    @Override
+    public void updateProp(KeyValuePair<String, String> keyValuePair)
+    {
+        new UpdatePropertyTask().run(keyValuePair);
     }
     
     

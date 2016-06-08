@@ -3,28 +3,19 @@ package core.reflection.services.enumerations.impl.tasks;
 import java.lang.reflect.InvocationTargetException;
 import core.reflection.ReflectionObject;
 import core.reflection.ReflectionTask;
+import core.reflection.services.loader.ReflectionLoaderService;
+import core.reflection.services.loader.impl.ReflectionLoaderServiceImpl;
 
 public class GetEnumerationValueTask extends ReflectionObject implements ReflectionTask
 {
-    @SuppressWarnings({"rawtypes", "unchecked"})
+    @SuppressWarnings({"rawtypes"})
     public String run(Class<Enum> enumerationClass, String enumerationName)
     {
+        ReflectionLoaderService reflectionLoaderService = new ReflectionLoaderServiceImpl();
+        
         try
         {
-            return (String)enumerationClass.getMethod("get", new Class<?>[]{})
-                       .invoke(Enum.valueOf(enumerationClass, enumerationName), new Object[]{});
-        }
-        catch(IllegalAccessException exception)
-        {
-            exception.printStackTrace();
-        }
-        catch(IllegalArgumentException exception)
-        {
-            exception.printStackTrace();
-        }
-        catch(InvocationTargetException exception)
-        {
-            exception.printStackTrace();
+            return (String)reflectionLoaderService.callMethod(enumerationClass.getMethod("get", new Class<?>[]{}), enumerationClass, new Object[]{});
         }
         catch(NoSuchMethodException exception)
         {

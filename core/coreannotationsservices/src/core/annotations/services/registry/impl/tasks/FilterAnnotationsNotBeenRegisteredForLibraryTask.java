@@ -1,5 +1,6 @@
 package core.annotations.services.registry.impl.tasks;
 
+import java.util.Collection;
 import java.util.stream.Stream;
 import core.annotations.AnnotationTask;
 import core.annotations.services.AnnotationServiceObject;
@@ -11,5 +12,11 @@ public class FilterAnnotationsNotBeenRegisteredForLibraryTask extends Annotation
     {
         HaveAnnotationsBeenRegisteredForLibraryTask haveAnnotationsBeenRegisteredForLibraryTask = new HaveAnnotationsBeenRegisteredForLibraryTask();
         return librariesConfigurationStream.filter(libraryConfiguration -> !haveAnnotationsBeenRegisteredForLibraryTask.run(libraryConfiguration.getLibraryName()));
+    }
+    
+    
+    public Stream<LibraryConfiguration> run(Collection<LibraryConfiguration> librariesConfigurationStream)
+    {
+        return run(librariesConfigurationStream.stream());
     }
 }

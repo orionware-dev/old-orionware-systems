@@ -2,6 +2,7 @@ package core.filesystem.services.streams.impl;
 
 import java.io.BufferedReader;
 import java.io.Closeable;
+import java.io.File;
 import java.io.InputStream;
 import java.io.Reader;
 import java.io.Writer;
@@ -35,6 +36,13 @@ public class FileSystemStreamsServiceImpl extends FileSystemServiceObject implem
     public boolean saveStringToFile(String filePath, String fileString)
     {
         return new SaveStringToFileTask().run(this, filePath, fileString);
+    }
+    
+    
+    @Override
+    public void emptyDirectory(File directory)
+    {
+        new EmptyDirectoryTask().run(directory);
     }
     
     

@@ -3,6 +3,7 @@ package core.annotations.services.registry.impl.tasks;
 import core.annotations.AnnotationTask;
 import core.annotations.services.AnnotationServiceObject;
 import core.configuration.LibrariesConfigurationMapper;
+import core.configuration.LibraryConfiguration;
 
 public class HaveAnnotationsBeenRegisteredForLibraryTask extends AnnotationServiceObject implements AnnotationTask
 {
@@ -16,6 +17,12 @@ public class HaveAnnotationsBeenRegisteredForLibraryTask extends AnnotationServi
         {
             return false;
         }
+    }
+    
+    
+    public boolean run(LibraryConfiguration libraryConfiguration)
+    {
+        return run(libraryConfiguration.getLibraryName());
     }
     
     

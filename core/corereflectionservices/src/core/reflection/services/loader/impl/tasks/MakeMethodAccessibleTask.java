@@ -6,22 +6,27 @@ import core.reflection.ReflectionTask;
 
 public class MakeMethodAccessibleTask extends ReflectionObject implements ReflectionTask
 {
+    private Method method;
+    
+    
     public void run(Method method)
     {
-        if(methodIsNotAccessible(method))
+        this.method = method;
+        
+        if(methodIsNotAccessible())
         {
-            makeMethodAccessible(method);
+            makeMethodAccessible();
         }
     }
     
     
-    private boolean methodIsNotAccessible(Method method)
+    private boolean methodIsNotAccessible()
     {
         return !method.isAccessible();
     }
     
     
-    private void makeMethodAccessible(Method method)
+    private void makeMethodAccessible()
     {
         method.setAccessible(true);
     }

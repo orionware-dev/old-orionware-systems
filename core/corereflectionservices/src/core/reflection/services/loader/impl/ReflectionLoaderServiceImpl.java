@@ -7,6 +7,7 @@ import core.reflection.services.loader.ReflectionLoaderService;
 import core.reflection.services.loader.impl.tasks.CallConstructorTask;
 import core.reflection.services.loader.impl.tasks.CallMethodTask;
 import core.reflection.services.loader.impl.tasks.GetConstructorsArrayTask;
+import core.reflection.services.loader.impl.tasks.GetMethodFromClassTask;
 import core.reflection.services.loader.impl.tasks.GetMethodsArrayTask;
 import core.reflection.services.loader.impl.tasks.InstantiateClassTask;
 import core.reflection.services.loader.impl.tasks.LoadClassTask;
@@ -14,6 +15,13 @@ import core.reflection.services.loader.impl.tasks.MakeMethodAccessibleTask;
 
 public class ReflectionLoaderServiceImpl extends ReflectionServiceObject implements ReflectionLoaderService
 {
+    @Override
+    public Method getMethodFromClass(String methodName, Class<?> aClass, Class<?>... methodParameterTypes)
+    {
+        return new GetMethodFromClassTask().run(methodName, aClass, methodParameterTypes);
+    }
+    
+    
     @Override
     public Method[] getMethodsArray(Object object)
     {
@@ -36,10 +44,10 @@ public class ReflectionLoaderServiceImpl extends ReflectionServiceObject impleme
 
 
     @Override
-    public void callMethod(Method method, Object objectMethodBelongsTo, Object... methodArguments)
+    public Object callMethod(Method method, Object objectMethodBelongsTo, Object... methodArguments)
     {
         makeMethodAccessible(method);
-        new CallMethodTask().run(method, objectMethodBelongsTo, methodArguments);
+        return new CallMethodTask().run(method, objectMethodBelongsTo, methodArguments);
     }
     
     

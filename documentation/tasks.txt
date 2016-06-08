@@ -1,8 +1,8 @@
-﻿--create custom exceptions
+﻿--create more service methods that reuse existing ones
+
+--create custom exceptions
 
 --create annotations @Injectable and @Uninjectable
-
---create more service methods that reuse existing ones
 
 --update tests, annotations.prop and OrionObjectInitialiser.java to use facades instead of services
 

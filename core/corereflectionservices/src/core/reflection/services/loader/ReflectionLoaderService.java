@@ -6,6 +6,9 @@ import core.reflection.ReflectionService;
 
 public interface ReflectionLoaderService extends ReflectionService
 {
+    public Method getMethodFromClass(String methodName, Class<?> aClass, Class<?>... methodParameterTypes);
+    
+    
     public Method[] getMethodsArray(Object object);
     
     
@@ -15,7 +18,7 @@ public interface ReflectionLoaderService extends ReflectionService
     public void makeMethodAccessible(Method method);
     
     
-    public void callMethod(Method method, Object objectMethodBelongsTo, Object... methodArguments);
+    public Object callMethod(Method method, Object objectMethodBelongsTo, Object... methodArguments);
     
     
     public void callConstructor(Constructor<?> constructor, Object... constructorArguments);

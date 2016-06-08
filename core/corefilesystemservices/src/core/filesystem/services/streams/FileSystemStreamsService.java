@@ -1,6 +1,7 @@
 package core.filesystem.services.streams;
 
 import java.io.Closeable;
+import java.io.File;
 import java.io.InputStream;
 import java.io.Reader;
 import java.io.Writer;
@@ -15,6 +16,9 @@ public interface FileSystemStreamsService extends FileSystemService
 
 
     public boolean saveStringToFile(String filePath, String fileString);
+    
+    
+    public void emptyDirectory(File directory);
     
     
     public void emptyDirectory(String directory);

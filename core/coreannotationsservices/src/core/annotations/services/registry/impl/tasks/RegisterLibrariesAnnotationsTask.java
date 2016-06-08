@@ -1,5 +1,6 @@
 package core.annotations.services.registry.impl.tasks;
 
+import java.util.Collection;
 import java.util.stream.Stream;
 import core.annotations.AnnotationTask;
 import core.annotations.services.AnnotationServiceObject;
@@ -11,5 +12,11 @@ public class RegisterLibrariesAnnotationsTask extends AnnotationServiceObject im
     {
         RegisterLibraryAnnotationsTask registerLibraryAnnotationsTask = new RegisterLibraryAnnotationsTask();
         librariesConfigurationStream.forEach(libraryConfiguration -> registerLibraryAnnotationsTask.run(libraryConfiguration));
+    }
+    
+    
+    public void run(Collection<LibraryConfiguration> librariesConfigurationStream)
+    {
+        run(librariesConfigurationStream.stream());
     }
 }

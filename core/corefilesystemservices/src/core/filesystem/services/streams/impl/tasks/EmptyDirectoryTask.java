@@ -7,11 +7,11 @@ import core.filesystem.FileSystemTask;
 
 public class EmptyDirectoryTask extends FileSystemObject implements FileSystemTask
 {
-    public boolean run(String directory)
+    public boolean run(File directory)
     {
         try
         {
-            FileUtils.cleanDirectory(new File(directory));
+            FileUtils.cleanDirectory(directory);
             return true;
         }
         catch(Exception exception)
@@ -20,5 +20,11 @@ public class EmptyDirectoryTask extends FileSystemObject implements FileSystemTa
         }
         
         return false;
+    }
+    
+    
+    public boolean run(String directory)
+    {
+        return run(new File(directory));
     }
 }
