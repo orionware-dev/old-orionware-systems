@@ -1,4 +1,4 @@
-package designpatternsservices;
+package designpatterns.services;
 
 import core.OrionObject;
 import core.configuration.LibraryConfiguration;

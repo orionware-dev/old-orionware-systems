@@ -1,4 +1,4 @@
-package designpatternsfacades.configuration;
+package designpatterns.facades.configuration;
 
 import core.configuration.OrionConfigurationEnum;
 

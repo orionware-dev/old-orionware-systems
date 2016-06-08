@@ -1,4 +1,4 @@
-package designpatternsservices.configuration;
+package designpatterns.services.configuration;
 
 import core.configuration.OrionConfigurationEnum;
 
