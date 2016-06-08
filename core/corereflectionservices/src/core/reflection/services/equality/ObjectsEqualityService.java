@@ -1,4 +1,4 @@
-package core.objects.services.equality;
+package core.reflection.services.equality;
 
 import java.util.Collection;
 import core.services.OrionService;

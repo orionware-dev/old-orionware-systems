@@ -27,7 +27,7 @@ using this new index. Think of a use case for this
 
 --create OrionArray.java and provide convenience methods
 
---for different file types we want to create, create he corresponding
+--for different file types we want to create, create the corresponding
 builder and buffer like XMLBuilder extends StringBuilder
 And XMLBuffer extends StringBuffer
 

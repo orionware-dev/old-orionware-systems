@@ -1,15 +1,12 @@
-package core.objects.services.equality.impl;
+package core.reflection.services.equality.impl.tasks;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import core.OrionSimpleObject;
-import core.objects.services.equality.ObjectsEqualityService;
+import java.io.File;
+import core.reflection.ReflectionObject;
+import core.reflection.ReflectionTask;
 
-public class ObjectsEqualityServiceImpl extends OrionSimpleObject implements ObjectsEqualityService
+public class AreObjectsEqualTask extends ReflectionObject implements ReflectionTask
 {
-    @Override
-    public boolean areObjectsEqual(Object object1, Object object2, Object... moreObjects)
+    public static boolean run(Object object1, Object object2, Object... moreObjects)
     {
         boolean areObjectsEqual = false;
         
