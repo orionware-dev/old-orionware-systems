@@ -86,8 +86,6 @@ depending
 --create a stopwatch with nanoseconds by default or any other timing
 provided by the user like milliseconds, etc.
 
---create Cache.java which will have a ConcurrentHashMap internally
-
 --create Cacheable annotation that can be used on classes and
 automatically, they will be added to the cache
 
@@ -107,8 +105,7 @@ variables that are circumstantial to the event
 
 --datasources lib. Also handles in-memory databases
 
---make OrionRegistry extensible and move it's current content
-to other subclasses of OrionRegistry. The facade projects have
+--The facade projects have
 a ServicesRegistry extends OrionRegistry
 that takes a string (service name) and uses factory to instantiate
 the service and returns it. Inside the ServicesRegistry there are
@@ -132,6 +129,8 @@ output, files, etc. It also generates PDFs, etc.
 --create datavalidation lib for generic input validation
 
 --create corecache lib that implements many caching strategies
+
+--rename coreflow projects to just flow. They should not be core projects
 
 --create data lib that aggregates, converts, formats data
 
