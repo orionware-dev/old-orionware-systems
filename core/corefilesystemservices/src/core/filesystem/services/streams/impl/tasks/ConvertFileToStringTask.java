@@ -8,48 +8,18 @@ import core.filesystem.FileSystemTask;
 
 public class ConvertFileToStringTask extends FileSystemObject implements FileSystemTask
 {
-    private StringBuilder fileStringBuilder;
-    private BufferedReader input;
-    private String currentLine;
-    
-    
-    public ConvertFileToStringTask()
-    {
-        this.fileStringBuilder = new StringBuilder();
-        this.currentLine = null;
-    }
-    
-    
     public String run(String filePath, BufferedReader input)
     {
-        String fileString = null;
-        this.input = input;
+        String currentLine = null;
+        StringBuilder fileStringBuilder = new StringBuilder();
         
         try
         {
-            do
+            while((currentLine = input.readLine()) != null)
             {
-                addLineToFile();
+                fileStringBuilder.append(currentLine);
+                fileStringBuilder.append(System.lineSeparator());
             }
-            while(currentLine != null);
-        }
-        finally
-        {
-            CloseResourceTask.run(input);
-        }
-        
-        fileString = fileStringBuilder.toString();
-        return fileString;
-    }
-    
-    
-    private void addLineToFile()
-    {
-        try
-        {
-            currentLine = input.readLine();
-            fileStringBuilder.append(currentLine);
-            fileStringBuilder.append(System.lineSeparator());
         }
         catch(FileNotFoundException exception)
         {
@@ -59,5 +29,11 @@ public class ConvertFileToStringTask extends FileSystemObject implements FileSys
         {
             exception.printStackTrace();
         }
+        finally
+        {
+            CloseResourceTask.run(input);
+        }
+        
+        return fileStringBuilder.substring(0, fileStringBuilder.length() - 2).toString();
     }
 }
