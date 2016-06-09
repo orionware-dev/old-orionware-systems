@@ -1,6 +1,7 @@
 package datastructures.services.configuration;
 
 import core.configuration.ConfigurationEnumeration;
+import core.configuration.DefaultConfigurationEnumeration;
 
 public enum DataStructuresServicesConfigurationEnum implements ConfigurationEnumeration
 {
@@ -10,9 +11,8 @@ public enum DataStructuresServicesConfigurationEnum implements ConfigurationEnum
     //put an empty string as a prefix, because it complaints that there
     //is no constructor with argument of type CoreConfigurationEnum
     //since LIBRARY_NAME by itself is of type CoreConfigurationEnum
-    CLASSPATH_ROOT("" + LIBRARY_NAME.get()),
-    INTEGRATION_TESTS_CLASSPATH_ROOT(LIBRARY_NAME.get() + "integrationtests"),
-    UNIT_TESTS_CLASSPATH_ROOT(LIBRARY_NAME.get() + "unittests");
+    INTEGRATION_TESTS_CLASSPATH_ROOT(LIBRARY_NAME.get() + DefaultConfigurationEnumeration.DEFAULT_INTEGRATION_TESTS_DIR.get()),
+    UNIT_TESTS_CLASSPATH_ROOT(LIBRARY_NAME.get() + DefaultConfigurationEnumeration.DEFAULT_UNIT_TESTS_DIR.get());
     
     
     private final String dataStructuresServicesConfigurationValue;
