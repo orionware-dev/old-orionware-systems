@@ -1,9 +1,7 @@
 package datastructures.facades;
 
-import core.configuration.LibraryConfiguration;
 import datastructures.DataStructuresObject;
 import datastructures.facades.configuration.DataStructuresFacadesConfigurationEnumeration;
-import datastructures.services.configuration.DataStructuresServicesConfigurationEnumeration;
 
 public abstract class DataStructuresFacadesObject extends DataStructuresObject
 {

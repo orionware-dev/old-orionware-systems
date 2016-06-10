@@ -1,7 +1,6 @@
 package core.objects;
 
 import core.OrionSimpleObject;
-import core.configuration.ConfigurationEnumeration;
 import core.configuration.LibrariesConfiguration;
 import core.configuration.LibraryConfiguration;
 import core.objects.services.orionobject.OrionObjectProcessorService;
@@ -18,8 +17,10 @@ public abstract class OrionObject extends OrionSimpleObject
     }
     
     
-    //the libraryConfiguration method parameter is defined
-    //in a library other than the core, like DataStructuresObject.java
+    //the method parameter is passed by subclasses and it is
+    //the location and name of the Enum configuration class that exists
+    //in a library other than the core, like DataStructuresConfigurationEnumeration.java
+    //and its class is passed by the library's main object like DataStructuresObject.java
     protected void registerLibraryConfiguration(String libraryConfigurationEnumerationClassPath)
     {
         LibraryConfiguration libraryConfiguration = orionObjectProcessorService.convertConfigurationEnumerationToLibraryConfiguration(libraryConfigurationEnumerationClassPath);

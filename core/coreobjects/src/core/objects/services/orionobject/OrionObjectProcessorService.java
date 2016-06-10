@@ -1,6 +1,5 @@
 package core.objects.services.orionobject;
 
-import core.configuration.ConfigurationEnumeration;
 import core.configuration.LibraryConfiguration;
 import core.services.OrionService;
 

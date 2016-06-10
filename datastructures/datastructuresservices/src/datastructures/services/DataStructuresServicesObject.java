@@ -1,8 +1,6 @@
 package datastructures.services;
 
-import core.configuration.LibraryConfiguration;
 import datastructures.DataStructuresObject;
-import datastructures.configuration.DataStructuresConfigurationEnumeration;
 import datastructures.services.configuration.DataStructuresServicesConfigurationEnumeration;
 
 public abstract class DataStructuresServicesObject extends DataStructuresObject

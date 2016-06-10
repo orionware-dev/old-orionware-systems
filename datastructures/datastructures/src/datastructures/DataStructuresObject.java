@@ -1,7 +1,5 @@
 package datastructures;
 
-import core.configuration.DefaultConfigurationEnumeration;
-import core.configuration.LibraryConfiguration;
 import core.objects.OrionObject;
 import datastructures.configuration.DataStructuresConfigurationEnumeration;
 
