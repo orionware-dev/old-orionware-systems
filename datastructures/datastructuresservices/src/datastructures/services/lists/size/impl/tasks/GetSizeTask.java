@@ -2,8 +2,9 @@ package datastructures.services.lists.size.impl.tasks;
 
 import datastructures.DataStructuresTask;
 import datastructures.lists.OrionList;
+import datastructures.services.DataStructuresServicesObject;
 
-public class GetSizeTask implements DataStructuresTask
+public class GetSizeTask extends DataStructuresServicesObject implements DataStructuresTask
 {
     public int run(OrionList<?> dataStructure)
     {

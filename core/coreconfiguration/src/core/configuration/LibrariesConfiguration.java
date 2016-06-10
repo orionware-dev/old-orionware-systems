@@ -7,13 +7,12 @@ import core.abstraction.OrionConfiguration;
 
 public class LibrariesConfiguration extends OrionSimpleObject implements OrionConfiguration
 {
-    private static boolean haveCoreLibrariesNotBeenRegistered;
     private static Set<LibraryConfiguration> librariesConfigurationSet;
     
     
     static
     {
-        haveCoreLibrariesNotBeenRegistered = true;
+        LibrariesConfigurationMapper.haveCoreLibrariesNotBeenRegistered = true;
         librariesConfigurationSet = new HashSet<LibraryConfiguration>();
     }
 
@@ -26,13 +25,13 @@ public class LibrariesConfiguration extends OrionSimpleObject implements OrionCo
     
     public static synchronized void registerLibraryConfiguration(LibraryConfiguration libraryConfiguration)
     {
-        if(haveCoreLibrariesNotBeenRegistered)
+        if(LibrariesConfigurationMapper.haveCoreLibrariesNotBeenRegistered)
         {
             getLibrariesConfigurationSet().add(libraryConfiguration);
             
             if(libraryConfiguration.getLibraryName().equals(CoreConfigurationEnumeration.LIBRARY_NAME.get()))
             {
-                haveCoreLibrariesNotBeenRegistered = false;
+                LibrariesConfigurationMapper.haveCoreLibrariesNotBeenRegistered = false;
             }
         }
         else if(!libraryConfiguration.getLibraryName().equals(CoreConfigurationEnumeration.LIBRARY_NAME.get()))

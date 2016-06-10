@@ -1,5 +1,5 @@
-design.patterns.pipeline.filter.allowed.instance.1=core.OrionFunction
-design.patterns.pipeline.filter.allowed.instance.2=core.OrionTask
+design.patterns.pipeline.filter.allowed.class.1=core.runnables.OrionExecutable
+design.patterns.pipeline.filter.allowed.class.2=core.services.OrionTask
 
-design.patterns.pipeline.filter.allowed.instance.1.method.name=run
-design.patterns.pipeline.filter.allowed.instance.2.method.name=run
+design.patterns.pipeline.filter.allowed.class.1.method.name=run
+design.patterns.pipeline.filter.allowed.class.2.method.name=run

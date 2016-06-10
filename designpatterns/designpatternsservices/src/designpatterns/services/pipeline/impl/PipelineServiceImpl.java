@@ -1,6 +1,5 @@
 package designpatterns.services.pipeline.impl;
 
-import designpatterns.DesignPatternsObject;
 import designpatterns.pipeline.AbstractPipeline;
 import designpatterns.pipeline.impl.Pipeline;
 import designpatterns.services.DesignPatternsServicesObject;

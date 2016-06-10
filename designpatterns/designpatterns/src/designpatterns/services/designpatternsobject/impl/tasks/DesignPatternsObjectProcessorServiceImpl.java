@@ -1,36 +1,29 @@
-package core.objects.services.orionobject.impl;
+package designpatterns.services.designpatternsobject.impl.tasks;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import core.OrionSimpleObject;
-import core.annotations.facades.processor.impl.AnnotationsProcessorFacadeImpl;
-import core.annotations.facades.registration.impl.AnnotationsRegistrationFacadeImpl;
 import core.configuration.ConfigurationEnumeration;
 import core.configuration.LibrariesConfiguration;
-import core.configuration.LibrariesConfigurationMapper;
 import core.configuration.LibraryConfiguration;
-import core.configuration.facades.classpath.impl.ConfigurationClasspathFacadeImpl;
 import core.objects.services.orionobject.OrionObjectProcessorService;
 import core.objects.services.orionobject.impl.tasks.BuildSetterMethodToCallInLibraryConfigurationTask;
 import core.objects.services.orionobject.impl.tasks.InitialiseCoreConfigurationTask;
 import core.objects.services.orionobject.impl.tasks.IsCoreLibraryTask;
 import core.objects.services.orionobject.impl.tasks.SetEnumerationValueToLibraryConfigurationTask;
+import designpatterns.services.designpatternsobject.DesignPatternsObjectProcessorService;
 
-public class OrionObjectProcessorServiceImpl extends OrionSimpleObject implements OrionObjectProcessorService
+public class DesignPatternsObjectProcessorServiceImpl extends OrionSimpleObject implements DesignPatternsObjectProcessorService
 {
-    public OrionObjectProcessorServiceImpl(Object object)
+    public DesignPatternsObjectProcessorServiceImpl(Object object)
     {
-        if(LibrariesConfigurationMapper.haveCoreLibrariesNotBeenRegistered)
+        LibraryConfiguration coreLibraryConfiguration = new InitialiseCoreConfigurationTask().run();
+        LibrariesConfiguration.registerLibraryConfiguration(coreLibraryConfiguration);
+        
+        if(new IsCoreLibraryTask().run(getClass()))
         {
-            LibraryConfiguration coreLibraryConfiguration = new InitialiseCoreConfigurationTask().run();
-            LibrariesConfiguration.registerLibraryConfiguration(coreLibraryConfiguration);
-            
-            if(new IsCoreLibraryTask().run(getClass()))
-            {
-                loadLibrariesProperties();
-                registerLibrariesAnnotations();
-                processAllAnnotations(object);
-            }
+            loadLibrariesProperties();
+            registerLibrariesAnnotations();
         }
     }
     
@@ -133,7 +126,6 @@ public class OrionObjectProcessorServiceImpl extends OrionSimpleObject implement
     {
         loadLibrariesProperties();
         registerLibrariesAnnotations();
-        processAllAnnotations(object);
     }
     
     
@@ -146,11 +138,5 @@ public class OrionObjectProcessorServiceImpl extends OrionSimpleObject implement
     private void registerLibrariesAnnotations()
     {
         new AnnotationsRegistrationFacadeImpl().registerLibrariesAnnotations();
-    }
-    
-    
-    private void processAllAnnotations(Object object)
-    {
-        new AnnotationsProcessorFacadeImpl().processAllAnnotations(object);
     }
 }
