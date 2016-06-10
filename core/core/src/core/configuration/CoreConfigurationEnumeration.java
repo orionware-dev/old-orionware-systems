@@ -28,12 +28,4 @@ public enum CoreConfigurationEnumeration implements ConfigurationEnumeration
     {
         return coreConfigurationValue;
     }
-
-
-    @SuppressWarnings("rawtypes")
-    @Override
-    public Enum[] getEnumerationValues()
-    {
-        return values();
-    }
 }

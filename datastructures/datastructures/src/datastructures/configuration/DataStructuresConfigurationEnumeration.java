@@ -29,12 +29,4 @@ public enum DataStructuresConfigurationEnumeration implements ConfigurationEnume
     {
         return dataStructuresConfigurationValue;
     }
-    
-    
-    @SuppressWarnings("rawtypes")
-    @Override
-    public Enum[] getEnumerationValues()
-    {
-        return values();
-    }
 }

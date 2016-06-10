@@ -1,6 +1,6 @@
 package designpatterns;
 
-import core.general.OrionInterface;
+import core.abstraction.OrionInterface;
 
 public interface DesignPatternsInterface extends OrionInterface
 {

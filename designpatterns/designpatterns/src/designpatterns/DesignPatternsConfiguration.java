@@ -1,8 +1,8 @@
 package designpatterns;
 
-import core.general.OrionConfiguration;
+import core.abstraction.OrionConfiguration;
 
-public abstract class DesignPatternsConfiguration extends OrionConfiguration
+public abstract class DesignPatternsConfiguration implements OrionConfiguration
 {
     
 }

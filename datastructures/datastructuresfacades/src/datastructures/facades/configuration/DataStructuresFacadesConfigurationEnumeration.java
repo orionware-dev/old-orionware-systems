@@ -29,12 +29,4 @@ public enum DataStructuresFacadesConfigurationEnumeration implements Configurati
     {
         return dataStructuresFacadesConfigurationValue;
     }
-
-
-    @SuppressWarnings("rawtypes")
-    @Override
-    public Enum[] getEnumerationValues()
-    {
-        return values();
-    }
 }

@@ -1,12 +1,12 @@
 package designpatterns.pipeline.impl;
 
-import core.functions.OrionAbstractFunction;
+import core.runnables.functions.OrionFunction;
 import core.services.OrionTask;
 import designpatterns.pipeline.AbstractFilter;
 
 public class Filter extends AbstractFilter
 {
-    public Filter(OrionAbstractFunction functionToExecute)
+    public Filter(OrionFunction functionToExecute)
     {
         this.function = functionToExecute;
     }
@@ -15,9 +15,9 @@ public class Filter extends AbstractFilter
     @Override
     public void executeFilter()
     {
-        if(function instanceof OrionAbstractFunction)
+        if(function instanceof OrionFunction)
         {
-            this.functionResult = ((OrionAbstractFunction)function).execute();
+            this.functionResult = ((OrionFunction)function).execute();
         }
         else if(function instanceof OrionTask)
         {

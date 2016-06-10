@@ -1,16 +1,15 @@
 package designpatterns;
 
-import core.OrionObject;
 import core.configuration.LibraryConfiguration;
+import core.objects.OrionObject;
+import datastructures.configuration.DataStructuresConfigurationEnumeration;
+import designpatterns.configuration.DesignPatternsConfigurationEnumeration;
 
 public abstract class DesignPatternsObject extends OrionObject
 {
     public DesignPatternsObject()
     {
-        LibraryConfiguration libraryConfiguration = new LibraryConfiguration();
-        libraryConfiguration.setLibraryName("designpatterns");
-        libraryConfiguration.setConfigurationFilePath("/configuration/Pipeline.prop");
-        registerLibraryConfiguration(libraryConfiguration);
+        registerLibraryConfiguration(DesignPatternsConfigurationEnumeration.class.getName());
         processAllLibrariesConfiguration();
     }
 }

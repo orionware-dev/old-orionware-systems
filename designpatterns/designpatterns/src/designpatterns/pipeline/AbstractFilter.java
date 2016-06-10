@@ -1,6 +1,6 @@
 package designpatterns.pipeline;
 
-import core.OrionObject;
+import core.objects.OrionObject;
 import designpatterns.DesignPatternsObject;
 
 public abstract class AbstractFilter extends DesignPatternsObject

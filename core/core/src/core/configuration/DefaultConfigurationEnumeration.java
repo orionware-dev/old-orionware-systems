@@ -21,12 +21,4 @@ public enum DefaultConfigurationEnumeration implements ConfigurationEnumeration
     {
         return defaultConfigurationValue;
     }
-
-
-    @SuppressWarnings("rawtypes")
-    @Override
-    public Enum[] getEnumerationValues()
-    {
-        return values();
-    }
 }

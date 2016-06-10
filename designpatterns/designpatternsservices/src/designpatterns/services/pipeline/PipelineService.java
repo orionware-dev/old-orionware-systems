@@ -1,7 +1,7 @@
-package designpatterns.pipeline.services;
+package designpatterns.services.pipeline;
 
+import designpatterns.DesignPatternsService;
 import designpatterns.pipeline.AbstractPipeline;
-import designpatterns.services.DesignPatternsService;
 
 public interface PipelineService extends DesignPatternsService
 {

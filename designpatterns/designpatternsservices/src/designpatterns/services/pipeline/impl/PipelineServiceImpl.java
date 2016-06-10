@@ -1,11 +1,12 @@
-package designpatterns.pipeline.services.impl;
+package designpatterns.services.pipeline.impl;
 
 import designpatterns.DesignPatternsObject;
 import designpatterns.pipeline.AbstractPipeline;
 import designpatterns.pipeline.impl.Pipeline;
-import designpatterns.pipeline.services.PipelineService;
+import designpatterns.services.DesignPatternsServicesObject;
+import designpatterns.services.pipeline.PipelineService;
 
-public class PipelineServiceImpl extends DesignPatternsObject implements PipelineService
+public class PipelineServiceImpl extends DesignPatternsServicesObject implements PipelineService
 {
     private AbstractPipeline pipeline;
     

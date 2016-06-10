@@ -1,4 +1,4 @@
-package designpatterns.services;
+package designpatterns;
 
 import core.services.OrionService;
 

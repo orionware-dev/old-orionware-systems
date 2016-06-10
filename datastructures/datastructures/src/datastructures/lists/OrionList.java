@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
-import datastructures.general.DataStructure;
+import datastructures.DataStructure;
 
 public interface OrionList<T> extends List<T>, DataStructure
 {
