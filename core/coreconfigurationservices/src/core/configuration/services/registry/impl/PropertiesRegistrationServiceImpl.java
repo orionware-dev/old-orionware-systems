@@ -4,9 +4,9 @@ import core.configuration.LibraryConfiguration;
 import core.configuration.services.ConfigurationServiceObject;
 import core.configuration.services.registry.PropertiesRegistrationService;
 import core.configuration.services.registry.impl.tasks.DeletePropertyTask;
-import core.configuration.services.registry.impl.tasks.HavePropertiesBeenRegisteredForLibraryTask;
+import core.configuration.services.registry.impl.tasks.HaveConfigurationBeenRegisteredForLibraryTask;
 import core.configuration.services.registry.impl.tasks.RegisterPropertyTask;
-import core.configuration.services.registry.impl.tasks.SetPropertiesAsRegisteredForLibraryTask;
+import core.configuration.services.registry.impl.tasks.SetConfigurationAsRegisteredForLibraryTask;
 import core.configuration.services.registry.impl.tasks.UpdatePropertyTask;
 import core.tuples.KeyValuePair;
 
@@ -15,14 +15,14 @@ public class PropertiesRegistrationServiceImpl extends ConfigurationServiceObjec
     @Override
     public boolean havePropertiesBeenRegisteredForLibrary(String libraryName)
     {
-        return HavePropertiesBeenRegisteredForLibraryTask.run(libraryName);
+        return HaveConfigurationBeenRegisteredForLibraryTask.run(libraryName);
     }
     
     
     @Override
     public boolean havePropertiesBeenRegisteredForLibrary(LibraryConfiguration libraryConfiguration)
     {
-        return HavePropertiesBeenRegisteredForLibraryTask.run(libraryConfiguration.getLibraryName());
+        return HaveConfigurationBeenRegisteredForLibraryTask.run(libraryConfiguration.getLibraryName());
     }
 
     
@@ -43,14 +43,14 @@ public class PropertiesRegistrationServiceImpl extends ConfigurationServiceObjec
     @Override
     public void setPropertiesAsRegisteredForLibrary(String libraryName)
     {
-        SetPropertiesAsRegisteredForLibraryTask.run(libraryName);
+        SetConfigurationAsRegisteredForLibraryTask.run(libraryName);
     }
     
     
     @Override
     public void setPropertiesAsRegisteredForLibrary(LibraryConfiguration libraryConfiguration)
     {
-        SetPropertiesAsRegisteredForLibraryTask.run(libraryConfiguration.getLibraryName());
+        SetConfigurationAsRegisteredForLibraryTask.run(libraryConfiguration.getLibraryName());
     }
     
     

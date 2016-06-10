@@ -1,6 +1,7 @@
 package designpatterns;
 
 import core.configuration.LibrariesConfiguration;
+import core.configuration.LibrariesConfigurationMapper;
 import core.configuration.LibraryConfiguration;
 import core.objects.OrionObject;
 import designpatterns.configuration.DesignPatternsConfigurationEnumeration;
@@ -17,6 +18,7 @@ public abstract class DesignPatternsObject extends OrionObject
         registerLibraryConfiguration(DesignPatternsConfigurationEnumeration.class.getName());
         processAllLibrariesConfiguration();
         this.designPatternsObjectProcessorService = new DesignPatternsObjectProcessorServiceImpl(this);
+        LibrariesConfigurationMapper.LIBRARIES_AND_IF_CONFIGURATION_HAVE_BEEN_REGISTERED_MAPPER.put(DesignPatternsConfigurationEnumeration.LIBRARY_CLASS_PATH.get(), true);
     }
     
     

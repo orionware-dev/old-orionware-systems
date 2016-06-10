@@ -41,8 +41,6 @@ public class RegisterLibraryAnnotationsTask extends AnnotationServiceObject impl
                 annotationDeclaration = sb.toString();
             }
         }
-        
-        SetAnnotationsAsRegisteredForLibraryTask.run(libraryConfiguration.getLibraryName());
     }
     
     

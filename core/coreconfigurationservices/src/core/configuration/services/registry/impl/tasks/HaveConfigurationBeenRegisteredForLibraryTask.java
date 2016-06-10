@@ -5,7 +5,7 @@ import core.configuration.ConfigurationTask;
 import core.configuration.LibrariesConfigurationMapper;
 import core.configuration.LibraryConfiguration;
 
-public class HavePropertiesBeenRegisteredForLibraryTask extends ConfigurationObject implements ConfigurationTask
+public class HaveConfigurationBeenRegisteredForLibraryTask extends ConfigurationObject implements ConfigurationTask
 {
     public static synchronized boolean run(String libraryClassPath)
     {

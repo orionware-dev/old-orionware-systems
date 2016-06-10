@@ -30,27 +30,6 @@ public class AnnotationsRegistrationFacadeImpl extends AnnotationFacadeObject im
     {
         annotationsRegistrationService.registerAnnotation(registeredAnnotation);
     }
-    
-    
-    @Override
-    public boolean haveAnnotationsBeenRegisteredForLibrary(String libraryName)
-    {
-        return annotationsRegistrationService.haveAnnotationsBeenRegisteredForLibrary(libraryName);
-    }
-
-    
-    @Override
-    public boolean haveAnnotationsNotBeenRegisteredForLibrary(String libraryName)
-    {
-        return !haveAnnotationsBeenRegisteredForLibrary(libraryName);
-    }
-
-    
-    @Override
-    public void setAnnotationsAsRegisteredForLibrary(String libraryName)
-    {
-        annotationsRegistrationService.setAnnotationsAsRegisteredForLibrary(libraryName);
-    }
 
 
     @Override

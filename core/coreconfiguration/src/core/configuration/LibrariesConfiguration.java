@@ -29,14 +29,16 @@ public class LibrariesConfiguration extends OrionSimpleObject implements OrionCo
         {
             getLibrariesConfigurationSet().add(libraryConfiguration);
             
-            if(libraryConfiguration.getLibraryName().equals(CoreConfigurationEnumeration.LIBRARY_NAME.get()))
+            if(libraryConfiguration.getLibraryClassPath().equals(CoreConfigurationEnumeration.LIBRARY_CLASS_PATH.get()))
             {
                 LibrariesConfigurationMapper.haveCoreLibrariesNotBeenRegistered = false;
             }
         }
-        else if(!libraryConfiguration.getLibraryName().equals(CoreConfigurationEnumeration.LIBRARY_NAME.get()))
+        else if(!libraryConfiguration.getLibraryClassPath().equals(CoreConfigurationEnumeration.LIBRARY_CLASS_PATH.get()))
         {
             getLibrariesConfigurationSet().add(libraryConfiguration);
         }
+        
+        LibrariesConfigurationMapper.LIBRARIES_AND_IF_CONFIGURATION_HAVE_BEEN_REGISTERED_MAPPER.put(libraryConfiguration.getLibraryClassPath(), true);
     }
 }
