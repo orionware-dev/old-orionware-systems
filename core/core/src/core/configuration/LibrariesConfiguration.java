@@ -30,12 +30,12 @@ public class LibrariesConfiguration extends OrionSimpleObject implements OrionCo
         {
             getLibrariesConfigurationSet().add(libraryConfiguration);
             
-            if(libraryConfiguration.getLibraryName().equals(CoreConfigurationEnumeration.LIBRARY_NAME))
+            if(libraryConfiguration.getLibraryName().equals(CoreConfigurationEnumeration.LIBRARY_NAME.get()))
             {
                 haveCoreLibrariesNotBeenRegistered = false;
             }
         }
-        else if(!libraryConfiguration.getLibraryName().equals(CoreConfigurationEnumeration.LIBRARY_NAME))
+        else if(!libraryConfiguration.getLibraryName().equals(CoreConfigurationEnumeration.LIBRARY_NAME.get()))
         {
             getLibrariesConfigurationSet().add(libraryConfiguration);
         }

@@ -1,36 +1,38 @@
 package designpatterns.pipeline.impl;
 
+import core.runnables.OrionExecutable;
 import core.runnables.functions.OrionFunction;
 import core.services.OrionTask;
 import designpatterns.pipeline.AbstractFilter;
 
 public class Filter extends AbstractFilter
 {
-    public Filter(OrionFunction functionToExecute)
+    public Filter()
     {
-        this.function = functionToExecute;
+        
     }
     
     
-    @Override
-    public void executeFilter()
+    public Filter(OrionExecutable functionToExecute)
     {
-        if(function instanceof OrionFunction)
+        super(functionToExecute);
+    }
+    
+    /*instead of manually checking the instanceof, use configuration/Pipeline.prop in which I explicitly
+    declare the class types OrionExecutable and OrionTask and use that config to do
+    the checking in a loop with stream() like: for each class type, if function instanceof thisClassType,
+    return ((OrionExecutable)function).run();*/
+    
+    @Override
+    public void run()
+    {
+        /*if(getFunction() instanceof OrionExecutable)
         {
-            this.functionResult = ((OrionFunction)function).execute();
+            setFunctionResult(((OrionExecutable)getFunction()).run());
         }
-        else if(function instanceof OrionTask)
+        else if(getFunction() instanceof OrionTask)
         {
-            this.functionResult = ((OrionTask)function).execute();
-        }
-        
-        /*if(function instanceof OrionAbstractFunction)
-        {
-            return ((OrionAbstractFunction)function).executeFunction();
-        }
-        else if(function instanceof OrionServiceTask)
-        {
-            return ((OrionServiceTask)function).execute();
+            setFunctionResult(((OrionTask)getFunction()).run());
         }*/
         
         //return null;

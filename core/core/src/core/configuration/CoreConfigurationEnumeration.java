@@ -13,7 +13,7 @@ public enum CoreConfigurationEnumeration implements ConfigurationEnumeration
     INTEGRATION_TESTS_CLASS_PATH(""),
     UNIT_TESTS_CLASS_PATH("");
     
-    
+    //    /core/configuration/CoreConfigurationAnnotations.prop
     private final String coreConfigurationValue;
     
     

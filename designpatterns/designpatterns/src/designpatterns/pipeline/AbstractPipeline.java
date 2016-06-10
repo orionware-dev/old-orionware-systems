@@ -6,12 +6,12 @@ import designpatterns.DesignPatternsObject;
 public abstract class AbstractPipeline extends DesignPatternsObject
 {
     private OrionList<AbstractFilter> filtersList;
-    private ListSizeFacade dataStructureSizeFacade;
+    //private ListSizeFacade dataStructureSizeFacade;
     
     
     public AbstractPipeline()
     {
-        dataStructureSizeFacade = new ListSizeFacadeImpl();
+        //dataStructureSizeFacade = new ListSizeFacadeImpl();
     }
     
     
@@ -31,7 +31,7 @@ public abstract class AbstractPipeline extends DesignPatternsObject
     {
         if(filtersList != null && !filtersList.isEmpty())
         {
-            filtersList.stream().forEach(AbstractFilter::executeFilter);
+            //filtersList.stream().forEach(AbstractFilter::executeFilter);
             return ((AbstractFilter)filtersList.getLast()).getFunctionResult();
         }
         
