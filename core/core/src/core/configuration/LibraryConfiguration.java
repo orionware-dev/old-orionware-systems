@@ -8,9 +8,13 @@ public class LibraryConfiguration extends OrionSimpleObject implements OrionConf
     private String libraryName;
     private String libraryClassPath;
     private String configurationFilePath;
+    private String configurationFileName;
     private String annotationsDefinitionFilePath;
+    private String annotationsDefinitionFileName;
+    private String integrationTestsClassPath;
+    private String unitTestsClassPath;
     
-
+    
     public String getLibraryName()
     {
         return this.libraryName;
@@ -47,6 +51,18 @@ public class LibraryConfiguration extends OrionSimpleObject implements OrionConf
     }
 
 
+    public String getConfigurationFileName()
+    {
+        return this.configurationFileName;
+    }
+
+
+    public void setConfigurationFileName(String configurationFileName)
+    {
+        this.configurationFileName = configurationFileName;
+    }
+
+
     public String getAnnotationsDefinitionFilePath()
     {
         return this.annotationsDefinitionFilePath;
@@ -56,6 +72,42 @@ public class LibraryConfiguration extends OrionSimpleObject implements OrionConf
     public void setAnnotationsDefinitionFilePath(String annotationsDefinitionFilePath)
     {
         this.annotationsDefinitionFilePath = annotationsDefinitionFilePath;
+    }
+
+
+    public String getAnnotationsDefinitionFileName()
+    {
+        return this.annotationsDefinitionFileName;
+    }
+
+
+    public void setAnnotationsDefinitionFileName(String annotationsDefinitionFileName)
+    {
+        this.annotationsDefinitionFileName = annotationsDefinitionFileName;
+    }
+
+
+    public String getIntegrationTestsClassPath()
+    {
+        return this.integrationTestsClassPath;
+    }
+
+
+    public void setIntegrationTestsClassPath(String integrationTestsClassPath)
+    {
+        this.integrationTestsClassPath = integrationTestsClassPath;
+    }
+
+
+    public String getUnitTestsClassPath()
+    {
+        return this.unitTestsClassPath;
+    }
+
+
+    public void setUnitTestsClassPath(String unitTestsClassPath)
+    {
+        this.unitTestsClassPath = unitTestsClassPath;
     }
     
     
@@ -67,7 +119,11 @@ public class LibraryConfiguration extends OrionSimpleObject implements OrionConf
         hash = defaultPrimeNumberForHashing * hash + this.getLibraryName().hashCode();
         hash = defaultPrimeNumberForHashing * hash + this.getLibraryClassPath().hashCode();
         hash = defaultPrimeNumberForHashing * hash + this.getConfigurationFilePath().hashCode();
+        hash = defaultPrimeNumberForHashing * hash + this.getConfigurationFileName().hashCode();
         hash = defaultPrimeNumberForHashing * hash + this.getAnnotationsDefinitionFilePath().hashCode();
+        hash = defaultPrimeNumberForHashing * hash + this.getAnnotationsDefinitionFileName().hashCode();
+        hash = defaultPrimeNumberForHashing * hash + this.getIntegrationTestsClassPath().hashCode();
+        hash = defaultPrimeNumberForHashing * hash + this.getUnitTestsClassPath().hashCode();
         return hash;
     }
 
@@ -86,7 +142,11 @@ public class LibraryConfiguration extends OrionSimpleObject implements OrionConf
             if(this.getLibraryName().equals(otherLibraryConfiguration.getLibraryName())
                    && this.getLibraryClassPath().equals(otherLibraryConfiguration.getLibraryClassPath())
                    && this.getConfigurationFilePath().equals(otherLibraryConfiguration.getConfigurationFilePath())
-                   && this.getAnnotationsDefinitionFilePath().equals(otherLibraryConfiguration.getAnnotationsDefinitionFilePath()))
+                   && this.getConfigurationFileName().equals(otherLibraryConfiguration.getConfigurationFileName())
+                   && this.getAnnotationsDefinitionFilePath().equals(otherLibraryConfiguration.getAnnotationsDefinitionFilePath())
+                   && this.getAnnotationsDefinitionFileName().equals(otherLibraryConfiguration.getAnnotationsDefinitionFileName())
+                   && this.getIntegrationTestsClassPath().equals(otherLibraryConfiguration.getIntegrationTestsClassPath())
+                   && this.getUnitTestsClassPath().equals(otherLibraryConfiguration.getUnitTestsClassPath()))
             {
                 return true;
             }

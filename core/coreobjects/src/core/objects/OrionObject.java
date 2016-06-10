@@ -1,6 +1,7 @@
 package core.objects;
 
 import core.OrionSimpleObject;
+import core.configuration.ConfigurationEnumeration;
 import core.configuration.LibrariesConfiguration;
 import core.configuration.LibraryConfiguration;
 import core.objects.services.orionobject.OrionObjectProcessorService;
@@ -19,8 +20,9 @@ public abstract class OrionObject extends OrionSimpleObject
     
     //the libraryConfiguration method parameter is defined
     //in a library other than the core, like DataStructuresObject.java
-    protected void registerLibraryConfiguration(LibraryConfiguration libraryConfiguration)
+    protected void registerLibraryConfiguration(String libraryConfigurationEnumerationClassPath)
     {
+        LibraryConfiguration libraryConfiguration = orionObjectProcessorService.convertConfigurationEnumerationToLibraryConfiguration(libraryConfigurationEnumerationClassPath);
         LibrariesConfiguration.registerLibraryConfiguration(libraryConfiguration);
     }
     
