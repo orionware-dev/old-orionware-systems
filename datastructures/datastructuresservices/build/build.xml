@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="OrionDataStructuresServicesBuilder" default="all" basedir=".">
-    <property file="CoreDataStructuresServicesBuild.prop"/>
+    <property file="DataStructuresServicesBuild.prop"/>
     <property name="orion.data.structures.services.binaries.dir" value="${orion.data.structures.services.dir}/${default.binaries.dir.name}"/>
     <property name="orion.data.structures.services.binaries.dir" value="${orion.data.structures.services.dir}/${default.binaries.dir.name}"/>
     <property name="orion.data.structures.services.source.dir" value="${orion.data.structures.services.dir}/${default.source.dir.name}"/>

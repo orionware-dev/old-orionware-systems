@@ -1,4 +1,4 @@
-orion.data.structures.builder.dir=${orion.data.structures.dir}/datastructures/build
+orion.data.structures.data.structures.builder.dir=${orion.data.structures.dir}/datastructures/build
 orion.data.structures.services.builder.dir=${orion.data.structures.dir}/datastructuresservices/build
 orion.data.structures.facades.builder.dir=${orion.data.structures.dir}/datastructuresfacades/build
 

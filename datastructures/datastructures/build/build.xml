@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="OrionDataStructuresBuilder" default="all" basedir=".">
-    <property file="CoreDataStructuresBuild.prop"/>
-    <property name="orion.data.structures.binaries.dir" value="${orion.data.structures.dir}/${default.binaries.dir.name}"/>
-    <property name="orion.data.structures.binaries.dir" value="${orion.data.structures.dir}/${default.binaries.dir.name}"/>
-    <property name="orion.data.structures.source.dir" value="${orion.data.structures.dir}/${default.source.dir.name}"/>
+    <property file="DataStructuresBuild.prop"/>
+    <property name="orion.data.structures.binaries.dir" value="${orion.data.structures.data.structures.dir}/${default.binaries.dir.name}"/>
+    <property name="orion.data.structures.binaries.dir" value="${orion.data.structures.data.structures.dir}/${default.binaries.dir.name}"/>
+    <property name="orion.data.structures.source.dir" value="${orion.data.structures.data.structures.dir}/${default.source.dir.name}"/>
 
     
     <target name="all">

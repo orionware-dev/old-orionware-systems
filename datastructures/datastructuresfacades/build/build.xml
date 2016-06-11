@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="OrionDataStructuresFacadesBuilder" default="all" basedir=".">
-    <property file="CoreDataStructuresFacadesBuild.prop"/>
+    <property file="DataStructuresFacadesBuild.prop"/>
     <property name="orion.data.structures.facades.binaries.dir" value="${orion.data.structures.facades.dir}/${default.binaries.dir.name}"/>
     <property name="orion.data.structures.facades.binaries.dir" value="${orion.data.structure.facadess.dir}/${default.binaries.dir.name}"/>
     <property name="orion.data.structures.facades.source.dir" value="${orion.data.structures.facades.dir}/${default.source.dir.name}"/>
