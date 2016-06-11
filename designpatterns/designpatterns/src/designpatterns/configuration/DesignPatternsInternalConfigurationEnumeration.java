@@ -1,11 +1,12 @@
 package designpatterns.configuration;
 
 import core.configuration.ConfigurationEnumeration;
+import core.configuration.DefaultConfigurationEnumeration;
 
 public enum DesignPatternsInternalConfigurationEnumeration implements ConfigurationEnumeration
 {
     PIPELINE_CONFIGURATION_FILE_NAME("Pipeline.prop"),
-    PIPELINE_CONFIGURATION_FILE_PATH("" + DesignPatternsConfigurationEnumeration.LIBRARY_CLASS_PATH.get() + "/" + PIPELINE_CONFIGURATION_FILE_NAME.get());
+    PIPELINE_CONFIGURATION_FILE_PATH("" + DesignPatternsConfigurationEnumeration.LIBRARY_CLASS_PATH.get() + "/" + DefaultConfigurationEnumeration.DEFAULT_CONFIGURATION_DIR.get() + "/" + PIPELINE_CONFIGURATION_FILE_NAME.get());
     
     
     private final String dataStructuresConfigurationValue;

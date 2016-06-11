@@ -1,6 +1,4 @@
-﻿--change LIBRARY_CLASS_PATH to be just / + LIBRARY_NAME
-
---see which methods in OrionObjectProcessorServiceImpl
+﻿--see which methods in OrionObjectProcessorServiceImpl
 have to run every time an object is created and which
 have to run only once per runtime
 

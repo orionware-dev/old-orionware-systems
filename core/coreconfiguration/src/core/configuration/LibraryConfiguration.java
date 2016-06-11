@@ -7,6 +7,7 @@ public class LibraryConfiguration extends OrionSimpleObject implements OrionConf
 {
     private String libraryName;
     private String libraryClassPath;
+    private String libraryConfigurationDir;
     private String configurationFilePath;
     private String configurationFileName;
     private String annotationsDefinitionFilePath;
@@ -36,6 +37,18 @@ public class LibraryConfiguration extends OrionSimpleObject implements OrionConf
     public void setLibraryClassPath(String libraryClassPath)
     {
         this.libraryClassPath = libraryClassPath;
+    }
+    
+    
+    public String getLibraryConfigurationDir()
+    {
+        return this.libraryConfigurationDir;
+    }
+
+
+    public void setLibraryConfigurationDir(String libraryConfigurationDir)
+    {
+        this.libraryConfigurationDir = libraryConfigurationDir;
     }
 
 
@@ -118,6 +131,7 @@ public class LibraryConfiguration extends OrionSimpleObject implements OrionConf
         int hash = 3;
         hash = defaultPrimeNumberForHashing * hash + this.getLibraryName().hashCode();
         hash = defaultPrimeNumberForHashing * hash + this.getLibraryClassPath().hashCode();
+        hash = defaultPrimeNumberForHashing * hash + this.getLibraryConfigurationDir().hashCode();
         hash = defaultPrimeNumberForHashing * hash + this.getConfigurationFilePath().hashCode();
         hash = defaultPrimeNumberForHashing * hash + this.getConfigurationFileName().hashCode();
         hash = defaultPrimeNumberForHashing * hash + this.getAnnotationsDefinitionFilePath().hashCode();
@@ -141,6 +155,7 @@ public class LibraryConfiguration extends OrionSimpleObject implements OrionConf
             
             if(this.getLibraryName().equals(otherLibraryConfiguration.getLibraryName())
                    && this.getLibraryClassPath().equals(otherLibraryConfiguration.getLibraryClassPath())
+                   && this.getLibraryConfigurationDir().equals(otherLibraryConfiguration.getLibraryConfigurationDir())
                    && this.getConfigurationFilePath().equals(otherLibraryConfiguration.getConfigurationFilePath())
                    && this.getConfigurationFileName().equals(otherLibraryConfiguration.getConfigurationFileName())
                    && this.getAnnotationsDefinitionFilePath().equals(otherLibraryConfiguration.getAnnotationsDefinitionFilePath())
