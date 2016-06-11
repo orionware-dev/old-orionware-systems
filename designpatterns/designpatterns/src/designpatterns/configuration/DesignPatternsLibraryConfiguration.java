@@ -1,13 +1,9 @@
 package designpatterns.configuration;
 
-import java.util.HashSet;
-import java.util.Set;
+import core.OrionSimpleObject;
 import core.abstraction.OrionConfiguration;
-import core.configuration.CoreConfigurationEnumeration;
-import core.configuration.LibraryConfiguration;
-import designpatterns.DesignPatternsObject;
 
-public class DesignPatternsLibraryConfiguration extends DesignPatternsObject implements OrionConfiguration
+public class DesignPatternsLibraryConfiguration extends OrionSimpleObject implements OrionConfiguration
 {
     private PipelineConfiguration pipelineConfiguration;
 

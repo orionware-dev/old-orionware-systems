@@ -9,7 +9,7 @@ public class SetConfigurationAsRegisteredForLibraryTask extends ConfigurationObj
 {
     public static synchronized void run(String libraryClassPath)
     {
-        LibrariesConfigurationMapper.LIBRARIES_AND_IF_CONFIGURATION_HAVE_BEEN_REGISTERED_MAPPER.put(libraryClassPath, true);
+        LibrariesConfigurationMapper.LIBRARIES_AND_IF_CONFIGURATION_HAS_BEEN_REGISTERED_MAPPER.put(libraryClassPath, true);
     }
     
     

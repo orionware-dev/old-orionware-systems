@@ -11,7 +11,7 @@ public class HaveConfigurationBeenRegisteredForLibraryTask extends Configuration
     {
         if(libraryPropertiesHaveBeenRegistered(libraryClassPath))
         {
-            return LibrariesConfigurationMapper.LIBRARIES_AND_IF_CONFIGURATION_HAVE_BEEN_REGISTERED_MAPPER.get(libraryClassPath);
+            return LibrariesConfigurationMapper.LIBRARIES_AND_IF_CONFIGURATION_HAS_BEEN_REGISTERED_MAPPER.get(libraryClassPath);
         }
         else
         {
@@ -28,6 +28,6 @@ public class HaveConfigurationBeenRegisteredForLibraryTask extends Configuration
     
     private static boolean libraryPropertiesHaveBeenRegistered(String libraryClassPath)
     {
-        return LibrariesConfigurationMapper.LIBRARIES_AND_IF_CONFIGURATION_HAVE_BEEN_REGISTERED_MAPPER.get(libraryClassPath) != null;
+        return LibrariesConfigurationMapper.LIBRARIES_AND_IF_CONFIGURATION_HAS_BEEN_REGISTERED_MAPPER.get(libraryClassPath) != null;
     }
 }

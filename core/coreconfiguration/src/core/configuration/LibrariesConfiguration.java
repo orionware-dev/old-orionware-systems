@@ -39,6 +39,6 @@ public class LibrariesConfiguration extends OrionSimpleObject implements OrionCo
             getLibrariesConfigurationSet().add(libraryConfiguration);
         }
         
-        LibrariesConfigurationMapper.LIBRARIES_AND_IF_CONFIGURATION_HAVE_BEEN_REGISTERED_MAPPER.put(libraryConfiguration.getLibraryClassPath(), true);
+        LibrariesConfigurationMapper.LIBRARIES_AND_IF_CONFIGURATION_HAS_BEEN_REGISTERED_MAPPER.put(libraryConfiguration.getLibraryClassPath(), true);
     }
 }

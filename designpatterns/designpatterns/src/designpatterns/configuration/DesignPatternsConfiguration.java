@@ -3,19 +3,16 @@ package designpatterns.configuration;
 import java.util.HashSet;
 import java.util.Set;
 import core.abstraction.OrionConfiguration;
-import core.configuration.CoreConfigurationEnumeration;
-import core.configuration.LibraryConfiguration;
-import designpatterns.DesignPatternsObject;
 
-public class DesignPatternsConfiguration extends DesignPatternsObject implements OrionConfiguration
+public class DesignPatternsConfiguration implements OrionConfiguration
 {
-    private static boolean haveDesignPatternsNotBeenRegistered;
+    public static boolean haveDesignPatternsConfigurationNotBeenRegistered;
     private static Set<DesignPatternsLibraryConfiguration> designPatternsConfigurationSet;
     
     
     static
     {
-        haveDesignPatternsNotBeenRegistered = true;
+        haveDesignPatternsConfigurationNotBeenRegistered = true;
         designPatternsConfigurationSet = new HashSet<DesignPatternsLibraryConfiguration>();
     }
 
@@ -28,13 +25,13 @@ public class DesignPatternsConfiguration extends DesignPatternsObject implements
     
     public static synchronized void registerDesignPatternsConfiguration(DesignPatternsLibraryConfiguration designPatternsLibraryConfiguration)
     {
-        if(haveDesignPatternsNotBeenRegistered)
+        if(haveDesignPatternsConfigurationNotBeenRegistered)
         {
             getDesignPatternsConfigurationSet().add(designPatternsLibraryConfiguration);
             
             if(designPatternsConfigurationSet.contains(designPatternsLibraryConfiguration))
             {
-                haveDesignPatternsNotBeenRegistered = false;
+                haveDesignPatternsConfigurationNotBeenRegistered = false;
             }
         }
         else if(!designPatternsConfigurationSet.contains(designPatternsLibraryConfiguration))

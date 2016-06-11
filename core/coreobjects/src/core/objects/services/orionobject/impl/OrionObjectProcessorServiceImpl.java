@@ -29,7 +29,6 @@ public class OrionObjectProcessorServiceImpl extends OrionSimpleObject implement
             {
                 loadLibrariesProperties();
                 registerLibrariesAnnotations();
-                LibrariesConfigurationMapper.LIBRARIES_AND_IF_CONFIGURATION_HAVE_BEEN_REGISTERED_MAPPER.put(coreLibraryConfiguration.getLibraryClassPath(), true);
                 processAllAnnotations(object);
             }
         }

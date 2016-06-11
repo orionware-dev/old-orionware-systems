@@ -1,4 +1,6 @@
-﻿--see which methods in OrionObjectProcessorServiceImpl
+﻿--change LIBRARY_CLASS_PATH to be just / + LIBRARY_NAME
+
+--see which methods in OrionObjectProcessorServiceImpl
 have to run every time an object is created and which
 have to run only once per runtime
 
@@ -6,6 +8,8 @@ have to run only once per runtime
 
 --see if I can make DesignPatternsObjectProcessorServiceImpl and OrionObjectProcessorServiceImpl
 a general core project that can be used by coreobjects and designpatterns projects
+
+--use dpeendency injection in design patterns projects
 
 --make the unit and integration tests packages of datastructures, designpatterns, etc. to be like
 the core: "datastructures.services", "datastructures.facades", etc.
