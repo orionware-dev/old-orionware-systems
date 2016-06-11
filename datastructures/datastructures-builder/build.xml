@@ -5,7 +5,7 @@
 
     
     <target name="all">
-        <emptyDirectory dir="${orion.core.binaries.dir}"/>
+        <emptyDirectory dir="${orion.data.structures.binaries.dir}"/>
     	
         <callAnt file="${orion.data.structures.data.structures.builder.dir}/build.xml"/>
     	<callAnt file="${orion.data.structures.services.builder.dir}/build.xml"/>

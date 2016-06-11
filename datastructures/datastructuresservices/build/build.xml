@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="OrionDataStructuresServicesBuilder" default="all" basedir=".">
     <property file="DataStructuresServicesBuild.prop"/>
-    <property name="orion.data.structures.services.binaries.dir" value="${orion.data.structures.services.dir}/${default.binaries.dir.name}"/>
+    <property name="orion.data.structures.binaries.dir" value="${orion.data.structures.dir}/${default.binaries.dir.name}"/>
     <property name="orion.data.structures.services.binaries.dir" value="${orion.data.structures.services.dir}/${default.binaries.dir.name}"/>
     <property name="orion.data.structures.services.source.dir" value="${orion.data.structures.services.dir}/${default.source.dir.name}"/>
 
@@ -9,7 +9,7 @@
     <target name="all">
     	   <buildAndPackageProject sourceDir="${orion.data.structures.services.source.dir}" binariesDir="${orion.data.structures.services.binaries.dir}" JARPath="${orion.orionware.libraries.libraries.dir}/${orion.data.structures.services.jar.file.name}" projectName="${orion.data.structures.services}"/>
         
-        <copy todir="${orion.data.structures.services.binaries.dir}" verbose="yes" failonerror="false" overwrite="true">
+        <copy todir="${orion.data.structures.binaries.dir}" verbose="yes" failonerror="false" overwrite="true">
             <fileset dir="${orion.data.structures.services.binaries.dir}" includes="${default.any.file.extension.pattern}"/>
         </copy>
     </target>
