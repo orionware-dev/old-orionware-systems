@@ -1,8 +1,4 @@
-﻿--see which methods in OrionObjectProcessorServiceImpl
-have to run every time an object is created and which
-have to run only once per runtime
-
---change SetPropertiesAsRegisteredForLibraryTask to SetConfigurationAsRegisteredForLibraryTask
+﻿--rename some core projects
 
 --see if I can make DesignPatternsObjectProcessorServiceImpl and OrionObjectProcessorServiceImpl
 a general core project that can be used by coreobjects and designpatterns projects

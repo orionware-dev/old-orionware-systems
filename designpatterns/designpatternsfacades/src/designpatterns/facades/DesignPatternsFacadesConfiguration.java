@@ -1,6 +1,6 @@
 package designpatterns.facades;
 
-import designpatterns.DesignPatternsConfiguration;
+import designpatterns.configuration.DesignPatternsConfiguration;
 
 public abstract class DesignPatternsFacadesConfiguration extends DesignPatternsConfiguration
 {

@@ -1,6 +1,6 @@
 package designpatterns.services;
 
-import designpatterns.DesignPatternsConfiguration;
+import designpatterns.configuration.DesignPatternsConfiguration;
 
 public abstract class DesignPatternsServicesConfiguration extends DesignPatternsConfiguration
 {
