@@ -13,6 +13,12 @@ public class ConfigurationRegistry extends OrionRegistry
     }
     
     
+    public static synchronized void loadProperties(OrionProperties orionProperties)
+    {
+        AllProperties.loadProperties(orionProperties);
+    }
+    
+    
     public static synchronized void registerProp(String key, String value)
     {
         AllProperties.registerProp(key, value);

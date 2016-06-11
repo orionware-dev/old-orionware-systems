@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import core.OrionSimpleObject;
 import core.configuration.OrionProperties;
+import core.configuration.registry.ConfigurationRegistry;
 import core.filesystem.facades.streams.impl.FileSystemStreamsFacadeImpl;
 import designpatterns.DesignPatternsTask;
 import designpatterns.configuration.DesignPatternsConfiguration;
@@ -38,6 +39,9 @@ public class RegisterPipelineConfigurationTask extends OrionSimpleObject impleme
             ++index;
         }
         
+        OrionProperties allowedClassesAndMethodsProperties = new OrionProperties();
+        allowedClassesAndMethodsProperties.putAll(allowedClassesAndMethods);
+        ConfigurationRegistry.loadProperties(allowedClassesAndMethodsProperties);
         PipelineConfiguration pipelineConfiguration = new PipelineConfiguration();
         pipelineConfiguration.setAllowedClassesAndMethodsMapper(allowedClassesAndMethods);
         DesignPatternsLibraryConfiguration designPatternsLibraryConfiguration = new DesignPatternsLibraryConfiguration();
