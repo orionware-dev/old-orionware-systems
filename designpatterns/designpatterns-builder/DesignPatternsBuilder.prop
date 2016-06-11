@@ -1,0 +1,5 @@
+orion.design.patterns.design.patterns.builder.dir=${orion.design.patterns.dir}/designpatterns/build
+orion.design.patterns.services.builder.dir=${orion.design.patterns.dir}/designpatternsservices/build
+orion.design.patterns.facades.builder.dir=${orion.design.patterns.dir}/designpatternsfacades/build
+
+orion.design.patterns.jar.file.name=OrionDesignPatterns_${orion.libraries.version}.jar

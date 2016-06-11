@@ -13,6 +13,6 @@
     <target name="all">
         <callAnt file="${orion.core.builder.dir}/build.xml"/>
         <callAnt file="${orion.data.structures.builder.dir}/build.xml"/>
-    	<!--<callAnt file="${orion.design.patterns.builder.dir}/build.xml"/>-->
+    	<callAnt file="${orion.design.patterns.builder.dir}/build.xml"/>
     </target>
 </project>
