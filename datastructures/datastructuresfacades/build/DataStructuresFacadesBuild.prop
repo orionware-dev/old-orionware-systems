@@ -1,3 +1,3 @@
 orion.data.structures.facades=Data Structures Facades
-orion.data.structures.facades.dir=${orion.data.structures.projects.dir}/datastructuresfacades
-orion.data.structures.facades.jar.file.name=OrionDataStructuresFacades_${orion.version}.jar
+orion.data.structures.facades.dir=${orion.data.structures.facades.projects.dir}/datastructuresfacades
+orion.data.structures.facades.jar.file.name=OrionDataStructuresFacades_${orion.libraries.version}.jar

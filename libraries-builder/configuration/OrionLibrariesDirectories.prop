@@ -17,10 +17,10 @@ orion.core.projects.dir=${orion.core.dir}
 
 orion.data.structures=Data Structures
 orion.data.structures.dir=${orion.libraries.home.dir}/datastructures
-orion.data.structures.builder.dir=${orion.data.structures.dir}/build
+orion.data.structures.builder.dir=${orion.data.structures.dir}/datastructures-builder
 orion.data.structures.projects.dir=${orion.data.structures.dir}
 
 orion.design.patterns=Design Patterns
 orion.design.patterns.dir=${orion.libraries.home.dir}/designpatterns
-orion.design.patterns.builder.dir=${orion.design.patterns.dir}/build
+orion.design.patterns.builder.dir=${orion.design.patterns.dir}/designpatterns-builder
 orion.design.patterns.projects.dir=${orion.design.patterns.dir}
