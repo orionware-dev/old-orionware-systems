@@ -45,6 +45,12 @@ public abstract class AbstractPipeline extends DesignPatternsObject
         
         return 0;
     }
+    
+    
+    public void addFilter(AbstractFilter filter)
+    {
+        getFiltersList().add(filter);
+    }
 
 
     public OrionList<AbstractFilter> getFiltersList()

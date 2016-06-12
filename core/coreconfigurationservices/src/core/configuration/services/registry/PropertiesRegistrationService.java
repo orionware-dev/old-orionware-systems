@@ -2,7 +2,6 @@ package core.configuration.services.registry;
 
 import core.configuration.ConfigurationService;
 import core.configuration.LibraryConfiguration;
-import core.configuration.OrionProperties;
 import core.tuples.KeyValuePair;
 
 public interface PropertiesRegistrationService extends ConfigurationService

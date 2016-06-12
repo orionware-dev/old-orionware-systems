@@ -1,7 +1,6 @@
 package core.configuration.services.registry.impl;
 
 import core.configuration.LibraryConfiguration;
-import core.configuration.OrionProperties;
 import core.configuration.services.ConfigurationServiceObject;
 import core.configuration.services.registry.PropertiesRegistrationService;
 import core.configuration.services.registry.impl.tasks.DeletePropertyTask;

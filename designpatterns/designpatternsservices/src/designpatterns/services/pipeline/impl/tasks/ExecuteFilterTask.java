@@ -4,7 +4,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import designpatterns.DesignPatternsTask;
 import designpatterns.pipeline.AbstractFilter;
-import designpatterns.pipeline.filter.ProceduralFilter;
 import designpatterns.services.DesignPatternsServicesObject;
 
 public class ExecuteFilterTask extends DesignPatternsServicesObject implements DesignPatternsTask

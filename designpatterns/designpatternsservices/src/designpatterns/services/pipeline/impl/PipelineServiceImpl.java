@@ -19,7 +19,7 @@ public class PipelineServiceImpl extends DesignPatternsServicesObject implements
     @Override
     public void addFilterToPipeline(AbstractPipeline pipeline, AbstractFilter filter)
     {
-        pipeline.getFiltersList().add(filter);
+        pipeline.addFilter(filter);
     }
     
     

@@ -1,7 +1,6 @@
 package designpatterns.facades.configuration;
 
 import core.configuration.ConfigurationEnumeration;
-import core.configuration.DefaultConfigurationEnumeration;
 
 public enum DesignPatternsFacadesConfigurationEnumeration implements ConfigurationEnumeration
 {
