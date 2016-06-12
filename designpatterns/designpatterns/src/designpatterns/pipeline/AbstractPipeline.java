@@ -7,6 +7,7 @@ import designpatterns.DesignPatternsObject;
 public abstract class AbstractPipeline extends DesignPatternsObject
 {
     private OrionList<AbstractFilter> filtersList;
+    private Object lastFunctionResult;
     // private ListSizeFacade dataStructureSizeFacade;
 
 
@@ -58,5 +59,17 @@ public abstract class AbstractPipeline extends DesignPatternsObject
     public void setFiltersList(OrionList<AbstractFilter> filtersList)
     {
         this.filtersList = filtersList;
+    }
+
+
+    public Object getLastFunctionResult()
+    {
+        return this.lastFunctionResult;
+    }
+
+
+    public void setLastFunctionResult(Object lastFunctionResult)
+    {
+        this.lastFunctionResult = lastFunctionResult;
     }
 }

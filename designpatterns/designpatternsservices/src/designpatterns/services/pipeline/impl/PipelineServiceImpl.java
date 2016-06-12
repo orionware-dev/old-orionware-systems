@@ -32,6 +32,7 @@ public class PipelineServiceImpl extends DesignPatternsServicesObject implements
         for(AbstractFilter filter : pipeline.getFiltersList())
         {
             pipelineResult = pipelineFilterService.executeFilter(filter);
+            pipeline.setLastFunctionResult(pipelineResult);
         }
 
         return pipelineResult;

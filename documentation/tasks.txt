@@ -1,5 +1,11 @@
 ﻿--use dependency injection
 
+--pipe/filter right now can run a sequence of procedures
+(functions that do not return anything) and a sequence
+of functions that return something. I have to make
+it also, to run a sequence of functions each of whom
+takes as input the output of the previous function
+
 --instead of manually checking the instanceof, use configuration/Pipeline.prop
 in which I explicitly declare the class types OrionExecutable and OrionTask
 and use that config to do the checking in a loop with stream() like:

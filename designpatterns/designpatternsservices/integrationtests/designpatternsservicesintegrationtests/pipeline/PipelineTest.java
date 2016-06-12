@@ -81,4 +81,19 @@ public class PipelineTest extends DesignPatternsObject
         pipelineService.addFilterToPipeline(pipeline, filter);
         pipelineService.executeFilters(pipeline);
     }
+    
+    
+    @Test
+    public void testPipelineOfObjectFunction2()
+    {
+        Function1x1<Integer, Integer> function = (Integer number) -> 2 * number + 3;
+        AbstractFilter filter = pipelineFilterService.createFilter(function, "run", 6);
+        TestClass testClass = new TestClass();
+        AbstractFilter filter2 = pipelineFilterService.createFilter(testClass, "printHello", "world!");
+        AbstractPipeline pipeline = pipelineService.createEmptyPipeline();
+        pipelineService.addFilterToPipeline(pipeline, filter);
+        pipelineService.addFilterToPipeline(pipeline, filter2);
+        Integer result = (Integer)pipelineService.executeFilters(pipeline);
+        Assert.assertEquals("15", Integer.toString(result));
+    }
 }
