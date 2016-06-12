@@ -1,6 +1,11 @@
 package designpatterns.pipeline.impl;
 
-import core.runnables.OrionExecutable;
+import java.lang.invoke.MethodHandle;
+import java.lang.invoke.MethodHandles;
+import java.lang.invoke.MethodType;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import core.runnables.consumers.Consumer1;
 import designpatterns.pipeline.AbstractFilter;
 
 public class Filter extends AbstractFilter
@@ -11,28 +16,64 @@ public class Filter extends AbstractFilter
     }
     
     
-    public Filter(OrionExecutable functionToExecute)
+    public Filter(boolean isFunctionAProcedure, Object functionToExecute, String methodToRun, Object... functionParameters)
     {
-        super(functionToExecute);
+        super(isFunctionAProcedure, functionToExecute, methodToRun, functionParameters);
     }
     
-    /*instead of manually checking the instanceof, use configuration/Pipeline.prop in which I explicitly
-    declare the class types OrionExecutable and OrionTask and use that config to do
-    the checking in a loop with stream() like: for each class type, if function instanceof thisClassType,
-    return ((OrionExecutable)function).run();*/
     
     @Override
     public void run()
     {
-        /*if(getFunction() instanceof OrionExecutable)
+        try
         {
-            setFunctionResult(((OrionExecutable)getFunction()).run());
+            if(isFunctionAProcedure())
+            {
+                Class<?>[] classes = null;
+                
+                if(getFunctionParameters() != null)
+                {
+                    int numberOfFunctionParameters = getFunctionParameters().length;
+                    
+                    if(numberOfFunctionParameters > 0)
+                    {
+                        classes = new Class<?>[numberOfFunctionParameters];
+                        
+                        for(int i = 0; i < numberOfFunctionParameters; i++)
+                        {
+                            classes[i] = Object.class;
+                        }
+                    }
+                }
+                
+                Method method = getFunctionClass().getDeclaredMethod(getMethodToRun(), classes);
+                method.setAccessible(true);
+                method.invoke(getFunction(), getFunctionParameters());
+            }
         }
-        else if(getFunction() instanceof OrionTask)
+        catch(NoSuchMethodException exception)
         {
-            setFunctionResult(((OrionTask)getFunction()).run());
-        }*/
-        
-        //return null;
+            exception.printStackTrace();
+        }
+        catch(SecurityException exception)
+        {
+            exception.printStackTrace();
+        }
+        catch(IllegalAccessException exception)
+        {
+            exception.printStackTrace();
+        }
+        catch(IllegalArgumentException exception)
+        {
+            exception.printStackTrace();
+        }
+        catch(InvocationTargetException exception)
+        {
+            exception.printStackTrace();
+        }
+        catch(Throwable exception)
+        {
+            exception.printStackTrace();
+        }
     }
 }

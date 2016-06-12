@@ -1,26 +1,39 @@
 package designpatterns.services.pipeline.impl;
 
+import designpatterns.pipeline.AbstractFilter;
 import designpatterns.pipeline.AbstractPipeline;
 import designpatterns.pipeline.impl.Pipeline;
 import designpatterns.services.DesignPatternsServicesObject;
+import designpatterns.services.pipeline.PipelineFilterService;
 import designpatterns.services.pipeline.PipelineService;
 
 public class PipelineServiceImpl extends DesignPatternsServicesObject implements PipelineService
 {
-    private AbstractPipeline pipeline;
-    
-    
     @Override
-    public AbstractPipeline createPipeline()
+    public AbstractPipeline createEmptyPipeline()
     {
-        pipeline = new Pipeline();
-        return pipeline;
+        return new Pipeline();
+    }
+
+
+    @Override
+    public void addFilterToPipeline(AbstractPipeline pipeline, AbstractFilter filter)
+    {
+        pipeline.getFiltersList().add(filter);
     }
     
     
     @Override
-    public Object executeFilters()
+    public Object executeFilters(AbstractPipeline pipeline)
     {
-        return null;
+        Object pipelineResult = null;
+        PipelineFilterService pipelineFilterService = new PipelineFilterServiceImpl();
+        
+        for(AbstractFilter filter : pipeline.getFiltersList())
+        {
+            pipelineResult = pipelineFilterService.executeFilter(filter);
+        }
+        
+        return pipelineResult;
     }
 }

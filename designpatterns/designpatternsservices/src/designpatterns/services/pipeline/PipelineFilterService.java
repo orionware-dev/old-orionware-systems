@@ -5,5 +5,11 @@ import designpatterns.pipeline.AbstractFilter;
 
 public interface PipelineFilterService extends DesignPatternsService
 {
-    public abstract AbstractFilter createFilter();
+    public AbstractFilter createFilter();
+    
+    
+    public AbstractFilter createFilter(boolean isFunctionAProcedure, Object function, String methodToRun, Object... functionParameters);
+    
+    
+    public Object executeFilter(AbstractFilter filter);
 }

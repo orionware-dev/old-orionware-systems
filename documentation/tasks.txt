@@ -1,4 +1,12 @@
-﻿--rename some core projects
+﻿--make all static methods instance ones
+
+--see if I have to use Pipeline.prop
+
+--instead of manually checking the instanceof, use configuration/Pipeline.prop
+in which I explicitly declare the class types OrionExecutable and OrionTask
+and use that config to do the checking in a loop with stream() like:
+for each class type, if function instanceof thisClassType,
+return ((OrionExecutable)function).run();
 
 --see if I can make DesignPatternsObjectProcessorServiceImpl and OrionObjectProcessorServiceImpl
 a general core project that can be used by coreobjects and designpatterns projects

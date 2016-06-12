@@ -7,8 +7,8 @@ import designpatterns.services.DesignPatternsServicesObject;
 
 public class CreateFilterTask extends DesignPatternsServicesObject implements DesignPatternsTask
 {
-    public AbstractFilter run()
+    public AbstractFilter run(boolean isFunctionAProcedure, Object function, String methodToRun, Object... functionParameters)
     {
-        return new Filter();
+        return new Filter(isFunctionAProcedure, function, methodToRun, functionParameters);
     }
 }

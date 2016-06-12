@@ -1,0 +1,44 @@
+package designpatternsservicesintegrationtests.pipeline;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import core.runnables.consumers.Consumer1;
+import core.runnables.functions.Function1x1;
+import core.runnables.functions.Function2x1;
+import designpatterns.DesignPatternsObject;
+import designpatterns.pipeline.AbstractFilter;
+import designpatterns.pipeline.AbstractPipeline;
+import designpatterns.services.pipeline.PipelineFilterService;
+import designpatterns.services.pipeline.PipelineService;
+import designpatterns.services.pipeline.impl.PipelineFilterServiceImpl;
+import designpatterns.services.pipeline.impl.PipelineServiceImpl;
+
+public class PipelineTest extends DesignPatternsObject
+{
+    private PipelineFilterService pipelineFilterService;
+    private PipelineService pipelineService;
+    
+    
+    @Before
+    public void setUp() throws Exception
+    {
+        this.pipelineFilterService = new PipelineFilterServiceImpl();
+        this.pipelineService = new PipelineServiceImpl();
+    }
+    
+    
+    @Test
+    public void testPipeline()
+    {
+        Consumer1<Integer> consumer = (Integer number) -> System.out.println("number = " + number);
+        AbstractFilter filter = pipelineFilterService.createFilter(true, consumer, "run", 4);
+        Consumer1<Integer> consumer2 = (Integer number) -> System.out.println("number2 = " + number);
+        AbstractFilter filter2 = pipelineFilterService.createFilter(true, consumer2, "run", 6);
+        AbstractPipeline pipeline = pipelineService.createEmptyPipeline();
+        pipelineService.addFilterToPipeline(pipeline, filter);
+        pipelineService.addFilterToPipeline(pipeline, filter2);
+        pipelineService.executeFilters(pipeline);
+        //Assert.assertEquals("Running s1...", testClass1.testThisClassIsRunning());*/
+    }
+}
