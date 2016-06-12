@@ -1,8 +1,10 @@
 package designpatternsservicesintegrationtests.pipeline;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import core.runnables.consumers.Consumer1;
+import core.runnables.functions.Function1x1;
 import designpatterns.DesignPatternsObject;
 import designpatterns.pipeline.AbstractFilter;
 import designpatterns.pipeline.AbstractPipeline;
@@ -36,6 +38,20 @@ public class PipelineTest extends DesignPatternsObject
         pipelineService.addFilterToPipeline(pipeline, filter);
         pipelineService.addFilterToPipeline(pipeline, filter2);
         pipelineService.executeFilters(pipeline);
-        //Assert.assertEquals("Running s1...", testClass1.testThisClassIsRunning());*/
+    }
+    
+    
+    @Test
+    public void testPipelineOfFunctions()
+    {
+        Function1x1<Integer, Integer> function = (Integer number) -> 2 * number;
+        AbstractFilter filter = pipelineFilterService.createFunctionalFilter(function, "run", 4);
+        Function1x1<Integer, Integer> function2 = (Integer number) -> 2 * number + 3;
+        AbstractFilter filter2 = pipelineFilterService.createFunctionalFilter(function2, "run", 6);
+        AbstractPipeline pipeline = pipelineService.createEmptyFunctionalPipeline();
+        pipelineService.addFilterToPipeline(pipeline, filter);
+        pipelineService.addFilterToPipeline(pipeline, filter2);
+        Integer result = (Integer)pipelineService.executeFilters(pipeline);
+        Assert.assertEquals("15", Integer.toString(result));
     }
 }

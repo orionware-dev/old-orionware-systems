@@ -2,6 +2,7 @@ package designpatterns.services.pipeline.impl;
 
 import designpatterns.pipeline.AbstractFilter;
 import designpatterns.pipeline.AbstractPipeline;
+import designpatterns.pipeline.pipe.FunctionalPipeline;
 import designpatterns.pipeline.pipe.ProceduralPipeline;
 import designpatterns.services.DesignPatternsServicesObject;
 import designpatterns.services.pipeline.PipelineFilterService;
@@ -13,6 +14,13 @@ public class PipelineServiceImpl extends DesignPatternsServicesObject implements
     public AbstractPipeline createEmptyProceduralPipeline()
     {
         return new ProceduralPipeline();
+    }
+    
+    
+    @Override
+    public AbstractPipeline createEmptyFunctionalPipeline()
+    {
+        return new FunctionalPipeline();
     }
 
 

@@ -9,6 +9,9 @@ public interface PipelineService extends DesignPatternsService
     public AbstractPipeline createEmptyProceduralPipeline();
     
     
+    public AbstractPipeline createEmptyFunctionalPipeline();
+    
+    
     public void addFilterToPipeline(AbstractPipeline pipeline, AbstractFilter filter);
     
     

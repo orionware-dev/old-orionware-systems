@@ -34,8 +34,15 @@ public class ExecuteFilterTask extends DesignPatternsServicesObject implements D
             
             try
             {
-                Object functionResult = method.invoke(filter.getFunction(), filter.getFunctionParameters());
-                filter.setFunctionResult(functionResult);
+                if(filter.isFunctionAProcedure())
+                {
+                    method.invoke(filter.getFunction(), filter.getFunctionParameters());
+                }
+                else
+                {
+                    Object functionResult = method.invoke(filter.getFunction(), filter.getFunctionParameters());
+                    filter.setFunctionResult(functionResult);
+                }
             }
             catch(IllegalAccessException exception)
             {

@@ -8,7 +8,13 @@ public interface PipelineFilterService extends DesignPatternsService
     public AbstractFilter createProceduralFilter();
     
     
+    public AbstractFilter createFunctionalFilter();
+    
+    
     public AbstractFilter createProceduralFilter(Object function, String methodToRun, Object... functionParameters);
+    
+    
+    public AbstractFilter createFunctionalFilter(Object function, String methodToRun, Object... functionParameters);
     
     
     public Object executeFilter(AbstractFilter filter);
