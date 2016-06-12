@@ -11,38 +11,31 @@ public class ExecuteFilterTask extends DesignPatternsServicesObject implements D
     public Object run(AbstractFilter filter)
     {
         Class<?>[] classes = null;
-        
+
         if(filter.getFunctionParameters() != null)
         {
             int numberOfFunctionParameters = filter.getFunctionParameters().length;
-            
+
             if(numberOfFunctionParameters > 0)
             {
                 classes = new Class<?>[numberOfFunctionParameters];
-                
+
                 for(int i = 0; i < numberOfFunctionParameters; i++)
                 {
                     classes[i] = Object.class;
                 }
             }
         }
-        
+
         try
         {
             Method method = filter.getFunctionClass().getDeclaredMethod(filter.getMethodToRun(), classes);
             method.setAccessible(true);
-            
+
             try
             {
-                if(filter.isFunctionAProcedure())
-                {
-                    method.invoke(filter.getFunction(), filter.getFunctionParameters());
-                }
-                else
-                {
-                    Object functionResult = method.invoke(filter.getFunction(), filter.getFunctionParameters());
-                    filter.setFunctionResult(functionResult);
-                }
+                Object functionResult = method.invoke(filter.getFunction(), filter.getFunctionParameters());
+                filter.setFunctionResult(functionResult);
             }
             catch(IllegalAccessException exception)
             {
@@ -65,7 +58,7 @@ public class ExecuteFilterTask extends DesignPatternsServicesObject implements D
         {
             exception.printStackTrace();
         }
-        
+
         return filter.getFunctionResult();
     }
 }

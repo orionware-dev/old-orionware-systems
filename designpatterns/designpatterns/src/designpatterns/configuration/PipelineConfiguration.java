@@ -7,8 +7,8 @@ import core.abstraction.OrionConfiguration;
 public class PipelineConfiguration extends OrionSimpleObject implements OrionConfiguration
 {
     private Map<Class<?>, String> allowedClassesAndMethodsMapper;
-    
-    
+
+
     public Map<Class<?>, String> getAllowedClassesAndMethodsMapper()
     {
         return this.allowedClassesAndMethodsMapper;
@@ -19,8 +19,8 @@ public class PipelineConfiguration extends OrionSimpleObject implements OrionCon
     {
         this.allowedClassesAndMethodsMapper = allowedClassesAndMethodsMapper;
     }
-    
-    
+
+
     @Override
     public int hashCode()
     {
@@ -41,13 +41,13 @@ public class PipelineConfiguration extends OrionSimpleObject implements OrionCon
         else
         {
             PipelineConfiguration otherPipelineConfiguration = (PipelineConfiguration)object;
-            
+
             if(this.getAllowedClassesAndMethodsMapper().equals(otherPipelineConfiguration.getAllowedClassesAndMethodsMapper()))
             {
                 return true;
             }
         }
-        
+
         return false;
     }
 }

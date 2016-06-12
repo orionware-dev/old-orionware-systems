@@ -4,5 +4,5 @@ import core.flow.CoreFlowObject;
 
 public abstract class CoreFlowFacadeObject extends CoreFlowObject
 {
-    
+
 }

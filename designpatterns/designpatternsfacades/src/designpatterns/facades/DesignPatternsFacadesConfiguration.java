@@ -4,5 +4,5 @@ import designpatterns.configuration.DesignPatternsConfiguration;
 
 public abstract class DesignPatternsFacadesConfiguration extends DesignPatternsConfiguration
 {
-    
+
 }

@@ -12,14 +12,13 @@ public class ApplyAnnotationToMethodTask extends AnnotationServiceObject impleme
     public static synchronized void run(Object object, OrionAnnotation registeredAnnotation)
     {
         ReflectionLoaderFacade reflectionLoaderFacade = new ReflectionLoaderFacadeImpl();
-        //instantiate annotation service
+        // instantiate annotation service
         Object someAnnotationService = reflectionLoaderFacade.loadAndInstantiateClass(registeredAnnotation.getAnnotationService());
-        
+
         try
         {
-            //call annotation service method that will process this annotation
-            Method someMethod = someAnnotationService.getClass()
-                                    .getMethod(registeredAnnotation.getAnnotationServiceMethodToCall(), Object.class);
+            // call annotation service method that will process this annotation
+            Method someMethod = someAnnotationService.getClass().getMethod(registeredAnnotation.getAnnotationServiceMethodToCall(), Object.class);
             reflectionLoaderFacade.callMethod(someMethod, someAnnotationService, object);
         }
         catch(NoSuchMethodException exception)

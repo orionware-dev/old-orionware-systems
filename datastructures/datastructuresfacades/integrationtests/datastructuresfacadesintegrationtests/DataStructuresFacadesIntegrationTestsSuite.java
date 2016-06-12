@@ -9,5 +9,5 @@ import datastructuresfacadesintegrationtests.dependencyinjection.DependencyInjec
 @SuiteClasses({DependencyInjectionTest.class})
 public class DataStructuresFacadesIntegrationTestsSuite
 {
-    
+
 }

@@ -4,5 +4,5 @@ import core.runnables.OrionExecutable;
 
 public interface OrionConsumer extends OrionExecutable
 {
-    
+
 }

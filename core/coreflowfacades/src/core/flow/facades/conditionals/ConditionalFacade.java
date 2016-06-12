@@ -7,7 +7,7 @@ import core.flow.conditional.IfStatement;
 public interface ConditionalFacade extends CoreFlowFacade
 {
     public boolean evaluateCondition(Condition condition);
-    
-    
+
+
     public boolean evaluateIfStatement(IfStatement ifStatement);
 }

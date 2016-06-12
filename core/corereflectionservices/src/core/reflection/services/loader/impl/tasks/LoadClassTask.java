@@ -15,7 +15,7 @@ public class LoadClassTask extends ReflectionObject implements ReflectionTask
         {
             exception.printStackTrace();
         }
-        
+
         return null;
     }
 }

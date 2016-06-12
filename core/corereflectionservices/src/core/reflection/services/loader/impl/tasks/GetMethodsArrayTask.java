@@ -9,7 +9,6 @@ public class GetMethodsArrayTask extends ReflectionObject implements ReflectionT
 {
     public static Method[] run(Object object)
     {
-        return Arrays.stream(object.getClass().getDeclaredMethods())
-                   .filter(method -> method != null).toArray(Method[]::new);
+        return Arrays.stream(object.getClass().getDeclaredMethods()).filter(method -> method != null).toArray(Method[]::new);
     }
 }

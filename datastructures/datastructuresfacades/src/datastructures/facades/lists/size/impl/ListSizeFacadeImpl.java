@@ -9,8 +9,8 @@ import datastructures.services.lists.size.ListSizeService;
 public class ListSizeFacadeImpl extends DataStructuresFacadesObject implements ListSizeFacade
 {
     private ListSizeService listSizeService;
-    
-    
+
+
     @Override
     public int getSize(OrionList<?> dataStructure)
     {

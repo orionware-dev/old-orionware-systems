@@ -15,8 +15,8 @@ public class ReflectionEnumerationServiceImpl extends ReflectionServiceObject im
     {
         return InstantiateEnumerationTask.run(enumerationPath);
     }
-    
-    
+
+
     @SuppressWarnings("rawtypes")
     @Override
     public Enum[] getEnumerationDefinitions(Class<Enum> enumerationClass)

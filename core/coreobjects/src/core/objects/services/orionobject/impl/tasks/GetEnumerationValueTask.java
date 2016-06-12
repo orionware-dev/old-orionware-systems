@@ -11,8 +11,7 @@ public class GetEnumerationValueTask extends OrionSimpleObject implements OrionT
     {
         try
         {
-            return (String)coreConfigurationEnumerationClass.getMethod("get", new Class<?>[]{})
-                       .invoke(Enum.valueOf(coreConfigurationEnumerationClass, enumerationName), new Object[]{});
+            return (String)coreConfigurationEnumerationClass.getMethod("get", new Class<?>[]{}).invoke(Enum.valueOf(coreConfigurationEnumerationClass, enumerationName), new Object[]{});
         }
         catch(IllegalAccessException exception)
         {
@@ -34,7 +33,7 @@ public class GetEnumerationValueTask extends OrionSimpleObject implements OrionT
         {
             exception.printStackTrace();
         }
-        
+
         return null;
     }
 }

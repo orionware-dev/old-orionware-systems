@@ -5,8 +5,8 @@ import core.flow.CoreFlowObject;
 public class IfStatement extends CoreFlowObject
 {
     private Conditions conditions;
-    
-    
+
+
     public IfStatement(Conditions conditions)
     {
         setConditions(conditions);

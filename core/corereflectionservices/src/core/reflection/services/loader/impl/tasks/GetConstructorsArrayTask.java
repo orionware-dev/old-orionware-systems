@@ -9,7 +9,6 @@ public class GetConstructorsArrayTask extends ReflectionObject implements Reflec
 {
     public static Constructor<?>[] run(Object object)
     {
-        return Arrays.stream(object.getClass().getDeclaredConstructors())
-                   .filter(constructor -> constructor != null).toArray(Constructor[]::new);
+        return Arrays.stream(object.getClass().getDeclaredConstructors()).filter(constructor -> constructor != null).toArray(Constructor[]::new);
     }
 }

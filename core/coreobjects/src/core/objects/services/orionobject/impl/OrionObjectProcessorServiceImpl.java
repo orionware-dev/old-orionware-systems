@@ -24,7 +24,7 @@ public class OrionObjectProcessorServiceImpl extends OrionSimpleObject implement
         {
             LibraryConfiguration coreLibraryConfiguration = new InitialiseCoreConfigurationTask().run();
             LibrariesConfiguration.registerLibraryConfiguration(coreLibraryConfiguration);
-            
+
             if(new IsCoreLibraryTask().run(getClass()))
             {
                 loadLibrariesProperties();
@@ -33,24 +33,23 @@ public class OrionObjectProcessorServiceImpl extends OrionSimpleObject implement
             }
         }
     }
-    
-    
+
+
     @SuppressWarnings({"rawtypes", "unchecked"})
     @Override
     public LibraryConfiguration convertConfigurationEnumerationToLibraryConfiguration(String libraryConfigurationEnumerationClassPath)
     {
         LibraryConfiguration libraryConfiguration = new LibraryConfiguration();
-        
+
         try
         {
             Class<ConfigurationEnumeration> temp = (Class<ConfigurationEnumeration>)Class.forName(libraryConfigurationEnumerationClassPath);
             Class<Enum> temp1 = (Class<Enum>)Class.forName(libraryConfigurationEnumerationClassPath);
             Enum[] enums = null;
-            
+
             try
             {
-                enums = (Enum[])temp.getMethod("values", new Class<?>[]{})
-                           .invoke(temp, new Object[]{});
+                enums = (Enum[])temp.getMethod("values", new Class<?>[]{}).invoke(temp, new Object[]{});
             }
             catch(IllegalAccessException exception)
             {
@@ -72,19 +71,18 @@ public class OrionObjectProcessorServiceImpl extends OrionSimpleObject implement
             {
                 exception.printStackTrace();
             }
-            
-            Arrays.stream(enums)
-                .forEach(enumerationDefinition -> getLibraryEnumerationValueAndSetItToLibraryConfiguration(temp, temp1, enumerationDefinition, libraryConfiguration));
+
+            Arrays.stream(enums).forEach(enumerationDefinition -> getLibraryEnumerationValueAndSetItToLibraryConfiguration(temp, temp1, enumerationDefinition, libraryConfiguration));
         }
         catch(ClassNotFoundException exception1)
         {
             exception1.printStackTrace();
         }
-        
+
         return libraryConfiguration;
     }
-    
-    
+
+
     @SuppressWarnings("rawtypes")
     private void getLibraryEnumerationValueAndSetItToLibraryConfiguration(Class<ConfigurationEnumeration> libraryConfigurationEnumerationClass, Class<Enum> libraryConfigurationAbstractEnumerationClass, Enum enumerationDefinition, LibraryConfiguration libraryConfiguration)
     {
@@ -93,15 +91,14 @@ public class OrionObjectProcessorServiceImpl extends OrionSimpleObject implement
         String enumerationValue = getEnumerationValueForLibrary(libraryConfigurationEnumerationClass, libraryConfigurationAbstractEnumerationClass, enumerationName);
         new SetEnumerationValueToLibraryConfigurationTask().run(libraryConfiguration, setterMethodToCallInLibraryConfiguration, enumerationValue);
     }
-    
-    
+
+
     @SuppressWarnings({"unchecked", "rawtypes"})
     private String getEnumerationValueForLibrary(Class<ConfigurationEnumeration> libraryConfigurationEnumerationClass, Class<Enum> libraryConfigurationAbstractEnumerationClass, String enumerationName)
     {
         try
         {
-            return (String)libraryConfigurationEnumerationClass.getMethod("get", new Class<?>[]{})
-                       .invoke(Enum.valueOf((Class<Enum>)libraryConfigurationAbstractEnumerationClass, enumerationName), new Object[]{});
+            return (String)libraryConfigurationEnumerationClass.getMethod("get", new Class<?>[]{}).invoke(Enum.valueOf((Class<Enum>)libraryConfigurationAbstractEnumerationClass, enumerationName), new Object[]{});
         }
         catch(IllegalAccessException exception)
         {
@@ -123,11 +120,11 @@ public class OrionObjectProcessorServiceImpl extends OrionSimpleObject implement
         {
             exception.printStackTrace();
         }
-        
+
         return null;
     }
-    
-    
+
+
     @Override
     public void processAllLibrariesConfiguration(Object object)
     {
@@ -135,20 +132,20 @@ public class OrionObjectProcessorServiceImpl extends OrionSimpleObject implement
         registerLibrariesAnnotations();
         processAllAnnotations(object);
     }
-    
-    
+
+
     private void loadLibrariesProperties()
     {
         new ConfigurationClasspathFacadeImpl().loadLibrariesProperties();
     }
-    
-    
+
+
     private void registerLibrariesAnnotations()
     {
         new AnnotationsRegistrationFacadeImpl().registerLibrariesAnnotations();
     }
-    
-    
+
+
     private void processAllAnnotations(Object object)
     {
         new AnnotationsProcessorFacadeImpl().processAllAnnotations(object);

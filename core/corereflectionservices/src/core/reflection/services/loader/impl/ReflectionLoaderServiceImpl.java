@@ -20,22 +20,22 @@ public class ReflectionLoaderServiceImpl extends ReflectionServiceObject impleme
     {
         return GetMethodFromClassTask.run(methodName, aClass, methodParameterTypes);
     }
-    
-    
+
+
     @Override
     public Method[] getMethodsArray(Object object)
     {
         return GetMethodsArrayTask.run(object);
     }
-    
-    
+
+
     @Override
     public Constructor<?>[] getConstructorsArray(Object object)
     {
         return GetConstructorsArrayTask.run(object);
     }
-    
-    
+
+
     @Override
     public void makeMethodAccessible(Method method)
     {
@@ -49,29 +49,29 @@ public class ReflectionLoaderServiceImpl extends ReflectionServiceObject impleme
         makeMethodAccessible(method);
         return CallMethodTask.run(method, objectMethodBelongsTo, methodArguments);
     }
-    
-    
+
+
     @Override
     public void callConstructor(Constructor<?> constructor, Object... constructorArguments)
     {
         CallConstructorTask.run(constructor, constructorArguments);
     }
-    
-    
+
+
     @Override
     public Class<?> loadClass(String className)
     {
         return LoadClassTask.run(className);
     }
-    
-    
+
+
     @Override
     public Object instantiateClass(Class<?> classToInstantiate)
     {
         return InstantiateClassTask.run(classToInstantiate);
     }
-    
-    
+
+
     @Override
     public Object loadAndInstantiateClass(String className)
     {

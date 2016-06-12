@@ -11,8 +11,8 @@ public class RegisterPropertyTask extends ConfigurationObject implements Configu
     {
         ConfigurationRegistry.registerProp(key, value);
     }
-    
-    
+
+
     public static synchronized void run(KeyValuePair<String, String> keyValuePair)
     {
         ConfigurationRegistry.registerProp(keyValuePair);

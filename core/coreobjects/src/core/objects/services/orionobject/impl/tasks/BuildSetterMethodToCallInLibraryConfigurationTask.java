@@ -9,12 +9,12 @@ public class BuildSetterMethodToCallInLibraryConfigurationTask extends OrionSimp
     {
         String setterMethodToCallInLibraryConfiguration = "set";
         String[] enumerationNameTokens = enumerationName.split("_");
-        
+
         for(String enumerationNameToken : enumerationNameTokens)
         {
             setterMethodToCallInLibraryConfiguration = new CreateSetterMethodToCallInLibraryConfigurationTask().run(enumerationNameToken, setterMethodToCallInLibraryConfiguration);
         }
-        
+
         return setterMethodToCallInLibraryConfiguration;
     }
 }

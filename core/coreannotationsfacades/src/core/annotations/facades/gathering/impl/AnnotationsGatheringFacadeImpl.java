@@ -11,21 +11,21 @@ import core.annotations.services.gathering.impl.AnnotationsGatheringServiceImpl;
 public class AnnotationsGatheringFacadeImpl extends AnnotationFacadeObject implements AnnotationsGatheringFacade
 {
     private AnnotationsGatheringService annotationsGatheringService;
-    
-    
+
+
     public AnnotationsGatheringFacadeImpl()
     {
         this.annotationsGatheringService = new AnnotationsGatheringServiceImpl();
     }
-    
-    
+
+
     @Override
     public List<Annotation> gatherAllAnnotationsFromObject(Object OrionObject)
     {
         return annotationsGatheringService.gatherAllAnnotationsFromObject(OrionObject);
     }
-    
-    
+
+
     @SuppressWarnings("rawtypes")
     @Override
     public Annotation extractAnnotationFromMethod(Method method, Class annotationClassToExtract)

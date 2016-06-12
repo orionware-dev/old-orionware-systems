@@ -9,5 +9,5 @@ import designpatternsservicesintegrationtests.pipeline.PipelineTest;
 @SuiteClasses({PipelineTest.class})
 public class DesignPatternsServicesIntegrationTestsSuite
 {
-    
+
 }

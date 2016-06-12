@@ -7,20 +7,20 @@ import core.flow.CoreFlowObject;
 public class Conditions extends CoreFlowObject
 {
     private List<Condition> conditions;
-    
-    
+
+
     public Conditions()
     {
         setConditions(new ArrayList<Condition>());
     }
-    
-    
+
+
     public Conditions(List<Condition> conditions)
     {
         setConditions(conditions);
     }
-    
-    
+
+
     public void addCondition(Condition condition)
     {
         getConditions().add(condition);

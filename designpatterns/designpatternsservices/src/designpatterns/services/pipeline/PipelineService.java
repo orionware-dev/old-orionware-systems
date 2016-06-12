@@ -6,14 +6,11 @@ import designpatterns.pipeline.AbstractPipeline;
 
 public interface PipelineService extends DesignPatternsService
 {
-    public AbstractPipeline createEmptyProceduralPipeline();
-    
-    
-    public AbstractPipeline createEmptyFunctionalPipeline();
-    
-    
+    public AbstractPipeline createEmptyPipeline();
+
+
     public void addFilterToPipeline(AbstractPipeline pipeline, AbstractFilter filter);
-    
-    
+
+
     public Object executeFilters(AbstractPipeline pipeline);
 }

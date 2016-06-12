@@ -6,8 +6,8 @@ public class OrionClass
     private String classPackage;
     private String className;
     private String classFullName;
-    
-    
+
+
     public OrionClass(Class<?> aClass)
     {
         setThisClass(aClass);

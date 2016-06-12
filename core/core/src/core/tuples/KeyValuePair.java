@@ -4,14 +4,14 @@ public class KeyValuePair<T1, T2> implements Pair<T1, T2>
 {
     private Object first;
     private Object second;
-    
-    
+
+
     public KeyValuePair()
     {
-        
+
     }
-    
-    
+
+
     public KeyValuePair(Object first, Object second)
     {
         setFirst(first);

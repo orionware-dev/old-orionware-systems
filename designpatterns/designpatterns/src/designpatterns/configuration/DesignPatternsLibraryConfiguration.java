@@ -18,8 +18,8 @@ public class DesignPatternsLibraryConfiguration extends OrionSimpleObject implem
     {
         this.pipelineConfiguration = pipelineConfiguration;
     }
-    
-    
+
+
     @Override
     public int hashCode()
     {
@@ -40,13 +40,13 @@ public class DesignPatternsLibraryConfiguration extends OrionSimpleObject implem
         else
         {
             DesignPatternsLibraryConfiguration otherDesignPatternsLibraryConfiguration = (DesignPatternsLibraryConfiguration)object;
-            
+
             if(this.getPipelineConfiguration().equals(otherDesignPatternsLibraryConfiguration.getPipelineConfiguration()))
             {
                 return true;
             }
         }
-        
+
         return false;
     }
 }

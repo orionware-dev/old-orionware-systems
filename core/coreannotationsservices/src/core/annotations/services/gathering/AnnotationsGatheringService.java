@@ -8,7 +8,7 @@ import core.annotations.AnnotationService;
 public interface AnnotationsGatheringService extends AnnotationService
 {
     public List<Annotation> gatherAllAnnotationsFromObject(Object OrionObject);
-    
-    
+
+
     public Annotation extractAnnotationFromMethod(Method method, Class<?> annotationClassToExtract);
 }

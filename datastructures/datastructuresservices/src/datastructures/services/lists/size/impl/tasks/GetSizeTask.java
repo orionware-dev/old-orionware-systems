@@ -12,11 +12,11 @@ public class GetSizeTask extends DataStructuresServicesObject implements DataStr
         {
             return getListSize(dataStructure);
         }
-        
+
         return 0;
     }
-    
-    
+
+
     private int getListSize(OrionList<?> dataStructure)
     {
         return dataStructure.size();

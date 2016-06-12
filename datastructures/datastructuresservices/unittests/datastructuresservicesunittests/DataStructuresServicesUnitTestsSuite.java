@@ -9,5 +9,5 @@ import datastructuresservicesunittests.lists.size.DataStructureSizeTest;
 @SuiteClasses({DataStructureSizeTest.class})
 public class DataStructuresServicesUnitTestsSuite
 {
-    
+
 }

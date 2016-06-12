@@ -14,8 +14,8 @@ public class LibraryConfiguration extends OrionSimpleObject implements OrionConf
     private String annotationsDefinitionFileName;
     private String integrationTestsClassPath;
     private String unitTestsClassPath;
-    
-    
+
+
     public String getLibraryName()
     {
         return this.libraryName;
@@ -38,8 +38,8 @@ public class LibraryConfiguration extends OrionSimpleObject implements OrionConf
     {
         this.libraryClassPath = libraryClassPath;
     }
-    
-    
+
+
     public String getLibraryConfigurationDir()
     {
         return this.libraryConfigurationDir;
@@ -122,8 +122,8 @@ public class LibraryConfiguration extends OrionSimpleObject implements OrionConf
     {
         this.unitTestsClassPath = unitTestsClassPath;
     }
-    
-    
+
+
     @Override
     public int hashCode()
     {
@@ -152,21 +152,13 @@ public class LibraryConfiguration extends OrionSimpleObject implements OrionConf
         else
         {
             LibraryConfiguration otherLibraryConfiguration = (LibraryConfiguration)object;
-            
-            if(this.getLibraryName().equals(otherLibraryConfiguration.getLibraryName())
-                   && this.getLibraryClassPath().equals(otherLibraryConfiguration.getLibraryClassPath())
-                   && this.getLibraryConfigurationDir().equals(otherLibraryConfiguration.getLibraryConfigurationDir())
-                   && this.getConfigurationFilePath().equals(otherLibraryConfiguration.getConfigurationFilePath())
-                   && this.getConfigurationFileName().equals(otherLibraryConfiguration.getConfigurationFileName())
-                   && this.getAnnotationsDefinitionFilePath().equals(otherLibraryConfiguration.getAnnotationsDefinitionFilePath())
-                   && this.getAnnotationsDefinitionFileName().equals(otherLibraryConfiguration.getAnnotationsDefinitionFileName())
-                   && this.getIntegrationTestsClassPath().equals(otherLibraryConfiguration.getIntegrationTestsClassPath())
-                   && this.getUnitTestsClassPath().equals(otherLibraryConfiguration.getUnitTestsClassPath()))
+
+            if(this.getLibraryName().equals(otherLibraryConfiguration.getLibraryName()) && this.getLibraryClassPath().equals(otherLibraryConfiguration.getLibraryClassPath()) && this.getLibraryConfigurationDir().equals(otherLibraryConfiguration.getLibraryConfigurationDir()) && this.getConfigurationFilePath().equals(otherLibraryConfiguration.getConfigurationFilePath()) && this.getConfigurationFileName().equals(otherLibraryConfiguration.getConfigurationFileName()) && this.getAnnotationsDefinitionFilePath().equals(otherLibraryConfiguration.getAnnotationsDefinitionFilePath()) && this.getAnnotationsDefinitionFileName().equals(otherLibraryConfiguration.getAnnotationsDefinitionFileName()) && this.getIntegrationTestsClassPath().equals(otherLibraryConfiguration.getIntegrationTestsClassPath()) && this.getUnitTestsClassPath().equals(otherLibraryConfiguration.getUnitTestsClassPath()))
             {
                 return true;
             }
         }
-        
+
         return false;
     }
 }

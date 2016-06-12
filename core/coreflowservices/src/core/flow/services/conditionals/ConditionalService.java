@@ -7,7 +7,7 @@ import core.flow.conditional.IfStatement;
 public interface ConditionalService extends CoreFlowService
 {
     public boolean evaluateCondition(Condition condition);
-    
-    
+
+
     public boolean evaluateIfStatement(IfStatement ifStatement);
 }

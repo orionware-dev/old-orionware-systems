@@ -12,8 +12,7 @@ public class InitialiseCoreConfigurationTask extends OrionSimpleObject implement
     {
         GetEnumerationValueAndSetItToLibraryConfigurationTask getEnumerationValueAndSetItToLibraryConfigurationTask = new GetEnumerationValueAndSetItToLibraryConfigurationTask();
         LibraryConfiguration libraryConfiguration = new LibraryConfiguration();
-        Arrays.stream(CoreConfigurationEnumeration.values())
-            .forEach(enumerationDefinition -> getEnumerationValueAndSetItToLibraryConfigurationTask.run(CoreConfigurationEnumeration.class, enumerationDefinition, libraryConfiguration));
+        Arrays.stream(CoreConfigurationEnumeration.values()).forEach(enumerationDefinition -> getEnumerationValueAndSetItToLibraryConfigurationTask.run(CoreConfigurationEnumeration.class, enumerationDefinition, libraryConfiguration));
         return libraryConfiguration;
     }
 }

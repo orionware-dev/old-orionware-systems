@@ -15,7 +15,7 @@ public class ConditionalServiceImpl extends CoreFlowServiceObject implements Con
         return EvaluateConditionTask.run(condition);
     }
 
-    
+
     @Override
     public boolean evaluateIfStatement(IfStatement ifStatement)
     {

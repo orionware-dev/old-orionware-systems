@@ -12,12 +12,12 @@ public class IsCoreLibraryTask
         sb.append("core");
         sb.append(File.separator);
         sb.append("core");
-        
+
         if(classpathRoot.getAbsolutePath().indexOf(sb.toString()) != -1)
         {
             return true;
         }
-        
+
         return false;
     }
 }

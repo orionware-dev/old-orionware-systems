@@ -11,8 +11,8 @@ public class SetConfigurationAsRegisteredForLibraryTask extends ConfigurationObj
     {
         LibrariesConfigurationMapper.LIBRARIES_AND_IF_CONFIGURATION_HAS_BEEN_REGISTERED_MAPPER.put(libraryClassPath, true);
     }
-    
-    
+
+
     public static synchronized void run(LibraryConfiguration libraryConfiguration)
     {
         run(libraryConfiguration.getLibraryClassPath());

@@ -23,8 +23,8 @@ public class FileSystemStreamsServiceImpl extends FileSystemServiceObject implem
     {
         return new GetFileStreamTask().run(filePath);
     }
-    
-    
+
+
     @Override
     public String convertFileToString(String filePath)
     {
@@ -37,36 +37,36 @@ public class FileSystemStreamsServiceImpl extends FileSystemServiceObject implem
     {
         return new SaveStringToFileTask().run(this, filePath, fileString);
     }
-    
-    
+
+
     @Override
     public void emptyDirectory(File directory)
     {
         EmptyDirectoryTask.run(directory);
     }
-    
-    
+
+
     @Override
     public void emptyDirectory(String directory)
     {
         EmptyDirectoryTask.run(directory);
     }
-    
-    
+
+
     @Override
     public void closeResource(Closeable closeable)
     {
         CloseResourceTask.run(closeable);
     }
-    
-    
+
+
     @Override
     public Reader getReaderForFile(String filePath)
     {
         return GetReaderFromFileTask.run(filePath);
     }
-    
-    
+
+
     @Override
     public Writer getWritterForFile(String filePath)
     {

@@ -17,7 +17,7 @@ public class GetConfigurationEntriesTask extends ConfigurationObject implements 
         OrionProperties allOrionProperties = ConfigurationRegistry.getProps();
         List<ConfigurationEntry<Object, Object>> configurationEntriesList = new ArrayList<ConfigurationEntry<Object, Object>>(allOrionProperties.size());
         ConfigurationEntries<Object, Object> configurationEntries = new ConfigurationEntries<Object, Object>(configurationEntriesList);
-        
+
         if(allOrionProperties.isNotEmpty())
         {
             for(Entry<Object, Object> configurationEntry : allOrionProperties.entrySet())
@@ -28,7 +28,7 @@ public class GetConfigurationEntriesTask extends ConfigurationObject implements 
                 configurationEntriesList.add(newConfigurationEntry);
             }
         }
-        
+
         return configurationEntries;
     }
 }

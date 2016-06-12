@@ -12,12 +12,12 @@ public class RegisterLibraryAnnotationsTask extends AnnotationServiceObject impl
     private String currentAnnotationClass;
     private String currentAnnotationServiceClass;
     private String currentAnnotationServiceMethodToCall;
-    
-    
+
+
     public void run(LibraryConfiguration libraryConfiguration)
     {
         annotationsDeclarations = LoadLibraryAnnotationsDefinitionsTask.run(libraryConfiguration);
-        
+
         if(annotationsDeclarations.isNotEmpty())
         {
             int annotationCounter = 1;
@@ -26,7 +26,7 @@ public class RegisterLibraryAnnotationsTask extends AnnotationServiceObject impl
             sb.append(".annotation.");
             sb.append(annotationCounter);
             String annotationDeclaration = sb.toString();
-            
+
             while(currentAnnotationIsDeclared(annotationDeclaration))
             {
                 resolveCurrentAnnotationClass(libraryConfiguration.getLibraryName(), annotationCounter);
@@ -42,14 +42,14 @@ public class RegisterLibraryAnnotationsTask extends AnnotationServiceObject impl
             }
         }
     }
-    
-    
+
+
     private boolean currentAnnotationIsDeclared(String annotationDeclaration)
     {
         return annotationsDeclarations.doesPropExist(annotationDeclaration);
     }
-    
-    
+
+
     private void resolveCurrentAnnotationClass(String libraryName, int annotationCounter)
     {
         StringBuilder sb1 = new StringBuilder();
@@ -58,8 +58,8 @@ public class RegisterLibraryAnnotationsTask extends AnnotationServiceObject impl
         sb1.append(annotationCounter);
         currentAnnotationClass = annotationsDeclarations.getProp(sb1.toString());
     }
-    
-    
+
+
     private void resolveCurrentAnnotationServiceClass(String libraryName, int annotationCounter)
     {
         StringBuilder sb2 = new StringBuilder();
@@ -68,8 +68,8 @@ public class RegisterLibraryAnnotationsTask extends AnnotationServiceObject impl
         sb2.append(annotationCounter);
         currentAnnotationServiceClass = annotationsDeclarations.getProp(sb2.toString());
     }
-    
-    
+
+
     private void resolveCurrentAnnotationServiceMethodToCall(String libraryName, int annotationCounter)
     {
         StringBuilder sb3 = new StringBuilder();
@@ -78,8 +78,8 @@ public class RegisterLibraryAnnotationsTask extends AnnotationServiceObject impl
         sb3.append(annotationCounter);
         currentAnnotationServiceMethodToCall = annotationsDeclarations.getProp(sb3.toString());
     }
-    
-    
+
+
     private void registerLibraryAnnotation()
     {
         OrionAnnotation OrionAnnotationToRegister = new OrionAnnotation(currentAnnotationClass, currentAnnotationServiceClass, currentAnnotationServiceMethodToCall);

@@ -14,16 +14,16 @@ public class IsCoreLibraryTask extends ConfigurationObject implements Configurat
         sb.append("core");
         sb.append(File.separator);
         sb.append("core");
-        
+
         if(classpathRoot.getAbsolutePath().indexOf(sb.toString()) != -1)
         {
             return true;
         }
-        
+
         return false;
     }
-    
-    
+
+
     public static boolean run(Object objectBeingRun)
     {
         return run(objectBeingRun.getClass());

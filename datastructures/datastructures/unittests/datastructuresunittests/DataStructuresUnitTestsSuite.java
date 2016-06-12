@@ -9,5 +9,5 @@ import datastructuresunittests.lists.OrionListTest;
 @SuiteClasses({OrionListTest.class})
 public class DataStructuresUnitTestsSuite
 {
-    
+
 }

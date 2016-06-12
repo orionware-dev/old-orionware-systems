@@ -13,8 +13,8 @@ public class RegisterLibrariesAnnotationsTask extends AnnotationServiceObject im
         RegisterLibraryAnnotationsTask registerLibraryAnnotationsTask = new RegisterLibraryAnnotationsTask();
         librariesConfigurationStream.forEach(libraryConfiguration -> registerLibraryAnnotationsTask.run(libraryConfiguration));
     }
-    
-    
+
+
     public static synchronized void run(Collection<LibraryConfiguration> librariesConfigurationStream)
     {
         run(librariesConfigurationStream.stream());

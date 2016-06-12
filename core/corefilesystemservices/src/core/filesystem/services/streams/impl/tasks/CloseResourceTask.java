@@ -13,11 +13,11 @@ public class CloseResourceTask extends FileSystemObject implements FileSystemTas
         {
             return closeResource(closeable);
         }
-        
+
         return false;
     }
-    
-    
+
+
     private static boolean closeResource(Closeable closeable)
     {
         try
@@ -29,7 +29,7 @@ public class CloseResourceTask extends FileSystemObject implements FileSystemTas
         {
             exception.printStackTrace();
         }
-        
+
         return false;
     }
 }

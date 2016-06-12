@@ -18,11 +18,11 @@ public class EmptyDirectoryTask extends FileSystemObject implements FileSystemTa
         {
             exception.printStackTrace();
         }
-        
+
         return false;
     }
-    
-    
+
+
     public static boolean run(String directory)
     {
         return run(new File(directory));

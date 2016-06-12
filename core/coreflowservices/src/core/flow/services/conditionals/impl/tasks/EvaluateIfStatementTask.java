@@ -10,11 +10,11 @@ public class EvaluateIfStatementTask extends CoreFlowObject implements CoreFlowT
     public static boolean run(IfStatement ifStatement)
     {
         boolean conditionsEvaluation = false;
-        
+
         if(ifStatement.getConditions() != null && ifStatement.getConditions().getConditions() != null && !ifStatement.getConditions().getConditions().isEmpty())
         {
             int index = 0;
-            
+
             for(Condition condition : ifStatement.getConditions().getConditions())
             {
                 if(index == 0)
@@ -25,11 +25,11 @@ public class EvaluateIfStatementTask extends CoreFlowObject implements CoreFlowT
                 {
                     conditionsEvaluation = conditionsEvaluation && EvaluateConditionTask.run(condition);
                 }
-                
+
                 ++index;
             }
         }
-        
+
         return conditionsEvaluation;
     }
 }

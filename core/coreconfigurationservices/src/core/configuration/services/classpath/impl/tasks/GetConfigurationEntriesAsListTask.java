@@ -15,7 +15,7 @@ public class GetConfigurationEntriesAsListTask extends ConfigurationObject imple
     {
         OrionProperties allOrionProperties = ConfigurationRegistry.getProps();
         List<ConfigurationEntry<Object, Object>> configurationEntriesList = new ArrayList<ConfigurationEntry<Object, Object>>(allOrionProperties.size());
-        
+
         if(allOrionProperties.isNotEmpty())
         {
             for(Entry<Object, Object> configurationEntry : allOrionProperties.entrySet())
@@ -26,7 +26,7 @@ public class GetConfigurationEntriesAsListTask extends ConfigurationObject imple
                 configurationEntriesList.add(newConfigurationEntry);
             }
         }
-        
+
         return configurationEntriesList;
     }
 }

@@ -12,8 +12,8 @@ public class ApplyAnnotationsToMethodTask extends AnnotationServiceObject implem
     {
         annotationsStream.forEach(annotation -> ApplyAnnotationToMethodTask.run(OrionObject, (OrionAnnotation)annotation));
     }
-    
-    
+
+
     public static synchronized void run(Collection<OrionAnnotation> annotationsStream, Object OrionObject)
     {
         run(annotationsStream.stream(), OrionObject);

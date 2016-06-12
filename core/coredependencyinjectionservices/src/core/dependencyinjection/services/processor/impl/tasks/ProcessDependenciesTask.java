@@ -12,7 +12,6 @@ public class ProcessDependenciesTask extends DependencyInjectionObject implement
     {
         ProcessMethodForInjectionTask processMethodForInjectionTask = new ProcessMethodForInjectionTask();
         ReflectionLoaderFacade reflectionLoaderFacade = new ReflectionLoaderFacadeImpl();
-        Arrays.stream(reflectionLoaderFacade.getMethodsArray(object))
-            .forEach(method -> processMethodForInjectionTask.run(object, method));
+        Arrays.stream(reflectionLoaderFacade.getMethodsArray(object)).forEach(method -> processMethodForInjectionTask.run(object, method));
     }
 }

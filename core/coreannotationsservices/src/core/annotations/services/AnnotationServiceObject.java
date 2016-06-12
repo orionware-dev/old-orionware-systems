@@ -4,5 +4,5 @@ import core.annotations.AnnotationObject;
 
 public abstract class AnnotationServiceObject extends AnnotationObject
 {
-    
+
 }

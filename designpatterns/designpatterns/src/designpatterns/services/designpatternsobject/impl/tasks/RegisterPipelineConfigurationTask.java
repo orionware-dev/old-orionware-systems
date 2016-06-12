@@ -20,11 +20,11 @@ public class RegisterPipelineConfigurationTask extends OrionSimpleObject impleme
         pipelineProperties.loadProperties(pipelineConfigurationInput);
         Map<Class<?>, String> allowedClassesAndMethods = new HashMap<Class<?>, String>();
         int index = 1;
-        
+
         while(pipelineProperties.get("design.patterns.pipeline.filter.allowed.class." + index) != null)
         {
             Class<?> allowedClass = null;
-            
+
             try
             {
                 allowedClass = Class.forName((String)pipelineProperties.get("design.patterns.pipeline.filter.allowed.class." + index));
@@ -33,12 +33,12 @@ public class RegisterPipelineConfigurationTask extends OrionSimpleObject impleme
             {
                 exception.printStackTrace();
             }
-            
+
             String allowedClassMethod = (String)pipelineProperties.get("design.patterns.pipeline.filter.method.name.for.allowed.class." + index);
             allowedClassesAndMethods.put(allowedClass, allowedClassMethod);
             ++index;
         }
-        
+
         OrionProperties allowedClassesAndMethodsProperties = new OrionProperties();
         allowedClassesAndMethodsProperties.putAll(allowedClassesAndMethods);
         ConfigurationRegistry.loadProperties(allowedClassesAndMethodsProperties);

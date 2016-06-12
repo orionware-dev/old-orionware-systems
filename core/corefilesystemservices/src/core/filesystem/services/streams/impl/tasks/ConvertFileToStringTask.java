@@ -12,7 +12,7 @@ public class ConvertFileToStringTask extends FileSystemObject implements FileSys
     {
         String currentLine = null;
         StringBuilder fileStringBuilder = new StringBuilder();
-        
+
         try
         {
             while((currentLine = input.readLine()) != null)
@@ -33,7 +33,7 @@ public class ConvertFileToStringTask extends FileSystemObject implements FileSys
         {
             CloseResourceTask.run(input);
         }
-        
+
         return fileStringBuilder.substring(0, fileStringBuilder.length() - 2).toString();
     }
 }

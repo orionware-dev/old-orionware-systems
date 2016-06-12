@@ -8,14 +8,14 @@ import datastructures.services.lists.size.impl.tasks.GetSizeTask;
 public class ListSizeServiceImpl extends DataStructuresObject implements ListSizeService
 {
     private GetSizeTask getSizeTask;
-    
-    
+
+
     public ListSizeServiceImpl()
     {
         this.getSizeTask = new GetSizeTask();
     }
-    
-    
+
+
     @Override
     public int getSize(OrionList<?> dataStructure)
     {

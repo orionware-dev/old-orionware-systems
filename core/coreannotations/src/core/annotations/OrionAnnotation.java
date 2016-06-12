@@ -31,8 +31,8 @@ public class OrionAnnotation extends AnnotationObject
     {
         return this.annotationServiceMethodToCall;
     }
-    
-    
+
+
     @Override
     public int hashCode()
     {
@@ -55,15 +55,13 @@ public class OrionAnnotation extends AnnotationObject
         else
         {
             OrionAnnotation otherOrionAnnotation = (OrionAnnotation)object;
-            
-            if(this.getAnnotationClass().equals(otherOrionAnnotation.getAnnotationClass())
-                   && this.getAnnotationService().equals(otherOrionAnnotation.getAnnotationService())
-                   && this.getAnnotationServiceMethodToCall().equals(otherOrionAnnotation.getAnnotationServiceMethodToCall()))
+
+            if(this.getAnnotationClass().equals(otherOrionAnnotation.getAnnotationClass()) && this.getAnnotationService().equals(otherOrionAnnotation.getAnnotationService()) && this.getAnnotationServiceMethodToCall().equals(otherOrionAnnotation.getAnnotationServiceMethodToCall()))
             {
                 return true;
             }
         }
-        
+
         return false;
     }
 }

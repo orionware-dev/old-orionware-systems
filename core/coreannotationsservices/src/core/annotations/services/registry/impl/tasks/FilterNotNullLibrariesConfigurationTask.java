@@ -10,7 +10,6 @@ public class FilterNotNullLibrariesConfigurationTask extends AnnotationServiceOb
 {
     public static Stream<LibraryConfiguration> run(Collection<LibraryConfiguration> librariesConfiguration)
     {
-        return librariesConfiguration.stream()
-                    .filter(libraryConfiguration -> libraryConfiguration.getAnnotationsDefinitionFilePath() != null);
+        return librariesConfiguration.stream().filter(libraryConfiguration -> libraryConfiguration.getAnnotationsDefinitionFilePath() != null);
     }
 }

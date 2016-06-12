@@ -19,7 +19,7 @@ public class GetReaderFromFileTask extends FileSystemObject implements FileSyste
         {
             exception.printStackTrace();
         }
-        
+
         return null;
     }
 }

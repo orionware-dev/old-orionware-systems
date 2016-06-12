@@ -10,21 +10,21 @@ import core.flow.services.conditionals.impl.ConditionalServiceImpl;
 public class ConditionalFacadeImpl extends CoreFlowFacadeObject implements ConditionalFacade
 {
     private ConditionalService conditionalService;
-    
-    
+
+
     public ConditionalFacadeImpl()
     {
         this.conditionalService = new ConditionalServiceImpl();
     }
-    
-    
+
+
     @Override
     public boolean evaluateCondition(Condition condition)
     {
         return conditionalService.evaluateCondition(condition);
     }
 
-    
+
     @Override
     public boolean evaluateIfStatement(IfStatement ifStatement)
     {

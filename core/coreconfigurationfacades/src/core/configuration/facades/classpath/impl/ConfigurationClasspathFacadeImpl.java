@@ -11,28 +11,28 @@ import core.configuration.services.classpath.impl.ConfigurationClasspathServiceI
 public class ConfigurationClasspathFacadeImpl extends ConfigurationFacadeObject implements ConfigurationClasspathFacade
 {
     private ConfigurationClasspathService configurationClasspathService;
-    
-    
+
+
     public ConfigurationClasspathFacadeImpl()
     {
         this.configurationClasspathService = new ConfigurationClasspathServiceImpl();
     }
-    
-    
+
+
     @Override
     public boolean isCoreLibrary(Class<?> classBeingRun)
     {
         return configurationClasspathService.isCoreLibrary(classBeingRun);
     }
-    
-    
+
+
     @Override
     public boolean isCoreLibrary(Object objectBeingRun)
     {
         return configurationClasspathService.isCoreLibrary(objectBeingRun);
     }
 
-    
+
     @Override
     public void loadLibrariesProperties()
     {
@@ -46,8 +46,8 @@ public class ConfigurationClasspathFacadeImpl extends ConfigurationFacadeObject 
     {
         return configurationClasspathService.getConfigurationEntries();
     }
-    
-    
+
+
     @Override
     public List<ConfigurationEntry<Object, Object>> getConfigurationEntriesAsList()
     {

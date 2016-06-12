@@ -12,8 +12,8 @@ import core.annotations.services.filtering.impl.AnnotationsFilteringServiceImpl;
 public class AnnotationsFilteringFacadeImpl extends AnnotationFacadeObject implements AnnotationsFilteringFacade
 {
     private AnnotationsFilteringService annotationsFilteringService;
-    
-    
+
+
     public AnnotationsFilteringFacadeImpl()
     {
         this.annotationsFilteringService = new AnnotationsFilteringServiceImpl();

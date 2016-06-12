@@ -13,11 +13,11 @@ public class DesignPatternsObjectProcessorServiceImpl extends OrionSimpleObject 
     public boolean registerDesignPatternsConfiguration()
     {
         boolean hasPipelineConfigurationBeenRegistered = registerPipelineConfiguration();
-        
+
         return hasPipelineConfigurationBeenRegistered;
     }
-    
-    
+
+
     @Override
     public boolean registerPipelineConfiguration()
     {

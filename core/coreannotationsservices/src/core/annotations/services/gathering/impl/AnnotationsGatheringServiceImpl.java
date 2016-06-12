@@ -15,8 +15,8 @@ public class AnnotationsGatheringServiceImpl extends AnnotationServiceObject imp
     {
         return new GatherAllAnnotationsFromObjectTask().run(OrionObject);
     }
-    
-    
+
+
     @SuppressWarnings("rawtypes")
     @Override
     public Annotation extractAnnotationFromMethod(Method method, Class annotationClassToExtract)

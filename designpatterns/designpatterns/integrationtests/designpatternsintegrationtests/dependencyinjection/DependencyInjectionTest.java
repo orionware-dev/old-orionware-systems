@@ -10,10 +10,10 @@ public class DependencyInjectionTest extends DesignPatternsObject
     @Before
     public void setUp() throws Exception
     {
-        
+
     }
-    
-    
+
+
     @Test
     public void testDependencyInjection()
     {

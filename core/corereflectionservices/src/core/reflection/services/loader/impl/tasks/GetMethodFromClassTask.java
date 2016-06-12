@@ -20,7 +20,7 @@ public class GetMethodFromClassTask extends ReflectionObject implements Reflecti
         {
             exception.printStackTrace();
         }
-        
+
         return null;
     }
 }

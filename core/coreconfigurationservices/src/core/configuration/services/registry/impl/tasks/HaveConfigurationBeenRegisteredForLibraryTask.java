@@ -18,14 +18,14 @@ public class HaveConfigurationBeenRegisteredForLibraryTask extends Configuration
             return false;
         }
     }
-    
-    
+
+
     public static synchronized boolean run(LibraryConfiguration libraryConfiguration)
     {
         return run(libraryConfiguration.getLibraryClassPath());
     }
-    
-    
+
+
     private static boolean libraryPropertiesHaveBeenRegistered(String libraryClassPath)
     {
         return LibrariesConfigurationMapper.LIBRARIES_AND_IF_CONFIGURATION_HAS_BEEN_REGISTERED_MAPPER.get(libraryClassPath) != null;

@@ -4,5 +4,5 @@ import core.services.OrionFacade;
 
 public interface ConfigurationFacade extends OrionFacade
 {
-    
+
 }

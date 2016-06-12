@@ -8,8 +8,7 @@ public class DesignPatternsConfiguration implements OrionConfiguration
 {
     public static boolean haveDesignPatternsConfigurationNotBeenRegistered;
     private static Set<DesignPatternsLibraryConfiguration> designPatternsConfigurationSet;
-    
-    
+
     static
     {
         haveDesignPatternsConfigurationNotBeenRegistered = true;
@@ -21,14 +20,14 @@ public class DesignPatternsConfiguration implements OrionConfiguration
     {
         return designPatternsConfigurationSet;
     }
-    
-    
+
+
     public static synchronized void registerDesignPatternsConfiguration(DesignPatternsLibraryConfiguration designPatternsLibraryConfiguration)
     {
         if(haveDesignPatternsConfigurationNotBeenRegistered)
         {
             getDesignPatternsConfigurationSet().add(designPatternsLibraryConfiguration);
-            
+
             if(designPatternsConfigurationSet.contains(designPatternsLibraryConfiguration))
             {
                 haveDesignPatternsConfigurationNotBeenRegistered = false;

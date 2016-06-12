@@ -11,9 +11,7 @@ public class SetEnumerationValueToLibraryConfigurationTask extends OrionSimpleOb
     {
         try
         {
-            libraryConfiguration.getClass()
-                .getMethod(setterMethodToCallInLibraryConfiguration, String.class)
-                .invoke(libraryConfiguration, enumerationValue);
+            libraryConfiguration.getClass().getMethod(setterMethodToCallInLibraryConfiguration, String.class).invoke(libraryConfiguration, enumerationValue);
         }
         catch(IllegalAccessException exception)
         {

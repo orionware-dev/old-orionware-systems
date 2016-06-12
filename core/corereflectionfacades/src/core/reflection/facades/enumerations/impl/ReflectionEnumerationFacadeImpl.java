@@ -8,14 +8,14 @@ import core.reflection.services.enumerations.impl.ReflectionEnumerationServiceIm
 public class ReflectionEnumerationFacadeImpl extends ReflectionFacadeObject implements ReflectionEnumerationFacade
 {
     private ReflectionEnumerationService reflectionEnumerationService;
-    
-    
+
+
     public ReflectionEnumerationFacadeImpl()
     {
         this.reflectionEnumerationService = new ReflectionEnumerationServiceImpl();
     }
-    
-    
+
+
     @SuppressWarnings({"rawtypes"})
     @Override
     public Class<Enum> instantiateEnumeration(String enumerationPath)

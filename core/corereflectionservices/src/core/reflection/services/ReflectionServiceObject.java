@@ -4,5 +4,5 @@ import core.reflection.ReflectionObject;
 
 public abstract class ReflectionServiceObject extends ReflectionObject
 {
-    
+
 }

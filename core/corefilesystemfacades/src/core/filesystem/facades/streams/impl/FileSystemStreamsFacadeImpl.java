@@ -12,8 +12,8 @@ import core.filesystem.services.streams.impl.FileSystemStreamsServiceImpl;
 public class FileSystemStreamsFacadeImpl extends FileSystemFacadeObject implements FileSystemStreamsFacade
 {
     private FileSystemStreamsService fileSystemStreamsService;
-    
-    
+
+
     public FileSystemStreamsFacadeImpl()
     {
         this.fileSystemStreamsService = new FileSystemStreamsServiceImpl();

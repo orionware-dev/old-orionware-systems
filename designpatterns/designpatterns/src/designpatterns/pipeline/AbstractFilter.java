@@ -4,33 +4,30 @@ import designpatterns.DesignPatternsObject;
 
 public abstract class AbstractFilter extends DesignPatternsObject
 {
-    private boolean isFunctionAProcedure;
     private Object function;
     private Class<?> functionClass;
     private String methodToRun;
     private Object[] functionParameters;
     private Object functionResult;
-    
-    
+
+
     public AbstractFilter()
     {
-        
+
     }
-    
-    
-    public AbstractFilter(boolean isFunctionAProcedure, Object functionToExecute, String methodToRun, Object... functionParameters)
+
+
+    public AbstractFilter(Object functionToExecute, String methodToRun, Object... functionParameters)
     {
-        setFunctionAProcedure(isFunctionAProcedure);
         setMethodToRun(methodToRun);
         setFunction(functionToExecute);
         setFunctionClass(functionToExecute.getClass());
         setFunctionParameters(functionParameters);
     }
-    
-    
-    public void addFunction(boolean isFunctionAProcedure, Object functionToExecute, String methodToRun, Object... functionParameters)
+
+
+    public void addFunction(Object functionToExecute, String methodToRun, Object... functionParameters)
     {
-        setFunctionAProcedure(isFunctionAProcedure);
         setMethodToRun(methodToRun);
         setFunction(functionToExecute);
         setFunctionClass(functionToExecute.getClass());
@@ -83,18 +80,6 @@ public abstract class AbstractFilter extends DesignPatternsObject
     public void setFunctionClass(Class<?> functionClass)
     {
         this.functionClass = functionClass;
-    }
-
-
-    public boolean isFunctionAProcedure()
-    {
-        return this.isFunctionAProcedure;
-    }
-
-
-    public void setFunctionAProcedure(boolean isFunctionAProcedure)
-    {
-        this.isFunctionAProcedure = isFunctionAProcedure;
     }
 
 

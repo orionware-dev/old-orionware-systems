@@ -7,14 +7,14 @@ import core.OrionSimpleObject;
 public class Cache extends OrionSimpleObject
 {
     private ConcurrentMap<Object, Object> cache;
-    
-    
+
+
     public Cache()
     {
         this.cache = new ConcurrentHashMap<Object, Object>();
     }
-    
-    
+
+
     public void addEntry(Object key, Object value)
     {
         getCache().put(key, value);

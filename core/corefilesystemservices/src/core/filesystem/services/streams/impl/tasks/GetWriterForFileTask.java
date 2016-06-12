@@ -24,7 +24,7 @@ public class GetWriterForFileTask extends FileSystemObject implements FileSystem
         {
             exception.printStackTrace();
         }
-        
+
         return null;
     }
 }

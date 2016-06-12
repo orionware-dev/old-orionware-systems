@@ -4,5 +4,5 @@ import core.configuration.ConfigurationObject;
 
 public abstract class ConfigurationFacadeObject extends ConfigurationObject
 {
-    
+
 }

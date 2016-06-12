@@ -6,23 +6,19 @@ import designpatterns.DesignPatternsObject;
 
 public abstract class AbstractPipeline extends DesignPatternsObject
 {
-    private boolean isAProceduralPipeline;
     private OrionList<AbstractFilter> filtersList;
-    //private ListSizeFacade dataStructureSizeFacade;
-    
-    
+    // private ListSizeFacade dataStructureSizeFacade;
+
+
     public AbstractPipeline()
     {
-        setAProceduralPipeline(true);
         setFiltersList(new OrionArrayList<AbstractFilter>());
-        //dataStructureSizeFacade = new ListSizeFacadeImpl();
+        // dataStructureSizeFacade = new ListSizeFacadeImpl();
     }
-    
-    
-    public AbstractPipeline(boolean isAProceduralPipeline, OrionList<AbstractFilter> filtersList)
+
+
+    public AbstractPipeline(OrionList<AbstractFilter> filtersList)
     {
-        setAProceduralPipeline(isAProceduralPipeline);
-        
         if(filtersList != null)
         {
             setFiltersList(filtersList);
@@ -31,22 +27,22 @@ public abstract class AbstractPipeline extends DesignPatternsObject
         {
             setFiltersList(new OrionArrayList<AbstractFilter>());
         }
-        //dataStructureSizeFacade = new ListSizeFacadeImpl();
+        // dataStructureSizeFacade = new ListSizeFacadeImpl();
     }
-    
-    
+
+
     public int getNumberOfFilters()
     {
-        //return dataStructureSizeFacade.getSize(filtersList);
+        // return dataStructureSizeFacade.getSize(filtersList);
         if(getFiltersList() != null)
         {
             return getFiltersList().size();
         }
-        
+
         return 0;
     }
-    
-    
+
+
     public void addFilter(AbstractFilter filter)
     {
         getFiltersList().add(filter);
@@ -62,17 +58,5 @@ public abstract class AbstractPipeline extends DesignPatternsObject
     public void setFiltersList(OrionList<AbstractFilter> filtersList)
     {
         this.filtersList = filtersList;
-    }
-
-
-    public boolean isAProceduralPipeline()
-    {
-        return this.isAProceduralPipeline;
-    }
-
-
-    public void setAProceduralPipeline(boolean isAProceduralPipeline)
-    {
-        this.isAProceduralPipeline = isAProceduralPipeline;
     }
 }

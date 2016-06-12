@@ -11,8 +11,8 @@ public class UpdatePropertyTask extends ConfigurationObject implements Configura
     {
         ConfigurationRegistry.updateProp(key, value);
     }
-    
-    
+
+
     public static synchronized void run(KeyValuePair<String, String> keyValuePair)
     {
         ConfigurationRegistry.updateProp(keyValuePair);

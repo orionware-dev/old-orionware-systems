@@ -11,8 +11,8 @@ public class OrionListTest extends DataStructuresObject
 {
     private OrionList<Integer> filteredList;
     private OrionList<Integer> expectedFilteredList;
-    
-    
+
+
     @Before
     public void setUp() throws Exception
     {
@@ -22,8 +22,8 @@ public class OrionListTest extends DataStructuresObject
         expectedFilteredList.add(5);
         expectedFilteredList.add(6);
     }
-    
-    
+
+
     @Test
     public void testListFilterAndLoop()
     {
@@ -37,8 +37,8 @@ public class OrionListTest extends DataStructuresObject
         list.filterAndLoop((Integer s) -> s > 3, this::getFilteredList);
         Assert.assertArrayEquals(filteredList.toArray(), expectedFilteredList.toArray());
     }
-    
-    
+
+
     private void getFilteredList(Object number)
     {
         int numberTemp = (int)number;

@@ -9,5 +9,5 @@ import designpatternsintegrationtests.dependencyinjection.DependencyInjectionTes
 @SuiteClasses({DependencyInjectionTest.class})
 public class DesignPatternsIntegrationTestsSuite
 {
-    
+
 }

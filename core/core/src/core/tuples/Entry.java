@@ -4,14 +4,14 @@ public class Entry<T1, T2> extends KeyValuePair<T1, T2>
 {
     private Object key;
     private Object value;
-    
-    
+
+
     public Entry()
     {
-        
+
     }
-    
-    
+
+
     public Entry(Object key, Object value)
     {
         setKey(key);
