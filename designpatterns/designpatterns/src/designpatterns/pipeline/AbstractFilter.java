@@ -36,12 +36,9 @@ public abstract class AbstractFilter extends DesignPatternsObject
         setFunctionClass(functionToExecute.getClass());
         setFunctionParameters(functionParameters);
     }
-    
-    
-    public abstract void run();
 
 
-    protected Object getFunction()
+    public Object getFunction()
     {
         return this.function;
     }
@@ -59,7 +56,7 @@ public abstract class AbstractFilter extends DesignPatternsObject
     }
 
 
-    protected void setFunctionResult(Object functionResult)
+    public void setFunctionResult(Object functionResult)
     {
         this.functionResult = functionResult;
     }

@@ -3,30 +3,30 @@ package designpatterns.services.pipeline.impl;
 import designpatterns.pipeline.AbstractFilter;
 import designpatterns.services.DesignPatternsServicesObject;
 import designpatterns.services.pipeline.PipelineFilterService;
-import designpatterns.services.pipeline.impl.tasks.CreateEmptyFilterTask;
-import designpatterns.services.pipeline.impl.tasks.CreateFilterTask;
+import designpatterns.services.pipeline.impl.tasks.CreateEmptyProceduralFilterTask;
+import designpatterns.services.pipeline.impl.tasks.CreateProceduralFilterTask;
+import designpatterns.services.pipeline.impl.tasks.ExecuteFilterTask;
 
 public class PipelineFilterServiceImpl extends DesignPatternsServicesObject implements PipelineFilterService
 {
     @Override
-    public AbstractFilter createFilter()
+    public AbstractFilter createProceduralFilter()
     {
         //new FileSystemStreamsFacadeImpl().getFileStream(libraryAnnotationsDefinitionFilePath);
-        return new CreateEmptyFilterTask().run();
+        return new CreateEmptyProceduralFilterTask().run();
     }
     
     
     @Override
-    public AbstractFilter createFilter(boolean isFunctionAProcedure, Object function, String methodToRun, Object... functionParameters)
+    public AbstractFilter createProceduralFilter(Object function, String methodToRun, Object... functionParameters)
     {
-        return new CreateFilterTask().run(isFunctionAProcedure, function, methodToRun, functionParameters);
+        return new CreateProceduralFilterTask().run(function, methodToRun, functionParameters);
     }
 
     
     @Override
     public Object executeFilter(AbstractFilter filter)
     {
-        filter.run();
-        return filter.getFunctionResult();
+        return new ExecuteFilterTask().run(filter);
     }
 }

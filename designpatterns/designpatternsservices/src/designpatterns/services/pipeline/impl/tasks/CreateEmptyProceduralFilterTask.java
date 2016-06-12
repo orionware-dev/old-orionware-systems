@@ -2,13 +2,13 @@ package designpatterns.services.pipeline.impl.tasks;
 
 import designpatterns.DesignPatternsTask;
 import designpatterns.pipeline.AbstractFilter;
-import designpatterns.pipeline.impl.Filter;
+import designpatterns.pipeline.filter.ProceduralFilter;
 import designpatterns.services.DesignPatternsServicesObject;
 
-public class CreateEmptyFilterTask extends DesignPatternsServicesObject implements DesignPatternsTask
+public class CreateEmptyProceduralFilterTask extends DesignPatternsServicesObject implements DesignPatternsTask
 {
     public AbstractFilter run()
     {
-        return new Filter();
+        return new ProceduralFilter();
     }
 }

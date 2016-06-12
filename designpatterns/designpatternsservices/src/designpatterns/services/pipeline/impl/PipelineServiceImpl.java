@@ -2,7 +2,7 @@ package designpatterns.services.pipeline.impl;
 
 import designpatterns.pipeline.AbstractFilter;
 import designpatterns.pipeline.AbstractPipeline;
-import designpatterns.pipeline.impl.Pipeline;
+import designpatterns.pipeline.pipe.ProceduralPipeline;
 import designpatterns.services.DesignPatternsServicesObject;
 import designpatterns.services.pipeline.PipelineFilterService;
 import designpatterns.services.pipeline.PipelineService;
@@ -10,9 +10,9 @@ import designpatterns.services.pipeline.PipelineService;
 public class PipelineServiceImpl extends DesignPatternsServicesObject implements PipelineService
 {
     @Override
-    public AbstractPipeline createEmptyPipeline()
+    public AbstractPipeline createEmptyProceduralPipeline()
     {
-        return new Pipeline();
+        return new ProceduralPipeline();
     }
 
 

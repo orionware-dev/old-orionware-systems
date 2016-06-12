@@ -29,13 +29,13 @@ public class PipelineTest extends DesignPatternsObject
     
     
     @Test
-    public void testPipeline()
+    public void testPipelineOfProcedures()
     {
         Consumer1<Integer> consumer = (Integer number) -> System.out.println("number = " + number);
-        AbstractFilter filter = pipelineFilterService.createFilter(true, consumer, "run", 4);
+        AbstractFilter filter = pipelineFilterService.createProceduralFilter(consumer, "run", 4);
         Consumer1<Integer> consumer2 = (Integer number) -> System.out.println("number2 = " + number);
-        AbstractFilter filter2 = pipelineFilterService.createFilter(true, consumer2, "run", 6);
-        AbstractPipeline pipeline = pipelineService.createEmptyPipeline();
+        AbstractFilter filter2 = pipelineFilterService.createProceduralFilter(consumer2, "run", 6);
+        AbstractPipeline pipeline = pipelineService.createEmptyProceduralPipeline();
         pipelineService.addFilterToPipeline(pipeline, filter);
         pipelineService.addFilterToPipeline(pipeline, filter2);
         pipelineService.executeFilters(pipeline);
