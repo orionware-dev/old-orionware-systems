@@ -1,5 +1,7 @@
 package designpatterns.pipeline;
 
+import core.runnables.consumers.OrionConsumer;
+import core.runnables.functions.OrionFunction;
 import designpatterns.DesignPatternsObject;
 
 public abstract class AbstractFilter extends DesignPatternsObject
@@ -9,6 +11,7 @@ public abstract class AbstractFilter extends DesignPatternsObject
     private String methodToRun;
     private Object[] functionParameters;
     private Object functionResult;
+    private boolean isCustomFunction;
 
 
     public AbstractFilter()
@@ -23,6 +26,7 @@ public abstract class AbstractFilter extends DesignPatternsObject
         setFunction(functionToExecute);
         setFunctionClass(functionToExecute.getClass());
         setFunctionParameters(functionParameters);
+        findIfFunctionIsCustom();
     }
 
 
@@ -32,6 +36,20 @@ public abstract class AbstractFilter extends DesignPatternsObject
         setFunction(functionToExecute);
         setFunctionClass(functionToExecute.getClass());
         setFunctionParameters(functionParameters);
+        findIfFunctionIsCustom();
+    }
+    
+    
+    private void findIfFunctionIsCustom()
+    {
+        if(getFunction() instanceof OrionConsumer || getFunction() instanceof OrionFunction)
+        {
+            setCustomFunction(false);
+        }
+        else
+        {
+            setCustomFunction(true);
+        }
     }
 
 
@@ -92,5 +110,17 @@ public abstract class AbstractFilter extends DesignPatternsObject
     public void setMethodToRun(String methodToRun)
     {
         this.methodToRun = methodToRun;
+    }
+
+
+    public boolean isCustomFunction()
+    {
+        return this.isCustomFunction;
+    }
+
+
+    public void setCustomFunction(boolean isCustomFunction)
+    {
+        this.isCustomFunction = isCustomFunction;
     }
 }

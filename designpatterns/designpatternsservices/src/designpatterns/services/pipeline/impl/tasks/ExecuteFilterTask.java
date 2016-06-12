@@ -22,7 +22,14 @@ public class ExecuteFilterTask extends DesignPatternsServicesObject implements D
 
                 for(int i = 0; i < numberOfFunctionParameters; i++)
                 {
-                    classes[i] = Object.class;
+                    if(filter.isCustomFunction())
+                    {                        
+                        classes[i] = filter.getFunctionParameters()[i].getClass();
+                    }
+                    else
+                    {
+                        classes[i] = Object.class;
+                    }
                 }
             }
         }
