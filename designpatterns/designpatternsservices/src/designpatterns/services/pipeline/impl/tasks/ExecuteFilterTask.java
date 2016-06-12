@@ -22,10 +22,15 @@ public class ExecuteFilterTask extends DesignPatternsServicesObject implements D
 
                 for(int i = 0; i < numberOfFunctionParameters; i++)
                 {
+                    //function is nonlambda and it requires the actual
+                    //class types to be passed to getDeclaredMethod()
                     if(filter.isCustomFunction())
                     {                        
                         classes[i] = filter.getFunctionParameters()[i].getClass();
                     }
+                    //function is a lambda. If you use generics or Object
+                    //as lambda input parameter then Object.class has to be
+                    //passed as class type to getDeclaredMethod()
                     else
                     {
                         classes[i] = Object.class;

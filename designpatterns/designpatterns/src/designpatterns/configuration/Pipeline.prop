@@ -1,5 +1,1 @@
-design.patterns.pipeline.filter.allowed.class.1=core.runnables.OrionExecutable
-design.patterns.pipeline.filter.method.name.for.allowed.class.1=run
-
-design.patterns.pipeline.filter.allowed.class.2=core.services.OrionTask
-design.patterns.pipeline.filter.method.name.for.allowed.class.2=run
+design.patterns.pipeline.filter.default.allowed.class.1=$$Lambda$

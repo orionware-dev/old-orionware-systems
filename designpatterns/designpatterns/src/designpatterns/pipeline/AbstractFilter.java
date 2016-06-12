@@ -1,8 +1,8 @@
 package designpatterns.pipeline;
 
-import core.runnables.consumers.OrionConsumer;
-import core.runnables.functions.OrionFunction;
+import java.util.List;
 import designpatterns.DesignPatternsObject;
+import designpatterns.configuration.DesignPatternsConfiguration;
 
 public abstract class AbstractFilter extends DesignPatternsObject
 {
@@ -42,13 +42,24 @@ public abstract class AbstractFilter extends DesignPatternsObject
     
     private void findIfFunctionIsCustom()
     {
-        if(getFunction() instanceof OrionConsumer || getFunction() instanceof OrionFunction)
+        List<String> allowedClasses = DesignPatternsConfiguration.getPipelineConfiguration().getAllowedClassesNames();
+        boolean defaultFunctionClassFound = true;
+        
+        if(allowedClasses != null)
+        {            
+            for(String allowedClassName : allowedClasses)
+            {
+                if(getFunction().getClass().getName().indexOf(allowedClassName) == -1)
+                {
+                    setCustomFunction(true);
+                    defaultFunctionClassFound = false;
+                }
+            }
+        }
+        
+        if(defaultFunctionClassFound)
         {
             setCustomFunction(false);
-        }
-        else
-        {
-            setCustomFunction(true);
         }
     }
 

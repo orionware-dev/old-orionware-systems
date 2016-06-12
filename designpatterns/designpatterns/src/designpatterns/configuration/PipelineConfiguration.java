@@ -1,23 +1,23 @@
 package designpatterns.configuration;
 
-import java.util.Map;
+import java.util.List;
 import core.OrionSimpleObject;
 import core.abstraction.OrionConfiguration;
 
 public class PipelineConfiguration extends OrionSimpleObject implements OrionConfiguration
 {
-    private Map<Class<?>, String> allowedClassesAndMethodsMapper;
+    private List<String> allowedClassesNames;
 
 
-    public Map<Class<?>, String> getAllowedClassesAndMethodsMapper()
+    public List<String> getAllowedClassesNames()
     {
-        return this.allowedClassesAndMethodsMapper;
+        return this.allowedClassesNames;
     }
 
 
-    public void setAllowedClassesAndMethodsMapper(Map<Class<?>, String> allowedClassesAndMethodsMapper)
+    public void setAllowedClassesNames(List<String> allowedClassesNames)
     {
-        this.allowedClassesAndMethodsMapper = allowedClassesAndMethodsMapper;
+        this.allowedClassesNames = allowedClassesNames;
     }
 
 
@@ -26,7 +26,7 @@ public class PipelineConfiguration extends OrionSimpleObject implements OrionCon
     {
         int defaultPrimeNumberForHashing = 31;
         int hash = 3;
-        hash = defaultPrimeNumberForHashing * hash + this.getAllowedClassesAndMethodsMapper().hashCode();
+        hash = defaultPrimeNumberForHashing * hash + this.getAllowedClassesNames().hashCode();
         return hash;
     }
 
@@ -42,7 +42,7 @@ public class PipelineConfiguration extends OrionSimpleObject implements OrionCon
         {
             PipelineConfiguration otherPipelineConfiguration = (PipelineConfiguration)object;
 
-            if(this.getAllowedClassesAndMethodsMapper().equals(otherPipelineConfiguration.getAllowedClassesAndMethodsMapper()))
+            if(this.getAllowedClassesNames().equals(otherPipelineConfiguration.getAllowedClassesNames()))
             {
                 return true;
             }

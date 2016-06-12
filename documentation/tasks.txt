@@ -1,4 +1,4 @@
-﻿--see if I have to use Pipeline.prop
+﻿--use dependency injection
 
 --instead of manually checking the instanceof, use configuration/Pipeline.prop
 in which I explicitly declare the class types OrionExecutable and OrionTask

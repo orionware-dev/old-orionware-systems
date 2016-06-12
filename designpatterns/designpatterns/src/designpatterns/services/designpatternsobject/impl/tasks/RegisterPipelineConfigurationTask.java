@@ -1,8 +1,8 @@
 package designpatterns.services.designpatternsobject.impl.tasks;
 
 import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 import core.OrionSimpleObject;
 import core.configuration.OrionProperties;
 import core.configuration.registry.ConfigurationRegistry;
@@ -18,35 +18,22 @@ public class RegisterPipelineConfigurationTask extends OrionSimpleObject impleme
     {
         OrionProperties pipelineProperties = new OrionProperties();
         pipelineProperties.loadProperties(pipelineConfigurationInput);
-        Map<Class<?>, String> allowedClassesAndMethods = new HashMap<Class<?>, String>();
+        List<String> allowedClassesNames = new ArrayList<String>();
         int index = 1;
 
-        while(pipelineProperties.get("design.patterns.pipeline.filter.allowed.class." + index) != null)
+        while(pipelineProperties.get("design.patterns.pipeline.filter.default.allowed.class." + index) != null)
         {
-            Class<?> allowedClass = null;
-
-            try
-            {
-                allowedClass = Class.forName((String)pipelineProperties.get("design.patterns.pipeline.filter.allowed.class." + index));
-            }
-            catch(ClassNotFoundException exception)
-            {
-                exception.printStackTrace();
-            }
-
-            String allowedClassMethod = (String)pipelineProperties.get("design.patterns.pipeline.filter.method.name.for.allowed.class." + index);
-            allowedClassesAndMethods.put(allowedClass, allowedClassMethod);
+            allowedClassesNames.add((String)pipelineProperties.get("design.patterns.pipeline.filter.default.allowed.class." + index));
             ++index;
         }
 
-        OrionProperties allowedClassesAndMethodsProperties = new OrionProperties();
-        allowedClassesAndMethodsProperties.putAll(allowedClassesAndMethods);
-        ConfigurationRegistry.loadProperties(allowedClassesAndMethodsProperties);
+        ConfigurationRegistry.loadProperties(pipelineProperties);
         PipelineConfiguration pipelineConfiguration = new PipelineConfiguration();
-        pipelineConfiguration.setAllowedClassesAndMethodsMapper(allowedClassesAndMethods);
+        pipelineConfiguration.setAllowedClassesNames(allowedClassesNames);
         DesignPatternsLibraryConfiguration designPatternsLibraryConfiguration = new DesignPatternsLibraryConfiguration();
         designPatternsLibraryConfiguration.setPipelineConfiguration(pipelineConfiguration);
         DesignPatternsConfiguration.registerDesignPatternsConfiguration(designPatternsLibraryConfiguration);
+        DesignPatternsConfiguration.setPipelineConfiguration(pipelineConfiguration);
         new FileSystemStreamsFacadeImpl().closeResource(pipelineConfigurationInput);
         return true;
     }

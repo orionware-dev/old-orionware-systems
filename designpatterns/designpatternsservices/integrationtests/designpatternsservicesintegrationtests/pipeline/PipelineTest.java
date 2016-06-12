@@ -1,5 +1,6 @@
 package designpatternsservicesintegrationtests.pipeline;
 
+import java.util.function.Consumer;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -68,5 +69,16 @@ public class PipelineTest extends DesignPatternsObject
         pipelineService.addFilterToPipeline(pipeline, filter2);
         Integer result = (Integer)pipelineService.executeFilters(pipeline);
         Assert.assertEquals("15", Integer.toString(result));
+    }
+    
+    
+    @Test
+    public void testPipelineOfProcedures2()
+    {
+        Consumer<?> action = (Integer number) -> System.out.println("new number = " + number);
+        AbstractFilter filter = pipelineFilterService.createFilter(action, "accept", 9);
+        AbstractPipeline pipeline = pipelineService.createEmptyPipeline();
+        pipelineService.addFilterToPipeline(pipeline, filter);
+        pipelineService.executeFilters(pipeline);
     }
 }

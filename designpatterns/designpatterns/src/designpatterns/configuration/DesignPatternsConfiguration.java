@@ -9,7 +9,9 @@ public class DesignPatternsConfiguration implements OrionConfiguration
 {
     public static boolean haveDesignPatternsConfigurationNotBeenRegistered;
     private static Set<DesignPatternsLibraryConfiguration> designPatternsConfigurationSet;
+    private static PipelineConfiguration pipelineConfiguration;
 
+    
     static
     {
         haveDesignPatternsConfigurationNotBeenRegistered = true;
@@ -38,5 +40,17 @@ public class DesignPatternsConfiguration implements OrionConfiguration
         {
             getDesignPatternsConfigurationSet().add(designPatternsLibraryConfiguration);
         }
+    }
+
+
+    public static PipelineConfiguration getPipelineConfiguration()
+    {
+        return pipelineConfiguration;
+    }
+
+
+    public static void setPipelineConfiguration(PipelineConfiguration newPipelineConfiguration)
+    {
+        pipelineConfiguration = newPipelineConfiguration;
     }
 }
