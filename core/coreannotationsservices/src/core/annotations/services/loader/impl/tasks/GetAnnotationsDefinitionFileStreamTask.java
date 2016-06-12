@@ -7,7 +7,7 @@ import core.filesystem.facades.streams.impl.FileSystemStreamsFacadeImpl;
 
 public class GetAnnotationsDefinitionFileStreamTask extends AnnotationServiceObject implements AnnotationTask
 {
-    public static InputStream run(String libraryAnnotationsDefinitionFilePath)
+    public InputStream run(String libraryAnnotationsDefinitionFilePath)
     {
         return new FileSystemStreamsFacadeImpl().getFileStream(libraryAnnotationsDefinitionFilePath);
     }

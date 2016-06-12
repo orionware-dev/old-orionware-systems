@@ -16,7 +16,7 @@ public class RegisterLibraryAnnotationsTask extends AnnotationServiceObject impl
 
     public void run(LibraryConfiguration libraryConfiguration)
     {
-        annotationsDeclarations = LoadLibraryAnnotationsDefinitionsTask.run(libraryConfiguration);
+        annotationsDeclarations = new LoadLibraryAnnotationsDefinitionsTask().run(libraryConfiguration);
 
         if(annotationsDeclarations.isNotEmpty())
         {
@@ -83,6 +83,6 @@ public class RegisterLibraryAnnotationsTask extends AnnotationServiceObject impl
     private void registerLibraryAnnotation()
     {
         OrionAnnotation OrionAnnotationToRegister = new OrionAnnotation(currentAnnotationClass, currentAnnotationServiceClass, currentAnnotationServiceMethodToCall);
-        RegisterAnnotationTask.run(OrionAnnotationToRegister);
+        new RegisterAnnotationTask().run(OrionAnnotationToRegister);
     }
 }

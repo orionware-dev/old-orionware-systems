@@ -12,7 +12,7 @@ import core.configuration.registry.ConfigurationRegistry;
 
 public class GetConfigurationEntriesTask extends ConfigurationObject implements ConfigurationTask
 {
-    public static ConfigurationEntries<Object, Object> run()
+    public ConfigurationEntries<Object, Object> run()
     {
         OrionProperties allOrionProperties = ConfigurationRegistry.getProps();
         List<ConfigurationEntry<Object, Object>> configurationEntriesList = new ArrayList<ConfigurationEntry<Object, Object>>(allOrionProperties.size());

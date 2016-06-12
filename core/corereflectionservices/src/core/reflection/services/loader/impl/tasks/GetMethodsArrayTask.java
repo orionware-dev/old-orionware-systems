@@ -7,7 +7,7 @@ import core.reflection.ReflectionTask;
 
 public class GetMethodsArrayTask extends ReflectionObject implements ReflectionTask
 {
-    public static Method[] run(Object object)
+    public Method[] run(Object object)
     {
         return Arrays.stream(object.getClass().getDeclaredMethods()).filter(method -> method != null).toArray(Method[]::new);
     }

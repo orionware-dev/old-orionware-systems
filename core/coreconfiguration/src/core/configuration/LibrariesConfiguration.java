@@ -1,5 +1,6 @@
 package core.configuration;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 import core.OrionSimpleObject;
@@ -12,7 +13,7 @@ public class LibrariesConfiguration extends OrionSimpleObject implements OrionCo
     static
     {
         LibrariesConfigurationMapper.haveCoreLibrariesNotBeenRegistered = true;
-        librariesConfigurationSet = new HashSet<LibraryConfiguration>();
+        librariesConfigurationSet = Collections.synchronizedSet(new HashSet<LibraryConfiguration>());
     }
 
 

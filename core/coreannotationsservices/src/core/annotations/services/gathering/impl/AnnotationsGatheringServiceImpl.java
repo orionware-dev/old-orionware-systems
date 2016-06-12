@@ -21,6 +21,6 @@ public class AnnotationsGatheringServiceImpl extends AnnotationServiceObject imp
     @Override
     public Annotation extractAnnotationFromMethod(Method method, Class annotationClassToExtract)
     {
-        return ExtractAnnotationFromMethodTask.run(method, annotationClassToExtract);
+        return new ExtractAnnotationFromMethodTask().run(method, annotationClassToExtract);
     }
 }

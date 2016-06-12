@@ -9,7 +9,7 @@ import core.filesystem.FileSystemTask;
 
 public class GetReaderFromFileTask extends FileSystemObject implements FileSystemTask
 {
-    public static Reader run(String filePath)
+    public Reader run(String filePath)
     {
         try
         {

@@ -5,7 +5,7 @@ import core.reflection.ReflectionTask;
 
 public class AreObjectsEqualTask extends ReflectionObject implements ReflectionTask
 {
-    public static boolean run(Object object1, Object object2, Object... moreObjects)
+    public boolean run(Object object1, Object object2, Object... moreObjects)
     {
         boolean areObjectsEqual = false;
 

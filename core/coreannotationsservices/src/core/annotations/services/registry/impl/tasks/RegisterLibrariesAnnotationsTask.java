@@ -8,14 +8,14 @@ import core.configuration.LibraryConfiguration;
 
 public class RegisterLibrariesAnnotationsTask extends AnnotationServiceObject implements AnnotationTask
 {
-    public static synchronized void run(Stream<LibraryConfiguration> librariesConfigurationStream)
+    public void run(Stream<LibraryConfiguration> librariesConfigurationStream)
     {
         RegisterLibraryAnnotationsTask registerLibraryAnnotationsTask = new RegisterLibraryAnnotationsTask();
         librariesConfigurationStream.forEach(libraryConfiguration -> registerLibraryAnnotationsTask.run(libraryConfiguration));
     }
 
 
-    public static synchronized void run(Collection<LibraryConfiguration> librariesConfigurationStream)
+    public void run(Collection<LibraryConfiguration> librariesConfigurationStream)
     {
         run(librariesConfigurationStream.stream());
     }

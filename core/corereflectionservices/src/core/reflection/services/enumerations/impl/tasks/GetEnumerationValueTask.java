@@ -8,7 +8,7 @@ import core.reflection.services.loader.impl.ReflectionLoaderServiceImpl;
 public class GetEnumerationValueTask extends ReflectionObject implements ReflectionTask
 {
     @SuppressWarnings({"rawtypes"})
-    public static String run(Class<Enum> enumerationClass, String enumerationName)
+    public String run(Class<Enum> enumerationClass, String enumerationName)
     {
         ReflectionLoaderService reflectionLoaderService = new ReflectionLoaderServiceImpl();
 

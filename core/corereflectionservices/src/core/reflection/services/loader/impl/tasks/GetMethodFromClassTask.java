@@ -6,7 +6,7 @@ import core.reflection.ReflectionTask;
 
 public class GetMethodFromClassTask extends ReflectionObject implements ReflectionTask
 {
-    public static Method run(String methodName, Class<?> aClass, Class<?>... methodParameterTypes)
+    public Method run(String methodName, Class<?> aClass, Class<?>... methodParameterTypes)
     {
         try
         {

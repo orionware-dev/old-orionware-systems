@@ -1,5 +1,6 @@
 package designpatterns.configuration;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 import core.abstraction.OrionConfiguration;
@@ -12,7 +13,7 @@ public class DesignPatternsConfiguration implements OrionConfiguration
     static
     {
         haveDesignPatternsConfigurationNotBeenRegistered = true;
-        designPatternsConfigurationSet = new HashSet<DesignPatternsLibraryConfiguration>();
+        designPatternsConfigurationSet = Collections.synchronizedSet(new HashSet<DesignPatternsLibraryConfiguration>());
     }
 
 

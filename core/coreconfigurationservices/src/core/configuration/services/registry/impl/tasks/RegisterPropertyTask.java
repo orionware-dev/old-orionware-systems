@@ -7,13 +7,13 @@ import core.tuples.KeyValuePair;
 
 public class RegisterPropertyTask extends ConfigurationObject implements ConfigurationTask
 {
-    public static synchronized void run(String key, String value)
+    public void run(String key, String value)
     {
         ConfigurationRegistry.registerProp(key, value);
     }
 
 
-    public static synchronized void run(KeyValuePair<String, String> keyValuePair)
+    public void run(KeyValuePair<String, String> keyValuePair)
     {
         ConfigurationRegistry.registerProp(keyValuePair);
     }

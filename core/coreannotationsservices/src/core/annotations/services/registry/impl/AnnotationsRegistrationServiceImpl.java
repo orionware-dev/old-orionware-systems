@@ -16,15 +16,15 @@ public class AnnotationsRegistrationServiceImpl extends AnnotationServiceObject 
     @Override
     public void registerLibrariesAnnotations()
     {
-        Stream<LibraryConfiguration> notNullLibrariesConfigurationStream = FilterNotNullLibrariesConfigurationTask.run(LibrariesConfiguration.getLibrariesConfigurationSet());
-        RegisterLibrariesAnnotationsTask.run(notNullLibrariesConfigurationStream);
+        Stream<LibraryConfiguration> notNullLibrariesConfigurationStream = new FilterNotNullLibrariesConfigurationTask().run(LibrariesConfiguration.getLibrariesConfigurationSet());
+        new RegisterLibrariesAnnotationsTask().run(notNullLibrariesConfigurationStream);
     }
 
 
     @Override
     public void registerAnnotation(OrionAnnotation registeredAnnotation)
     {
-        RegisterAnnotationTask.run(registeredAnnotation);
+        new RegisterAnnotationTask().run(registeredAnnotation);
     }
 
 

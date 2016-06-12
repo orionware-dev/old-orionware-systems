@@ -7,7 +7,7 @@ import core.annotations.services.registry.AnnotationsRegistry;
 
 public class RegisterAnnotationTask extends AnnotationServiceObject implements AnnotationTask
 {
-    public static synchronized void run(OrionAnnotation registeredAnnotation)
+    public void run(OrionAnnotation registeredAnnotation)
     {
         AnnotationsRegistry.registerAnnotation(registeredAnnotation);
     }

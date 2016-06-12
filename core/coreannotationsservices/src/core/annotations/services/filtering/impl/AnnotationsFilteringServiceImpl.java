@@ -21,6 +21,6 @@ public class AnnotationsFilteringServiceImpl extends AnnotationServiceObject imp
     @Override
     public boolean isAnnotationRegistered(OrionAnnotation annotation)
     {
-        return IsAnnotationRegisteredTask.run(annotation);
+        return new IsAnnotationRegisteredTask().run(annotation);
     }
 }

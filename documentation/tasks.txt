@@ -1,6 +1,4 @@
-﻿--make all static methods instance ones
-
---see if I have to use Pipeline.prop
+﻿--see if I have to use Pipeline.prop
 
 --instead of manually checking the instanceof, use configuration/Pipeline.prop
 in which I explicitly declare the class types OrionExecutable and OrionTask

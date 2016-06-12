@@ -9,7 +9,7 @@ import core.reflection.facades.loader.impl.ReflectionLoaderFacadeImpl;
 
 public class ApplyAnnotationToMethodTask extends AnnotationServiceObject implements AnnotationTask
 {
-    public static synchronized void run(Object object, OrionAnnotation registeredAnnotation)
+    public void run(Object object, OrionAnnotation registeredAnnotation)
     {
         ReflectionLoaderFacade reflectionLoaderFacade = new ReflectionLoaderFacadeImpl();
         // instantiate annotation service

@@ -6,7 +6,7 @@ import core.reflection.ReflectionTask;
 
 public class InstantiateClassTask extends ReflectionObject implements ReflectionTask
 {
-    public static Object run(Class<?> classToInstantiate)
+    public Object run(Class<?> classToInstantiate)
     {
         try
         {

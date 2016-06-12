@@ -13,7 +13,7 @@ public class ReflectionEnumerationServiceImpl extends ReflectionServiceObject im
     @Override
     public Class<Enum> instantiateEnumeration(String enumerationPath)
     {
-        return InstantiateEnumerationTask.run(enumerationPath);
+        return new InstantiateEnumerationTask().run(enumerationPath);
     }
 
 
@@ -21,7 +21,7 @@ public class ReflectionEnumerationServiceImpl extends ReflectionServiceObject im
     @Override
     public Enum[] getEnumerationDefinitions(Class<Enum> enumerationClass)
     {
-        return GetEnumerationDefinitionsTask.run(enumerationClass);
+        return new GetEnumerationDefinitionsTask().run(enumerationClass);
     }
 
 
@@ -29,7 +29,7 @@ public class ReflectionEnumerationServiceImpl extends ReflectionServiceObject im
     @Override
     public String getEnumerationName(Enum enumerationDefinition)
     {
-        return GetEnumerationNameTask.run(enumerationDefinition);
+        return new GetEnumerationNameTask().run(enumerationDefinition);
     }
 
 
@@ -37,6 +37,6 @@ public class ReflectionEnumerationServiceImpl extends ReflectionServiceObject im
     @Override
     public String getEnumerationValue(Class<Enum> enumerationClass, String enumerationName)
     {
-        return GetEnumerationValueTask.run(enumerationClass, enumerationName);
+        return new GetEnumerationValueTask().run(enumerationClass, enumerationName);
     }
 }

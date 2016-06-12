@@ -8,7 +8,7 @@ import core.configuration.LibraryConfiguration;
 
 public class FilterNotNullLibrariesConfigurationTask extends AnnotationServiceObject implements AnnotationTask
 {
-    public static Stream<LibraryConfiguration> run(Collection<LibraryConfiguration> librariesConfiguration)
+    public Stream<LibraryConfiguration> run(Collection<LibraryConfiguration> librariesConfiguration)
     {
         return librariesConfiguration.stream().filter(libraryConfiguration -> libraryConfiguration.getAnnotationsDefinitionFilePath() != null);
     }

@@ -7,7 +7,7 @@ import core.reflection.ReflectionTask;
 
 public class CallMethodTask extends ReflectionObject implements ReflectionTask
 {
-    public static Object run(Method method, Object objectMethodBelongsTo, Object... methodArguments)
+    public Object run(Method method, Object objectMethodBelongsTo, Object... methodArguments)
     {
         try
         {

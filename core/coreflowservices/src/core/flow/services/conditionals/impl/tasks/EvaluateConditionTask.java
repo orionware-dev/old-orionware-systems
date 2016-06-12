@@ -6,7 +6,7 @@ import core.flow.conditional.Condition;
 
 public class EvaluateConditionTask extends CoreFlowObject implements CoreFlowTask
 {
-    public static boolean run(Condition condition)
+    public boolean run(Condition condition)
     {
         return condition.getCondition();
     }
