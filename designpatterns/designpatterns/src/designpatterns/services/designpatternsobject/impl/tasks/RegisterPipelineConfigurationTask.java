@@ -7,8 +7,9 @@ import core.OrionSimpleObject;
 import core.configuration.OrionProperties;
 import core.configuration.registry.ConfigurationRegistry;
 import core.filesystem.facades.streams.impl.FileSystemStreamsFacadeImpl;
+import designpatterns.DesignPatternsConfiguration;
 import designpatterns.DesignPatternsTask;
-import designpatterns.configuration.DesignPatternsConfiguration;
+import designpatterns.configuration.DesignPatternsInternalConfiguration;
 import designpatterns.configuration.DesignPatternsLibraryConfiguration;
 import designpatterns.configuration.PipelineConfiguration;
 
@@ -34,8 +35,8 @@ public class RegisterPipelineConfigurationTask extends OrionSimpleObject impleme
         pipelineConfiguration.setAllowedClassesNames(allowedClassesNames);
         DesignPatternsLibraryConfiguration designPatternsLibraryConfiguration = new DesignPatternsLibraryConfiguration();
         designPatternsLibraryConfiguration.setPipelineConfiguration(pipelineConfiguration);
-        DesignPatternsConfiguration.registerDesignPatternsConfiguration(designPatternsLibraryConfiguration);
-        DesignPatternsConfiguration.setPipelineConfiguration(pipelineConfiguration);
+        DesignPatternsInternalConfiguration.registerDesignPatternsConfiguration(designPatternsLibraryConfiguration);
+        DesignPatternsInternalConfiguration.setPipelineConfiguration(pipelineConfiguration);
         new FileSystemStreamsFacadeImpl().closeResource(pipelineConfigurationInput);
         return true;
     }

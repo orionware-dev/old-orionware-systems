@@ -1,8 +1,9 @@
 package designpatterns.services.pipeline.impl.tasks;
 
 import java.util.List;
+import designpatterns.DesignPatternsConfiguration;
 import designpatterns.DesignPatternsTask;
-import designpatterns.configuration.DesignPatternsConfiguration;
+import designpatterns.configuration.DesignPatternsInternalConfiguration;
 import designpatterns.pipeline.AbstractFilter;
 import designpatterns.services.DesignPatternsServicesObject;
 
@@ -10,7 +11,7 @@ public class IsCustomFunctionTask extends DesignPatternsServicesObject implement
 {
     public AbstractFilter run(AbstractFilter filter)
     {
-        List<String> allowedClasses = DesignPatternsConfiguration.getPipelineConfiguration().getAllowedClassesNames();
+        List<String> allowedClasses = DesignPatternsInternalConfiguration.getPipelineConfiguration().getAllowedClassesNames();
         boolean defaultFunctionClassFound = true;
         
         if(allowedClasses != null)
