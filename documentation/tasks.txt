@@ -1,4 +1,6 @@
-﻿--use dependency injection
+﻿--extract code to services and tasks
+
+--use dependency injection
 
 --pipe/filter right now can run a sequence of procedures
 (functions that do not return anything) and a sequence

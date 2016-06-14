@@ -6,7 +6,7 @@ import designpatterns.pipeline.AbstractPipeline;
 
 public interface PipelineFacade extends DesignPatternsFacade
 {
-    public AbstractPipeline createEmptyPipeline();
+    public AbstractPipeline createEmptyPipeline(boolean feedForwardTheResult);
 
 
     public void addFilterToPipeline(AbstractPipeline pipeline, AbstractFilter filter);

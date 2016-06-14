@@ -4,15 +4,15 @@ import designpatterns.pipeline.AbstractFilter;
 import designpatterns.pipeline.AbstractPipeline;
 import designpatterns.pipeline.pipe.Pipeline;
 import designpatterns.services.DesignPatternsServicesObject;
-import designpatterns.services.pipeline.PipelineFilterService;
+import designpatterns.services.pipeline.PipelineLifecycleService;
 import designpatterns.services.pipeline.PipelineService;
 
 public class PipelineServiceImpl extends DesignPatternsServicesObject implements PipelineService
 {
     @Override
-    public AbstractPipeline createEmptyPipeline()
+    public AbstractPipeline createEmptyPipeline(boolean feedForwardTheResult)
     {
-        return new Pipeline();
+        return new Pipeline(feedForwardTheResult);
     }
 
 
@@ -26,15 +26,8 @@ public class PipelineServiceImpl extends DesignPatternsServicesObject implements
     @Override
     public Object executeFilters(AbstractPipeline pipeline)
     {
-        Object pipelineResult = null;
-        PipelineFilterService pipelineFilterService = new PipelineFilterServiceImpl();
-
-        for(AbstractFilter filter : pipeline.getFiltersList())
-        {
-            pipelineResult = pipelineFilterService.executeFilter(filter);
-            pipeline.setLastFunctionResult(pipelineResult);
-        }
-
-        return pipelineResult;
+        PipelineLifecycleService pipelineLifecycleService = new PipelineLifecycleServiceImpl();
+        pipelineLifecycleService.registerPipeline(pipeline);
+        return pipelineLifecycleService.executePipelineFilters();
     }
 }

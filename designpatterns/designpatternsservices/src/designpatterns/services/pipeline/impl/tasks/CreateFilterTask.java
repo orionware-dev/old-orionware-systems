@@ -9,6 +9,7 @@ public class CreateFilterTask extends DesignPatternsServicesObject implements De
 {
     public AbstractFilter run(Object function, String methodToRun, Object... functionParameters)
     {
-        return new Filter(function, methodToRun, functionParameters);
+        AbstractFilter filter = new Filter(function, methodToRun, functionParameters);
+        return new IsCustomFunctionTask().run(filter);
     }
 }

@@ -11,5 +11,5 @@ public interface PipelineFilterFacade extends DesignPatternsFacade
     public AbstractFilter createFilter(Object function, String methodToRun, Object... functionParameters);
 
 
-    public Object executeFilter(AbstractFilter filter);
+    public Object executeFilter(AbstractFilter filter, Object functionInput);
 }

@@ -8,9 +8,14 @@ import designpatterns.services.DesignPatternsServicesObject;
 
 public class ExecuteFilterTask extends DesignPatternsServicesObject implements DesignPatternsTask
 {
-    public Object run(AbstractFilter filter)
+    public Object run(AbstractFilter filter, Object functionInput)
     {
         Class<?>[] classes = null;
+        
+        if(functionInput != null)
+        {
+            filter.setFunctionParameters(new Object[]{functionInput});
+        }
 
         if(filter.getFunctionParameters() != null)
         {

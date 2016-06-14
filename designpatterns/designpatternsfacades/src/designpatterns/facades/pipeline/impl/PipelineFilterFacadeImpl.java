@@ -32,8 +32,8 @@ public class PipelineFilterFacadeImpl extends DesignPatternsFacadesObject implem
 
 
     @Override
-    public Object executeFilter(AbstractFilter filter)
+    public Object executeFilter(AbstractFilter filter, Object functionInput)
     {
-        return pipelineFilterService.executeFilter(filter);
+        return pipelineFilterService.executeFilter(filter, functionInput);
     }
 }

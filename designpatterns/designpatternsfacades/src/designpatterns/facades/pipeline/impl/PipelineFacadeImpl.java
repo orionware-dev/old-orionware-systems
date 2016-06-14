@@ -19,9 +19,9 @@ public class PipelineFacadeImpl extends DesignPatternsFacadesObject implements P
 
 
     @Override
-    public AbstractPipeline createEmptyPipeline()
+    public AbstractPipeline createEmptyPipeline(boolean feedForwardTheResult)
     {
-        return pipelineService.createEmptyPipeline();
+        return pipelineService.createEmptyPipeline(feedForwardTheResult);
     }
 
 

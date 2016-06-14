@@ -8,18 +8,22 @@ public abstract class AbstractPipeline extends DesignPatternsObject
 {
     private OrionList<AbstractFilter> filtersList;
     private Object lastFunctionResult;
+    private boolean feedForwardTheResult;
     // private ListSizeFacade dataStructureSizeFacade;
 
 
-    public AbstractPipeline()
+    public AbstractPipeline(boolean feedForwardTheResult)
     {
         setFiltersList(new OrionArrayList<AbstractFilter>());
+        setFeedForwardTheResult(feedForwardTheResult);
         // dataStructureSizeFacade = new ListSizeFacadeImpl();
     }
 
 
-    public AbstractPipeline(OrionList<AbstractFilter> filtersList)
+    public AbstractPipeline(boolean feedForwardTheResult, OrionList<AbstractFilter> filtersList)
     {
+        setFeedForwardTheResult(feedForwardTheResult);
+        
         if(filtersList != null)
         {
             setFiltersList(filtersList);
@@ -71,5 +75,17 @@ public abstract class AbstractPipeline extends DesignPatternsObject
     public void setLastFunctionResult(Object lastFunctionResult)
     {
         this.lastFunctionResult = lastFunctionResult;
+    }
+
+
+    public boolean isFeedForwardTheResult()
+    {
+        return this.feedForwardTheResult;
+    }
+
+
+    public void setFeedForwardTheResult(boolean feedForwardTheResult)
+    {
+        this.feedForwardTheResult = feedForwardTheResult;
     }
 }

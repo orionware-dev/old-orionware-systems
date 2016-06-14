@@ -6,6 +6,7 @@ import designpatterns.services.pipeline.PipelineFilterService;
 import designpatterns.services.pipeline.impl.tasks.CreateEmptyFilterTask;
 import designpatterns.services.pipeline.impl.tasks.CreateFilterTask;
 import designpatterns.services.pipeline.impl.tasks.ExecuteFilterTask;
+import designpatterns.services.pipeline.impl.tasks.IsCustomFunctionTask;
 
 public class PipelineFilterServiceImpl extends DesignPatternsServicesObject implements PipelineFilterService
 {
@@ -25,11 +26,18 @@ public class PipelineFilterServiceImpl extends DesignPatternsServicesObject impl
         // FileSystemStreamsFacadeImpl().getFileStream(libraryAnnotationsDefinitionFilePath);
         return new CreateFilterTask().run(function, methodToRun, functionParameters);
     }
-
-
+    
+    
     @Override
-    public Object executeFilter(AbstractFilter filter)
+    public AbstractFilter isCustomFunction(AbstractFilter filter)
     {
-        return new ExecuteFilterTask().run(filter);
+        return new IsCustomFunctionTask().run(filter);
+    }
+    
+    
+    @Override
+    public Object executeFilter(AbstractFilter filter, Object functionInput)
+    {
+        return new ExecuteFilterTask().run(filter, functionInput);
     }
 }
