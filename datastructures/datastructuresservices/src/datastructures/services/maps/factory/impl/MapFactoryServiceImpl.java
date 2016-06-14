@@ -6,6 +6,7 @@ import datastructures.maps.OrionMap;
 import datastructures.services.lists.factory.ListFactoryService;
 import datastructures.services.lists.factory.impl.tasks.CreateEmptyArrayListTask;
 import datastructures.services.maps.factory.MapFactoryService;
+import datastructures.services.maps.factory.impl.tasks.CreateEmptyConcurrentHashMapTask;
 import datastructures.services.maps.factory.impl.tasks.CreateEmptyHashMapTask;
 import datastructures.services.sets.factory.SetFactoryService;
 import datastructures.services.sets.factory.impl.tasks.CreateEmptyHashSetTask;
@@ -17,5 +18,12 @@ public class MapFactoryServiceImpl<T, T1, T2> extends OrionSimpleObject implemen
     public OrionMap<T, T1, T2> createEmptyHashMap()
     {
         return new CreateEmptyHashMapTask().run();
+    }
+
+    
+    @Override
+    public OrionMap<T, T1, T2> createEmptyConcurrentHashMap()
+    {
+        return new CreateEmptyConcurrentHashMapTask<T, T1, T2>().run();
     }
 }

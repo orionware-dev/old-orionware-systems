@@ -8,4 +8,7 @@ import datastructures.sets.OrionSet;
 public interface MapFactoryService<T, T1, T2> extends DataStructureFactory
 {
     public OrionMap<T, T1, T2> createEmptyHashMap();
+    
+    
+    public OrionMap<T, T1, T2> createEmptyConcurrentHashMap();
 }
