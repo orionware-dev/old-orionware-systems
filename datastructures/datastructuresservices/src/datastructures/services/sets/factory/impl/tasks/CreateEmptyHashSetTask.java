@@ -9,7 +9,7 @@ import datastructures.sets.OrionSet;
 
 public class CreateEmptyHashSetTask<T> extends DataStructuresServicesObject implements DataStructuresTask
 {
-    public OrionSet<T> run(Class<T> setType)
+    public OrionSet<T> run()
     {
         return new OrionHashSet<T>();
     }

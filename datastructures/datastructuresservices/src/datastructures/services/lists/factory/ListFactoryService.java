@@ -5,5 +5,5 @@ import datastructures.services.factories.DataStructureFactory;
 
 public interface ListFactoryService<T> extends DataStructureFactory
 {
-    public OrionList<T> createEmptyArrayList(Class<T> listType);
+    public OrionList<T> createEmptyArrayList();
 }

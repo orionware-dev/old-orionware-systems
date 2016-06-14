@@ -6,5 +6,5 @@ import datastructures.sets.OrionSet;
 
 public interface SetFactoryService<T> extends DataStructureFactory
 {
-    public OrionSet<T> createEmptyHashSet(Class<T> setType);
+    public OrionSet<T> createEmptyHashSet();
 }

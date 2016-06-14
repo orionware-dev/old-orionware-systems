@@ -22,7 +22,7 @@ public class DataStructureSizeTest
     public void testDataStructureSize()
     {
         ListFactoryService<DataStructureSizeTest> listFactoryService = new ListFactoryServiceImpl<DataStructureSizeTest>();
-        OrionList<DataStructureSizeTest> dataStructure = listFactoryService.createEmptyArrayList(DataStructureSizeTest.class);
+        OrionList<DataStructureSizeTest> dataStructure = listFactoryService.createEmptyArrayList();
         DataStructureSizeService dataStructureSizeService = new DataStructureSizeServiceImpl();
         dataStructure.add(new DataStructureSizeTest());
         dataStructure.add(new DataStructureSizeTest());

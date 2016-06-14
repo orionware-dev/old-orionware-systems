@@ -7,7 +7,7 @@ import datastructures.services.DataStructuresServicesObject;
 
 public class CreateEmptyArrayListTask<T> extends DataStructuresServicesObject implements DataStructuresTask
 {
-    public OrionList<T> run(Class<T> listType)
+    public OrionList<T> run()
     {
         return new OrionArrayList<T>();
     }
