@@ -4,8 +4,8 @@ import java.util.function.Consumer;
 import java.util.stream.Stream;
 import datastructures.DataStructuresObject;
 import datastructures.lists.OrionList;
-import datastructures.services.lists.size.ListSizeService;
-import datastructures.services.lists.size.impl.tasks.GetSizeTask;
+import datastructures.services.size.DataStructureSizeService;
+import datastructures.services.size.impl.tasks.GetSizeTask;
 import datastructures.services.streams.StreamService;
 import datastructures.services.streams.impl.tasks.ForEachTask;
 

@@ -56,7 +56,7 @@ public class OrionArrayList<T> extends ArrayList<T> implements OrionList<T>
 
 
     @Override
-    public Object getSize()
+    public int getSize()
     {
         return this.size();
     }

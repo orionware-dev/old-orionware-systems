@@ -2,11 +2,11 @@ package datastructuresservicesintegrationtests.dependencyinjection;
 
 import core.dependencyinjection.Injector;
 import datastructures.DataStructuresObject;
-import datastructures.services.lists.size.ListSizeService;
+import datastructures.services.size.DataStructureSizeService;
 
 public class TestClass2 extends DataStructuresObject
 {
-    private ListSizeService listSizeService;
+    private DataStructureSizeService dataStructureSizeService;
 
 
     public String testThisClassIsRunning()
@@ -15,15 +15,15 @@ public class TestClass2 extends DataStructuresObject
     }
 
 
-    public ListSizeService getListSizeService()
+    public DataStructureSizeService getListSizeService()
     {
-        return listSizeService;
+        return dataStructureSizeService;
     }
 
 
     @Injector(ID = "datastructures.services.lists.size.impl.ListSizeServiceImpl")
-    private void setListSizeService(ListSizeService listSizeService)
+    private void setListSizeService(DataStructureSizeService dataStructureSizeService)
     {
-        this.listSizeService = listSizeService;
+        this.dataStructureSizeService = dataStructureSizeService;
     }
 }

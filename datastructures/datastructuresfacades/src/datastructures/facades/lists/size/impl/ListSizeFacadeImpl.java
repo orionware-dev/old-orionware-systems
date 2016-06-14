@@ -4,23 +4,23 @@ import core.dependencyinjection.Injector;
 import datastructures.facades.DataStructuresFacadesObject;
 import datastructures.facades.lists.size.ListSizeFacade;
 import datastructures.lists.OrionList;
-import datastructures.services.lists.size.ListSizeService;
+import datastructures.services.size.DataStructureSizeService;
 
 public class ListSizeFacadeImpl extends DataStructuresFacadesObject implements ListSizeFacade
 {
-    private ListSizeService listSizeService;
+    private DataStructureSizeService dataStructureSizeService;
 
 
     @Override
     public int getSize(OrionList<?> dataStructure)
     {
-        return listSizeService.getSize(dataStructure);
+        return dataStructureSizeService.getSize(dataStructure);
     }
 
 
     @Injector(ID = "datastructures.services.lists.size.ListSizeService")
-    private void setListSizeService(ListSizeService listSizeService)
+    private void setListSizeService(DataStructureSizeService dataStructureSizeService)
     {
-        this.listSizeService = listSizeService;
+        this.dataStructureSizeService = dataStructureSizeService;
     }
 }

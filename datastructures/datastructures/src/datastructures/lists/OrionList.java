@@ -24,7 +24,4 @@ public interface OrionList<T> extends List<T>, DataStructure
 
 
     public Object getLast();
-
-
-    public Object getSize();
 }
