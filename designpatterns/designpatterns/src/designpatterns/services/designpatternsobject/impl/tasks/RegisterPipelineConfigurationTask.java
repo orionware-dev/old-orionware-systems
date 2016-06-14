@@ -20,11 +20,13 @@ public class RegisterPipelineConfigurationTask extends OrionSimpleObject impleme
         pipelineProperties.loadProperties(pipelineConfigurationInput);
         List<String> allowedClassesNames = new ArrayList<String>();
         int index = 1;
+        String defaultAllowedClass = (String)pipelineProperties.get("design.patterns.pipeline.filter.default.allowed.class." + index);
 
-        while(pipelineProperties.get("design.patterns.pipeline.filter.default.allowed.class." + index) != null)
+        while(defaultAllowedClass != null)
         {
-            allowedClassesNames.add((String)pipelineProperties.get("design.patterns.pipeline.filter.default.allowed.class." + index));
+            allowedClassesNames.add(defaultAllowedClass);
             ++index;
+            defaultAllowedClass = (String)pipelineProperties.get("design.patterns.pipeline.filter.default.allowed.class." + index);
         }
 
         ConfigurationRegistry.loadProperties(pipelineProperties);
