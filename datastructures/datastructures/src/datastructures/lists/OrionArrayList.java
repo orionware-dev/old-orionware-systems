@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 
 public class OrionArrayList<T> extends ArrayList<T> implements OrionList<T>
 {
-    private static final long serialVersionUID = 6156781298396101372L;
+    private static final long serialVersionUID = -5786741979740114176L;
 
 
     @SuppressWarnings("unchecked")

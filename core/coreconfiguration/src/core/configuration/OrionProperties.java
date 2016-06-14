@@ -6,7 +6,7 @@ import java.util.Properties;
 
 public class OrionProperties extends Properties
 {
-    private static final long serialVersionUID = 2244989344408978785L;
+    private static final long serialVersionUID = -4994300747686829401L;
 
 
     public void loadProperties(InputStream propertiesFileInput)

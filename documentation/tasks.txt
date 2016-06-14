@@ -1,6 +1,4 @@
-﻿--set serialVersionUID for each data structure class
-
---data structures classes should extend DataStructuresObject
+﻿--data structures classes should extend DataStructuresObject
 
 --design patterns classes should extend DesignPatternsObject
 

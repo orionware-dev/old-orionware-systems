@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 
 public class OrionHashMap<T, T1, T2> extends HashMap<T1, T2> implements OrionMap<T, T1, T2>
 {
-    private static final long serialVersionUID = 6156781298396101372L;
+    private static final long serialVersionUID = -8197805466914391486L;
 
 
     @Override

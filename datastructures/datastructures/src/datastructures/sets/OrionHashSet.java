@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 public class OrionHashSet<T> extends HashSet<T> implements OrionSet<T>
 {
-    private static final long serialVersionUID = 6156781298396101372L;
+    private static final long serialVersionUID = -6680631728585109615L;
 
 
     @SuppressWarnings("unchecked")
