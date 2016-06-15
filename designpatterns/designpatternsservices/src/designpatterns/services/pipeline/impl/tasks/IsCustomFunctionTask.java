@@ -10,14 +10,15 @@ public class IsCustomFunctionTask extends DesignPatternsServicesObject implement
 {
     public AbstractFilter run(AbstractFilter filter)
     {
-        List<String> allowedClasses = DesignPatternsInternalConfiguration.getPipelineConfiguration().getAllowedClassesNames();
+        List<String> allowedClasses = DesignPatternsInternalConfiguration.getPipelineConfiguration()
+                                          .getAllowedClassesNames();
         boolean defaultFunctionClassFound = true;
         
         if(allowedClasses != null)
         {            
             for(String allowedClassName : allowedClasses)
             {
-                if(filter.getFunction().getClass().getName().indexOf(allowedClassName) == -1)
+                if(filter.getFunction() != null && filter.getFunction().getClass().getName().indexOf(allowedClassName) == -1)
                 {
                     filter.setCustomFunction(true);
                     defaultFunctionClassFound = false;

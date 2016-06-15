@@ -3,6 +3,8 @@ package designpatterns.configuration;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
+import datastructures.facades.sets.factory.SetFactoryFacade;
+import datastructures.facades.sets.factory.impl.SetFactoryFacadeImpl;
 import designpatterns.DesignPatternsConfiguration;
 
 public class DesignPatternsInternalConfiguration extends DesignPatternsConfiguration
@@ -15,7 +17,8 @@ public class DesignPatternsInternalConfiguration extends DesignPatternsConfigura
     static
     {
         haveDesignPatternsConfigurationNotBeenRegistered = true;
-        designPatternsConfigurationSet = Collections.synchronizedSet(new HashSet<DesignPatternsLibraryConfiguration>());
+        SetFactoryFacade<DesignPatternsLibraryConfiguration> setFactoryFacade = new SetFactoryFacadeImpl<DesignPatternsLibraryConfiguration>();
+        designPatternsConfigurationSet = setFactoryFacade.createEmptyConcurrentHashSet();
     }
 
 
