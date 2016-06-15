@@ -8,6 +8,12 @@ import designpatterns.services.DesignPatternsServicesObject;
 
 public class ExecuteFilterTask extends DesignPatternsServicesObject implements DesignPatternsTask
 {
+    public ExecuteFilterTask()
+    {
+        
+    }
+    
+    
     public Object run(AbstractFilter filter, Object functionInput)
     {
         Class<?>[] classes = null;

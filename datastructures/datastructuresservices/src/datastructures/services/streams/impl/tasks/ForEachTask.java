@@ -7,6 +7,12 @@ import datastructures.services.DataStructuresServicesObject;
 
 public class ForEachTask<T> extends DataStructuresServicesObject implements DataStructuresTask
 {
+    public ForEachTask()
+    {
+        
+    }
+    
+    
     @SuppressWarnings("unchecked")
     public void run(Stream<T> stream, Consumer<?> action)
     {

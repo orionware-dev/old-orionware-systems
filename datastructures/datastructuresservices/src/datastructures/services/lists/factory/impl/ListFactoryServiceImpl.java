@@ -1,5 +1,6 @@
 package datastructures.services.lists.factory.impl;
 
+import core.dependencyinjection.Injector;
 import datastructures.lists.OrionConcurrentArrayList;
 import datastructures.lists.OrionList;
 import datastructures.services.DataStructuresServicesObject;
@@ -9,16 +10,39 @@ import datastructures.services.lists.factory.impl.tasks.CreateEmptyConcurrentArr
 
 public class ListFactoryServiceImpl<T> extends DataStructuresServicesObject implements ListFactoryService<T>
 {
-    @SuppressWarnings({"rawtypes", "unchecked"})
+    private CreateEmptyArrayListTask<T> createEmptyArrayListTask;
+    private CreateEmptyConcurrentArrayListTask<T> createEmptyConcurrentArrayListTask;
+    
+    
+    public ListFactoryServiceImpl()
+    {
+        
+    }
+    
+    
     public OrionList<T> createEmptyArrayList()
     {
-        return new CreateEmptyArrayListTask().run();
+        return createEmptyArrayListTask.run();
     }
 
     
     @Override
     public OrionConcurrentArrayList<T> createEmptyConcurrentArrayList()
     {
-        return new CreateEmptyConcurrentArrayListTask<T>().run();
+        return createEmptyConcurrentArrayListTask.run();
+    }
+
+
+    @Injector(ID = "datastructures.services.lists.factory.impl.tasks.CreateEmptyArrayListTask")
+    private void setCreateEmptyArrayListTask(CreateEmptyArrayListTask<T> createEmptyArrayListTask)
+    {
+        this.createEmptyArrayListTask = createEmptyArrayListTask;
+    }
+    
+    
+    @Injector(ID = "datastructures.services.lists.factory.impl.tasks.CreateEmptyConcurrentArrayListTask")
+    private void setCreateEmptyConcurrentArrayListTask(CreateEmptyConcurrentArrayListTask<T> createEmptyConcurrentArrayListTask)
+    {
+        this.createEmptyConcurrentArrayListTask = createEmptyConcurrentArrayListTask;
     }
 }

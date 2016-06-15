@@ -44,6 +44,6 @@ public class FilterRegisteredAnnotationsStreamFromObjectAnnotationsTask extends 
         return allObjectAnnotationsList.stream().filter(annotation -> {
             String annotationName = annotation.annotationType().getName();
             return annotationName.equals(registeredAnnotation.getAnnotationClass());
-        }).count() == 1;
+        }).count() >= 1;
     }
 }

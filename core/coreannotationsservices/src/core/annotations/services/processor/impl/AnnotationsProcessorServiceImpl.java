@@ -27,9 +27,9 @@ public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject imp
 
 
     @Override
-    public void processAllAnnotations(Object OrionObject)
+    public void processAllAnnotations(Object orionObject)
     {
-        List<Annotation> allObjectAnnotationsList = annotationsGatheringService.gatherAllAnnotationsFromObject(OrionObject);
+        List<Annotation> allObjectAnnotations = annotationsGatheringService.gatherAllAnnotationsFromObject(orionObject);
         // we filter the annotations, because if it finds a registered
         // annotation that matches
         // one in the list of object annotations then we can process it
@@ -37,8 +37,8 @@ public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject imp
         // will have to try to process non-Orion-based annotations like
         // Java/Spring/etc. annotations
         // in which case it is processed by the respective framework
-        Stream<OrionAnnotation> registeredAnnotations = annotationsFilteringService.filterRegisteredAnnotationsStreamFromObjectAnnotations(allObjectAnnotationsList);
-        new ApplyAnnotationsToMethodTask().run(registeredAnnotations, OrionObject);
+        Stream<OrionAnnotation> registeredAnnotations = annotationsFilteringService.filterRegisteredAnnotationsStreamFromObjectAnnotations(allObjectAnnotations);
+        new ApplyAnnotationsToMethodTask().run(registeredAnnotations, orionObject);
     }
 
 

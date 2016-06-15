@@ -20,9 +20,9 @@ public class AnnotationsGatheringFacadeImpl extends AnnotationFacadeObject imple
 
 
     @Override
-    public List<Annotation> gatherAllAnnotationsFromObject(Object OrionObject)
+    public List<Annotation> gatherAllAnnotationsFromObject(Object orionObject)
     {
-        return annotationsGatheringService.gatherAllAnnotationsFromObject(OrionObject);
+        return annotationsGatheringService.gatherAllAnnotationsFromObject(orionObject);
     }
 
 

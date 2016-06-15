@@ -11,6 +11,12 @@ public class PipelineLifecycleServiceImpl extends DesignPatternsServicesObject i
     private AbstractPipeline pipeline;
     
     
+    public PipelineLifecycleServiceImpl()
+    {
+        
+    }
+    
+    
     @Override
     public void registerPipeline(AbstractPipeline pipeline)
     {
@@ -28,7 +34,7 @@ public class PipelineLifecycleServiceImpl extends DesignPatternsServicesObject i
         {
             int index = 0;
 
-            for(AbstractFilter filter : getPipeline().getFiltersList())
+            for(AbstractFilter filter : getPipeline().getFilters())
             {
                 if(index == 0)
                 {
@@ -45,7 +51,7 @@ public class PipelineLifecycleServiceImpl extends DesignPatternsServicesObject i
         }
         else
         {
-            for(AbstractFilter filter : getPipeline().getFiltersList())
+            for(AbstractFilter filter : getPipeline().getFilters())
             {
                 pipelineResult = pipelineFilterService.executeFilter(filter, null);
                 getPipeline().setLastFunctionResult(pipelineResult);

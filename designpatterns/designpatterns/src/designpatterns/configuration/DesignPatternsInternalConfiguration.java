@@ -5,25 +5,34 @@ import datastructures.facades.sets.factory.SetFactoryFacade;
 import datastructures.facades.sets.factory.impl.SetFactoryFacadeImpl;
 import datastructures.sets.OrionConcurrentSet;
 import designpatterns.DesignPatternsConfiguration;
+import designpatterns.DesignPatternsObject;
 
-public class DesignPatternsInternalConfiguration extends DesignPatternsConfiguration
+public class DesignPatternsInternalConfiguration implements DesignPatternsConfiguration
 {
     public static boolean haveDesignPatternsConfigurationNotBeenRegistered;
-    private static OrionConcurrentSet<DesignPatternsLibraryConfiguration> designPatternsConfigurationSet;
+    private static OrionConcurrentSet<DesignPatternsLibraryConfiguration> designPatternsConfiguration;
     private static PipelineConfiguration pipelineConfiguration;
+    private SetFactoryFacade<DesignPatternsLibraryConfiguration> setFactoryFacade;
+    
+    
+    public DesignPatternsInternalConfiguration()
+    {
+        setFactoryFacade = new SetFactoryFacadeImpl<DesignPatternsLibraryConfiguration>();
+    }
 
     
     static
     {
         haveDesignPatternsConfigurationNotBeenRegistered = true;
-        SetFactoryFacade<DesignPatternsLibraryConfiguration> setFactoryFacade = new SetFactoryFacadeImpl<DesignPatternsLibraryConfiguration>();
-        designPatternsConfigurationSet = setFactoryFacade.createEmptyConcurrentHashSet();
+        DesignPatternsInternalConfiguration temp = new DesignPatternsInternalConfiguration();
+        //SetFactoryFacade<DesignPatternsLibraryConfiguration> setFactoryFacade = new SetFactoryFacadeImpl<DesignPatternsLibraryConfiguration>();
+        designPatternsConfiguration = temp.getSetFactoryFacade().createEmptyConcurrentHashSet();
     }
 
 
-    public static Set<DesignPatternsLibraryConfiguration> getDesignPatternsConfigurationSet()
+    public static Set<DesignPatternsLibraryConfiguration> getDesignPatternsConfiguration()
     {
-        return designPatternsConfigurationSet;
+        return designPatternsConfiguration;
     }
 
 
@@ -31,16 +40,16 @@ public class DesignPatternsInternalConfiguration extends DesignPatternsConfigura
     {
         if(haveDesignPatternsConfigurationNotBeenRegistered)
         {
-            getDesignPatternsConfigurationSet().add(designPatternsLibraryConfiguration);
+            getDesignPatternsConfiguration().add(designPatternsLibraryConfiguration);
 
-            if(designPatternsConfigurationSet.contains(designPatternsLibraryConfiguration))
+            if(getDesignPatternsConfiguration().contains(designPatternsLibraryConfiguration))
             {
                 haveDesignPatternsConfigurationNotBeenRegistered = false;
             }
         }
-        else if(!designPatternsConfigurationSet.contains(designPatternsLibraryConfiguration))
+        else if(!getDesignPatternsConfiguration().contains(designPatternsLibraryConfiguration))
         {
-            getDesignPatternsConfigurationSet().add(designPatternsLibraryConfiguration);
+            getDesignPatternsConfiguration().add(designPatternsLibraryConfiguration);
         }
     }
 
@@ -54,5 +63,17 @@ public class DesignPatternsInternalConfiguration extends DesignPatternsConfigura
     public static void setPipelineConfiguration(PipelineConfiguration newPipelineConfiguration)
     {
         pipelineConfiguration = newPipelineConfiguration;
+    }
+
+
+    public SetFactoryFacade<DesignPatternsLibraryConfiguration> getSetFactoryFacade()
+    {
+        return this.setFactoryFacade;
+    }
+
+
+    public void setSetFactoryFacade(SetFactoryFacade<DesignPatternsLibraryConfiguration> setFactoryFacade)
+    {
+        this.setFactoryFacade = setFactoryFacade;
     }
 }

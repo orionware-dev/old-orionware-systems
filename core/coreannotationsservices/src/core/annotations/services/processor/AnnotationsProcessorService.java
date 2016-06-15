@@ -5,8 +5,8 @@ import core.annotations.OrionAnnotation;
 
 public interface AnnotationsProcessorService extends AnnotationService
 {
-    public void processAllAnnotations(Object OrionObject);
+    public void processAllAnnotations(Object orionObject);
 
 
-    public boolean applyMethodAnnotation(Object OrionObject, OrionAnnotation annotationToProcess);
+    public boolean applyMethodAnnotation(Object orionObject, OrionAnnotation annotationToProcess);
 }

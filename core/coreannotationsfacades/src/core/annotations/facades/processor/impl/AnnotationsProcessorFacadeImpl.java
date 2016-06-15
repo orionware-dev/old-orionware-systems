@@ -7,8 +7,8 @@ import core.annotations.services.processor.impl.AnnotationsProcessorServiceImpl;
 public class AnnotationsProcessorFacadeImpl extends AnnotationFacadeObject implements AnnotationsProcessorFacade
 {
     @Override
-    public void processAllAnnotations(Object OrionObject)
+    public void processAllAnnotations(Object orionObject)
     {
-        new AnnotationsProcessorServiceImpl().processAllAnnotations(OrionObject);
+        new AnnotationsProcessorServiceImpl().processAllAnnotations(orionObject);
     }
 }

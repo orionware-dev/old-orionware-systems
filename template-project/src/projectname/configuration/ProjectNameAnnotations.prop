@@ -1,3 +1,0 @@
-<project_name>.annotation.1=<project_name>.testannotation.TestAnnotation
-<project_name>.annotation.service.1=<project_name>.testannotation.TestAnnotationFacadeImpl
-<project_name>.annotation.service.method.to.call.1=processAnnotation

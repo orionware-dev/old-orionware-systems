@@ -3,6 +3,7 @@ package core.annotations.services.registry;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.concurrent.CopyOnWriteArraySet;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
@@ -11,11 +12,11 @@ import core.annotations.OrionAnnotation;
 
 public class AnnotationsRegistry extends OrionRegistry
 {
-    public static Set<OrionAnnotation> registeredAnnotationsSet;
+    public static Set<OrionAnnotation> registeredAnnotations;
 
     static
     {
-        registeredAnnotationsSet = Collections.synchronizedSet(new HashSet<OrionAnnotation>());
+        registeredAnnotations = new CopyOnWriteArraySet<OrionAnnotation>();
     }
 
 
@@ -27,7 +28,7 @@ public class AnnotationsRegistry extends OrionRegistry
 
     public static Set<OrionAnnotation> getAnnotations()
     {
-        return registeredAnnotationsSet;
+        return registeredAnnotations;
     }
 
 

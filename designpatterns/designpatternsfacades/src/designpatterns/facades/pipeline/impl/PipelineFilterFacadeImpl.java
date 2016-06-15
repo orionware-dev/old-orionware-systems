@@ -1,20 +1,14 @@
 package designpatterns.facades.pipeline.impl;
 
+import core.dependencyinjection.Injector;
 import designpatterns.facades.DesignPatternsFacadesObject;
 import designpatterns.facades.pipeline.PipelineFilterFacade;
 import designpatterns.pipeline.AbstractFilter;
 import designpatterns.services.pipeline.PipelineFilterService;
-import designpatterns.services.pipeline.impl.PipelineFilterServiceImpl;
 
 public class PipelineFilterFacadeImpl extends DesignPatternsFacadesObject implements PipelineFilterFacade
 {
     private PipelineFilterService pipelineFilterService;
-
-
-    public PipelineFilterFacadeImpl()
-    {
-        this.pipelineFilterService = new PipelineFilterServiceImpl();
-    }
 
 
     @Override
@@ -42,5 +36,12 @@ public class PipelineFilterFacadeImpl extends DesignPatternsFacadesObject implem
     public AbstractFilter isCustomFunction(AbstractFilter filter)
     {
         return pipelineFilterService.isCustomFunction(filter);
+    }
+
+
+    @Injector(ID = "designpatterns.services.pipeline.impl.PipelineFilterServiceImpl")
+    private void setPipelineFilterService(PipelineFilterService pipelineFilterService)
+    {
+        this.pipelineFilterService = pipelineFilterService;
     }
 }

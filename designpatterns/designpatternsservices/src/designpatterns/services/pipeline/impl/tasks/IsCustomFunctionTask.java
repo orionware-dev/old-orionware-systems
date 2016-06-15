@@ -8,6 +8,12 @@ import designpatterns.services.DesignPatternsServicesObject;
 
 public class IsCustomFunctionTask extends DesignPatternsServicesObject implements DesignPatternsTask
 {
+    public IsCustomFunctionTask()
+    {
+        
+    }
+    
+    
     public AbstractFilter run(AbstractFilter filter)
     {
         List<String> allowedClasses = DesignPatternsInternalConfiguration.getPipelineConfiguration()

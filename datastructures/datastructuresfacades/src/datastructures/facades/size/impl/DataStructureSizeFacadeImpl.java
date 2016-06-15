@@ -1,10 +1,10 @@
 package datastructures.facades.size.impl;
 
+import core.dependencyinjection.Injector;
 import datastructures.DataStructure;
 import datastructures.facades.DataStructuresFacadesObject;
 import datastructures.facades.size.DataStructureSizeFacade;
 import datastructures.services.size.DataStructureSizeService;
-import datastructures.services.size.impl.DataStructureSizeServiceImpl;
 
 public class DataStructureSizeFacadeImpl extends DataStructuresFacadesObject implements DataStructureSizeFacade
 {
@@ -13,7 +13,7 @@ public class DataStructureSizeFacadeImpl extends DataStructuresFacadesObject imp
     
     public DataStructureSizeFacadeImpl()
     {
-        this.dataStructureSizeService = new DataStructureSizeServiceImpl();
+        
     }
 
 
@@ -21,5 +21,12 @@ public class DataStructureSizeFacadeImpl extends DataStructuresFacadesObject imp
     public int getSize(DataStructure dataStructure)
     {
         return dataStructureSizeService.getSize(dataStructure);
+    }
+
+
+    @Injector(ID = "datastructures.services.size.impl.DataStructureSizeServiceImpl")
+    private void setDataStructureSizeService(DataStructureSizeService dataStructureSizeService)
+    {
+        this.dataStructureSizeService = dataStructureSizeService;
     }
 }

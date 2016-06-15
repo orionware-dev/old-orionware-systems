@@ -9,6 +9,12 @@ import datastructures.sets.OrionSet;
 
 public class GetSizeTask<T1, T2, T3> extends DataStructuresServicesObject implements DataStructuresTask
 {
+    public GetSizeTask()
+    {
+        
+    }
+    
+    
     @SuppressWarnings("unchecked")
     public int run(DataStructure dataStructure)
     {

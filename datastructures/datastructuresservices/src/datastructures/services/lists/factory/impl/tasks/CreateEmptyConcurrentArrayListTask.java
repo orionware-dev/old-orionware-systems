@@ -6,6 +6,12 @@ import datastructures.services.DataStructuresServicesObject;
 
 public class CreateEmptyConcurrentArrayListTask<T> extends DataStructuresServicesObject implements DataStructuresTask
 {
+    public CreateEmptyConcurrentArrayListTask()
+    {
+        
+    }
+    
+    
     public OrionConcurrentArrayList<T> run()
     {
         return new OrionConcurrentArrayList<T>();

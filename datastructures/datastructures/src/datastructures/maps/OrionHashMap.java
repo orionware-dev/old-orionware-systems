@@ -13,8 +13,8 @@ public class OrionHashMap<T, T1, T2> extends HashMap<T1, T2> implements OrionMap
     public Object getFirst()
     {
         Entry<T1, T2> firstElement = null;
-        Set<Entry<T1, T2>> entrySet = entrySet();
-        Iterator<Entry<T1, T2>> iterator = entrySet.iterator();
+        Set<Entry<T1, T2>> entries = entrySet();
+        Iterator<Entry<T1, T2>> iterator = entries.iterator();
         
         if(iterator.hasNext())
         {

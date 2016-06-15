@@ -6,42 +6,38 @@ import designpatterns.DesignPatternsObject;
 
 public abstract class AbstractPipeline extends DesignPatternsObject
 {
-    private OrionList<AbstractFilter> filtersList;
+    private OrionList<AbstractFilter> filters;
     private Object lastFunctionResult;
     private boolean feedForwardTheResult;
-    // private ListSizeFacade dataStructureSizeFacade;
 
 
     public AbstractPipeline(boolean feedForwardTheResult)
     {
-        setFiltersList(new OrionArrayList<AbstractFilter>());
+        setFilters(new OrionArrayList<AbstractFilter>());
         setFeedForwardTheResult(feedForwardTheResult);
-        // dataStructureSizeFacade = new ListSizeFacadeImpl();
     }
 
 
-    public AbstractPipeline(boolean feedForwardTheResult, OrionList<AbstractFilter> filtersList)
+    public AbstractPipeline(boolean feedForwardTheResult, OrionList<AbstractFilter> filters)
     {
         setFeedForwardTheResult(feedForwardTheResult);
         
-        if(filtersList != null)
+        if(filters != null)
         {
-            setFiltersList(filtersList);
+            setFilters(filters);
         }
         else
         {
-            setFiltersList(new OrionArrayList<AbstractFilter>());
+            setFilters(new OrionArrayList<AbstractFilter>());
         }
-        // dataStructureSizeFacade = new ListSizeFacadeImpl();
     }
 
 
     public int getNumberOfFilters()
     {
-        // return dataStructureSizeFacade.getSize(filtersList);
-        if(getFiltersList() != null)
+        if(getFilters() != null)
         {
-            return getFiltersList().size();
+            return getFilters().size();
         }
 
         return 0;
@@ -50,19 +46,19 @@ public abstract class AbstractPipeline extends DesignPatternsObject
 
     public void addFilter(AbstractFilter filter)
     {
-        getFiltersList().add(filter);
+        getFilters().add(filter);
     }
 
 
-    public OrionList<AbstractFilter> getFiltersList()
+    public OrionList<AbstractFilter> getFilters()
     {
-        return this.filtersList;
+        return this.filters;
     }
 
 
-    public void setFiltersList(OrionList<AbstractFilter> filtersList)
+    public void setFilters(OrionList<AbstractFilter> filters)
     {
-        this.filtersList = filtersList;
+        this.filters = filters;
     }
 
 

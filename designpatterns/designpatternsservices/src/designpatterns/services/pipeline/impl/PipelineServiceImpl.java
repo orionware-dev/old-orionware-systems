@@ -14,6 +14,12 @@ public class PipelineServiceImpl extends DesignPatternsServicesObject implements
     {
         return new Pipeline(feedForwardTheResult);
     }
+    
+    
+    public PipelineServiceImpl()
+    {
+        
+    }
 
 
     @Override

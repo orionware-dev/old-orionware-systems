@@ -7,7 +7,7 @@ import core.annotations.AnnotationFacade;
 
 public interface AnnotationsGatheringFacade extends AnnotationFacade
 {
-    public List<Annotation> gatherAllAnnotationsFromObject(Object OrionObject);
+    public List<Annotation> gatherAllAnnotationsFromObject(Object orionObject);
 
 
     public Annotation extractAnnotationFromMethod(Method method, Class<?> annotationClassToExtract);

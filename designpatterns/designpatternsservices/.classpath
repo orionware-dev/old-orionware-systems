@@ -10,5 +10,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/coreobjects"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/datastructures"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/coredependencyinjection"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

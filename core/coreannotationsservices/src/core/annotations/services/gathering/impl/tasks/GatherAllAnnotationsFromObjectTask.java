@@ -15,31 +15,31 @@ import core.annotations.services.AnnotationServiceObject;
 public class GatherAllAnnotationsFromObjectTask extends AnnotationServiceObject implements AnnotationTask
 {
     private Object object;
-    private List<Annotation> allObjectAnnotationsList;
+    private List<Annotation> allObjectAnnotations;
 
 
     public List<Annotation> run(Object object)
     {
         this.object = object;
-        this.allObjectAnnotationsList = new ArrayList<Annotation>();
+        this.allObjectAnnotations = new ArrayList<Annotation>();
         gatherAllClassLevelAnnotations();
         gatherAllObjectConstructorsAnnotations();
         gatherAllObjectMethodsAnnotations();
         gatherAllObjectVariablesAnnotations();
-        return allObjectAnnotationsList;
+        return allObjectAnnotations;
     }
 
 
     private void gatherAllClassLevelAnnotations()
     {
-        allObjectAnnotationsList.addAll(Arrays.asList(object.getClass().getAnnotations()));
+        allObjectAnnotations.addAll(Arrays.asList(object.getClass().getAnnotations()));
     }
 
 
     private void getObjectElementAnnotationsAndAppendThemToList(AccessibleObject objectElement)
     {
         Annotation[] annotations = objectElement.getAnnotations();
-        allObjectAnnotationsList.addAll(Arrays.asList(annotations));
+        allObjectAnnotations.addAll(Arrays.asList(annotations));
     }
 
 

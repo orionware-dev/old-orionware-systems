@@ -9,5 +9,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/core"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/coredependencyinjection"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/coreobjects"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/coredependencyinjectionfacades"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

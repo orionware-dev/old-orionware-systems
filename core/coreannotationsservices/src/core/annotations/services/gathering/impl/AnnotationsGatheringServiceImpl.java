@@ -11,9 +11,9 @@ import core.annotations.services.gathering.impl.tasks.GatherAllAnnotationsFromOb
 public class AnnotationsGatheringServiceImpl extends AnnotationServiceObject implements AnnotationsGatheringService
 {
     @Override
-    public List<Annotation> gatherAllAnnotationsFromObject(Object OrionObject)
+    public List<Annotation> gatherAllAnnotationsFromObject(Object orionObject)
     {
-        return new GatherAllAnnotationsFromObjectTask().run(OrionObject);
+        return new GatherAllAnnotationsFromObjectTask().run(orionObject);
     }
 
 
