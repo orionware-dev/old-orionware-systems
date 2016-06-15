@@ -36,4 +36,11 @@ public class PipelineFilterFacadeImpl extends DesignPatternsFacadesObject implem
     {
         return pipelineFilterService.executeFilter(filter, functionInput);
     }
+
+
+    @Override
+    public AbstractFilter isCustomFunction(AbstractFilter filter)
+    {
+        return pipelineFilterService.isCustomFunction(filter);
+    }
 }

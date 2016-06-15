@@ -9,6 +9,9 @@ public interface PipelineFilterFacade extends DesignPatternsFacade
 
 
     public AbstractFilter createFilter(Object function, String methodToRun, Object... functionParameters);
+    
+    
+    public AbstractFilter isCustomFunction(AbstractFilter filter);
 
 
     public Object executeFilter(AbstractFilter filter, Object functionInput);
