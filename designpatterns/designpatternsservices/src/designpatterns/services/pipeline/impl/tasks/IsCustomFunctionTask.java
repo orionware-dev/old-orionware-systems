@@ -1,7 +1,6 @@
 package designpatterns.services.pipeline.impl.tasks;
 
 import java.util.List;
-import designpatterns.DesignPatternsConfiguration;
 import designpatterns.DesignPatternsTask;
 import designpatterns.configuration.DesignPatternsInternalConfiguration;
 import designpatterns.pipeline.AbstractFilter;

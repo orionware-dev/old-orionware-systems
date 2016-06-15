@@ -7,7 +7,6 @@ import core.OrionSimpleObject;
 import core.configuration.OrionProperties;
 import core.configuration.registry.ConfigurationRegistry;
 import core.filesystem.facades.streams.impl.FileSystemStreamsFacadeImpl;
-import designpatterns.DesignPatternsConfiguration;
 import designpatterns.DesignPatternsTask;
 import designpatterns.configuration.DesignPatternsInternalConfiguration;
 import designpatterns.configuration.DesignPatternsLibraryConfiguration;

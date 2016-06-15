@@ -1,9 +1,9 @@
 package designpatterns.facades;
 
-import core.objects.OrionObject;
+import designpatterns.DesignPatternsObject;
 import designpatterns.facades.configuration.DesignPatternsFacadesConfigurationEnumeration;
 
-public abstract class DesignPatternsFacadesObject extends OrionObject
+public abstract class DesignPatternsFacadesObject extends DesignPatternsObject
 {
     public DesignPatternsFacadesObject()
     {

@@ -1,7 +1,5 @@
 package datastructures.services.size.impl.tasks;
 
-import java.util.HashMap;
-import java.util.Map;
 import datastructures.DataStructure;
 import datastructures.DataStructuresTask;
 import datastructures.lists.OrionList;

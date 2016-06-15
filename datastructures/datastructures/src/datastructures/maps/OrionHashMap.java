@@ -1,13 +1,8 @@
 package datastructures.maps;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
-import java.util.function.Consumer;
-import java.util.function.Predicate;
-import java.util.stream.Stream;
 
 public class OrionHashMap<T, T1, T2> extends HashMap<T1, T2> implements OrionMap<T, T1, T2>
 {

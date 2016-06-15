@@ -1,6 +1,5 @@
 package datastructures.services.sets.factory;
 
-import datastructures.lists.OrionList;
 import datastructures.services.factories.DataStructureFactory;
 import datastructures.sets.OrionSet;
 

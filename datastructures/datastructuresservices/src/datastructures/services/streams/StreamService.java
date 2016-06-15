@@ -2,7 +2,6 @@ package datastructures.services.streams;
 
 import java.util.function.Consumer;
 import java.util.stream.Stream;
-import core.OrionSimpleObject;
 import datastructures.DataStructuresService;
 
 public interface StreamService<T> extends DataStructuresService

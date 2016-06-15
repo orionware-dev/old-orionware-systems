@@ -1,9 +1,9 @@
 package designpatterns.services;
 
-import core.objects.OrionObject;
+import designpatterns.DesignPatternsObject;
 import designpatterns.services.configuration.DesignPatternsServicesConfigurationEnumeration;
 
-public abstract class DesignPatternsServicesObject extends OrionObject
+public abstract class DesignPatternsServicesObject extends DesignPatternsObject
 {
     public DesignPatternsServicesObject()
     {

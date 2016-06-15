@@ -1,9 +1,9 @@
 package designpatterns.configuration;
 
-import core.OrionSimpleObject;
 import core.abstraction.OrionConfiguration;
+import designpatterns.DesignPatternsConfiguration;
 
-public class DesignPatternsLibraryConfiguration extends OrionSimpleObject implements OrionConfiguration
+public class DesignPatternsLibraryConfiguration extends DesignPatternsConfiguration implements OrionConfiguration
 {
     private PipelineConfiguration pipelineConfiguration;
 
