@@ -1,14 +1,16 @@
 package datastructures.services.sets.factory.impl.tasks;
 
 import java.util.Collections;
+import java.util.concurrent.CopyOnWriteArraySet;
 import datastructures.DataStructuresTask;
 import datastructures.services.DataStructuresServicesObject;
+import datastructures.sets.OrionConcurrentSet;
 import datastructures.sets.OrionSet;
 
 public class CreateEmptyConcurrentHashSetTask<T> extends DataStructuresServicesObject implements DataStructuresTask
 {
-    public OrionSet<T> run()
+    public OrionConcurrentSet<T> run()
     {
-        return (OrionSet<T>)Collections.synchronizedSet(new CreateEmptyHashSetTask<T>().run());
+        return new OrionConcurrentSet<T>();
     }
 }

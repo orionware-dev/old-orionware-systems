@@ -1,5 +1,6 @@
 package datastructures.services.lists.factory.impl;
 
+import datastructures.lists.OrionConcurrentArrayList;
 import datastructures.lists.OrionList;
 import datastructures.services.DataStructuresServicesObject;
 import datastructures.services.lists.factory.ListFactoryService;
@@ -16,7 +17,7 @@ public class ListFactoryServiceImpl<T> extends DataStructuresServicesObject impl
 
     
     @Override
-    public OrionList<T> createEmptyConcurrentArrayList()
+    public OrionConcurrentArrayList<T> createEmptyConcurrentArrayList()
     {
         return new CreateEmptyConcurrentArrayListTask<T>().run();
     }

@@ -4,6 +4,7 @@ import datastructures.services.DataStructuresServicesObject;
 import datastructures.services.sets.factory.SetFactoryService;
 import datastructures.services.sets.factory.impl.tasks.CreateEmptyConcurrentHashSetTask;
 import datastructures.services.sets.factory.impl.tasks.CreateEmptyHashSetTask;
+import datastructures.sets.OrionConcurrentSet;
 import datastructures.sets.OrionSet;
 
 public class SetFactoryServiceImpl<T> extends DataStructuresServicesObject implements SetFactoryService<T>
@@ -16,7 +17,7 @@ public class SetFactoryServiceImpl<T> extends DataStructuresServicesObject imple
     
     
     @Override
-    public OrionSet<T> createEmptyConcurrentHashSet()
+    public OrionConcurrentSet<T> createEmptyConcurrentHashSet()
     {
         return new CreateEmptyConcurrentHashSetTask<T>().run();
     }

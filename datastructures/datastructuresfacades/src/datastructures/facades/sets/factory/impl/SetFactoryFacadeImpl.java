@@ -10,6 +10,7 @@ import datastructures.services.lists.factory.impl.ListFactoryServiceImpl;
 import datastructures.services.sets.factory.SetFactoryService;
 import datastructures.services.sets.factory.impl.SetFactoryServiceImpl;
 import datastructures.services.size.DataStructureSizeService;
+import datastructures.sets.OrionConcurrentSet;
 import datastructures.sets.OrionSet;
 
 public class SetFactoryFacadeImpl<T> extends DataStructuresFacadesObject implements SetFactoryFacade<T>
@@ -31,7 +32,7 @@ public class SetFactoryFacadeImpl<T> extends DataStructuresFacadesObject impleme
 
 
     @Override
-    public OrionSet<T> createEmptyConcurrentHashSet()
+    public OrionConcurrentSet<T> createEmptyConcurrentHashSet()
     {
         return setFactoryService.createEmptyConcurrentHashSet();
     }

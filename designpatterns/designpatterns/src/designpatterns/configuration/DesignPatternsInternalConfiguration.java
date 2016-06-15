@@ -5,12 +5,14 @@ import java.util.HashSet;
 import java.util.Set;
 import datastructures.facades.sets.factory.SetFactoryFacade;
 import datastructures.facades.sets.factory.impl.SetFactoryFacadeImpl;
+import datastructures.sets.OrionConcurrentSet;
+import datastructures.sets.OrionSet;
 import designpatterns.DesignPatternsConfiguration;
 
 public class DesignPatternsInternalConfiguration extends DesignPatternsConfiguration
 {
     public static boolean haveDesignPatternsConfigurationNotBeenRegistered;
-    private static Set<DesignPatternsLibraryConfiguration> designPatternsConfigurationSet;
+    private static OrionConcurrentSet<DesignPatternsLibraryConfiguration> designPatternsConfigurationSet;
     private static PipelineConfiguration pipelineConfiguration;
 
     

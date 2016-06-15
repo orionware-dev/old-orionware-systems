@@ -1,5 +1,6 @@
 package datastructures.services.maps.factory.impl;
 
+import datastructures.maps.OrionConcurrentHashMap;
 import datastructures.maps.OrionMap;
 import datastructures.services.DataStructuresServicesObject;
 import datastructures.services.maps.factory.MapFactoryService;
@@ -16,7 +17,7 @@ public class MapFactoryServiceImpl<T, T1, T2> extends DataStructuresServicesObje
 
     
     @Override
-    public OrionMap<T, T1, T2> createEmptyConcurrentHashMap()
+    public OrionConcurrentHashMap<T, T1, T2> createEmptyConcurrentHashMap()
     {
         return new CreateEmptyConcurrentHashMapTask<T, T1, T2>().run();
     }

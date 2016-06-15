@@ -7,40 +7,41 @@ import datastructures.maps.OrionMap;
 import datastructures.services.DataStructuresServicesObject;
 import datastructures.sets.OrionSet;
 
-public class GetSizeTask extends DataStructuresServicesObject implements DataStructuresTask
+public class GetSizeTask<T1, T2, T3> extends DataStructuresServicesObject implements DataStructuresTask
 {
+    @SuppressWarnings("unchecked")
     public int run(DataStructure dataStructure)
     {
         if(dataStructure instanceof OrionList)
         {
-            return getListSize((OrionList<?>)dataStructure);
+            return getListSize((OrionList<T1>)dataStructure);
         }
         else if(dataStructure instanceof OrionSet)
         {
-            return getSetSize((OrionSet<?>)dataStructure);
+            return getSetSize((OrionSet<T1>)dataStructure);
         }
         else if(dataStructure instanceof OrionMap)
         {
-            return getSetSize((OrionMap<?, ?, ?>)dataStructure);
+            return getSetSize((OrionMap<T1, T2, T3>)dataStructure);
         }
 
         return 0;
     }
 
 
-    private int getListSize(OrionList<?> dataStructure)
+    private int getListSize(OrionList<T1> dataStructure)
     {
         return dataStructure.getSize();
     }
     
     
-    private int getSetSize(OrionSet<?> dataStructure)
+    private int getSetSize(OrionSet<T1> dataStructure)
     {
         return dataStructure.getSize();
     }
     
     
-    private int getSetSize(OrionMap<?, ?, ?> dataStructure)
+    private int getSetSize(OrionMap<T1, T2, T3> dataStructure)
     {
         return dataStructure.getSize();
     }

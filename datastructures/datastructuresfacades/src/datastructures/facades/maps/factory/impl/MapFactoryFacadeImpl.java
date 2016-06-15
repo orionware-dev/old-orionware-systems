@@ -5,6 +5,7 @@ import datastructures.facades.DataStructuresFacadesObject;
 import datastructures.facades.lists.factory.ListFactoryFacade;
 import datastructures.facades.maps.factory.MapFactoryFacade;
 import datastructures.lists.OrionList;
+import datastructures.maps.OrionConcurrentHashMap;
 import datastructures.maps.OrionMap;
 import datastructures.services.lists.factory.ListFactoryService;
 import datastructures.services.lists.factory.impl.ListFactoryServiceImpl;
@@ -31,7 +32,7 @@ public class MapFactoryFacadeImpl<T, T1, T2> extends DataStructuresFacadesObject
 
 
     @Override
-    public OrionMap<T, T1, T2> createEmptyConcurrentHashMap()
+    public OrionConcurrentHashMap<T, T1, T2> createEmptyConcurrentHashMap()
     {
         return mapFactoryService.createEmptyConcurrentHashMap();
     }
