@@ -1,25 +1,38 @@
 package core.configuration;
 
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.Set;
+import java.util.concurrent.CopyOnWriteArraySet;
 import core.OrionSimpleObject;
 import core.abstraction.OrionConfiguration;
 
 public class LibrariesConfiguration extends OrionSimpleObject implements OrionConfiguration
 {
     private static Set<LibraryConfiguration> librariesConfiguration;
+    private static Set<String> librariesConfigurationEnumerationClassPaths;
 
     static
     {
         LibrariesConfigurationMapper.haveCoreLibrariesNotBeenRegistered = true;
-        librariesConfiguration = Collections.synchronizedSet(new HashSet<LibraryConfiguration>());
+        librariesConfiguration = new CopyOnWriteArraySet<LibraryConfiguration>();
+        librariesConfigurationEnumerationClassPaths = new CopyOnWriteArraySet<String>();
     }
 
 
     public static Set<LibraryConfiguration> getLibrariesConfiguration()
     {
         return librariesConfiguration;
+    }
+    
+    
+    public static Set<String> getLibrariesConfigurationEnumerationClassPaths()
+    {
+        return librariesConfigurationEnumerationClassPaths;
+    }
+    
+    
+    public static synchronized void registerLibraryConfigurationEnumerationClassPath(String libraryConfigurationEnumerationClassPath)
+    {
+        getLibrariesConfigurationEnumerationClassPaths().add(libraryConfigurationEnumerationClassPath);
     }
 
 

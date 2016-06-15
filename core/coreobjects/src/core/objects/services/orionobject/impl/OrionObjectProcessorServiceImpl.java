@@ -27,9 +27,7 @@ public class OrionObjectProcessorServiceImpl extends OrionSimpleObject implement
 
             if(new IsCoreLibraryTask().run(getClass()))
             {
-                loadLibrariesProperties();
-                registerLibrariesAnnotations();
-                processAllAnnotations(object);
+                processAllLibrariesConfiguration(object);
             }
         }
     }

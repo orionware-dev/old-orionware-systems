@@ -1,6 +1,4 @@
-﻿--use dependency injection
-
---see why ProcessMethodForInjectionTask is run many times
+﻿--see why ProcessMethodForInjectionTask is run many times
 for the same objects
 
 --see if I can make DesignPatternsObjectProcessorServiceImpl and OrionObjectProcessorServiceImpl

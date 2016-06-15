@@ -35,10 +35,14 @@ public class ConfigurationClasspathServiceImpl extends ConfigurationServiceObjec
     public void loadLibrariesProperties()
     {
         PropertiesRegistrationService propertiesRegistrationService = new PropertiesRegistrationServiceImpl();
-        LibrariesConfiguration.getLibrariesConfiguration().stream().filter(libraryConfiguration -> libraryConfiguration.getConfigurationFilePath() != null).filter(libraryConfiguration -> propertiesRegistrationService.havePropertiesNotBeenRegisteredForLibrary(libraryConfiguration.getLibraryClassPath())).forEach(libraryConfiguration -> {
-            new LoadLibraryPropertiesTask().run(libraryConfiguration);
-            new PropertiesRegistrationServiceImpl().setPropertiesAsRegisteredForLibrary(libraryConfiguration.getLibraryName());
-        });
+        LibrariesConfiguration.getLibrariesConfiguration()
+            .stream()
+            .filter(libraryConfiguration -> libraryConfiguration.getConfigurationFilePath() != null)
+            .filter(libraryConfiguration -> propertiesRegistrationService.havePropertiesNotBeenRegisteredForLibrary(libraryConfiguration.getLibraryClassPath()))
+            .forEach(libraryConfiguration -> {
+                new LoadLibraryPropertiesTask().run(libraryConfiguration);
+                new PropertiesRegistrationServiceImpl().setPropertiesAsRegisteredForLibrary(libraryConfiguration.getLibraryName());
+            });
     }
 
 

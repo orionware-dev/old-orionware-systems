@@ -25,8 +25,12 @@ public abstract class OrionObject extends OrionSimpleObject
     // DataStructuresObject.java
     protected void registerLibraryConfiguration(String libraryConfigurationEnumerationClassPath)
     {
-        LibraryConfiguration libraryConfiguration = orionObjectProcessorService.convertConfigurationEnumerationToLibraryConfiguration(libraryConfigurationEnumerationClassPath);
-        LibrariesConfiguration.registerLibraryConfiguration(libraryConfiguration);
+        if(!LibrariesConfiguration.getLibrariesConfigurationEnumerationClassPaths().contains(libraryConfigurationEnumerationClassPath))
+        {
+            LibraryConfiguration libraryConfiguration = orionObjectProcessorService.convertConfigurationEnumerationToLibraryConfiguration(libraryConfigurationEnumerationClassPath);
+            LibrariesConfiguration.registerLibraryConfiguration(libraryConfiguration);
+            LibrariesConfiguration.registerLibraryConfigurationEnumerationClassPath(libraryConfigurationEnumerationClassPath);
+        }
     }
 
 
