@@ -15,14 +15,14 @@ public class TestClass2 extends DataStructuresObject
     }
 
 
-    public DataStructureSizeService getListSizeService()
+    public DataStructureSizeService getDataStructureSizeService()
     {
         return dataStructureSizeService;
     }
 
 
-    @Injector(ID = "datastructures.services.lists.size.impl.ListSizeServiceImpl")
-    private void setListSizeService(DataStructureSizeService dataStructureSizeService)
+    @Injector(ID = "datastructures.services.size.impl.DataStructureSizeServiceImpl")
+    private void setDataStructureSizeService(DataStructureSizeService dataStructureSizeService)
     {
         this.dataStructureSizeService = dataStructureSizeService;
     }

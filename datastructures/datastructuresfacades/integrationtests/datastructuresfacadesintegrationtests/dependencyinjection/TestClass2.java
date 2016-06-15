@@ -2,11 +2,11 @@ package datastructuresfacadesintegrationtests.dependencyinjection;
 
 import core.dependencyinjection.Injector;
 import datastructures.DataStructuresObject;
-import datastructures.facades.lists.size.ListSizeFacade;
+import datastructures.facades.size.DataStructureSizeFacade;
 
 public class TestClass2 extends DataStructuresObject
 {
-    private ListSizeFacade listSizeFacade;
+    private DataStructureSizeFacade dataStructureSizeFacade;
 
 
     public String testThisClassIsRunning()
@@ -15,15 +15,15 @@ public class TestClass2 extends DataStructuresObject
     }
 
 
-    public ListSizeFacade getListSizeFacade()
+    public DataStructureSizeFacade getDataStructureSizeFacade()
     {
-        return listSizeFacade;
+        return dataStructureSizeFacade;
     }
 
 
-    @Injector(ID = "datastructuresfacades.lists.size.impl.ListSizeFacadeImpl")
-    private void setListSizeFacade(ListSizeFacade listSizeFacade)
+    @Injector(ID = "datastructures.facades.size.impl.DataStructureSizeFacadeImpl")
+    private void setDataStructureSizeFacade(DataStructureSizeFacade dataStructureSizeFacade)
     {
-        this.listSizeFacade = listSizeFacade;
+        this.dataStructureSizeFacade = dataStructureSizeFacade;
     }
 }

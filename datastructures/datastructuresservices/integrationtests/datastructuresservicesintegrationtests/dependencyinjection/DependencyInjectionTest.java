@@ -26,6 +26,6 @@ public class DependencyInjectionTest extends DataStructuresObject
         dataStructure.add("1");
         dataStructure.add("2");
         dataStructure.add("3");
-        Assert.assertEquals(3, testClass1.getTestClass2().getListSizeService().getSize(dataStructure));
+        Assert.assertEquals(3, testClass1.getTestClass2().getDataStructureSizeService().getSize(dataStructure));
     }
 }
