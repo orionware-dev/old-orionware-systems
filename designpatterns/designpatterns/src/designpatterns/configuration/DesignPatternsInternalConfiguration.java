@@ -5,7 +5,6 @@ import datastructures.facades.sets.factory.SetFactoryFacade;
 import datastructures.facades.sets.factory.impl.SetFactoryFacadeImpl;
 import datastructures.sets.OrionConcurrentSet;
 import designpatterns.DesignPatternsConfiguration;
-import designpatterns.DesignPatternsObject;
 
 public class DesignPatternsInternalConfiguration implements DesignPatternsConfiguration
 {

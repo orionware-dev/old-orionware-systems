@@ -3,11 +3,7 @@ package designpatternsintegrationtests.dependencyinjection;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import datastructures.facades.sets.factory.SetFactoryFacade;
-import datastructures.facades.sets.factory.impl.SetFactoryFacadeImpl;
-import datastructures.sets.OrionConcurrentSet;
 import designpatterns.DesignPatternsObject;
-import designpatterns.configuration.DesignPatternsLibraryConfiguration;
 
 public class DependencyInjectionTest extends DesignPatternsObject
 {
