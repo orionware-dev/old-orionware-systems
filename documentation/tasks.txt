@@ -1,12 +1,4 @@
-﻿--see why ProcessMethodForInjectionTask is run many times
-for the same objects
-
---see if I can make DesignPatternsObjectProcessorServiceImpl and OrionObjectProcessorServiceImpl
-a general core project that can be used by coreobjects and designpatterns projects
-
---use dpeendency injection in design patterns projects
-
---make the unit and integration tests packages of datastructures, designpatterns, etc. to be like
+﻿--make the unit and integration tests packages of datastructures, designpatterns, etc. to be like
 the core: "datastructures.services", "datastructures.facades", etc.
 
 --figure out how a DataStructure.java object will encapsulate its size:
