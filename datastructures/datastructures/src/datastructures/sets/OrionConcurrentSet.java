@@ -1,6 +1,5 @@
 package datastructures.sets;
 
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArraySet;
 import java.util.function.Consumer;

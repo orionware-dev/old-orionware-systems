@@ -1,7 +1,6 @@
 package designpatterns.facades.pipeline;
 
 import designpatterns.DesignPatternsFacade;
-import designpatterns.pipeline.AbstractFilter;
 import designpatterns.pipeline.AbstractPipeline;
 
 public interface PipelineLifecycleFacade extends DesignPatternsFacade

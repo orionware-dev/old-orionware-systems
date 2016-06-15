@@ -1,12 +1,9 @@
 package designpatterns.configuration;
 
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.Set;
 import datastructures.facades.sets.factory.SetFactoryFacade;
 import datastructures.facades.sets.factory.impl.SetFactoryFacadeImpl;
 import datastructures.sets.OrionConcurrentSet;
-import datastructures.sets.OrionSet;
 import designpatterns.DesignPatternsConfiguration;
 
 public class DesignPatternsInternalConfiguration extends DesignPatternsConfiguration
