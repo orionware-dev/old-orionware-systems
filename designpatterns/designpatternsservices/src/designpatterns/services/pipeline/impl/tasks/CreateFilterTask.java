@@ -1,6 +1,6 @@
 package designpatterns.services.pipeline.impl.tasks;
 
-import core.dependencyinjection.Injector;
+import core.dependencyinjection.annotations.Injector;
 import designpatterns.DesignPatternsTask;
 import designpatterns.pipeline.AbstractFilter;
 import designpatterns.pipeline.filter.Filter;

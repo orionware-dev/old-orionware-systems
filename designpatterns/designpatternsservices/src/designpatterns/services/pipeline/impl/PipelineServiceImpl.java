@@ -9,16 +9,16 @@ import designpatterns.services.pipeline.PipelineService;
 
 public class PipelineServiceImpl extends DesignPatternsServicesObject implements PipelineService
 {
+    public PipelineServiceImpl()
+    {
+        
+    }
+    
+    
     @Override
     public AbstractPipeline createEmptyPipeline(boolean feedForwardTheResult)
     {
         return new Pipeline(feedForwardTheResult);
-    }
-    
-    
-    public PipelineServiceImpl()
-    {
-        
     }
 
 

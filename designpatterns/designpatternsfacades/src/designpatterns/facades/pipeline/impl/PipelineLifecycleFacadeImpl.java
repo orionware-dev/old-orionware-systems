@@ -1,6 +1,6 @@
 package designpatterns.facades.pipeline.impl;
 
-import core.dependencyinjection.Injector;
+import core.dependencyinjection.annotations.Injector;
 import designpatterns.facades.DesignPatternsFacadesObject;
 import designpatterns.facades.pipeline.PipelineLifecycleFacade;
 import designpatterns.pipeline.AbstractPipeline;

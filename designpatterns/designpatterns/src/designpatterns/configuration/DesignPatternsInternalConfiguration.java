@@ -24,7 +24,6 @@ public class DesignPatternsInternalConfiguration implements DesignPatternsConfig
     {
         haveDesignPatternsConfigurationNotBeenRegistered = true;
         DesignPatternsInternalConfiguration temp = new DesignPatternsInternalConfiguration();
-        //SetFactoryFacade<DesignPatternsLibraryConfiguration> setFactoryFacade = new SetFactoryFacadeImpl<DesignPatternsLibraryConfiguration>();
         designPatternsConfiguration = temp.getSetFactoryFacade().createEmptyConcurrentHashSet();
     }
 

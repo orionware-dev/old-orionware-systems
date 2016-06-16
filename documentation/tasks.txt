@@ -1,8 +1,8 @@
-﻿--make the unit and integration tests packages of datastructures, designpatterns, etc. to be like
-the core: "datastructures.services", "datastructures.facades", etc.
+﻿--see if I can convert some of the code to annotations
 
---figure out how a DataStructure.java object will encapsulate its size:
-Use datastructuresservices.lists.size.impl.tasks.GetSizeTask
+--see how I can apply all object annotations in one go without
+having to gather all annotations again and again
+and get methods as array again and again
 
 --create the Orion Web Platform
 
@@ -68,8 +68,6 @@ takes in the data structure, it will determine the best algo
 to use for that structure
 
 --create features prop files in which we enable/disable features
-
---see if I can convert some of the code to annotations
 
 --create DataStructureIterator extends Iterator for convenience
 

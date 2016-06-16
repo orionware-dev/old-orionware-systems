@@ -1,6 +1,6 @@
 package datastructures.services.maps.factory.impl;
 
-import core.dependencyinjection.Injector;
+import core.dependencyinjection.annotations.Injector;
 import datastructures.maps.OrionConcurrentHashMap;
 import datastructures.maps.OrionMap;
 import datastructures.services.DataStructuresServicesObject;

@@ -1,4 +1,4 @@
-package designpatternsservicesintegrationtests.pipeline;
+package designpatternsfacadesintegrationtests.pipeline;
 
 import java.util.function.Consumer;
 import org.junit.Assert;
@@ -7,6 +7,7 @@ import org.junit.Test;
 import core.runnables.consumers.Consumer1;
 import core.runnables.functions.Function1x1;
 import designpatterns.DesignPatternsObject;
+import designpatterns.annotations.EmptyFilter;
 import designpatterns.pipeline.AbstractFilter;
 import designpatterns.pipeline.AbstractPipeline;
 import designpatterns.services.pipeline.PipelineFilterService;
@@ -18,6 +19,7 @@ public class PipelineTest extends DesignPatternsObject
 {
     private PipelineFilterService pipelineFilterService;
     private PipelineService pipelineService;
+    private AbstractFilter emptyFilter;
 
 
     @Before
@@ -109,5 +111,19 @@ public class PipelineTest extends DesignPatternsObject
         pipelineService.addFilterToPipeline(pipeline, filter2);
         Integer result = (Integer)pipelineService.executeFilters(pipeline);
         Assert.assertEquals("33", Integer.toString(result));
+    }
+    
+    
+    @Test
+    public void testEmptyFilterAnnotation()
+    {
+        Assert.assertNotNull(emptyFilter);
+    }
+
+
+    @EmptyFilter
+    private void setEmptyFilter(AbstractFilter emptyFilter)
+    {
+        this.emptyFilter = emptyFilter;
     }
 }

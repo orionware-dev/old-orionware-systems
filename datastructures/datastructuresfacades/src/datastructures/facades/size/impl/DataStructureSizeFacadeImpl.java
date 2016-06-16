@@ -1,6 +1,6 @@
 package datastructures.facades.size.impl;
 
-import core.dependencyinjection.Injector;
+import core.dependencyinjection.annotations.Injector;
 import datastructures.DataStructure;
 import datastructures.facades.DataStructuresFacadesObject;
 import datastructures.facades.size.DataStructureSizeFacade;

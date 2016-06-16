@@ -1,4 +1,4 @@
-package designpatternsservicesintegrationtests.pipeline;
+package designpatternsfacadesintegrationtests.pipeline;
 
 import designpatterns.DesignPatternsObject;
 

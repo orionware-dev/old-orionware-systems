@@ -5,7 +5,7 @@ import core.annotations.facades.gathering.AnnotationsGatheringFacade;
 import core.annotations.facades.gathering.impl.AnnotationsGatheringFacadeImpl;
 import core.dependencyinjection.DependencyInjectionObject;
 import core.dependencyinjection.DependencyInjectionTask;
-import core.dependencyinjection.Injector;
+import core.dependencyinjection.annotations.Injector;
 import core.reflection.facades.loader.ReflectionLoaderFacade;
 import core.reflection.facades.loader.impl.ReflectionLoaderFacadeImpl;
 

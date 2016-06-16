@@ -1,6 +1,6 @@
 package datastructuresservicesintegrationtests.dependencyinjection;
 
-import core.dependencyinjection.Injector;
+import core.dependencyinjection.annotations.Injector;
 import datastructures.DataStructuresObject;
 import datastructures.services.size.DataStructureSizeService;
 

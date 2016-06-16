@@ -1,6 +1,6 @@
 package datastructures.facades.maps.factory.impl;
 
-import core.dependencyinjection.Injector;
+import core.dependencyinjection.annotations.Injector;
 import datastructures.facades.DataStructuresFacadesObject;
 import datastructures.facades.maps.factory.MapFactoryFacade;
 import datastructures.maps.OrionConcurrentHashMap;

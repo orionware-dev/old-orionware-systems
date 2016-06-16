@@ -1,6 +1,6 @@
 package designpatterns.services.pipeline.impl;
 
-import core.dependencyinjection.Injector;
+import core.dependencyinjection.annotations.Injector;
 import designpatterns.pipeline.AbstractFilter;
 import designpatterns.services.DesignPatternsServicesObject;
 import designpatterns.services.pipeline.PipelineFilterService;

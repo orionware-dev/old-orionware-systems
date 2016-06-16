@@ -1,13 +1,13 @@
-package designpatternsservicesintegrationtests;
+package designpatternsfacadesintegrationtests;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
-import designpatternsservicesintegrationtests.pipeline.PipelineTest;
+import designpatternsfacadesintegrationtests.pipeline.PipelineTest;
 
 @RunWith(Suite.class)
 @SuiteClasses({PipelineTest.class})
-public class DesignPatternsServicesIntegrationTestsSuite
+public class DesignPatternsFacadesIntegrationTestsSuite
 {
 
 }

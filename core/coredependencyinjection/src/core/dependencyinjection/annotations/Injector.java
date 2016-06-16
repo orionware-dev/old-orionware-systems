@@ -1,4 +1,4 @@
-package core.dependencyinjection;
+package core.dependencyinjection.annotations;
 
 import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
