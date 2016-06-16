@@ -4,7 +4,7 @@ import core.abstraction.ConfigurationEnumeration;
 
 public enum DataStructuresServicesConfigurationEnumeration implements ConfigurationEnumeration
 {
-    LIBRARY_NAME("datastructures/servicess"),
+    LIBRARY_NAME("datastructures.servicess"),
     LIBRARY_CLASS_PATH("/datastructures/servicess"),
     LIBRARY_CONFIGURATION_DIR(""),
     CONFIGURATION_FILE_NAME(""),

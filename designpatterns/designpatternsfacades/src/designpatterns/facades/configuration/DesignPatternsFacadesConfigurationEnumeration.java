@@ -4,7 +4,7 @@ import core.abstraction.ConfigurationEnumeration;
 
 public enum DesignPatternsFacadesConfigurationEnumeration implements ConfigurationEnumeration
 {
-    LIBRARY_NAME("designpatterns/facades"),
+    LIBRARY_NAME("designpatterns.facades"),
     LIBRARY_CLASS_PATH("/designpatterns/facades"),
     LIBRARY_CONFIGURATION_DIR(""),
     CONFIGURATION_FILE_NAME(""),

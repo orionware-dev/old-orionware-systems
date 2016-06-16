@@ -4,7 +4,7 @@ import core.abstraction.ConfigurationEnumeration;
 
 public enum DesignPatternsServicesConfigurationEnumeration implements ConfigurationEnumeration
 {
-    LIBRARY_NAME("designpatterns/services"),
+    LIBRARY_NAME("designpatterns.services"),
     LIBRARY_CLASS_PATH("/designpatterns/services"),
     LIBRARY_CONFIGURATION_DIR(""),
     CONFIGURATION_FILE_NAME(""),

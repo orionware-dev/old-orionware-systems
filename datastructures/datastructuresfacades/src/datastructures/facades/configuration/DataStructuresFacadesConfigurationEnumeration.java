@@ -4,7 +4,7 @@ import core.abstraction.ConfigurationEnumeration;
 
 public enum DataStructuresFacadesConfigurationEnumeration implements ConfigurationEnumeration
 {
-    LIBRARY_NAME("datastructures/facades"),
+    LIBRARY_NAME("datastructures.facades"),
     LIBRARY_CLASS_PATH("/datastructures/facades"),
     LIBRARY_CONFIGURATION_DIR(""),
     CONFIGURATION_FILE_NAME(""),
