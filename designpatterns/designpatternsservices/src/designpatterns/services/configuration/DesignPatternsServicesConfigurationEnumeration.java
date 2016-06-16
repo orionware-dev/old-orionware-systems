@@ -1,6 +1,6 @@
 package designpatterns.services.configuration;
 
-import core.configuration.ConfigurationEnumeration;
+import core.abstraction.ConfigurationEnumeration;
 
 public enum DesignPatternsServicesConfigurationEnumeration implements ConfigurationEnumeration
 {

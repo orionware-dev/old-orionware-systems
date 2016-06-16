@@ -1,5 +1,7 @@
 package core.configuration;
 
+import core.abstraction.ConfigurationEnumeration;
+
 public enum DefaultConfigurationEnumeration implements ConfigurationEnumeration
 {
     DEFAULT_CONFIGURATION_DIR("configuration"),

@@ -1,6 +1,6 @@
 package datastructures.configuration;
 
-import core.configuration.ConfigurationEnumeration;
+import core.abstraction.ConfigurationEnumeration;
 import core.configuration.DefaultConfigurationEnumeration;
 
 public enum DataStructuresConfigurationEnumeration implements ConfigurationEnumeration

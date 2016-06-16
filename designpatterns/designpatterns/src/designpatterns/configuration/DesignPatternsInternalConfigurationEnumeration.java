@@ -1,6 +1,6 @@
 package designpatterns.configuration;
 
-import core.configuration.ConfigurationEnumeration;
+import core.abstraction.ConfigurationEnumeration;
 import core.configuration.DefaultConfigurationEnumeration;
 
 public enum DesignPatternsInternalConfigurationEnumeration implements ConfigurationEnumeration

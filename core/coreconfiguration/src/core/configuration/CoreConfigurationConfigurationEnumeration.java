@@ -1,5 +1,7 @@
 package core.configuration;
 
+import core.abstraction.ConfigurationEnumeration;
+
 public enum CoreConfigurationConfigurationEnumeration implements ConfigurationEnumeration
 {
     LIBRARY_NAME("coreconfiguration"),

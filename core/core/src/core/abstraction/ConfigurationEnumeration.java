@@ -1,6 +1,4 @@
-package core.configuration;
-
-import core.abstraction.OrionEnumeration;
+package core.abstraction;
 
 public interface ConfigurationEnumeration extends OrionEnumeration
 {

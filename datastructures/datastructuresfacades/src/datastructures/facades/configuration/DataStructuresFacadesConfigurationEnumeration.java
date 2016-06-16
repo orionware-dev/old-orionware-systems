@@ -1,6 +1,6 @@
 package datastructures.facades.configuration;
 
-import core.configuration.ConfigurationEnumeration;
+import core.abstraction.ConfigurationEnumeration;
 
 public enum DataStructuresFacadesConfigurationEnumeration implements ConfigurationEnumeration
 {
