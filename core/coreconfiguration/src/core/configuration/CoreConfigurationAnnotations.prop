@@ -1,3 +1,0 @@
-core.configuration.annotation.1=core.dependencyinjection.annotations.Injector
-core.configuration.annotation.facade.1=core.dependencyinjection.facades.processor.impl.DependencyInjectorFacadeImpl
-core.configuration.annotation.facade.processing.method.1=processDependencies

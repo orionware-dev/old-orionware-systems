@@ -22,8 +22,11 @@ public class OrionObjectProcessorServiceImpl extends OrionSimpleObject implement
     {
         if(LibrariesConfigurationMapper.haveCoreLibrariesNotBeenRegistered)
         {
-            LibraryConfiguration coreLibraryConfiguration = new InitialiseCoreConfigurationTask().run();
+            InitialiseCoreConfigurationTask initialiseCoreConfigurationTask = new InitialiseCoreConfigurationTask();
+            LibraryConfiguration coreLibraryConfiguration = initialiseCoreConfigurationTask.runCore();
             LibrariesConfiguration.registerLibraryConfiguration(coreLibraryConfiguration);
+            LibraryConfiguration coreDependencyInjectionLibraryConfiguration = initialiseCoreConfigurationTask.runDependencyInjection();
+            LibrariesConfiguration.registerLibraryConfiguration(coreDependencyInjectionLibraryConfiguration);
 
             if(new IsCoreLibraryTask().run(getClass()))
             {

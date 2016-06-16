@@ -11,8 +11,8 @@ public enum CoreConfigurationConfigurationEnumeration implements ConfigurationEn
     // is no constructor with argument of type CoreConfigurationEnum
     CONFIGURATION_FILE_NAME("CoreConfiguration.prop"),
     CONFIGURATION_FILE_PATH("" + LIBRARY_CONFIGURATION_DIR.get() + "/" + CONFIGURATION_FILE_NAME.get()),
-    ANNOTATIONS_DEFINITION_FILE_NAME("CoreConfigurationAnnotations.prop"),
-    ANNOTATIONS_DEFINITION_FILE_PATH("" + LIBRARY_CONFIGURATION_DIR.get() + "/" + ANNOTATIONS_DEFINITION_FILE_NAME.get()),
+    ANNOTATIONS_DEFINITION_FILE_NAME(""),
+    ANNOTATIONS_DEFINITION_FILE_PATH(""),
     INTEGRATION_TESTS_CLASS_PATH(""),
     UNIT_TESTS_CLASS_PATH("");
 

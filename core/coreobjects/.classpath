@@ -6,5 +6,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/coreannotationsfacades"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/coreconfigurationfacades"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/coreconfiguration"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/coredependencyinjection"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
