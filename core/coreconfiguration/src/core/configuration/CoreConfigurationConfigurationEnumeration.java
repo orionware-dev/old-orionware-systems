@@ -4,7 +4,7 @@ import core.abstraction.ConfigurationEnumeration;
 
 public enum CoreConfigurationConfigurationEnumeration implements ConfigurationEnumeration
 {
-    LIBRARY_NAME("coreconfiguration"),
+    LIBRARY_NAME("core.configuration"),
     LIBRARY_CLASS_PATH("/core/configuration"),
     LIBRARY_CONFIGURATION_DIR("" + LIBRARY_CLASS_PATH.get()),
     // put an empty string as a prefix, because it complaints that there

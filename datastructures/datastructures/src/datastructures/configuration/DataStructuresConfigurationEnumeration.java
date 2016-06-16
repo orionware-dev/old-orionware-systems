@@ -6,7 +6,7 @@ import core.configuration.DefaultConfigurationEnumeration;
 public enum DataStructuresConfigurationEnumeration implements ConfigurationEnumeration
 {
     LIBRARY_NAME("datastructures"),
-    LIBRARY_CLASS_PATH("/" + LIBRARY_NAME.get()),
+    LIBRARY_CLASS_PATH("/datastructures"),
     LIBRARY_CONFIGURATION_DIR("" + LIBRARY_CLASS_PATH.get() + "/" + DefaultConfigurationEnumeration.DEFAULT_CONFIGURATION_DIR.get()),
     CONFIGURATION_FILE_NAME("DataStructures.prop"),
     CONFIGURATION_FILE_PATH("" + LIBRARY_CONFIGURATION_DIR.get() + "/" + CONFIGURATION_FILE_NAME.get()),

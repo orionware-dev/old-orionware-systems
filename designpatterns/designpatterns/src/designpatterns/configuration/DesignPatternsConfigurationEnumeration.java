@@ -6,7 +6,7 @@ import core.configuration.DefaultConfigurationEnumeration;
 public enum DesignPatternsConfigurationEnumeration implements ConfigurationEnumeration
 {
     LIBRARY_NAME("designpatterns"),
-    LIBRARY_CLASS_PATH("/" + LIBRARY_NAME.get()),
+    LIBRARY_CLASS_PATH("/designpatterns"),
     LIBRARY_CONFIGURATION_DIR("" + LIBRARY_CLASS_PATH.get() + "/" + DefaultConfigurationEnumeration.DEFAULT_CONFIGURATION_DIR.get()),
     CONFIGURATION_FILE_NAME("DesignPatterns.prop"),
     CONFIGURATION_FILE_PATH("" + LIBRARY_CONFIGURATION_DIR.get() + "/" + CONFIGURATION_FILE_NAME.get()),
