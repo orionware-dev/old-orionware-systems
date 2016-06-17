@@ -8,6 +8,7 @@ import core.runnables.consumers.Consumer1;
 import core.runnables.functions.Function1x1;
 import designpatterns.DesignPatternsObject;
 import designpatterns.annotations.EmptyFilter;
+import designpatterns.annotations.EmptyPipeline;
 import designpatterns.pipeline.AbstractFilter;
 import designpatterns.pipeline.AbstractPipeline;
 import designpatterns.services.pipeline.PipelineFilterService;
@@ -20,6 +21,7 @@ public class PipelineTest extends DesignPatternsObject
     private PipelineFilterService pipelineFilterService;
     private PipelineService pipelineService;
     private AbstractFilter emptyFilter;
+    private AbstractPipeline emptyPipeline;
 
 
     @Before
@@ -119,11 +121,26 @@ public class PipelineTest extends DesignPatternsObject
     {
         Assert.assertNotNull(emptyFilter);
     }
+    
+    
+    @Test
+    public void testEmptyPipelineAnnotation()
+    {
+        Assert.assertNotNull(emptyPipeline);
+        Assert.assertTrue(emptyPipeline.isFeedForwardTheResult());
+    }
 
 
     @EmptyFilter
     private void setEmptyFilter(AbstractFilter emptyFilter)
     {
         this.emptyFilter = emptyFilter;
+    }
+    
+    
+    @EmptyPipeline(feedForwardTheResult = true)
+    private void setEmptyPipeline(AbstractPipeline emptyPipeline)
+    {
+        this.emptyPipeline = emptyPipeline;
     }
 }
