@@ -32,21 +32,10 @@ public class PipelineLifecycleServiceImpl extends DesignPatternsServicesObject i
         
         if(pipeline.isFeedForwardTheResult())
         {
-            int index = 0;
-
             for(AbstractFilter filter : getPipeline().getFilters())
             {
-                if(index == 0)
-                {
-                    pipelineResult = pipelineFilterService.executeFilter(filter, null);
-                }
-                else
-                {
-                    pipelineResult = pipelineFilterService.executeFilter(filter, pipelineResult);
-                }
-                
+                pipelineResult = pipelineFilterService.executeFilter(filter, pipelineResult);
                 getPipeline().setLastFunctionResult(pipelineResult);
-                ++index;
             }
         }
         else
