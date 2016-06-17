@@ -68,8 +68,8 @@ public class ReflectionLoaderFacadeImpl extends ReflectionFacadeObject implement
 
 
     @Override
-    public Object loadAndInstantiateClass(String className)
+    public Object instantiateClass(String className)
     {
-        return reflectionLoaderService.loadAndInstantiateClass(className);
+        return reflectionLoaderService.instantiateClass(className);
     }
 }

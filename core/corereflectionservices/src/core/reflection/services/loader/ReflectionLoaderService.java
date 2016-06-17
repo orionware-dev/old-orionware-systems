@@ -30,5 +30,5 @@ public interface ReflectionLoaderService extends ReflectionService
     public Object instantiateClass(Class<?> classToInstantiate);
 
 
-    public Object loadAndInstantiateClass(String className);
+    public Object instantiateClass(String className);
 }

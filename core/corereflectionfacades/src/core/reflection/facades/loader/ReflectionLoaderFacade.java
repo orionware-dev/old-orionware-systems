@@ -27,5 +27,5 @@ public interface ReflectionLoaderFacade extends ReflectionFacade
     public Object instantiateClass(Class<?> classToInstantiate);
 
 
-    public Object loadAndInstantiateClass(String className);
+    public Object instantiateClass(String className);
 }

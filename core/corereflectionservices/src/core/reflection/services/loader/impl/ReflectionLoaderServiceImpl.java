@@ -73,7 +73,7 @@ public class ReflectionLoaderServiceImpl extends ReflectionServiceObject impleme
 
 
     @Override
-    public Object loadAndInstantiateClass(String className)
+    public Object instantiateClass(String className)
     {
         return instantiateClass(loadClass(className));
     }

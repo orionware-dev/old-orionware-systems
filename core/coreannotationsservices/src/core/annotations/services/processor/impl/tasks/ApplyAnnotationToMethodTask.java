@@ -13,7 +13,7 @@ public class ApplyAnnotationToMethodTask extends AnnotationServiceObject impleme
     {
         ReflectionLoaderFacade reflectionLoaderFacade = new ReflectionLoaderFacadeImpl();
         //instantiate annotation service
-        Object someAnnotationService = reflectionLoaderFacade.loadAndInstantiateClass(registeredAnnotation.getAnnotationService());
+        Object someAnnotationService = reflectionLoaderFacade.instantiateClass(registeredAnnotation.getAnnotationService());
 
         try
         {
