@@ -30,20 +30,20 @@ public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject imp
     public void processAllAnnotations(Object orionObject)
     {
         List<Annotation> allObjectAnnotations = annotationsGatheringService.gatherAllAnnotationsFromObject(orionObject);
-        // we filter the annotations, because if it finds a registered
-        // annotation that matches
-        // one in the list of object annotations then we can process it
-        // otherwise it means that Orion
-        // will have to try to process non-Orion-based annotations like
-        // Java/Spring/etc. annotations
-        // in which case it is processed by the respective framework
+        //we filter the annotations, because if it finds a registered
+        //annotation that matches
+        //one in the list of object annotations then we can process it
+        //otherwise it means that Orion
+        //will have to try to process non-Orion-based annotations like
+        //Java/Spring/etc. annotations
+        //in which case it is processed by the respective framework
         Stream<OrionAnnotation> registeredAnnotations = annotationsFilteringService.filterRegisteredAnnotationsStreamFromObjectAnnotations(allObjectAnnotations);
         new ApplyAnnotationsToMethodTask().run(registeredAnnotations, orionObject);
     }
 
 
-    // returns true if annotation has been applied to method and false if it is
-    // not registered
+    //returns true if annotation has been applied to method and false if it is
+    //not registered
     @Override
     public boolean applyMethodAnnotation(Object OrionObject, OrionAnnotation annotationToProcess)
     {

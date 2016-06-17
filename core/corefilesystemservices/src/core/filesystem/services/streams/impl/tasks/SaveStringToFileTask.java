@@ -50,7 +50,7 @@ public class SaveStringToFileTask extends FileSystemObject implements FileSystem
         {
             output.write(lineToWrite);
 
-            // we avoid an empty line at the end of the file
+            //we avoid an empty line at the end of the file
             if(lineCounter != numberOfLines)
             {
                 output.write(lineSeparator);

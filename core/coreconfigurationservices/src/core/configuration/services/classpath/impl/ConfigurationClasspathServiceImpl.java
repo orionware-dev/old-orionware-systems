@@ -15,8 +15,8 @@ import core.configuration.services.registry.impl.PropertiesRegistrationServiceIm
 
 public class ConfigurationClasspathServiceImpl extends ConfigurationServiceObject implements ConfigurationClasspathService
 {
-    // this method is accurate when it is called from a base object
-    // like inside OrionObject.java or DataStructureObject.java
+    //this method is accurate when it is called from a base object
+    //like inside OrionObject.java or DataStructureObject.java
     @Override
     public boolean isCoreLibrary(Class<?> classBeingRun)
     {
