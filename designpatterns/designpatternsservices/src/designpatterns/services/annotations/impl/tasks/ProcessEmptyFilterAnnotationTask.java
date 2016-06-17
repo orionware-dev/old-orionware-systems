@@ -53,19 +53,16 @@ public class ProcessEmptyFilterAnnotationTask extends DesignPatternsServicesObje
     }
     
     
-    
+    @Injector(ID = "core.reflection.facades.loader.impl.ReflectionLoaderFacadeImpl")
+    private void setReflectionLoaderFacade(ReflectionLoaderFacade reflectionLoaderFacade)
+    {
+        this.reflectionLoaderFacade = reflectionLoaderFacade;
+    }
     
     
     @Injector(ID = "core.annotations.facades.gathering.impl.AnnotationsGatheringFacadeImpl")
     private void setAnnotationsGatheringFacade(AnnotationsGatheringFacade annotationsGatheringFacade)
     {
         this.annotationsGatheringFacade = annotationsGatheringFacade;
-    }
-    
-    
-    @Injector(ID = "core.reflection.facades.loader.impl.ReflectionLoaderFacadeImpl")
-    private void setReflectionLoaderFacade(ReflectionLoaderFacade reflectionLoaderFacade)
-    {
-        this.reflectionLoaderFacade = reflectionLoaderFacade;
     }
 }
