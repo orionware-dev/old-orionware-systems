@@ -1,7 +1,7 @@
 package designpatterns.pipeline;
 
-import datastructures.lists.OrionArrayList;
 import datastructures.lists.OrionList;
+import datastructures.lists.impl.OrionArrayList;
 import designpatterns.DesignPatternsObject;
 
 public abstract class AbstractPipeline extends DesignPatternsObject

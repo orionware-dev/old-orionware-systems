@@ -1,7 +1,7 @@
 package datastructures.services.lists.factory.impl.tasks;
 
 import datastructures.DataStructuresTask;
-import datastructures.lists.OrionConcurrentArrayList;
+import datastructures.lists.impl.OrionConcurrentArrayList;
 import datastructures.services.DataStructuresServicesObject;
 
 public class CreateEmptyConcurrentArrayListTask<T> extends DataStructuresServicesObject implements DataStructuresTask

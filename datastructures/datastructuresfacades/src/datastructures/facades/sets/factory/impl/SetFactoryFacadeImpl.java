@@ -4,8 +4,8 @@ import core.dependencyinjection.annotations.Injector;
 import datastructures.facades.DataStructuresFacadesObject;
 import datastructures.facades.sets.factory.SetFactoryFacade;
 import datastructures.services.sets.factory.SetFactoryService;
-import datastructures.sets.OrionConcurrentSet;
 import datastructures.sets.OrionSet;
+import datastructures.sets.impl.OrionConcurrentSet;
 
 public class SetFactoryFacadeImpl<T> extends DataStructuresFacadesObject implements SetFactoryFacade<T>
 {

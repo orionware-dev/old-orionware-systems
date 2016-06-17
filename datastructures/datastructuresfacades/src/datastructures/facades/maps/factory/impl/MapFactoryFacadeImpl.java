@@ -3,8 +3,8 @@ package datastructures.facades.maps.factory.impl;
 import core.dependencyinjection.annotations.Injector;
 import datastructures.facades.DataStructuresFacadesObject;
 import datastructures.facades.maps.factory.MapFactoryFacade;
-import datastructures.maps.OrionConcurrentHashMap;
 import datastructures.maps.OrionMap;
+import datastructures.maps.impl.OrionConcurrentHashMap;
 import datastructures.services.maps.factory.MapFactoryService;
 
 public class MapFactoryFacadeImpl<T, T1, T2> extends DataStructuresFacadesObject implements MapFactoryFacade<T, T1, T2>

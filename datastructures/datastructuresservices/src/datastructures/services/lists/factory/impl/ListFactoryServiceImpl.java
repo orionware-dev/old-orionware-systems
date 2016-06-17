@@ -1,8 +1,8 @@
 package datastructures.services.lists.factory.impl;
 
 import core.dependencyinjection.annotations.Injector;
-import datastructures.lists.OrionConcurrentArrayList;
 import datastructures.lists.OrionList;
+import datastructures.lists.impl.OrionConcurrentArrayList;
 import datastructures.services.DataStructuresServicesObject;
 import datastructures.services.lists.factory.ListFactoryService;
 import datastructures.services.lists.factory.impl.tasks.CreateEmptyArrayListTask;

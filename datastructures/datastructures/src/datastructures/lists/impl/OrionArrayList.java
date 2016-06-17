@@ -1,9 +1,10 @@
-package datastructures.lists;
+package datastructures.lists.impl;
 
 import java.util.ArrayList;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
+import datastructures.lists.OrionList;
 
 public class OrionArrayList<T> extends ArrayList<T> implements OrionList<T>
 {

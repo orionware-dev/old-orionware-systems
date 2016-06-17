@@ -1,8 +1,8 @@
 package datastructures.facades.lists.factory;
 
 import datastructures.DataStructuresFacade;
-import datastructures.lists.OrionConcurrentArrayList;
 import datastructures.lists.OrionList;
+import datastructures.lists.impl.OrionConcurrentArrayList;
 
 public interface ListFactoryFacade<T> extends DataStructuresFacade
 {

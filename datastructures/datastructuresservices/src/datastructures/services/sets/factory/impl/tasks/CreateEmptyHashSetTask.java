@@ -2,8 +2,8 @@ package datastructures.services.sets.factory.impl.tasks;
 
 import datastructures.DataStructuresTask;
 import datastructures.services.DataStructuresServicesObject;
-import datastructures.sets.OrionHashSet;
 import datastructures.sets.OrionSet;
+import datastructures.sets.impl.OrionHashSet;
 
 public class CreateEmptyHashSetTask<T> extends DataStructuresServicesObject implements DataStructuresTask
 {

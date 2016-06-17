@@ -4,8 +4,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import datastructures.DataStructuresObject;
-import datastructures.lists.OrionArrayList;
 import datastructures.lists.OrionList;
+import datastructures.lists.impl.OrionArrayList;
 
 public class OrionListTest extends DataStructuresObject
 {

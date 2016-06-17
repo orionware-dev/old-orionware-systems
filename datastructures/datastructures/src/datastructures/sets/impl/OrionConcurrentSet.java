@@ -1,14 +1,15 @@
-package datastructures.sets;
+package datastructures.sets.impl;
 
-import java.util.HashSet;
 import java.util.Iterator;
+import java.util.concurrent.CopyOnWriteArraySet;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
+import datastructures.sets.OrionSet;
 
-public class OrionHashSet<T> extends HashSet<T> implements OrionSet<T>
+public class OrionConcurrentSet<T> extends CopyOnWriteArraySet<T> implements OrionSet<T>
 {
-    private static final long serialVersionUID = -6680631728585109615L;
+    private static final long serialVersionUID = -8923557322406477167L;
 
 
     @SuppressWarnings("unchecked")

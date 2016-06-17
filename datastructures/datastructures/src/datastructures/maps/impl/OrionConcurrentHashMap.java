@@ -1,12 +1,13 @@
-package datastructures.maps;
+package datastructures.maps.impl;
 
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+import datastructures.maps.OrionMap;
 
-public class OrionHashMap<T, T1, T2> extends HashMap<T1, T2> implements OrionMap<T, T1, T2>
+public class OrionConcurrentHashMap<T, T1, T2> extends ConcurrentHashMap<T1, T2> implements OrionMap<T, T1, T2>
 {
-    private static final long serialVersionUID = -8197805466914391486L;
+    private static final long serialVersionUID = 2218876070379823151L;
 
 
     @Override

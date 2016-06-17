@@ -1,13 +1,15 @@
-package datastructures.lists;
+package datastructures.sets.impl;
 
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
+import datastructures.sets.OrionSet;
 
-public class OrionConcurrentArrayList<T> extends CopyOnWriteArrayList<T> implements OrionList<T>
+public class OrionHashSet<T> extends HashSet<T> implements OrionSet<T>
 {
-    private static final long serialVersionUID = 3182994074842322454L;
+    private static final long serialVersionUID = -6680631728585109615L;
 
 
     @SuppressWarnings("unchecked")
@@ -44,14 +46,30 @@ public class OrionConcurrentArrayList<T> extends CopyOnWriteArrayList<T> impleme
     @Override
     public Object getFirst()
     {
-        return get(0);
+        T firstElement = null;
+        Iterator<T> iterator = iterator();
+        
+        if(iterator.hasNext())
+        {
+            firstElement = iterator.next();
+        }
+        
+        return firstElement;
     }
 
 
     @Override
     public Object getLast()
     {
-        return get(this.size() - 1);
+        T lastElement = null;
+        Iterator<T> iterator = iterator();
+        
+        while(iterator.hasNext())
+        {
+            lastElement = iterator.next();
+        }
+        
+        return lastElement;
     }
 
 

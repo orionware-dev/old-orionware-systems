@@ -1,8 +1,8 @@
 package datastructures.facades.maps.factory;
 
 import datastructures.DataStructuresFacade;
-import datastructures.maps.OrionConcurrentHashMap;
 import datastructures.maps.OrionMap;
+import datastructures.maps.impl.OrionConcurrentHashMap;
 
 public interface MapFactoryFacade<T, T1, T2> extends DataStructuresFacade
 {

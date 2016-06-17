@@ -1,8 +1,8 @@
 package datastructures.services.sets.factory;
 
 import datastructures.services.factories.DataStructureFactory;
-import datastructures.sets.OrionConcurrentSet;
 import datastructures.sets.OrionSet;
+import datastructures.sets.impl.OrionConcurrentSet;
 
 public interface SetFactoryService<T> extends DataStructureFactory
 {

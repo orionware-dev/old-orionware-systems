@@ -3,8 +3,8 @@ package datastructures.facades.lists.factory.impl;
 import core.dependencyinjection.annotations.Injector;
 import datastructures.facades.DataStructuresFacadesObject;
 import datastructures.facades.lists.factory.ListFactoryFacade;
-import datastructures.lists.OrionConcurrentArrayList;
 import datastructures.lists.OrionList;
+import datastructures.lists.impl.OrionConcurrentArrayList;
 import datastructures.services.lists.factory.ListFactoryService;
 
 public class ListFactoryFacadeImpl<T> extends DataStructuresFacadesObject implements ListFactoryFacade<T>

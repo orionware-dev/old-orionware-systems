@@ -5,8 +5,8 @@ import datastructures.services.DataStructuresServicesObject;
 import datastructures.services.sets.factory.SetFactoryService;
 import datastructures.services.sets.factory.impl.tasks.CreateEmptyConcurrentHashSetTask;
 import datastructures.services.sets.factory.impl.tasks.CreateEmptyHashSetTask;
-import datastructures.sets.OrionConcurrentSet;
 import datastructures.sets.OrionSet;
+import datastructures.sets.impl.OrionConcurrentSet;
 
 public class SetFactoryServiceImpl<T> extends DataStructuresServicesObject implements SetFactoryService<T>
 {

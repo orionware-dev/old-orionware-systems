@@ -3,7 +3,7 @@ package designpatterns.configuration;
 import java.util.Set;
 import datastructures.facades.sets.factory.SetFactoryFacade;
 import datastructures.facades.sets.factory.impl.SetFactoryFacadeImpl;
-import datastructures.sets.OrionConcurrentSet;
+import datastructures.sets.impl.OrionConcurrentSet;
 import designpatterns.DesignPatternsConfiguration;
 
 public class DesignPatternsInternalConfiguration implements DesignPatternsConfiguration
