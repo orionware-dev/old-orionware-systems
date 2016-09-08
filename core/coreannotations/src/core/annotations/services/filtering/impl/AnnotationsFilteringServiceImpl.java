@@ -6,21 +6,21 @@ import java.util.stream.Stream;
 import core.annotations.OrionAnnotation;
 import core.annotations.services.AnnotationServiceObject;
 import core.annotations.services.filtering.AnnotationsFilteringService;
-import core.annotations.services.filtering.impl.tasks.FilterRegisteredAnnotationsStreamFromObjectAnnotationsTask;
-import core.annotations.services.filtering.impl.tasks.IsAnnotationRegisteredTask;
+import core.annotations.services.filtering.impl.tasks.DoesObjectHaveRegisteredAnnotationTask;
+import core.annotations.services.filtering.impl.tasks.FilterRegisteredAnnotationsFromObjectAnnotationsTask;
 
 public class AnnotationsFilteringServiceImpl extends AnnotationServiceObject implements AnnotationsFilteringService
 {
     @Override
-    public Stream<OrionAnnotation> filterRegisteredAnnotationsStreamFromObjectAnnotations(Collection<Annotation> allObjectAnnotationsList)
+    public Stream<OrionAnnotation> filterRegisteredAnnotationsFromObjectAnnotations(Collection<Annotation> allObjectAnnotationsList)
     {
-        return new FilterRegisteredAnnotationsStreamFromObjectAnnotationsTask().run(allObjectAnnotationsList);
+        return new FilterRegisteredAnnotationsFromObjectAnnotationsTask().run(allObjectAnnotationsList);
     }
 
-
+    
     @Override
-    public boolean isAnnotationRegistered(OrionAnnotation annotation)
+    public boolean run(Collection<Annotation> allObjectAnnotations, OrionAnnotation registeredAnnotation)
     {
-        return new IsAnnotationRegisteredTask().run(annotation);
+        return new DoesObjectHaveRegisteredAnnotationTask().run(allObjectAnnotations, registeredAnnotation);
     }
 }

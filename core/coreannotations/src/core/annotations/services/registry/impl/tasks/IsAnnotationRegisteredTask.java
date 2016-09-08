@@ -1,4 +1,4 @@
-package core.annotations.services.filtering.impl.tasks;
+package core.annotations.services.registry.impl.tasks;
 
 import core.annotations.AnnotationTask;
 import core.annotations.OrionAnnotation;

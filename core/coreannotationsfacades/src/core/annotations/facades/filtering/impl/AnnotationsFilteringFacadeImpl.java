@@ -21,15 +21,8 @@ public class AnnotationsFilteringFacadeImpl extends AnnotationFacadeObject imple
 
 
     @Override
-    public Stream<OrionAnnotation> filterRegisteredAnnotationsStreamFromObjectAnnotations(List<Annotation> allObjectAnnotationsList)
+    public Stream<OrionAnnotation> filterRegisteredAnnotationsFromObjectAnnotations(List<Annotation> allObjectAnnotationsList)
     {
-        return annotationsFilteringService.filterRegisteredAnnotationsStreamFromObjectAnnotations(allObjectAnnotationsList);
-    }
-
-
-    @Override
-    public boolean isAnnotationRegistered(OrionAnnotation annotation)
-    {
-        return annotationsFilteringService.isAnnotationRegistered(annotation);
+        return annotationsFilteringService.filterRegisteredAnnotationsFromObjectAnnotations(allObjectAnnotationsList);
     }
 }

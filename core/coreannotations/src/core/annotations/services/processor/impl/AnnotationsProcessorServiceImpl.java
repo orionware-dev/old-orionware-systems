@@ -12,17 +12,21 @@ import core.annotations.services.gathering.impl.AnnotationsGatheringServiceImpl;
 import core.annotations.services.processor.AnnotationsProcessorService;
 import core.annotations.services.processor.impl.tasks.ApplyAnnotationToMethodTask;
 import core.annotations.services.processor.impl.tasks.ApplyAnnotationsToMethodTask;
+import core.annotations.services.registry.AnnotationsRegistrationService;
+import core.annotations.services.registry.impl.AnnotationsRegistrationServiceImpl;
 
 public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject implements AnnotationsProcessorService
 {
     private AnnotationsFilteringService annotationsFilteringService;
     private AnnotationsGatheringService annotationsGatheringService;
+    private AnnotationsRegistrationService annotationsRegistrationService;
 
 
     public AnnotationsProcessorServiceImpl()
     {
         this.annotationsFilteringService = new AnnotationsFilteringServiceImpl();
         this.annotationsGatheringService = new AnnotationsGatheringServiceImpl();
+        this.annotationsRegistrationService = new AnnotationsRegistrationServiceImpl();
     }
 
 
@@ -37,7 +41,7 @@ public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject imp
         //will have to try to process non-Orion-based annotations like
         //Java/Spring/etc. annotations
         //in which case it is processed by the respective framework
-        Stream<OrionAnnotation> registeredAnnotations = annotationsFilteringService.filterRegisteredAnnotationsStreamFromObjectAnnotations(allObjectAnnotations);
+        Stream<OrionAnnotation> registeredAnnotations = annotationsFilteringService.filterRegisteredAnnotationsFromObjectAnnotations(allObjectAnnotations);
         new ApplyAnnotationsToMethodTask().run(registeredAnnotations, orionObject);
     }
 
@@ -49,7 +53,7 @@ public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject imp
     {
         boolean isAnnotationApplicable = false;
 
-        if(annotationsFilteringService.isAnnotationRegistered(annotationToProcess))
+        if(annotationsRegistrationService.isAnnotationRegistered(annotationToProcess))
         {
             new ApplyAnnotationToMethodTask().run(OrionObject, annotationToProcess);
             isAnnotationApplicable = true;

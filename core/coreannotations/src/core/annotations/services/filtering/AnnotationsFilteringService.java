@@ -8,8 +8,8 @@ import core.annotations.OrionAnnotation;
 
 public interface AnnotationsFilteringService extends AnnotationService
 {
-    public Stream<OrionAnnotation> filterRegisteredAnnotationsStreamFromObjectAnnotations(Collection<Annotation> allObjectAnnotationsList);
-
-
-    public boolean isAnnotationRegistered(OrionAnnotation annotation);
+    public Stream<OrionAnnotation> filterRegisteredAnnotationsFromObjectAnnotations(Collection<Annotation> allObjectAnnotations);
+    
+    
+    public boolean run(Collection<Annotation> allObjectAnnotations, OrionAnnotation registeredAnnotation);
 }

@@ -37,4 +37,11 @@ public class AnnotationsRegistrationFacadeImpl extends AnnotationFacadeObject im
     {
         annotationsRegistrationService.registerLibraryAnnotations(libraryConfiguration);
     }
+    
+    
+    @Override
+    public boolean isAnnotationRegistered(OrionAnnotation annotation)
+    {
+        return annotationsRegistrationService.isAnnotationRegistered(annotation);
+    }
 }

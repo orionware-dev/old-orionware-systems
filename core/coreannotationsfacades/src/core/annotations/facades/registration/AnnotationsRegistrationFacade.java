@@ -13,4 +13,7 @@ public interface AnnotationsRegistrationFacade extends AnnotationFacade
 
 
     public void registerLibraryAnnotations(LibraryConfiguration libraryConfiguration);
+    
+    
+    public boolean isAnnotationRegistered(OrionAnnotation annotation);
 }

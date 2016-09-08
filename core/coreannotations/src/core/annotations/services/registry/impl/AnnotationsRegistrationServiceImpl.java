@@ -5,6 +5,7 @@ import core.annotations.OrionAnnotation;
 import core.annotations.services.AnnotationServiceObject;
 import core.annotations.services.registry.AnnotationsRegistrationService;
 import core.annotations.services.registry.impl.tasks.FilterNotNullLibrariesConfigurationTask;
+import core.annotations.services.registry.impl.tasks.IsAnnotationRegisteredTask;
 import core.annotations.services.registry.impl.tasks.RegisterAnnotationTask;
 import core.annotations.services.registry.impl.tasks.RegisterLibrariesAnnotationsTask;
 import core.annotations.services.registry.impl.tasks.RegisterLibraryAnnotationsTask;
@@ -32,5 +33,12 @@ public class AnnotationsRegistrationServiceImpl extends AnnotationServiceObject 
     public void registerLibraryAnnotations(LibraryConfiguration libraryConfiguration)
     {
         new RegisterLibraryAnnotationsTask().run(libraryConfiguration);
+    }
+    
+    
+    @Override
+    public boolean isAnnotationRegistered(OrionAnnotation annotation)
+    {
+        return new IsAnnotationRegisteredTask().run(annotation);
     }
 }
