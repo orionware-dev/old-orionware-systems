@@ -12,27 +12,10 @@ public class ApplyAnnotationToMethodTask extends AnnotationServiceObject impleme
     public void run(Object object, OrionAnnotation registeredAnnotation)
     {
         ReflectionLoaderFacade reflectionLoaderFacade = new ReflectionLoaderFacadeImpl();
-        //instantiate annotation service
+        //instantiate annotation service that can process this specific annotation
         Object someAnnotationService = reflectionLoaderFacade.instantiateClass(registeredAnnotation.getAnnotationService());
-
-        try
-        {
-            //call annotation service method that will process this annotation
-            Method someMethod = someAnnotationService.getClass().getMethod(registeredAnnotation.getAnnotationServiceMethodToCall(), Object.class);
-            reflectionLoaderFacade.callMethod(someMethod, someAnnotationService, object);
-        }
-        catch(NoSuchMethodException exception)
-        {
-            System.out.println("Method " + registeredAnnotation.getAnnotationServiceMethodToCall() + " does not exist");
-            exception.printStackTrace();
-        }
-        catch(SecurityException exception)
-        {
-            exception.printStackTrace();
-        }
-        catch(IllegalArgumentException exception)
-        {
-            exception.printStackTrace();
-        }
+        //call annotation service method that will process this annotation
+        Method someMethod = reflectionLoaderFacade.getMethod(someAnnotationService, registeredAnnotation.getAnnotationServiceMethodToCall());
+        reflectionLoaderFacade.callMethod(someMethod, someAnnotationService, object);
     }
 }

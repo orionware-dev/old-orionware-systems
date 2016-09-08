@@ -72,4 +72,11 @@ public class ReflectionLoaderFacadeImpl extends ReflectionFacadeObject implement
     {
         return reflectionLoaderService.instantiateClass(className);
     }
+
+
+    @Override
+    public Method getMethod(Object object, String methodName)
+    {
+        return reflectionLoaderService.getMethod(object, methodName);
+    }
 }

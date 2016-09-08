@@ -8,6 +8,7 @@ import core.reflection.services.loader.impl.tasks.CallConstructorTask;
 import core.reflection.services.loader.impl.tasks.CallMethodTask;
 import core.reflection.services.loader.impl.tasks.GetConstructorsArrayTask;
 import core.reflection.services.loader.impl.tasks.GetMethodFromClassTask;
+import core.reflection.services.loader.impl.tasks.GetMethodTask;
 import core.reflection.services.loader.impl.tasks.GetMethodsArrayTask;
 import core.reflection.services.loader.impl.tasks.InstantiateClassTask;
 import core.reflection.services.loader.impl.tasks.LoadClassTask;
@@ -76,5 +77,12 @@ public class ReflectionLoaderServiceImpl extends ReflectionServiceObject impleme
     public Object instantiateClass(String className)
     {
         return instantiateClass(loadClass(className));
+    }
+
+
+    @Override
+    public Method getMethod(Object object, String methodName)
+    {
+        return new GetMethodTask().run(object, methodName);
     }
 }

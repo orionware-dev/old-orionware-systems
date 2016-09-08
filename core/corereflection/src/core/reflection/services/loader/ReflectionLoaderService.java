@@ -31,4 +31,7 @@ public interface ReflectionLoaderService extends ReflectionService
 
 
     public Object instantiateClass(String className);
+    
+    
+    public Method getMethod(Object object, String methodName);
 }

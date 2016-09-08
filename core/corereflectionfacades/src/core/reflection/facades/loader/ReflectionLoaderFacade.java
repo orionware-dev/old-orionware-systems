@@ -28,4 +28,7 @@ public interface ReflectionLoaderFacade extends ReflectionFacade
 
 
     public Object instantiateClass(String className);
+    
+    
+    public Method getMethod(Object object, String methodName);
 }
