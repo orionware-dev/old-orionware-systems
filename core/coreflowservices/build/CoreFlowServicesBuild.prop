@@ -1,3 +1,0 @@
-orion.core.flow.services=Core Flow Services
-orion.core.flow.services.dir=${orion.core.projects.dir}/coreflowservices
-orion.core.flow.services.jar.file.name=OrionCoreFlowServices_${orion.libraries.version}.jar

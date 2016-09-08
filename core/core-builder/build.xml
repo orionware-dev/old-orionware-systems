@@ -9,44 +9,32 @@
     	
         <callAnt file="${orion.core.core.builder.dir}/build.xml"/>
     	<callAnt file="${orion.core.reflection.builder.dir}/build.xml"/>
-    	<callAnt file="${orion.core.reflection.services.builder.dir}/build.xml"/>
     	<callAnt file="${orion.core.reflection.facades.builder.dir}/build.xml"/>
         <callAnt file="${orion.core.file.system.builder.dir}/build.xml"/>
-    	<callAnt file="${orion.core.file.system.services.builder.dir}/build.xml"/>
     	<callAnt file="${orion.core.file.system.facades.builder.dir}/build.xml"/>
         <callAnt file="${orion.core.configuration.builder.dir}/build.xml"/>
-    	<callAnt file="${orion.core.configuration.services.builder.dir}/build.xml"/>
     	<callAnt file="${orion.core.configuration.facades.builder.dir}/build.xml"/>
         <callAnt file="${orion.core.annotations.builder.dir}/build.xml"/>
-        <callAnt file="${orion.core.annotations.services.builder.dir}/build.xml"/>
         <callAnt file="${orion.core.annotations.facades.builder.dir}/build.xml"/>
         <callAnt file="${orion.core.dependency.injection.builder.dir}/build.xml"/>
-        <callAnt file="${orion.core.dependency.injection.services.builder.dir}/build.xml"/>
     	<callAnt file="${orion.core.dependency.injection.facades.builder.dir}/build.xml"/>
     	<callAnt file="${orion.core.objects.builder.dir}/build.xml"/>
     	<callAnt file="${orion.core.flow.builder.dir}/build.xml"/>
-    	<callAnt file="${orion.core.flow.services.builder.dir}/build.xml"/>
     	<callAnt file="${orion.core.flow.facades.builder.dir}/build.xml"/>
         
         <callAnt file="${orion.core.core.builder.dir}/build.xml" target="delete_JAR"/>
         <callAnt file="${orion.core.reflection.builder.dir}/build.xml" target="delete_JAR"/>
-    	<callAnt file="${orion.core.reflection.services.builder.dir}/build.xml" target="delete_JAR"/>
     	<callAnt file="${orion.core.reflection.facades.builder.dir}/build.xml" target="delete_JAR"/>
         <callAnt file="${orion.core.file.system.builder.dir}/build.xml" target="delete_JAR"/>
-    	<callAnt file="${orion.core.file.system.services.builder.dir}/build.xml" target="delete_JAR"/>
     	<callAnt file="${orion.core.file.system.facades.builder.dir}/build.xml" target="delete_JAR"/>
         <callAnt file="${orion.core.configuration.builder.dir}/build.xml" target="delete_JAR"/>
-    	<callAnt file="${orion.core.configuration.services.builder.dir}/build.xml" target="delete_JAR"/>
     	<callAnt file="${orion.core.configuration.facades.builder.dir}/build.xml" target="delete_JAR"/>
         <callAnt file="${orion.core.annotations.builder.dir}/build.xml" target="delete_JAR"/>
-        <callAnt file="${orion.core.annotations.services.builder.dir}/build.xml" target="delete_JAR"/>
         <callAnt file="${orion.core.annotations.facades.builder.dir}/build.xml" target="delete_JAR"/>
         <callAnt file="${orion.core.dependency.injection.builder.dir}/build.xml" target="delete_JAR"/>
-        <callAnt file="${orion.core.dependency.injection.services.builder.dir}/build.xml" target="delete_JAR"/>
         <callAnt file="${orion.core.dependency.injection.facades.builder.dir}/build.xml" target="delete_JAR"/>
     	<callAnt file="${orion.core.objects.builder.dir}/build.xml" target="delete_JAR"/>
     	<callAnt file="${orion.core.flow.builder.dir}/build.xml" target="delete_JAR"/>
-    	<callAnt file="${orion.core.flow.services.builder.dir}/build.xml" target="delete_JAR"/>
     	<callAnt file="${orion.core.flow.facades.builder.dir}/build.xml" target="delete_JAR"/>
         
         <packageProject binariesDir="${orion.core.binaries.dir}" JARPath="${orion.orionware.libraries.libraries.dir}/${orion.core.jar.file.name}" projectName="${orion.core}"/>

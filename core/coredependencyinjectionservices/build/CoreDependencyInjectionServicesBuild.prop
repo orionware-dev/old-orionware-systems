@@ -1,3 +1,0 @@
-orion.core.dependencyinjection.services=Core Dependency Injection Services
-orion.core.dependencyinjection.services.dir=${orion.core.projects.dir}/coredependencyinjectionservices
-orion.core.dependencyinjection.services.jar.file.name=OrionCoreDependencyInjectionServices_${orion.libraries.version}.jar

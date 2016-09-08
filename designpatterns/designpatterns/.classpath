@@ -12,5 +12,9 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/coreobjects"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/coredependencyinjection"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/corefilesystemfacades"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/coreannotationsfacades"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/corereflectionfacades"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/coreannotations"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/corereflection"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

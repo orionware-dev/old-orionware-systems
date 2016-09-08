@@ -1,3 +1,0 @@
-orion.core.configuration.services=Core Configuration Services
-orion.core.configuration.services.dir=${orion.core.projects.dir}/coreconfigurationservices
-orion.core.configuration.services.jar.file.name=OrionCoreConfigurationServices_${orion.libraries.version}.jar

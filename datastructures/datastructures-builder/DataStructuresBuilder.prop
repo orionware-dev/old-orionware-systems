@@ -1,5 +1,4 @@
 orion.data.structures.data.structures.builder.dir=${orion.data.structures.projects.dir}/datastructures/build
-orion.data.structures.services.builder.dir=${orion.data.structures.projects.dir}/datastructuresservices/build
 orion.data.structures.facades.builder.dir=${orion.data.structures.projects.dir}/datastructuresfacades/build
 
 orion.data.structures.jar.file.name=OrionDataStructures_${orion.libraries.version}.jar
