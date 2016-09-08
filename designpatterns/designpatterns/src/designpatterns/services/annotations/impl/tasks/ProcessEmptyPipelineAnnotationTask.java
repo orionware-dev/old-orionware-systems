@@ -4,13 +4,12 @@ import java.lang.reflect.Method;
 import java.util.Arrays;
 import core.annotations.facades.gathering.AnnotationsGatheringFacade;
 import core.annotations.facades.gathering.impl.AnnotationsGatheringFacadeImpl;
-import core.dependencyinjection.annotations.Injector;
 import core.reflection.facades.loader.ReflectionLoaderFacade;
 import core.reflection.facades.loader.impl.ReflectionLoaderFacadeImpl;
+import designpatterns.DesignPatternsObject;
 import designpatterns.DesignPatternsTask;
 import designpatterns.annotations.EmptyPipeline;
 import designpatterns.pipeline.AbstractPipeline;
-import designpatterns.DesignPatternsObject;
 import designpatterns.services.pipeline.PipelineService;
 import designpatterns.services.pipeline.impl.PipelineServiceImpl;
 

@@ -2,7 +2,6 @@ package datastructures.facades.streams.impl;
 
 import java.util.function.Consumer;
 import java.util.stream.Stream;
-import core.dependencyinjection.annotations.Injector;
 import datastructures.facades.DataStructuresFacadesObject;
 import datastructures.facades.streams.StreamFacade;
 import datastructures.services.streams.StreamService;

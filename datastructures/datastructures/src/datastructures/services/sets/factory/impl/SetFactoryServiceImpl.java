@@ -1,6 +1,5 @@
 package datastructures.services.sets.factory.impl;
 
-import core.dependencyinjection.annotations.Injector;
 import datastructures.DataStructuresObject;
 import datastructures.services.sets.factory.SetFactoryService;
 import datastructures.services.sets.factory.impl.tasks.CreateEmptyConcurrentHashSetTask;

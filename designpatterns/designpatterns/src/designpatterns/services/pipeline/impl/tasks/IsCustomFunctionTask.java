@@ -1,10 +1,10 @@
 package designpatterns.services.pipeline.impl.tasks;
 
 import java.util.List;
+import designpatterns.DesignPatternsObject;
 import designpatterns.DesignPatternsTask;
 import designpatterns.configuration.DesignPatternsInternalConfiguration;
 import designpatterns.pipeline.AbstractFilter;
-import designpatterns.DesignPatternsObject;
 
 public class IsCustomFunctionTask extends DesignPatternsObject implements DesignPatternsTask
 {

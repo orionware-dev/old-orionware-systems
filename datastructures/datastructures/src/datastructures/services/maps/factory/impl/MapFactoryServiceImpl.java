@@ -1,9 +1,8 @@
 package datastructures.services.maps.factory.impl;
 
-import core.dependencyinjection.annotations.Injector;
+import datastructures.DataStructuresObject;
 import datastructures.maps.OrionMap;
 import datastructures.maps.impl.OrionConcurrentHashMap;
-import datastructures.DataStructuresObject;
 import datastructures.services.maps.factory.MapFactoryService;
 import datastructures.services.maps.factory.impl.tasks.CreateEmptyConcurrentHashMapTask;
 import datastructures.services.maps.factory.impl.tasks.CreateEmptyHashMapTask;

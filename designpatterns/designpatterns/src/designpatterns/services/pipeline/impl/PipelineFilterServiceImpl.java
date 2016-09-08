@@ -1,8 +1,7 @@
 package designpatterns.services.pipeline.impl;
 
-import core.dependencyinjection.annotations.Injector;
-import designpatterns.pipeline.AbstractFilter;
 import designpatterns.DesignPatternsObject;
+import designpatterns.pipeline.AbstractFilter;
 import designpatterns.services.pipeline.PipelineFilterService;
 import designpatterns.services.pipeline.impl.tasks.CreateEmptyFilterTask;
 import designpatterns.services.pipeline.impl.tasks.CreateFilterTask;

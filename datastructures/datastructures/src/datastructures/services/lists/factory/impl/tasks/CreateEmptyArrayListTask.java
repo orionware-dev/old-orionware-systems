@@ -1,9 +1,9 @@
 package datastructures.services.lists.factory.impl.tasks;
 
+import datastructures.DataStructuresObject;
 import datastructures.DataStructuresTask;
 import datastructures.lists.OrionList;
 import datastructures.lists.impl.OrionArrayList;
-import datastructures.DataStructuresObject;
 
 public class CreateEmptyArrayListTask<T> extends DataStructuresObject implements DataStructuresTask
 {

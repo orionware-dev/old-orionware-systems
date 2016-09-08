@@ -2,8 +2,8 @@ package datastructures.services.streams.impl.tasks;
 
 import java.util.function.Consumer;
 import java.util.stream.Stream;
-import datastructures.DataStructuresTask;
 import datastructures.DataStructuresObject;
+import datastructures.DataStructuresTask;
 
 public class ForEachTask<T> extends DataStructuresObject implements DataStructuresTask
 {

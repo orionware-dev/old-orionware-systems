@@ -1,6 +1,5 @@
 package datastructures.services.lists.factory.impl;
 
-import core.dependencyinjection.annotations.Injector;
 import datastructures.DataStructuresObject;
 import datastructures.lists.OrionList;
 import datastructures.lists.impl.OrionConcurrentArrayList;

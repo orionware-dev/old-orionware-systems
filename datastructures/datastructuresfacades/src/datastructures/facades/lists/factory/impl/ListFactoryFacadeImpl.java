@@ -1,6 +1,5 @@
 package datastructures.facades.lists.factory.impl;
 
-import core.dependencyinjection.annotations.Injector;
 import datastructures.facades.DataStructuresFacadesObject;
 import datastructures.facades.lists.factory.ListFactoryFacade;
 import datastructures.lists.OrionList;

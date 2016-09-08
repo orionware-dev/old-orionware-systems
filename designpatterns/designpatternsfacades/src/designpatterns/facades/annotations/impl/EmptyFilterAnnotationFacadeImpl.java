@@ -1,6 +1,5 @@
 package designpatterns.facades.annotations.impl;
 
-import core.dependencyinjection.annotations.Injector;
 import designpatterns.facades.DesignPatternsFacadesObject;
 import designpatterns.facades.annotations.EmptyFilterAnnotationFacade;
 import designpatterns.services.annotations.EmptyFilterAnnotationService;

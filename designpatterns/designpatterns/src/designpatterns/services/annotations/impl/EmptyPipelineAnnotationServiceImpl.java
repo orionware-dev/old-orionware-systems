@@ -1,6 +1,5 @@
 package designpatterns.services.annotations.impl;
 
-import core.dependencyinjection.annotations.Injector;
 import designpatterns.DesignPatternsObject;
 import designpatterns.services.annotations.EmptyPipelineAnnotationService;
 import designpatterns.services.annotations.impl.tasks.ProcessEmptyPipelineAnnotationTask;

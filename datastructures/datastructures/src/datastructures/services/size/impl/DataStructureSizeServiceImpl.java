@@ -1,6 +1,5 @@
 package datastructures.services.size.impl;
 
-import core.dependencyinjection.annotations.Injector;
 import datastructures.DataStructure;
 import datastructures.DataStructuresObject;
 import datastructures.services.size.DataStructureSizeService;

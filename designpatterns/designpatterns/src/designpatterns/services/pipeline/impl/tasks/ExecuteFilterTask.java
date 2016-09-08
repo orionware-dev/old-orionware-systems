@@ -2,9 +2,9 @@ package designpatterns.services.pipeline.impl.tasks;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import designpatterns.DesignPatternsObject;
 import designpatterns.DesignPatternsTask;
 import designpatterns.pipeline.AbstractFilter;
-import designpatterns.DesignPatternsObject;
 
 public class ExecuteFilterTask extends DesignPatternsObject implements DesignPatternsTask
 {

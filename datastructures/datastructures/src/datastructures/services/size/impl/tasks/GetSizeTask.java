@@ -1,10 +1,10 @@
 package datastructures.services.size.impl.tasks;
 
 import datastructures.DataStructure;
+import datastructures.DataStructuresObject;
 import datastructures.DataStructuresTask;
 import datastructures.lists.OrionList;
 import datastructures.maps.OrionMap;
-import datastructures.DataStructuresObject;
 import datastructures.sets.OrionSet;
 
 public class GetSizeTask<T1, T2, T3> extends DataStructuresObject implements DataStructuresTask

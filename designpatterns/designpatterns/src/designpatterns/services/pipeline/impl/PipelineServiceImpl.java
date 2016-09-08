@@ -1,9 +1,9 @@
 package designpatterns.services.pipeline.impl;
 
+import designpatterns.DesignPatternsObject;
 import designpatterns.pipeline.AbstractFilter;
 import designpatterns.pipeline.AbstractPipeline;
 import designpatterns.pipeline.pipe.Pipeline;
-import designpatterns.DesignPatternsObject;
 import designpatterns.services.pipeline.PipelineLifecycleService;
 import designpatterns.services.pipeline.PipelineService;
 

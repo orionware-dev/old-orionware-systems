@@ -1,8 +1,8 @@
 package datastructures.services.maps.factory.impl.tasks;
 
+import datastructures.DataStructuresObject;
 import datastructures.DataStructuresTask;
 import datastructures.maps.impl.OrionConcurrentHashMap;
-import datastructures.DataStructuresObject;
 
 public class CreateEmptyConcurrentHashMapTask<T, T1, T2> extends DataStructuresObject implements DataStructuresTask
 {
