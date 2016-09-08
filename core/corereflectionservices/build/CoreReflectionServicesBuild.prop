@@ -1,3 +1,0 @@
-orion.core.reflection.services=Core Reflection Services
-orion.core.reflection.services.dir=${orion.core.projects.dir}/corereflectionservices
-orion.core.reflection.services.jar.file.name=OrionCoreReflectionServices_${orion.libraries.version}.jar

@@ -1,3 +1,0 @@
-orion.core.reflection.facades=Core Reflection Facades
-orion.core.reflection.facades.dir=${orion.core.projects.dir}/corereflectionfacades
-orion.core.reflection.facades.jar.file.name=OrionCoreReflectionFacades_${orion.libraries.version}.jar

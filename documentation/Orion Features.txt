@@ -1,6 +1,0 @@
---projects are built with Apache Ant
---functionality tested with unit and integration tests with JUnit
---automatic check and application of Orion annotations
---Orion Annotations Engine (OAE)
---Orion Configuration Engine (OCE)
---Orion Dependency Injector (ODI)

@@ -1,3 +1,0 @@
-orion.core.annotations.services=Core Annotations Services
-orion.core.annotations.services.dir=${orion.core.projects.dir}/coreannotationsservices
-orion.core.annotations.services.jar.file.name=OrionCoreAnnotationsServices_${orion.libraries.version}.jar

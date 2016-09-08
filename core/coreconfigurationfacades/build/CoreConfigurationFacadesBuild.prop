@@ -1,3 +1,0 @@
-orion.core.configuration.facades=Core Configuration Facades
-orion.core.configuration.facades.dir=${orion.core.projects.dir}/coreconfigurationfacades
-orion.core.configuration.facades.jar.file.name=OrionCoreConfigurationFacades_${orion.libraries.version}.jar

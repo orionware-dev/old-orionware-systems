@@ -1,3 +1,0 @@
-orion.data.structures.services=Data Structures Services
-orion.data.structures.services.dir=${orion.data.structures.projects.dir}/datastructuresservices
-orion.data.structures.services.jar.file.name=OrionDataStructuresServices_${orion.libraries.version}.jar
