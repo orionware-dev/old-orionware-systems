@@ -1,0 +1,3 @@
+orion.design.patterns.facades=Design Patterns Facades
+orion.design.patterns.facades.dir=${orion.design.patterns.projects.dir}/designpatternsfacades
+orion.design.patterns.facades.jar.file.name=OrionDesignPatternsFacades_${orion.libraries.version}.jar

@@ -1,0 +1,7 @@
+designpatterns.annotation.1=designpatterns.annotations.EmptyFilter
+designpatterns.annotation.facade.1=designpatterns.facades.annotations.impl.EmptyFilterAnnotationFacadeImpl
+designpatterns.annotation.facade.processing.method.1=processEmptyFilterAnnotation
+
+designpatterns.annotation.2=designpatterns.annotations.EmptyPipeline
+designpatterns.annotation.facade.2=designpatterns.facades.annotations.impl.EmptyPipelineAnnotationFacadeImpl
+designpatterns.annotation.facade.processing.method.2=processEmptyPipelineAnnotation

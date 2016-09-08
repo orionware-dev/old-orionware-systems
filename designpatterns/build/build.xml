@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<project name="OrionDesignPatternsBuilder" default="all" basedir=".">
+    <property file="DesignPatternsBuild.prop"/>
+    <property name="orion.design.patterns.binaries.dir" value="${orion.design.patterns.dir}/${default.binaries.dir.name}"/>
+
+    
+    <target name="all">
+    	<emptyPath path="${orion.design.patterns.binaries.dir}"/>
+    	
+    	<callAnt file="${orion.design.patterns.builder.dir}/build.xml"/>
+        <callAnt file="${orion.design.patterns.services.builder.dir}/build.xml"/>
+        <callAnt file="${orion.design.patterns.facades.builder.dir}/build.xml"/>
+        
+        <callAnt file="${orion.design.patterns.builder.dir}/build.xml" target="delete_JAR"/>
+        <callAnt file="${orion.design.patterns.services.builder.dir}/build.xml" target="delete_JAR"/>
+        <callAnt file="${orion.design.patterns.facades.builder.dir}/build.xml" target="delete_JAR"/>
+        
+        <packageProject binariesDir="${orion.design.patterns.binaries.dir}" JARPath="${orion.design.patterns.jar.file.name}" projectName="${orion.design.patterns}"/>
+    </target>
+</project>

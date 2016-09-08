@@ -1,0 +1,3 @@
+orion.core.core=Core
+orion.core.core.dir=${orion.core.projects.dir}/core
+orion.core.core.jar.file.name=OrionCoreCore_${orion.libraries.version}.jar

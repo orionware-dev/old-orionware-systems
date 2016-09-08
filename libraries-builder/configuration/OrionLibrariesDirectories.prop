@@ -1,0 +1,26 @@
+#${orion.libraries.home.dir} is declared inside the main build.xml
+#${orion.libraries.general.dir} is declared inside the main build.xml
+
+
+orion.ant.tasks=Ant Tasks
+orion.ant.tasks.dir=${orion.libraries.general.dir}/ant-tasks
+orion.ant.service.xml=${orion.ant.tasks.dir}/OrionAntService.xml
+orion.ant.services.dir=${orion.ant.tasks.dir}/services
+
+orion.external.libraries.ant.dir=${orion.external.libraries.dir}/ant
+orion.orionware.libraries.libraries.dir=${orion.orionware.libraries.dir}/libraries
+
+orion.core=Orion Core
+orion.core.dir=${orion.libraries.home.dir}/core
+orion.core.builder.dir=${orion.core.dir}/core-builder
+orion.core.projects.dir=${orion.core.dir}
+
+orion.data.structures=Data Structures
+orion.data.structures.dir=${orion.libraries.home.dir}/datastructures
+orion.data.structures.builder.dir=${orion.data.structures.dir}/datastructures-builder
+orion.data.structures.projects.dir=${orion.data.structures.dir}
+
+orion.design.patterns=Design Patterns
+orion.design.patterns.dir=${orion.libraries.home.dir}/designpatterns
+orion.design.patterns.builder.dir=${orion.design.patterns.dir}/designpatterns-builder
+orion.design.patterns.projects.dir=${orion.design.patterns.dir}

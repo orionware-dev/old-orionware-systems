@@ -1,0 +1,3 @@
+orion.core.objects=Core Objects
+orion.core.objects.dir=${orion.core.projects.dir}/coreobjects
+orion.core.objects.jar.file.name=OrionCoreObjects_${orion.libraries.version}.jar
