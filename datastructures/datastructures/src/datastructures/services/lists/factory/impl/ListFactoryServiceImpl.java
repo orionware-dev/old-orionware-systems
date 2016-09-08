@@ -16,7 +16,8 @@ public class ListFactoryServiceImpl<T> extends DataStructuresObject implements L
     
     public ListFactoryServiceImpl()
     {
-        
+        this.createEmptyArrayListTask = new CreateEmptyArrayListTask<T>();
+        this.createEmptyConcurrentArrayListTask = new CreateEmptyConcurrentArrayListTask<T>();
     }
     
     
@@ -30,19 +31,5 @@ public class ListFactoryServiceImpl<T> extends DataStructuresObject implements L
     public OrionConcurrentArrayList<T> createEmptyConcurrentArrayList()
     {
         return createEmptyConcurrentArrayListTask.run();
-    }
-
-
-    @Injector(ID = "datastructures.services.lists.factory.impl.tasks.CreateEmptyArrayListTask")
-    private void setCreateEmptyArrayListTask(CreateEmptyArrayListTask<T> createEmptyArrayListTask)
-    {
-        this.createEmptyArrayListTask = createEmptyArrayListTask;
-    }
-    
-    
-    @Injector(ID = "datastructures.services.lists.factory.impl.tasks.CreateEmptyConcurrentArrayListTask")
-    private void setCreateEmptyConcurrentArrayListTask(CreateEmptyConcurrentArrayListTask<T> createEmptyConcurrentArrayListTask)
-    {
-        this.createEmptyConcurrentArrayListTask = createEmptyConcurrentArrayListTask;
     }
 }

@@ -16,7 +16,8 @@ public class SetFactoryServiceImpl<T> extends DataStructuresObject implements Se
     
     public SetFactoryServiceImpl()
     {
-        
+        this.createEmptyHashSetTask = new CreateEmptyHashSetTask<T>();
+        this.createEmptyConcurrentHashSetTask = new CreateEmptyConcurrentHashSetTask<T>();
     }
     
     
@@ -31,19 +32,5 @@ public class SetFactoryServiceImpl<T> extends DataStructuresObject implements Se
     public OrionConcurrentSet<T> createEmptyConcurrentHashSet()
     {
         return createEmptyConcurrentHashSetTask.run();
-    }
-
-
-    @Injector(ID = "datastructures.services.sets.factory.impl.tasks.CreateEmptyHashSetTask")
-    private void setCreateEmptyHashSetTask(CreateEmptyHashSetTask<T> createEmptyHashSetTask)
-    {
-        this.createEmptyHashSetTask = createEmptyHashSetTask;
-    }
-
-
-    @Injector(ID = "datastructures.services.sets.factory.impl.tasks.CreateEmptyConcurrentHashSetTask")
-    private void setCreateEmptyConcurrentHashSetTask(CreateEmptyConcurrentHashSetTask<T> createEmptyConcurrentHashSetTask)
-    {
-        this.createEmptyConcurrentHashSetTask = createEmptyConcurrentHashSetTask;
     }
 }

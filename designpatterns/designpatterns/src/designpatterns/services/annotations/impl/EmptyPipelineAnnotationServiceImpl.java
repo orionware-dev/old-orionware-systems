@@ -12,7 +12,7 @@ public class EmptyPipelineAnnotationServiceImpl extends DesignPatternsObject imp
     
     public EmptyPipelineAnnotationServiceImpl()
     {
-        
+        this.processEmptyPipelineAnnotationTask = new ProcessEmptyPipelineAnnotationTask();
     }
 
     
@@ -20,12 +20,5 @@ public class EmptyPipelineAnnotationServiceImpl extends DesignPatternsObject imp
     public void processEmptyPipelineAnnotation(Object object)
     {
         processEmptyPipelineAnnotationTask.run(object);
-    }
-    
-    
-    @Injector(ID = "designpatterns.services.annotations.impl.tasks.ProcessEmptyPipelineAnnotationTask")
-    private void setProcessEmptyPipelineAnnotationTask(ProcessEmptyPipelineAnnotationTask processEmptyPipelineAnnotationTask)
-    {
-        this.processEmptyPipelineAnnotationTask = processEmptyPipelineAnnotationTask;
     }
 }

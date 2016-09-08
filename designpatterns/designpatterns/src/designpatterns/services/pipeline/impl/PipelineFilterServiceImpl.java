@@ -19,7 +19,10 @@ public class PipelineFilterServiceImpl extends DesignPatternsObject implements P
     
     public PipelineFilterServiceImpl()
     {
-        
+        this.createEmptyFilterTask = new CreateEmptyFilterTask();
+        this.createFilterTask = new CreateFilterTask();
+        this.isCustomFunctionTask = new IsCustomFunctionTask();
+        this.executeFilterTask = new ExecuteFilterTask();
     }
     
     
@@ -48,33 +51,5 @@ public class PipelineFilterServiceImpl extends DesignPatternsObject implements P
     public Object executeFilter(AbstractFilter filter, Object functionInput)
     {
         return executeFilterTask.run(filter, functionInput);
-    }
-
-
-    @Injector(ID = "designpatterns.services.pipeline.impl.tasks.CreateEmptyFilterTask")
-    private void setCreateEmptyFilterTask(CreateEmptyFilterTask createEmptyFilterTask)
-    {
-        this.createEmptyFilterTask = createEmptyFilterTask;
-    }
-
-
-    @Injector(ID = "designpatterns.services.pipeline.impl.tasks.CreateFilterTask")
-    private void setCreateFilterTask(CreateFilterTask createFilterTask)
-    {
-        this.createFilterTask = createFilterTask;
-    }
-
-
-    @Injector(ID = "designpatterns.services.pipeline.impl.tasks.IsCustomFunctionTask")
-    private void setIsCustomFunctionTask(IsCustomFunctionTask isCustomFunctionTask)
-    {
-        this.isCustomFunctionTask = isCustomFunctionTask;
-    }
-
-
-    @Injector(ID = "designpatterns.services.pipeline.impl.tasks.ExecuteFilterTask")
-    private void setExecuteFilterTask(ExecuteFilterTask executeFilterTask)
-    {
-        this.executeFilterTask = executeFilterTask;
     }
 }

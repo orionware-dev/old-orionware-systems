@@ -6,14 +6,14 @@ import datastructures.DataStructuresObject;
 import datastructures.services.size.DataStructureSizeService;
 import datastructures.services.size.impl.tasks.GetSizeTask;
 
-public class DataStructureSizeServiceImpl<T1, T2, T3> extends DataStructuresObject implements DataStructureSizeService
+public class DataStructureSizeServiceImpl<T1, T2, T3> extends DataStructuresObject implements DataStructureSizeService<T1, T2, T3>
 {
     private GetSizeTask<T1, T2, T3> getSizeTask;
     
     
     public DataStructureSizeServiceImpl()
     {
-        
+        this.getSizeTask = new GetSizeTask<T1, T2, T3>();
     }
     
     
@@ -21,12 +21,5 @@ public class DataStructureSizeServiceImpl<T1, T2, T3> extends DataStructuresObje
     public int getSize(DataStructure dataStructure)
     {
         return getSizeTask.run(dataStructure);
-    }
-
-
-    @Injector(ID = "datastructures.services.size.impl.tasks.GetSizeTask")
-    private void setGetSizeTask(GetSizeTask<T1, T2, T3> getSizeTask)
-    {
-        this.getSizeTask = getSizeTask;
     }
 }

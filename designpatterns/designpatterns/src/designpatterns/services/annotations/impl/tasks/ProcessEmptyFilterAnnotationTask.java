@@ -3,13 +3,16 @@ package designpatterns.services.annotations.impl.tasks;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import core.annotations.facades.gathering.AnnotationsGatheringFacade;
+import core.annotations.facades.gathering.impl.AnnotationsGatheringFacadeImpl;
 import core.dependencyinjection.annotations.Injector;
 import core.reflection.facades.loader.ReflectionLoaderFacade;
+import core.reflection.facades.loader.impl.ReflectionLoaderFacadeImpl;
 import designpatterns.DesignPatternsTask;
 import designpatterns.annotations.EmptyFilter;
 import designpatterns.pipeline.AbstractFilter;
 import designpatterns.DesignPatternsObject;
 import designpatterns.services.pipeline.PipelineFilterService;
+import designpatterns.services.pipeline.impl.PipelineFilterServiceImpl;
 
 public class ProcessEmptyFilterAnnotationTask extends DesignPatternsObject implements DesignPatternsTask
 {
@@ -21,7 +24,9 @@ public class ProcessEmptyFilterAnnotationTask extends DesignPatternsObject imple
     
     public ProcessEmptyFilterAnnotationTask()
     {
-        
+        this.pipelineFilterService = new PipelineFilterServiceImpl();
+        this.reflectionLoaderFacade = new ReflectionLoaderFacadeImpl();
+        this.annotationsGatheringFacade = new AnnotationsGatheringFacadeImpl();
     }
     
     
@@ -42,26 +47,5 @@ public class ProcessEmptyFilterAnnotationTask extends DesignPatternsObject imple
             AbstractFilter emptyFilter = pipelineFilterService.createEmptyFilter();
             reflectionLoaderFacade.callMethod(method, object, emptyFilter);
         }
-    }
-    
-    
-    @Injector(ID = "designpatterns.services.pipeline.impl.PipelineFilterServiceImpl")
-    private void setPipelineFilterService(PipelineFilterService pipelineFilterService)
-    {
-        this.pipelineFilterService = pipelineFilterService;
-    }
-    
-    
-    @Injector(ID = "core.reflection.facades.loader.impl.ReflectionLoaderFacadeImpl")
-    private void setReflectionLoaderFacade(ReflectionLoaderFacade reflectionLoaderFacade)
-    {
-        this.reflectionLoaderFacade = reflectionLoaderFacade;
-    }
-    
-    
-    @Injector(ID = "core.annotations.facades.gathering.impl.AnnotationsGatheringFacadeImpl")
-    private void setAnnotationsGatheringFacade(AnnotationsGatheringFacade annotationsGatheringFacade)
-    {
-        this.annotationsGatheringFacade = annotationsGatheringFacade;
     }
 }

@@ -13,7 +13,7 @@ public class CreateFilterTask extends DesignPatternsObject implements DesignPatt
     
     public CreateFilterTask()
     {
-        
+        this.isCustomFunctionTask = new IsCustomFunctionTask();
     }
     
     
@@ -21,12 +21,5 @@ public class CreateFilterTask extends DesignPatternsObject implements DesignPatt
     {
         AbstractFilter filter = new Filter(function, methodToRun, functionParameters);
         return isCustomFunctionTask.run(filter);
-    }
-
-
-    @Injector(ID = "designpatterns.services.pipeline.impl.tasks.IsCustomFunctionTask")
-    private void setIsCustomFunctionTask(IsCustomFunctionTask isCustomFunctionTask)
-    {
-        this.isCustomFunctionTask = isCustomFunctionTask;
     }
 }

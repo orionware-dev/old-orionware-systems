@@ -12,7 +12,7 @@ public class EmptyFilterAnnotationServiceImpl extends DesignPatternsObject imple
     
     public EmptyFilterAnnotationServiceImpl()
     {
-        
+        this.processEmptyFilterAnnotationTask = new ProcessEmptyFilterAnnotationTask();
     }
 
     
@@ -20,12 +20,5 @@ public class EmptyFilterAnnotationServiceImpl extends DesignPatternsObject imple
     public void processEmptyFilterAnnotation(Object object)
     {
         processEmptyFilterAnnotationTask.run(object);
-    }
-    
-    
-    @Injector(ID = "designpatterns.services.annotations.impl.tasks.ProcessEmptyFilterAnnotationTask")
-    private void setProcessEmptyFilterAnnotationTask(ProcessEmptyFilterAnnotationTask processEmptyFilterAnnotationTask)
-    {
-        this.processEmptyFilterAnnotationTask = processEmptyFilterAnnotationTask;
     }
 }

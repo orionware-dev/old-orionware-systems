@@ -6,6 +6,7 @@ import core.dependencyinjection.annotations.Injector;
 import datastructures.facades.DataStructuresFacadesObject;
 import datastructures.facades.streams.StreamFacade;
 import datastructures.services.streams.StreamService;
+import datastructures.services.streams.impl.StreamServiceImpl;
 
 public class StreamFacadeImpl<T> extends DataStructuresFacadesObject implements StreamFacade<T>
 {
@@ -14,7 +15,7 @@ public class StreamFacadeImpl<T> extends DataStructuresFacadesObject implements 
     
     public StreamFacadeImpl()
     {
-        
+        this.streamService = new StreamServiceImpl<T>();
     }
 
 
@@ -22,12 +23,5 @@ public class StreamFacadeImpl<T> extends DataStructuresFacadesObject implements 
     public void forEach(Stream<T> stream, Consumer<?> action)
     {
         streamService.forEach(stream, action);
-    }
-
-
-    @Injector(ID = "datastructures.services.streams.impl.StreamServiceImpl")
-    private void setStreamService(StreamService<T> streamService)
-    {
-        this.streamService = streamService;
     }
 }

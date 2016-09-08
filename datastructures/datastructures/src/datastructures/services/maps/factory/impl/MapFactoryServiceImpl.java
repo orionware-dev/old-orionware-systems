@@ -16,7 +16,8 @@ public class MapFactoryServiceImpl<T, T1, T2> extends DataStructuresObject imple
     
     public MapFactoryServiceImpl()
     {
-        
+        this.createEmptyHashMapTask = new CreateEmptyHashMapTask<T, T1, T2>();
+        this.createEmptyConcurrentHashMapTask = new CreateEmptyConcurrentHashMapTask<T, T1, T2>();
     }
     
     
@@ -30,19 +31,5 @@ public class MapFactoryServiceImpl<T, T1, T2> extends DataStructuresObject imple
     public OrionConcurrentHashMap<T, T1, T2> createEmptyConcurrentHashMap()
     {
         return createEmptyConcurrentHashMapTask.run();
-    }
-
-
-    @Injector(ID = "datastructures.services.maps.factory.impl.tasks.CreateEmptyHashMapTask")
-    private void setCreateEmptyHashMapTask(CreateEmptyHashMapTask<T, T1, T2> createEmptyHashMapTask)
-    {
-        this.createEmptyHashMapTask = createEmptyHashMapTask;
-    }
-
-
-    @Injector(ID = "datastructures.services.maps.factory.impl.tasks.CreateEmptyConcurrentHashMapTask")
-    private void setCreateEmptyConcurrentHashMapTask(CreateEmptyConcurrentHashMapTask<T, T1, T2> createEmptyConcurrentHashMapTask)
-    {
-        this.createEmptyConcurrentHashMapTask = createEmptyConcurrentHashMapTask;
     }
 }

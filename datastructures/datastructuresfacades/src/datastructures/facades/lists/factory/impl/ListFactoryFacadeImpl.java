@@ -6,6 +6,7 @@ import datastructures.facades.lists.factory.ListFactoryFacade;
 import datastructures.lists.OrionList;
 import datastructures.lists.impl.OrionConcurrentArrayList;
 import datastructures.services.lists.factory.ListFactoryService;
+import datastructures.services.lists.factory.impl.ListFactoryServiceImpl;
 
 public class ListFactoryFacadeImpl<T> extends DataStructuresFacadesObject implements ListFactoryFacade<T>
 {
@@ -14,7 +15,7 @@ public class ListFactoryFacadeImpl<T> extends DataStructuresFacadesObject implem
     
     public ListFactoryFacadeImpl()
     {
-        
+        this.listFactoryService = new ListFactoryServiceImpl<T>();
     }
     
     
@@ -28,12 +29,5 @@ public class ListFactoryFacadeImpl<T> extends DataStructuresFacadesObject implem
     public OrionConcurrentArrayList<T> createEmptyConcurrentArrayList()
     {
         return listFactoryService.createEmptyConcurrentArrayList();
-    }
-
-
-    @Injector(ID = "datastructures.services.lists.factory.impl.ListFactoryServiceImpl")
-    private void setListFactoryService(ListFactoryService<T> listFactoryService)
-    {
-        this.listFactoryService = listFactoryService;
     }
 }

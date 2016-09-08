@@ -14,7 +14,7 @@ public class StreamServiceImpl<T> extends DataStructuresObject implements Stream
     
     public StreamServiceImpl()
     {
-        
+        this.forEachTask = new ForEachTask<T>();
     }
     
     
@@ -22,12 +22,5 @@ public class StreamServiceImpl<T> extends DataStructuresObject implements Stream
     public void forEach(Stream<T> stream, Consumer<?> action)
     {
         forEachTask.run(stream, action);
-    }
-
-
-    @Injector(ID = "datastructures.services.streams.impl.tasks.ForEachTask")
-    private void setForEachTask(ForEachTask<T> forEachTask)
-    {
-        this.forEachTask = forEachTask;
     }
 }

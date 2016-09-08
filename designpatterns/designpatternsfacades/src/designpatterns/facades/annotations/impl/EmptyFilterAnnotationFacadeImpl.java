@@ -4,6 +4,7 @@ import core.dependencyinjection.annotations.Injector;
 import designpatterns.facades.DesignPatternsFacadesObject;
 import designpatterns.facades.annotations.EmptyFilterAnnotationFacade;
 import designpatterns.services.annotations.EmptyFilterAnnotationService;
+import designpatterns.services.annotations.impl.EmptyFilterAnnotationServiceImpl;
 
 public class EmptyFilterAnnotationFacadeImpl extends DesignPatternsFacadesObject implements EmptyFilterAnnotationFacade
 {
@@ -12,7 +13,7 @@ public class EmptyFilterAnnotationFacadeImpl extends DesignPatternsFacadesObject
     
     public EmptyFilterAnnotationFacadeImpl()
     {
-        
+        this.emptyFilterAnnotationService = new EmptyFilterAnnotationServiceImpl();
     }
     
     
@@ -20,12 +21,5 @@ public class EmptyFilterAnnotationFacadeImpl extends DesignPatternsFacadesObject
     public void processEmptyFilterAnnotation(Object object)
     {
         emptyFilterAnnotationService.processEmptyFilterAnnotation(object);
-    }
-    
-    
-    @Injector(ID = "designpatterns.services.annotations.impl.EmptyFilterAnnotationServiceImpl")
-    private void setEmptyFilterAnnotationService(EmptyFilterAnnotationService emptyFilterAnnotationService)
-    {
-        this.emptyFilterAnnotationService = emptyFilterAnnotationService;
     }
 }
