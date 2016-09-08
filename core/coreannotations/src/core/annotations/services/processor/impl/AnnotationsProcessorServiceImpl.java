@@ -12,6 +12,7 @@ import core.annotations.services.gathering.impl.AnnotationsGatheringServiceImpl;
 import core.annotations.services.processor.AnnotationsProcessorService;
 import core.annotations.services.processor.impl.tasks.ApplyAnnotationToMethodTask;
 import core.annotations.services.processor.impl.tasks.ApplyAnnotationsToMethodTask;
+import core.annotations.services.processor.impl.tasks.GetAnnotationNameTask;
 import core.annotations.services.registry.AnnotationsRegistrationService;
 import core.annotations.services.registry.impl.AnnotationsRegistrationServiceImpl;
 
@@ -20,6 +21,7 @@ public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject imp
     private AnnotationsFilteringService annotationsFilteringService;
     private AnnotationsGatheringService annotationsGatheringService;
     private AnnotationsRegistrationService annotationsRegistrationService;
+    private GetAnnotationNameTask getAnnotationNameTask;
 
 
     public AnnotationsProcessorServiceImpl()
@@ -27,6 +29,7 @@ public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject imp
         this.annotationsFilteringService = new AnnotationsFilteringServiceImpl();
         this.annotationsGatheringService = new AnnotationsGatheringServiceImpl();
         this.annotationsRegistrationService = new AnnotationsRegistrationServiceImpl();
+        this.getAnnotationNameTask = new GetAnnotationNameTask();
     }
 
 
@@ -60,5 +63,12 @@ public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject imp
         }
 
         return isAnnotationApplicable;
+    }
+
+
+    @Override
+    public String getAnnotationName(Annotation annotation)
+    {
+        return getAnnotationNameTask.run(annotation);
     }
 }

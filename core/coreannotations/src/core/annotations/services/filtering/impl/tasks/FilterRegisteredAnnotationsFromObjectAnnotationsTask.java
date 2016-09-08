@@ -11,11 +11,9 @@ import core.annotations.services.registry.AnnotationsRegistry;
 
 public class FilterRegisteredAnnotationsFromObjectAnnotationsTask extends AnnotationServiceObject implements AnnotationTask
 {
-    private DoesObjectHaveRegisteredAnnotationTask doesObjectHaveRegisteredAnnotationTask;
-
-
     public Stream<OrionAnnotation> run(Collection<Annotation> allObjectAnnotations)
     {
+        DoesObjectHaveRegisteredAnnotationTask doesObjectHaveRegisteredAnnotationTask = new DoesObjectHaveRegisteredAnnotationTask();
         //takes registered annotations 1-by-1 and it returns the ones that are both registered
         //and in the object annotations (allObjectAnnotationsList). This ensures that Orion
         //only processes the registered annotations which means, the Orion-based annotations
