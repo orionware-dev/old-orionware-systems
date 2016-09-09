@@ -6,9 +6,4 @@
     <target name="all">
         <buildAndPackageProject sourceDir="${orion.flow.source.dir}" binariesDir="${orion.flow.binaries.dir}" JARPath="${orion.orionware.libraries.libraries.dir}/${orion.flow.jar.file.name}" projectName="${orion.flow}"/>
     </target>
-	
-	
-	<target name="delete_JAR">
-		<deleteFile path="${orion.orionware.libraries.libraries.dir}/${orion.flow.jar.file.name}"/>
-    </target>
 </project>

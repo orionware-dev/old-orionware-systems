@@ -6,9 +6,4 @@
     <target name="all">
     	<buildAndPackageProject sourceDir="${orion.design.patterns.source.dir}" binariesDir="${orion.design.patterns.binaries.dir}" JARPath="${orion.orionware.libraries.libraries.dir}/${orion.design.patterns.jar.file.name}" projectName="${orion.design.patterns}"/>
     </target>
-	
-	
-	<target name="delete_JAR">
-		<deleteFile path="${orion.orionware.libraries.libraries.dir}/${orion.design.patterns.jar.file.name}"/>
-    </target>
 </project>
