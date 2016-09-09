@@ -1,17 +1,20 @@
 package reflection.services.loader.impl;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import reflection.services.ReflectionServiceObject;
 import reflection.services.loader.ReflectionLoaderService;
 import reflection.services.loader.impl.tasks.CallConstructorTask;
 import reflection.services.loader.impl.tasks.CallMethodTask;
 import reflection.services.loader.impl.tasks.GetConstructorsArrayTask;
+import reflection.services.loader.impl.tasks.GetInstanceVariablesArrayTask;
 import reflection.services.loader.impl.tasks.GetMethodFromClassTask;
 import reflection.services.loader.impl.tasks.GetMethodTask;
 import reflection.services.loader.impl.tasks.GetMethodsArrayTask;
 import reflection.services.loader.impl.tasks.InstantiateClassTask;
 import reflection.services.loader.impl.tasks.LoadClassTask;
+import reflection.services.loader.impl.tasks.MakeInstanceVariableAccessibleTask;
 import reflection.services.loader.impl.tasks.MakeMethodAccessibleTask;
 
 public class ReflectionLoaderServiceImpl extends ReflectionServiceObject implements ReflectionLoaderService
@@ -20,6 +23,13 @@ public class ReflectionLoaderServiceImpl extends ReflectionServiceObject impleme
     public Method getMethodFromClass(String methodName, Class<?> aClass, Class<?>... methodParameterTypes)
     {
         return new GetMethodFromClassTask().run(methodName, aClass, methodParameterTypes);
+    }
+    
+    
+    @Override
+    public Field[] getInstanceVariablesArray(Object object)
+    {
+        return new GetInstanceVariablesArrayTask().run(object);
     }
 
 
@@ -41,6 +51,13 @@ public class ReflectionLoaderServiceImpl extends ReflectionServiceObject impleme
     public void makeMethodAccessible(Method method)
     {
         new MakeMethodAccessibleTask().run(method);
+    }
+    
+    
+    @Override
+    public void makeInstanceVariableAccessible(Field InstanceVariable)
+    {
+        new MakeInstanceVariableAccessibleTask().run(InstanceVariable);
     }
 
 

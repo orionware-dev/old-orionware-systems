@@ -7,7 +7,7 @@ import annotations.services.AnnotationServiceObject;
 import reflection.services.loader.ReflectionLoaderService;
 import reflection.services.loader.impl.ReflectionLoaderServiceImpl;
 
-public class ApplyAnnotationToMethodTask extends AnnotationServiceObject implements AnnotationTask
+public class ApplyAnnotationToObjectTask extends AnnotationServiceObject implements AnnotationTask
 {
     public void run(Object object, OrionAnnotation registeredAnnotation)
     {

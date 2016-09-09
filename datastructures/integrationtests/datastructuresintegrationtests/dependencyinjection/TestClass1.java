@@ -5,6 +5,7 @@ import dependencyinjection.annotations.Injector;
 
 public class TestClass1 extends DataStructuresObject
 {
+    @Injector
     private TestClass2 testClass2;
 
 
@@ -18,11 +19,17 @@ public class TestClass1 extends DataStructuresObject
     {
         return testClass2.testThisClassIsRunning();
     }
+    
+    
+    public String testTestClass3IsRunningInsideClass2()
+    {
+        return testClass2.testTestClass3IsRunning();
+    }
 
 
-    @Injector(ID = "datastructuresintegrationtests.dependencyinjection.TestClass2")
+    /*@Injector(ID = "datastructuresintegrationtests.dependencyinjection.TestClass2")
     private void setTestClass2(TestClass2 testClass2)
     {
         this.testClass2 = testClass2;
-    }
+    }*/
 }

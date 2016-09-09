@@ -1,12 +1,16 @@
 package reflection.services.loader;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import reflection.ReflectionService;
 
 public interface ReflectionLoaderService extends ReflectionService
 {
     public Method getMethodFromClass(String methodName, Class<?> aClass, Class<?>... methodParameterTypes);
+    
+    
+    public Field[] getInstanceVariablesArray(Object object);
 
 
     public Method[] getMethodsArray(Object object);
@@ -16,6 +20,9 @@ public interface ReflectionLoaderService extends ReflectionService
 
 
     public void makeMethodAccessible(Method method);
+    
+    
+    public void makeInstanceVariableAccessible(Field instanceVariable);
 
 
     public Object callMethod(Method method, Object objectMethodBelongsTo, Object... methodArguments);

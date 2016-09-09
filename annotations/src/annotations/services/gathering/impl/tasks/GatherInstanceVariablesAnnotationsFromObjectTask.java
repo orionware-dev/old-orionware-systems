@@ -35,6 +35,8 @@ public class GatherInstanceVariablesAnnotationsFromObjectTask extends Annotation
             {
                 annotationsFilteringService.addAnnotationTypeForObject(annotation, AnnotationType.INSTANCE_VARIABLE);
             }
+            
+            return registeredAnnotations;
         }
         
         return new ArrayList<OrionAnnotation>();

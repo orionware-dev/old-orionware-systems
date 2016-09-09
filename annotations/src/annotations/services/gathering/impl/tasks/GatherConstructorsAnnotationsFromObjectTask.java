@@ -35,6 +35,8 @@ public class GatherConstructorsAnnotationsFromObjectTask extends AnnotationServi
             {
                 annotationsFilteringService.addAnnotationTypeForObject(annotation, AnnotationType.CONSTRUCTOR);
             }
+            
+            return registeredAnnotations;
         }
         
         return new ArrayList<OrionAnnotation>();

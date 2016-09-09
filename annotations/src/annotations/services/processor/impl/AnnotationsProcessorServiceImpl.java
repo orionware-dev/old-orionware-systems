@@ -9,7 +9,7 @@ import annotations.services.filtering.impl.AnnotationsFilteringServiceImpl;
 import annotations.services.gathering.AnnotationsGatheringService;
 import annotations.services.gathering.impl.AnnotationsGatheringServiceImpl;
 import annotations.services.processor.AnnotationsProcessorService;
-import annotations.services.processor.impl.tasks.ApplyAnnotationToMethodTask;
+import annotations.services.processor.impl.tasks.ApplyAnnotationToObjectTask;
 import annotations.services.processor.impl.tasks.ApplyAnnotationsToObjectTask;
 import annotations.services.processor.impl.tasks.GetAnnotationNameTask;
 import annotations.services.registry.AnnotationsRegistrationService;
@@ -36,7 +36,7 @@ public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject imp
     public void processAllAnnotations(Object orionObject)
     {
         List<OrionAnnotation> registeredAnnotationsForObject = annotationsGatheringService.gatherAllAnnotationsFromObject(orionObject);
-        new ApplyAnnotationsToObjectTask().run(registeredAnnotationsForObject.stream(), orionObject);
+        new ApplyAnnotationsToObjectTask().run(registeredAnnotationsForObject, orionObject);
     }
 
 
@@ -49,7 +49,7 @@ public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject imp
 
         if(annotationsRegistrationService.isAnnotationRegistered(annotationToProcess))
         {
-            new ApplyAnnotationToMethodTask().run(OrionObject, annotationToProcess);
+            new ApplyAnnotationToObjectTask().run(OrionObject, annotationToProcess);
             isAnnotationApplicable = true;
         }
 
