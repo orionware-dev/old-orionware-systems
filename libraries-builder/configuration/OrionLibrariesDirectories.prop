@@ -11,16 +11,51 @@ orion.external.libraries.ant.dir=${orion.external.libraries.dir}/ant
 orion.orionware.libraries.libraries.dir=${orion.orionware.libraries.dir}/libraries
 
 orion.core=Orion Core
+#we use this dir for the binaries dir
 orion.core.dir=${orion.libraries.home.dir}/core
-orion.core.builder.dir=${orion.core.dir}/core-builder
 orion.core.projects.dir=${orion.core.dir}
+orion.core.core.builder.dir=${orion.core.projects.dir}/core/build
+orion.core.objects.builder.dir=${orion.core.projects.dir}/coreobjects/build
+orion.core.jar.file.name=OrionCore_${orion.libraries.version}.jar
+
+orion.reflection=Reflection
+orion.reflection.dir=${orion.libraries.home.dir}/reflection
+orion.reflection.builder.dir=${orion.reflection.dir}/build
+orion.reflection.jar.file.name=OrionReflection_${orion.libraries.version}.jar
+
+orion.file.system=File System
+orion.file.system.dir=${orion.libraries.home.dir}/filesystem
+orion.file.system.builder.dir=${orion.file.system.dir}/build
+orion.file.system.jar.file.name=OrionFileSystem_${orion.libraries.version}.jar
+
+orion.configuration=Configuration
+orion.configuration.dir=${orion.libraries.home.dir}/configuration
+orion.configuration.builder.dir=${orion.configuration.dir}/build
+orion.configuration.jar.file.name=OrionConfiguration_${orion.libraries.version}.jar
+
+orion.annotations=Annotations
+orion.annotations.dir=${orion.libraries.home.dir}/annotations
+orion.annotations.builder.dir=${orion.annotations.dir}/build
+orion.annotations.jar.file.name=OrionAnnotations_${orion.libraries.version}.jar
+
+orion.dependency.injection=Dependency Injection
+orion.dependency.injection.dir=${orion.libraries.home.dir}/dependencyinjection
+orion.dependency.injection.builder.dir=${orion.dependency.injection.dir}/build
+orion.dependency.injection.jar.file.name=OrionDependencyInjection_${orion.libraries.version}.jar
+
+orion.flow=Flow
+orion.flow.dir=${orion.libraries.home.dir}/flow
+orion.flow.builder.dir=${orion.flow.dir}/build
+orion.flow.jar.file.name=OrionFlow_${orion.libraries.version}.jar
 
 orion.data.structures=Data Structures
 orion.data.structures.dir=${orion.libraries.home.dir}/datastructures
-orion.data.structures.builder.dir=${orion.data.structures.dir}/datastructures-builder
 orion.data.structures.projects.dir=${orion.data.structures.dir}
+orion.data.structures.builder.dir=${orion.data.structures.projects.dir}/datastructures/build
+orion.data.structures.jar.file.name=OrionDataStructures_${orion.libraries.version}.jar
 
 orion.design.patterns=Design Patterns
 orion.design.patterns.dir=${orion.libraries.home.dir}/designpatterns
-orion.design.patterns.builder.dir=${orion.design.patterns.dir}/designpatterns-builder
+orion.design.patterns.builder.dir=${orion.design.patterns.projects.dir}/designpatterns/build
 orion.design.patterns.projects.dir=${orion.design.patterns.dir}
+orion.design.patterns.jar.file.name=OrionDesignPatterns_${orion.libraries.version}.jar
