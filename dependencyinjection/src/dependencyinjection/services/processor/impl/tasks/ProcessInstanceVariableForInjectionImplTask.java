@@ -5,16 +5,16 @@ import annotations.services.gathering.AnnotationsGatheringService;
 import annotations.services.gathering.impl.AnnotationsGatheringServiceImpl;
 import dependencyinjection.DependencyInjectionObject;
 import dependencyinjection.DependencyInjectionTask;
-import dependencyinjection.annotations.Injector;
+import dependencyinjection.annotations.InjectorImpl;
 import reflection.services.loader.ReflectionLoaderService;
 import reflection.services.loader.impl.ReflectionLoaderServiceImpl;
 
-public class ProcessInstanceVariableForInjectionTask extends DependencyInjectionObject implements DependencyInjectionTask
+public class ProcessInstanceVariableForInjectionImplTask extends DependencyInjectionObject implements DependencyInjectionTask
 {
     private ReflectionLoaderService reflectionLoaderService;
 
 
-    public ProcessInstanceVariableForInjectionTask()
+    public ProcessInstanceVariableForInjectionImplTask()
     {
         this.reflectionLoaderService = new ReflectionLoaderServiceImpl();
     }
@@ -24,7 +24,7 @@ public class ProcessInstanceVariableForInjectionTask extends DependencyInjection
     {
         reflectionLoaderService.makeInstanceVariableAccessible(instanceVariable);
         AnnotationsGatheringService annotationsGatheringService = new AnnotationsGatheringServiceImpl();
-        Injector injection = (Injector)annotationsGatheringService.extractAnnotationFromInstanceVariable(instanceVariable, Injector.class);
+        InjectorImpl injection = (InjectorImpl)annotationsGatheringService.extractAnnotationFromInstanceVariable(instanceVariable, InjectorImpl.class);
         
         if(injection != null)
         {
@@ -33,19 +33,13 @@ public class ProcessInstanceVariableForInjectionTask extends DependencyInjection
     }
 
 
-    private void processInjection(Object object, Field instanceVariable, Injector injection)
+    private void processInjection(Object object, Field instanceVariable, InjectorImpl injection)
     {
-        String classToInjectString = injection.ID();
-        Class<?> classToInject = null;
-        
-        if(classToInjectString.isEmpty())
-        {
-            classToInject = reflectionLoaderService.loadClass(instanceVariable.getType().getName());
-        }
-        else
-        {
-            classToInject = reflectionLoaderService.loadClass(classToInjectString);
-        }
+        String classToInjectString = instanceVariable.getType().getName();
+        String className = classToInjectString.substring(classToInjectString.lastIndexOf(".") + 1);
+        classToInjectString = classToInjectString.substring(0, classToInjectString.lastIndexOf("."));
+        classToInjectString += ".impl." + className + "Impl";
+        Class<?> classToInject = reflectionLoaderService.loadClass(classToInjectString);
         
         try
         {

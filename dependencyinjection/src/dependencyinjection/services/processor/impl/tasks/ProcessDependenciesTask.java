@@ -15,9 +15,16 @@ public class ProcessDependenciesTask extends DependencyInjectionObject implement
         ProcessMethodForInjectionTask processMethodForInjectionTask = new ProcessMethodForInjectionTask();
         ProcessInstanceVariableForInjectionTask processInstanceVariableForInjectionTask = new ProcessInstanceVariableForInjectionTask();
         ReflectionLoaderService reflectionLoaderService = new ReflectionLoaderServiceImpl();
+        
         Field[] fields = reflectionLoaderService.getInstanceVariablesArray(object);
         Arrays.stream(fields).forEach(field -> processInstanceVariableForInjectionTask.run(object, field));
         Method[] methods = reflectionLoaderService.getMethodsArray(object);
         Arrays.stream(methods).forEach(method -> processMethodForInjectionTask.run(object, method));
+        
+        ProcessMethodForInjectionImplTask processMethodForInjectionImplTask = new ProcessMethodForInjectionImplTask();
+        ProcessInstanceVariableForInjectionImplTask processInstanceVariableForInjectionImplTask = new ProcessInstanceVariableForInjectionImplTask();
+        
+        Arrays.stream(fields).forEach(field -> processInstanceVariableForInjectionImplTask.run(object, field));
+        Arrays.stream(methods).forEach(method -> processMethodForInjectionImplTask.run(object, method));
     }
 }

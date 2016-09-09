@@ -25,6 +25,18 @@ public class TestClass1 extends DataStructuresObject
     {
         return testClass2.testTestClass3IsRunning();
     }
+    
+    
+    public String testTestClass4IsRunningInsideClass3()
+    {
+        return testClass2.testTestClass4IsRunningInsideClass3();
+    }
+    
+    
+    public String testTestClass4TempIsRunningInsideClass3()
+    {
+        return testClass2.testTestClass4TempIsRunningInsideClass3();
+    }
 
 
     /*@Injector(ID = "datastructuresintegrationtests.dependencyinjection.TestClass2")

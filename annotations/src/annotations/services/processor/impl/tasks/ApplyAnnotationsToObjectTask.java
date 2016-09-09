@@ -1,11 +1,7 @@
 package annotations.services.processor.impl.tasks;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.stream.Stream;
 import annotations.AnnotationTask;
-import annotations.AnnotationType;
 import annotations.OrionAnnotation;
 import annotations.services.AnnotationServiceObject;
 

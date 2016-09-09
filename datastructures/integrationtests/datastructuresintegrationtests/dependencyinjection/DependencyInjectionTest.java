@@ -21,5 +21,7 @@ public class DependencyInjectionTest extends DataStructuresObject
         Assert.assertEquals("Running datastructuresintegrationtests.dependencyinjection.TestClass1...", testClass1.testThisClassIsRunning());
         Assert.assertEquals("Running datastructuresintegrationtests.dependencyinjection.TestClass2...", testClass1.testTestClass2IsRunning());
         Assert.assertEquals("Running datastructuresintegrationtests.dependencyinjection.TestClass3...", testClass1.testTestClass3IsRunningInsideClass2());
+        Assert.assertEquals("Running datastructuresintegrationtests.dependencyinjection.impl.TestClass4Impl...", testClass1.testTestClass4IsRunningInsideClass3());
+        Assert.assertEquals("Running datastructuresintegrationtests.dependencyinjection.impl.TestClass4Impl...", testClass1.testTestClass4TempIsRunningInsideClass3());
     }
 }
