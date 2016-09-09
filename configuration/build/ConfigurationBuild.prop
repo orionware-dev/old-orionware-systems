@@ -1,3 +1,0 @@
-orion.configuration=Configuration
-orion.configuration.dir=${orion.libraries.home.dir}/configuration
-orion.configuration.jar.file.name=OrionConfiguration_${orion.libraries.version}.jar
