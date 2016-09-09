@@ -11,7 +11,7 @@ public class GetMethodTask extends ReflectionObject implements ReflectionTask
     {
         try
         {
-            return object.getClass().getMethod(methodName, object.getClass());
+            return object.getClass().getMethod(methodName, Object.class);
         }
         catch(NoSuchMethodException exception)
         {

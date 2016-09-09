@@ -1,5 +1,6 @@
 package dependencyinjection.services.processor.impl.tasks;
 
+import java.lang.reflect.Method;
 import java.util.Arrays;
 import dependencyinjection.DependencyInjectionObject;
 import dependencyinjection.DependencyInjectionTask;
@@ -12,6 +13,7 @@ public class ProcessDependenciesTask extends DependencyInjectionObject implement
     {
         ProcessMethodForInjectionTask processMethodForInjectionTask = new ProcessMethodForInjectionTask();
         ReflectionLoaderService reflectionLoaderService = new ReflectionLoaderServiceImpl();
-        Arrays.stream(reflectionLoaderService.getMethodsArray(object)).forEach(method -> processMethodForInjectionTask.run(object, method));
+        Method[] methods = reflectionLoaderService.getMethodsArray(object);
+        Arrays.stream(methods).forEach(method -> processMethodForInjectionTask.run(object, method));
     }
 }

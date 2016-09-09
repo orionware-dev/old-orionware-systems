@@ -13,6 +13,6 @@ public class DoesObjectHaveRegisteredAnnotationTask extends AnnotationServiceObj
         return allObjectAnnotations.stream().filter(annotation -> {
             String annotationName = annotation.annotationType().getName();
             return annotationName.equals(registeredAnnotation.getAnnotationClass());
-        }).count() >= 1;
+        }).count() > 0;
     }
 }

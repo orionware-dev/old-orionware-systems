@@ -10,7 +10,7 @@ public class ApplyAnnotationsToMethodTask extends AnnotationServiceObject implem
 {
     public void run(Stream<OrionAnnotation> annotations, Object orionObject)
     {
-        annotations.forEach(annotation -> new ApplyAnnotationToMethodTask().run(orionObject, (OrionAnnotation)annotation));
+        annotations.forEach(annotation -> new ApplyAnnotationToMethodTask().run(orionObject, annotation));
     }
 
 
