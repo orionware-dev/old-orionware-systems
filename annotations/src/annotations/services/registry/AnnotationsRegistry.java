@@ -1,15 +1,12 @@
 package annotations.services.registry;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import core.abstraction.OrionRegistry;
 import annotations.OrionAnnotation;
+import core.abstraction.OrionRegistry;
 
 public class AnnotationsRegistry extends OrionRegistry
 {

@@ -2,10 +2,10 @@ package designpatterns.services.designpatternsobject.impl;
 
 import java.io.InputStream;
 import core.OrionSimpleObject;
-import filesystem.services.streams.impl.FileSystemStreamsServiceImpl;
 import designpatterns.configuration.DesignPatternsInternalConfigurationEnumeration;
 import designpatterns.services.designpatternsobject.DesignPatternsObjectProcessorService;
 import designpatterns.services.designpatternsobject.impl.tasks.RegisterPipelineConfigurationTask;
+import filesystem.services.streams.impl.FileSystemStreamsServiceImpl;
 
 public class DesignPatternsObjectProcessorServiceImpl extends OrionSimpleObject implements DesignPatternsObjectProcessorService
 {

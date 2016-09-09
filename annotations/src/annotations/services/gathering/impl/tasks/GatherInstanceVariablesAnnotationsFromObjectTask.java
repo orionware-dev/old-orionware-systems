@@ -1,7 +1,5 @@
 package annotations.services.gathering.impl.tasks;
 
-import java.lang.annotation.Annotation;
-import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;

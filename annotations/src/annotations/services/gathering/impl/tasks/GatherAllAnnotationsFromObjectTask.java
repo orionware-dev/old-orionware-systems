@@ -1,12 +1,8 @@
 package annotations.services.gathering.impl.tasks;
 
-import java.lang.annotation.Annotation;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import annotations.AnnotationTask;
-import annotations.AnnotationType;
 import annotations.OrionAnnotation;
 import annotations.services.AnnotationServiceObject;
 

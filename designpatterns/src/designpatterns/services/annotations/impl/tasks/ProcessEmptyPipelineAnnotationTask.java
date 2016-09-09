@@ -4,14 +4,14 @@ import java.lang.reflect.Method;
 import java.util.Arrays;
 import annotations.services.gathering.AnnotationsGatheringService;
 import annotations.services.gathering.impl.AnnotationsGatheringServiceImpl;
-import reflection.services.loader.ReflectionLoaderService;
-import reflection.services.loader.impl.ReflectionLoaderServiceImpl;
 import designpatterns.DesignPatternsObject;
 import designpatterns.DesignPatternsTask;
 import designpatterns.annotations.EmptyPipeline;
 import designpatterns.pipeline.AbstractPipeline;
 import designpatterns.services.pipeline.PipelineService;
 import designpatterns.services.pipeline.impl.PipelineServiceImpl;
+import reflection.services.loader.ReflectionLoaderService;
+import reflection.services.loader.impl.ReflectionLoaderServiceImpl;
 
 public class ProcessEmptyPipelineAnnotationTask extends DesignPatternsObject implements DesignPatternsTask
 {

@@ -2,14 +2,14 @@ package core.objects.services.orionobject.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
-import core.OrionSimpleObject;
-import core.abstraction.ConfigurationEnumeration;
 import annotations.services.processor.impl.AnnotationsProcessorServiceImpl;
 import annotations.services.registry.impl.AnnotationsRegistrationServiceImpl;
 import configuration.LibrariesConfiguration;
 import configuration.LibrariesConfigurationMapper;
 import configuration.LibraryConfiguration;
 import configuration.services.classpath.impl.ConfigurationClasspathServiceImpl;
+import core.OrionSimpleObject;
+import core.abstraction.ConfigurationEnumeration;
 import core.objects.services.orionobject.OrionObjectProcessorService;
 import core.objects.services.orionobject.impl.tasks.BuildSetterMethodToCallInLibraryConfigurationTask;
 import core.objects.services.orionobject.impl.tasks.InitialiseCoreConfigurationTask;

@@ -2,7 +2,6 @@ package annotations.services.processor.impl;
 
 import java.lang.annotation.Annotation;
 import java.util.List;
-import java.util.stream.Stream;
 import annotations.OrionAnnotation;
 import annotations.services.AnnotationServiceObject;
 import annotations.services.filtering.AnnotationsFilteringService;
@@ -11,7 +10,6 @@ import annotations.services.gathering.AnnotationsGatheringService;
 import annotations.services.gathering.impl.AnnotationsGatheringServiceImpl;
 import annotations.services.processor.AnnotationsProcessorService;
 import annotations.services.processor.impl.tasks.ApplyAnnotationToMethodTask;
-import annotations.services.processor.impl.tasks.ApplyAnnotationsToMethodTask;
 import annotations.services.processor.impl.tasks.ApplyAnnotationsToObjectTask;
 import annotations.services.processor.impl.tasks.GetAnnotationNameTask;
 import annotations.services.registry.AnnotationsRegistrationService;

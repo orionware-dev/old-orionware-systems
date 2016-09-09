@@ -1,6 +1,5 @@
 package annotations.services.filtering.impl.tasks;
 
-import java.lang.annotation.Annotation;
 import java.util.Collection;
 import annotations.AnnotationTask;
 import annotations.OrionAnnotation;

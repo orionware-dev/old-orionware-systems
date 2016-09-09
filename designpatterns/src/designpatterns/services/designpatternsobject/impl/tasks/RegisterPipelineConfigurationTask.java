@@ -3,14 +3,14 @@ package designpatterns.services.designpatternsobject.impl.tasks;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-import core.OrionSimpleObject;
 import configuration.OrionProperties;
 import configuration.registry.ConfigurationRegistry;
-import filesystem.services.streams.impl.FileSystemStreamsServiceImpl;
+import core.OrionSimpleObject;
 import designpatterns.DesignPatternsTask;
 import designpatterns.configuration.DesignPatternsInternalConfiguration;
 import designpatterns.configuration.DesignPatternsLibraryConfiguration;
 import designpatterns.configuration.PipelineConfiguration;
+import filesystem.services.streams.impl.FileSystemStreamsServiceImpl;
 
 public class RegisterPipelineConfigurationTask extends OrionSimpleObject implements DesignPatternsTask
 {

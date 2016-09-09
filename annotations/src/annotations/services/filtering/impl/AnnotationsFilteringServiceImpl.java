@@ -1,9 +1,7 @@
 package annotations.services.filtering.impl;
 
-import java.lang.annotation.Annotation;
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Stream;
 import annotations.AnnotationType;
 import annotations.OrionAnnotation;
 import annotations.services.AnnotationServiceObject;

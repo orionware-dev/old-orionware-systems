@@ -1,7 +1,7 @@
 package dependencyinjection.configuration;
 
-import core.abstraction.ConfigurationEnumeration;
 import configuration.DefaultConfigurationEnumeration;
+import core.abstraction.ConfigurationEnumeration;
 
 public enum DependencyInjectionConfigurationEnumeration implements ConfigurationEnumeration
 {

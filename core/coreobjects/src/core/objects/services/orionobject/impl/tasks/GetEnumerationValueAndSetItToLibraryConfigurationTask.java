@@ -1,10 +1,10 @@
 package core.objects.services.orionobject.impl.tasks;
 
-import core.OrionSimpleObject;
 import configuration.CoreConfigurationConfigurationEnumeration;
 import configuration.LibraryConfiguration;
-import dependencyinjection.configuration.DependencyInjectionConfigurationEnumeration;
+import core.OrionSimpleObject;
 import core.services.OrionTask;
+import dependencyinjection.configuration.DependencyInjectionConfigurationEnumeration;
 
 public class GetEnumerationValueAndSetItToLibraryConfigurationTask extends OrionSimpleObject implements OrionTask
 {
