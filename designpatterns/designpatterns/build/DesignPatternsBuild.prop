@@ -1,3 +1,0 @@
-orion.design.patterns=Design Patterns
-orion.design.patterns.design.patterns.dir=${orion.design.patterns.projects.dir}/designpatterns
-orion.design.patterns.jar.file.name=OrionDesignPatterns_${orion.libraries.version}.jar

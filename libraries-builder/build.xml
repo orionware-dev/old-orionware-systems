@@ -9,16 +9,24 @@
 	<import file="${orion.builder.services.path}/OrionBuildPropertiesImporter.xml"/>
 	<import file="${orion.ant.service.xml}"/>
 	<property name="orion.core.binaries.dir" value="${orion.core.dir}/${default.binaries.dir.name}"/>
+	<property name="orion.reflection.binaries.dir" value="${orion.reflection.dir}/${default.binaries.dir.name}"/>
+	<property name="orion.file.system.binaries.dir" value="${orion.file.system.dir}/${default.binaries.dir.name}"/>
 	<property name="orion.configuration.binaries.dir" value="${orion.configuration.dir}/${default.binaries.dir.name}"/>
 	<property name="orion.annotations.binaries.dir" value="${orion.annotations.dir}/${default.binaries.dir.name}"/>
+	<property name="orion.dependency.injection.binaries.dir" value="${orion.dependency.injection.dir}/${default.binaries.dir.name}"/>
+	<property name="orion.flow.binaries.dir" value="${orion.flow.dir}/${default.binaries.dir.name}"/>
 	<property name="orion.data.structures.binaries.dir" value="${orion.data.structures.dir}/${default.binaries.dir.name}"/>
 	<property name="orion.design.patterns.binaries.dir" value="${orion.design.patterns.dir}/${default.binaries.dir.name}"/>
 
     
     <target name="all">
     	<emptyDirectory dir="${orion.core.binaries.dir}"/>
+    	<emptyDirectory dir="${orion.reflection.binaries.dir}"/>
+    	<emptyDirectory dir="${orion.file.system.binaries.dir}"/>
     	<emptyDirectory dir="${orion.configuration.binaries.dir}"/>
     	<emptyDirectory dir="${orion.annotations.binaries.dir}"/>
+    	<emptyDirectory dir="${orion.dependency.injection.binaries.dir}"/>
+    	<emptyDirectory dir="${orion.flow.binaries.dir}"/>
     	<emptyDirectory dir="${orion.data.structures.binaries.dir}"/>
     	<emptyDirectory dir="${orion.design.patterns.binaries.dir}"/>
     	        
@@ -45,6 +53,12 @@
     	<callAnt file="${orion.design.patterns.builder.dir}/build.xml" target="delete_JAR"/>
     	
     	<packageProject binariesDir="${orion.core.binaries.dir}" JARPath="${orion.orionware.libraries.libraries.dir}/${orion.core.jar.file.name}" projectName="${orion.core}"/>
+    	<packageProject binariesDir="${orion.reflection.binaries.dir}" JARPath="${orion.orionware.libraries.libraries.dir}/${orion.reflection.jar.file.name}" projectName="${orion.reflection}"/>
+    	<packageProject binariesDir="${orion.file.system.binaries.dir}" JARPath="${orion.orionware.libraries.libraries.dir}/${orion.file.system.jar.file.name}" projectName="${orion.file.system}"/>
+    	<packageProject binariesDir="${orion.configuration.binaries.dir}" JARPath="${orion.orionware.libraries.libraries.dir}/${orion.configuration.jar.file.name}" projectName="${orion.configuration}"/>
+    	<packageProject binariesDir="${orion.annotations.binaries.dir}" JARPath="${orion.orionware.libraries.libraries.dir}/${orion.annotations.jar.file.name}" projectName="${orion.annotations}"/>
+    	<packageProject binariesDir="${orion.dependency.injection.binaries.dir}" JARPath="${orion.orionware.libraries.libraries.dir}/${orion.dependency.injection.jar.file.name}" projectName="${orion.dependency.injection}"/>
+    	<packageProject binariesDir="${orion.flow.binaries.dir}" JARPath="${orion.orionware.libraries.libraries.dir}/${orion.flow.jar.file.name}" projectName="${orion.flow}"/>
     	<packageProject binariesDir="${orion.data.structures.binaries.dir}" JARPath="${orion.orionware.libraries.libraries.dir}/${orion.data.structures.jar.file.name}" projectName="${orion.data.structures}"/>
     	<packageProject binariesDir="${orion.design.patterns.binaries.dir}" JARPath="${orion.orionware.libraries.libraries.dir}/${orion.design.patterns.jar.file.name}" projectName="${orion.design.patterns}"/>
     </target>

@@ -1,20 +1,14 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project name="OrionDataStructuresBuilder" default="all" basedir=".">
-    <property file="DataStructuresBuild.prop"/>
-    <property name="orion.data.structures.binaries.dir" value="${orion.data.structures.dir}/${default.binaries.dir.name}"/>
+    <property name="orion.data.structures.source.dir" value="${orion.data.structures.dir}/${default.source.dir.name}"/>
 
     
     <target name="all">
-    	<emptyPath path="${orion.data.structures.binaries.dir}"/>
-    	
-    	<callAnt file="${orion.data.structures.builder.dir}/build.xml"/>
-        <callAnt file="${orion.data.structures.services.builder.dir}/build.xml"/>
-        <callAnt file="${orion.data.structures.facades.builder.dir}/build.xml"/>
-        
-        <callAnt file="${orion.data.structures.builder.dir}/build.xml" target="delete_JAR"/>
-        <callAnt file="${orion.data.structures.services.builder.dir}/build.xml" target="delete_JAR"/>
-        <callAnt file="${orion.data.structures.facades.builder.dir}/build.xml" target="delete_JAR"/>
-        
-        <packageProject binariesDir="${orion.data.structures.binaries.dir}" JARPath="${orion.data.structures.jar.file.name}" projectName="${orion.data.structures}"/>
+    	<buildAndPackageProject sourceDir="${orion.data.structures.source.dir}" binariesDir="${orion.data.structures.binaries.dir}" JARPath="${orion.orionware.libraries.libraries.dir}/${orion.data.structures.jar.file.name}" projectName="${orion.data.structures}"/>
+    </target>
+	
+	
+	<target name="delete_JAR">
+		<deleteFile path="${orion.orionware.libraries.libraries.dir}/${orion.data.structures.jar.file.name}"/>
     </target>
 </project>

@@ -51,11 +51,11 @@ orion.flow.jar.file.name=OrionFlow_${orion.libraries.version}.jar
 orion.data.structures=Data Structures
 orion.data.structures.dir=${orion.libraries.home.dir}/datastructures
 orion.data.structures.projects.dir=${orion.data.structures.dir}
-orion.data.structures.builder.dir=${orion.data.structures.projects.dir}/datastructures/build
+orion.data.structures.builder.dir=${orion.data.structures.projects.dir}/build
 orion.data.structures.jar.file.name=OrionDataStructures_${orion.libraries.version}.jar
 
 orion.design.patterns=Design Patterns
 orion.design.patterns.dir=${orion.libraries.home.dir}/designpatterns
-orion.design.patterns.builder.dir=${orion.design.patterns.projects.dir}/designpatterns/build
+orion.design.patterns.builder.dir=${orion.design.patterns.projects.dir}/build
 orion.design.patterns.projects.dir=${orion.design.patterns.dir}
 orion.design.patterns.jar.file.name=OrionDesignPatterns_${orion.libraries.version}.jar
