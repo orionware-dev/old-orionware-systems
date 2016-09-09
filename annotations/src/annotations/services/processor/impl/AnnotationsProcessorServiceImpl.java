@@ -12,6 +12,7 @@ import annotations.services.gathering.impl.AnnotationsGatheringServiceImpl;
 import annotations.services.processor.AnnotationsProcessorService;
 import annotations.services.processor.impl.tasks.ApplyAnnotationToMethodTask;
 import annotations.services.processor.impl.tasks.ApplyAnnotationsToMethodTask;
+import annotations.services.processor.impl.tasks.ApplyAnnotationsToObjectTask;
 import annotations.services.processor.impl.tasks.GetAnnotationNameTask;
 import annotations.services.registry.AnnotationsRegistrationService;
 import annotations.services.registry.impl.AnnotationsRegistrationServiceImpl;
@@ -36,16 +37,8 @@ public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject imp
     @Override
     public void processAllAnnotations(Object orionObject)
     {
-        List<Annotation> allObjectAnnotations = annotationsGatheringService.gatherAllAnnotationsFromObject(orionObject);
-        //we filter the annotations, because if it finds a registered
-        //annotation that matches
-        //one in the list of object annotations then we can process it
-        //otherwise it means that Orion
-        //will have to try to process non-Orion-based annotations like
-        //Java/Spring/etc. annotations
-        //in which case it is processed by the respective framework
-        Stream<OrionAnnotation> registeredAnnotations = annotationsFilteringService.filterRegisteredAnnotationsFromObjectAnnotations(allObjectAnnotations);
-        new ApplyAnnotationsToMethodTask().run(registeredAnnotations, orionObject);
+        List<OrionAnnotation> registeredAnnotationsForObject = annotationsGatheringService.gatherAllAnnotationsFromObject(orionObject);
+        new ApplyAnnotationsToObjectTask().run(registeredAnnotationsForObject.stream(), orionObject);
     }
 
 

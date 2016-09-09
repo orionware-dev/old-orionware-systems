@@ -4,6 +4,7 @@ import java.lang.annotation.Annotation;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import annotations.AnnotationTask;
 import annotations.OrionAnnotation;
@@ -12,7 +13,7 @@ import annotations.services.registry.AnnotationsRegistry;
 
 public class FilterRegisteredAnnotationsFromObjectAnnotationsTask extends AnnotationServiceObject implements AnnotationTask
 {
-    public Stream<OrionAnnotation> run(Collection<Annotation> allObjectAnnotations)
+    public List<OrionAnnotation> run(Collection<OrionAnnotation> allObjectAnnotations)
     {
         DoesObjectHaveRegisteredAnnotationTask doesObjectHaveRegisteredAnnotationTask = new DoesObjectHaveRegisteredAnnotationTask();
         //takes registered annotations 1-by-1 and it returns the ones that are both registered
@@ -22,11 +23,11 @@ public class FilterRegisteredAnnotationsFromObjectAnnotationsTask extends Annota
         //The rest of the annotations in allObjectAnnotationsList are Java/Spring/etc. annotations
         //and Orion does not concern itself with those
         return AnnotationsRegistry.filterAnnotations(annotation ->
-            doesObjectHaveRegisteredAnnotationTask.run(allObjectAnnotations, (OrionAnnotation)annotation));
+            doesObjectHaveRegisteredAnnotationTask.run(allObjectAnnotations, (OrionAnnotation)annotation)).collect(Collectors.toList());
     }
 
 
-    public Stream<OrionAnnotation> run(Annotation[] allObjectAnnotationsArray)
+    public List<OrionAnnotation> run(OrionAnnotation[] allObjectAnnotationsArray)
     {
         return run(Arrays.asList(allObjectAnnotationsArray));
     }

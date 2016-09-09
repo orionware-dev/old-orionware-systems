@@ -2,8 +2,12 @@ package annotations.services.gathering.impl.tasks;
 
 import java.lang.annotation.Annotation;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import annotations.AnnotationTask;
+import annotations.AnnotationType;
+import annotations.OrionAnnotation;
 import annotations.services.AnnotationServiceObject;
 
 public class GatherAllAnnotationsFromObjectTask extends AnnotationServiceObject implements AnnotationTask
@@ -23,9 +27,9 @@ public class GatherAllAnnotationsFromObjectTask extends AnnotationServiceObject 
     }
 
 
-    public List<Annotation> run(Object object)
+    public synchronized List<OrionAnnotation> run(Object object)
     {
-        List<Annotation> allObjectAnnotations = new ArrayList<Annotation>();
+        List<OrionAnnotation> allObjectAnnotations = new ArrayList<OrionAnnotation>();
         allObjectAnnotations.addAll(gatherClassLevelAnnotationsFromObjectTask.run(object));
         allObjectAnnotations.addAll(gatherInstanceVariablesAnnotationsFromObjectTask.run(object));
         allObjectAnnotations.addAll(gatherConstructorsAnnotationsFromObjectTask.run(object));

@@ -5,12 +5,16 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Stream;
 import annotations.AnnotationService;
+import annotations.AnnotationType;
 import annotations.OrionAnnotation;
 
 public interface AnnotationsFilteringService extends AnnotationService
 {
-    public Stream<OrionAnnotation> filterRegisteredAnnotationsFromObjectAnnotations(Collection<Annotation> allObjectAnnotations);
+    public List<OrionAnnotation> filterRegisteredAnnotationsFromObjectAnnotations(Collection<OrionAnnotation> allObjectAnnotations);
     
     
-    public boolean run(Collection<Annotation> allObjectAnnotations, OrionAnnotation registeredAnnotation);
+    public boolean run(Collection<OrionAnnotation> allObjectAnnotations, OrionAnnotation registeredAnnotation);
+    
+    
+    public void addAnnotationTypeForObject(OrionAnnotation annotation, AnnotationType annotationType);
 }

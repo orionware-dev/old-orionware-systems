@@ -10,5 +10,5 @@ import java.lang.annotation.Target;
 @Inherited
 public @interface Injector
 {
-    public abstract String ID();
+    public abstract String ID() default "";
 }

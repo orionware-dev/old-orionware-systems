@@ -82,7 +82,7 @@ public class RegisterLibraryAnnotationsTask extends AnnotationServiceObject impl
 
     private void registerLibraryAnnotation()
     {
-        OrionAnnotation OrionAnnotationToRegister = new OrionAnnotation(currentAnnotationClass, currentAnnotationServiceClass, currentAnnotationServiceMethodToCall);
+        OrionAnnotation OrionAnnotationToRegister = new OrionAnnotation(currentAnnotationClass, null, currentAnnotationServiceClass, currentAnnotationServiceMethodToCall);
         new RegisterAnnotationTask().run(OrionAnnotationToRegister);
     }
 }
