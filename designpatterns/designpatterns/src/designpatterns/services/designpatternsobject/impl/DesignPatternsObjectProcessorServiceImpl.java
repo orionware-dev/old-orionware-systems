@@ -2,7 +2,7 @@ package designpatterns.services.designpatternsobject.impl;
 
 import java.io.InputStream;
 import core.OrionSimpleObject;
-import core.filesystem.facades.streams.impl.FileSystemStreamsFacadeImpl;
+import filesystem.services.streams.impl.FileSystemStreamsServiceImpl;
 import designpatterns.configuration.DesignPatternsInternalConfigurationEnumeration;
 import designpatterns.services.designpatternsobject.DesignPatternsObjectProcessorService;
 import designpatterns.services.designpatternsobject.impl.tasks.RegisterPipelineConfigurationTask;
@@ -21,7 +21,7 @@ public class DesignPatternsObjectProcessorServiceImpl extends OrionSimpleObject 
     @Override
     public boolean registerPipelineConfiguration()
     {
-        InputStream input = new FileSystemStreamsFacadeImpl().getFileStream(DesignPatternsInternalConfigurationEnumeration.PIPELINE_CONFIGURATION_FILE_PATH.get());
+        InputStream input = new FileSystemStreamsServiceImpl().getFileStream(DesignPatternsInternalConfigurationEnumeration.PIPELINE_CONFIGURATION_FILE_PATH.get());
         return new RegisterPipelineConfigurationTask().run(input);
     }
 }

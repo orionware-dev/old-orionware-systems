@@ -1,0 +1,3 @@
+orion.flow=Flow
+orion.flow.dir=${orion.libraries.home.dir}/flow
+orion.flow.jar.file.name=OrionFlow_${orion.libraries.version}.jar

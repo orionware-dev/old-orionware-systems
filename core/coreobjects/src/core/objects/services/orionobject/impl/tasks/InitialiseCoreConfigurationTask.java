@@ -2,9 +2,9 @@ package core.objects.services.orionobject.impl.tasks;
 
 import java.util.Arrays;
 import core.OrionSimpleObject;
-import core.configuration.CoreConfigurationConfigurationEnumeration;
-import core.configuration.LibraryConfiguration;
-import core.dependencyinjection.configuration.CoreDependencyInjectionConfigurationEnumeration;
+import configuration.CoreConfigurationConfigurationEnumeration;
+import configuration.LibraryConfiguration;
+import dependencyinjection.configuration.DependencyInjectionConfigurationEnumeration;
 import core.services.OrionTask;
 
 public class InitialiseCoreConfigurationTask extends OrionSimpleObject implements OrionTask
@@ -22,7 +22,7 @@ public class InitialiseCoreConfigurationTask extends OrionSimpleObject implement
     {
         GetEnumerationValueAndSetItToLibraryConfigurationTask getEnumerationValueAndSetItToLibraryConfigurationTask = new GetEnumerationValueAndSetItToLibraryConfigurationTask();
         LibraryConfiguration libraryConfiguration = new LibraryConfiguration();
-        Arrays.stream(CoreDependencyInjectionConfigurationEnumeration.values()).forEach(enumerationDefinition -> getEnumerationValueAndSetItToLibraryConfigurationTask.runDependencyInjection(CoreDependencyInjectionConfigurationEnumeration.class, enumerationDefinition, libraryConfiguration));
+        Arrays.stream(DependencyInjectionConfigurationEnumeration.values()).forEach(enumerationDefinition -> getEnumerationValueAndSetItToLibraryConfigurationTask.runDependencyInjection(DependencyInjectionConfigurationEnumeration.class, enumerationDefinition, libraryConfiguration));
         return libraryConfiguration;
     }
 }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="OrionReflectionBuilder" default="all" basedir=".">
+    <property file="ReflectionBuild.prop"/>
+    <property name="orion.core.binaries.dir" value="${orion.core.dir}/${default.binaries.dir.name}"/>
+    <property name="orion.reflection.binaries.dir" value="${orion.reflection.dir}/${default.binaries.dir.name}"/>
+    <property name="orion.reflection.source.dir" value="${orion.reflection.dir}/${default.source.dir.name}"/>
+
+    
+    <target name="all">
+    	    <buildAndPackageProject sourceDir="${orion.reflection.source.dir}" binariesDir="${orion.reflection.binaries.dir}" JARPath="${orion.orionware.libraries.libraries.dir}/${orion.reflection.jar.file.name}" projectName="${orion.reflection}"/>
+        
+        <copy todir="${orion.core.binaries.dir}" verbose="yes" failonerror="false" overwrite="true">
+            <fileset dir="${orion.reflection.binaries.dir}" includes="${default.any.file.extension.pattern}"/>
+        </copy>
+    </target>
+	
+	
+	<target name="delete_JAR">
+		<deleteFile path="${orion.orionware.libraries.libraries.dir}/${orion.reflection.jar.file.name}"/>
+    </target>
+</project>

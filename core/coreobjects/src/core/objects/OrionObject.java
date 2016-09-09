@@ -1,8 +1,8 @@
 package core.objects;
 
 import core.OrionSimpleObject;
-import core.configuration.LibrariesConfiguration;
-import core.configuration.LibraryConfiguration;
+import configuration.LibrariesConfiguration;
+import configuration.LibraryConfiguration;
 import core.objects.services.orionobject.OrionObjectProcessorService;
 import core.objects.services.orionobject.impl.OrionObjectProcessorServiceImpl;
 

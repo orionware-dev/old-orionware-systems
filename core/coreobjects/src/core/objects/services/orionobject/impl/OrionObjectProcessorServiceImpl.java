@@ -4,12 +4,12 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import core.OrionSimpleObject;
 import core.abstraction.ConfigurationEnumeration;
-import core.annotations.facades.processor.impl.AnnotationsProcessorFacadeImpl;
-import core.annotations.facades.registration.impl.AnnotationsRegistrationFacadeImpl;
-import core.configuration.LibrariesConfiguration;
-import core.configuration.LibrariesConfigurationMapper;
-import core.configuration.LibraryConfiguration;
-import core.configuration.facades.classpath.impl.ConfigurationClasspathFacadeImpl;
+import annotations.services.processor.impl.AnnotationsProcessorServiceImpl;
+import annotations.services.registry.impl.AnnotationsRegistrationServiceImpl;
+import configuration.LibrariesConfiguration;
+import configuration.LibrariesConfigurationMapper;
+import configuration.LibraryConfiguration;
+import configuration.services.classpath.impl.ConfigurationClasspathServiceImpl;
 import core.objects.services.orionobject.OrionObjectProcessorService;
 import core.objects.services.orionobject.impl.tasks.BuildSetterMethodToCallInLibraryConfigurationTask;
 import core.objects.services.orionobject.impl.tasks.InitialiseCoreConfigurationTask;
@@ -137,18 +137,18 @@ public class OrionObjectProcessorServiceImpl extends OrionSimpleObject implement
 
     private void loadLibrariesProperties()
     {
-        new ConfigurationClasspathFacadeImpl().loadLibrariesProperties();
+        new ConfigurationClasspathServiceImpl().loadLibrariesProperties();
     }
 
 
     private void registerLibrariesAnnotations()
     {
-        new AnnotationsRegistrationFacadeImpl().registerLibrariesAnnotations();
+        new AnnotationsRegistrationServiceImpl().registerLibrariesAnnotations();
     }
 
 
     private void processAllAnnotations(Object object)
     {
-        new AnnotationsProcessorFacadeImpl().processAllAnnotations(object);
+        new AnnotationsProcessorServiceImpl().processAllAnnotations(object);
     }
 }

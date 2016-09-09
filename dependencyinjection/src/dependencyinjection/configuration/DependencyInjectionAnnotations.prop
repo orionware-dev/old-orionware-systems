@@ -1,0 +1,3 @@
+core.dependencyinjection.annotation.1=dependencyinjection.annotations.Injector
+core.dependencyinjection.annotation.service.1=dependencyinjection.services.processor.impl.DependencyInjectorServiceImpl
+core.dependencyinjection.annotation.service.processing.method.1=processDependencies

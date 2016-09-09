@@ -1,0 +1,3 @@
+orion.dependency.injection=Dependency Injection
+orion.dependency.injection.dir=${orion.libraries.home.dir}/dependencyinjection
+orion.dependency.injection.jar.file.name=OrionDependencyInjection_${orion.libraries.version}.jar

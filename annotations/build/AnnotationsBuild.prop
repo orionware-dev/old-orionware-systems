@@ -1,0 +1,3 @@
+orion.annotations=Annotations
+orion.annotations.dir=${orion.libraries.home.dir}/annotations
+orion.annotations.jar.file.name=OrionAnnotations_${orion.libraries.version}.jar

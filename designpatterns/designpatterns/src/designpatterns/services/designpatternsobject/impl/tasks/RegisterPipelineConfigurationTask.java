@@ -4,9 +4,9 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import core.OrionSimpleObject;
-import core.configuration.OrionProperties;
-import core.configuration.registry.ConfigurationRegistry;
-import core.filesystem.facades.streams.impl.FileSystemStreamsFacadeImpl;
+import configuration.OrionProperties;
+import configuration.registry.ConfigurationRegistry;
+import filesystem.services.streams.impl.FileSystemStreamsServiceImpl;
 import designpatterns.DesignPatternsTask;
 import designpatterns.configuration.DesignPatternsInternalConfiguration;
 import designpatterns.configuration.DesignPatternsLibraryConfiguration;
@@ -36,7 +36,7 @@ public class RegisterPipelineConfigurationTask extends OrionSimpleObject impleme
         designPatternsLibraryConfiguration.setPipelineConfiguration(pipelineConfiguration);
         DesignPatternsInternalConfiguration.registerDesignPatternsConfiguration(designPatternsLibraryConfiguration);
         DesignPatternsInternalConfiguration.setPipelineConfiguration(pipelineConfiguration);
-        new FileSystemStreamsFacadeImpl().closeResource(pipelineConfigurationInput);
+        new FileSystemStreamsServiceImpl().closeResource(pipelineConfigurationInput);
         return true;
     }
 }

@@ -1,8 +1,8 @@
 package designpatterns.configuration;
 
 import java.util.Set;
-import datastructures.facades.sets.factory.SetFactoryFacade;
-import datastructures.facades.sets.factory.impl.SetFactoryFacadeImpl;
+import datastructures.services.sets.factory.SetFactoryService;
+import datastructures.services.sets.factory.impl.SetFactoryServiceImpl;
 import datastructures.sets.impl.OrionConcurrentSet;
 import designpatterns.DesignPatternsConfiguration;
 
@@ -11,12 +11,12 @@ public class DesignPatternsInternalConfiguration implements DesignPatternsConfig
     public static boolean haveDesignPatternsConfigurationNotBeenRegistered;
     private static OrionConcurrentSet<DesignPatternsLibraryConfiguration> designPatternsConfiguration;
     private static PipelineConfiguration pipelineConfiguration;
-    private SetFactoryFacade<DesignPatternsLibraryConfiguration> setFactoryFacade;
+    private SetFactoryService<DesignPatternsLibraryConfiguration> setFactoryService;
     
     
     public DesignPatternsInternalConfiguration()
     {
-        setFactoryFacade = new SetFactoryFacadeImpl<DesignPatternsLibraryConfiguration>();
+        setFactoryService = new SetFactoryServiceImpl<DesignPatternsLibraryConfiguration>();
     }
 
     
@@ -24,7 +24,7 @@ public class DesignPatternsInternalConfiguration implements DesignPatternsConfig
     {
         haveDesignPatternsConfigurationNotBeenRegistered = true;
         DesignPatternsInternalConfiguration temp = new DesignPatternsInternalConfiguration();
-        designPatternsConfiguration = temp.getSetFactoryFacade().createEmptyConcurrentHashSet();
+        designPatternsConfiguration = temp.setFactoryService.createEmptyConcurrentHashSet();
     }
 
 
@@ -61,17 +61,5 @@ public class DesignPatternsInternalConfiguration implements DesignPatternsConfig
     public static void setPipelineConfiguration(PipelineConfiguration newPipelineConfiguration)
     {
         pipelineConfiguration = newPipelineConfiguration;
-    }
-
-
-    public SetFactoryFacade<DesignPatternsLibraryConfiguration> getSetFactoryFacade()
-    {
-        return this.setFactoryFacade;
-    }
-
-
-    public void setSetFactoryFacade(SetFactoryFacade<DesignPatternsLibraryConfiguration> setFactoryFacade)
-    {
-        this.setFactoryFacade = setFactoryFacade;
     }
 }

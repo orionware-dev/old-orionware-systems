@@ -1,0 +1,3 @@
+orion.reflection=Reflection
+orion.reflection.dir=${orion.libraries.home.dir}/reflection
+orion.reflection.jar.file.name=OrionReflection_${orion.libraries.version}.jar

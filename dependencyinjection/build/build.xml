@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="OrionDependencyInjectionBuilder" default="all" basedir=".">
+    <property file="DependencyInjectionBuild.prop"/>
+    <property name="orion.core.binaries.dir" value="${orion.core.dir}/${default.binaries.dir.name}"/>
+    <property name="orion.dependency.injection.binaries.dir" value="${orion.dependency.injection.dir}/${default.binaries.dir.name}"/>
+    <property name="orion.dependency.injection.source.dir" value="${orion.dependency.injection.dir}/${default.source.dir.name}"/>
+
+    
+    <target name="all">
+    	   <buildAndPackageProject sourceDir="${orion.dependency.injection.source.dir}" binariesDir="${orion.dependency.injection.binaries.dir}" JARPath="${orion.orionware.libraries.libraries.dir}/${orion.dependency.injection.jar.file.name}" projectName="${orion.dependency.injection}"/>
+        
+        <copy todir="${orion.core.binaries.dir}" verbose="yes" failonerror="false" overwrite="true">
+            <fileset dir="${orion.dependency.injection.binaries.dir}" includes="${default.any.file.extension.pattern}"/>
+        </copy>
+    </target>
+	
+	
+	<target name="delete_JAR">
+		<deleteFile path="${orion.orionware.libraries.libraries.dir}/${orion.dependency.injection.jar.file.name}"/>
+    </target>
+</project>

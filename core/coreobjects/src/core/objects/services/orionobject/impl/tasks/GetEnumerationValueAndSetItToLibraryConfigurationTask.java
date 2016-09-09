@@ -1,9 +1,9 @@
 package core.objects.services.orionobject.impl.tasks;
 
 import core.OrionSimpleObject;
-import core.configuration.CoreConfigurationConfigurationEnumeration;
-import core.configuration.LibraryConfiguration;
-import core.dependencyinjection.configuration.CoreDependencyInjectionConfigurationEnumeration;
+import configuration.CoreConfigurationConfigurationEnumeration;
+import configuration.LibraryConfiguration;
+import dependencyinjection.configuration.DependencyInjectionConfigurationEnumeration;
 import core.services.OrionTask;
 
 public class GetEnumerationValueAndSetItToLibraryConfigurationTask extends OrionSimpleObject implements OrionTask
@@ -19,11 +19,11 @@ public class GetEnumerationValueAndSetItToLibraryConfigurationTask extends Orion
     
     
     @SuppressWarnings("rawtypes")
-    public void runDependencyInjection(Class<CoreDependencyInjectionConfigurationEnumeration> coreDependencyInjectionConfigurationEnumeration, Enum enumerationDefinition, LibraryConfiguration libraryConfiguration)
+    public void runDependencyInjection(Class<DependencyInjectionConfigurationEnumeration> dependencyInjectionConfigurationEnumeration, Enum enumerationDefinition, LibraryConfiguration libraryConfiguration)
     {
         String enumerationName = enumerationDefinition.name();
         String setterMethodToCallInLibraryConfiguration = new BuildSetterMethodToCallInLibraryConfigurationTask().run(enumerationName);
-        String enumerationValue = new GetEnumerationValueTask().runDependencyInjection(coreDependencyInjectionConfigurationEnumeration, enumerationName);
+        String enumerationValue = new GetEnumerationValueTask().runDependencyInjection(dependencyInjectionConfigurationEnumeration, enumerationName);
         new SetEnumerationValueToLibraryConfigurationTask().run(libraryConfiguration, setterMethodToCallInLibraryConfiguration, enumerationValue);
     }
 }

@@ -2,10 +2,10 @@ package designpatterns.services.annotations.impl.tasks;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
-import core.annotations.facades.gathering.AnnotationsGatheringFacade;
-import core.annotations.facades.gathering.impl.AnnotationsGatheringFacadeImpl;
-import core.reflection.facades.loader.ReflectionLoaderFacade;
-import core.reflection.facades.loader.impl.ReflectionLoaderFacadeImpl;
+import annotations.services.gathering.AnnotationsGatheringService;
+import annotations.services.gathering.impl.AnnotationsGatheringServiceImpl;
+import reflection.services.loader.ReflectionLoaderService;
+import reflection.services.loader.impl.ReflectionLoaderServiceImpl;
 import designpatterns.DesignPatternsObject;
 import designpatterns.DesignPatternsTask;
 import designpatterns.annotations.EmptyPipeline;
@@ -16,36 +16,36 @@ import designpatterns.services.pipeline.impl.PipelineServiceImpl;
 public class ProcessEmptyPipelineAnnotationTask extends DesignPatternsObject implements DesignPatternsTask
 {
     private PipelineService pipelineService;
-    private ReflectionLoaderFacade reflectionLoaderFacade;
-    private AnnotationsGatheringFacade annotationsGatheringFacade;
+    private ReflectionLoaderService reflectionLoaderService;
+    private AnnotationsGatheringService annotationsGatheringService;
     private Object object;
     
     
     public ProcessEmptyPipelineAnnotationTask()
     {
         this.pipelineService = new PipelineServiceImpl();
-        this.reflectionLoaderFacade = new ReflectionLoaderFacadeImpl();
-        this.annotationsGatheringFacade = new AnnotationsGatheringFacadeImpl();
+        this.reflectionLoaderService = new ReflectionLoaderServiceImpl();
+        this.annotationsGatheringService = new AnnotationsGatheringServiceImpl();
     }
     
     
     public void run(Object object)
     {
         this.object = object;
-        Arrays.stream(reflectionLoaderFacade.getMethodsArray(object)).forEach(method -> processMethodForEmptyPipelineInjection(method));
+        Arrays.stream(reflectionLoaderService.getMethodsArray(object)).forEach(method -> processMethodForEmptyPipelineInjection(method));
     }
     
     
     private void processMethodForEmptyPipelineInjection(Method method)
     {
-        reflectionLoaderFacade.makeMethodAccessible(method);
-        EmptyPipeline emptyPipelineAnnotation = (EmptyPipeline)annotationsGatheringFacade.extractAnnotationFromMethod(method, EmptyPipeline.class);
+        reflectionLoaderService.makeMethodAccessible(method);
+        EmptyPipeline emptyPipelineAnnotation = (EmptyPipeline)annotationsGatheringService.extractAnnotationFromMethod(method, EmptyPipeline.class);
         
         if(emptyPipelineAnnotation != null)
         {
             boolean feedForwardTheResult = emptyPipelineAnnotation.feedForwardTheResult();
             AbstractPipeline emptyPipeline = pipelineService.createEmptyPipeline(feedForwardTheResult);
-            reflectionLoaderFacade.callMethod(method, object, emptyPipeline);
+            reflectionLoaderService.callMethod(method, object, emptyPipeline);
         }
     }
 }

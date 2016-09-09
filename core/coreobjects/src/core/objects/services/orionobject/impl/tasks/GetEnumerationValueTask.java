@@ -2,8 +2,8 @@ package core.objects.services.orionobject.impl.tasks;
 
 import java.lang.reflect.InvocationTargetException;
 import core.OrionSimpleObject;
-import core.configuration.CoreConfigurationConfigurationEnumeration;
-import core.dependencyinjection.configuration.CoreDependencyInjectionConfigurationEnumeration;
+import configuration.CoreConfigurationConfigurationEnumeration;
+import dependencyinjection.configuration.DependencyInjectionConfigurationEnumeration;
 import core.services.OrionTask;
 
 public class GetEnumerationValueTask extends OrionSimpleObject implements OrionTask
@@ -39,11 +39,11 @@ public class GetEnumerationValueTask extends OrionSimpleObject implements OrionT
     }
     
     
-    public String runDependencyInjection(Class<CoreDependencyInjectionConfigurationEnumeration> coreDependencyInjectionConfigurationEnumeration, String enumerationName)
+    public String runDependencyInjection(Class<DependencyInjectionConfigurationEnumeration> dependencyInjectionConfigurationEnumeration, String enumerationName)
     {
         try
         {
-            return (String)coreDependencyInjectionConfigurationEnumeration.getMethod("get", new Class<?>[]{}).invoke(Enum.valueOf(coreDependencyInjectionConfigurationEnumeration, enumerationName), new Object[]{});
+            return (String)dependencyInjectionConfigurationEnumeration.getMethod("get", new Class<?>[]{}).invoke(Enum.valueOf(dependencyInjectionConfigurationEnumeration, enumerationName), new Object[]{});
         }
         catch(IllegalAccessException exception)
         {
