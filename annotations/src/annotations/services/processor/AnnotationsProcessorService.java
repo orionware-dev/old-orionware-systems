@@ -6,10 +6,10 @@ import annotations.OrionAnnotation;
 
 public interface AnnotationsProcessorService extends AnnotationService
 {
-    public void processAllAnnotations(Object orionObject);
+    public void processAllAnnotations(Object object);
 
 
-    public boolean applyMethodAnnotation(Object orionObject, OrionAnnotation annotationToProcess);
+    public boolean applyMethodAnnotation(Object object, OrionAnnotation annotationToProcess);
     
     
     public String getAnnotationName(Annotation annotation);

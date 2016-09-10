@@ -7,8 +7,8 @@ import annotations.services.AnnotationServiceObject;
 
 public class ApplyAnnotationsToObjectTask extends AnnotationServiceObject implements AnnotationTask
 {
-    public void run(List<OrionAnnotation> annotations, Object orionObject)
+    public void run(List<OrionAnnotation> annotations, Object object)
     {
-        annotations.forEach(annotation -> new ApplyAnnotationToObjectTask().run(orionObject, annotation));
+        annotations.forEach(annotation -> new ApplyAnnotationToObjectTask().run(object, annotation));
     }
 }

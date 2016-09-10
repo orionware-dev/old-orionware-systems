@@ -23,9 +23,9 @@ import annotations.services.gathering.impl.tasks.GatherObjectElementAnnotationsF
 public class AnnotationsGatheringServiceImpl extends AnnotationServiceObject implements AnnotationsGatheringService
 {
     @Override
-    public List<OrionAnnotation> gatherAllAnnotationsFromObject(Object orionObject)
+    public List<OrionAnnotation> gatherAllAnnotationsFromObject(Object object)
     {
-        return new GatherAllAnnotationsFromObjectTask().run(orionObject);
+        return new GatherAllAnnotationsFromObjectTask().run(object);
     }
     
     
@@ -60,30 +60,30 @@ public class AnnotationsGatheringServiceImpl extends AnnotationServiceObject imp
 
 
     @Override
-    public List<OrionAnnotation> gatherClassLevelAnnotationsFromObject(Object orionObject)
+    public List<OrionAnnotation> gatherClassLevelAnnotationsFromObject(Object object)
     {
-        return new GatherClassLevelAnnotationsFromObjectTask().run(orionObject);
+        return new GatherClassLevelAnnotationsFromObjectTask().run(object);
     }
 
 
     @Override
-    public List<OrionAnnotation> gatherInstanceVariablesAnnotationsFromObject(Object orionObject)
+    public List<OrionAnnotation> gatherInstanceVariablesAnnotationsFromObject(Object object)
     {
-        return new GatherInstanceVariablesAnnotationsFromObjectTask().run(orionObject);
+        return new GatherInstanceVariablesAnnotationsFromObjectTask().run(object);
     }
 
 
     @Override
-    public List<OrionAnnotation> gatherConstructorsAnnotationsFromObject(Object orionObject)
+    public List<OrionAnnotation> gatherConstructorsAnnotationsFromObject(Object object)
     {
-        return new GatherConstructorsAnnotationsFromObjectTask().run(orionObject);
+        return new GatherConstructorsAnnotationsFromObjectTask().run(object);
     }
 
 
     @Override
-    public List<OrionAnnotation> gatherMethodsAnnotationsFromObject(Object orionObject)
+    public List<OrionAnnotation> gatherMethodsAnnotationsFromObject(Object object)
     {
-        return new GatherMethodsAnnotationsFromObjectTask().run(orionObject);
+        return new GatherMethodsAnnotationsFromObjectTask().run(object);
     }
 
 

@@ -11,7 +11,7 @@ import annotations.OrionAnnotation;
 
 public interface AnnotationsGatheringService extends AnnotationService
 {
-    public List<OrionAnnotation> gatherAllAnnotationsFromObject(Object orionObject);
+    public List<OrionAnnotation> gatherAllAnnotationsFromObject(Object object);
     
     
     public Annotation extractAnnotationFromClassLevel(Class<?> aClass, Class<?> annotationClassToExtract);
@@ -26,16 +26,16 @@ public interface AnnotationsGatheringService extends AnnotationService
     public Annotation extractAnnotationFromMethod(Method method, Class<?> annotationClassToExtract);
     
     
-    public List<OrionAnnotation> gatherClassLevelAnnotationsFromObject(Object orionObject);
+    public List<OrionAnnotation> gatherClassLevelAnnotationsFromObject(Object object);
     
     
-    public List<OrionAnnotation> gatherInstanceVariablesAnnotationsFromObject(Object orionObject);
+    public List<OrionAnnotation> gatherInstanceVariablesAnnotationsFromObject(Object object);
     
     
-    public List<OrionAnnotation> gatherConstructorsAnnotationsFromObject(Object orionObject);
+    public List<OrionAnnotation> gatherConstructorsAnnotationsFromObject(Object object);
     
     
-    public List<OrionAnnotation> gatherMethodsAnnotationsFromObject(Object orionObject);
+    public List<OrionAnnotation> gatherMethodsAnnotationsFromObject(Object object);
     
     
     public List<OrionAnnotation> gatherObjectElementAnnotationsFromObject(AccessibleObject objectElement);
