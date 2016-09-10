@@ -4,6 +4,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import annotations.services.processor.impl.AnnotationsProcessorServiceImpl;
 import annotations.services.registry.impl.AnnotationsRegistrationServiceImpl;
+import configuration.CoreConfigurationConfigurationEnumeration;
 import configuration.LibrariesConfiguration;
 import configuration.LibrariesConfigurationMapper;
 import configuration.LibraryConfiguration;
@@ -12,9 +13,12 @@ import core.OrionSimpleObject;
 import core.abstraction.ConfigurationEnumeration;
 import core.objects.services.orionobject.OrionObjectProcessorService;
 import core.objects.services.orionobject.impl.tasks.BuildSetterMethodToCallInLibraryConfigurationTask;
-import core.objects.services.orionobject.impl.tasks.InitialiseCoreConfigurationTask;
+import core.objects.services.orionobject.impl.tasks.GetEnumerationValueAndSetItToLibraryConfigurationTask;
+import core.objects.services.orionobject.impl.tasks.GetEnumerationValueTask;
+import core.objects.services.orionobject.impl.tasks.InitialiseConfigurationTask;
 import core.objects.services.orionobject.impl.tasks.IsCoreLibraryTask;
 import core.objects.services.orionobject.impl.tasks.SetEnumerationValueToLibraryConfigurationTask;
+import dependencyinjection.configuration.DependencyInjectionConfigurationEnumeration;
 
 public class OrionObjectProcessorServiceImpl extends OrionSimpleObject implements OrionObjectProcessorService
 {
@@ -22,11 +26,11 @@ public class OrionObjectProcessorServiceImpl extends OrionSimpleObject implement
     {
         if(LibrariesConfigurationMapper.coreLibrariesHaveNotBeenRegistered)
         {
-            InitialiseCoreConfigurationTask initialiseCoreConfigurationTask = new InitialiseCoreConfigurationTask();
-            LibraryConfiguration coreLibraryConfiguration = initialiseCoreConfigurationTask.runCore();
+            InitialiseConfigurationTask initialiseConfigurationTask = new InitialiseConfigurationTask();
+            LibraryConfiguration coreLibraryConfiguration = initialiseConfigurationTask.run(CoreConfigurationConfigurationEnumeration.class.getName(), CoreConfigurationConfigurationEnumeration.values());
             LibrariesConfiguration.registerLibraryConfiguration(coreLibraryConfiguration);
-            LibraryConfiguration coreDependencyInjectionLibraryConfiguration = initialiseCoreConfigurationTask.runDependencyInjection();
-            LibrariesConfiguration.registerLibraryConfiguration(coreDependencyInjectionLibraryConfiguration);
+            LibraryConfiguration dependencyInjectionLibraryConfiguration = initialiseConfigurationTask.run(DependencyInjectionConfigurationEnumeration.class.getName(), DependencyInjectionConfigurationEnumeration.values());
+            LibrariesConfiguration.registerLibraryConfiguration(dependencyInjectionLibraryConfiguration);
 
             if(new IsCoreLibraryTask().run(getClass()))
             {
@@ -85,7 +89,8 @@ public class OrionObjectProcessorServiceImpl extends OrionSimpleObject implement
                 exception.printStackTrace();
             }
 
-            Arrays.stream(enums).forEach(enumerationDefinition -> getLibraryEnumerationValueAndSetItToLibraryConfiguration(temp, temp1, enumerationDefinition, libraryConfiguration));
+            Arrays.stream(enums).forEach(enumerationDefinition ->
+                new GetEnumerationValueAndSetItToLibraryConfigurationTask().run(temp, temp1, enumerationDefinition, libraryConfiguration));
         }
         catch(ClassNotFoundException exception1)
         {
@@ -93,48 +98,6 @@ public class OrionObjectProcessorServiceImpl extends OrionSimpleObject implement
         }
 
         return libraryConfiguration;
-    }
-
-
-    @SuppressWarnings("rawtypes")
-    private void getLibraryEnumerationValueAndSetItToLibraryConfiguration(Class<ConfigurationEnumeration> libraryConfigurationEnumerationClass, Class<Enum> libraryConfigurationAbstractEnumerationClass, Enum enumerationDefinition, LibraryConfiguration libraryConfiguration)
-    {
-        String enumerationName = enumerationDefinition.name();
-        String setterMethodToCallInLibraryConfiguration = new BuildSetterMethodToCallInLibraryConfigurationTask().run(enumerationName);
-        String enumerationValue = getEnumerationValueForLibrary(libraryConfigurationEnumerationClass, libraryConfigurationAbstractEnumerationClass, enumerationName);
-        new SetEnumerationValueToLibraryConfigurationTask().run(libraryConfiguration, setterMethodToCallInLibraryConfiguration, enumerationValue);
-    }
-
-
-    @SuppressWarnings({"unchecked", "rawtypes"})
-    private String getEnumerationValueForLibrary(Class<ConfigurationEnumeration> libraryConfigurationEnumerationClass, Class<Enum> libraryConfigurationAbstractEnumerationClass, String enumerationName)
-    {
-        try
-        {
-            return (String)libraryConfigurationEnumerationClass.getMethod("get", new Class<?>[]{}).invoke(Enum.valueOf((Class<Enum>)libraryConfigurationAbstractEnumerationClass, enumerationName), new Object[]{});
-        }
-        catch(IllegalAccessException exception)
-        {
-            exception.printStackTrace();
-        }
-        catch(IllegalArgumentException exception)
-        {
-            exception.printStackTrace();
-        }
-        catch(InvocationTargetException exception)
-        {
-            exception.printStackTrace();
-        }
-        catch(NoSuchMethodException exception)
-        {
-            exception.printStackTrace();
-        }
-        catch(SecurityException exception)
-        {
-            exception.printStackTrace();
-        }
-
-        return null;
     }
 
 

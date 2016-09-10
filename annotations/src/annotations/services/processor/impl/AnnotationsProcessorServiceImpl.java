@@ -4,8 +4,6 @@ import java.lang.annotation.Annotation;
 import java.util.List;
 import annotations.OrionAnnotation;
 import annotations.services.AnnotationServiceObject;
-import annotations.services.filtering.AnnotationsFilteringService;
-import annotations.services.filtering.impl.AnnotationsFilteringServiceImpl;
 import annotations.services.gathering.AnnotationsGatheringService;
 import annotations.services.gathering.impl.AnnotationsGatheringServiceImpl;
 import annotations.services.processor.AnnotationsProcessorService;
