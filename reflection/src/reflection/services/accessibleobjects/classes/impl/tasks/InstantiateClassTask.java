@@ -1,4 +1,4 @@
-package reflection.services.loader.impl.tasks;
+package reflection.services.accessibleobjects.classes.impl.tasks;
 
 import java.lang.reflect.InvocationTargetException;
 import reflection.ReflectionObject;

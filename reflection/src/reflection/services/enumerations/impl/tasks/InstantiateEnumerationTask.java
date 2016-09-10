@@ -2,7 +2,7 @@ package reflection.services.enumerations.impl.tasks;
 
 import reflection.ReflectionObject;
 import reflection.ReflectionTask;
-import reflection.services.loader.impl.tasks.LoadClassTask;
+import reflection.services.accessibleobjects.classes.impl.tasks.LoadClassTask;
 
 public class InstantiateEnumerationTask extends ReflectionObject implements ReflectionTask
 {

@@ -6,25 +6,31 @@ import annotations.services.gathering.impl.AnnotationsGatheringServiceImpl;
 import dependencyinjection.DependencyInjectionObject;
 import dependencyinjection.DependencyInjectionTask;
 import dependencyinjection.annotations.Injector;
-import reflection.services.loader.ReflectionLoaderService;
-import reflection.services.loader.impl.ReflectionLoaderServiceImpl;
+import reflection.services.accessibleobjects.ReflectionAccessibleObjectsService;
+import reflection.services.accessibleobjects.classes.ReflectionClassesService;
+import reflection.services.accessibleobjects.classes.impl.ReflectionClassesServiceImpl;
+import reflection.services.accessibleobjects.impl.ReflectionAccessibleObjectsServiceImpl;
+import reflection.services.accessibleobjects.methods.ReflectionMethodsService;
+import reflection.services.accessibleobjects.methods.impl.ReflectionMethodsServiceImpl;
 
 public class ProcessMethodForInjectionTask extends DependencyInjectionObject implements DependencyInjectionTask
 {
     private Object object;
-    private ReflectionLoaderService reflectionLoaderService;
+    private ReflectionMethodsService reflectionMethodsService;
+    private ReflectionClassesService reflectionClassesService;
 
 
     public ProcessMethodForInjectionTask()
     {
-        this.reflectionLoaderService = new ReflectionLoaderServiceImpl();
+        this.reflectionMethodsService = new ReflectionMethodsServiceImpl();
+        this.reflectionClassesService = new ReflectionClassesServiceImpl();
     }
 
 
     public void run(Object object, Method method)
     {
         this.object = object;
-        reflectionLoaderService.makeMethodAccessible(method);
+        reflectionMethodsService.makeMethodAccessible(method);
         AnnotationsGatheringService annotationsGatheringService = new AnnotationsGatheringServiceImpl();
         Injector injection = (Injector)annotationsGatheringService.extractAnnotationFromMethod(method, Injector.class);
         
@@ -38,7 +44,7 @@ public class ProcessMethodForInjectionTask extends DependencyInjectionObject imp
     private void processInjection(Method method, Injector injection)
     {
         String classToInjectString = injection.ID();
-        Class<?> classToInject = reflectionLoaderService.loadClass(classToInjectString);
-        reflectionLoaderService.callMethod(method, object, reflectionLoaderService.instantiateClass(classToInject));
+        Class<?> classToInject = reflectionClassesService.loadClass(classToInjectString);
+        reflectionMethodsService.callMethod(method, object, reflectionClassesService.instantiateClass(classToInject));
     }
 }

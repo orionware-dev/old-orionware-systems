@@ -6,23 +6,29 @@ import annotations.services.gathering.impl.AnnotationsGatheringServiceImpl;
 import dependencyinjection.DependencyInjectionObject;
 import dependencyinjection.DependencyInjectionTask;
 import dependencyinjection.annotations.InjectorImpl;
-import reflection.services.loader.ReflectionLoaderService;
-import reflection.services.loader.impl.ReflectionLoaderServiceImpl;
+import reflection.services.accessibleobjects.ReflectionAccessibleObjectsService;
+import reflection.services.accessibleobjects.classes.ReflectionClassesService;
+import reflection.services.accessibleobjects.classes.impl.ReflectionClassesServiceImpl;
+import reflection.services.accessibleobjects.impl.ReflectionAccessibleObjectsServiceImpl;
+import reflection.services.accessibleobjects.instancevariables.ReflectionInstanceVariablesService;
+import reflection.services.accessibleobjects.instancevariables.impl.ReflectionInstanceVariablesServiceImpl;
 
 public class ProcessInstanceVariableForInjectionImplTask extends DependencyInjectionObject implements DependencyInjectionTask
 {
-    private ReflectionLoaderService reflectionLoaderService;
+    private ReflectionInstanceVariablesService reflectionInstanceVariablesService;
+    private ReflectionClassesService reflectionClassesService;
 
 
     public ProcessInstanceVariableForInjectionImplTask()
     {
-        this.reflectionLoaderService = new ReflectionLoaderServiceImpl();
+        this.reflectionInstanceVariablesService = new ReflectionInstanceVariablesServiceImpl();
+        this.reflectionClassesService = new ReflectionClassesServiceImpl();
     }
 
 
     public void run(Object object, Field instanceVariable)
     {
-        reflectionLoaderService.makeInstanceVariableAccessible(instanceVariable);
+        reflectionInstanceVariablesService.makeInstanceVariableAccessible(instanceVariable);
         AnnotationsGatheringService annotationsGatheringService = new AnnotationsGatheringServiceImpl();
         InjectorImpl injection = (InjectorImpl)annotationsGatheringService.extractAnnotationFromInstanceVariable(instanceVariable, InjectorImpl.class);
         
@@ -39,11 +45,11 @@ public class ProcessInstanceVariableForInjectionImplTask extends DependencyInjec
         String className = classToInjectString.substring(classToInjectString.lastIndexOf(".") + 1);
         classToInjectString = classToInjectString.substring(0, classToInjectString.lastIndexOf("."));
         classToInjectString += ".impl." + className + "Impl";
-        Class<?> classToInject = reflectionLoaderService.loadClass(classToInjectString);
+        Class<?> classToInject = reflectionClassesService.loadClass(classToInjectString);
         
         try
         {
-            instanceVariable.set(object, reflectionLoaderService.instantiateClass(classToInject));
+            instanceVariable.set(object, reflectionClassesService.instantiateClass(classToInject));
         }
         catch(IllegalArgumentException exception)
         {

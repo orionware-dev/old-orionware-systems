@@ -1,17 +1,18 @@
-package reflection.services.loader.impl.tasks;
+package reflection.services.accessibleobjects.constructors.impl.tasks;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import reflection.ReflectionObject;
 import reflection.ReflectionTask;
 
-public class CallMethodTask extends ReflectionObject implements ReflectionTask
+public class CallConstructorTask extends ReflectionObject implements ReflectionTask
 {
-    public Object run(Method method, Object objectMethodBelongsTo, Object... methodArguments)
+    public boolean run(Constructor<?> constructor, Object... methodArguments)
     {
         try
         {
-            return method.invoke(objectMethodBelongsTo, methodArguments);
+            constructor.newInstance(methodArguments);
+            return true;
         }
         catch(IllegalAccessException exception)
         {
@@ -25,7 +26,11 @@ public class CallMethodTask extends ReflectionObject implements ReflectionTask
         {
             exception.printStackTrace();
         }
+        catch(InstantiationException exception)
+        {
+            exception.printStackTrace();
+        }
 
-        return Boolean.FALSE;
+        return false;
     }
 }

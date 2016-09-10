@@ -1,4 +1,4 @@
-package reflection.services.loader.impl.tasks;
+package reflection.services.accessibleobjects.impl.tasks;
 
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Constructor;
@@ -8,6 +8,9 @@ import java.util.Arrays;
 import java.util.List;
 import reflection.ReflectionObject;
 import reflection.ReflectionTask;
+import reflection.services.accessibleobjects.constructors.impl.tasks.GetConstructorsArrayTask;
+import reflection.services.accessibleobjects.instancevariables.impl.tasks.GetInstanceVariablesArrayTask;
+import reflection.services.accessibleobjects.methods.impl.tasks.GetMethodsArrayTask;
 
 public class GetAccessibleObjectsArrayTask extends ReflectionObject implements ReflectionTask
 {

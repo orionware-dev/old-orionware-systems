@@ -6,25 +6,31 @@ import annotations.services.gathering.impl.AnnotationsGatheringServiceImpl;
 import dependencyinjection.DependencyInjectionObject;
 import dependencyinjection.DependencyInjectionTask;
 import dependencyinjection.annotations.InjectorImpl;
-import reflection.services.loader.ReflectionLoaderService;
-import reflection.services.loader.impl.ReflectionLoaderServiceImpl;
+import reflection.services.accessibleobjects.ReflectionAccessibleObjectsService;
+import reflection.services.accessibleobjects.classes.ReflectionClassesService;
+import reflection.services.accessibleobjects.classes.impl.ReflectionClassesServiceImpl;
+import reflection.services.accessibleobjects.impl.ReflectionAccessibleObjectsServiceImpl;
+import reflection.services.accessibleobjects.methods.ReflectionMethodsService;
+import reflection.services.accessibleobjects.methods.impl.ReflectionMethodsServiceImpl;
 
 public class ProcessMethodForInjectionImplTask extends DependencyInjectionObject implements DependencyInjectionTask
 {
     private Object object;
-    private ReflectionLoaderService reflectionLoaderService;
+    private ReflectionMethodsService reflectionMethodsService;
+    private ReflectionClassesService reflectionClassesService;
 
 
     public ProcessMethodForInjectionImplTask()
     {
-        this.reflectionLoaderService = new ReflectionLoaderServiceImpl();
+        this.reflectionMethodsService = new ReflectionMethodsServiceImpl();
+        this.reflectionClassesService = new ReflectionClassesServiceImpl();
     }
 
 
     public void run(Object object, Method method)
     {
         this.object = object;
-        reflectionLoaderService.makeMethodAccessible(method);
+        reflectionMethodsService.makeMethodAccessible(method);
         AnnotationsGatheringService annotationsGatheringService = new AnnotationsGatheringServiceImpl();
         InjectorImpl injection = (InjectorImpl)annotationsGatheringService.extractAnnotationFromMethod(method, InjectorImpl.class);
         
@@ -45,8 +51,8 @@ public class ProcessMethodForInjectionImplTask extends DependencyInjectionObject
             String className = classToInjectString.substring(classToInjectString.lastIndexOf(".") + 1);
             classToInjectString = classToInjectString.substring(0, classToInjectString.lastIndexOf("."));
             classToInjectString += ".impl." + className + "Impl";
-            Class<?> classToInject = reflectionLoaderService.loadClass(classToInjectString);
-            reflectionLoaderService.callMethod(method, object, reflectionLoaderService.instantiateClass(classToInject));
+            Class<?> classToInject = reflectionClassesService.loadClass(classToInjectString);
+            reflectionMethodsService.callMethod(method, object, reflectionClassesService.instantiateClass(classToInject));
         }
     }
 }

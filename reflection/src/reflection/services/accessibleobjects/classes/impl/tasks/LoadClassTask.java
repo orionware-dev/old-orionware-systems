@@ -1,4 +1,4 @@
-package reflection.services.loader.impl.tasks;
+package reflection.services.accessibleobjects.classes.impl.tasks;
 
 import reflection.ReflectionObject;
 import reflection.ReflectionTask;
