@@ -15,15 +15,15 @@ public class ReflectionClassesServiceImpl extends ReflectionServiceObject implem
 
 
     @Override
-    public Object instantiateClass(Class<?> classToInstantiate)
+    public Object instantiateClass(Class<?> classToInstantiate, Class<?>... constructorArguments)
     {
-        return new InstantiateClassTask().run(classToInstantiate);
+        return new InstantiateClassTask().run(classToInstantiate, constructorArguments);
     }
 
 
     @Override
-    public Object instantiateClass(String className)
+    public Object instantiateClass(String className, Class<?>... constructorArguments)
     {
-        return instantiateClass(loadClass(className));
+        return instantiateClass(loadClass(className), constructorArguments);
     }
 }

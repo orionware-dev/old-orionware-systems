@@ -9,6 +9,12 @@ public interface ReflectionConstructorsService extends ReflectionService
     
     
     public Constructor<?>[] getConstructorsArray(Class<?> aClass);
+    
+    
+    public Constructor<?>[] getInherittedConstructorsArray(Object object);
+    
+    
+    public Constructor<?>[] getInherittedConstructorsArray(Class<?> aClass);
 
 
     public void callConstructor(Constructor<?> constructor, Object... constructorArguments);

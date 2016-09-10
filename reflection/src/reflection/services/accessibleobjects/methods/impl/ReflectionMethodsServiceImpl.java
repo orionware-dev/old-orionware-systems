@@ -4,6 +4,7 @@ import java.lang.reflect.Method;
 import reflection.services.ReflectionServiceObject;
 import reflection.services.accessibleobjects.methods.ReflectionMethodsService;
 import reflection.services.accessibleobjects.methods.impl.tasks.CallMethodTask;
+import reflection.services.accessibleobjects.methods.impl.tasks.GetInherittedMethodsArrayTask;
 import reflection.services.accessibleobjects.methods.impl.tasks.GetMethodTask;
 import reflection.services.accessibleobjects.methods.impl.tasks.GetMethodsArrayTask;
 import reflection.services.accessibleobjects.methods.impl.tasks.MakeMethodAccessibleTask;
@@ -35,6 +36,20 @@ public class ReflectionMethodsServiceImpl extends ReflectionServiceObject implem
     public Method[] getMethodsArray(Class<?> aClass)
     {
         return new GetMethodsArrayTask().run(aClass);
+    }
+    
+    
+    @Override
+    public Method[] getInherittedMethodsArray(Object object)
+    {
+        return new GetInherittedMethodsArrayTask().run(object);
+    }
+
+
+    @Override
+    public Method[] getInherittedMethodsArray(Class<?> aClass)
+    {
+        return new GetInherittedMethodsArrayTask().run(aClass);
     }
 
 

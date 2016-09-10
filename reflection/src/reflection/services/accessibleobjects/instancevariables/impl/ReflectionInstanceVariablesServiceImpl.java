@@ -3,6 +3,7 @@ package reflection.services.accessibleobjects.instancevariables.impl;
 import java.lang.reflect.Field;
 import reflection.services.ReflectionServiceObject;
 import reflection.services.accessibleobjects.instancevariables.ReflectionInstanceVariablesService;
+import reflection.services.accessibleobjects.instancevariables.impl.tasks.GetInherittedInstanceVariablesArrayTask;
 import reflection.services.accessibleobjects.instancevariables.impl.tasks.GetInstanceVariablesArrayTask;
 import reflection.services.accessibleobjects.instancevariables.impl.tasks.MakeInstanceVariableAccessibleTask;
 
@@ -19,6 +20,20 @@ public class ReflectionInstanceVariablesServiceImpl extends ReflectionServiceObj
     public Field[] getInstanceVariablesArray(Class<?> aClass)
     {
         return new GetInstanceVariablesArrayTask().run(aClass);
+    }
+    
+    
+    @Override
+    public Field[] getInherittedInstanceVariablesArray(Object object)
+    {
+        return new GetInherittedInstanceVariablesArrayTask().run(object);
+    }
+
+
+    @Override
+    public Field[] getInherittedInstanceVariablesArray(Class<?> aClass)
+    {
+        return new GetInherittedInstanceVariablesArrayTask().run(aClass);
     }
     
     

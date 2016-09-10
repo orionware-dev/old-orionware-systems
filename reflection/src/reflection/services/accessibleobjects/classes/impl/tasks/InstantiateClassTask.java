@@ -6,11 +6,11 @@ import reflection.ReflectionTask;
 
 public class InstantiateClassTask extends ReflectionObject implements ReflectionTask
 {
-    public Object run(Class<?> classToInstantiate)
+    public Object run(Class<?> classToInstantiate, Class<?>... constructorArguments)
     {
         try
         {
-            return classToInstantiate.getConstructor().newInstance();
+            return classToInstantiate.getConstructor(constructorArguments).newInstance();
         }
         catch(NoSuchMethodException exception)
         {

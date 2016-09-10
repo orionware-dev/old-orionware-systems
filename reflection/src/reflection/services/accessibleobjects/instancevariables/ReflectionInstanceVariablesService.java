@@ -11,5 +11,11 @@ public interface ReflectionInstanceVariablesService extends ReflectionService
     public Field[] getInstanceVariablesArray(Class<?> aClass);
     
     
+    public Field[] getInherittedInstanceVariablesArray(Object object);
+    
+    
+    public Field[] getInherittedInstanceVariablesArray(Class<?> aClass);
+    
+    
     public void makeInstanceVariableAccessible(Field instanceVariable);
 }

@@ -7,8 +7,8 @@ public interface ReflectionClassesService extends ReflectionService
     public Class<?> loadClass(String className);
 
 
-    public Object instantiateClass(Class<?> classToInstantiate);
+    public Object instantiateClass(Class<?> classToInstantiate, Class<?>... constructorArguments);
 
 
-    public Object instantiateClass(String className);
+    public Object instantiateClass(String className, Class<?>... constructorArguments);
 }

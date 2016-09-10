@@ -15,6 +15,12 @@ public interface ReflectionMethodsService extends ReflectionService
     
     
     public Method[] getMethodsArray(Class<?> aClass);
+    
+    
+    public Method[] getInherittedMethodsArray(Object object);
+    
+    
+    public Method[] getInherittedMethodsArray(Class<?> aClass);
 
 
     public void makeMethodAccessible(Method method);
