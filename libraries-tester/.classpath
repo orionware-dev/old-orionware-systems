@@ -5,5 +5,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/datastructures"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/dependencyinjection"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/designpatterns"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
