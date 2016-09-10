@@ -7,8 +7,14 @@ import reflection.ReflectionTask;
 
 public class GetConstructorsArrayTask extends ReflectionObject implements ReflectionTask
 {
+    public Constructor<?>[] run(Class<?> aClass)
+    {
+        return Arrays.stream(aClass.getDeclaredConstructors()).filter(constructor -> constructor != null).toArray(Constructor[]::new);
+    }
+    
+    
     public Constructor<?>[] run(Object object)
     {
-        return Arrays.stream(object.getClass().getDeclaredConstructors()).filter(constructor -> constructor != null).toArray(Constructor[]::new);
+        return run(object.getClass());
     }
 }

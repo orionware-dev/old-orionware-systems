@@ -1,5 +1,6 @@
 package reflection.services.loader.impl;
 
+import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -7,6 +8,7 @@ import reflection.services.ReflectionServiceObject;
 import reflection.services.loader.ReflectionLoaderService;
 import reflection.services.loader.impl.tasks.CallConstructorTask;
 import reflection.services.loader.impl.tasks.CallMethodTask;
+import reflection.services.loader.impl.tasks.GetAccessibleObjectsArrayTask;
 import reflection.services.loader.impl.tasks.GetConstructorsArrayTask;
 import reflection.services.loader.impl.tasks.GetInstanceVariablesArrayTask;
 import reflection.services.loader.impl.tasks.GetMethodFromClassTask;
@@ -31,6 +33,13 @@ public class ReflectionLoaderServiceImpl extends ReflectionServiceObject impleme
     {
         return new GetInstanceVariablesArrayTask().run(object);
     }
+    
+    
+    @Override
+    public Field[] getInstanceVariablesArray(Class<?> aClass)
+    {
+        return new GetInstanceVariablesArrayTask().run(aClass);
+    }
 
 
     @Override
@@ -38,12 +47,40 @@ public class ReflectionLoaderServiceImpl extends ReflectionServiceObject impleme
     {
         return new GetMethodsArrayTask().run(object);
     }
+    
+    
+    @Override
+    public Method[] getMethodsArray(Class<?> aClass)
+    {
+        return new GetMethodsArrayTask().run(aClass);
+    }
 
 
     @Override
     public Constructor<?>[] getConstructorsArray(Object object)
     {
         return new GetConstructorsArrayTask().run(object);
+    }
+    
+    
+    @Override
+    public Constructor<?>[] getConstructorsArray(Class<?> aClass)
+    {
+        return new GetConstructorsArrayTask().run(aClass);
+    }
+    
+    
+    @Override
+    public AccessibleObject[] getAccessibleObjectsArray(Class<?> aClass)
+    {
+        return new GetAccessibleObjectsArrayTask().run(aClass);
+    }
+    
+    
+    @Override
+    public AccessibleObject[] getAccessibleObjectsArray(Object object)
+    {
+        return getAccessibleObjectsArray(object.getClass());
     }
 
 

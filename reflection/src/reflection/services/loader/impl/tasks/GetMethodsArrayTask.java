@@ -7,8 +7,14 @@ import reflection.ReflectionTask;
 
 public class GetMethodsArrayTask extends ReflectionObject implements ReflectionTask
 {
+    public Method[] run(Class<?> aClass)
+    {
+        return Arrays.stream(aClass.getDeclaredMethods()).toArray(Method[]::new);
+    }
+    
+    
     public Method[] run(Object object)
     {
-        return Arrays.stream(object.getClass().getDeclaredMethods()).toArray(Method[]::new);
+        return run(object.getClass());
     }
 }

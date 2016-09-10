@@ -7,8 +7,14 @@ import reflection.ReflectionTask;
 
 public class GetInstanceVariablesArrayTask extends ReflectionObject implements ReflectionTask
 {
+    public Field[] run(Class<?> aClass)
+    {
+        return Arrays.stream(aClass.getDeclaredFields()).toArray(Field[]::new);
+    }
+    
+    
     public Field[] run(Object object)
     {
-        return Arrays.stream(object.getClass().getDeclaredFields()).toArray(Field[]::new);
+        return run(object.getClass());
     }
 }
