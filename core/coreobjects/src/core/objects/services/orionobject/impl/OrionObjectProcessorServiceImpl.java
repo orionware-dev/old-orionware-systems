@@ -12,12 +12,9 @@ import configuration.services.classpath.impl.ConfigurationClasspathServiceImpl;
 import core.OrionSimpleObject;
 import core.abstraction.ConfigurationEnumeration;
 import core.objects.services.orionobject.OrionObjectProcessorService;
-import core.objects.services.orionobject.impl.tasks.BuildSetterMethodToCallInLibraryConfigurationTask;
 import core.objects.services.orionobject.impl.tasks.GetEnumerationValueAndSetItToLibraryConfigurationTask;
-import core.objects.services.orionobject.impl.tasks.GetEnumerationValueTask;
 import core.objects.services.orionobject.impl.tasks.InitialiseConfigurationTask;
 import core.objects.services.orionobject.impl.tasks.IsCoreLibraryTask;
-import core.objects.services.orionobject.impl.tasks.SetEnumerationValueToLibraryConfigurationTask;
 import dependencyinjection.configuration.DependencyInjectionConfigurationEnumeration;
 
 public class OrionObjectProcessorServiceImpl extends OrionSimpleObject implements OrionObjectProcessorService

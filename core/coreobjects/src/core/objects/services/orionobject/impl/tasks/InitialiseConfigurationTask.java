@@ -1,12 +1,10 @@
 package core.objects.services.orionobject.impl.tasks;
 
 import java.util.Arrays;
-import configuration.CoreConfigurationConfigurationEnumeration;
 import configuration.LibraryConfiguration;
 import core.OrionSimpleObject;
 import core.abstraction.ConfigurationEnumeration;
 import core.services.OrionTask;
-import dependencyinjection.configuration.DependencyInjectionConfigurationEnumeration;
 
 public class InitialiseConfigurationTask extends OrionSimpleObject implements OrionTask
 {

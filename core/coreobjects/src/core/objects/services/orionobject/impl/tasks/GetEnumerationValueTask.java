@@ -1,11 +1,9 @@
 package core.objects.services.orionobject.impl.tasks;
 
 import java.lang.reflect.InvocationTargetException;
-import configuration.CoreConfigurationConfigurationEnumeration;
 import core.OrionSimpleObject;
 import core.abstraction.ConfigurationEnumeration;
 import core.services.OrionTask;
-import dependencyinjection.configuration.DependencyInjectionConfigurationEnumeration;
 
 public class GetEnumerationValueTask extends OrionSimpleObject implements OrionTask
 {
