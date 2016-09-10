@@ -15,6 +15,7 @@ orion.core=Orion Core
 orion.core.dir=${orion.libraries.home.dir}/core
 orion.core.projects.dir=${orion.core.dir}
 orion.core.core.builder.dir=${orion.core.projects.dir}/core/build
+orion.core.utilities.builder.dir=${orion.core.projects.dir}/coreutilities/build
 orion.core.objects.builder.dir=${orion.core.projects.dir}/coreobjects/build
 orion.core.jar.file.name=OrionCore_${orion.libraries.version}.jar
 

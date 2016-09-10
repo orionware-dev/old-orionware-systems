@@ -1,0 +1,3 @@
+orion.core.utilities=Core Utilities
+orion.core.utilities.dir=${orion.core.utilities.dir}/coreutilities
+orion.core.utilities.jar.file.name=OrionCoreUtilities_${orion.libraries.version}.jar

@@ -20,7 +20,7 @@ public class OrionObjectProcessorServiceImpl extends OrionSimpleObject implement
 {
     public OrionObjectProcessorServiceImpl(Object object)
     {
-        if(LibrariesConfigurationMapper.haveCoreLibrariesNotBeenRegistered)
+        if(LibrariesConfigurationMapper.coreLibrariesHaveNotBeenRegistered)
         {
             InitialiseCoreConfigurationTask initialiseCoreConfigurationTask = new InitialiseCoreConfigurationTask();
             LibraryConfiguration coreLibraryConfiguration = initialiseCoreConfigurationTask.runCore();
@@ -32,6 +32,18 @@ public class OrionObjectProcessorServiceImpl extends OrionSimpleObject implement
             {
                 processAllLibrariesConfiguration(object);
             }
+        }
+    }
+    
+    
+    @Override
+    public void registerLibraryConfiguration(String libraryConfigurationEnumerationClassPath)
+    {
+        if(!LibrariesConfiguration.getLibrariesConfigurationEnumerationClassPaths().contains(libraryConfigurationEnumerationClassPath))
+        {
+            LibraryConfiguration libraryConfiguration = convertConfigurationEnumerationToLibraryConfiguration(libraryConfigurationEnumerationClassPath);
+            LibrariesConfiguration.registerLibraryConfiguration(libraryConfiguration);
+            LibrariesConfiguration.registerLibraryConfigurationEnumerationClassPath(libraryConfigurationEnumerationClassPath);
         }
     }
 

@@ -12,7 +12,7 @@ public class LibrariesConfiguration extends OrionSimpleObject implements OrionCo
 
     static
     {
-        LibrariesConfigurationMapper.haveCoreLibrariesNotBeenRegistered = true;
+        LibrariesConfigurationMapper.coreLibrariesHaveNotBeenRegistered = true;
         librariesConfiguration = new CopyOnWriteArraySet<LibraryConfiguration>();
         librariesConfigurationEnumerationClassPaths = new CopyOnWriteArraySet<String>();
     }
@@ -38,13 +38,13 @@ public class LibrariesConfiguration extends OrionSimpleObject implements OrionCo
 
     public static synchronized void registerLibraryConfiguration(LibraryConfiguration libraryConfiguration)
     {
-        if(LibrariesConfigurationMapper.haveCoreLibrariesNotBeenRegistered)
+        if(LibrariesConfigurationMapper.coreLibrariesHaveNotBeenRegistered)
         {
             getLibrariesConfiguration().add(libraryConfiguration);
 
             if(libraryConfiguration.getLibraryClassPath().equals(CoreConfigurationConfigurationEnumeration.LIBRARY_CLASS_PATH.get()))
             {
-                LibrariesConfigurationMapper.haveCoreLibrariesNotBeenRegistered = false;
+                LibrariesConfigurationMapper.coreLibrariesHaveNotBeenRegistered = false;
             }
         }
         else if(!libraryConfiguration.getLibraryClassPath().equals(CoreConfigurationConfigurationEnumeration.LIBRARY_CLASS_PATH.get()))

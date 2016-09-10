@@ -13,7 +13,9 @@ public class InitialiseCoreConfigurationTask extends OrionSimpleObject implement
     {
         GetEnumerationValueAndSetItToLibraryConfigurationTask getEnumerationValueAndSetItToLibraryConfigurationTask = new GetEnumerationValueAndSetItToLibraryConfigurationTask();
         LibraryConfiguration libraryConfiguration = new LibraryConfiguration();
-        Arrays.stream(CoreConfigurationConfigurationEnumeration.values()).forEach(enumerationDefinition -> getEnumerationValueAndSetItToLibraryConfigurationTask.runCore(CoreConfigurationConfigurationEnumeration.class, enumerationDefinition, libraryConfiguration));
+        Arrays.stream(CoreConfigurationConfigurationEnumeration.values())
+            .forEach(enumerationDefinition -> getEnumerationValueAndSetItToLibraryConfigurationTask
+            .runCore(CoreConfigurationConfigurationEnumeration.class, enumerationDefinition, libraryConfiguration));
         return libraryConfiguration;
     }
     
@@ -22,7 +24,9 @@ public class InitialiseCoreConfigurationTask extends OrionSimpleObject implement
     {
         GetEnumerationValueAndSetItToLibraryConfigurationTask getEnumerationValueAndSetItToLibraryConfigurationTask = new GetEnumerationValueAndSetItToLibraryConfigurationTask();
         LibraryConfiguration libraryConfiguration = new LibraryConfiguration();
-        Arrays.stream(DependencyInjectionConfigurationEnumeration.values()).forEach(enumerationDefinition -> getEnumerationValueAndSetItToLibraryConfigurationTask.runDependencyInjection(DependencyInjectionConfigurationEnumeration.class, enumerationDefinition, libraryConfiguration));
+        Arrays.stream(DependencyInjectionConfigurationEnumeration.values())
+            .forEach(enumerationDefinition -> getEnumerationValueAndSetItToLibraryConfigurationTask
+            .runDependencyInjection(DependencyInjectionConfigurationEnumeration.class, enumerationDefinition, libraryConfiguration));
         return libraryConfiguration;
     }
 }

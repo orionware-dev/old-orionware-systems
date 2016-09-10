@@ -31,6 +31,7 @@
     	<emptyDirectory dir="${orion.design.patterns.binaries.dir}"/>
     	        
     	<callAnt file="${orion.core.core.builder.dir}/build.xml"/>
+    	<callAnt file="${orion.core.utilities.builder.dir}/build.xml"/>
     	<callAnt file="${orion.reflection.builder.dir}/build.xml"/>
         <callAnt file="${orion.file.system.builder.dir}/build.xml"/>
         <callAnt file="${orion.configuration.builder.dir}/build.xml"/>
@@ -42,6 +43,7 @@
     	<callAnt file="${orion.design.patterns.builder.dir}/build.xml"/>
     	
     	<callAnt file="${orion.core.core.builder.dir}/build.xml" target="delete_JAR"/>
+    	<callAnt file="${orion.core.utilities.builder.dir}/build.xml" target="delete_JAR"/>
     	<callAnt file="${orion.core.objects.builder.dir}/build.xml" target="delete_JAR"/>
     	
     	<packageProject binariesDir="${orion.core.binaries.dir}" JARPath="${orion.orionware.libraries.libraries.dir}/${orion.core.jar.file.name}" projectName="${orion.core}"/>

@@ -7,5 +7,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/dependencyinjection"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/annotations"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/reflection"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/coreutilities"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

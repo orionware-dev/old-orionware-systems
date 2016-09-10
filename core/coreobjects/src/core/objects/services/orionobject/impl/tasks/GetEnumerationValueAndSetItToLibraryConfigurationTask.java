@@ -13,7 +13,7 @@ public class GetEnumerationValueAndSetItToLibraryConfigurationTask extends Orion
     {
         String enumerationName = enumerationDefinition.name();
         String setterMethodToCallInLibraryConfiguration = new BuildSetterMethodToCallInLibraryConfigurationTask().run(enumerationName);
-        String enumerationValue = new GetEnumerationValueTask().runCore(coreConfigurationEnumerationClass, enumerationName);
+        String enumerationValue = new GetEnumerationValueTask().getEnumerationValueForCore(coreConfigurationEnumerationClass, enumerationName);
         new SetEnumerationValueToLibraryConfigurationTask().run(libraryConfiguration, setterMethodToCallInLibraryConfiguration, enumerationValue);
     }
     
@@ -23,7 +23,7 @@ public class GetEnumerationValueAndSetItToLibraryConfigurationTask extends Orion
     {
         String enumerationName = enumerationDefinition.name();
         String setterMethodToCallInLibraryConfiguration = new BuildSetterMethodToCallInLibraryConfigurationTask().run(enumerationName);
-        String enumerationValue = new GetEnumerationValueTask().runDependencyInjection(dependencyInjectionConfigurationEnumeration, enumerationName);
+        String enumerationValue = new GetEnumerationValueTask().getEnumerationValueForDependencyInjection(dependencyInjectionConfigurationEnumeration, enumerationName);
         new SetEnumerationValueToLibraryConfigurationTask().run(libraryConfiguration, setterMethodToCallInLibraryConfiguration, enumerationValue);
     }
 }
