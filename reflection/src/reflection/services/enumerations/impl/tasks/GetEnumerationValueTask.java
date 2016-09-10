@@ -1,10 +1,8 @@
 package reflection.services.enumerations.impl.tasks;
 
+import java.lang.reflect.Method;
 import reflection.ReflectionObject;
 import reflection.ReflectionTask;
-import reflection.services.accessibleobjects.ReflectionAccessibleObjectsService;
-import reflection.services.accessibleobjects.impl.ReflectionAccessibleObjectsServiceImpl;
-import reflection.services.accessibleobjects.methods.ReflectionMethodsService;
 import reflection.services.accessibleobjects.methods.impl.ReflectionMethodsServiceImpl;
 
 public class GetEnumerationValueTask extends ReflectionObject implements ReflectionTask
@@ -12,18 +10,17 @@ public class GetEnumerationValueTask extends ReflectionObject implements Reflect
     @SuppressWarnings({"rawtypes"})
     public String run(Class<Enum> enumerationClass, String enumerationName)
     {
-        ReflectionMethodsService reflectionMethodsService = new ReflectionMethodsServiceImpl();
-
+        String enumerationValue = "";
+                        
         try
         {
-            String enumerationValue = (String)reflectionMethodsService.callMethod(enumerationClass.getMethod("get", new Class<?>[]{}), enumerationClass, new Object[]{});
+            Method getterMethod = enumerationClass.getMethod("get", new Class<?>[]{});
+            enumerationValue = (String)new ReflectionMethodsServiceImpl().callMethod(getterMethod, enumerationClass);
 
             if(enumerationValue == null)
             {
                 enumerationValue = "";
             }
-
-            return enumerationValue;
         }
         catch(NoSuchMethodException exception)
         {
@@ -34,6 +31,6 @@ public class GetEnumerationValueTask extends ReflectionObject implements Reflect
             exception.printStackTrace();
         }
 
-        return null;
+        return enumerationValue;
     }
 }

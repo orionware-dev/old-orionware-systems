@@ -11,6 +11,11 @@ public class CallMethodTask extends ReflectionObject implements ReflectionTask
     {
         try
         {
+            if(methodArguments.length == 0)
+            {
+                methodArguments = new Object[]{};
+            }
+            
             return method.invoke(objectMethodBelongsTo, methodArguments);
         }
         catch(IllegalAccessException exception)

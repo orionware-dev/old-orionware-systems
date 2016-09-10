@@ -19,9 +19,10 @@ public class AreObjectsEqualTask extends ReflectionObject implements ReflectionT
 
             if(areObjectsEqual && moreObjects.length > 0)
             {
-                for(int i = 0; i < moreObjects.length; i++)
+                for(Object object : moreObjects)
                 {
-                    areObjectsEqual = object1.equals(moreObjects[i]);
+                    //we use object1 to compare since we know by now that object1 = object2, so it doesn't matter which we use
+                    areObjectsEqual = object1.equals(object);
 
                     if(!areObjectsEqual)
                     {

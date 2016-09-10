@@ -10,8 +10,6 @@ import designpatterns.annotations.EmptyFilter;
 import designpatterns.pipeline.AbstractFilter;
 import designpatterns.services.pipeline.PipelineFilterService;
 import designpatterns.services.pipeline.impl.PipelineFilterServiceImpl;
-import reflection.services.accessibleobjects.ReflectionAccessibleObjectsService;
-import reflection.services.accessibleobjects.impl.ReflectionAccessibleObjectsServiceImpl;
 import reflection.services.accessibleobjects.methods.ReflectionMethodsService;
 import reflection.services.accessibleobjects.methods.impl.ReflectionMethodsServiceImpl;
 

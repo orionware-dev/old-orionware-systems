@@ -24,4 +24,28 @@ public class GetMethodTask extends ReflectionObject implements ReflectionTask
         
         return null;
     }
+    
+    
+    public Method run(String methodName, Class<?> aClass, Class<?>... methodParameterTypes)
+    {
+        try
+        {
+            if(methodParameterTypes.length == 0)
+            {
+                methodParameterTypes = new Class<?>[]{};
+            }
+            
+            return aClass.getMethod(methodName, methodParameterTypes);
+        }
+        catch(NoSuchMethodException exception)
+        {
+            exception.printStackTrace();
+        }
+        catch(SecurityException exception)
+        {
+            exception.printStackTrace();
+        }
+
+        return null;
+    }
 }
