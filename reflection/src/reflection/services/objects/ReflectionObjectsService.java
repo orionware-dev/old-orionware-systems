@@ -1,0 +1,21 @@
+package reflection.services.objects;
+
+import java.lang.reflect.AccessibleObject;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import reflection.ReflectionService;
+
+public interface ReflectionObjectsService extends ReflectionService
+{
+    public boolean isObjectNull(Object object);
+    
+    
+    public boolean isObjectNotNull(Object object);
+    
+    
+    public boolean areObjectsNull(Object... objects);
+    
+    
+    public boolean areObjectsNotNull(Object... objects);
+}
