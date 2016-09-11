@@ -2,14 +2,9 @@
 
 fix GetInheritted*ArrayTask.java
 
-default methods
-private methods
-protected methods
-public methods
 inheritted default methods
 inheritted protected methods
 inheritted public methods
-all inheritted methods (default+protected+public methods)
 all methods (declared+inheritted)
 
 

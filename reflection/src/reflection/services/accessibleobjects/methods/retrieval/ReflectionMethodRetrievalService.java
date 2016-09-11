@@ -39,4 +39,16 @@ public interface ReflectionMethodRetrievalService extends ReflectionService
     
     
     public Method getInherittedMethod(String methodName, Class<?> aClass, Class<?>... methodParameterTypes);
+    
+    
+    public boolean isDefaultMethod(Method method);
+    
+    
+    public boolean isPrivateMethod(Method method);
+    
+    
+    public boolean isProtectedMethod(Method method);
+    
+    
+    public boolean isPublicMethod(Method method);
 }

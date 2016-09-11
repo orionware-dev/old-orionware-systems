@@ -10,11 +10,11 @@ public class GetInherittedMethodsArrayTask extends ReflectionObject implements R
 {
     public Method[] run(Class<?> aClass)
     {
-        List<Method> allMethods = Arrays.asList(aClass.getMethods());
-        List<Method> declaredMethods = Arrays.asList(aClass.getDeclaredMethods());
+        List<Method> publicMethods = Arrays.asList(new GetDeclaredPublicMethodsArrayTask().run(aClass));
+        List<Method> publicAndInherittedMethods = Arrays.asList(aClass.getMethods());
         //these are the inheritted methods only
-        allMethods.removeAll(declaredMethods);
-        return allMethods.toArray(new Method[0]);
+        publicAndInherittedMethods.removeAll(publicMethods);
+        return publicAndInherittedMethods.toArray(new Method[0]);
     }
     
     

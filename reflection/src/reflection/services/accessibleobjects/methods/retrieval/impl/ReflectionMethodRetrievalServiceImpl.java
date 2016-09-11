@@ -5,6 +5,10 @@ import reflection.services.ReflectionServiceObject;
 import reflection.services.accessibleobjects.methods.retrieval.ReflectionMethodRetrievalService;
 import reflection.services.accessibleobjects.methods.retrieval.impl.tasks.GetDeclaredMethodTask;
 import reflection.services.accessibleobjects.methods.retrieval.impl.tasks.GetInherittedMethodTask;
+import reflection.services.accessibleobjects.methods.retrieval.impl.tasks.IsDefaultMethodTask;
+import reflection.services.accessibleobjects.methods.retrieval.impl.tasks.IsPrivateMethodTask;
+import reflection.services.accessibleobjects.methods.retrieval.impl.tasks.IsProtectedMethodTask;
+import reflection.services.accessibleobjects.methods.retrieval.impl.tasks.IsPublicMethodTask;
 
 public class ReflectionMethodRetrievalServiceImpl extends ReflectionServiceObject implements ReflectionMethodRetrievalService
 {
@@ -89,5 +93,33 @@ public class ReflectionMethodRetrievalServiceImpl extends ReflectionServiceObjec
     public Method getInherittedMethod(String methodName, Class<?> aClass, Class<?>... methodParameterTypes)
     {
         return new GetInherittedMethodTask().run(methodName, aClass, methodParameterTypes);
+    }
+
+
+    @Override
+    public boolean isDefaultMethod(Method method)
+    {
+        return new IsDefaultMethodTask().run(method);
+    }
+
+
+    @Override
+    public boolean isPrivateMethod(Method method)
+    {
+        return new IsPrivateMethodTask().run(method);
+    }
+
+
+    @Override
+    public boolean isProtectedMethod(Method method)
+    {
+        return new IsProtectedMethodTask().run(method);
+    }
+
+
+    @Override
+    public boolean isPublicMethod(Method method)
+    {
+        return new IsPublicMethodTask().run(method);
     }
 }

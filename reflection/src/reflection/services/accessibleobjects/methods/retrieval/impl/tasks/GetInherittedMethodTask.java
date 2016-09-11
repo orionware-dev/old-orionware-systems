@@ -1,6 +1,7 @@
 package reflection.services.accessibleobjects.methods.retrieval.impl.tasks;
 
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import reflection.ReflectionObject;
 import reflection.ReflectionTask;
 
@@ -14,6 +15,8 @@ public class GetInherittedMethodTask extends ReflectionObject implements Reflect
     
     public Method run(String methodName, Class<?> aClass, Class<?>... methodParameterTypes)
     {
+        Method inherittedMethod = null;
+        
         try
         {
             if(methodParameterTypes.length == 0)
@@ -21,7 +24,13 @@ public class GetInherittedMethodTask extends ReflectionObject implements Reflect
                 methodParameterTypes = new Class<?>[]{Object.class};
             }
             
-            return aClass.getMethod(methodName, methodParameterTypes);
+            Method publicOrInherittedMethod = aClass.getMethod(methodName, methodParameterTypes);
+            Method declaredMethod = new GetDeclaredMethodTask().run(methodName, aClass, methodParameterTypes);
+            
+            if(declaredMethod == null || !Modifier.isPublic(declaredMethod.getModifiers()))
+            {
+                inherittedMethod = publicOrInherittedMethod;
+            }
         }
         catch(NoSuchMethodException exception)
         {
@@ -32,6 +41,6 @@ public class GetInherittedMethodTask extends ReflectionObject implements Reflect
             exception.printStackTrace();
         }
 
-        return null;
+        return inherittedMethod;
     }
 }
