@@ -6,9 +6,9 @@ import reflection.ReflectionTask;
 
 public class GetMethodTask extends ReflectionObject implements ReflectionTask
 {
-    public Method run(Object object, String methodName)
+    public Method run(String methodName, Object object, Class<?>... methodParameterTypes)
     {
-        return run(methodName, object.getClass(), Object.class);
+        return run(methodName, object.getClass(), methodParameterTypes);
     }
     
     
@@ -18,7 +18,7 @@ public class GetMethodTask extends ReflectionObject implements ReflectionTask
         {
             if(methodParameterTypes.length == 0)
             {
-                methodParameterTypes = new Class<?>[]{};
+                methodParameterTypes = new Class<?>[]{Object.class};
             }
             
             return aClass.getMethod(methodName, methodParameterTypes);

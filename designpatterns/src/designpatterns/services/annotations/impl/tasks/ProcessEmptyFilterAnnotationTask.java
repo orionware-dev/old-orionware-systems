@@ -11,12 +11,14 @@ import designpatterns.pipeline.AbstractFilter;
 import designpatterns.services.pipeline.PipelineFilterService;
 import designpatterns.services.pipeline.impl.PipelineFilterServiceImpl;
 import reflection.services.accessibleobjects.methods.ReflectionMethodsService;
+import reflection.services.accessibleobjects.methods.access.ReflectionMethodAccessService;
+import reflection.services.accessibleobjects.methods.access.impl.ReflectionMethodAccessServiceImpl;
 import reflection.services.accessibleobjects.methods.impl.ReflectionMethodsServiceImpl;
 
 public class ProcessEmptyFilterAnnotationTask extends DesignPatternsObject implements DesignPatternsTask
 {
     private PipelineFilterService pipelineFilterService;
-    private ReflectionMethodsService reflectionMethodsService;
+    private ReflectionMethodAccessService reflectionMethodAccessService;
     private AnnotationsGatheringService annotationsGatheringService;
     private Object object;
     
@@ -24,7 +26,7 @@ public class ProcessEmptyFilterAnnotationTask extends DesignPatternsObject imple
     public ProcessEmptyFilterAnnotationTask()
     {
         this.pipelineFilterService = new PipelineFilterServiceImpl();
-        this.reflectionMethodsService = new ReflectionMethodsServiceImpl();
+        this.reflectionMethodAccessService = new ReflectionMethodAccessServiceImpl();
         this.annotationsGatheringService = new AnnotationsGatheringServiceImpl();
     }
     
@@ -32,19 +34,19 @@ public class ProcessEmptyFilterAnnotationTask extends DesignPatternsObject imple
     public void run(Object object)
     {
         this.object = object;
-        Arrays.stream(reflectionMethodsService.getMethodsArray(object)).forEach(method -> processMethodForEmptyFilterInjection(method));
+        Arrays.stream(new ReflectionMethodsServiceImpl().getMethodsArray(object)).forEach(method -> processMethodForEmptyFilterInjection(method));
     }
     
     
     private void processMethodForEmptyFilterInjection(Method method)
     {
-        reflectionMethodsService.makeMethodAccessible(method);
+        reflectionMethodAccessService.makeMethodAccessible(method);
         EmptyFilter emptyFilterAnnotation = (EmptyFilter)annotationsGatheringService.extractAnnotationFromMethod(method, EmptyFilter.class);
         
         if(emptyFilterAnnotation != null)
         {
             AbstractFilter emptyFilter = pipelineFilterService.createEmptyFilter();
-            reflectionMethodsService.callMethod(method, object, emptyFilter);
+            reflectionMethodAccessService.callMethod(method, object, emptyFilter);
         }
     }
 }

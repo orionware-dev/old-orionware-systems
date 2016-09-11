@@ -9,18 +9,20 @@ import dependencyinjection.annotations.Injector;
 import reflection.services.accessibleobjects.classes.ReflectionClassesService;
 import reflection.services.accessibleobjects.classes.impl.ReflectionClassesServiceImpl;
 import reflection.services.accessibleobjects.methods.ReflectionMethodsService;
+import reflection.services.accessibleobjects.methods.access.ReflectionMethodAccessService;
+import reflection.services.accessibleobjects.methods.access.impl.ReflectionMethodAccessServiceImpl;
 import reflection.services.accessibleobjects.methods.impl.ReflectionMethodsServiceImpl;
 
 public class ProcessMethodForInjectionTask extends DependencyInjectionObject implements DependencyInjectionTask
 {
     private Object object;
-    private ReflectionMethodsService reflectionMethodsService;
+    private ReflectionMethodAccessService reflectionMethodAccessService;
     private ReflectionClassesService reflectionClassesService;
 
 
     public ProcessMethodForInjectionTask()
     {
-        this.reflectionMethodsService = new ReflectionMethodsServiceImpl();
+        this.reflectionMethodAccessService = new ReflectionMethodAccessServiceImpl();
         this.reflectionClassesService = new ReflectionClassesServiceImpl();
     }
 
@@ -28,7 +30,7 @@ public class ProcessMethodForInjectionTask extends DependencyInjectionObject imp
     public void run(Object object, Method method)
     {
         this.object = object;
-        reflectionMethodsService.makeMethodAccessible(method);
+        reflectionMethodAccessService.makeMethodAccessible(method);
         AnnotationsGatheringService annotationsGatheringService = new AnnotationsGatheringServiceImpl();
         Injector injection = (Injector)annotationsGatheringService.extractAnnotationFromMethod(method, Injector.class);
         
@@ -43,6 +45,6 @@ public class ProcessMethodForInjectionTask extends DependencyInjectionObject imp
     {
         String classToInjectString = injection.ID();
         Class<?> classToInject = reflectionClassesService.loadClass(classToInjectString);
-        reflectionMethodsService.callMethod(method, object, reflectionClassesService.instantiateClass(classToInject));
+        reflectionMethodAccessService.callMethod(method, object, reflectionClassesService.instantiateClass(classToInject));
     }
 }
