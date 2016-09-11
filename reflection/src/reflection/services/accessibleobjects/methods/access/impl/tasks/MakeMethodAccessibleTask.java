@@ -1,4 +1,4 @@
-package reflection.services.accessibleobjects.methods.impl.tasks;
+package reflection.services.accessibleobjects.methods.access.impl.tasks;
 
 import java.lang.reflect.Method;
 import reflection.ReflectionObject;
