@@ -8,8 +8,9 @@ import filesystem.FileSystemTask;
 
 public class ConvertFileToStringTask extends FileSystemObject implements FileSystemTask
 {
-    public String run(String filePath, BufferedReader input)
+    public String run(BufferedReader input)
     {
+        String fileAsString = "";
         String currentLine = null;
         StringBuilder fileStringBuilder = new StringBuilder();
 
@@ -33,7 +34,14 @@ public class ConvertFileToStringTask extends FileSystemObject implements FileSys
         {
             new CloseResourceTask().run(input);
         }
+        
+        fileAsString = fileStringBuilder.toString();
+        
+        if(fileAsString.endsWith(System.lineSeparator()))
+        {
+            fileAsString.substring(0, fileAsString.length() - 2);
+        }
 
-        return fileStringBuilder.substring(0, fileStringBuilder.length() - 2).toString();
+        return fileAsString;
     }
 }
