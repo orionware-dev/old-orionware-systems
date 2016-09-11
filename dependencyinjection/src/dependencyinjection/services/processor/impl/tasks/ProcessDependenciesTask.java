@@ -7,8 +7,7 @@ import dependencyinjection.DependencyInjectionObject;
 import dependencyinjection.DependencyInjectionTask;
 import reflection.services.accessibleobjects.instancevariables.ReflectionInstanceVariablesService;
 import reflection.services.accessibleobjects.instancevariables.impl.ReflectionInstanceVariablesServiceImpl;
-import reflection.services.accessibleobjects.methods.ReflectionMethodsService;
-import reflection.services.accessibleobjects.methods.impl.ReflectionMethodsServiceImpl;
+import reflection.services.accessibleobjects.methods.retrieval.impl.ReflectionMethodsRetrievalServiceImpl;
 
 public class ProcessDependenciesTask extends DependencyInjectionObject implements DependencyInjectionTask
 {
@@ -16,12 +15,11 @@ public class ProcessDependenciesTask extends DependencyInjectionObject implement
     {
         ProcessMethodForInjectionTask processMethodForInjectionTask = new ProcessMethodForInjectionTask();
         ProcessInstanceVariableForInjectionTask processInstanceVariableForInjectionTask = new ProcessInstanceVariableForInjectionTask();
-        ReflectionMethodsService reflectionMethodsService = new ReflectionMethodsServiceImpl();
         ReflectionInstanceVariablesService reflectionInstanceVariablesService = new ReflectionInstanceVariablesServiceImpl();
         
         Field[] fields = reflectionInstanceVariablesService.getInstanceVariablesArray(object);
         Arrays.stream(fields).forEach(field -> processInstanceVariableForInjectionTask.run(object, field));
-        Method[] methods = reflectionMethodsService.getMethodsArray(object);
+        Method[] methods = new ReflectionMethodsRetrievalServiceImpl().getDeclaredMethodsArray(object);
         Arrays.stream(methods).forEach(method -> processMethodForInjectionTask.run(object, method));
         
         ProcessMethodForInjectionImplTask processMethodForInjectionImplTask = new ProcessMethodForInjectionImplTask();

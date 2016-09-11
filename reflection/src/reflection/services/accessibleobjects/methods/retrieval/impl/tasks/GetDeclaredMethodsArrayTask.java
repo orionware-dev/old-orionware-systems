@@ -1,15 +1,14 @@
-package reflection.services.accessibleobjects.methods.impl.tasks;
+package reflection.services.accessibleobjects.methods.retrieval.impl.tasks;
 
 import java.lang.reflect.Method;
-import java.util.Arrays;
 import reflection.ReflectionObject;
 import reflection.ReflectionTask;
 
-public class GetAllMethodsArrayTask extends ReflectionObject implements ReflectionTask
+public class GetDeclaredMethodsArrayTask extends ReflectionObject implements ReflectionTask
 {
     public Method[] run(Class<?> aClass)
     {
-        return Arrays.stream(aClass.getMethods()).toArray(Method[]::new);
+        return aClass.getDeclaredMethods();
     }
     
     

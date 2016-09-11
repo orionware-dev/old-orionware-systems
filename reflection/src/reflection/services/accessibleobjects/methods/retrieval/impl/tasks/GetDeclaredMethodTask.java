@@ -1,10 +1,10 @@
-package reflection.services.accessibleobjects.methods.impl.tasks;
+package reflection.services.accessibleobjects.methods.retrieval.impl.tasks;
 
 import java.lang.reflect.Method;
 import reflection.ReflectionObject;
 import reflection.ReflectionTask;
 
-public class GetMethodTask extends ReflectionObject implements ReflectionTask
+public class GetDeclaredMethodTask extends ReflectionObject implements ReflectionTask
 {
     public Method run(String methodName, Object object, Class<?>... methodParameterTypes)
     {
@@ -21,7 +21,7 @@ public class GetMethodTask extends ReflectionObject implements ReflectionTask
                 methodParameterTypes = new Class<?>[]{Object.class};
             }
             
-            return aClass.getMethod(methodName, methodParameterTypes);
+            return aClass.getDeclaredMethod(methodName, methodParameterTypes);
         }
         catch(NoSuchMethodException exception)
         {

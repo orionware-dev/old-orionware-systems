@@ -1,9 +1,8 @@
-package reflection.services.accessibleobjects.methods.impl.tasks;
+package reflection.services.accessibleobjects.methods.retrieval.impl.tasks;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
 import reflection.ReflectionObject;
 import reflection.ReflectionTask;
 

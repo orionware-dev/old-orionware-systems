@@ -9,7 +9,7 @@ public class GetInstanceVariablesArrayTask extends ReflectionObject implements R
 {
     public Field[] run(Class<?> aClass)
     {
-        return Arrays.stream(aClass.getDeclaredFields()).toArray(Field[]::new);
+        return aClass.getDeclaredFields();
     }
     
     

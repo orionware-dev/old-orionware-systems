@@ -4,7 +4,6 @@ import java.lang.reflect.Method;
 import reflection.ReflectionObject;
 import reflection.ReflectionTask;
 import reflection.services.accessibleobjects.methods.access.impl.ReflectionMethodAccessServiceImpl;
-import reflection.services.accessibleobjects.methods.impl.ReflectionMethodsServiceImpl;
 
 public class GetEnumerationValueTask extends ReflectionObject implements ReflectionTask
 {

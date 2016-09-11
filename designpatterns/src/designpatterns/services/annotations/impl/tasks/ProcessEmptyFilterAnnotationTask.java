@@ -10,10 +10,9 @@ import designpatterns.annotations.EmptyFilter;
 import designpatterns.pipeline.AbstractFilter;
 import designpatterns.services.pipeline.PipelineFilterService;
 import designpatterns.services.pipeline.impl.PipelineFilterServiceImpl;
-import reflection.services.accessibleobjects.methods.ReflectionMethodsService;
 import reflection.services.accessibleobjects.methods.access.ReflectionMethodAccessService;
 import reflection.services.accessibleobjects.methods.access.impl.ReflectionMethodAccessServiceImpl;
-import reflection.services.accessibleobjects.methods.impl.ReflectionMethodsServiceImpl;
+import reflection.services.accessibleobjects.methods.retrieval.impl.ReflectionMethodsRetrievalServiceImpl;
 
 public class ProcessEmptyFilterAnnotationTask extends DesignPatternsObject implements DesignPatternsTask
 {
@@ -34,7 +33,7 @@ public class ProcessEmptyFilterAnnotationTask extends DesignPatternsObject imple
     public void run(Object object)
     {
         this.object = object;
-        Arrays.stream(new ReflectionMethodsServiceImpl().getMethodsArray(object)).forEach(method -> processMethodForEmptyFilterInjection(method));
+        Arrays.stream(new ReflectionMethodsRetrievalServiceImpl().getDeclaredMethodsArray(object)).forEach(method -> processMethodForEmptyFilterInjection(method));
     }
     
     

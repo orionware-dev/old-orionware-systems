@@ -8,10 +8,8 @@ import dependencyinjection.DependencyInjectionTask;
 import dependencyinjection.annotations.Injector;
 import reflection.services.accessibleobjects.classes.ReflectionClassesService;
 import reflection.services.accessibleobjects.classes.impl.ReflectionClassesServiceImpl;
-import reflection.services.accessibleobjects.methods.ReflectionMethodsService;
 import reflection.services.accessibleobjects.methods.access.ReflectionMethodAccessService;
 import reflection.services.accessibleobjects.methods.access.impl.ReflectionMethodAccessServiceImpl;
-import reflection.services.accessibleobjects.methods.impl.ReflectionMethodsServiceImpl;
 
 public class ProcessMethodForInjectionTask extends DependencyInjectionObject implements DependencyInjectionTask
 {
