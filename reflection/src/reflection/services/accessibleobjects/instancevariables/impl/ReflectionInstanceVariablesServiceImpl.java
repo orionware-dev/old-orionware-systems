@@ -3,9 +3,9 @@ package reflection.services.accessibleobjects.instancevariables.impl;
 import java.lang.reflect.Field;
 import reflection.services.ReflectionServiceObject;
 import reflection.services.accessibleobjects.instancevariables.ReflectionInstanceVariablesService;
+import reflection.services.accessibleobjects.instancevariables.access.impl.tasks.MakeInstanceVariableAccessibleTask;
 import reflection.services.accessibleobjects.instancevariables.impl.tasks.GetInherittedInstanceVariablesArrayTask;
 import reflection.services.accessibleobjects.instancevariables.impl.tasks.GetInstanceVariablesArrayTask;
-import reflection.services.accessibleobjects.instancevariables.impl.tasks.MakeInstanceVariableAccessibleTask;
 
 public class ReflectionInstanceVariablesServiceImpl extends ReflectionServiceObject implements ReflectionInstanceVariablesService
 {

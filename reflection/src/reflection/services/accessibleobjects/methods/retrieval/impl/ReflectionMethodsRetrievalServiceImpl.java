@@ -8,7 +8,7 @@ import reflection.services.accessibleobjects.methods.retrieval.ReflectionMethods
 import reflection.services.accessibleobjects.methods.retrieval.impl.tasks.GetAllMethodsArrayTask;
 import reflection.services.accessibleobjects.methods.retrieval.impl.tasks.GetDeclaredDefaultMethodsArrayTask;
 import reflection.services.accessibleobjects.methods.retrieval.impl.tasks.GetDeclaredMethodsArrayTask;
-import reflection.services.accessibleobjects.methods.retrieval.impl.tasks.GetDeclaredPrivateMethodsArrayTask;
+import reflection.services.accessibleobjects.methods.retrieval.impl.tasks.GetPrivateMethodsArrayTask;
 import reflection.services.accessibleobjects.methods.retrieval.impl.tasks.GetDeclaredProtectedMethodsArrayTask;
 import reflection.services.accessibleobjects.methods.retrieval.impl.tasks.GetDeclaredPublicMethodsArrayTask;
 import reflection.services.accessibleobjects.methods.retrieval.impl.tasks.GetInherittedMethodsArrayTask;
@@ -74,14 +74,14 @@ public class ReflectionMethodsRetrievalServiceImpl extends ReflectionServiceObje
     @Override
     public Method[] getDeclaredPrivateMethodsArray(Object object)
     {
-        return new GetDeclaredPrivateMethodsArrayTask().run(object);
+        return new GetPrivateMethodsArrayTask().run(object);
     }
 
 
     @Override
     public Method[] getDeclaredPrivateMethodsArray(Class<?> aClass)
     {
-        return new GetDeclaredPrivateMethodsArrayTask().run(aClass);
+        return new GetPrivateMethodsArrayTask().run(aClass);
     }
 
 

@@ -1,15 +1,15 @@
-package reflection.services.accessibleobjects.constructors.impl.tasks;
+package reflection.services.accessibleobjects.constructors.retrieval.impl.tasks;
 
 import java.lang.reflect.Constructor;
-import java.util.Arrays;
+import java.lang.reflect.Method;
 import reflection.ReflectionObject;
 import reflection.ReflectionTask;
 
-public class GetConstructorsArrayTask extends ReflectionObject implements ReflectionTask
+public class GetPublicConstructorsArrayTask extends ReflectionObject implements ReflectionTask
 {
     public Constructor<?>[] run(Class<?> aClass)
     {
-        return Arrays.stream(aClass.getDeclaredConstructors()).toArray(Constructor[]::new);
+        return aClass.getConstructors();
     }
     
     

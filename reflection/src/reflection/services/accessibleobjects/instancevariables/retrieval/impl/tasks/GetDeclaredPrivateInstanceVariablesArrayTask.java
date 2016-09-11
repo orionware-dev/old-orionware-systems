@@ -1,4 +1,4 @@
-package reflection.services.accessibleobjects.methods.retrieval.impl.tasks;
+package reflection.services.accessibleobjects.instancevariables.retrieval.impl.tasks;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 import reflection.ReflectionObject;
 import reflection.ReflectionTask;
 
-public class GetDeclaredPrivateMethodsArrayTask extends ReflectionObject implements ReflectionTask
+public class GetDeclaredPrivateInstanceVariablesArrayTask extends ReflectionObject implements ReflectionTask
 {
     public Method[] run(Class<?> aClass)
     {
