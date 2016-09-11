@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import reflection.services.ReflectionServiceObject;
 import reflection.services.accessibleobjects.methods.retrieval.ReflectionMethodsRetrievalService;
+import reflection.services.accessibleobjects.methods.retrieval.impl.tasks.GetAllMethodsArrayTask;
 import reflection.services.accessibleobjects.methods.retrieval.impl.tasks.GetDeclaredDefaultMethodsArrayTask;
 import reflection.services.accessibleobjects.methods.retrieval.impl.tasks.GetDeclaredMethodsArrayTask;
 import reflection.services.accessibleobjects.methods.retrieval.impl.tasks.GetDeclaredPrivateMethodsArrayTask;
@@ -179,5 +180,33 @@ public class ReflectionMethodsRetrievalServiceImpl extends ReflectionServiceObje
     public List<Method> getInherittedMethods(Class<?> aClass)
     {
         return Arrays.asList(getInherittedMethodsArray(aClass));
+    }
+
+
+    @Override
+    public Method[] getAllMethodsArray(Object object)
+    {
+        return new GetAllMethodsArrayTask().run(object);
+    }
+
+
+    @Override
+    public Method[] getAllMethodsArray(Class<?> aClass)
+    {
+        return new GetAllMethodsArrayTask().run(aClass);
+    }
+
+
+    @Override
+    public List<Method> getAllMethods(Object object)
+    {
+        return Arrays.asList(getAllMethodsArray(object));
+    }
+
+
+    @Override
+    public List<Method> getAllMethods(Class<?> aClass)
+    {
+        return Arrays.asList(getAllMethodsArray(aClass));
     }
 }

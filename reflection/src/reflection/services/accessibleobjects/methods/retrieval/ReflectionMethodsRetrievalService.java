@@ -76,4 +76,16 @@ public interface ReflectionMethodsRetrievalService extends ReflectionService
     
     
     public List<Method> getInherittedMethods(Class<?> aClass);
+    
+    
+    public Method[] getAllMethodsArray(Object object);
+    
+    
+    public Method[] getAllMethodsArray(Class<?> aClass);
+    
+    
+    public List<Method> getAllMethods(Object object);
+    
+    
+    public List<Method> getAllMethods(Class<?> aClass);
 }

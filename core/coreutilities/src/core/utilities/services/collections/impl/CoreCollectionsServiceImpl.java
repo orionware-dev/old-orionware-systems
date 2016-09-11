@@ -2,7 +2,6 @@ package core.utilities.services.collections.impl;
 
 import java.util.Collection;
 import core.utilities.services.collections.CoreCollectionsService;
-import core.utilities.services.strings.CoreStringsService;
 
 public class CoreCollectionsServiceImpl implements CoreCollectionsService
 {

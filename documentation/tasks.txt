@@ -1,20 +1,7 @@
-﻿getMethods = public + inheritted
-
-fix GetInheritted*ArrayTask.java
-
-inheritted default methods
-inheritted protected methods
-inheritted public methods
-all methods (declared+inheritted)
-
-
-default constructors
+﻿default constructors
 private constructors
 protected constructors
 public constructors
-inheritted default constructors
-inheritted protected constructors
-inheritted public constructors
 all declared constructors (default+private+protected+public constructors)
 all inheritted constructors (default+protected+public constructors)
 all constructors (declared+inheritted)
@@ -24,9 +11,6 @@ default instance variables
 private instance variables
 protected instance variables
 public instance variables
-inheritted default instance variables
-inheritted protected instance variables
-inheritted public instance variables
 all declared instance variables (default+private+protected+public instance variables)
 all inheritted instance variables (default+protected+public instance variables)
 all instance variables (declared+inheritted)

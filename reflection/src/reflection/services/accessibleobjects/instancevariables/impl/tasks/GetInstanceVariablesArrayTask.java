@@ -1,7 +1,6 @@
 package reflection.services.accessibleobjects.instancevariables.impl.tasks;
 
 import java.lang.reflect.Field;
-import java.util.Arrays;
 import reflection.ReflectionObject;
 import reflection.ReflectionTask;
 

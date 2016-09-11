@@ -1,6 +1,5 @@
 package flow.services.conditionals.impl.tasks;
 
-import core.utilities.services.collections.CoreCollectionsService;
 import core.utilities.services.collections.impl.CoreCollectionsServiceImpl;
 import flow.CoreFlowObject;
 import flow.CoreFlowTask;
