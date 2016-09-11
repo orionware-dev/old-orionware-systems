@@ -1,5 +1,7 @@
 package flow.services.conditionals.impl.tasks;
 
+import core.utilities.services.collections.CoreCollectionsService;
+import core.utilities.services.collections.impl.CoreCollectionsServiceImpl;
 import flow.CoreFlowObject;
 import flow.CoreFlowTask;
 import flow.conditional.Condition;
@@ -11,7 +13,8 @@ public class EvaluateIfStatementTask extends CoreFlowObject implements CoreFlowT
     {
         boolean conditionsEvaluation = false;
 
-        if(ifStatement.getConditions() != null && ifStatement.getConditions().getConditions() != null && !ifStatement.getConditions().getConditions().isEmpty())
+        if(ifStatement.getConditions() != null
+               && new CoreCollectionsServiceImpl().isCollectionNotEmpty(ifStatement.getConditions().getConditions()))
         {
             int index = 0;
             EvaluateConditionTask evaluateConditionTask = new EvaluateConditionTask();
