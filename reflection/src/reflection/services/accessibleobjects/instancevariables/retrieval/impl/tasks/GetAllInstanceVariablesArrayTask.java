@@ -1,6 +1,6 @@
 package reflection.services.accessibleobjects.instancevariables.retrieval.impl.tasks;
 
-import java.lang.reflect.Method;
+import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.List;
 import reflection.ReflectionObject;
@@ -8,16 +8,16 @@ import reflection.ReflectionTask;
 
 public class GetAllInstanceVariablesArrayTask extends ReflectionObject implements ReflectionTask
 {
-    public Method[] run(Class<?> aClass)
+    public Field[] run(Class<?> aClass)
     {
-        List<Method> inherittedMethods = Arrays.asList(new GetInherittedInstanceVariablesArrayTask().run(aClass));
-        List<Method> declaredMethods = Arrays.asList(new GetDeclaredInstanceVariablesArrayTask().run(aClass));
-        declaredMethods.addAll(inherittedMethods);
-        return declaredMethods.toArray(new Method[0]);
+        List<Field> inherittedInstanceVariables = Arrays.asList(new GetInherittedInstanceVariablesArrayTask().run(aClass));
+        List<Field> declaredInstanceVariables = Arrays.asList(new GetDeclaredInstanceVariablesArrayTask().run(aClass));
+        declaredInstanceVariables.addAll(inherittedInstanceVariables);
+        return declaredInstanceVariables.toArray(new Field[0]);
     }
-    
-    
-    public Method[] run(Object object)
+
+
+    public Field[] run(Object object)
     {
         return run(object.getClass());
     }

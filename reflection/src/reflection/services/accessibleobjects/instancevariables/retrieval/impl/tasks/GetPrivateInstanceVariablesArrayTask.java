@@ -7,11 +7,11 @@ import java.util.stream.Collectors;
 import reflection.ReflectionObject;
 import reflection.ReflectionTask;
 
-public class GetDeclaredProtectedInstanceVariablesArrayTask extends ReflectionObject implements ReflectionTask
+public class GetPrivateInstanceVariablesArrayTask extends ReflectionObject implements ReflectionTask
 {
     public Field[] run(Class<?> aClass)
     {
-        return Arrays.stream(aClass.getDeclaredFields()).filter(field -> Modifier.isProtected(field.getModifiers())).collect(Collectors.toList()).toArray(new Field[0]);
+        return Arrays.stream(aClass.getDeclaredFields()).filter(field -> Modifier.isPrivate(field.getModifiers())).collect(Collectors.toList()).toArray(new Field[0]);
     }
 
 

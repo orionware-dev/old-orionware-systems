@@ -8,28 +8,25 @@ import dependencyinjection.DependencyInjectionTask;
 import dependencyinjection.annotations.Injector;
 import reflection.services.accessibleobjects.classes.ReflectionClassesService;
 import reflection.services.accessibleobjects.classes.impl.ReflectionClassesServiceImpl;
-import reflection.services.accessibleobjects.instancevariables.ReflectionInstanceVariablesService;
-import reflection.services.accessibleobjects.instancevariables.impl.ReflectionInstanceVariablesServiceImpl;
+import reflection.services.accessibleobjects.instancevariables.access.impl.ReflectionInstanceVariablesAccessServiceImpl;
 
 public class ProcessInstanceVariableForInjectionTask extends DependencyInjectionObject implements DependencyInjectionTask
 {
-    private ReflectionInstanceVariablesService reflectionInstanceVariablesService;
     private ReflectionClassesService reflectionClassesService;
 
 
     public ProcessInstanceVariableForInjectionTask()
     {
-        this.reflectionInstanceVariablesService = new ReflectionInstanceVariablesServiceImpl();
         this.reflectionClassesService = new ReflectionClassesServiceImpl();
     }
 
 
     public void run(Object object, Field instanceVariable)
     {
-        reflectionInstanceVariablesService.makeInstanceVariableAccessible(instanceVariable);
+        new ReflectionInstanceVariablesAccessServiceImpl().makeInstanceVariableAccessible(instanceVariable);
         AnnotationsGatheringService annotationsGatheringService = new AnnotationsGatheringServiceImpl();
         Injector injection = (Injector)annotationsGatheringService.extractAnnotationFromInstanceVariable(instanceVariable, Injector.class);
-        
+
         if(injection != null)
         {
             processInjection(object, instanceVariable, injection);
@@ -41,7 +38,7 @@ public class ProcessInstanceVariableForInjectionTask extends DependencyInjection
     {
         String classToInjectString = injection.ID();
         Class<?> classToInject = null;
-        
+
         if(classToInjectString.isEmpty())
         {
             classToInject = reflectionClassesService.loadClass(instanceVariable.getType().getName());
@@ -50,7 +47,7 @@ public class ProcessInstanceVariableForInjectionTask extends DependencyInjection
         {
             classToInject = reflectionClassesService.loadClass(classToInjectString);
         }
-        
+
         try
         {
             instanceVariable.set(object, reflectionClassesService.instantiateClass(classToInject));

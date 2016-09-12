@@ -1,186 +1,183 @@
 package reflection.services.accessibleobjects.instancevariables.retrieval.impl;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.List;
 import reflection.services.ReflectionServiceObject;
 import reflection.services.accessibleobjects.instancevariables.retrieval.ReflectionInstanceVariablesRetrievalService;
-import reflection.services.accessibleobjects.methods.retrieval.ReflectionMethodsRetrievalService;
-import reflection.services.accessibleobjects.methods.retrieval.impl.tasks.GetAllMethodsArrayTask;
-import reflection.services.accessibleobjects.methods.retrieval.impl.tasks.GetDeclaredDefaultMethodsArrayTask;
-import reflection.services.accessibleobjects.methods.retrieval.impl.tasks.GetDeclaredMethodsArrayTask;
-import reflection.services.accessibleobjects.methods.retrieval.impl.tasks.GetPrivateMethodsArrayTask;
-import reflection.services.accessibleobjects.methods.retrieval.impl.tasks.GetDeclaredProtectedMethodsArrayTask;
-import reflection.services.accessibleobjects.methods.retrieval.impl.tasks.GetDeclaredPublicMethodsArrayTask;
-import reflection.services.accessibleobjects.methods.retrieval.impl.tasks.GetInherittedMethodsArrayTask;
+import reflection.services.accessibleobjects.instancevariables.retrieval.impl.tasks.GetAllInstanceVariablesArrayTask;
+import reflection.services.accessibleobjects.instancevariables.retrieval.impl.tasks.GetDeclaredInstanceVariablesArrayTask;
+import reflection.services.accessibleobjects.instancevariables.retrieval.impl.tasks.GetDeclaredProtectedInstanceVariablesArrayTask;
+import reflection.services.accessibleobjects.instancevariables.retrieval.impl.tasks.GetDeclaredPublicInstanceVariablesArrayTask;
+import reflection.services.accessibleobjects.instancevariables.retrieval.impl.tasks.GetInherittedInstanceVariablesArrayTask;
+import reflection.services.accessibleobjects.instancevariables.retrieval.impl.tasks.GetPrivateInstanceVariablesArrayTask;
 
 public class ReflectionInstanceVariablesRetrievalServiceImpl extends ReflectionServiceObject implements ReflectionInstanceVariablesRetrievalService
 {
     @Override
     public Field[] getDeclaredInstanceVariablesArray(Object object)
     {
-        return null;
+        return new GetDeclaredInstanceVariablesArrayTask().run(object);
     }
 
-    
+
     @Override
     public Field[] getDeclaredInstanceVariablesArray(Class<?> aClass)
     {
-        return null;
+        return new GetDeclaredInstanceVariablesArrayTask().run(aClass);
     }
 
-    
+
     @Override
     public List<Field> getDeclaredInstanceVariables(Object object)
     {
-        return null;
+        return Arrays.asList(getDeclaredInstanceVariablesArray(object));
     }
 
-    
+
     @Override
     public List<Field> getDeclaredInstanceVariables(Class<?> aClass)
     {
-        return null;
+        return Arrays.asList(getDeclaredInstanceVariablesArray(aClass));
     }
 
-    
+
     @Override
-    public Field[] getDeclaredPrivateInstanceVariablesArray(Object object)
+    public Field[] getPrivateInstanceVariablesArray(Object object)
     {
-        return null;
+        return new GetPrivateInstanceVariablesArrayTask().run(object);
     }
 
-    
+
     @Override
-    public Field[] getDeclaredPrivateInstanceVariablesArray(Class<?> aClass)
+    public Field[] getPrivateInstanceVariablesArray(Class<?> aClass)
     {
-        return null;
+        return new GetPrivateInstanceVariablesArrayTask().run(aClass);
     }
 
-    
+
     @Override
-    public List<Field> getDeclaredPrivateInstanceVariables(Object object)
+    public List<Field> getPrivateInstanceVariables(Object object)
     {
-        return null;
+        return Arrays.asList(getPrivateInstanceVariablesArray(object));
     }
 
-    
+
     @Override
-    public List<Field> getDeclaredPrivateInstanceVariables(Class<?> aClass)
+    public List<Field> getPrivateInstanceVariables(Class<?> aClass)
     {
-        return null;
+        return Arrays.asList(getPrivateInstanceVariablesArray(aClass));
     }
 
-    
+
     @Override
     public Field[] getDeclaredProtectedInstanceVariablesArray(Object object)
     {
-        return null;
+        return new GetDeclaredProtectedInstanceVariablesArrayTask().run(object);
     }
 
-    
+
     @Override
     public Field[] getDeclaredProtectedInstanceVariablesArray(Class<?> aClass)
     {
-        return null;
+        return new GetDeclaredProtectedInstanceVariablesArrayTask().run(aClass);
     }
 
-    
+
     @Override
     public List<Field> getDeclaredProtectedInstanceVariables(Object object)
     {
-        return null;
+        return Arrays.asList(getDeclaredProtectedInstanceVariablesArray(object));
     }
 
-    
+
     @Override
     public List<Field> getDeclaredProtectedInstanceVariables(Class<?> aClass)
     {
-        return null;
+        return Arrays.asList(getDeclaredProtectedInstanceVariablesArray(aClass));
     }
 
-    
+
     @Override
     public Field[] getDeclaredPublicInstanceVariablesArray(Object object)
     {
-        return null;
+        return new GetDeclaredPublicInstanceVariablesArrayTask().run(object);
     }
 
-    
+
     @Override
     public Field[] getDeclaredPublicInstanceVariablesArray(Class<?> aClass)
     {
-        return null;
+        return new GetDeclaredPublicInstanceVariablesArrayTask().run(aClass);
     }
 
-    
+
     @Override
     public List<Field> getDeclaredPublicInstanceVariables(Object object)
     {
-        return null;
+        return Arrays.asList(getDeclaredPublicInstanceVariablesArray(object));
     }
 
-    
+
     @Override
     public List<Field> getDeclaredPublicInstanceVariables(Class<?> aClass)
     {
-        return null;
+        return Arrays.asList(getDeclaredPublicInstanceVariablesArray(aClass));
     }
 
-    
+
     @Override
     public Field[] getInherittedInstanceVariablesArray(Object object)
     {
-        return null;
+        return new GetInherittedInstanceVariablesArrayTask().run(object);
     }
 
-    
+
     @Override
     public Field[] getInherittedInstanceVariablesArray(Class<?> aClass)
     {
-        return null;
+        return new GetInherittedInstanceVariablesArrayTask().run(aClass);
     }
 
-    
+
     @Override
     public List<Field> getInherittedInstanceVariables(Object object)
     {
-        return null;
+        return Arrays.asList(getInherittedInstanceVariablesArray(object));
     }
 
-    
+
     @Override
     public List<Field> getInherittedInstanceVariables(Class<?> aClass)
     {
-        return null;
+        return Arrays.asList(getInherittedInstanceVariablesArray(aClass));
     }
 
-    
+
     @Override
     public Field[] getAllInstanceVariablesArray(Object object)
     {
-        return null;
+        return new GetAllInstanceVariablesArrayTask().run(object);
     }
 
-    
+
     @Override
     public Field[] getAllInstanceVariablesArray(Class<?> aClass)
     {
-        return null;
+        return new GetAllInstanceVariablesArrayTask().run(aClass);
     }
 
-    
+
     @Override
     public List<Field> getAllInstanceVariables(Object object)
     {
-        return null;
+        return Arrays.asList(getAllInstanceVariablesArray(object));
     }
 
-    
+
     @Override
     public List<Field> getAllInstanceVariables(Class<?> aClass)
     {
-        return null;
+        return Arrays.asList(getAllInstanceVariablesArray(aClass));
     }
 }

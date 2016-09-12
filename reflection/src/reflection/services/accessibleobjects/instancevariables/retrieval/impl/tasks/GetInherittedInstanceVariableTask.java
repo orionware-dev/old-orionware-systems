@@ -1,38 +1,33 @@
 package reflection.services.accessibleobjects.instancevariables.retrieval.impl.tasks;
 
-import java.lang.reflect.Method;
+import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import reflection.ReflectionObject;
 import reflection.ReflectionTask;
 
 public class GetInherittedInstanceVariableTask extends ReflectionObject implements ReflectionTask
 {
-    public Method run(String methodName, Object object, Class<?>... methodParameterTypes)
+    public Field run(String instanceVariableName, Object object)
     {
-        return run(methodName, object.getClass(), methodParameterTypes);
+        return run(instanceVariableName, object.getClass());
     }
-    
-    
-    public Method run(String methodName, Class<?> aClass, Class<?>... methodParameterTypes)
+
+
+    public Field run(String instanceVariableName, Class<?> aClass)
     {
-        Method inherittedMethod = null;
-        
+        Field inherittedInstanceVariable = null;
+
         try
         {
-            if(methodParameterTypes.length == 0)
+            Field publicOrInherittedInstanceVariable = aClass.getField(instanceVariableName);
+            Field declaredInstanceVariable = new GetDeclaredInstanceVariableTask().run(instanceVariableName, aClass);
+
+            if(declaredInstanceVariable == null || !Modifier.isPublic(declaredInstanceVariable.getModifiers()))
             {
-                methodParameterTypes = new Class<?>[]{Object.class};
-            }
-            
-            Method publicOrInherittedMethod = aClass.getMethod(methodName, methodParameterTypes);
-            Method declaredMethod = new GetDeclaredInstanceVariableTask().run(methodName, aClass, methodParameterTypes);
-            
-            if(declaredMethod == null || !Modifier.isPublic(declaredMethod.getModifiers()))
-            {
-                inherittedMethod = publicOrInherittedMethod;
+                inherittedInstanceVariable = publicOrInherittedInstanceVariable;
             }
         }
-        catch(NoSuchMethodException exception)
+        catch(NoSuchFieldException exception)
         {
             exception.printStackTrace();
         }
@@ -41,6 +36,6 @@ public class GetInherittedInstanceVariableTask extends ReflectionObject implemen
             exception.printStackTrace();
         }
 
-        return inherittedMethod;
+        return inherittedInstanceVariable;
     }
 }

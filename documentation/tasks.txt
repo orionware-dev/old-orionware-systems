@@ -1,22 +1,4 @@
-﻿make public Method getPrivateMethod(String methodName, Object object, Class<?>... methodParameterTypes)
-use return new GetDeclaredMethodTask().run(methodName, object.getClass(), methodParameterTypes);
-but also check if method's modifier is private. Same for other modifiers and instance variabkles
-
-
-default instance variables
-private instance variables
-protected instance variables
-public instance variables
-all declared instance variables (default+private+protected+public instance variables)
-all inheritted instance variables (default+protected+public instance variables)
-all instance variables (declared+inheritted)
-
-
-
-
-
-
---in reflection, create a way to return any required combination of methods/constructors/fields
+﻿--in reflection, create a way to return any required combination of methods/constructors/fields
 
 --see if I can convert some of the code to annotations
 

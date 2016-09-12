@@ -1,7 +1,6 @@
 package reflection.services.accessibleobjects.instancevariables.retrieval;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import reflection.ReflectionService;
 
 public interface ReflectionInstanceVariableRetrievalService extends ReflectionService
