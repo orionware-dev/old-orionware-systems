@@ -7,12 +7,6 @@ import datastructures.maps.impl.OrionHashMap;
 
 public class CreateEmptyHashMapTask<T, T1, T2> extends DataStructuresObject implements DataStructuresTask
 {
-    public CreateEmptyHashMapTask()
-    {
-        
-    }
-    
-    
     public OrionMap<T, T1, T2> run()
     {
         return new OrionHashMap<T, T1, T2>();
