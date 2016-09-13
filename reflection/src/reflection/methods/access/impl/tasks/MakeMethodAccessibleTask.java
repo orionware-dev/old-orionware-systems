@@ -28,6 +28,13 @@ public class MakeMethodAccessibleTask extends ReflectionObject implements Reflec
 
     private void makeMethodAccessible()
     {
-        method.setAccessible(true);
+        try
+        {
+            method.setAccessible(true);
+        }
+        catch(SecurityException e)
+        {
+            e.printStackTrace();
+        }
     }
 }

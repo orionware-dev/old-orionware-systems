@@ -2,7 +2,7 @@ package dependencyinjection.processing.impl.tasks;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.util.Arrays;
+import java.util.List;
 import dependencyinjection.DependencyInjectionObject;
 import dependencyinjection.DependencyInjectionTask;
 import reflection.instancevariables.retrieval.ReflectionInstanceVariablesRetrievalService;
@@ -17,15 +17,15 @@ public class ProcessDependenciesTask extends DependencyInjectionObject implement
         ProcessInstanceVariableForInjectionTask processInstanceVariableForInjectionTask = new ProcessInstanceVariableForInjectionTask();
         ReflectionInstanceVariablesRetrievalService reflectionInstanceVariablesRetrievalService = new ReflectionInstanceVariablesRetrievalServiceImpl();
 
-        Field[] fields = reflectionInstanceVariablesRetrievalService.getDeclaredInstanceVariablesArray(object);
-        Arrays.stream(fields).forEach(field -> processInstanceVariableForInjectionTask.run(object, field));
-        Method[] methods = new ReflectionMethodsRetrievalServiceImpl().getDeclaredMethodsArray(object);
-        Arrays.stream(methods).forEach(method -> processMethodForInjectionTask.run(object, method));
+        List<Field> fields = reflectionInstanceVariablesRetrievalService.getDeclaredInstanceVariables(object);
+        fields.forEach(field -> processInstanceVariableForInjectionTask.run(object, field));
+        List<Method> methods = new ReflectionMethodsRetrievalServiceImpl().getDeclaredMethods(object);
+        methods.forEach(method -> processMethodForInjectionTask.run(object, method));
 
         ProcessMethodForInjectionImplTask processMethodForInjectionImplTask = new ProcessMethodForInjectionImplTask();
         ProcessInstanceVariableForInjectionImplTask processInstanceVariableForInjectionImplTask = new ProcessInstanceVariableForInjectionImplTask();
 
-        Arrays.stream(fields).forEach(field -> processInstanceVariableForInjectionImplTask.run(object, field));
-        Arrays.stream(methods).forEach(method -> processMethodForInjectionImplTask.run(object, method));
+        fields.forEach(field -> processInstanceVariableForInjectionImplTask.run(object, field));
+        methods.forEach(method -> processMethodForInjectionImplTask.run(object, method));
     }
 }

@@ -37,20 +37,15 @@ public class ProcessInstanceVariableForInjectionTask extends DependencyInjection
     private void processInjection(Object object, Field instanceVariable, Injector injection)
     {
         String classToInjectString = injection.ID();
-        Class<?> classToInject = null;
 
         if(classToInjectString.isEmpty())
         {
-            classToInject = reflectionClassesService.loadClass(instanceVariable.getType().getName());
-        }
-        else
-        {
-            classToInject = reflectionClassesService.loadClass(classToInjectString);
+            classToInjectString = instanceVariable.getType().getName();
         }
 
         try
         {
-            instanceVariable.set(object, reflectionClassesService.instantiateClass(classToInject));
+            instanceVariable.set(object, reflectionClassesService.instantiateClass(classToInjectString));
         }
         catch(IllegalArgumentException exception)
         {

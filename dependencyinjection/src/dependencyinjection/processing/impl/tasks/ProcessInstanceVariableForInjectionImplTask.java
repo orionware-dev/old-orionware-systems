@@ -12,6 +12,8 @@ import reflection.instancevariables.access.impl.ReflectionInstanceVariablesAcces
 
 public class ProcessInstanceVariableForInjectionImplTask extends DependencyInjectionObject implements DependencyInjectionTask
 {
+    private static final String IMPL_PACKAGE = ".impl.";
+    private static final String IMPL_CLASS_NAME_SUFFIX = "Impl";
     private ReflectionClassesService reflectionClassesService;
 
 
@@ -37,14 +39,15 @@ public class ProcessInstanceVariableForInjectionImplTask extends DependencyInjec
     private void processInjection(Object object, Field instanceVariable, InjectorImpl injection)
     {
         String classToInjectString = instanceVariable.getType().getName();
-        String className = classToInjectString.substring(classToInjectString.lastIndexOf(".") + 1);
-        classToInjectString = classToInjectString.substring(0, classToInjectString.lastIndexOf("."));
-        classToInjectString += ".impl." + className + "Impl";
-        Class<?> classToInject = reflectionClassesService.loadClass(classToInjectString);
+        int indexOfLastDot = classToInjectString.lastIndexOf(".");
+        String className = classToInjectString.substring(indexOfLastDot + 1);
+        classToInjectString = classToInjectString.substring(0, indexOfLastDot);
+        StringBuilder sb = new StringBuilder(classToInjectString).append(IMPL_PACKAGE).append(className).append(IMPL_CLASS_NAME_SUFFIX);
+        classToInjectString = sb.toString();
 
         try
         {
-            instanceVariable.set(object, reflectionClassesService.instantiateClass(classToInject));
+            instanceVariable.set(object, reflectionClassesService.instantiateClass(classToInjectString));
         }
         catch(IllegalArgumentException exception)
         {
