@@ -1,7 +1,7 @@
 package designpatterns.annotations.impl.tasks;
 
 import java.lang.reflect.Method;
-import java.util.Arrays;
+import java.util.List;
 import annotations.gathering.AnnotationsGatheringService;
 import annotations.gathering.impl.AnnotationsGatheringServiceImpl;
 import designpatterns.DesignPatternsObject;
@@ -20,28 +20,29 @@ public class ProcessEmptyFilterAnnotationTask extends DesignPatternsObject imple
     private ReflectionMethodAccessService reflectionMethodAccessService;
     private AnnotationsGatheringService annotationsGatheringService;
     private Object object;
-    
-    
+
+
     public ProcessEmptyFilterAnnotationTask()
     {
         this.pipelineFilterService = new PipelineFilterServiceImpl();
         this.reflectionMethodAccessService = new ReflectionMethodAccessServiceImpl();
         this.annotationsGatheringService = new AnnotationsGatheringServiceImpl();
     }
-    
-    
+
+
     public void run(Object object)
     {
         this.object = object;
-        Arrays.stream(new ReflectionMethodsRetrievalServiceImpl().getDeclaredMethodsArray(object)).forEach(method -> processMethodForEmptyFilterInjection(method));
+        List<Method> methods = new ReflectionMethodsRetrievalServiceImpl().getDeclaredMethods(object);
+        methods.stream().forEach(method -> processMethodForEmptyFilterInjection(method));
     }
-    
-    
+
+
     private void processMethodForEmptyFilterInjection(Method method)
     {
         reflectionMethodAccessService.makeMethodAccessible(method);
         EmptyFilter emptyFilterAnnotation = (EmptyFilter)annotationsGatheringService.extractAnnotationFromMethod(method, EmptyFilter.class);
-        
+
         if(emptyFilterAnnotation != null)
         {
             AbstractFilter emptyFilter = pipelineFilterService.createEmptyFilter();

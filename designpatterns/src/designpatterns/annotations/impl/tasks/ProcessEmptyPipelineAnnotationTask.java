@@ -1,7 +1,7 @@
 package designpatterns.annotations.impl.tasks;
 
 import java.lang.reflect.Method;
-import java.util.Arrays;
+import java.util.List;
 import annotations.gathering.AnnotationsGatheringService;
 import annotations.gathering.impl.AnnotationsGatheringServiceImpl;
 import designpatterns.DesignPatternsObject;
@@ -20,28 +20,29 @@ public class ProcessEmptyPipelineAnnotationTask extends DesignPatternsObject imp
     private ReflectionMethodAccessService reflectionMethodAccessService;
     private AnnotationsGatheringService annotationsGatheringService;
     private Object object;
-    
-    
+
+
     public ProcessEmptyPipelineAnnotationTask()
     {
         this.pipelineService = new PipelineServiceImpl();
         this.reflectionMethodAccessService = new ReflectionMethodAccessServiceImpl();
         this.annotationsGatheringService = new AnnotationsGatheringServiceImpl();
     }
-    
-    
+
+
     public void run(Object object)
     {
         this.object = object;
-        Arrays.stream(new ReflectionMethodsRetrievalServiceImpl().getDeclaredMethodsArray(object)).forEach(method -> processMethodForEmptyPipelineInjection(method));
+        List<Method> methods = new ReflectionMethodsRetrievalServiceImpl().getDeclaredMethods(object);
+        methods.stream().forEach(method -> processMethodForEmptyPipelineInjection(method));
     }
-    
-    
+
+
     private void processMethodForEmptyPipelineInjection(Method method)
     {
         reflectionMethodAccessService.makeMethodAccessible(method);
         EmptyPipeline emptyPipelineAnnotation = (EmptyPipeline)annotationsGatheringService.extractAnnotationFromMethod(method, EmptyPipeline.class);
-        
+
         if(emptyPipelineAnnotation != null)
         {
             boolean feedForwardTheResult = emptyPipelineAnnotation.feedForwardTheResult();
