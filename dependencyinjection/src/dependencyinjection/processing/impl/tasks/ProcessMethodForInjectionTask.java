@@ -15,13 +15,11 @@ public class ProcessMethodForInjectionTask extends DependencyInjectionObject imp
 {
     private Object object;
     private ReflectionMethodAccessService reflectionMethodAccessService;
-    private ReflectionClassesService reflectionClassesService;
 
 
     public ProcessMethodForInjectionTask()
     {
         this.reflectionMethodAccessService = new ReflectionMethodAccessServiceImpl();
-        this.reflectionClassesService = new ReflectionClassesServiceImpl();
     }
 
 
@@ -31,7 +29,7 @@ public class ProcessMethodForInjectionTask extends DependencyInjectionObject imp
         reflectionMethodAccessService.makeMethodAccessible(method);
         AnnotationsGatheringService annotationsGatheringService = new AnnotationsGatheringServiceImpl();
         Injector injection = (Injector)annotationsGatheringService.extractAnnotationFromMethod(method, Injector.class);
-        
+
         if(injection != null)
         {
             processInjection(method, injection);
@@ -42,6 +40,7 @@ public class ProcessMethodForInjectionTask extends DependencyInjectionObject imp
     private void processInjection(Method method, Injector injection)
     {
         String classToInjectString = injection.ID();
+        ReflectionClassesService reflectionClassesService = new ReflectionClassesServiceImpl();
         Class<?> classToInject = reflectionClassesService.loadClass(classToInjectString);
         reflectionMethodAccessService.callMethod(method, object, reflectionClassesService.instantiateClass(classToInject));
     }
