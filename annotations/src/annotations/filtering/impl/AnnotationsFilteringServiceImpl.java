@@ -6,6 +6,7 @@ import annotations.AnnotationServiceObject;
 import annotations.AnnotationType;
 import annotations.OrionAnnotation;
 import annotations.filtering.AnnotationsFilteringService;
+import annotations.filtering.impl.tasks.AddAnnotationTypeForObjectTask;
 import annotations.filtering.impl.tasks.DoesObjectHaveRegisteredAnnotationTask;
 import annotations.filtering.impl.tasks.FilterRegisteredAnnotationsFromObjectAnnotationsTask;
 
@@ -17,7 +18,7 @@ public class AnnotationsFilteringServiceImpl extends AnnotationServiceObject imp
         return new FilterRegisteredAnnotationsFromObjectAnnotationsTask().run(allObjectAnnotationsList);
     }
 
-    
+
     @Override
     public boolean run(Collection<OrionAnnotation> allObjectAnnotations, OrionAnnotation registeredAnnotation)
     {
@@ -28,6 +29,6 @@ public class AnnotationsFilteringServiceImpl extends AnnotationServiceObject imp
     @Override
     public void addAnnotationTypeForObject(OrionAnnotation annotation, AnnotationType annotationType)
     {
-        annotation.addAnnotationType(annotationType);
+        new AddAnnotationTypeForObjectTask().run(annotation, annotationType);
     }
 }

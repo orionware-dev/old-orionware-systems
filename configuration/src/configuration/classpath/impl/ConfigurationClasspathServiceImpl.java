@@ -4,19 +4,16 @@ import java.util.List;
 import configuration.ConfigurationEntries;
 import configuration.ConfigurationEntry;
 import configuration.ConfigurationServiceObject;
-import configuration.LibrariesConfiguration;
 import configuration.classpath.ConfigurationClasspathService;
 import configuration.classpath.impl.tasks.GetConfigurationEntriesAsListTask;
 import configuration.classpath.impl.tasks.GetConfigurationEntriesTask;
 import configuration.classpath.impl.tasks.IsCoreLibraryTask;
-import configuration.classpath.impl.tasks.LoadLibraryPropertiesTask;
-import configuration.registry.PropertiesRegistrationService;
-import configuration.registry.impl.PropertiesRegistrationServiceImpl;
+import configuration.classpath.impl.tasks.LoadLibrariesPropertiesTask;
 
 public class ConfigurationClasspathServiceImpl extends ConfigurationServiceObject implements ConfigurationClasspathService
 {
-    //this method is accurate when it is called from a base object
-    //like inside OrionObject.java or DataStructureObject.java
+    // this method is accurate when it is called from a base object
+    // like inside OrionObject.java or DataStructureObject.java
     @Override
     public boolean isCoreLibrary(Class<?> classBeingRun)
     {
@@ -34,15 +31,7 @@ public class ConfigurationClasspathServiceImpl extends ConfigurationServiceObjec
     @Override
     public void loadLibrariesProperties()
     {
-        PropertiesRegistrationService propertiesRegistrationService = new PropertiesRegistrationServiceImpl();
-        LibrariesConfiguration.getLibrariesConfiguration()
-            .stream()
-            .filter(libraryConfiguration -> libraryConfiguration.getConfigurationFilePath() != null)
-            .filter(libraryConfiguration -> propertiesRegistrationService.havePropertiesNotBeenRegisteredForLibrary(libraryConfiguration.getLibraryClassPath()))
-            .forEach(libraryConfiguration -> {
-                new LoadLibraryPropertiesTask().run(libraryConfiguration);
-                new PropertiesRegistrationServiceImpl().setPropertiesAsRegisteredForLibrary(libraryConfiguration.getLibraryName());
-            });
+        new LoadLibrariesPropertiesTask().run();
     }
 
 

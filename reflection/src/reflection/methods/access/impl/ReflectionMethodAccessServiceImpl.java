@@ -18,7 +18,6 @@ public class ReflectionMethodAccessServiceImpl extends ReflectionServiceObject i
     @Override
     public Object callMethod(Method method, Object objectMethodBelongsTo, Object... methodArguments)
     {
-        makeMethodAccessible(method);
         return new CallMethodTask().run(method, objectMethodBelongsTo, methodArguments);
     }
 }

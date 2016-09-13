@@ -9,26 +9,15 @@ import datastructures.lists.impl.OrionConcurrentArrayList;
 
 public class ListFactoryServiceImpl<T> extends DataStructuresObject implements ListFactoryService<T>
 {
-    private CreateEmptyArrayListTask<T> createEmptyArrayListTask;
-    private CreateEmptyConcurrentArrayListTask<T> createEmptyConcurrentArrayListTask;
-    
-    
-    public ListFactoryServiceImpl()
-    {
-        this.createEmptyArrayListTask = new CreateEmptyArrayListTask<T>();
-        this.createEmptyConcurrentArrayListTask = new CreateEmptyConcurrentArrayListTask<T>();
-    }
-    
-    
     public OrionList<T> createEmptyArrayList()
     {
-        return createEmptyArrayListTask.run();
+        return new CreateEmptyArrayListTask<T>().run();
     }
 
-    
+
     @Override
     public OrionConcurrentArrayList<T> createEmptyConcurrentArrayList()
     {
-        return createEmptyConcurrentArrayListTask.run();
+        return new CreateEmptyConcurrentArrayListTask<T>().run();
     }
 }

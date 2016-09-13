@@ -9,13 +9,15 @@ public class CallMethodTask extends ReflectionObject implements ReflectionTask
 {
     public Object run(Method method, Object objectMethodBelongsTo, Object... methodArguments)
     {
+        new MakeMethodAccessibleTask().run(method);
+
         try
         {
             if(methodArguments.length == 0)
             {
                 methodArguments = new Object[]{};
             }
-            
+
             return method.invoke(objectMethodBelongsTo, methodArguments);
         }
         catch(IllegalAccessException exception)

@@ -4,7 +4,10 @@ import java.lang.reflect.Field;
 import reflection.ReflectionServiceObject;
 import reflection.instancevariables.retrieval.ReflectionInstanceVariableRetrievalService;
 import reflection.instancevariables.retrieval.impl.tasks.GetDeclaredInstanceVariableTask;
+import reflection.instancevariables.retrieval.impl.tasks.GetDeclaredProtectedInstanceVariableTask;
+import reflection.instancevariables.retrieval.impl.tasks.GetDeclaredPublicInstanceVariableTask;
 import reflection.instancevariables.retrieval.impl.tasks.GetInherittedInstanceVariableTask;
+import reflection.instancevariables.retrieval.impl.tasks.GetPrivateInstanceVariableTask;
 import reflection.instancevariables.retrieval.impl.tasks.IsPrivateInstanceVariableTask;
 import reflection.instancevariables.retrieval.impl.tasks.IsProtectedInstanceVariableTask;
 import reflection.instancevariables.retrieval.impl.tasks.IsPublicInstanceVariableTask;
@@ -28,84 +31,42 @@ public class ReflectionInstanceVariableRetrievalServiceImpl extends ReflectionSe
     @Override
     public Field getPrivateInstanceVariable(String instanceVariableName, Object object)
     {
-        Field field = new GetDeclaredInstanceVariableTask().run(instanceVariableName, object.getClass());
-
-        if(isPrivateInstanceVariable(field))
-        {
-            return field;
-        }
-
-        return null;
+        return new GetPrivateInstanceVariableTask().run(instanceVariableName, object);
     }
 
 
     @Override
     public Field getPrivateInstanceVariable(String instanceVariableName, Class<?> aClass)
     {
-        Field field = new GetDeclaredInstanceVariableTask().run(instanceVariableName, aClass);
-
-        if(isPrivateInstanceVariable(field))
-        {
-            return field;
-        }
-
-        return null;
+        return new GetPrivateInstanceVariableTask().run(instanceVariableName, aClass);
     }
 
 
     @Override
     public Field getDeclaredPublicInstanceVariable(String instanceVariableName, Object object)
     {
-        Field field = new GetDeclaredInstanceVariableTask().run(instanceVariableName, object.getClass());
-
-        if(isPublicInstanceVariable(field))
-        {
-            return field;
-        }
-
-        return null;
+        return new GetDeclaredPublicInstanceVariableTask().run(instanceVariableName, object);
     }
 
 
     @Override
     public Field getDeclaredPublicInstanceVariable(String instanceVariableName, Class<?> aClass)
     {
-        Field field = new GetDeclaredInstanceVariableTask().run(instanceVariableName, aClass);
-
-        if(isPublicInstanceVariable(field))
-        {
-            return field;
-        }
-
-        return null;
+        return new GetDeclaredPublicInstanceVariableTask().run(instanceVariableName, aClass);
     }
 
 
     @Override
     public Field getDeclaredProtectedInstanceVariable(String instanceVariableName, Object object)
     {
-        Field field = new GetDeclaredInstanceVariableTask().run(instanceVariableName, object.getClass());
-
-        if(isProtectedInstanceVariable(field))
-        {
-            return field;
-        }
-
-        return null;
+        return new GetDeclaredProtectedInstanceVariableTask().run(instanceVariableName, object);
     }
 
 
     @Override
     public Field getDeclaredProtectedInstanceVariable(String instanceVariableName, Class<?> aClass)
     {
-        Field field = new GetDeclaredInstanceVariableTask().run(instanceVariableName, aClass);
-
-        if(isProtectedInstanceVariable(field))
-        {
-            return field;
-        }
-
-        return null;
+        return new GetDeclaredProtectedInstanceVariableTask().run(instanceVariableName, aClass);
     }
 
 

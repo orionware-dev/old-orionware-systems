@@ -1,15 +1,12 @@
 package annotations.registry.impl;
 
-import java.util.stream.Stream;
 import annotations.AnnotationServiceObject;
 import annotations.OrionAnnotation;
 import annotations.registry.AnnotationsRegistrationService;
-import annotations.registry.impl.tasks.FilterNotNullLibrariesConfigurationTask;
 import annotations.registry.impl.tasks.IsAnnotationRegisteredTask;
 import annotations.registry.impl.tasks.RegisterAnnotationTask;
 import annotations.registry.impl.tasks.RegisterLibrariesAnnotationsTask;
 import annotations.registry.impl.tasks.RegisterLibraryAnnotationsTask;
-import configuration.LibrariesConfiguration;
 import configuration.LibraryConfiguration;
 
 public class AnnotationsRegistrationServiceImpl extends AnnotationServiceObject implements AnnotationsRegistrationService
@@ -17,8 +14,7 @@ public class AnnotationsRegistrationServiceImpl extends AnnotationServiceObject 
     @Override
     public void registerLibrariesAnnotations()
     {
-        Stream<LibraryConfiguration> notNullLibrariesConfigurationStream = new FilterNotNullLibrariesConfigurationTask().run(LibrariesConfiguration.getLibrariesConfiguration());
-        new RegisterLibrariesAnnotationsTask().run(notNullLibrariesConfigurationStream);
+        new RegisterLibrariesAnnotationsTask().run();
     }
 
 
@@ -34,8 +30,8 @@ public class AnnotationsRegistrationServiceImpl extends AnnotationServiceObject 
     {
         new RegisterLibraryAnnotationsTask().run(libraryConfiguration);
     }
-    
-    
+
+
     @Override
     public boolean isAnnotationRegistered(OrionAnnotation annotation)
     {
