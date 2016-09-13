@@ -35,12 +35,7 @@ public class GatherClassLevelAnnotationsFromObjectTask extends AnnotationService
             //Java/Spring/etc. annotations
             //in which case it is processed by the respective framework
             List<OrionAnnotation> registeredAnnotations = annotationsFilteringService.filterRegisteredAnnotationsFromObjectAnnotations(annotationsList);
-            
-            for(OrionAnnotation annotation : registeredAnnotations)
-            {
-                annotationsFilteringService.addAnnotationTypeForObject(annotation, AnnotationType.CLASS);
-            }
-            
+            registeredAnnotations.forEach(orionAnnotation -> annotationsFilteringService.addAnnotationTypeForObject(orionAnnotation, AnnotationType.CLASS));
             return registeredAnnotations;
         }
         

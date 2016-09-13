@@ -16,9 +16,9 @@ import annotations.gathering.impl.tasks.ExtractAnnotationFromMethodTask;
 import annotations.gathering.impl.tasks.GatherAllAnnotationsFromObjectTask;
 import annotations.gathering.impl.tasks.GatherClassLevelAnnotationsFromObjectTask;
 import annotations.gathering.impl.tasks.GatherConstructorsAnnotationsFromObjectTask;
+import annotations.gathering.impl.tasks.GatherInstanceElementAnnotationsFromObjectTask;
 import annotations.gathering.impl.tasks.GatherInstanceVariablesAnnotationsFromObjectTask;
 import annotations.gathering.impl.tasks.GatherMethodsAnnotationsFromObjectTask;
-import annotations.gathering.impl.tasks.GatherObjectElementAnnotationsFromObjectTask;
 
 public class AnnotationsGatheringServiceImpl extends AnnotationServiceObject implements AnnotationsGatheringService
 {
@@ -90,6 +90,6 @@ public class AnnotationsGatheringServiceImpl extends AnnotationServiceObject imp
     @Override
     public List<OrionAnnotation> gatherObjectElementAnnotationsFromObject(AccessibleObject objectElement)
     {
-        return new GatherObjectElementAnnotationsFromObjectTask().run(objectElement);
+        return new GatherInstanceElementAnnotationsFromObjectTask().run(objectElement);
     }
 }

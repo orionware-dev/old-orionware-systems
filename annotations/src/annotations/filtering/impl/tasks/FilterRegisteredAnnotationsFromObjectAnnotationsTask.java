@@ -21,7 +21,8 @@ public class FilterRegisteredAnnotationsFromObjectAnnotationsTask extends Annota
         //The rest of the annotations in allObjectAnnotationsList are Java/Spring/etc. annotations
         //and Orion does not concern itself with those
         return AnnotationsRegistry.filterAnnotations(annotation ->
-            doesObjectHaveRegisteredAnnotationTask.run(allObjectAnnotations, (OrionAnnotation)annotation)).collect(Collectors.toList());
+            doesObjectHaveRegisteredAnnotationTask.run(allObjectAnnotations, (OrionAnnotation)annotation))
+            .collect(Collectors.toList());
     }
 
 

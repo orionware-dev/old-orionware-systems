@@ -8,16 +8,15 @@ import annotations.AnnotationServiceObject;
 import annotations.AnnotationTask;
 import annotations.OrionAnnotation;
 
-public class GatherObjectElementAnnotationsFromObjectTask extends AnnotationServiceObject implements AnnotationTask
+public class GatherInstanceElementAnnotationsFromObjectTask extends AnnotationServiceObject implements AnnotationTask
 {
     public List<OrionAnnotation> run(AccessibleObject objectElement)
     {
         if(objectElement != null)
         {
-            Annotation[] annotations = objectElement.getAnnotations();
             List<OrionAnnotation> annotationsList = new ArrayList<OrionAnnotation>();
             
-            for(Annotation annotation : annotations)
+            for(Annotation annotation : objectElement.getAnnotations())
             {
                 OrionAnnotation orionAnnotation = new OrionAnnotation(annotation.annotationType().getName(), null, null, null);
                 annotationsList.add(orionAnnotation);

@@ -7,7 +7,6 @@ import annotations.loading.AnnotationsLoaderService;
 import annotations.loading.impl.AnnotationsLoaderServiceImpl;
 import configuration.LibraryConfiguration;
 import configuration.OrionProperties;
-import filesystem.streams.FileSystemStreamsService;
 import filesystem.streams.impl.FileSystemStreamsServiceImpl;
 
 public class LoadLibraryAnnotationsDefinitionsTask extends AnnotationServiceObject implements AnnotationTask
@@ -18,8 +17,7 @@ public class LoadLibraryAnnotationsDefinitionsTask extends AnnotationServiceObje
         InputStream libraryAnnotationsFileStream = annotationsLoaderService.getAnnotationsDefinitionFileStream(libraryConfiguration.getAnnotationsDefinitionFilePath());
         OrionProperties annotationsDeclarations = new OrionProperties();
         annotationsDeclarations.loadProperties(libraryAnnotationsFileStream);
-        FileSystemStreamsService fileSystemStreamsService = new FileSystemStreamsServiceImpl();
-        fileSystemStreamsService.closeResource(libraryAnnotationsFileStream);
+        new FileSystemStreamsServiceImpl().closeResource(libraryAnnotationsFileStream);
         return annotationsDeclarations;
     }
 }

@@ -2,7 +2,6 @@ package annotations.gathering.impl.tasks;
 
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import annotations.AnnotationServiceObject;
 import annotations.AnnotationTask;
@@ -10,6 +9,7 @@ import annotations.AnnotationType;
 import annotations.OrionAnnotation;
 import annotations.filtering.AnnotationsFilteringService;
 import annotations.filtering.impl.AnnotationsFilteringServiceImpl;
+import reflection.constructors.retrieval.impl.ReflectionConstructorsRetrievalServiceImpl;
 
 public class GatherConstructorsAnnotationsFromObjectTask extends AnnotationServiceObject implements AnnotationTask
 {
@@ -17,10 +17,10 @@ public class GatherConstructorsAnnotationsFromObjectTask extends AnnotationServi
     {
         if(object != null)
         {
-            GatherObjectElementAnnotationsFromObjectTask gatherObjectElementAnnotationsFromObjectTask = new GatherObjectElementAnnotationsFromObjectTask();
-            Constructor<?>[] constructors = object.getClass().getDeclaredConstructors();
+            GatherInstanceElementAnnotationsFromObjectTask gatherInstanceElementAnnotationsFromObjectTask = new GatherInstanceElementAnnotationsFromObjectTask();
+            List<Constructor<?>> constructors = new ReflectionConstructorsRetrievalServiceImpl().getDeclaredConstructors(object);
             List<OrionAnnotation> allConstructorAnnotations = new ArrayList<OrionAnnotation>();
-            Arrays.stream(constructors).forEach(constructor -> allConstructorAnnotations.addAll(gatherObjectElementAnnotationsFromObjectTask.run(constructor)));
+            constructors.forEach(constructor -> allConstructorAnnotations.addAll(gatherInstanceElementAnnotationsFromObjectTask.run(constructor)));
             AnnotationsFilteringService annotationsFilteringService = new AnnotationsFilteringServiceImpl();
             //we filter the annotations, because if it finds a registered
             //annotation that matches
@@ -30,12 +30,7 @@ public class GatherConstructorsAnnotationsFromObjectTask extends AnnotationServi
             //Java/Spring/etc. annotations
             //in which case it is processed by the respective framework
             List<OrionAnnotation> registeredAnnotations = annotationsFilteringService.filterRegisteredAnnotationsFromObjectAnnotations(allConstructorAnnotations);
-            
-            for(OrionAnnotation annotation : registeredAnnotations)
-            {
-                annotationsFilteringService.addAnnotationTypeForObject(annotation, AnnotationType.CONSTRUCTOR);
-            }
-            
+            registeredAnnotations.forEach(orionAnnotation -> annotationsFilteringService.addAnnotationTypeForObject(orionAnnotation, AnnotationType.CONSTRUCTOR));
             return registeredAnnotations;
         }
         

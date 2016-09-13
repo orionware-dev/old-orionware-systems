@@ -1,6 +1,6 @@
 package annotations.registry.impl.tasks;
 
-import java.util.stream.Stream;
+import java.util.List;
 import annotations.AnnotationServiceObject;
 import annotations.AnnotationTask;
 import configuration.LibrariesConfiguration;
@@ -10,8 +10,8 @@ public class RegisterLibrariesAnnotationsTask extends AnnotationServiceObject im
 {
     public void run()
     {
-        Stream<LibraryConfiguration> notNullLibrariesConfigurationStream = new FilterNotNullLibrariesConfigurationTask().run(LibrariesConfiguration.getLibrariesConfiguration());
+        List<LibraryConfiguration> notNullLibrariesConfiguration = new FilterNotNullLibrariesConfigurationTask().run(LibrariesConfiguration.getLibrariesConfiguration());
         RegisterLibraryAnnotationsTask registerLibraryAnnotationsTask = new RegisterLibraryAnnotationsTask();
-        notNullLibrariesConfigurationStream.forEach(libraryConfiguration -> registerLibraryAnnotationsTask.run(libraryConfiguration));
+        notNullLibrariesConfiguration.forEach(libraryConfiguration -> registerLibraryAnnotationsTask.run(libraryConfiguration));
     }
 }

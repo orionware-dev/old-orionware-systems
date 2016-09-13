@@ -16,7 +16,7 @@ public class RegisterLibraryAnnotationsTask extends AnnotationServiceObject impl
 
     public void run(LibraryConfiguration libraryConfiguration)
     {
-        annotationsDeclarations = new LoadLibraryAnnotationsDefinitionsTask().run(libraryConfiguration);
+        this.annotationsDeclarations = new LoadLibraryAnnotationsDefinitionsTask().run(libraryConfiguration);
 
         if(annotationsDeclarations.isNotEmpty())
         {
@@ -56,7 +56,7 @@ public class RegisterLibraryAnnotationsTask extends AnnotationServiceObject impl
         sb1.append(libraryName);
         sb1.append(".annotation.");
         sb1.append(annotationCounter);
-        currentAnnotationClass = annotationsDeclarations.getProp(sb1.toString());
+        this.currentAnnotationClass = annotationsDeclarations.getProp(sb1.toString());
     }
 
 
@@ -66,7 +66,7 @@ public class RegisterLibraryAnnotationsTask extends AnnotationServiceObject impl
         sb2.append(libraryName);
         sb2.append(".annotation.service.");
         sb2.append(annotationCounter);
-        currentAnnotationServiceClass = annotationsDeclarations.getProp(sb2.toString());
+        this.currentAnnotationServiceClass = annotationsDeclarations.getProp(sb2.toString());
     }
 
 
@@ -76,7 +76,7 @@ public class RegisterLibraryAnnotationsTask extends AnnotationServiceObject impl
         sb3.append(libraryName);
         sb3.append(".annotation.service.processing.method.");
         sb3.append(annotationCounter);
-        currentAnnotationServiceMethodToCall = annotationsDeclarations.getProp(sb3.toString());
+        this.currentAnnotationServiceMethodToCall = annotationsDeclarations.getProp(sb3.toString());
     }
 
 
