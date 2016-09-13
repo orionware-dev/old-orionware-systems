@@ -1,5 +1,6 @@
 package designpatterns.configuration;
 
+import java.util.ArrayList;
 import java.util.List;
 import core.OrionSimpleObject;
 import core.abstraction.OrionConfiguration;
@@ -7,6 +8,12 @@ import core.abstraction.OrionConfiguration;
 public class PipelineConfiguration extends OrionSimpleObject implements OrionConfiguration
 {
     private List<String> allowedClassesNames;
+
+
+    public PipelineConfiguration()
+    {
+        this.allowedClassesNames = new ArrayList<String>();
+    }
 
 
     public List<String> getAllowedClassesNames()

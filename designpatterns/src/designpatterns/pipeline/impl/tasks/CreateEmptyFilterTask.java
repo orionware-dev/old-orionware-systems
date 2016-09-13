@@ -7,12 +7,6 @@ import designpatterns.pipeline.filter.Filter;
 
 public class CreateEmptyFilterTask extends DesignPatternsObject implements DesignPatternsTask
 {
-    public CreateEmptyFilterTask()
-    {
-        
-    }
-    
-    
     public AbstractFilter run()
     {
         return new Filter();

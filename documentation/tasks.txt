@@ -1,6 +1,4 @@
-﻿--in reflection, create a way to return any required combination of methods/constructors/fields
-
---see if I can convert some of the code to annotations
+﻿--see if I can convert some of the code to annotations
 
 --see how I can apply all object annotations in one go without
 having to gather all annotations again and again

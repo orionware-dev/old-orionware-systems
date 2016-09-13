@@ -8,9 +8,9 @@ public interface PipelineFilterService extends DesignPatternsService
 
 
     public AbstractFilter createFilter(Object function, String methodToRun, Object... functionParameters);
-    
-    
-    public AbstractFilter isCustomFunction(AbstractFilter filter);
+
+
+    public AbstractFilter setIsCustomFunction(AbstractFilter filter);
 
 
     public Object executeFilter(AbstractFilter filter, Object functionInput);

@@ -18,6 +18,7 @@ public class RegisterPipelineConfigurationTask extends OrionSimpleObject impleme
     {
         OrionProperties pipelineProperties = new OrionProperties();
         pipelineProperties.loadProperties(pipelineConfigurationInput);
+        ConfigurationRegistry.loadProperties(pipelineProperties);
         List<String> allowedClassesNames = new ArrayList<String>();
         int index = 1;
         String defaultAllowedClass = (String)pipelineProperties.get("design.patterns.pipeline.filter.default.allowed.class." + index);
@@ -29,7 +30,6 @@ public class RegisterPipelineConfigurationTask extends OrionSimpleObject impleme
             defaultAllowedClass = (String)pipelineProperties.get("design.patterns.pipeline.filter.default.allowed.class." + index);
         }
 
-        ConfigurationRegistry.loadProperties(pipelineProperties);
         PipelineConfiguration pipelineConfiguration = new PipelineConfiguration();
         pipelineConfiguration.setAllowedClassesNames(allowedClassesNames);
         DesignPatternsLibraryConfiguration designPatternsLibraryConfiguration = new DesignPatternsLibraryConfiguration();

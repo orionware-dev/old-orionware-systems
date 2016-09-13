@@ -1,23 +1,18 @@
 package designpatterns.pipeline.impl.tasks;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import designpatterns.DesignPatternsObject;
 import designpatterns.DesignPatternsTask;
 import designpatterns.pipeline.AbstractFilter;
+import reflection.methods.access.impl.ReflectionMethodAccessServiceImpl;
+import reflection.methods.retrieval.impl.ReflectionMethodRetrievalServiceImpl;
 
 public class ExecuteFilterTask extends DesignPatternsObject implements DesignPatternsTask
 {
-    public ExecuteFilterTask()
-    {
-        
-    }
-    
-    
     public Object run(AbstractFilter filter, Object functionInput)
     {
         Class<?>[] classes = null;
-        
+
         if(functionInput != null)
         {
             filter.setFunctionParameters(new Object[]{functionInput});
@@ -33,15 +28,15 @@ public class ExecuteFilterTask extends DesignPatternsObject implements DesignPat
 
                 for(int i = 0; i < numberOfFunctionParameters; i++)
                 {
-                    //function is nonlambda and it requires the actual
-                    //class types to be passed to getDeclaredMethod()
+                    // function is nonlambda and it requires the actual
+                    // class types to be passed to getDeclaredMethod()
                     if(filter.isCustomFunction())
-                    {                        
+                    {
                         classes[i] = filter.getFunctionParameters()[i].getClass();
                     }
-                    //function is a lambda. If you use generics or Object
-                    //as lambda input parameter then Object.class has to be
-                    //passed as class type to getDeclaredMethod()
+                    // function is a lambda. If you use generics or Object
+                    // as lambda input parameter then Object.class has to be
+                    // passed as class type to getDeclaredMethod()
                     else
                     {
                         classes[i] = Object.class;
@@ -52,30 +47,20 @@ public class ExecuteFilterTask extends DesignPatternsObject implements DesignPat
 
         try
         {
-            Method method = filter.getFunctionClass().getDeclaredMethod(filter.getMethodToRun(), classes);
-            method.setAccessible(true);
+            Method method = new ReflectionMethodRetrievalServiceImpl()
+                                .getDeclaredMethod(filter.getMethodToRun(), filter.getFunctionClass(), classes);
+            ReflectionMethodAccessServiceImpl reflectionMethodAccessService = new ReflectionMethodAccessServiceImpl();
+            reflectionMethodAccessService.makeMethodAccessible(method);
 
             try
             {
-                Object functionResult = method.invoke(filter.getFunction(), filter.getFunctionParameters());
+                Object functionResult = reflectionMethodAccessService.callMethod(method, filter.getFunction(), filter.getFunctionParameters());
                 filter.setFunctionResult(functionResult);
-            }
-            catch(IllegalAccessException exception)
-            {
-                exception.printStackTrace();
             }
             catch(IllegalArgumentException exception)
             {
                 exception.printStackTrace();
             }
-            catch(InvocationTargetException exception)
-            {
-                exception.printStackTrace();
-            }
-        }
-        catch(NoSuchMethodException exception)
-        {
-            exception.printStackTrace();
         }
         catch(SecurityException exception)
         {

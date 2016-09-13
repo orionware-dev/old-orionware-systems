@@ -21,7 +21,8 @@ public class DesignPatternsObjectProcessorServiceImpl extends OrionSimpleObject 
     @Override
     public boolean registerPipelineConfiguration()
     {
-        InputStream input = new FileSystemStreamsServiceImpl().getFileStream(DesignPatternsInternalConfigurationEnumeration.PIPELINE_CONFIGURATION_FILE_PATH.get());
+        InputStream input = new FileSystemStreamsServiceImpl()
+                                .getFileStream(DesignPatternsInternalConfigurationEnumeration.PIPELINE_CONFIGURATION_FILE_PATH.get());
         return new RegisterPipelineConfigurationTask().run(input);
     }
 }
