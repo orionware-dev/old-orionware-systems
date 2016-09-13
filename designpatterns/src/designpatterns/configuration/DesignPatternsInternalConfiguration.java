@@ -1,6 +1,5 @@
 package designpatterns.configuration;
 
-import java.util.Set;
 import datastructures.sets.factory.impl.SetFactoryServiceImpl;
 import datastructures.sets.impl.OrionConcurrentSet;
 import designpatterns.DesignPatternsConfiguration;
@@ -11,7 +10,6 @@ public class DesignPatternsInternalConfiguration implements DesignPatternsConfig
     private static OrionConcurrentSet<DesignPatternsLibraryConfiguration> designPatternsConfiguration;
     private static PipelineConfiguration pipelineConfiguration;
 
-    
     static
     {
         haveDesignPatternsConfigurationNotBeenRegistered = true;
@@ -19,7 +17,7 @@ public class DesignPatternsInternalConfiguration implements DesignPatternsConfig
     }
 
 
-    public static Set<DesignPatternsLibraryConfiguration> getDesignPatternsConfiguration()
+    public static OrionConcurrentSet<DesignPatternsLibraryConfiguration> getDesignPatternsConfiguration()
     {
         return designPatternsConfiguration;
     }

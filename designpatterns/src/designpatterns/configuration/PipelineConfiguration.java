@@ -1,28 +1,28 @@
 package designpatterns.configuration;
 
-import java.util.ArrayList;
-import java.util.List;
 import core.OrionSimpleObject;
 import core.abstraction.OrionConfiguration;
+import datastructures.lists.OrionList;
+import datastructures.lists.impl.OrionArrayList;
 
 public class PipelineConfiguration extends OrionSimpleObject implements OrionConfiguration
 {
-    private List<String> allowedClassesNames;
+    private OrionList<String> allowedClassesNames;
 
 
     public PipelineConfiguration()
     {
-        this.allowedClassesNames = new ArrayList<String>();
+        this.allowedClassesNames = new OrionArrayList<String>();
     }
 
 
-    public List<String> getAllowedClassesNames()
+    public OrionList<String> getAllowedClassesNames()
     {
         return this.allowedClassesNames;
     }
 
 
-    public void setAllowedClassesNames(List<String> allowedClassesNames)
+    public void setAllowedClassesNames(OrionList<String> allowedClassesNames)
     {
         this.allowedClassesNames = allowedClassesNames;
     }

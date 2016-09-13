@@ -1,6 +1,6 @@
 package designpatterns.pipeline.impl.tasks;
 
-import java.util.List;
+import datastructures.lists.OrionList;
 import designpatterns.DesignPatternsObject;
 import designpatterns.DesignPatternsTask;
 import designpatterns.configuration.DesignPatternsInternalConfiguration;
@@ -10,7 +10,7 @@ public class SetIsCustomFunctionTask extends DesignPatternsObject implements Des
 {
     public AbstractFilter run(AbstractFilter filter)
     {
-        List<String> allowedClassesNames = DesignPatternsInternalConfiguration.getPipelineConfiguration().getAllowedClassesNames();
+        OrionList<String> allowedClassesNames = DesignPatternsInternalConfiguration.getPipelineConfiguration().getAllowedClassesNames();
         boolean defaultFunctionClassFound = true;
 
         for(String allowedClassName : allowedClassesNames)

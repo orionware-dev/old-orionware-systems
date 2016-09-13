@@ -8,7 +8,6 @@ import designpatterns.DesignPatternsObject;
 import designpatterns.DesignPatternsTask;
 import designpatterns.annotations.EmptyPipeline;
 import designpatterns.pipeline.AbstractPipeline;
-import designpatterns.pipeline.PipelineService;
 import designpatterns.pipeline.impl.PipelineServiceImpl;
 import reflection.methods.access.ReflectionMethodAccessService;
 import reflection.methods.access.impl.ReflectionMethodAccessServiceImpl;
@@ -16,7 +15,6 @@ import reflection.methods.retrieval.impl.ReflectionMethodsRetrievalServiceImpl;
 
 public class ProcessEmptyPipelineAnnotationTask extends DesignPatternsObject implements DesignPatternsTask
 {
-    private PipelineService pipelineService;
     private ReflectionMethodAccessService reflectionMethodAccessService;
     private AnnotationsGatheringService annotationsGatheringService;
     private Object object;
@@ -24,7 +22,6 @@ public class ProcessEmptyPipelineAnnotationTask extends DesignPatternsObject imp
 
     public ProcessEmptyPipelineAnnotationTask()
     {
-        this.pipelineService = new PipelineServiceImpl();
         this.reflectionMethodAccessService = new ReflectionMethodAccessServiceImpl();
         this.annotationsGatheringService = new AnnotationsGatheringServiceImpl();
     }
@@ -46,7 +43,7 @@ public class ProcessEmptyPipelineAnnotationTask extends DesignPatternsObject imp
         if(emptyPipelineAnnotation != null)
         {
             boolean feedForwardTheResult = emptyPipelineAnnotation.feedForwardTheResult();
-            AbstractPipeline emptyPipeline = pipelineService.createEmptyPipeline(feedForwardTheResult);
+            AbstractPipeline emptyPipeline = new PipelineServiceImpl().createEmptyPipeline(feedForwardTheResult);
             reflectionMethodAccessService.callMethod(method, object, emptyPipeline);
         }
     }

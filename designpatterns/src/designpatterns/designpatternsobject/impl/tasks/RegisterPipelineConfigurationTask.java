@@ -1,11 +1,11 @@
 package designpatterns.designpatternsobject.impl.tasks;
 
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
 import configuration.OrionProperties;
 import configuration.registry.ConfigurationRegistry;
 import core.OrionSimpleObject;
+import datastructures.lists.OrionList;
+import datastructures.lists.impl.OrionArrayList;
 import designpatterns.DesignPatternsTask;
 import designpatterns.configuration.DesignPatternsInternalConfiguration;
 import designpatterns.configuration.DesignPatternsLibraryConfiguration;
@@ -19,7 +19,7 @@ public class RegisterPipelineConfigurationTask extends OrionSimpleObject impleme
         OrionProperties pipelineProperties = new OrionProperties();
         pipelineProperties.loadProperties(pipelineConfigurationInput);
         ConfigurationRegistry.loadProperties(pipelineProperties);
-        List<String> allowedClassesNames = new ArrayList<String>();
+        OrionList<String> allowedClassesNames = new OrionArrayList<String>();
         int index = 1;
         String defaultAllowedClass = (String)pipelineProperties.get("design.patterns.pipeline.filter.default.allowed.class." + index);
 

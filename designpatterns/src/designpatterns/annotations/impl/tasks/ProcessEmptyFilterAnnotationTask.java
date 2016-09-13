@@ -8,7 +8,6 @@ import designpatterns.DesignPatternsObject;
 import designpatterns.DesignPatternsTask;
 import designpatterns.annotations.EmptyFilter;
 import designpatterns.pipeline.AbstractFilter;
-import designpatterns.pipeline.PipelineFilterService;
 import designpatterns.pipeline.impl.PipelineFilterServiceImpl;
 import reflection.methods.access.ReflectionMethodAccessService;
 import reflection.methods.access.impl.ReflectionMethodAccessServiceImpl;
@@ -16,7 +15,6 @@ import reflection.methods.retrieval.impl.ReflectionMethodsRetrievalServiceImpl;
 
 public class ProcessEmptyFilterAnnotationTask extends DesignPatternsObject implements DesignPatternsTask
 {
-    private PipelineFilterService pipelineFilterService;
     private ReflectionMethodAccessService reflectionMethodAccessService;
     private AnnotationsGatheringService annotationsGatheringService;
     private Object object;
@@ -24,7 +22,6 @@ public class ProcessEmptyFilterAnnotationTask extends DesignPatternsObject imple
 
     public ProcessEmptyFilterAnnotationTask()
     {
-        this.pipelineFilterService = new PipelineFilterServiceImpl();
         this.reflectionMethodAccessService = new ReflectionMethodAccessServiceImpl();
         this.annotationsGatheringService = new AnnotationsGatheringServiceImpl();
     }
@@ -45,7 +42,7 @@ public class ProcessEmptyFilterAnnotationTask extends DesignPatternsObject imple
 
         if(emptyFilterAnnotation != null)
         {
-            AbstractFilter emptyFilter = pipelineFilterService.createEmptyFilter();
+            AbstractFilter emptyFilter = new PipelineFilterServiceImpl().createEmptyFilter();
             reflectionMethodAccessService.callMethod(method, object, emptyFilter);
         }
     }
