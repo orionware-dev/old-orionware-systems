@@ -5,6 +5,7 @@ having to gather all annotations again and again
 and get methods as array again and again
 
 --create the Orion Web Platform
+
 --create my own OrionWebContextLoaderListener.java that implements
 ServletContextListener. Then, in contextInitialised() put code that
 creates a global web application context and registers the
