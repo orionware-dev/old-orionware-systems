@@ -8,6 +8,5 @@ public abstract class DataStructuresObject extends OrionObject
     public DataStructuresObject()
     {
         registerLibraryConfiguration(DataStructuresConfigurationEnumeration.class.getName());
-        processAllLibrariesConfiguration();
     }
 }

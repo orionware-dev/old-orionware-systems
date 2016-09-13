@@ -10,7 +10,6 @@ public abstract class DesignPatternsObject extends OrionObject
     public DesignPatternsObject()
     {
         registerLibraryConfiguration(DesignPatternsConfigurationEnumeration.class.getName());
-        processAllLibrariesConfiguration();
         boolean haveDesignPatternsConfigurationBeenRegistered = new DesignPatternsObjectProcessorServiceImpl().registerDesignPatternsConfiguration();
         DesignPatternsInternalConfiguration.haveDesignPatternsConfigurationNotBeenRegistered = haveDesignPatternsConfigurationBeenRegistered;
     }

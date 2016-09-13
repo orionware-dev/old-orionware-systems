@@ -24,14 +24,9 @@ public abstract class OrionObject extends OrionSimpleObject
     protected void registerLibraryConfiguration(String libraryConfigurationEnumerationClassPath)
     {
         orionObjectProcessorService.registerLibraryConfiguration(libraryConfigurationEnumerationClassPath);
-    }
-
-
-    //If a library other than the core is running like datastructures,
-    //then this method is called so that all the libraries configs are loaded
-    //in one go
-    protected void processAllLibrariesConfiguration()
-    {
+        //If a library other than the core is running like datastructures,
+        //then this method is called so that all the libraries configs are loaded
+        //in one go
         orionObjectProcessorService.processAllLibrariesConfiguration(this);
     }
 }
