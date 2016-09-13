@@ -10,14 +10,15 @@ public class AreObjectsNotNullTask extends ReflectionObject implements Reflectio
     {
         if(objects.length > 0)
         {
-            long numberOfNotNullObjects = Arrays.stream(objects).filter(object -> object == null).count();
-            
+            IsObjectNullTask isObjectNullTask = new IsObjectNullTask();
+            long numberOfNotNullObjects = Arrays.stream(objects).filter(object -> isObjectNullTask.run(object)).count();
+
             if(numberOfNotNullObjects == 0)
             {
                 return true;
             }
         }
-        
+
         return false;
     }
 }

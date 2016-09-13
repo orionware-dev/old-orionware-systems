@@ -9,27 +9,16 @@ import datastructures.sets.impl.OrionConcurrentSet;
 
 public class SetFactoryServiceImpl<T> extends DataStructuresObject implements SetFactoryService<T>
 {
-    private CreateEmptyHashSetTask<T> createEmptyHashSetTask;
-    private CreateEmptyConcurrentHashSetTask<T> createEmptyConcurrentHashSetTask;
-    
-    
-    public SetFactoryServiceImpl()
-    {
-        this.createEmptyHashSetTask = new CreateEmptyHashSetTask<T>();
-        this.createEmptyConcurrentHashSetTask = new CreateEmptyConcurrentHashSetTask<T>();
-    }
-    
-    
     @Override
     public OrionSet<T> createEmptyHashSet()
     {
-        return createEmptyHashSetTask.run();
+        return new CreateEmptyHashSetTask<T>().run();
     }
-    
-    
+
+
     @Override
     public OrionConcurrentSet<T> createEmptyConcurrentHashSet()
     {
-        return createEmptyConcurrentHashSetTask.run();
+        return new CreateEmptyConcurrentHashSetTask<T>().run();
     }
 }

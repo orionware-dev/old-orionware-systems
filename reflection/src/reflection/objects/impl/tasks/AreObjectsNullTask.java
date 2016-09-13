@@ -10,14 +10,15 @@ public class AreObjectsNullTask extends ReflectionObject implements ReflectionTa
     {
         if(objects.length > 0)
         {
-            long numberOfNullObjects = Arrays.stream(objects).filter(object -> object != null).count();
-            
+            IsObjectNotNullTask isObjectNotNullTask = new IsObjectNotNullTask();
+            long numberOfNullObjects = Arrays.stream(objects).filter(object -> isObjectNotNullTask.run(object)).count();
+
             if(numberOfNullObjects == 0)
             {
                 return true;
             }
         }
-        
+
         return false;
     }
 }

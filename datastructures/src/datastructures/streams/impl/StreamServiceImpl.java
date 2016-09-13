@@ -8,18 +8,9 @@ import datastructures.streams.impl.tasks.ForEachTask;
 
 public class StreamServiceImpl<T> extends DataStructuresObject implements StreamService<T>
 {
-    private ForEachTask<T> forEachTask;
-    
-    
-    public StreamServiceImpl()
-    {
-        this.forEachTask = new ForEachTask<T>();
-    }
-    
-    
     @Override
     public void forEach(Stream<T> stream, Consumer<?> action)
     {
-        forEachTask.run(stream, action);
+        new ForEachTask<T>().run(stream, action);
     }
 }

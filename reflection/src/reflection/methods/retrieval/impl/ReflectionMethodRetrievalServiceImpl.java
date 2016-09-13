@@ -3,8 +3,12 @@ package reflection.methods.retrieval.impl;
 import java.lang.reflect.Method;
 import reflection.ReflectionServiceObject;
 import reflection.methods.retrieval.ReflectionMethodRetrievalService;
+import reflection.methods.retrieval.impl.tasks.GetDeclaredDefaultMethodTask;
 import reflection.methods.retrieval.impl.tasks.GetDeclaredMethodTask;
+import reflection.methods.retrieval.impl.tasks.GetDeclaredProtectedMethodTask;
+import reflection.methods.retrieval.impl.tasks.GetDeclaredPublicMethodTask;
 import reflection.methods.retrieval.impl.tasks.GetInherittedMethodTask;
+import reflection.methods.retrieval.impl.tasks.GetPrivateMethodTask;
 import reflection.methods.retrieval.impl.tasks.IsDefaultMethodTask;
 import reflection.methods.retrieval.impl.tasks.IsPrivateMethodTask;
 import reflection.methods.retrieval.impl.tasks.IsProtectedMethodTask;
@@ -29,112 +33,56 @@ public class ReflectionMethodRetrievalServiceImpl extends ReflectionServiceObjec
     @Override
     public Method getPrivateMethod(String methodName, Object object, Class<?>... methodParameterTypes)
     {
-        Method method = new GetDeclaredMethodTask().run(methodName, object.getClass(), methodParameterTypes);
-
-        if(isPrivateMethod(method))
-        {
-            return method;
-        }
-
-        return null;
+        return new GetPrivateMethodTask().run(methodName, object, methodParameterTypes);
     }
 
 
     @Override
     public Method getPrivateMethod(String methodName, Class<?> aClass, Class<?>... methodParameterTypes)
     {
-        Method method = new GetDeclaredMethodTask().run(methodName, aClass, methodParameterTypes);
-
-        if(isPrivateMethod(method))
-        {
-            return method;
-        }
-
-        return null;
+        return new GetPrivateMethodTask().run(methodName, aClass, methodParameterTypes);
     }
 
 
     @Override
     public Method getDeclaredDefaultMethod(String methodName, Object object, Class<?>... methodParameterTypes)
     {
-        Method method = new GetDeclaredMethodTask().run(methodName, object.getClass(), methodParameterTypes);
-
-        if(isDefaultMethod(method))
-        {
-            return method;
-        }
-
-        return null;
+        return new GetDeclaredDefaultMethodTask().run(methodName, object, methodParameterTypes);
     }
 
 
     @Override
     public Method getDeclaredDefaultMethod(String methodName, Class<?> aClass, Class<?>... methodParameterTypes)
     {
-        Method method = new GetDeclaredMethodTask().run(methodName, aClass, methodParameterTypes);
-
-        if(isDefaultMethod(method))
-        {
-            return method;
-        }
-
-        return null;
+        return new GetDeclaredDefaultMethodTask().run(methodName, aClass, methodParameterTypes);
     }
 
 
     @Override
     public Method getDeclaredPublicMethod(String methodName, Object object, Class<?>... methodParameterTypes)
     {
-        Method method = new GetDeclaredMethodTask().run(methodName, object.getClass(), methodParameterTypes);
-
-        if(isPublicMethod(method))
-        {
-            return method;
-        }
-
-        return null;
+        return new GetDeclaredPublicMethodTask().run(methodName, object, methodParameterTypes);
     }
 
 
     @Override
     public Method getDeclaredPublicMethod(String methodName, Class<?> aClass, Class<?>... methodParameterTypes)
     {
-        Method method = new GetDeclaredMethodTask().run(methodName, aClass, methodParameterTypes);
-
-        if(isPublicMethod(method))
-        {
-            return method;
-        }
-
-        return null;
+        return new GetDeclaredPublicMethodTask().run(methodName, aClass, methodParameterTypes);
     }
 
 
     @Override
     public Method getDeclaredProtectedMethod(String methodName, Object object, Class<?>... methodParameterTypes)
     {
-        Method method = new GetDeclaredMethodTask().run(methodName, object.getClass(), methodParameterTypes);
-
-        if(isProtectedMethod(method))
-        {
-            return method;
-        }
-
-        return null;
+        return new GetDeclaredProtectedMethodTask().run(methodName, object, methodParameterTypes);
     }
 
 
     @Override
     public Method getDeclaredProtectedMethod(String methodName, Class<?> aClass, Class<?>... methodParameterTypes)
     {
-        Method method = new GetDeclaredMethodTask().run(methodName, aClass, methodParameterTypes);
-
-        if(isProtectedMethod(method))
-        {
-            return method;
-        }
-
-        return null;
+        return new GetDeclaredProtectedMethodTask().run(methodName, aClass, methodParameterTypes);
     }
 
 
