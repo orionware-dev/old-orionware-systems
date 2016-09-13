@@ -1,7 +1,7 @@
-dependencyinjection.annotation.1=dependencyinjection.annotations.Injector
+dependencyinjection.annotation.1=dependencyinjection.annotation.Injector
 dependencyinjection.annotation.service.1=dependencyinjection.processing.impl.DependencyInjectorServiceImpl
 dependencyinjection.annotation.service.processing.method.1=processDependencies
 
-dependencyinjection.annotation.2=dependencyinjection.annotations.InjectorImpl
+dependencyinjection.annotation.2=dependencyinjection.annotation.InjectorImpl
 dependencyinjection.annotation.service.2=dependencyinjection.processing.impl.DependencyInjectorImplServiceImpl
 dependencyinjection.annotation.service.processing.method.2=processDependencies

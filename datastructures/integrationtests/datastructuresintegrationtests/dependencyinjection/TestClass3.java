@@ -1,7 +1,7 @@
 package datastructuresintegrationtests.dependencyinjection;
 
 import datastructures.DataStructuresObject;
-import dependencyinjection.annotations.InjectorImpl;
+import dependencyinjection.annotation.InjectorImpl;
 
 public class TestClass3 extends DataStructuresObject
 {

@@ -5,7 +5,7 @@ import annotations.gathering.AnnotationsGatheringService;
 import annotations.gathering.impl.AnnotationsGatheringServiceImpl;
 import dependencyinjection.DependencyInjectionObject;
 import dependencyinjection.DependencyInjectionTask;
-import dependencyinjection.annotations.Injector;
+import dependencyinjection.annotation.Injector;
 import reflection.classes.ReflectionClassesService;
 import reflection.classes.impl.ReflectionClassesServiceImpl;
 import reflection.methods.access.ReflectionMethodAccessService;

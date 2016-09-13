@@ -1,6 +1,6 @@
 package designpatternsintegrationtests.dependencyinjection;
 
-import dependencyinjection.annotations.Injector;
+import dependencyinjection.annotation.Injector;
 import designpatterns.DesignPatternsObject;
 
 public class TestClass1 extends DesignPatternsObject

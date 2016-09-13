@@ -6,7 +6,7 @@ import annotations.gathering.AnnotationsGatheringService;
 import annotations.gathering.impl.AnnotationsGatheringServiceImpl;
 import designpatterns.DesignPatternsObject;
 import designpatterns.DesignPatternsTask;
-import designpatterns.annotations.EmptyPipeline;
+import designpatterns.annotation.EmptyPipeline;
 import designpatterns.pipeline.AbstractPipeline;
 import designpatterns.pipeline.impl.PipelineServiceImpl;
 import reflection.methods.access.ReflectionMethodAccessService;

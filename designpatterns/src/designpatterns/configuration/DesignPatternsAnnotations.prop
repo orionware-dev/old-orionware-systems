@@ -1,7 +1,7 @@
-designpatterns.annotation.1=designpatterns.annotations.EmptyFilter
+designpatterns.annotation.1=designpatterns.annotation.EmptyFilter
 designpatterns.annotation.service.1=designpatterns.annotations.impl.EmptyFilterAnnotationServiceImpl
 designpatterns.annotation.service.processing.method.1=processEmptyFilterAnnotation
 
-designpatterns.annotation.2=designpatterns.annotations.EmptyPipeline
+designpatterns.annotation.2=designpatterns.annotation.EmptyPipeline
 designpatterns.annotation.service.2=designpatterns.annotations.impl.EmptyPipelineAnnotationServiceImpl
 designpatterns.annotation.service.processing.method.2=processEmptyPipelineAnnotation
