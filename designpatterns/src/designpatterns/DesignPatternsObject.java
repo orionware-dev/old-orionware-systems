@@ -3,7 +3,7 @@ package designpatterns;
 import core.objects.OrionObject;
 import designpatterns.configuration.DesignPatternsConfigurationEnumeration;
 import designpatterns.configuration.DesignPatternsInternalConfiguration;
-import designpatterns.services.designpatternsobject.impl.DesignPatternsObjectProcessorServiceImpl;
+import designpatterns.designpatternsobject.impl.DesignPatternsObjectProcessorServiceImpl;
 
 public abstract class DesignPatternsObject extends OrionObject
 {

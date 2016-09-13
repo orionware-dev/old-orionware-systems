@@ -1,8 +1,8 @@
 package core.objects;
 
 import core.OrionSimpleObject;
-import core.objects.services.orionobject.OrionObjectProcessorService;
-import core.objects.services.orionobject.impl.OrionObjectProcessorServiceImpl;
+import core.objects.orionobject.OrionObjectProcessorService;
+import core.objects.orionobject.impl.OrionObjectProcessorServiceImpl;
 
 public abstract class OrionObject extends OrionSimpleObject
 {

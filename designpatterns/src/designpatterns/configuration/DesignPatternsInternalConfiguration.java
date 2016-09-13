@@ -1,8 +1,7 @@
 package designpatterns.configuration;
 
 import java.util.Set;
-import datastructures.services.sets.factory.SetFactoryService;
-import datastructures.services.sets.factory.impl.SetFactoryServiceImpl;
+import datastructures.sets.factory.impl.SetFactoryServiceImpl;
 import datastructures.sets.impl.OrionConcurrentSet;
 import designpatterns.DesignPatternsConfiguration;
 
@@ -11,20 +10,12 @@ public class DesignPatternsInternalConfiguration implements DesignPatternsConfig
     public static boolean haveDesignPatternsConfigurationNotBeenRegistered;
     private static OrionConcurrentSet<DesignPatternsLibraryConfiguration> designPatternsConfiguration;
     private static PipelineConfiguration pipelineConfiguration;
-    private SetFactoryService<DesignPatternsLibraryConfiguration> setFactoryService;
-    
-    
-    public DesignPatternsInternalConfiguration()
-    {
-        setFactoryService = new SetFactoryServiceImpl<DesignPatternsLibraryConfiguration>();
-    }
 
     
     static
     {
         haveDesignPatternsConfigurationNotBeenRegistered = true;
-        DesignPatternsInternalConfiguration temp = new DesignPatternsInternalConfiguration();
-        designPatternsConfiguration = temp.setFactoryService.createEmptyConcurrentHashSet();
+        designPatternsConfiguration = new SetFactoryServiceImpl<DesignPatternsLibraryConfiguration>().createEmptyConcurrentHashSet();
     }
 
 

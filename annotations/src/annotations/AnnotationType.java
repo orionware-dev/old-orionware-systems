@@ -7,7 +7,8 @@ public enum AnnotationType implements OrionEnumeration
     CLASS,
     INSTANCE_VARIABLE,
     CONSTRUCTOR,
-    METHOD;
+    METHOD,
+    METHOD_PARAMETER;
 
 
     @Override
