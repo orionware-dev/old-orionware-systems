@@ -5,7 +5,6 @@ import java.lang.reflect.Method;
 import java.util.List;
 import dependencyinjection.DependencyInjectionObject;
 import dependencyinjection.DependencyInjectionTask;
-import reflection.instancevariables.retrieval.ReflectionInstanceVariablesRetrievalService;
 import reflection.instancevariables.retrieval.impl.ReflectionInstanceVariablesRetrievalServiceImpl;
 import reflection.methods.retrieval.impl.ReflectionMethodsRetrievalServiceImpl;
 
@@ -15,9 +14,8 @@ public class ProcessDependenciesTask extends DependencyInjectionObject implement
     {
         ProcessMethodForInjectionTask processMethodForInjectionTask = new ProcessMethodForInjectionTask();
         ProcessInstanceVariableForInjectionTask processInstanceVariableForInjectionTask = new ProcessInstanceVariableForInjectionTask();
-        ReflectionInstanceVariablesRetrievalService reflectionInstanceVariablesRetrievalService = new ReflectionInstanceVariablesRetrievalServiceImpl();
 
-        List<Field> fields = reflectionInstanceVariablesRetrievalService.getDeclaredInstanceVariables(object);
+        List<Field> fields = new ReflectionInstanceVariablesRetrievalServiceImpl().getDeclaredInstanceVariables(object);
         fields.forEach(field -> processInstanceVariableForInjectionTask.run(object, field));
         List<Method> methods = new ReflectionMethodsRetrievalServiceImpl().getDeclaredMethods(object);
         methods.forEach(method -> processMethodForInjectionTask.run(object, method));

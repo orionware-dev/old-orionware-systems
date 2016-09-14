@@ -20,7 +20,9 @@ public class PipelineTest extends DesignPatternsObject
 {
     private PipelineFilterService pipelineFilterService;
     private PipelineService pipelineService;
+    @EmptyFilter
     private AbstractFilter emptyFilter;
+    @EmptyPipeline(feedForwardTheResult = true)
     private AbstractPipeline emptyPipeline;
 
 
@@ -131,7 +133,7 @@ public class PipelineTest extends DesignPatternsObject
     }
 
 
-    @EmptyFilter
+    /*@EmptyFilter
     private void setEmptyFilter(AbstractFilter emptyFilter)
     {
         this.emptyFilter = emptyFilter;
@@ -142,5 +144,5 @@ public class PipelineTest extends DesignPatternsObject
     private void setEmptyPipeline(AbstractPipeline emptyPipeline)
     {
         this.emptyPipeline = emptyPipeline;
-    }
+    }*/
 }
