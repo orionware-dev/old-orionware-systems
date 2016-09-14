@@ -35,11 +35,13 @@
             URIEncoding="UTF-8" useIPVHosts="false" xpoweredBy="false"
             acceptorThreadPriority="5" connectionLinger="-1" executorTerminationTimeoutMillis="5000"
             keepAliveTimeout="20000" maxCookieCount="-1" maxExtensionSize="-1"
-            maxKeepAliveRequests="-1"/>
+            maxKeepAliveRequests="-1" maxSwallowSize="-1" maxTrailerSize="-1"
+            minSpareThreads="10" processorCache="200" tcpNoDelay="true"
+            threadPriority="5" selectorTimeout="1000" useSendfile="true"/>
             
-        <Connector port="8443" protocol="HTTP/1.1" maxThreads="100" executor="tomcatThreadPool"
+        <Connector port="8443" protocol="HTTP/1.1" executor="tomcatThreadPool"
             scheme="https" secure="true" SSLEnabled="true"
-            SSLVerifyClient="false" sslEnabledProtocols="TLSv1, TLSv1.1 TLSv1.2"
+            SSLVerifyClient="false" defaultSSLHostConfigName="*.orionware.co"
             enableLookups="false" acceptCount="50" acceptorThreadCount="2"
             connectionUploadTimeout="300000" disableUploadTimeout="false"
             compression="on" maxConnections="10000"
@@ -51,11 +53,13 @@
             xpoweredBy="false" acceptorThreadPriority="5" connectionLinger="-1"
             connectionTimeout="20000" executorTerminationTimeoutMillis="5000"
             keepAliveTimeout="20000" maxCookieCount="-1" maxExtensionSize="-1"
-            maxKeepAliveRequests="-1">
+            maxKeepAliveRequests="-1" maxSwallowSize="-1" maxTrailerSize="-1"
+            minSpareThreads="10" processorCache="200" tcpNoDelay="true"
+            threadPriority="5" selectorTimeout="1000" useSendfile="true">
             
             <UpgradeProtocol className="org.apache.coyote.http2.Http2Protocol"/>
             
-            <SSLHostConfig>
+            <SSLHostConfig hostName="*.orionware.co" protocols="all">
                 <Certificate certificateKeyFile="conf/localhost-rsa-key.pem" certificateFile="conf/localhost-rsa-cert.pem"
                     certificateChainFile="conf/localhost-rsa-chain.pem" type="RSA"/>
             </SSLHostConfig>
