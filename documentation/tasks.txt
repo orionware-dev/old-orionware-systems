@@ -1,6 +1,13 @@
-﻿--see if I can convert some of the code to annotations
+﻿--make designpatterns.annotations.impl.tasks.ProcessEmptyFilterAnnotationTask
+use the dependency injector
 
---see how I can apply all object annotations in one go without
+--make EmptyFilter and EmptyPipeline annotations capable of
+been used in variables and not only on methods
+
+--see if I can convert some of the code to annotations
+
+--find a way to make annotations processing much much faster.
+See how I can apply all object annotations in one go without
 having to gather all annotations again and again
 and get methods as array again and again
 

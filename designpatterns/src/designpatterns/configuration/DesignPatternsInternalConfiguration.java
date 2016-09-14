@@ -3,8 +3,9 @@ package designpatterns.configuration;
 import datastructures.sets.factory.impl.SetFactoryServiceImpl;
 import datastructures.sets.impl.OrionConcurrentSet;
 import designpatterns.DesignPatternsConfiguration;
+import designpatterns.DesignPatternsObject;
 
-public class DesignPatternsInternalConfiguration implements DesignPatternsConfiguration
+public class DesignPatternsInternalConfiguration extends DesignPatternsObject implements DesignPatternsConfiguration
 {
     public static boolean haveDesignPatternsConfigurationNotBeenRegistered;
     private static OrionConcurrentSet<DesignPatternsLibraryConfiguration> designPatternsConfiguration;
