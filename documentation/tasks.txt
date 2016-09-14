@@ -1,7 +1,4 @@
-﻿--make designpatterns.annotations.impl.tasks.ProcessEmptyFilterAnnotationTask
-use the dependency injector
-
---make EmptyFilter and EmptyPipeline annotations capable of
+﻿--make EmptyFilter and EmptyPipeline annotations capable of
 been used in variables and not only on methods
 
 --see if I can convert some of the code to annotations
