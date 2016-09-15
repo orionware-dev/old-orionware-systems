@@ -7,6 +7,9 @@ import dependencyinjection.annotation.Injector;
 
 public class ProcessCustomInjectionForInstanceVariableTask extends DependencyInjectionObject implements DependencyInjectionTask
 {
+    private InjectClassToInstanceVariableTask injectClassToInstanceVariableTask = new InjectClassToInstanceVariableTask();
+    
+    
     public void run(Object object, Injector injection, Field instanceVariable)
     {
         if(injection != null)
@@ -18,7 +21,7 @@ public class ProcessCustomInjectionForInstanceVariableTask extends DependencyInj
                 classToInjectString = instanceVariable.getType().getName();
             }
             
-            new InjectClassToInstanceVariableTask().run(object, classToInjectString, instanceVariable);
+            injectClassToInstanceVariableTask.run(object, classToInjectString, instanceVariable);
         }
     }
 }

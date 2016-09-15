@@ -3,13 +3,17 @@ package dependencyinjection.processing.impl.tasks;
 import java.lang.reflect.Field;
 import dependencyinjection.DependencyInjectionObject;
 import dependencyinjection.DependencyInjectionTask;
+import reflection.instancevariables.access.ReflectionInstanceVariablesAccessService;
 import reflection.instancevariables.access.impl.ReflectionInstanceVariablesAccessServiceImpl;
 
 public class InjectObjectToInstanceVariableTask extends DependencyInjectionObject implements DependencyInjectionTask
 {
+    private ReflectionInstanceVariablesAccessService reflectionInstanceVariablesAccessService = new ReflectionInstanceVariablesAccessServiceImpl();
+    
+    
     public void run(Object object, Object objectToInject, Field instanceVariable)
     {
-        new ReflectionInstanceVariablesAccessServiceImpl().makeInstanceVariableAccessible(instanceVariable);
+        reflectionInstanceVariablesAccessService.makeInstanceVariableAccessible(instanceVariable);
 
         try
         {

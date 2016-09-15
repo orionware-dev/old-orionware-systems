@@ -7,10 +7,13 @@ import reflection.classes.impl.ReflectionClassesServiceImpl;
 
 public class InjectClassToInstanceVariableTask extends DependencyInjectionObject implements DependencyInjectionTask
 {
+    private InjectObjectToInstanceVariableTask injectObjectToInstanceVariableTask = new InjectObjectToInstanceVariableTask();
+    
+    
     public void run(Object object, Class<?> classToInject, Field instanceVariable)
     {
         Object objectToInject = new ReflectionClassesServiceImpl().instantiateClass(classToInject);
-        new InjectObjectToInstanceVariableTask().run(object, objectToInject, instanceVariable);
+        injectObjectToInstanceVariableTask.run(object, objectToInject, instanceVariable);
     }
     
     

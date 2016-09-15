@@ -1,6 +1,7 @@
 package dependencyinjection.processing.impl.tasks;
 
 import java.lang.reflect.Method;
+import annotations.gathering.AnnotationsGatheringService;
 import annotations.gathering.impl.AnnotationsGatheringServiceImpl;
 import dependencyinjection.DependencyInjectionObject;
 import dependencyinjection.DependencyInjectionTask;
@@ -16,15 +17,9 @@ public class ProcessMethodForInjectionImplTask extends DependencyInjectionObject
     private static final String IMPL_CLASS_NAME_SUFFIX = "Impl";
     private Object object;
     private Method method;
-    private ReflectionMethodAccessService reflectionMethodAccessService;
-    private ReflectionClassesService reflectionClassesService;
-
-
-    public ProcessMethodForInjectionImplTask()
-    {
-        this.reflectionMethodAccessService = new ReflectionMethodAccessServiceImpl();
-        this.reflectionClassesService = new ReflectionClassesServiceImpl();
-    }
+    private ReflectionMethodAccessService reflectionMethodAccessService = new ReflectionMethodAccessServiceImpl();
+    private ReflectionClassesService reflectionClassesService = new ReflectionClassesServiceImpl();
+    private static AnnotationsGatheringService annotationsGatheringServiceImpl = new AnnotationsGatheringServiceImpl();
 
 
     public void run(Object object, Method method)
@@ -32,7 +27,7 @@ public class ProcessMethodForInjectionImplTask extends DependencyInjectionObject
         this.object = object;
         this.method = method;
         reflectionMethodAccessService.makeMethodAccessible(method);
-        InjectorImpl injection = (InjectorImpl)new AnnotationsGatheringServiceImpl().extractAnnotationFromMethod(method, InjectorImpl.class);
+        InjectorImpl injection = (InjectorImpl)annotationsGatheringServiceImpl.extractAnnotationFromMethod(method, InjectorImpl.class);
         
         if(injection != null)
         {

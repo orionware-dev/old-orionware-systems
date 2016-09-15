@@ -7,10 +7,12 @@ import core.services.OrionTask;
 
 public class InitialiseConfigurationTask extends OrionSimpleObject implements OrionTask
 {
+    private GetEnumerationValueAndSetItToLibraryConfigurationTask getEnumerationValueAndSetItToLibraryConfigurationTask = new GetEnumerationValueAndSetItToLibraryConfigurationTask();
+    
+    
     @SuppressWarnings({"unchecked", "rawtypes"})
     public LibraryConfiguration run(String libraryConfigurationEnumerationClassPath, Enum[] configurationEnumerationValues)
     {
-        GetEnumerationValueAndSetItToLibraryConfigurationTask getEnumerationValueAndSetItToLibraryConfigurationTask = new GetEnumerationValueAndSetItToLibraryConfigurationTask();
         LibraryConfiguration libraryConfiguration = new LibraryConfiguration();
         
         try

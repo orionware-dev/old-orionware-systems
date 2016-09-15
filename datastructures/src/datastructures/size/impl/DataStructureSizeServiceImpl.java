@@ -10,6 +10,6 @@ public class DataStructureSizeServiceImpl<T1, T2, T3> extends DataStructuresObje
     @Override
     public int getSize(DataStructure dataStructure)
     {
-        return new GetSizeTask<T1, T2, T3>().run(dataStructure);
+        return GetSizeTask.run(dataStructure);
     }
 }

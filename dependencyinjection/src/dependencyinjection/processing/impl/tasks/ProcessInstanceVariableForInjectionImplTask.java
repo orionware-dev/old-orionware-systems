@@ -8,25 +8,21 @@ import dependencyinjection.DependencyInjectionTask;
 import dependencyinjection.annotation.InjectorImpl;
 import reflection.classes.ReflectionClassesService;
 import reflection.classes.impl.ReflectionClassesServiceImpl;
+import reflection.instancevariables.access.ReflectionInstanceVariablesAccessService;
 import reflection.instancevariables.access.impl.ReflectionInstanceVariablesAccessServiceImpl;
 
 public class ProcessInstanceVariableForInjectionImplTask extends DependencyInjectionObject implements DependencyInjectionTask
 {
     private static final String IMPL_PACKAGE = ".impl.";
     private static final String IMPL_CLASS_NAME_SUFFIX = "Impl";
-    private ReflectionClassesService reflectionClassesService;
-
-
-    public ProcessInstanceVariableForInjectionImplTask()
-    {
-        this.reflectionClassesService = new ReflectionClassesServiceImpl();
-    }
+    private ReflectionClassesService reflectionClassesService = new ReflectionClassesServiceImpl();
+    private ReflectionInstanceVariablesAccessService reflectionInstanceVariablesAccessService = new ReflectionInstanceVariablesAccessServiceImpl();
+    private static AnnotationsGatheringService annotationsGatheringService = new AnnotationsGatheringServiceImpl();;
 
 
     public void run(Object object, Field instanceVariable)
     {
-        new ReflectionInstanceVariablesAccessServiceImpl().makeInstanceVariableAccessible(instanceVariable);
-        AnnotationsGatheringService annotationsGatheringService = new AnnotationsGatheringServiceImpl();
+        reflectionInstanceVariablesAccessService.makeInstanceVariableAccessible(instanceVariable);
         InjectorImpl injection = (InjectorImpl)annotationsGatheringService.extractAnnotationFromInstanceVariable(instanceVariable, InjectorImpl.class);
 
         if(injection != null)

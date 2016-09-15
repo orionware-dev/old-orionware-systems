@@ -7,10 +7,13 @@ import reflection.classes.impl.ReflectionClassesServiceImpl;
 
 public class InjectClassToMethodTask extends DependencyInjectionObject implements DependencyInjectionTask
 {
+    private InjectObjectToMethodTask injectObjectToMethodTask = new InjectObjectToMethodTask();
+    
+    
     public void run(Object object, Class<?> classToInject, Method method)
     {
         Object objectToInject = new ReflectionClassesServiceImpl().instantiateClass(classToInject);
-        new InjectObjectToMethodTask().run(object, objectToInject, method);
+        injectObjectToMethodTask.run(object, objectToInject, method);
     }
     
     

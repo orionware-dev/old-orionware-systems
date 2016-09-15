@@ -7,12 +7,15 @@ import dependencyinjection.annotation.Injector;
 
 public class ProcessCustomInjectionForMethodTask extends DependencyInjectionObject implements DependencyInjectionTask
 {
+    private InjectClassToMethodTask injectClassToMethodTask = new InjectClassToMethodTask();
+    
+    
     public void run(Object object, Injector injection, Method method)
     {
         if(injection != null)
         {
             String classToInjectString = injection.ID();
-            new InjectClassToMethodTask().run(object, classToInjectString, method);
+            injectClassToMethodTask.run(object, classToInjectString, method);
         }
     }
 }
