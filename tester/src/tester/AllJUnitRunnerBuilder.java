@@ -1,5 +1,6 @@
 package tester;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.internal.builders.AllDefaultPossibilitiesBuilder;
@@ -17,7 +18,13 @@ public class AllJUnitRunnerBuilder extends AllDefaultPossibilitiesBuilder
     @Override
     public Runner runnerForClass(Class<?> testClass) throws Throwable
     {
-        List<RunnerBuilder> runnerBuilders = Arrays.asList(new JUnitRunnerBuilder(testClass), ignoredBuilder(), annotatedBuilder(), suiteMethodBuilder(), junit3Builder(), junit4Builder());
+        List<RunnerBuilder> runnerBuilders = new ArrayList<RunnerBuilder>();
+        runnerBuilders.add(new JUnitRunnerBuilder(testClass));
+        runnerBuilders.add(ignoredBuilder());
+        runnerBuilders.add(annotatedBuilder());
+        runnerBuilders.add(suiteMethodBuilder());
+        runnerBuilders.add(junit3Builder());
+        runnerBuilders.add(junit4Builder());
         
         for(RunnerBuilder runnerBuilder : runnerBuilders)
         {

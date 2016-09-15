@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="OrionComputationBuilder" default="all" basedir=".">
+    <property name="orion.computation.source.dir" value="${orion.computation.dir}/${default.source.dir.name}"/>
+
+    
+    <target name="all">
+        <buildAndPackageProject sourceDir="${orion.computation.source.dir}" binariesDir="${orion.computation.binaries.dir}" JARPath="${orion.orionware.libraries.libraries.dir}/${orion.computation.jar.file.name}" projectName="${orion.computation}"/>
+    </target>
+</project>

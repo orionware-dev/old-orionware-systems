@@ -4,12 +4,12 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import computation.annotation.Concurrency;
 import datastructures.lists.OrionList;
 import datastructures.lists.factory.ListFactoryService;
 import datastructures.lists.factory.impl.ListFactoryServiceImpl;
 import datastructures.size.DataStructureSizeService;
 import datastructures.size.impl.DataStructureSizeServiceImpl;
-import tester.Concurrency;
 import tester.ConcurrentJUnitRunner;
 
 @RunWith(ConcurrentJUnitRunner.class)

@@ -14,5 +14,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/reflection"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/filesystem"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/tester"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/computation"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

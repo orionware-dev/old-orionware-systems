@@ -1,8 +1,10 @@
-package tester;
+package computation.threads.impl.tasks;
 
-public class TestingUtilities
+import computation.annotation.Concurrency;
+
+public class GetNumberOfAvailableThreadsTask
 {
-    public static int getNumberOfThreadsToUse(final Class<?> aClass)
+    public static int run(final Class<?> aClass)
     {
         if(aClass.isAnnotationPresent(Concurrency.class))
         {

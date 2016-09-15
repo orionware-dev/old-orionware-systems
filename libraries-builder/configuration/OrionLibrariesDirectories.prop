@@ -49,6 +49,11 @@ orion.flow.dir=${orion.libraries.home.dir}/flow
 orion.flow.builder.dir=${orion.flow.dir}/build
 orion.flow.jar.file.name=OrionFlow_${orion.libraries.version}.jar
 
+orion.computation=Computation
+orion.computation.dir=${orion.libraries.home.dir}/computation
+orion.computation.builder.dir=${orion.computation.dir}/build
+orion.computation.jar.file.name=OrionComputation_${orion.libraries.version}.jar
+
 orion.data.structures=Data Structures
 orion.data.structures.dir=${orion.libraries.home.dir}/datastructures
 orion.data.structures.projects.dir=${orion.data.structures.dir}

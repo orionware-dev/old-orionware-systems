@@ -15,6 +15,7 @@
 	<property name="orion.annotations.binaries.dir" value="${orion.annotations.dir}/${default.binaries.dir.name}"/>
 	<property name="orion.dependency.injection.binaries.dir" value="${orion.dependency.injection.dir}/${default.binaries.dir.name}"/>
 	<property name="orion.flow.binaries.dir" value="${orion.flow.dir}/${default.binaries.dir.name}"/>
+	<property name="orion.computation.binaries.dir" value="${orion.computation.dir}/${default.binaries.dir.name}"/>
 	<property name="orion.data.structures.binaries.dir" value="${orion.data.structures.dir}/${default.binaries.dir.name}"/>
 	<property name="orion.design.patterns.binaries.dir" value="${orion.design.patterns.dir}/${default.binaries.dir.name}"/>
 
@@ -27,6 +28,7 @@
     	<emptyDirectory dir="${orion.annotations.binaries.dir}"/>
     	<emptyDirectory dir="${orion.dependency.injection.binaries.dir}"/>
     	<emptyDirectory dir="${orion.flow.binaries.dir}"/>
+    	<emptyDirectory dir="${orion.computation.binaries.dir}"/>
     	<emptyDirectory dir="${orion.data.structures.binaries.dir}"/>
     	<emptyDirectory dir="${orion.design.patterns.binaries.dir}"/>
     	        
@@ -38,6 +40,7 @@
         <callAnt file="${orion.annotations.builder.dir}/build.xml"/>
         <callAnt file="${orion.dependency.injection.builder.dir}/build.xml"/>
         <callAnt file="${orion.flow.builder.dir}/build.xml"/>
+        <callAnt file="${orion.computation.builder.dir}/build.xml"/>
     	<callAnt file="${orion.core.objects.builder.dir}/build.xml"/>
         <callAnt file="${orion.data.structures.builder.dir}/build.xml"/>
     	<callAnt file="${orion.design.patterns.builder.dir}/build.xml"/>

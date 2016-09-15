@@ -5,9 +5,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import computation.annotation.Concurrency;
 import datastructures.DataStructuresObject;
 import dependencyinjection.annotation.Injector;
-import tester.Concurrency;
 import tester.ConcurrentJUnitRunner;
 
 @RunWith(ConcurrentJUnitRunner.class)

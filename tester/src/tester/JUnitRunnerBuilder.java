@@ -2,6 +2,7 @@ package tester;
 
 import org.junit.runner.Runner;
 import org.junit.runners.model.RunnerBuilder;
+import computation.annotation.Concurrency;
 
 public class JUnitRunnerBuilder extends RunnerBuilder
 {

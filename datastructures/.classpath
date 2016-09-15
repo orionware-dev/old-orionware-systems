@@ -10,5 +10,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/dependencyinjection"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/configuration"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/tester"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/computation"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

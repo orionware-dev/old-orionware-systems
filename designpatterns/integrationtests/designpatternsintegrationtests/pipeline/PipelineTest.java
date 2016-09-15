@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import computation.annotation.Concurrency;
 import core.runnables.consumers.Consumer1;
 import core.runnables.functions.Function1x1;
 import designpatterns.DesignPatternsObject;
@@ -16,7 +17,6 @@ import designpatterns.pipeline.PipelineFilterService;
 import designpatterns.pipeline.PipelineService;
 import designpatterns.pipeline.impl.PipelineFilterServiceImpl;
 import designpatterns.pipeline.impl.PipelineServiceImpl;
-import tester.Concurrency;
 import tester.ConcurrentJUnitRunner;
 
 @RunWith(ConcurrentJUnitRunner.class)

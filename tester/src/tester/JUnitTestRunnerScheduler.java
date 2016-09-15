@@ -8,6 +8,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import org.junit.runners.model.RunnerScheduler;
+import computation.threads.ThreadService;
+import computation.threads.impl.ThreadServiceImpl;
 
 public class JUnitTestRunnerScheduler implements RunnerScheduler
 {
@@ -18,8 +20,9 @@ public class JUnitTestRunnerScheduler implements RunnerScheduler
     
     public JUnitTestRunnerScheduler(final Class<?> aClass)
     {
-        int numberOfThreadsToUse = TestingUtilities.getNumberOfThreadsToUse(aClass);
-        this.executorService = Executors.newFixedThreadPool(numberOfThreadsToUse, new NamedThreadFactory(aClass.getSimpleName()));
+        ThreadService threadService = new ThreadServiceImpl();
+        int numberOfThreadsToUse = threadService.getNumberOfAvailableThreads(aClass);
+        this.executorService = Executors.newFixedThreadPool(numberOfThreadsToUse, threadService.createNamedThread(aClass.getSimpleName()));
         this.completionService = new ExecutorCompletionService<Void>(executorService);
         this.tasks = new LinkedList<Future<Void>>();
     }
