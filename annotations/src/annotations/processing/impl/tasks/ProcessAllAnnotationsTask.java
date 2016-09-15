@@ -1,24 +1,31 @@
 package annotations.processing.impl.tasks;
 
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 import annotations.AnnotationServiceObject;
 import annotations.AnnotationTask;
 import annotations.OrionAnnotation;
+import annotations.configuration.ObjectAnnotationsUsed;
 import annotations.gathering.impl.AnnotationsGatheringServiceImpl;
 
 public class ProcessAllAnnotationsTask extends AnnotationServiceObject implements AnnotationTask
 {
     public void run(Object object)
     {
-        /*Class<?> aClass = object.getClass();
+        CopyOnWriteArrayList<OrionAnnotation> registeredAnnotationsForObject = null;
         
-        Class<?> -> List<AccessibleObject> -> List<annotationType>
+        //object annotations have been registered
+        if(ObjectAnnotationsUsed.OBJECTS_ANNOTATIONS_USED_MAPPER.get(object.getClass()) != null)
+        {
+            registeredAnnotationsForObject = ObjectAnnotationsUsed.getAnnotationsUsedByObject(object);
+        }
+        else
+        {
+            List<OrionAnnotation> registeredAnnotationsForObjectList = new AnnotationsGatheringServiceImpl().gatherAllAnnotationsFromObject(object);
+            registeredAnnotationsForObject = new CopyOnWriteArrayList<OrionAnnotation>(registeredAnnotationsForObjectList);
+            ObjectAnnotationsUsed.registerObjectAnnotationsUsed(object, registeredAnnotationsForObject);
+        }
         
-        mapper.put(aClass, method, annotationType);*/
-        
-        
-        
-        List<OrionAnnotation> registeredAnnotationsForObject = new AnnotationsGatheringServiceImpl().gatherAllAnnotationsFromObject(object);
         new ApplyAnnotationsToObjectTask().run(registeredAnnotationsForObject, object);
     }
 }
