@@ -9,7 +9,7 @@ import configuration.registry.impl.PropertiesRegistrationServiceImpl;
 
 public class LoadLibrariesPropertiesTask extends ConfigurationObject implements ConfigurationTask
 {
-    public void run()
+    public static void run()
     {
         PropertiesRegistrationService propertiesRegistrationService = new PropertiesRegistrationServiceImpl();
         
@@ -19,7 +19,7 @@ public class LoadLibrariesPropertiesTask extends ConfigurationObject implements 
                    && propertiesRegistrationService.havePropertiesNotBeenRegisteredForLibrary(libraryConfiguration.getLibraryClassPath())
                    && libraryConfiguration.getConfigurationFilePath() != null)
             {
-                new LoadLibraryPropertiesTask().run(libraryConfiguration);
+                LoadLibraryPropertiesTask.run(libraryConfiguration);
                 propertiesRegistrationService.setPropertiesAsRegisteredForLibrary(libraryConfiguration.getLibraryClassPath());
             }
         }

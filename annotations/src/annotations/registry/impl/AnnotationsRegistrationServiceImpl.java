@@ -20,14 +20,14 @@ public class AnnotationsRegistrationServiceImpl extends AnnotationServiceObject 
     @Override
     public void registerLibrariesAnnotations()
     {
-        new RegisterLibrariesAnnotationsTask().run();
+        RegisterLibrariesAnnotationsTask.run();
     }
 
 
     @Override
     public void registerAnnotation(OrionAnnotation registeredAnnotation)
     {
-        new RegisterAnnotationTask().run(registeredAnnotation);
+        RegisterAnnotationTask.run(registeredAnnotation);
     }
 
 
@@ -41,41 +41,41 @@ public class AnnotationsRegistrationServiceImpl extends AnnotationServiceObject 
     @Override
     public boolean isAnnotationRegistered(OrionAnnotation annotation)
     {
-        return new IsAnnotationRegisteredTask().run(annotation);
+        return IsAnnotationRegisteredTask.run(annotation);
     }
     
     
     @Override
     public boolean haveAnnotationsBeenRegisteredForLibrary(LibraryConfiguration libraryConfiguration)
     {
-        return new HaveAnnotationsBeenRegisteredForLibraryTask().run(libraryConfiguration);
+        return HaveAnnotationsBeenRegisteredForLibraryTask.run(libraryConfiguration);
     }
 
 
     @Override
     public boolean haveAnnotationsBeenRegisteredForLibrary(String libraryClassPath)
     {
-        return new HaveAnnotationsBeenRegisteredForLibraryTask().run(libraryClassPath);
+        return HaveAnnotationsBeenRegisteredForLibraryTask.run(libraryClassPath);
     }
 
 
     @Override
     public List<LibraryConfiguration> filterLibrariesConfigurationsHavingAnnotations(Collection<LibraryConfiguration> librariesConfiguration)
     {
-        return new FilterLibrariesConfigurationsHavingAnnotationsTask().run(librariesConfiguration);
+        return FilterLibrariesConfigurationsHavingAnnotationsTask.run(librariesConfiguration);
     }
     
     
     @Override
     public List<LibraryConfiguration> filterRegisteredLibrariesConfiguration(Collection<LibraryConfiguration> librariesConfiguration)
     {
-        return new FilterRegisteredLibrariesConfigurationTask().run(librariesConfiguration);
+        return FilterRegisteredLibrariesConfigurationTask.run(librariesConfiguration);
     }
 
 
     @Override
     public List<LibraryConfiguration> filterNotRegisteredLibrariesConfiguration(Collection<LibraryConfiguration> librariesConfiguration)
     {
-        return new FilterNotRegisteredLibrariesConfigurationTask().run(librariesConfiguration);
+        return FilterNotRegisteredLibrariesConfigurationTask.run(librariesConfiguration);
     }
 }

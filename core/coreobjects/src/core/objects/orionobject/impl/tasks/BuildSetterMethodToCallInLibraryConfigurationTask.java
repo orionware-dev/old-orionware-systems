@@ -10,7 +10,7 @@ public class BuildSetterMethodToCallInLibraryConfigurationTask extends OrionSimp
     private static String SETTER_METHOD_PREFIX = "set";
     
     
-    public String run(String enumerationName)
+    public static String run(String enumerationName)
     {
         String setterMethodToCallInLibraryConfiguration = SETTER_METHOD_PREFIX;
         CoreStringsService coreStringsService = new CoreStringsServiceImpl();

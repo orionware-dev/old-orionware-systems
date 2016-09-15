@@ -6,7 +6,7 @@ import configuration.registry.ConfigurationRegistry;
 
 public class DeletePropertyTask extends ConfigurationObject implements ConfigurationTask
 {
-    public void run(String key)
+    public static void run(String key)
     {
         ConfigurationRegistry.deleteProp(key);
     }

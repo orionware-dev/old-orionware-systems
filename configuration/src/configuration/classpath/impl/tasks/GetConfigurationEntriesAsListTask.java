@@ -11,7 +11,7 @@ import configuration.registry.ConfigurationRegistry;
 
 public class GetConfigurationEntriesAsListTask extends ConfigurationObject implements ConfigurationTask
 {
-    public List<ConfigurationEntry<Object, Object>> run()
+    public static List<ConfigurationEntry<Object, Object>> run()
     {
         OrionProperties allOrionProperties = ConfigurationRegistry.getProps();
         List<ConfigurationEntry<Object, Object>> configurationEntries = new ArrayList<ConfigurationEntry<Object, Object>>(allOrionProperties.size());

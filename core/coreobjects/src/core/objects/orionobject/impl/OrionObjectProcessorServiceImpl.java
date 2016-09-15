@@ -44,7 +44,7 @@ public class OrionObjectProcessorServiceImpl extends OrionSimpleObject implement
 
 
     @SuppressWarnings({"rawtypes", "unchecked"})
-    private LibraryConfiguration convertConfigurationEnumerationToLibraryConfiguration(String libraryConfigurationEnumerationClassPath)
+    private static LibraryConfiguration convertConfigurationEnumerationToLibraryConfiguration(String libraryConfigurationEnumerationClassPath)
     {
         LibraryConfiguration libraryConfiguration = new LibraryConfiguration();
 

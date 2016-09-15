@@ -14,7 +14,7 @@ public class ConfigurationClasspathServiceImpl extends ConfigurationServiceObjec
     @Override
     public void loadLibrariesProperties()
     {
-        new LoadLibrariesPropertiesTask().run();
+        LoadLibrariesPropertiesTask.run();
     }
 
 
@@ -22,13 +22,13 @@ public class ConfigurationClasspathServiceImpl extends ConfigurationServiceObjec
     @Override
     public ConfigurationEntries getConfigurationEntries()
     {
-        return new GetConfigurationEntriesTask().run();
+        return GetConfigurationEntriesTask.run();
     }
 
 
     @Override
     public List<ConfigurationEntry<Object, Object>> getConfigurationEntriesAsList()
     {
-        return new GetConfigurationEntriesAsListTask().run();
+        return GetConfigurationEntriesAsListTask.run();
     }
 }

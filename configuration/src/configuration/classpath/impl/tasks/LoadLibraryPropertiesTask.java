@@ -10,9 +10,11 @@ import filesystem.streams.impl.FileSystemStreamsServiceImpl;
 
 public class LoadLibraryPropertiesTask extends ConfigurationObject implements ConfigurationTask
 {
-    public void run(LibraryConfiguration libraryConfiguration)
+    private static FileSystemStreamsService fileSystemStreamsService = new FileSystemStreamsServiceImpl();
+    
+    
+    public static void run(LibraryConfiguration libraryConfiguration)
     {
-        FileSystemStreamsService fileSystemStreamsService = new FileSystemStreamsServiceImpl();
         InputStream propertiesFileInput = fileSystemStreamsService.getFileStream(libraryConfiguration.getConfigurationFilePath());
         ConfigurationRegistry.loadProperties(propertiesFileInput);
         fileSystemStreamsService.closeResource(propertiesFileInput);

@@ -8,7 +8,7 @@ import core.services.OrionTask;
 public class GetEnumerationValueTask extends OrionSimpleObject implements OrionTask
 {
     @SuppressWarnings({"unchecked", "rawtypes"})
-    public String run(Class<ConfigurationEnumeration> libraryConfigurationEnumerationClass, Class<Enum> libraryConfigurationAbstractEnumerationClass, String enumerationName)
+    public static String run(Class<ConfigurationEnumeration> libraryConfigurationEnumerationClass, Class<Enum> libraryConfigurationAbstractEnumerationClass, String enumerationName)
     {
         try
         {

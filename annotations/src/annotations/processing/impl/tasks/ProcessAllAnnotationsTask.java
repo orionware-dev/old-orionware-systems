@@ -10,7 +10,7 @@ import annotations.gathering.impl.AnnotationsGatheringServiceImpl;
 
 public class ProcessAllAnnotationsTask extends AnnotationServiceObject implements AnnotationTask
 {
-    public void run(Object object)
+    public static void run(Object object)
     {
         CopyOnWriteArrayList<OrionAnnotation> registeredAnnotationsForObject = null;
         

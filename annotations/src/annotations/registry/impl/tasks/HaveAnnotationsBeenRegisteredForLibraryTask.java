@@ -7,14 +7,14 @@ import configuration.LibraryConfiguration;
 
 public class HaveAnnotationsBeenRegisteredForLibraryTask extends AnnotationServiceObject implements AnnotationTask
 {
-    public boolean run(String libraryClassPath)
+    public static boolean run(String libraryClassPath)
     {
         return LibrariesConfigurationMapper.LIBRARIES_AND_IF_ANNOTATIONS_HAVE_BEEN_REGISTERED_MAPPER
                    .get(libraryClassPath) != null;
     }
     
     
-    public boolean run(LibraryConfiguration libraryConfiguration)
+    public static boolean run(LibraryConfiguration libraryConfiguration)
     {
         return run(libraryConfiguration.getLibraryClassPath());
     }

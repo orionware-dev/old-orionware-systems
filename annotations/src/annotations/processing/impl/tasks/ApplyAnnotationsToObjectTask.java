@@ -9,6 +9,6 @@ public class ApplyAnnotationsToObjectTask extends AnnotationServiceObject implem
 {
     public void run(List<OrionAnnotation> annotations, Object object)
     {
-        annotations.forEach(annotation -> new ApplyAnnotationToObjectTask().run(object, annotation));
+        annotations.forEach(annotation -> ApplyAnnotationToObjectTask.run(object, annotation));
     }
 }

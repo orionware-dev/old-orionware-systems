@@ -11,8 +11,8 @@ public class GetEnumerationValueAndSetItToLibraryConfigurationTask extends Orion
     public void run(Class<ConfigurationEnumeration> libraryConfigurationEnumerationClass, Class<Enum> libraryConfigurationAbstractEnumerationClass, Enum enumerationDefinition, LibraryConfiguration libraryConfiguration)
     {
         String enumerationName = enumerationDefinition.name();
-        String setterMethodToCallInLibraryConfiguration = new BuildSetterMethodToCallInLibraryConfigurationTask().run(enumerationName);
-        String enumerationValue = new GetEnumerationValueTask().run(libraryConfigurationEnumerationClass, libraryConfigurationAbstractEnumerationClass, enumerationName);
+        String setterMethodToCallInLibraryConfiguration = BuildSetterMethodToCallInLibraryConfigurationTask.run(enumerationName);
+        String enumerationValue = GetEnumerationValueTask.run(libraryConfigurationEnumerationClass, libraryConfigurationAbstractEnumerationClass, enumerationName);
         new SetEnumerationValueToLibraryConfigurationTask().run(libraryConfiguration, setterMethodToCallInLibraryConfiguration, enumerationValue);
     }
 }

@@ -17,14 +17,14 @@ public class PropertiesRegistrationServiceImpl extends ConfigurationServiceObjec
     @Override
     public boolean havePropertiesBeenRegisteredForLibrary(String libraryClassPath)
     {
-        return new HavePropertiesBeenRegisteredForLibraryTask().run(libraryClassPath);
+        return HavePropertiesBeenRegisteredForLibraryTask.run(libraryClassPath);
     }
 
 
     @Override
     public boolean havePropertiesBeenRegisteredForLibrary(LibraryConfiguration libraryConfiguration)
     {
-        return new HavePropertiesBeenRegisteredForLibraryTask().run(libraryConfiguration.getLibraryClassPath());
+        return HavePropertiesBeenRegisteredForLibraryTask.run(libraryConfiguration.getLibraryClassPath());
     }
 
 
@@ -45,14 +45,14 @@ public class PropertiesRegistrationServiceImpl extends ConfigurationServiceObjec
     @Override
     public boolean haveConfigurationBeenRegisteredForLibrary(String libraryClassPath)
     {
-        return new HaveConfigurationBeenRegisteredForLibraryTask().run(libraryClassPath);
+        return HaveConfigurationBeenRegisteredForLibraryTask.run(libraryClassPath);
     }
 
 
     @Override
     public boolean haveConfigurationBeenRegisteredForLibrary(LibraryConfiguration libraryConfiguration)
     {
-        return new HaveConfigurationBeenRegisteredForLibraryTask().run(libraryConfiguration.getLibraryClassPath());
+        return HaveConfigurationBeenRegisteredForLibraryTask.run(libraryConfiguration.getLibraryClassPath());
     }
 
 
@@ -73,62 +73,62 @@ public class PropertiesRegistrationServiceImpl extends ConfigurationServiceObjec
     @Override
     public void setPropertiesAsRegisteredForLibrary(String libraryClassPath)
     {
-        new SetPropertiesAsRegisteredForLibraryTask().run(libraryClassPath);
+        SetPropertiesAsRegisteredForLibraryTask.run(libraryClassPath);
     }
 
 
     @Override
     public void setPropertiesAsRegisteredForLibrary(LibraryConfiguration libraryConfiguration)
     {
-        new SetPropertiesAsRegisteredForLibraryTask().run(libraryConfiguration.getLibraryClassPath());
+        SetPropertiesAsRegisteredForLibraryTask.run(libraryConfiguration.getLibraryClassPath());
     }
     
     
     @Override
     public void setConfigurationAsRegisteredForLibrary(String libraryClassPath)
     {
-        new SetConfigurationAsRegisteredForLibraryTask().run(libraryClassPath);
+        SetConfigurationAsRegisteredForLibraryTask.run(libraryClassPath);
     }
 
 
     @Override
     public void setConfigurationAsRegisteredForLibrary(LibraryConfiguration libraryConfiguration)
     {
-        new SetConfigurationAsRegisteredForLibraryTask().run(libraryConfiguration.getLibraryClassPath());
+        SetConfigurationAsRegisteredForLibraryTask.run(libraryConfiguration.getLibraryClassPath());
     }
 
 
     @Override
     public void registerProp(String key, String value)
     {
-        new RegisterPropertyTask().run(key, value);
+        RegisterPropertyTask.run(key, value);
     }
 
 
     @Override
     public void registerProp(KeyValuePair<String, String> keyValuePair)
     {
-        new RegisterPropertyTask().run(keyValuePair);
+        RegisterPropertyTask.run(keyValuePair);
     }
 
 
     @Override
     public void updateProp(String key, String value)
     {
-        new UpdatePropertyTask().run(key, value);
+        UpdatePropertyTask.run(key, value);
     }
 
 
     @Override
     public void updateProp(KeyValuePair<String, String> keyValuePair)
     {
-        new UpdatePropertyTask().run(keyValuePair);
+        UpdatePropertyTask.run(keyValuePair);
     }
 
 
     @Override
     public void deleteProp(String key)
     {
-        new DeletePropertyTask().run(key);
+        DeletePropertyTask.run(key);
     }
 }

@@ -9,9 +9,9 @@ import configuration.LibraryConfiguration;
 
 public class RegisterLibrariesAnnotationsTask extends AnnotationServiceObject implements AnnotationTask
 {
-    public void run()
+    public static void run()
     {
-        List<LibraryConfiguration> notRegisteredLibrariesConfiguration = new FilterNotRegisteredLibrariesConfigurationTask().run(LibrariesConfiguration.getLibrariesConfiguration());
+        List<LibraryConfiguration> notRegisteredLibrariesConfiguration = FilterNotRegisteredLibrariesConfigurationTask.run(LibrariesConfiguration.getLibrariesConfiguration());
         RegisterLibraryAnnotationsTask registerLibraryAnnotationsTask = new RegisterLibraryAnnotationsTask();
         
         for(LibraryConfiguration libraryConfiguration : notRegisteredLibrariesConfiguration)

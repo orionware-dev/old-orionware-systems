@@ -13,7 +13,7 @@ public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject imp
     @Override
     public void processAllAnnotations(Object object)
     {
-        new ProcessAllAnnotationsTask().run(object);
+        ProcessAllAnnotationsTask.run(object);
     }
 
 

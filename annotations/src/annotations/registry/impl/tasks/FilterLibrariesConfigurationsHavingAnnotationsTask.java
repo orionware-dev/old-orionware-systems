@@ -9,7 +9,7 @@ import configuration.LibraryConfiguration;
 
 public class FilterLibrariesConfigurationsHavingAnnotationsTask extends AnnotationServiceObject implements AnnotationTask
 {
-    public List<LibraryConfiguration> run(Collection<LibraryConfiguration> librariesConfiguration)
+    public static List<LibraryConfiguration> run(Collection<LibraryConfiguration> librariesConfiguration)
     {
         List<LibraryConfiguration> notNullLibrariesConfigurations = new ArrayList<LibraryConfiguration>();
         
