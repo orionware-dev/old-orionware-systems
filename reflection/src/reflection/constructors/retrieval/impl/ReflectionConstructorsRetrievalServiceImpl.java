@@ -13,14 +13,14 @@ public class ReflectionConstructorsRetrievalServiceImpl extends ReflectionServic
     @Override
     public Constructor<?>[] getDeclaredConstructorsArray(Object object)
     {
-        return new GetDeclaredConstructorsArrayTask().run(object);
+        return GetDeclaredConstructorsArrayTask.run(object);
     }
 
     
     @Override
     public Constructor<?>[] getDeclaredConstructorsArray(Class<?> aClass)
     {
-        return new GetDeclaredConstructorsArrayTask().run(aClass);
+        return GetDeclaredConstructorsArrayTask.run(aClass);
     }
 
     
@@ -41,14 +41,14 @@ public class ReflectionConstructorsRetrievalServiceImpl extends ReflectionServic
     @Override
     public Constructor<?>[] getPublicConstructorsArray(Object object)
     {
-        return new GetPublicConstructorsArrayTask().run(object);
+        return GetPublicConstructorsArrayTask.run(object);
     }
 
 
     @Override
     public Constructor<?>[] getPublicConstructorsArray(Class<?> aClass)
     {
-        return new GetPublicConstructorsArrayTask().run(aClass);
+        return GetPublicConstructorsArrayTask.run(aClass);
     }
 
 

@@ -11,27 +11,27 @@ public class ReflectionConstructorRetrievalServiceImpl extends ReflectionService
     @Override
     public Constructor<?> getDeclaredConstructor(Object object, Class<?>... constructorParameterTypes)
     {
-        return new GetDeclaredConstructorTask().run(object, constructorParameterTypes);
+        return GetDeclaredConstructorTask.run(object, constructorParameterTypes);
     }
 
     
     @Override
     public Constructor<?> getDeclaredConstructor(Class<?> aClass, Class<?>... constructorParameterTypes)
     {
-        return new GetDeclaredConstructorTask().run(aClass, constructorParameterTypes);
+        return GetDeclaredConstructorTask.run(aClass, constructorParameterTypes);
     }
 
 
     @Override
     public Constructor<?> getPublicConstructor(Object object, Class<?>... constructorParameterTypes)
     {
-        return new GetPublicConstructorTask().run(object, constructorParameterTypes);
+        return GetPublicConstructorTask.run(object, constructorParameterTypes);
     }
 
 
     @Override
     public Constructor<?> getPublicConstructor(Class<?> aClass, Class<?>... constructorParameterTypes)
     {
-        return new GetPublicConstructorTask().run(aClass, constructorParameterTypes);
+        return GetPublicConstructorTask.run(aClass, constructorParameterTypes);
     }
 }

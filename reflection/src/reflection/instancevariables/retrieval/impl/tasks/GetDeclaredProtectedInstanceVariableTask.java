@@ -6,11 +6,11 @@ import reflection.ReflectionTask;
 
 public class GetDeclaredProtectedInstanceVariableTask extends ReflectionObject implements ReflectionTask
 {
-    public Field run(String instanceVariableName, Class<?> aClass)
+    public static Field run(String instanceVariableName, Class<?> aClass)
     {
-        Field field = new GetDeclaredInstanceVariableTask().run(instanceVariableName, aClass);
+        Field field = GetDeclaredInstanceVariableTask.run(instanceVariableName, aClass);
 
-        if(new IsProtectedInstanceVariableTask().run(field))
+        if(IsProtectedInstanceVariableTask.run(field))
         {
             return field;
         }
@@ -19,7 +19,7 @@ public class GetDeclaredProtectedInstanceVariableTask extends ReflectionObject i
     }
 
 
-    public Field run(String instanceVariableName, Object object)
+    public static Field run(String instanceVariableName, Object object)
     {
         return run(instanceVariableName, object.getClass());
     }

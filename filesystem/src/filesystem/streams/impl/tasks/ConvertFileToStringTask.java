@@ -9,7 +9,7 @@ import filesystem.FileSystemTask;
 
 public class ConvertFileToStringTask extends FileSystemObject implements FileSystemTask
 {
-    public String run(BufferedReader input)
+    public static String run(BufferedReader input)
     {
         String fileAsString = "";
         String currentLine = null;
@@ -35,7 +35,7 @@ public class ConvertFileToStringTask extends FileSystemObject implements FileSys
         }
         finally
         {
-            new CloseResourceTask().run(input);
+            CloseResourceTask.run(input);
         }
 
         return fileAsString;

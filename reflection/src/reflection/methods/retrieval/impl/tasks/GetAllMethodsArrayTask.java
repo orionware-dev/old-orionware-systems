@@ -8,16 +8,16 @@ import reflection.ReflectionTask;
 
 public class GetAllMethodsArrayTask extends ReflectionObject implements ReflectionTask
 {
-    public Method[] run(Class<?> aClass)
+    public static Method[] run(Class<?> aClass)
     {
-        List<Method> inherittedMethods = Arrays.asList(new GetInherittedMethodsArrayTask().run(aClass));
-        List<Method> declaredMethods = Arrays.asList(new GetDeclaredMethodsArrayTask().run(aClass));
+        List<Method> inherittedMethods = Arrays.asList(GetInherittedMethodsArrayTask.run(aClass));
+        List<Method> declaredMethods = Arrays.asList(GetDeclaredMethodsArrayTask.run(aClass));
         declaredMethods.addAll(inherittedMethods);
         return declaredMethods.toArray(new Method[0]);
     }
     
     
-    public Method[] run(Object object)
+    public static Method[] run(Object object)
     {
         return run(object.getClass());
     }

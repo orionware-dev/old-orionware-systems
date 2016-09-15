@@ -1,8 +1,5 @@
 package tester;
 
-import java.util.Arrays;
-import java.util.List;
-import org.junit.internal.builders.AllDefaultPossibilitiesBuilder;
 import org.junit.runner.Runner;
 import org.junit.runners.model.RunnerBuilder;
 

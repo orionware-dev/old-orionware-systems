@@ -6,13 +6,13 @@ import reflection.ReflectionTask;
 
 public class GetDeclaredInstanceVariablesArrayTask extends ReflectionObject implements ReflectionTask
 {
-    public Field[] run(Class<?> aClass)
+    public static Field[] run(Class<?> aClass)
     {
         return aClass.getDeclaredFields();
     }
     
     
-    public Field[] run(Object object)
+    public static Field[] run(Object object)
     {
         return run(object.getClass());
     }

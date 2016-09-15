@@ -7,7 +7,7 @@ import reflection.ReflectionTask;
 
 public class IsPublicMethodTask extends ReflectionObject implements ReflectionTask
 {
-    public boolean run(Method method)
+    public static boolean run(Method method)
     {
         return method != null && Modifier.isPublic(method.getModifiers());
     }

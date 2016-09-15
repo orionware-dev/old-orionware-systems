@@ -6,7 +6,7 @@ import reflection.ReflectionTask;
 
 public class InstantiateClassTask extends ReflectionObject implements ReflectionTask
 {
-    public Object run(Class<?> classToInstantiate, Class<?>... constructorArguments)
+    public static Object run(Class<?> classToInstantiate, Class<?>... constructorArguments)
     {
         try
         {

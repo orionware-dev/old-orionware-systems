@@ -5,15 +5,13 @@ import reflection.ReflectionTask;
 
 public class AreObjectsNotNullTask extends ReflectionObject implements ReflectionTask
 {
-    public boolean run(Object... objects)
+    public static  boolean run(Object... objects)
     {
         if(objects.length > 0)
         {
-            IsObjectNullTask isObjectNullTask = new IsObjectNullTask();
-            
             for(Object object : objects)
             {
-                if(isObjectNullTask.run(object))
+                if(IsObjectNullTask.run(object))
                 {
                     return false;
                 }

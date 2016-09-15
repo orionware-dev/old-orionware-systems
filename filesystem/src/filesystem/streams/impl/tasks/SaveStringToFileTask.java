@@ -8,35 +8,27 @@ import filesystem.FileSystemTask;
 
 public class SaveStringToFileTask extends FileSystemObject implements FileSystemTask
 {
-    private boolean addEmptyLineAtTheEndOfTheFile;
-    private String lineSeparator;
-    private BufferedWriter output;
-    private int numberOfLines;
-    private int lineCounter;
-    private boolean areThereErrors;
+    private static boolean addEmptyLineAtTheEndOfTheFile = false;
+    private static String lineSeparator = System.lineSeparator();
+    private static BufferedWriter output;
+    private static int numberOfLines;
+    private static int lineCounter;
+    private static boolean areThereErrors = false;
 
 
-    public SaveStringToFileTask()
+    public static boolean run(String filePath, String fileString, boolean addEmptyLineAtTheEndOfTheFile)
     {
-        this.addEmptyLineAtTheEndOfTheFile = false;
-        this.lineSeparator = System.lineSeparator();
-        this.areThereErrors = false;
-    }
-
-
-    public boolean run(String filePath, String fileString, boolean addEmptyLineAtTheEndOfTheFile)
-    {
-        this.addEmptyLineAtTheEndOfTheFile = addEmptyLineAtTheEndOfTheFile;
+        SaveStringToFileTask.addEmptyLineAtTheEndOfTheFile = addEmptyLineAtTheEndOfTheFile;
         return run(filePath, fileString);
     }
 
 
-    public boolean run(String filePath, String fileString)
+    public static boolean run(String filePath, String fileString)
     {
-        this.output = (BufferedWriter)new GetWriterForFileTask().run(filePath);
+        output = (BufferedWriter)GetWriterForFileTask.run(filePath);
         String[] lines = fileString.split(lineSeparator);
-        this.numberOfLines = lines.length;
-        this.lineCounter = 1;
+        numberOfLines = lines.length;
+        lineCounter = 1;
 
         try
         {
@@ -47,14 +39,14 @@ public class SaveStringToFileTask extends FileSystemObject implements FileSystem
         }
         finally
         {
-            new CloseResourceTask().run(output);
+            CloseResourceTask.run(output);
         }
 
         return areThereErrors;
     }
 
 
-    private void writeLineToFile(String lineToWrite)
+    private static void writeLineToFile(String lineToWrite)
     {
         try
         {

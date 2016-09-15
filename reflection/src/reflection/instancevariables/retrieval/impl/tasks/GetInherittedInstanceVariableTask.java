@@ -7,20 +7,20 @@ import reflection.ReflectionTask;
 
 public class GetInherittedInstanceVariableTask extends ReflectionObject implements ReflectionTask
 {
-    public Field run(String instanceVariableName, Object object)
+    public static Field run(String instanceVariableName, Object object)
     {
         return run(instanceVariableName, object.getClass());
     }
 
 
-    public Field run(String instanceVariableName, Class<?> aClass)
+    public static Field run(String instanceVariableName, Class<?> aClass)
     {
         Field inherittedInstanceVariable = null;
 
         try
         {
             Field publicOrInherittedInstanceVariable = aClass.getField(instanceVariableName);
-            Field declaredInstanceVariable = new GetDeclaredInstanceVariableTask().run(instanceVariableName, aClass);
+            Field declaredInstanceVariable = GetDeclaredInstanceVariableTask.run(instanceVariableName, aClass);
 
             if(declaredInstanceVariable == null || !Modifier.isPublic(declaredInstanceVariable.getModifiers()))
             {

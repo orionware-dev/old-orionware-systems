@@ -6,11 +6,11 @@ import reflection.ReflectionTask;
 
 public class GetDeclaredPublicInstanceVariableTask extends ReflectionObject implements ReflectionTask
 {
-    public Field run(String instanceVariableName, Class<?> aClass)
+    public static Field run(String instanceVariableName, Class<?> aClass)
     {
-        Field field = new GetDeclaredInstanceVariableTask().run(instanceVariableName, aClass);
+        Field field = GetDeclaredInstanceVariableTask.run(instanceVariableName, aClass);
 
-        if(new IsPublicInstanceVariableTask().run(field))
+        if(IsPublicInstanceVariableTask.run(field))
         {
             return field;
         }
@@ -19,7 +19,7 @@ public class GetDeclaredPublicInstanceVariableTask extends ReflectionObject impl
     }
 
 
-    public Field run(String instanceVariableName, Object object)
+    public static Field run(String instanceVariableName, Object object)
     {
         return run(instanceVariableName, object.getClass());
     }

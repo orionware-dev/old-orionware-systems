@@ -9,7 +9,7 @@ import reflection.ReflectionTask;
 
 public class GetDeclaredPublicMethodsArrayTask extends ReflectionObject implements ReflectionTask
 {
-    public Method[] run(Class<?> aClass)
+    public static Method[] run(Class<?> aClass)
     {
         List<Method> declaredPublicMethods = new ArrayList<Method>();
         
@@ -25,7 +25,7 @@ public class GetDeclaredPublicMethodsArrayTask extends ReflectionObject implemen
     }
     
     
-    public Method[] run(Object object)
+    public static Method[] run(Object object)
     {
         return run(object.getClass());
     }

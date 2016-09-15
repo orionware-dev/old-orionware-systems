@@ -8,7 +8,7 @@ import reflection.methods.access.impl.ReflectionMethodAccessServiceImpl;
 public class GetEnumerationValueTask extends ReflectionObject implements ReflectionTask
 {
     @SuppressWarnings({"rawtypes"})
-    public String run(Class<Enum> enumerationClass, String enumerationName)
+    public static String run(Class<Enum> enumerationClass, String enumerationName)
     {
         String enumerationValue = "";
                         

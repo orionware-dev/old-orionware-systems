@@ -21,62 +21,62 @@ public class FileSystemStreamsServiceImpl extends FileSystemServiceObject implem
     @Override
     public InputStream getFileStream(String filePath)
     {
-        return new GetFileStreamTask().run(filePath);
+        return GetFileStreamTask.run(filePath);
     }
 
 
     @Override
     public String convertFileToString(String filePath)
     {
-        return new ConvertFileToStringTask().run((BufferedReader)getReaderForFile(filePath));
+        return ConvertFileToStringTask.run((BufferedReader)getReaderForFile(filePath));
     }
 
 
     @Override
     public boolean saveStringToFile(String filePath, String fileString, boolean addEmptyLineAtTheEndOfTheFile)
     {
-        return new SaveStringToFileTask().run(filePath, fileString, addEmptyLineAtTheEndOfTheFile);
+        return SaveStringToFileTask.run(filePath, fileString, addEmptyLineAtTheEndOfTheFile);
     }
 
 
     @Override
     public boolean saveStringToFile(String filePath, String fileString)
     {
-        return new SaveStringToFileTask().run(filePath, fileString);
+        return SaveStringToFileTask.run(filePath, fileString);
     }
 
 
     @Override
     public void emptyDirectory(File directory)
     {
-        new EmptyDirectoryTask().run(directory);
+        EmptyDirectoryTask.run(directory);
     }
 
 
     @Override
     public void emptyDirectory(String directory)
     {
-        new EmptyDirectoryTask().run(directory);
+        EmptyDirectoryTask.run(directory);
     }
 
 
     @Override
     public void closeResource(Closeable closeable)
     {
-        new CloseResourceTask().run(closeable);
+        CloseResourceTask.run(closeable);
     }
 
 
     @Override
     public Reader getReaderForFile(String filePath)
     {
-        return new GetReaderFromFileTask().run(filePath);
+        return GetReaderFromFileTask.run(filePath);
     }
 
 
     @Override
     public Writer getWritterForFile(String filePath)
     {
-        return new GetWriterForFileTask().run(filePath);
+        return GetWriterForFileTask.run(filePath);
     }
 }

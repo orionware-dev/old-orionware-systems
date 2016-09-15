@@ -10,7 +10,7 @@ import filesystem.FileSystemTask;
 
 public class GetWriterForFileTask extends FileSystemObject implements FileSystemTask
 {
-    public Writer run(String filePath)
+    public static Writer run(String filePath)
     {
         try
         {

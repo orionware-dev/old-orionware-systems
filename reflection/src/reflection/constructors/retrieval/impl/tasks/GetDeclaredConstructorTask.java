@@ -6,13 +6,13 @@ import reflection.ReflectionTask;
 
 public class GetDeclaredConstructorTask extends ReflectionObject implements ReflectionTask
 {
-    public Constructor<?> run(Object object, Class<?>... constructorParameterTypes)
+    public static Constructor<?> run(Object object, Class<?>... constructorParameterTypes)
     {
         return run(object.getClass(), constructorParameterTypes);
     }
     
     
-    public Constructor<?> run(Class<?> aClass, Class<?>... constructorParameterTypes)
+    public static Constructor<?> run(Class<?> aClass, Class<?>... constructorParameterTypes)
     {
         try
         {

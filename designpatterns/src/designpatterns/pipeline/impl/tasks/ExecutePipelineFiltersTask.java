@@ -1,18 +1,21 @@
 package designpatterns.pipeline.impl.tasks;
 
+import dependencyinjection.annotation.InjectorImpl;
 import designpatterns.DesignPatternsObject;
 import designpatterns.DesignPatternsTask;
 import designpatterns.pipeline.AbstractFilter;
 import designpatterns.pipeline.AbstractPipeline;
 import designpatterns.pipeline.PipelineFilterService;
-import designpatterns.pipeline.impl.PipelineFilterServiceImpl;
 
 public class ExecutePipelineFiltersTask extends DesignPatternsObject implements DesignPatternsTask
 {
+    @InjectorImpl
+    private PipelineFilterService pipelineFilterService;
+    
+    
     public Object run(AbstractPipeline pipeline)
     {
         Object pipelineResult = null;
-        PipelineFilterService pipelineFilterService = new PipelineFilterServiceImpl();
 
         if(pipeline.isFeedForwardTheResult())
         {

@@ -8,16 +8,16 @@ import reflection.ReflectionTask;
 
 public class GetAllInstanceVariablesArrayTask extends ReflectionObject implements ReflectionTask
 {
-    public Field[] run(Class<?> aClass)
+    public static Field[] run(Class<?> aClass)
     {
-        List<Field> inherittedInstanceVariables = Arrays.asList(new GetInherittedInstanceVariablesArrayTask().run(aClass));
-        List<Field> declaredInstanceVariables = Arrays.asList(new GetDeclaredInstanceVariablesArrayTask().run(aClass));
+        List<Field> inherittedInstanceVariables = Arrays.asList(GetInherittedInstanceVariablesArrayTask.run(aClass));
+        List<Field> declaredInstanceVariables = Arrays.asList(GetDeclaredInstanceVariablesArrayTask.run(aClass));
         declaredInstanceVariables.addAll(inherittedInstanceVariables);
         return declaredInstanceVariables.toArray(new Field[0]);
     }
 
 
-    public Field[] run(Object object)
+    public static Field[] run(Object object)
     {
         return run(object.getClass());
     }

@@ -7,7 +7,7 @@ import reflection.ReflectionTask;
 
 public class IsPublicInstanceVariableTask extends ReflectionObject implements ReflectionTask
 {
-    public boolean run(Field instanceVariable)
+    public static boolean run(Field instanceVariable)
     {
         return instanceVariable != null && Modifier.isPublic(instanceVariable.getModifiers());
     }

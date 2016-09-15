@@ -12,27 +12,27 @@ public class ReflectionObjectsServiceImpl extends ReflectionServiceObject implem
     @Override
     public boolean isObjectNull(Object object)
     {
-        return new IsObjectNullTask().run(object);
+        return IsObjectNullTask.run(object);
     }
 
 
     @Override
     public boolean isObjectNotNull(Object object)
     {
-        return new IsObjectNotNullTask().run(object);
+        return IsObjectNotNullTask.run(object);
     }
 
 
     @Override
     public boolean areObjectsNull(Object... objects)
     {
-        return new AreObjectsNullTask().run(objects);
+        return AreObjectsNullTask.run(objects);
     }
 
 
     @Override
     public boolean areObjectsNotNull(Object... objects)
     {
-        return new AreObjectsNotNullTask().run(objects);
+        return AreObjectsNotNullTask.run(objects);
     }
 }

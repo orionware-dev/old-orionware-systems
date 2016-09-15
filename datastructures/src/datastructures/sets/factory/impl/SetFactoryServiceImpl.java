@@ -1,7 +1,6 @@
 package datastructures.sets.factory.impl;
 
 import datastructures.DataStructuresObject;
-import datastructures.maps.factory.impl.tasks.CreateEmptyHashMapTask;
 import datastructures.sets.OrionSet;
 import datastructures.sets.factory.SetFactoryService;
 import datastructures.sets.factory.impl.tasks.CreateEmptyConcurrentHashSetTask;

@@ -10,14 +10,14 @@ public class ReflectionClassesServiceImpl extends ReflectionServiceObject implem
     @Override
     public Class<?> loadClass(String className)
     {
-        return new LoadClassTask().run(className);
+        return LoadClassTask.run(className);
     }
 
 
     @Override
     public Object instantiateClass(Class<?> classToInstantiate, Class<?>... constructorArguments)
     {
-        return new InstantiateClassTask().run(classToInstantiate, constructorArguments);
+        return InstantiateClassTask.run(classToInstantiate, constructorArguments);
     }
 
 

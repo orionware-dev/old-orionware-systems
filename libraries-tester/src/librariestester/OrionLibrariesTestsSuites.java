@@ -6,9 +6,6 @@ import org.junit.runners.Suite.SuiteClasses;
 import datastructuresintegrationtests.DataStructuresIntegrationTestsSuite;
 import datastructuresunittests.DataStructuresUnitTestsSuite;
 import designpatternsintegrationtests.DesignPatternsIntegrationTestsSuite;
-import designpatternsintegrationtests.dependencyinjection.DependencyInjectionTest;
-import designpatternsintegrationtests.pipeline.PipelineTest;
-import tester.ConcurrentSuite;
 
 //@RunWith(ConcurrentSuite.class)
 @RunWith(Suite.class)

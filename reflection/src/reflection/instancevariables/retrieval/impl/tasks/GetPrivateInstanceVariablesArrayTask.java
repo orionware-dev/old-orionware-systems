@@ -9,7 +9,7 @@ import reflection.ReflectionTask;
 
 public class GetPrivateInstanceVariablesArrayTask extends ReflectionObject implements ReflectionTask
 {
-    public Field[] run(Class<?> aClass)
+    public static Field[] run(Class<?> aClass)
     {
         List<Field> declaredPrivateInstanceVariables = new ArrayList<Field>();
         
@@ -25,7 +25,7 @@ public class GetPrivateInstanceVariablesArrayTask extends ReflectionObject imple
     }
 
 
-    public Field[] run(Object object)
+    public static Field[] run(Object object)
     {
         return run(object.getClass());
     }

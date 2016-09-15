@@ -6,13 +6,13 @@ import reflection.ReflectionTask;
 
 public class GetDeclaredInstanceVariableTask extends ReflectionObject implements ReflectionTask
 {
-    public Field run(String instanceVariableName, Object object)
+    public static Field run(String instanceVariableName, Object object)
     {
         return run(instanceVariableName, object.getClass());
     }
     
     
-    public Field run(String instanceVariableName, Class<?> aClass)
+    public static Field run(String instanceVariableName, Class<?> aClass)
     {
         try
         {

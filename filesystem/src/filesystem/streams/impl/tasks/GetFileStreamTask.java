@@ -6,8 +6,8 @@ import filesystem.FileSystemTask;
 
 public class GetFileStreamTask extends FileSystemObject implements FileSystemTask
 {
-    public InputStream run(String filePath)
+    public static InputStream run(String filePath)
     {
-        return this.getClass().getResourceAsStream(filePath);
+        return new GetFileStreamTask().getClass().getResourceAsStream(filePath);
     }
 }

@@ -6,11 +6,11 @@ import reflection.ReflectionTask;
 
 public class GetDeclaredDefaultMethodTask extends ReflectionObject implements ReflectionTask
 {
-    public Method run(String methodName, Class<?> aClass, Class<?>... methodParameterTypes)
+    public static Method run(String methodName, Class<?> aClass, Class<?>... methodParameterTypes)
     {
-        Method method = new GetDeclaredMethodTask().run(methodName, aClass, methodParameterTypes);
+        Method method = GetDeclaredMethodTask.run(methodName, aClass, methodParameterTypes);
 
-        if(new IsDefaultMethodTask().run(method))
+        if(IsDefaultMethodTask.run(method))
         {
             return method;
         }
@@ -19,7 +19,7 @@ public class GetDeclaredDefaultMethodTask extends ReflectionObject implements Re
     }
 
 
-    public Method run(String methodName, Object object, Class<?>... methodParameterTypes)
+    public static Method run(String methodName, Object object, Class<?>... methodParameterTypes)
     {
         return run(methodName, object.getClass(), methodParameterTypes);
     }

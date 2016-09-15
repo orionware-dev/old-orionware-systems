@@ -8,7 +8,7 @@ import flow.conditional.IfStatement;
 
 public class EvaluateIfStatementTask extends CoreFlowObject implements CoreFlowTask
 {
-    public boolean run(IfStatement ifStatement)
+    public static boolean run(IfStatement ifStatement)
     {
         boolean conditionsEvaluation = false;
 
@@ -16,17 +16,16 @@ public class EvaluateIfStatementTask extends CoreFlowObject implements CoreFlowT
                && new CoreCollectionsServiceImpl().isCollectionNotEmpty(ifStatement.getConditions().getConditions()))
         {
             int index = 0;
-            EvaluateConditionTask evaluateConditionTask = new EvaluateConditionTask();
 
             for(Condition condition : ifStatement.getConditions().getConditions())
             {
                 if(index == 0)
                 {
-                    conditionsEvaluation = evaluateConditionTask.run(condition);
+                    conditionsEvaluation = EvaluateConditionTask.run(condition);
                 }
                 else
                 {
-                    conditionsEvaluation = conditionsEvaluation && evaluateConditionTask.run(condition);
+                    conditionsEvaluation = conditionsEvaluation && EvaluateConditionTask.run(condition);
                 }
 
                 ++index;

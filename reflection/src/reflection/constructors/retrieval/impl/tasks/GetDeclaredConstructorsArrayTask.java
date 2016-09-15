@@ -6,13 +6,13 @@ import reflection.ReflectionTask;
 
 public class GetDeclaredConstructorsArrayTask extends ReflectionObject implements ReflectionTask
 {
-    public Constructor<?>[] run(Class<?> aClass)
+    public static Constructor<?>[] run(Class<?> aClass)
     {
         return aClass.getDeclaredConstructors();
     }
     
     
-    public Constructor<?>[] run(Object object)
+    public static Constructor<?>[] run(Object object)
     {
         return run(object.getClass());
     }

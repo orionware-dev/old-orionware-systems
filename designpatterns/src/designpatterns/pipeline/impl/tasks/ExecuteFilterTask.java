@@ -1,14 +1,21 @@
 package designpatterns.pipeline.impl.tasks;
 
 import java.lang.reflect.Method;
+import dependencyinjection.annotation.InjectorImpl;
 import designpatterns.DesignPatternsObject;
 import designpatterns.DesignPatternsTask;
 import designpatterns.pipeline.AbstractFilter;
-import reflection.methods.access.impl.ReflectionMethodAccessServiceImpl;
-import reflection.methods.retrieval.impl.ReflectionMethodRetrievalServiceImpl;
+import reflection.methods.access.ReflectionMethodAccessService;
+import reflection.methods.retrieval.ReflectionMethodRetrievalService;
 
 public class ExecuteFilterTask extends DesignPatternsObject implements DesignPatternsTask
 {
+    @InjectorImpl
+    private static ReflectionMethodRetrievalService reflectionMethodRetrievalService;
+    @InjectorImpl
+    private ReflectionMethodAccessService reflectionMethodAccessService;
+    
+    
     public Object run(AbstractFilter filter, Object functionInput)
     {
         Class<?>[] classes = null;
@@ -47,9 +54,7 @@ public class ExecuteFilterTask extends DesignPatternsObject implements DesignPat
 
         try
         {
-            Method method = new ReflectionMethodRetrievalServiceImpl()
-                                .getDeclaredMethod(filter.getMethodToRun(), filter.getFunctionClass(), classes);
-            ReflectionMethodAccessServiceImpl reflectionMethodAccessService = new ReflectionMethodAccessServiceImpl();
+            Method method = reflectionMethodRetrievalService.getDeclaredMethod(filter.getMethodToRun(), filter.getFunctionClass(), classes);
             reflectionMethodAccessService.makeMethodAccessible(method);
 
             try

@@ -9,6 +9,6 @@ public class ObjectsEqualityServiceImpl extends OrionSimpleObject implements Obj
     @Override
     public boolean areObjectsEqual(Object object1, Object object2, Object... moreObjects)
     {
-        return new AreObjectsEqualTask().run(object1, object2, moreObjects);
+        return AreObjectsEqualTask.run(object1, object2, moreObjects);
     }
 }

@@ -17,14 +17,14 @@ public class ReflectionInstanceVariablesRetrievalServiceImpl extends ReflectionS
     @Override
     public Field[] getDeclaredInstanceVariablesArray(Object object)
     {
-        return new GetDeclaredInstanceVariablesArrayTask().run(object);
+        return GetDeclaredInstanceVariablesArrayTask.run(object);
     }
 
 
     @Override
     public Field[] getDeclaredInstanceVariablesArray(Class<?> aClass)
     {
-        return new GetDeclaredInstanceVariablesArrayTask().run(aClass);
+        return GetDeclaredInstanceVariablesArrayTask.run(aClass);
     }
 
 
@@ -45,14 +45,14 @@ public class ReflectionInstanceVariablesRetrievalServiceImpl extends ReflectionS
     @Override
     public Field[] getPrivateInstanceVariablesArray(Object object)
     {
-        return new GetPrivateInstanceVariablesArrayTask().run(object);
+        return GetPrivateInstanceVariablesArrayTask.run(object);
     }
 
 
     @Override
     public Field[] getPrivateInstanceVariablesArray(Class<?> aClass)
     {
-        return new GetPrivateInstanceVariablesArrayTask().run(aClass);
+        return GetPrivateInstanceVariablesArrayTask.run(aClass);
     }
 
 
@@ -73,14 +73,14 @@ public class ReflectionInstanceVariablesRetrievalServiceImpl extends ReflectionS
     @Override
     public Field[] getDeclaredProtectedInstanceVariablesArray(Object object)
     {
-        return new GetDeclaredProtectedInstanceVariablesArrayTask().run(object);
+        return GetDeclaredProtectedInstanceVariablesArrayTask.run(object);
     }
 
 
     @Override
     public Field[] getDeclaredProtectedInstanceVariablesArray(Class<?> aClass)
     {
-        return new GetDeclaredProtectedInstanceVariablesArrayTask().run(aClass);
+        return GetDeclaredProtectedInstanceVariablesArrayTask.run(aClass);
     }
 
 
@@ -101,14 +101,14 @@ public class ReflectionInstanceVariablesRetrievalServiceImpl extends ReflectionS
     @Override
     public Field[] getDeclaredPublicInstanceVariablesArray(Object object)
     {
-        return new GetDeclaredPublicInstanceVariablesArrayTask().run(object);
+        return GetDeclaredPublicInstanceVariablesArrayTask.run(object);
     }
 
 
     @Override
     public Field[] getDeclaredPublicInstanceVariablesArray(Class<?> aClass)
     {
-        return new GetDeclaredPublicInstanceVariablesArrayTask().run(aClass);
+        return GetDeclaredPublicInstanceVariablesArrayTask.run(aClass);
     }
 
 
@@ -129,14 +129,14 @@ public class ReflectionInstanceVariablesRetrievalServiceImpl extends ReflectionS
     @Override
     public Field[] getInherittedInstanceVariablesArray(Object object)
     {
-        return new GetInherittedInstanceVariablesArrayTask().run(object);
+        return GetInherittedInstanceVariablesArrayTask.run(object);
     }
 
 
     @Override
     public Field[] getInherittedInstanceVariablesArray(Class<?> aClass)
     {
-        return new GetInherittedInstanceVariablesArrayTask().run(aClass);
+        return GetInherittedInstanceVariablesArrayTask.run(aClass);
     }
 
 
@@ -157,14 +157,14 @@ public class ReflectionInstanceVariablesRetrievalServiceImpl extends ReflectionS
     @Override
     public Field[] getAllInstanceVariablesArray(Object object)
     {
-        return new GetAllInstanceVariablesArrayTask().run(object);
+        return GetAllInstanceVariablesArrayTask.run(object);
     }
 
 
     @Override
     public Field[] getAllInstanceVariablesArray(Class<?> aClass)
     {
-        return new GetAllInstanceVariablesArrayTask().run(aClass);
+        return GetAllInstanceVariablesArrayTask.run(aClass);
     }
 
 

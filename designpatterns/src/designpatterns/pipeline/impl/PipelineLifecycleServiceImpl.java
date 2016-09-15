@@ -1,13 +1,19 @@
 package designpatterns.pipeline.impl;
 
+import dependencyinjection.annotation.Injector;
 import designpatterns.DesignPatternsObject;
 import designpatterns.pipeline.AbstractPipeline;
 import designpatterns.pipeline.PipelineLifecycleService;
+import designpatterns.pipeline.impl.tasks.CreateEmptyPipelineTask;
 import designpatterns.pipeline.impl.tasks.ExecutePipelineFiltersTask;
 
 public class PipelineLifecycleServiceImpl extends DesignPatternsObject implements PipelineLifecycleService
 {
     private AbstractPipeline pipeline;
+    @Injector
+    private CreateEmptyPipelineTask createEmptyPipelineTask;
+    @Injector
+    private ExecutePipelineFiltersTask executePipelineFiltersTask;
 
 
     @Override
@@ -20,7 +26,7 @@ public class PipelineLifecycleServiceImpl extends DesignPatternsObject implement
     @Override
     public Object executePipelineFilters()
     {
-        return new ExecutePipelineFiltersTask().run(getPipeline());
+        return executePipelineFiltersTask.run(getPipeline());
     }
 
 

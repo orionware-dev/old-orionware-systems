@@ -7,13 +7,13 @@ import reflection.ReflectionTask;
 
 public class GetInherittedMethodTask extends ReflectionObject implements ReflectionTask
 {
-    public Method run(String methodName, Object object, Class<?>... methodParameterTypes)
+    public static Method run(String methodName, Object object, Class<?>... methodParameterTypes)
     {
         return run(methodName, object.getClass(), methodParameterTypes);
     }
     
     
-    public Method run(String methodName, Class<?> aClass, Class<?>... methodParameterTypes)
+    public static Method run(String methodName, Class<?> aClass, Class<?>... methodParameterTypes)
     {
         Method inherittedMethod = null;
         
@@ -25,7 +25,7 @@ public class GetInherittedMethodTask extends ReflectionObject implements Reflect
             }
             
             Method publicOrInherittedMethod = aClass.getMethod(methodName, methodParameterTypes);
-            Method declaredMethod = new GetDeclaredMethodTask().run(methodName, aClass, methodParameterTypes);
+            Method declaredMethod = GetDeclaredMethodTask.run(methodName, aClass, methodParameterTypes);
             
             if(declaredMethod == null || !Modifier.isPublic(declaredMethod.getModifiers()))
             {

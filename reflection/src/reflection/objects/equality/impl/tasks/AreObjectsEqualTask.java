@@ -8,7 +8,7 @@ import reflection.objects.impl.ReflectionObjectsServiceImpl;
 public class AreObjectsEqualTask extends ReflectionObject implements ReflectionTask
 {
     //we have object1 and object2 to make sure the user provides at least 2 objects to compare
-    public boolean run(Object object1, Object object2, Object... moreObjects)
+    public static boolean run(Object object1, Object object2, Object... moreObjects)
     {
         boolean areObjectsEqual = false;
         ReflectionObjectsService reflectionObjectsService = new ReflectionObjectsServiceImpl();

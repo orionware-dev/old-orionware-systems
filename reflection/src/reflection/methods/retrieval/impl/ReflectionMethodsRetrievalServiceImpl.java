@@ -18,14 +18,14 @@ public class ReflectionMethodsRetrievalServiceImpl extends ReflectionServiceObje
     @Override
     public Method[] getDeclaredMethodsArray(Object object)
     {
-        return new GetDeclaredMethodsArrayTask().run(object);
+        return GetDeclaredMethodsArrayTask.run(object);
     }
 
 
     @Override
     public Method[] getDeclaredMethodsArray(Class<?> aClass)
     {
-        return new GetDeclaredMethodsArrayTask().run(aClass);
+        return GetDeclaredMethodsArrayTask.run(aClass);
     }
 
 
@@ -46,14 +46,14 @@ public class ReflectionMethodsRetrievalServiceImpl extends ReflectionServiceObje
     @Override
     public Method[] getDeclaredDefaultMethodsArray(Object object)
     {
-        return new GetDeclaredDefaultMethodsArrayTask().run(object);
+        return GetDeclaredDefaultMethodsArrayTask.run(object);
     }
 
 
     @Override
     public Method[] getDeclaredDefaultMethodsArray(Class<?> aClass)
     {
-        return new GetDeclaredDefaultMethodsArrayTask().run(aClass);
+        return GetDeclaredDefaultMethodsArrayTask.run(aClass);
     }
 
 
@@ -74,14 +74,14 @@ public class ReflectionMethodsRetrievalServiceImpl extends ReflectionServiceObje
     @Override
     public Method[] getPrivateMethodsArray(Object object)
     {
-        return new GetPrivateMethodsArrayTask().run(object);
+        return GetPrivateMethodsArrayTask.run(object);
     }
 
 
     @Override
     public Method[] getPrivateMethodsArray(Class<?> aClass)
     {
-        return new GetPrivateMethodsArrayTask().run(aClass);
+        return GetPrivateMethodsArrayTask.run(aClass);
     }
 
 
@@ -102,14 +102,14 @@ public class ReflectionMethodsRetrievalServiceImpl extends ReflectionServiceObje
     @Override
     public Method[] getDeclaredProtectedMethodsArray(Object object)
     {
-        return new GetDeclaredProtectedMethodsArrayTask().run(object);
+        return GetDeclaredProtectedMethodsArrayTask.run(object);
     }
 
 
     @Override
     public Method[] getDeclaredProtectedMethodsArray(Class<?> aClass)
     {
-        return new GetDeclaredProtectedMethodsArrayTask().run(aClass);
+        return GetDeclaredProtectedMethodsArrayTask.run(aClass);
     }
 
 
@@ -130,14 +130,14 @@ public class ReflectionMethodsRetrievalServiceImpl extends ReflectionServiceObje
     @Override
     public Method[] getDeclaredPublicMethodsArray(Object object)
     {
-        return new GetDeclaredPublicMethodsArrayTask().run(object);
+        return GetDeclaredPublicMethodsArrayTask.run(object);
     }
 
 
     @Override
     public Method[] getDeclaredPublicMethodsArray(Class<?> aClass)
     {
-        return new GetDeclaredPublicMethodsArrayTask().run(aClass);
+        return GetDeclaredPublicMethodsArrayTask.run(aClass);
     }
 
 
@@ -158,14 +158,14 @@ public class ReflectionMethodsRetrievalServiceImpl extends ReflectionServiceObje
     @Override
     public Method[] getInherittedMethodsArray(Object object)
     {
-        return new GetInherittedMethodsArrayTask().run(object);
+        return GetInherittedMethodsArrayTask.run(object);
     }
 
 
     @Override
     public Method[] getInherittedMethodsArray(Class<?> aClass)
     {
-        return new GetInherittedMethodsArrayTask().run(aClass);
+        return GetInherittedMethodsArrayTask.run(aClass);
     }
 
 
@@ -186,14 +186,14 @@ public class ReflectionMethodsRetrievalServiceImpl extends ReflectionServiceObje
     @Override
     public Method[] getAllMethodsArray(Object object)
     {
-        return new GetAllMethodsArrayTask().run(object);
+        return GetAllMethodsArrayTask.run(object);
     }
 
 
     @Override
     public Method[] getAllMethodsArray(Class<?> aClass)
     {
-        return new GetAllMethodsArrayTask().run(aClass);
+        return GetAllMethodsArrayTask.run(aClass);
     }
 
 

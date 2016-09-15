@@ -8,9 +8,9 @@ import reflection.ReflectionTask;
 
 public class GetInherittedInstanceVariablesArrayTask extends ReflectionObject implements ReflectionTask
 {
-    public Field[] run(Class<?> aClass)
+    public static Field[] run(Class<?> aClass)
     {
-        List<Field> publicInstanceVariables = Arrays.asList(new GetDeclaredPublicInstanceVariablesArrayTask().run(aClass));
+        List<Field> publicInstanceVariables = Arrays.asList(GetDeclaredPublicInstanceVariablesArrayTask.run(aClass));
         List<Field> publicAndInherittedInstanceVariables = Arrays.asList(aClass.getFields());
         // these are the inheritted instance variables only
         publicAndInherittedInstanceVariables.removeAll(publicInstanceVariables);
@@ -18,7 +18,7 @@ public class GetInherittedInstanceVariablesArrayTask extends ReflectionObject im
     }
 
 
-    public Field[] run(Object object)
+    public static Field[] run(Object object)
     {
         return run(object.getClass());
     }

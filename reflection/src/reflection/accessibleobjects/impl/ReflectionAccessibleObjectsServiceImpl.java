@@ -14,14 +14,14 @@ public class ReflectionAccessibleObjectsServiceImpl extends ReflectionServiceObj
     @Override
     public AccessibleObject[] getDeclaredAccessibleObjectsArray(Class<?> aClass)
     {
-        return new GetDeclaredAccessibleObjectsArrayTask().run(aClass);
+        return GetDeclaredAccessibleObjectsArrayTask.run(aClass);
     }
 
 
     @Override
     public AccessibleObject[] getDeclaredAccessibleObjectsArray(Object object)
     {
-        return new GetDeclaredAccessibleObjectsArrayTask().run(object);
+        return GetDeclaredAccessibleObjectsArrayTask.run(object);
     }
 
 
@@ -42,14 +42,14 @@ public class ReflectionAccessibleObjectsServiceImpl extends ReflectionServiceObj
     @Override
     public AccessibleObject[] getInherittedAccessibleObjectsArray(Class<?> aClass)
     {
-        return new GetInherittedAccessibleObjectsArrayTask().run(aClass);
+        return GetInherittedAccessibleObjectsArrayTask.run(aClass);
     }
 
 
     @Override
     public AccessibleObject[] getInherittedAccessibleObjectsArray(Object object)
     {
-        return new GetInherittedAccessibleObjectsArrayTask().run(object);
+        return GetInherittedAccessibleObjectsArrayTask.run(object);
     }
 
 
@@ -70,14 +70,14 @@ public class ReflectionAccessibleObjectsServiceImpl extends ReflectionServiceObj
     @Override
     public AccessibleObject[] getAllAccessibleObjectsArray(Class<?> aClass)
     {
-        return new GetAllAccessibleObjectsArrayTask().run(aClass);
+        return GetAllAccessibleObjectsArrayTask.run(aClass);
     }
 
 
     @Override
     public AccessibleObject[] getAllAccessibleObjectsArray(Object object)
     {
-        return new GetAllAccessibleObjectsArrayTask().run(object);
+        return GetAllAccessibleObjectsArrayTask.run(object);
     }
 
 
