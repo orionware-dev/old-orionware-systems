@@ -6,16 +6,16 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import webcore.json.JSONUtilities;
 
-public class AjaxHandler
+public class AJAXHandler
 {
-    private final static Logger LOGGER = Logger.getLogger(AjaxHandler.class.getName());
+    private final static Logger LOGGER = Logger.getLogger(AJAXHandler.class.getName());
 
 
-    public static void processAjaxResponse(HttpServletResponse response, AjaxResponse ajaxResponse)
+    public static void processAjaxResponse(HttpServletResponse response, AJAXResponse aJAXResponse)
     {
         try
         {
-            String JSONResponse = new JSONUtilities().convertObjectToJSON(ajaxResponse);
+            String JSONResponse = new JSONUtilities().convertObjectToJSON(aJAXResponse);
             response.setContentType("application/json");
             response.setHeader("Allow", "GET, POST");
             response.setHeader("Access-Control-Allow-Origin", "*");
