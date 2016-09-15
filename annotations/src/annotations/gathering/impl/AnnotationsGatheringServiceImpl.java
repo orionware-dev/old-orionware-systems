@@ -25,14 +25,14 @@ public class AnnotationsGatheringServiceImpl extends AnnotationServiceObject imp
     @Override
     public List<OrionAnnotation> gatherAllAnnotationsFromObject(Object object)
     {
-        return new GatherAllAnnotationsFromObjectTask().run(object);
+        return GatherAllAnnotationsFromObjectTask.run(object);
     }
     
     
     @Override
     public Annotation extractAnnotationFromClassLevel(Class<?> aClass, Class<?> annotationClassToExtract)
     {
-        return new ExtractAnnotationFromClassLevelTask().run(aClass, annotationClassToExtract);
+        return ExtractAnnotationFromClassLevelTask.run(aClass, annotationClassToExtract);
     }
 
 
@@ -40,14 +40,14 @@ public class AnnotationsGatheringServiceImpl extends AnnotationServiceObject imp
     @Override
     public Annotation extractAnnotationFromInstanceVariable(Field instanceVariable, Class annotationClassToExtract)
     {
-        return new ExtractAnnotationFromInstanceVariableTask().run(instanceVariable, annotationClassToExtract);
+        return ExtractAnnotationFromInstanceVariableTask.run(instanceVariable, annotationClassToExtract);
     }
 
 
     @Override
     public Annotation extractAnnotationFromConstructor(Constructor<?> constructor, Class<?> annotationClassToExtract)
     {
-        return new ExtractAnnotationFromConstructorTask().run(constructor, annotationClassToExtract);
+        return ExtractAnnotationFromConstructorTask.run(constructor, annotationClassToExtract);
     }
 
 
@@ -55,41 +55,41 @@ public class AnnotationsGatheringServiceImpl extends AnnotationServiceObject imp
     @Override
     public Annotation extractAnnotationFromMethod(Method method, Class annotationClassToExtract)
     {
-        return new ExtractAnnotationFromMethodTask().run(method, annotationClassToExtract);
+        return ExtractAnnotationFromMethodTask.run(method, annotationClassToExtract);
     }
 
 
     @Override
     public List<OrionAnnotation> gatherClassLevelAnnotationsFromObject(Object object)
     {
-        return new GatherClassLevelAnnotationsFromObjectTask().run(object);
+        return GatherClassLevelAnnotationsFromObjectTask.run(object);
     }
 
 
     @Override
     public List<OrionAnnotation> gatherInstanceVariablesAnnotationsFromObject(Object object)
     {
-        return new GatherInstanceVariablesAnnotationsFromObjectTask().run(object);
+        return GatherInstanceVariablesAnnotationsFromObjectTask.run(object);
     }
 
 
     @Override
     public List<OrionAnnotation> gatherConstructorsAnnotationsFromObject(Object object)
     {
-        return new GatherConstructorsAnnotationsFromObjectTask().run(object);
+        return GatherConstructorsAnnotationsFromObjectTask.run(object);
     }
 
 
     @Override
     public List<OrionAnnotation> gatherMethodsAnnotationsFromObject(Object object)
     {
-        return new GatherMethodsAnnotationsFromObjectTask().run(object);
+        return GatherMethodsAnnotationsFromObjectTask.run(object);
     }
 
 
     @Override
     public List<OrionAnnotation> gatherObjectElementAnnotationsFromObject(AccessibleObject objectElement)
     {
-        return new GatherInstanceElementAnnotationsFromObjectTask().run(objectElement);
+        return GatherInstanceElementAnnotationsFromObjectTask.run(objectElement);
     }
 }

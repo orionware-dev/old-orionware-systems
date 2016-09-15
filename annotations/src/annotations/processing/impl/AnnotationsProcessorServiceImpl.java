@@ -29,6 +29,6 @@ public class AnnotationsProcessorServiceImpl extends AnnotationServiceObject imp
     @Override
     public String getAnnotationName(Annotation annotation)
     {
-        return new GetAnnotationNameTask().run(annotation);
+        return GetAnnotationNameTask.run(annotation);
     }
 }

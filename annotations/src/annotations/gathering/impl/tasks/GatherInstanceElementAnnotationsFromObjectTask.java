@@ -10,7 +10,7 @@ import annotations.OrionAnnotation;
 
 public class GatherInstanceElementAnnotationsFromObjectTask extends AnnotationServiceObject implements AnnotationTask
 {
-    public List<OrionAnnotation> run(AccessibleObject objectElement)
+    public static List<OrionAnnotation> run(AccessibleObject objectElement)
     {
         if(objectElement != null)
         {

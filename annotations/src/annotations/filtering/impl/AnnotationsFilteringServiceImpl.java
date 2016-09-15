@@ -12,23 +12,26 @@ import annotations.filtering.impl.tasks.FilterRegisteredAnnotationsFromObjectAnn
 
 public class AnnotationsFilteringServiceImpl extends AnnotationServiceObject implements AnnotationsFilteringService
 {
+    private AddAnnotationTypeForObjectTask addAnnotationTypeForObjectTask = new AddAnnotationTypeForObjectTask();
+    
+    
     @Override
     public List<OrionAnnotation> filterRegisteredAnnotationsFromObjectAnnotations(Collection<OrionAnnotation> allObjectAnnotationsList)
     {
-        return new FilterRegisteredAnnotationsFromObjectAnnotationsTask().run(allObjectAnnotationsList);
+        return FilterRegisteredAnnotationsFromObjectAnnotationsTask.run(allObjectAnnotationsList);
     }
 
 
     @Override
     public boolean doesObjectHaveRegisteredAnnotation(Collection<OrionAnnotation> allObjectAnnotations, OrionAnnotation registeredAnnotation)
     {
-        return new DoesObjectHaveRegisteredAnnotationTask().run(allObjectAnnotations, registeredAnnotation);
+        return DoesObjectHaveRegisteredAnnotationTask.run(allObjectAnnotations, registeredAnnotation);
     }
 
 
     @Override
     public void addAnnotationTypeForObject(OrionAnnotation annotation, AnnotationType annotationType)
     {
-        new AddAnnotationTypeForObjectTask().run(annotation, annotationType);
+        addAnnotationTypeForObjectTask.run(annotation, annotationType);
     }
 }

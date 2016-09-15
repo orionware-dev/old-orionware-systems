@@ -7,7 +7,7 @@ import annotations.OrionAnnotation;
 
 public class DoesObjectHaveRegisteredAnnotationTask extends AnnotationServiceObject implements AnnotationTask
 {
-    public boolean run(Collection<OrionAnnotation> allObjectAnnotations, OrionAnnotation registeredAnnotation)
+    public static boolean run(Collection<OrionAnnotation> allObjectAnnotations, OrionAnnotation registeredAnnotation)
     {
         for(OrionAnnotation orionAnnotation : allObjectAnnotations)
         {

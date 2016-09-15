@@ -6,7 +6,7 @@ import annotations.AnnotationTask;
 
 public class GetAnnotationNameTask extends AnnotationServiceObject implements AnnotationTask
 {
-    public String run(Annotation annotation)
+    public static String run(Annotation annotation)
     {
         if(annotation != null)
         {

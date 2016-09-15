@@ -13,15 +13,16 @@ import reflection.instancevariables.retrieval.impl.ReflectionInstanceVariablesRe
 
 public class GatherInstanceVariablesAnnotationsFromObjectTask extends AnnotationServiceObject implements AnnotationTask
 {
-    public List<OrionAnnotation> run(Object object)
+    private static AnnotationsFilteringService annotationsFilteringService = new AnnotationsFilteringServiceImpl();
+    
+    
+    public static List<OrionAnnotation> run(Object object)
     {
         if(object != null)
         {
-            GatherInstanceElementAnnotationsFromObjectTask gatherInstanceElementAnnotationsFromObjectTask = new GatherInstanceElementAnnotationsFromObjectTask();
             List<Field> variables = new ReflectionInstanceVariablesRetrievalServiceImpl().getDeclaredInstanceVariables(object);
             List<OrionAnnotation> allInstanceVariablesAnnotations = new ArrayList<OrionAnnotation>();
-            variables.forEach(variable -> allInstanceVariablesAnnotations.addAll(gatherInstanceElementAnnotationsFromObjectTask.run(variable)));
-            AnnotationsFilteringService annotationsFilteringService = new AnnotationsFilteringServiceImpl();
+            variables.forEach(variable -> allInstanceVariablesAnnotations.addAll(GatherInstanceElementAnnotationsFromObjectTask.run(variable)));
             //we filter the annotations, because if it finds a registered
             //annotation that matches
             //one in the list of object annotations then we can process it

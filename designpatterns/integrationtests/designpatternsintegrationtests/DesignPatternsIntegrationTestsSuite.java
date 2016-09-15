@@ -6,6 +6,7 @@ import org.junit.runners.Suite.SuiteClasses;
 import designpatternsintegrationtests.dependencyinjection.DependencyInjectionTest;
 import designpatternsintegrationtests.pipeline.PipelineTest;
 
+//@RunWith(ConcurrentSuite.class)
 @RunWith(Suite.class)
 @SuiteClasses({DependencyInjectionTest.class,
                 PipelineTest.class})

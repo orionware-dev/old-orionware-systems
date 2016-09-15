@@ -13,7 +13,10 @@ import annotations.filtering.impl.AnnotationsFilteringServiceImpl;
 
 public class GatherClassLevelAnnotationsFromObjectTask extends AnnotationServiceObject implements AnnotationTask
 {
-    public List<OrionAnnotation> run(Object object)
+    private static AnnotationsFilteringService annotationsFilteringService = new AnnotationsFilteringServiceImpl();
+    
+    
+    public static List<OrionAnnotation> run(Object object)
     {
         if(object != null)
         {
@@ -26,7 +29,6 @@ public class GatherClassLevelAnnotationsFromObjectTask extends AnnotationService
                 annotationsList.add(orionAnnotation);
             }
             
-            AnnotationsFilteringService annotationsFilteringService = new AnnotationsFilteringServiceImpl();
             //we filter the annotations, because if it finds a registered
             //annotation that matches
             //one in the list of object annotations then we can process it

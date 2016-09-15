@@ -4,9 +4,14 @@ import java.lang.annotation.Annotation;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import datastructures.DataStructuresObject;
 import dependencyinjection.annotation.Injector;
+import tester.Concurrent;
+import tester.ConcurrentJunitRunner;
 
+@RunWith(ConcurrentJunitRunner.class)
+@Concurrent(threads = 4)
 public class AnnotationInstantiationTest extends DataStructuresObject
 {
     @Before

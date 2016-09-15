@@ -13,15 +13,16 @@ import reflection.constructors.retrieval.impl.ReflectionConstructorsRetrievalSer
 
 public class GatherConstructorsAnnotationsFromObjectTask extends AnnotationServiceObject implements AnnotationTask
 {
-    public List<OrionAnnotation> run(Object object)
+    private static AnnotationsFilteringService annotationsFilteringService = new AnnotationsFilteringServiceImpl();
+    
+    
+    public static List<OrionAnnotation> run(Object object)
     {
         if(object != null)
         {
-            GatherInstanceElementAnnotationsFromObjectTask gatherInstanceElementAnnotationsFromObjectTask = new GatherInstanceElementAnnotationsFromObjectTask();
             List<Constructor<?>> constructors = new ReflectionConstructorsRetrievalServiceImpl().getDeclaredConstructors(object);
             List<OrionAnnotation> allConstructorAnnotations = new ArrayList<OrionAnnotation>();
-            constructors.forEach(constructor -> allConstructorAnnotations.addAll(gatherInstanceElementAnnotationsFromObjectTask.run(constructor)));
-            AnnotationsFilteringService annotationsFilteringService = new AnnotationsFilteringServiceImpl();
+            constructors.forEach(constructor -> allConstructorAnnotations.addAll(GatherInstanceElementAnnotationsFromObjectTask.run(constructor)));
             //we filter the annotations, because if it finds a registered
             //annotation that matches
             //one in the list of object annotations then we can process it

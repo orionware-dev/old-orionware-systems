@@ -13,15 +13,16 @@ import reflection.methods.retrieval.impl.ReflectionMethodsRetrievalServiceImpl;
 
 public class GatherMethodsAnnotationsFromObjectTask extends AnnotationServiceObject implements AnnotationTask
 {
-    public List<OrionAnnotation> run(Object object)
+    private static AnnotationsFilteringService annotationsFilteringService = new AnnotationsFilteringServiceImpl();
+    
+    
+    public static List<OrionAnnotation> run(Object object)
     {
         if(object != null)
         {
-            GatherInstanceElementAnnotationsFromObjectTask gatherInstanceElementAnnotationsFromObjectTask = new GatherInstanceElementAnnotationsFromObjectTask();
             List<Method> methods = new ReflectionMethodsRetrievalServiceImpl().getDeclaredMethods(object);
             List<OrionAnnotation> allMethodAnnotations = new ArrayList<OrionAnnotation>();
-            methods.forEach(method -> allMethodAnnotations.addAll(gatherInstanceElementAnnotationsFromObjectTask.run(method)));
-            AnnotationsFilteringService annotationsFilteringService = new AnnotationsFilteringServiceImpl();
+            methods.forEach(method -> allMethodAnnotations.addAll(GatherInstanceElementAnnotationsFromObjectTask.run(method)));
             //we filter the annotations, because if it finds a registered
             //annotation that matches
             //one in the list of object annotations then we can process it

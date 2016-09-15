@@ -10,6 +10,6 @@ public class AnnotationsLoaderServiceImpl extends AnnotationServiceObject implem
     @Override
     public InputStream getAnnotationsDefinitionFileStream(String libraryAnnotationsDefinitionFilePath)
     {
-        return new GetAnnotationsDefinitionFileStreamTask().run(libraryAnnotationsDefinitionFilePath);
+        return GetAnnotationsDefinitionFileStreamTask.run(libraryAnnotationsDefinitionFilePath);
     }
 }

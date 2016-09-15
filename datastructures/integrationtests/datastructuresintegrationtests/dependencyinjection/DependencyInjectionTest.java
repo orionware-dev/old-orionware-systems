@@ -3,8 +3,13 @@ package datastructuresintegrationtests.dependencyinjection;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import datastructures.DataStructuresObject;
+import tester.Concurrent;
+import tester.ConcurrentJunitRunner;
 
+@RunWith(ConcurrentJunitRunner.class)
+@Concurrent(threads = 4)
 public class DependencyInjectionTest extends DataStructuresObject
 {
     @Before

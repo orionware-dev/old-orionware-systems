@@ -3,10 +3,15 @@ package datastructuresunittests.lists;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import datastructures.DataStructuresObject;
 import datastructures.lists.OrionList;
 import datastructures.lists.impl.OrionArrayList;
+import tester.Concurrent;
+import tester.ConcurrentJunitRunner;
 
+@RunWith(ConcurrentJunitRunner.class)
+@Concurrent(threads = 4)
 public class OrionListTest extends DataStructuresObject
 {
     private OrionList<Integer> filteredList;

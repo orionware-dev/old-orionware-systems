@@ -8,7 +8,7 @@ import annotations.AnnotationTask;
 public class ExtractAnnotationFromMethodTask extends AnnotationServiceObject implements AnnotationTask
 {
     @SuppressWarnings({"rawtypes", "unchecked"})
-    public Annotation run(Method method, Class annotationClassToExtract)
+    public static Annotation run(Method method, Class annotationClassToExtract)
     {
         return method.getAnnotation(annotationClassToExtract);
     }

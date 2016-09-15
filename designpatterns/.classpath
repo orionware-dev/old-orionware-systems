@@ -13,5 +13,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/annotations"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/reflection"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/filesystem"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/tester"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
