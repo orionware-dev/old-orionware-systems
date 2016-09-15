@@ -1,7 +1,6 @@
 package core.objects.orionobject.impl;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Arrays;
 import annotations.processing.impl.AnnotationsProcessorServiceImpl;
 import annotations.registry.impl.AnnotationsRegistrationServiceImpl;
 import configuration.CoreConfigurationConfigurationEnumeration;
@@ -80,8 +79,12 @@ public class OrionObjectProcessorServiceImpl extends OrionSimpleObject implement
                 exception.printStackTrace();
             }
 
-            Arrays.stream(enums).forEach(enumerationDefinition ->
-                new GetEnumerationValueAndSetItToLibraryConfigurationTask().run(temp, temp1, enumerationDefinition, libraryConfiguration));
+            GetEnumerationValueAndSetItToLibraryConfigurationTask getEnumerationValueAndSetItToLibraryConfigurationTask = new GetEnumerationValueAndSetItToLibraryConfigurationTask();
+            
+            for(Enum enumerationDefinition : enums)
+            {
+                getEnumerationValueAndSetItToLibraryConfigurationTask.run(temp, temp1, enumerationDefinition, libraryConfiguration);
+            }
         }
         catch(ClassNotFoundException exception1)
         {

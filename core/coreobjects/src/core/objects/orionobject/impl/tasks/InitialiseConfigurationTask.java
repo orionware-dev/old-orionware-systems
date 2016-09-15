@@ -1,6 +1,5 @@
 package core.objects.orionobject.impl.tasks;
 
-import java.util.Arrays;
 import configuration.LibraryConfiguration;
 import core.OrionSimpleObject;
 import core.abstraction.ConfigurationEnumeration;
@@ -19,9 +18,10 @@ public class InitialiseConfigurationTask extends OrionSimpleObject implements Or
             Class<ConfigurationEnumeration> temp = (Class<ConfigurationEnumeration>)Class.forName(libraryConfigurationEnumerationClassPath);
             Class<Enum> temp1 = (Class<Enum>)Class.forName(libraryConfigurationEnumerationClassPath);
             
-            Arrays.stream(configurationEnumerationValues)
-                .forEach(enumerationDefinition -> getEnumerationValueAndSetItToLibraryConfigurationTask
-                .run(temp, temp1, enumerationDefinition, libraryConfiguration));
+            for(Enum configurationEnumerationValue : configurationEnumerationValues)
+            {
+                getEnumerationValueAndSetItToLibraryConfigurationTask.run(temp, temp1, configurationEnumerationValue, libraryConfiguration);
+            }
         }
         catch(ClassNotFoundException exception)
         {

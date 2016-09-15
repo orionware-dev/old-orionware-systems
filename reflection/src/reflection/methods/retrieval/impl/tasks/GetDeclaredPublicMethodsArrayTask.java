@@ -2,8 +2,8 @@ package reflection.methods.retrieval.impl.tasks;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
-import java.util.Arrays;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.List;
 import reflection.ReflectionObject;
 import reflection.ReflectionTask;
 
@@ -11,8 +11,17 @@ public class GetDeclaredPublicMethodsArrayTask extends ReflectionObject implemen
 {
     public Method[] run(Class<?> aClass)
     {
-        return Arrays.stream(aClass.getDeclaredMethods()).filter(method -> Modifier.isPublic(method.getModifiers()))
-                     .collect(Collectors.toList()).toArray(new Method[0]);
+        List<Method> declaredPublicMethods = new ArrayList<Method>();
+        
+        for(Method method : aClass.getDeclaredMethods())
+        {
+            if(Modifier.isPublic(method.getModifiers()))
+            {
+                declaredPublicMethods.add(method);
+            }
+        }
+        
+        return declaredPublicMethods.toArray(new Method[0]);
     }
     
     

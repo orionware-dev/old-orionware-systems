@@ -5,7 +5,7 @@ import java.util.List;
 import annotations.AnnotationServiceObject;
 import annotations.OrionAnnotation;
 import annotations.registry.AnnotationsRegistrationService;
-import annotations.registry.impl.tasks.FilterNotNullLibrariesConfigurationTask;
+import annotations.registry.impl.tasks.FilterLibrariesConfigurationsHavingAnnotationsTask;
 import annotations.registry.impl.tasks.FilterNotRegisteredLibrariesConfigurationTask;
 import annotations.registry.impl.tasks.FilterRegisteredLibrariesConfigurationTask;
 import annotations.registry.impl.tasks.HaveAnnotationsBeenRegisteredForLibraryTask;
@@ -60,9 +60,9 @@ public class AnnotationsRegistrationServiceImpl extends AnnotationServiceObject 
 
 
     @Override
-    public List<LibraryConfiguration> filterNotNullLibrariesConfiguration(Collection<LibraryConfiguration> librariesConfiguration)
+    public List<LibraryConfiguration> filterLibrariesConfigurationsHavingAnnotations(Collection<LibraryConfiguration> librariesConfiguration)
     {
-        return new FilterNotNullLibrariesConfigurationTask().run(librariesConfiguration);
+        return new FilterLibrariesConfigurationsHavingAnnotationsTask().run(librariesConfiguration);
     }
     
     

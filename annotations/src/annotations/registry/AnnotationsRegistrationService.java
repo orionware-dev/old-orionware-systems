@@ -26,7 +26,7 @@ public interface AnnotationsRegistrationService extends AnnotationService
     public boolean haveAnnotationsBeenRegisteredForLibrary(String libraryClassPath);
     
     
-    public List<LibraryConfiguration> filterNotNullLibrariesConfiguration(Collection<LibraryConfiguration> librariesConfiguration);
+    public List<LibraryConfiguration> filterLibrariesConfigurationsHavingAnnotations(Collection<LibraryConfiguration> librariesConfiguration);
     
     
     public List<LibraryConfiguration> filterRegisteredLibrariesConfiguration(Collection<LibraryConfiguration> librariesConfiguration);

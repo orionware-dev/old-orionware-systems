@@ -2,8 +2,8 @@ package reflection.methods.retrieval.impl.tasks;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
-import java.util.Arrays;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.List;
 import reflection.ReflectionObject;
 import reflection.ReflectionTask;
 
@@ -11,8 +11,17 @@ public class GetPrivateMethodsArrayTask extends ReflectionObject implements Refl
 {
     public Method[] run(Class<?> aClass)
     {
-        return Arrays.stream(aClass.getDeclaredMethods()).filter(method -> Modifier.isPrivate(method.getModifiers()))
-                     .collect(Collectors.toList()).toArray(new Method[0]);
+        List<Method> declaredPrivateMethods = new ArrayList<Method>();
+        
+        for(Method method : aClass.getDeclaredMethods())
+        {
+            if(Modifier.isPrivate(method.getModifiers()))
+            {
+                declaredPrivateMethods.add(method);
+            }
+        }
+        
+        return declaredPrivateMethods.toArray(new Method[0]);
     }
     
     

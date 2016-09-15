@@ -6,11 +6,8 @@ import dependencyinjection.annotation.Injector;
 import designpatterns.DesignPatternsObject;
 import designpatterns.annotations.EmptyFilterAnnotationService;
 import designpatterns.annotations.impl.tasks.ProcessEmptyFilterAnnotationsTask;
-import designpatterns.annotations.impl.tasks.ProcessEmptyPipelineAnnotationsTask;
 import designpatterns.annotations.impl.tasks.ProcessInstanceVariableForEmptyFilterInjectionTask;
-import designpatterns.annotations.impl.tasks.ProcessInstanceVariableForEmptyPipelineInjectionTask;
 import designpatterns.annotations.impl.tasks.ProcessMethodForEmptyFilterInjectionTask;
-import designpatterns.annotations.impl.tasks.ProcessMethodForEmptyPipelineInjectionTask;
 
 public class EmptyFilterAnnotationServiceImpl extends DesignPatternsObject implements EmptyFilterAnnotationService
 {

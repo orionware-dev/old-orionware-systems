@@ -5,7 +5,6 @@ import designpatterns.DesignPatternsObject;
 import designpatterns.pipeline.AbstractFilter;
 import designpatterns.pipeline.PipelineFilterService;
 import designpatterns.pipeline.impl.tasks.CreateEmptyFilterTask;
-import designpatterns.pipeline.impl.tasks.CreateEmptyPipelineTask;
 import designpatterns.pipeline.impl.tasks.CreateFilterTask;
 import designpatterns.pipeline.impl.tasks.ExecuteFilterTask;
 import designpatterns.pipeline.impl.tasks.SetIsCustomFunctionTask;

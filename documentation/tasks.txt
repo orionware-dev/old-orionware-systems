@@ -2,6 +2,8 @@
 
 --reduce the amount of object creation
 
+--apply inejctor in datastructures and designpatterns
+
 --see if I can convert some of the code to annotations
 
 --find a way to make annotations processing much much faster.

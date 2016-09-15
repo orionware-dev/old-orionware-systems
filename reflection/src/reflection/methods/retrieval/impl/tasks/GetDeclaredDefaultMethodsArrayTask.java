@@ -2,8 +2,8 @@ package reflection.methods.retrieval.impl.tasks;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
-import java.util.Arrays;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.List;
 import reflection.ReflectionObject;
 import reflection.ReflectionTask;
 
@@ -11,11 +11,19 @@ public class GetDeclaredDefaultMethodsArrayTask extends ReflectionObject impleme
 {
     public Method[] run(Class<?> aClass)
     {
-        return Arrays.stream(aClass.getDeclaredMethods()).filter(method ->
-                                                                         !Modifier.isPrivate(method.getModifiers())
-                                                                         && !Modifier.isProtected(method.getModifiers())
-                                                                         && !Modifier.isPublic(method.getModifiers()))
-                     .collect(Collectors.toList()).toArray(new Method[0]);
+        List<Method> declaredDefaultMethods = new ArrayList<Method>();
+        
+        for(Method method : aClass.getDeclaredMethods())
+        {
+            if(!Modifier.isPrivate(method.getModifiers())
+                    && !Modifier.isProtected(method.getModifiers())
+                    && !Modifier.isPublic(method.getModifiers()))
+            {
+                declaredDefaultMethods.add(method);
+            }
+        }
+        
+        return declaredDefaultMethods.toArray(new Method[0]);
     }
     
     

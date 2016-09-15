@@ -3,7 +3,6 @@ package filesystem.streams.impl.tasks;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Arrays;
 import filesystem.FileSystemObject;
 import filesystem.FileSystemTask;
 
@@ -41,7 +40,10 @@ public class SaveStringToFileTask extends FileSystemObject implements FileSystem
 
         try
         {
-            Arrays.stream(lines).forEach(this::writeLineToFile);
+            for(String line : lines)
+            {
+                writeLineToFile(line);
+            }
         }
         finally
         {

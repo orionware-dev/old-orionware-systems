@@ -1,6 +1,5 @@
 package reflection.objects.impl.tasks;
 
-import java.util.Arrays;
 import reflection.ReflectionObject;
 import reflection.ReflectionTask;
 
@@ -11,14 +10,16 @@ public class AreObjectsNullTask extends ReflectionObject implements ReflectionTa
         if(objects.length > 0)
         {
             IsObjectNotNullTask isObjectNotNullTask = new IsObjectNotNullTask();
-            long numberOfNullObjects = Arrays.stream(objects).filter(object -> isObjectNotNullTask.run(object)).count();
-
-            if(numberOfNullObjects == 0)
+            
+            for(Object object : objects)
             {
-                return true;
+                if(isObjectNotNullTask.run(object))
+                {
+                    return false;
+                }
             }
         }
 
-        return false;
+        return true;
     }
 }

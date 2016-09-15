@@ -8,9 +8,7 @@ import dependencyinjection.annotation.InjectorImpl;
 import designpatterns.DesignPatternsObject;
 import designpatterns.DesignPatternsTask;
 import reflection.instancevariables.retrieval.ReflectionInstanceVariablesRetrievalService;
-import reflection.instancevariables.retrieval.impl.ReflectionInstanceVariablesRetrievalServiceImpl;
 import reflection.methods.retrieval.ReflectionMethodsRetrievalService;
-import reflection.methods.retrieval.impl.ReflectionMethodsRetrievalServiceImpl;
 
 public class ProcessEmptyFilterAnnotationsTask extends DesignPatternsObject implements DesignPatternsTask
 {

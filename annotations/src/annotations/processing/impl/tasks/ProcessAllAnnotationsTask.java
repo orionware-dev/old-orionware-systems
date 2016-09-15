@@ -10,6 +10,14 @@ public class ProcessAllAnnotationsTask extends AnnotationServiceObject implement
 {
     public void run(Object object)
     {
+        /*Class<?> aClass = object.getClass();
+        
+        Class<?> -> List<AccessibleObject> -> List<annotationType>
+        
+        mapper.put(aClass, method, annotationType);*/
+        
+        
+        
         List<OrionAnnotation> registeredAnnotationsForObject = new AnnotationsGatheringServiceImpl().gatherAllAnnotationsFromObject(object);
         new ApplyAnnotationsToObjectTask().run(registeredAnnotationsForObject, object);
     }

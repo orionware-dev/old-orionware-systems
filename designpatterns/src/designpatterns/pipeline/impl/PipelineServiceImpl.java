@@ -8,7 +8,6 @@ import designpatterns.pipeline.PipelineService;
 import designpatterns.pipeline.impl.tasks.AddFilterToPipelineTask;
 import designpatterns.pipeline.impl.tasks.CreateEmptyPipelineTask;
 import designpatterns.pipeline.impl.tasks.ExecuteFiltersTask;
-import designpatterns.pipeline.pipe.Pipeline;
 
 public class PipelineServiceImpl extends DesignPatternsObject implements PipelineService
 {
