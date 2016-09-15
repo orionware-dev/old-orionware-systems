@@ -18,7 +18,7 @@
 	<property name="orion.computation.binaries.dir" value="${orion.computation.dir}/${default.binaries.dir.name}"/>
 	<property name="orion.data.structures.binaries.dir" value="${orion.data.structures.dir}/${default.binaries.dir.name}"/>
 	<property name="orion.design.patterns.binaries.dir" value="${orion.design.patterns.dir}/${default.binaries.dir.name}"/>
-	<property name="orion.web.core.binaries.dir" value="${orion.web.core.dir}/${default.binaries.dir.name}"/>
+	<property name="orion.web.binaries.dir" value="${orion.web.dir}/${default.binaries.dir.name}"/>
 
     
     <target name="all">
@@ -32,6 +32,7 @@
     	<emptyDirectory dir="${orion.computation.binaries.dir}"/>
     	<emptyDirectory dir="${orion.data.structures.binaries.dir}"/>
     	<emptyDirectory dir="${orion.design.patterns.binaries.dir}"/>
+    	<emptyDirectory dir="${orion.web.binaries.dir}"/>
     	        
     	<callAnt file="${orion.core.core.builder.dir}/build.xml"/>
     	<callAnt file="${orion.core.utilities.builder.dir}/build.xml"/>
@@ -46,11 +47,16 @@
         <callAnt file="${orion.data.structures.builder.dir}/build.xml"/>
     	<callAnt file="${orion.design.patterns.builder.dir}/build.xml"/>
     	<callAnt file="${orion.web.core.builder.dir}/build.xml"/>
+    	<callAnt file="${orion.web.services.builder.dir}/build.xml"/>
     	
     	<callAnt file="${orion.core.core.builder.dir}/build.xml" target="delete_JAR"/>
     	<callAnt file="${orion.core.utilities.builder.dir}/build.xml" target="delete_JAR"/>
     	<callAnt file="${orion.core.objects.builder.dir}/build.xml" target="delete_JAR"/>
     	
+    	<callAnt file="${orion.web.core.builder.dir}/build.xml" target="delete_JAR"/>
+        <callAnt file="${orion.web.services.builder.dir}/build.xml" target="delete_JAR"/>
+    	
     	<packageProject binariesDir="${orion.core.binaries.dir}" JARPath="${orion.orionware.libraries.libraries.dir}/${orion.core.jar.file.name}" projectName="${orion.core}"/>
+    	<packageProject binariesDir="${orion.web.binaries.dir}" JARPath="${orion.orionware.libraries.libraries.dir}/${orion.web.jar.file.name}" projectName="${orion.web}"/>
     </target>
 </project>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="/external-libraries/java/aopalliance-1.0.jar"/>
+	<classpathentry kind="lib" path="/external-libraries/java/aspectjrt-1.6.10.jar"/>
+	<classpathentry kind="lib" path="/external-libraries/java/javaee-api-7.0.jar"/>
+	<classpathentry kind="lib" path="/external-libraries/java/javax.inject-1.jar"/>
+	<classpathentry kind="lib" path="/external-libraries/java/javax.mail-1.5.0.jar"/>
+	<classpathentry kind="lib" path="/external-libraries/java/jsr305-1.3.9.jar"/>
+	<classpathentry kind="lib" path="/external-libraries/java/jstl-impl-1.2.2.jar"/>
+	<classpathentry kind="lib" path="/external-libraries/java/transaction-api-1.1.jar"/>
+	<classpathentry kind="lib" path="/external-libraries/spring/spring-beans-4.2.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/external-libraries/spring/spring-context-4.2.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/external-libraries/spring/spring-context-support-4.2.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/external-libraries/springweb/spring-web-4.2.0.RELEASE.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

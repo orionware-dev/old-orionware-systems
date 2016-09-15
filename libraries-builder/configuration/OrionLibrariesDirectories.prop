@@ -66,9 +66,10 @@ orion.design.patterns.builder.dir=${orion.design.patterns.projects.dir}/build
 orion.design.patterns.projects.dir=${orion.design.patterns.dir}
 orion.design.patterns.jar.file.name=OrionDesignPatterns_${orion.libraries.version}.jar
 
-orion.web.core=Orion Web Core
+orion.web=Orion Web
 #we use this dir for the binaries dir
 orion.web.dir=${orion.libraries.home.dir}/web
 orion.web.projects.dir=${orion.web.dir}
 orion.web.core.builder.dir=${orion.web.projects.dir}/webcore/build
-orion.web.core.jar.file.name=OrionWebCore_${orion.libraries.version}.jar
+orion.web.services.builder.dir=${orion.web.projects.dir}/webservices/build
+orion.web.jar.file.name=OrionWeb_${orion.libraries.version}.jar

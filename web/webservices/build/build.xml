@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="OrionWebServicesBuilder" default="all" basedir=".">
+	<property file="WebServicesBuild.prop"/>
+    <property name="orion.web.binaries.dir" value="${orion.web.dir}/${default.binaries.dir.name}"/>
+    <property name="orion.web.services.binaries.dir" value="${orion.web.services.dir}/${default.binaries.dir.name}"/>
+    <property name="orion.web.services.source.dir" value="${orion.web.services.dir}/${default.source.dir.name}"/>
+
+    
+    <target name="all">
+        <buildAndPackageProject sourceDir="${orion.web.services.source.dir}" binariesDir="${orion.web.services.binaries.dir}" JARPath="${orion.orionware.libraries.libraries.dir}/${orion.web.services.jar.file.name}" projectName="${orion.web.services}"/>
+        
+        <copy todir="${orion.web.binaries.dir}" verbose="yes" failonerror="false" overwrite="true">
+            <fileset dir="${orion.web.services.binaries.dir}" includes="${default.any.file.extension.pattern}"/>
+        </copy>
+    </target>
+    
+    
+    <target name="delete_JAR">
+        <deleteFile path="${orion.orionware.libraries.libraries.dir}/${orion.web.services.jar.file.name}"/>
+    </target>
+</project>

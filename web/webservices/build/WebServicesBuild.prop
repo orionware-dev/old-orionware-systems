@@ -1,0 +1,3 @@
+orion.web.services=Web Services
+orion.web.services.dir=${orion.web.projects.dir}/webservices
+orion.web.services.jar.file.name=OrionWebServices_${orion.libraries.version}.jar
