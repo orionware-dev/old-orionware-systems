@@ -1,6 +1,4 @@
-﻿--replace all streams with for loops
-
---reduce the amount of object creation
+﻿--reduce the amount of object creation
 
 --apply inejctor in datastructures and designpatterns
 
