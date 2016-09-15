@@ -7,7 +7,7 @@ public class GPUParallelismAdditionExample
 {
     public static void main(String[] args) throws Exception
     {
-        final int size = 512;
+        final int size = 536870912;
         final float[] a = new float[size];
         final float[] b = new float[size];
 
@@ -29,12 +29,17 @@ public class GPUParallelismAdditionExample
             }
         };
 
-        kernel.execute(Range.create(512));
+        kernel.execute(Range.create(536870912));
 
-        for(int i = 0; i < size; i++)
+        /*for(int i = 0; i < size; i++)
         {
             System.out.printf("%6.2f + %6.2f = %8.2f\n", a[i], b[i], sum[i]);
-        }
+        }*/
+        
+        /*for(int i = 0; i < size; i++)
+        {
+            sum[i] = a[i] + b[i];
+        }*/
 
         kernel.dispose();
     }
