@@ -1,4 +1,6 @@
-﻿--see if I can convert some of the code to annotations
+﻿--replace all streams with for loops
+
+--see if I can convert some of the code to annotations
 
 --find a way to make annotations processing much much faster.
 See how I can apply all object annotations in one go without

@@ -5,12 +5,12 @@ import configuration.ConfigurationTask;
 import configuration.LibrariesConfigurationMapper;
 import configuration.LibraryConfiguration;
 
-public class HaveConfigurationBeenRegisteredForLibraryTask extends ConfigurationObject implements ConfigurationTask
+public class HavePropertiesBeenRegisteredForLibraryTask extends ConfigurationObject implements ConfigurationTask
 {
     public boolean run(String libraryClassPath)
     {
-        return LibrariesConfigurationMapper.LIBRARIES_AND_IF_CONFIGURATION_HAS_BEEN_REGISTERED_MAPPER.get(libraryClassPath) != null
-                   && LibrariesConfigurationMapper.LIBRARIES_AND_IF_CONFIGURATION_HAS_BEEN_REGISTERED_MAPPER.get(libraryClassPath);
+        return LibrariesConfigurationMapper.LIBRARIES_AND_IF_PROPERTIES_HAS_BEEN_REGISTERED_MAPPER.get(libraryClassPath) != null
+                   && LibrariesConfigurationMapper.LIBRARIES_AND_IF_PROPERTIES_HAS_BEEN_REGISTERED_MAPPER.get(libraryClassPath);
     }
 
 

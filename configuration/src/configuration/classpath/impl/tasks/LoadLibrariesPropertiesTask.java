@@ -3,6 +3,7 @@ package configuration.classpath.impl.tasks;
 import configuration.ConfigurationObject;
 import configuration.ConfigurationTask;
 import configuration.LibrariesConfiguration;
+import configuration.LibraryConfiguration;
 import configuration.registry.PropertiesRegistrationService;
 import configuration.registry.impl.PropertiesRegistrationServiceImpl;
 
@@ -11,13 +12,16 @@ public class LoadLibrariesPropertiesTask extends ConfigurationObject implements 
     public void run()
     {
         PropertiesRegistrationService propertiesRegistrationService = new PropertiesRegistrationServiceImpl();
-        LibrariesConfiguration.getLibrariesConfiguration()
-            .stream()
-            .filter(libraryConfiguration -> libraryConfiguration.getConfigurationFilePath() != null)
-            .filter(libraryConfiguration -> propertiesRegistrationService.havePropertiesNotBeenRegisteredForLibrary(libraryConfiguration.getLibraryClassPath()))
-            .forEach(libraryConfiguration -> {
+        
+        for(LibraryConfiguration libraryConfiguration : LibrariesConfiguration.getLibrariesConfiguration())
+        {
+            if(libraryConfiguration != null
+                   && propertiesRegistrationService.havePropertiesNotBeenRegisteredForLibrary(libraryConfiguration.getLibraryClassPath())
+                   && libraryConfiguration.getConfigurationFilePath() != null)
+            {
                 new LoadLibraryPropertiesTask().run(libraryConfiguration);
-                new PropertiesRegistrationServiceImpl().setPropertiesAsRegisteredForLibrary(libraryConfiguration.getLibraryName());
-            });
+                propertiesRegistrationService.setPropertiesAsRegisteredForLibrary(libraryConfiguration.getLibraryClassPath());
+            }
+        }
     }
 }

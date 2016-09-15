@@ -14,7 +14,6 @@ import core.abstraction.ConfigurationEnumeration;
 import core.objects.orionobject.OrionObjectProcessorService;
 import core.objects.orionobject.impl.tasks.GetEnumerationValueAndSetItToLibraryConfigurationTask;
 import core.objects.orionobject.impl.tasks.InitialiseConfigurationTask;
-import core.objects.orionobject.impl.tasks.IsCoreLibraryTask;
 import dependencyinjection.configuration.DependencyInjectionConfigurationEnumeration;
 
 public class OrionObjectProcessorServiceImpl extends OrionSimpleObject implements OrionObjectProcessorService
@@ -28,12 +27,10 @@ public class OrionObjectProcessorServiceImpl extends OrionSimpleObject implement
             LibrariesConfiguration.registerLibraryConfiguration(coreLibraryConfiguration);
             LibraryConfiguration dependencyInjectionLibraryConfiguration = initialiseConfigurationTask.run(DependencyInjectionConfigurationEnumeration.class.getName(), DependencyInjectionConfigurationEnumeration.values());
             LibrariesConfiguration.registerLibraryConfiguration(dependencyInjectionLibraryConfiguration);
-
-            if(new IsCoreLibraryTask().run(getClass()))
-            {
-                processAllLibrariesConfiguration(object);
-            }
+            processAllLibrariesConfiguration(object);
         }
+        
+        System.out.println("1 - called by " + object.getClass().getName());
     }
     
     

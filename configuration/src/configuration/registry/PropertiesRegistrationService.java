@@ -6,22 +6,40 @@ import core.tuples.KeyValuePair;
 
 public interface PropertiesRegistrationService extends ConfigurationService
 {
-    public boolean havePropertiesBeenRegisteredForLibrary(String libraryName);
+    public boolean havePropertiesBeenRegisteredForLibrary(String libraryClassPath);
 
 
     public boolean havePropertiesBeenRegisteredForLibrary(LibraryConfiguration libraryConfiguration);
 
 
-    public boolean havePropertiesNotBeenRegisteredForLibrary(String libraryName);
+    public boolean havePropertiesNotBeenRegisteredForLibrary(String libraryClassPath);
 
 
     public boolean havePropertiesNotBeenRegisteredForLibrary(LibraryConfiguration libraryConfiguration);
+    
+    
+    public boolean haveConfigurationBeenRegisteredForLibrary(String libraryClassPath);
 
 
-    public void setPropertiesAsRegisteredForLibrary(String libraryName);
+    public boolean haveConfigurationBeenRegisteredForLibrary(LibraryConfiguration libraryConfiguration);
+
+
+    public boolean haveConfigurationNotBeenRegisteredForLibrary(String libraryClassPath);
+
+
+    public boolean haveConfigurationNotBeenRegisteredForLibrary(LibraryConfiguration libraryConfiguration);
+
+
+    public void setPropertiesAsRegisteredForLibrary(String libraryClassPath);
 
 
     public void setPropertiesAsRegisteredForLibrary(LibraryConfiguration libraryConfiguration);
+    
+    
+    public void setConfigurationAsRegisteredForLibrary(String libraryClassPath);
+
+
+    public void setConfigurationAsRegisteredForLibrary(LibraryConfiguration libraryConfiguration);
 
 
     public void registerProp(String key, String value);

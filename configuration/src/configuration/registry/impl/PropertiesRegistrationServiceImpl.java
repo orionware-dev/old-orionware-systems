@@ -5,31 +5,33 @@ import configuration.LibraryConfiguration;
 import configuration.registry.PropertiesRegistrationService;
 import configuration.registry.impl.tasks.DeletePropertyTask;
 import configuration.registry.impl.tasks.HaveConfigurationBeenRegisteredForLibraryTask;
+import configuration.registry.impl.tasks.HavePropertiesBeenRegisteredForLibraryTask;
 import configuration.registry.impl.tasks.RegisterPropertyTask;
 import configuration.registry.impl.tasks.SetConfigurationAsRegisteredForLibraryTask;
+import configuration.registry.impl.tasks.SetPropertiesAsRegisteredForLibraryTask;
 import configuration.registry.impl.tasks.UpdatePropertyTask;
 import core.tuples.KeyValuePair;
 
 public class PropertiesRegistrationServiceImpl extends ConfigurationServiceObject implements PropertiesRegistrationService
 {
     @Override
-    public boolean havePropertiesBeenRegisteredForLibrary(String libraryName)
+    public boolean havePropertiesBeenRegisteredForLibrary(String libraryClassPath)
     {
-        return new HaveConfigurationBeenRegisteredForLibraryTask().run(libraryName);
+        return new HavePropertiesBeenRegisteredForLibraryTask().run(libraryClassPath);
     }
 
 
     @Override
     public boolean havePropertiesBeenRegisteredForLibrary(LibraryConfiguration libraryConfiguration)
     {
-        return new HaveConfigurationBeenRegisteredForLibraryTask().run(libraryConfiguration.getLibraryName());
+        return new HavePropertiesBeenRegisteredForLibraryTask().run(libraryConfiguration.getLibraryClassPath());
     }
 
 
     @Override
-    public boolean havePropertiesNotBeenRegisteredForLibrary(String libraryName)
+    public boolean havePropertiesNotBeenRegisteredForLibrary(String libraryClassPath)
     {
-        return !havePropertiesBeenRegisteredForLibrary(libraryName);
+        return !havePropertiesBeenRegisteredForLibrary(libraryClassPath);
     }
 
 
@@ -38,19 +40,61 @@ public class PropertiesRegistrationServiceImpl extends ConfigurationServiceObjec
     {
         return !havePropertiesBeenRegisteredForLibrary(libraryConfiguration);
     }
+    
+    
+    @Override
+    public boolean haveConfigurationBeenRegisteredForLibrary(String libraryClassPath)
+    {
+        return new HaveConfigurationBeenRegisteredForLibraryTask().run(libraryClassPath);
+    }
 
 
     @Override
-    public void setPropertiesAsRegisteredForLibrary(String libraryName)
+    public boolean haveConfigurationBeenRegisteredForLibrary(LibraryConfiguration libraryConfiguration)
     {
-        new SetConfigurationAsRegisteredForLibraryTask().run(libraryName);
+        return new HaveConfigurationBeenRegisteredForLibraryTask().run(libraryConfiguration.getLibraryClassPath());
+    }
+
+
+    @Override
+    public boolean haveConfigurationNotBeenRegisteredForLibrary(String libraryClassPath)
+    {
+        return !havePropertiesBeenRegisteredForLibrary(libraryClassPath);
+    }
+
+
+    @Override
+    public boolean haveConfigurationNotBeenRegisteredForLibrary(LibraryConfiguration libraryConfiguration)
+    {
+        return !havePropertiesBeenRegisteredForLibrary(libraryConfiguration);
+    }
+
+
+    @Override
+    public void setPropertiesAsRegisteredForLibrary(String libraryClassPath)
+    {
+        new SetPropertiesAsRegisteredForLibraryTask().run(libraryClassPath);
     }
 
 
     @Override
     public void setPropertiesAsRegisteredForLibrary(LibraryConfiguration libraryConfiguration)
     {
-        new SetConfigurationAsRegisteredForLibraryTask().run(libraryConfiguration.getLibraryName());
+        new SetPropertiesAsRegisteredForLibraryTask().run(libraryConfiguration.getLibraryClassPath());
+    }
+    
+    
+    @Override
+    public void setConfigurationAsRegisteredForLibrary(String libraryClassPath)
+    {
+        new SetConfigurationAsRegisteredForLibraryTask().run(libraryClassPath);
+    }
+
+
+    @Override
+    public void setConfigurationAsRegisteredForLibrary(LibraryConfiguration libraryConfiguration)
+    {
+        new SetConfigurationAsRegisteredForLibraryTask().run(libraryConfiguration.getLibraryClassPath());
     }
 
 
