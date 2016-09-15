@@ -29,8 +29,6 @@ public class OrionObjectProcessorServiceImpl extends OrionSimpleObject implement
             LibrariesConfiguration.registerLibraryConfiguration(dependencyInjectionLibraryConfiguration);
             processAllLibrariesConfiguration(object);
         }
-        
-        System.out.println("1 - called by " + object.getClass().getName());
     }
     
     

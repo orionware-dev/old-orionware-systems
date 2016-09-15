@@ -20,7 +20,7 @@ public class AnnotationsFilteringServiceImpl extends AnnotationServiceObject imp
 
 
     @Override
-    public boolean run(Collection<OrionAnnotation> allObjectAnnotations, OrionAnnotation registeredAnnotation)
+    public boolean doesObjectHaveRegisteredAnnotation(Collection<OrionAnnotation> allObjectAnnotations, OrionAnnotation registeredAnnotation)
     {
         return new DoesObjectHaveRegisteredAnnotationTask().run(allObjectAnnotations, registeredAnnotation);
     }

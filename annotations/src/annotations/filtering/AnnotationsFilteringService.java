@@ -11,7 +11,7 @@ public interface AnnotationsFilteringService extends AnnotationService
     public List<OrionAnnotation> filterRegisteredAnnotationsFromObjectAnnotations(Collection<OrionAnnotation> allObjectAnnotations);
     
     
-    public boolean run(Collection<OrionAnnotation> allObjectAnnotations, OrionAnnotation registeredAnnotation);
+    public boolean doesObjectHaveRegisteredAnnotation(Collection<OrionAnnotation> allObjectAnnotations, OrionAnnotation registeredAnnotation);
     
     
     public void addAnnotationTypeForObject(OrionAnnotation annotation, AnnotationType annotationType);

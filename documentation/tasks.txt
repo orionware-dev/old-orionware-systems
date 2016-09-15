@@ -1,5 +1,7 @@
 ﻿--replace all streams with for loops
 
+--reduce the amount of object creation
+
 --see if I can convert some of the code to annotations
 
 --find a way to make annotations processing much much faster.

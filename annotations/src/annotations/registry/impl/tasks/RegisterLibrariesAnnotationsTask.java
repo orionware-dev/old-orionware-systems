@@ -4,14 +4,20 @@ import java.util.List;
 import annotations.AnnotationServiceObject;
 import annotations.AnnotationTask;
 import configuration.LibrariesConfiguration;
+import configuration.LibrariesConfigurationMapper;
 import configuration.LibraryConfiguration;
 
 public class RegisterLibrariesAnnotationsTask extends AnnotationServiceObject implements AnnotationTask
 {
     public void run()
     {
-        List<LibraryConfiguration> notNullLibrariesConfiguration = new FilterNotNullLibrariesConfigurationTask().run(LibrariesConfiguration.getLibrariesConfiguration());
+        List<LibraryConfiguration> notRegisteredLibrariesConfiguration = new FilterNotRegisteredLibrariesConfigurationTask().run(LibrariesConfiguration.getLibrariesConfiguration());
         RegisterLibraryAnnotationsTask registerLibraryAnnotationsTask = new RegisterLibraryAnnotationsTask();
-        notNullLibrariesConfiguration.forEach(libraryConfiguration -> registerLibraryAnnotationsTask.run(libraryConfiguration));
+        
+        for(LibraryConfiguration libraryConfiguration : notRegisteredLibrariesConfiguration)
+        {
+            registerLibraryAnnotationsTask.run(libraryConfiguration);
+            LibrariesConfigurationMapper.LIBRARIES_AND_IF_ANNOTATIONS_HAVE_BEEN_REGISTERED_MAPPER.put(libraryConfiguration.getLibraryClassPath(), true);
+        }
     }
 }

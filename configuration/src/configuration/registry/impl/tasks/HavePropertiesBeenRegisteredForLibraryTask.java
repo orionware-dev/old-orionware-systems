@@ -9,8 +9,8 @@ public class HavePropertiesBeenRegisteredForLibraryTask extends ConfigurationObj
 {
     public boolean run(String libraryClassPath)
     {
-        return LibrariesConfigurationMapper.LIBRARIES_AND_IF_PROPERTIES_HAS_BEEN_REGISTERED_MAPPER.get(libraryClassPath) != null
-                   && LibrariesConfigurationMapper.LIBRARIES_AND_IF_PROPERTIES_HAS_BEEN_REGISTERED_MAPPER.get(libraryClassPath);
+        return LibrariesConfigurationMapper.LIBRARIES_AND_IF_PROPERTIES_HAVE_BEEN_REGISTERED_MAPPER.get(libraryClassPath) != null
+                   && LibrariesConfigurationMapper.LIBRARIES_AND_IF_PROPERTIES_HAVE_BEEN_REGISTERED_MAPPER.get(libraryClassPath);
     }
 
 
