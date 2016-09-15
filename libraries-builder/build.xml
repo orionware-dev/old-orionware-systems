@@ -18,6 +18,7 @@
 	<property name="orion.computation.binaries.dir" value="${orion.computation.dir}/${default.binaries.dir.name}"/>
 	<property name="orion.data.structures.binaries.dir" value="${orion.data.structures.dir}/${default.binaries.dir.name}"/>
 	<property name="orion.design.patterns.binaries.dir" value="${orion.design.patterns.dir}/${default.binaries.dir.name}"/>
+	<property name="orion.web.core.binaries.dir" value="${orion.web.core.dir}/${default.binaries.dir.name}"/>
 
     
     <target name="all">
@@ -44,6 +45,7 @@
     	<callAnt file="${orion.core.objects.builder.dir}/build.xml"/>
         <callAnt file="${orion.data.structures.builder.dir}/build.xml"/>
     	<callAnt file="${orion.design.patterns.builder.dir}/build.xml"/>
+    	<callAnt file="${orion.web.core.builder.dir}/build.xml"/>
     	
     	<callAnt file="${orion.core.core.builder.dir}/build.xml" target="delete_JAR"/>
     	<callAnt file="${orion.core.utilities.builder.dir}/build.xml" target="delete_JAR"/>

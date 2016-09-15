@@ -1,0 +1,3 @@
+orion.web.core=Web Core
+orion.web.core.dir=${orion.web.projects.dir}/webcore
+orion.web.core.jar.file.name=OrionWebCore_${orion.libraries.version}.jar
