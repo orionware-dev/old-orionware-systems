@@ -16,11 +16,11 @@ import designpatterns.pipeline.PipelineFilterService;
 import designpatterns.pipeline.PipelineService;
 import designpatterns.pipeline.impl.PipelineFilterServiceImpl;
 import designpatterns.pipeline.impl.PipelineServiceImpl;
-import tester.Concurrent;
-import tester.ConcurrentJunitRunner;
+import tester.Concurrency;
+import tester.ConcurrentJUnitRunner;
 
-@RunWith(ConcurrentJunitRunner.class)
-@Concurrent(threads = 4)
+@RunWith(ConcurrentJUnitRunner.class)
+@Concurrency()
 public class PipelineTest extends DesignPatternsObject
 {
     private PipelineFilterService pipelineFilterService;

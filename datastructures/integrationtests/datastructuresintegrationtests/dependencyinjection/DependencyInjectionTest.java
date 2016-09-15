@@ -5,11 +5,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import datastructures.DataStructuresObject;
-import tester.Concurrent;
-import tester.ConcurrentJunitRunner;
+import tester.Concurrency;
+import tester.ConcurrentJUnitRunner;
 
-@RunWith(ConcurrentJunitRunner.class)
-@Concurrent(threads = 4)
+@RunWith(ConcurrentJUnitRunner.class)
+@Concurrency()
 public class DependencyInjectionTest extends DataStructuresObject
 {
     @Before

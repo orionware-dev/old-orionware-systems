@@ -7,7 +7,7 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE})
-public @interface Concurrent
+public @interface Concurrency
 {
-    int threads() default 5;
+    int threads() default 4;
 }

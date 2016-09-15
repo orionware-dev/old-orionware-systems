@@ -7,11 +7,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import datastructures.DataStructuresObject;
 import dependencyinjection.annotation.Injector;
-import tester.Concurrent;
-import tester.ConcurrentJunitRunner;
+import tester.Concurrency;
+import tester.ConcurrentJUnitRunner;
 
-@RunWith(ConcurrentJunitRunner.class)
-@Concurrent(threads = 4)
+@RunWith(ConcurrentJUnitRunner.class)
+@Concurrency()
 public class AnnotationInstantiationTest extends DataStructuresObject
 {
     @Before

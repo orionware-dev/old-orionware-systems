@@ -4,12 +4,15 @@ import java.util.Collection;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 import datastructures.DataStructuresObject;
+import datastructures.sets.factory.impl.tasks.CreateEmptyHashSetTask;
 import datastructures.streams.StreamService;
 import datastructures.streams.impl.tasks.ForEachTask;
+import dependencyinjection.annotation.Injector;
 
 public class StreamServiceImpl<T> extends DataStructuresObject implements StreamService<T>
 {
-    private ForEachTask<T> forEachTask = new ForEachTask<T>();
+    @Injector
+    private ForEachTask<T> forEachTask;
     
     
     @Override

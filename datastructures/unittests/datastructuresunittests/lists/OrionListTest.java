@@ -7,11 +7,11 @@ import org.junit.runner.RunWith;
 import datastructures.DataStructuresObject;
 import datastructures.lists.OrionList;
 import datastructures.lists.impl.OrionArrayList;
-import tester.Concurrent;
-import tester.ConcurrentJunitRunner;
+import tester.Concurrency;
+import tester.ConcurrentJUnitRunner;
 
-@RunWith(ConcurrentJunitRunner.class)
-@Concurrent(threads = 4)
+@RunWith(ConcurrentJUnitRunner.class)
+@Concurrency()
 public class OrionListTest extends DataStructuresObject
 {
     private OrionList<Integer> filteredList;

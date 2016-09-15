@@ -9,11 +9,11 @@ import datastructures.lists.factory.ListFactoryService;
 import datastructures.lists.factory.impl.ListFactoryServiceImpl;
 import datastructures.size.DataStructureSizeService;
 import datastructures.size.impl.DataStructureSizeServiceImpl;
-import tester.Concurrent;
-import tester.ConcurrentJunitRunner;
+import tester.Concurrency;
+import tester.ConcurrentJUnitRunner;
 
-@RunWith(ConcurrentJunitRunner.class)
-@Concurrent(threads = 4)
+@RunWith(ConcurrentJUnitRunner.class)
+@Concurrency()
 public class DataStructureSizeTest
 {
     @Before
