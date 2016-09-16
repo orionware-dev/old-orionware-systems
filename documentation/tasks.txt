@@ -1,4 +1,6 @@
-﻿--see if I can convert some of the code to annotations
+﻿--server.xml has a problem somewhere
+
+--see if I can convert some of the code to annotations
 
 --create the Orion Web Platform
 
