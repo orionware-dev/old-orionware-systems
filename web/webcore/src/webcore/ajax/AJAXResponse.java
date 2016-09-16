@@ -1,6 +1,8 @@
 package webcore.ajax;
 
-public class AJAXResponse
+import webcore.WebCoreObject;
+
+public class AJAXResponse extends WebCoreObject
 {
     private Boolean error = Boolean.FALSE;
 

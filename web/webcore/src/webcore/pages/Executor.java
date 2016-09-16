@@ -1,6 +1,8 @@
 package webcore.pages;
 
-public class Executor
+import webcore.WebCoreObject;
+
+public class Executor extends WebCoreObject
 {
 
 }

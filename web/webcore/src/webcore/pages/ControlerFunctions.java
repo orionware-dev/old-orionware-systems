@@ -1,12 +1,15 @@
 package webcore.pages;
 
+import core.abstraction.OrionConstants;
+import webcore.WebCoreObject;
+
 /**
  * lists the type of functions Spring Controllers can do
  * 
  * @author dimitrios.efthymiou
  * @version 1.0.0
  */
-public class ControlerFunctions
+public class ControlerFunctions extends WebCoreObject implements OrionConstants
 {
     public static final int INITIALISE_PAGE = 0;
     public static final int PROCESS_AJAX = 1;

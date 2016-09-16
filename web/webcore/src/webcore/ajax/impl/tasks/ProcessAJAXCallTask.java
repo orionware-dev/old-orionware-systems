@@ -1,21 +1,25 @@
-package webcore.ajax;
+package webcore.ajax.impl.tasks;
 
 import java.io.IOException;
-import java.util.logging.Logger;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
-import webcore.json.JSONUtilities;
+import dependencyinjection.annotation.InjectorImpl;
+import webcore.WebCoreObject;
+import webcore.WebCoreTask;
+import webcore.ajax.AJAXResponse;
+import webcore.json.JSONService;
 
-public class AJAXHandler
+public class ProcessAJAXCallTask extends WebCoreObject implements WebCoreTask
 {
-    private final static Logger LOGGER = Logger.getLogger(AJAXHandler.class.getName());
-
-
-    public static void processAjaxResponse(HttpServletResponse response, AJAXResponse aJAXResponse)
+    @InjectorImpl
+    private JSONService aJSONService;
+    
+    
+    public void run(HttpServletResponse response, AJAXResponse aJAXResponse)
     {
         try
         {
-            String JSONResponse = new JSONUtilities().convertObjectToJSON(aJAXResponse);
+            String JSONResponse = aJSONService.convertObjectToJSON(aJAXResponse);
             response.setContentType("application/json");
             response.setHeader("Allow", "GET, POST");
             response.setHeader("Access-Control-Allow-Origin", "*");
@@ -29,7 +33,7 @@ public class AJAXHandler
         }
         catch(IOException e1)
         {
-            LOGGER.info("AJAX Error = " + e1);
+            
         }
     }
 }

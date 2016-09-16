@@ -1,6 +1,8 @@
 package webcore.pages;
 
-public class Initialiser
+import webcore.WebCoreObject;
+
+public class Initialiser extends WebCoreObject
 {
 
 }

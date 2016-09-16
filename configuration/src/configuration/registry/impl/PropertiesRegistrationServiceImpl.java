@@ -4,6 +4,7 @@ import configuration.ConfigurationServiceObject;
 import configuration.LibraryConfiguration;
 import configuration.registry.PropertiesRegistrationService;
 import configuration.registry.impl.tasks.DeletePropertyTask;
+import configuration.registry.impl.tasks.GetPropertyTask;
 import configuration.registry.impl.tasks.HaveConfigurationBeenRegisteredForLibraryTask;
 import configuration.registry.impl.tasks.HavePropertiesBeenRegisteredForLibraryTask;
 import configuration.registry.impl.tasks.RegisterPropertyTask;
@@ -130,5 +131,12 @@ public class PropertiesRegistrationServiceImpl extends ConfigurationServiceObjec
     public void deleteProp(String key)
     {
         DeletePropertyTask.run(key);
+    }
+
+
+    @Override
+    public String getProp(String key)
+    {
+        return GetPropertyTask.run(key);
     }
 }

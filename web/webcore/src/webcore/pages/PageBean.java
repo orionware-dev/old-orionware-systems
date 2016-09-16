@@ -1,6 +1,8 @@
 package webcore.pages;
 
-public class PageBean
+import webcore.WebCoreObject;
+
+public class PageBean extends WebCoreObject
 {
     
 }

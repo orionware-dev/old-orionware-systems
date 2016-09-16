@@ -53,4 +53,10 @@ public class ConfigurationRegistry extends OrionRegistry
     {
         return AllProperties.properties;
     }
+    
+    
+    public static String getProp(String key)
+    {
+        return getProps().getProp(key);
+    }
 }

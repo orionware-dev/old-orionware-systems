@@ -1,6 +1,8 @@
 package webcore.pages;
 
-public abstract class PageInitialiser
+import webcore.WebCoreObject;
+
+public abstract class PageInitialiser extends WebCoreObject
 {
     /*public abstract void initialisePage(Model model, Map<String, Object> parameters);
 
