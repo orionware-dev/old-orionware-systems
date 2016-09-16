@@ -5,3 +5,7 @@ dependencyinjection.annotation.service.processing.method.1=processDependencies
 dependencyinjection.annotation.2=dependencyinjection.annotation.InjectorImpl
 dependencyinjection.annotation.service.2=dependencyinjection.processing.impl.DependencyInjectorImplServiceImpl
 dependencyinjection.annotation.service.processing.method.2=processDependencies
+
+dependencyinjection.annotation.3=dependencyinjection.annotation.Prop
+dependencyinjection.annotation.service.3=dependencyinjection.processing.impl.PropertyDependencyInjectorServiceImpl
+dependencyinjection.annotation.service.processing.method.3=processPropertyInjection

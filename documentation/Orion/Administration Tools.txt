@@ -5,7 +5,8 @@
 --USERS========
 --you can create new user groups
 --you can create new users
---you can define user-group restrictions and access rights. These will be tightly coupled with internal and web services
+--you can define user-group restrictions and access rights.
+These will be tightly coupled with internal and web services
 --manually enable/disable users accounts
 
 
@@ -18,7 +19,9 @@
 
 --DATA==========
 --using the AdminTool you can backup data, etc. to other servers, or the file system, etc.
---in the admin tool for specific paid customers that want their own databases, they will be able to retrieve stats about their databases (like number of requests, etc.), searching stats, etc.
+--in the admin tool for specific paid customers that want their own databases,
+they will be able to retrieve stats about their databases (like number of requests, etc.),
+searching stats, etc.
 --import/export facility
 --create database explorer
 --create direct SQL execution system
@@ -41,7 +44,9 @@
 
 
 --REPORTS========
---create beautiful PDF that reports all important system statistics (number of registered users, logged in users, number of polls, actions users do categorised by country, date, etc.)
+--create beautiful PDF that reports all important system statistics
+(number of registered users, logged in users, number of polls,
+actions users do categorised by country, date, etc.)
 --get HeartBeat logs/reports
 
 

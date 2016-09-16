@@ -1,8 +1,12 @@
 ﻿--use https://developers.google.com/analytics/ as inspiration
---analytics/statistics will be used only within Orion (including libraries I build), but not in the libraries separately
---to enable global analytics create a filter in web.xml for HTTP-based analytics. For others like CronJobs think of another way
+--analytics/statistics will be used only within Orion
+(including libraries I build), but not in the libraries separately
+--to enable global analytics create a filter in web.xml for
+HTTP-based analytics. For others like CronJobs think of another way
 --produce charts and graphs
---use charting and graphing libraries like D3.js, http://www.amcharts.com/demos/, C3.js, http://www.highcharts.com/products/highcharts
+--use charting and graphing libraries like D3.js,
+http://www.amcharts.com/demos/, C3.js,
+http://www.highcharts.com/products/highcharts
 
 
 --USERS ANALYTICS========

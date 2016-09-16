@@ -4,8 +4,7 @@ import java.io.IOException;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
-import configuration.registry.PropertiesRegistrationService;
-import configuration.registry.impl.PropertiesRegistrationServiceImpl;
+import configuration.registry.impl.ConfigurationPropertiesServiceImpl;
 
 public class MessageTag extends SimpleTagSupport
 {
@@ -15,8 +14,7 @@ public class MessageTag extends SimpleTagSupport
     public void doTag() throws JspException, IOException
     {
         JspWriter out = getJspContext().getOut();
-        PropertiesRegistrationService propertiesRegistrationService = new PropertiesRegistrationServiceImpl();
-        out.println(propertiesRegistrationService.getProp(getKey()));
+        out.println(new ConfigurationPropertiesServiceImpl().getProp(getKey()));
     }
 
 

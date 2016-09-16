@@ -55,7 +55,4 @@ public interface PropertiesRegistrationService extends ConfigurationService
 
 
     public void deleteProp(String key);
-    
-    
-    public String getProp(String key);
 }

@@ -1,4 +1,33 @@
-﻿--we have PageService.java to be extended by all page controllers.
+﻿--create WebConfiguration projects in which there will be configs like
+configuration which means only for the projects
+
+--spring-based "web" services are in WebSpringMVC, WebSpringSecurity projects
+
+--session, socket server, URL, HTTP, filters, interceptors, downloader
+ uploader services are in WebCoreServices
+
+--MVC interceptors service extends interceptors from WebCoreServices
+is in WebSpringMVCServices
+
+--WebServices model web services in general like resources
+
+--RESTfulWebServices handle RESTful protocol
+
+--WebPageComponents have pre-built little reusable components for simple
+HTML, JSP, etc. Page files including CSS and javascript for them
+
+--WebNodeJSMVC is like WebSpringMVC, but using NodeJS
+
+--WebNodeJSSecurity is like WebSpringSecurity, but for NodeJS
+
+--find a way when we have a web project, to be able to say in our HTML file
+(for NodeJS) to import not only other HTML files, but also JSPs
+
+
+
+
+
+--we have PageService.java to be extended by all page controllers.
 Each page has a <page_name>PageService.java extends PageController
 
 --we have PageInitialiser.java to be extended by all page initialisers.
