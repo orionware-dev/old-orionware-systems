@@ -1,0 +1,3 @@
+﻿--use Google Truth for better assertion methods and more meaningful error messages = https://github.com/google/truth
+--use Google Web Testing Framework to ID performance issues = http://google.github.io/tracing-framework/
+--hierarchise/group testing domains. For example we can have annotations for database-related tests, etc. or database-related testing services/functionality with domain-specific method names

@@ -1,0 +1,45 @@
+﻿MODEL-VIEW-CONTROLLER=================
+--used on front-end (GUI) and front-end (web services)
+
+
+FACADE=================
+--services will be accessed via facades
+--web services will be accessed via facades
+--business services will be accessed via facades
+--APIs will be accessed via facades
+--the build engine will be accessed via command-line-based facades (*.bat and *.sh files) instead of calling directly "ant build"
+--integration (messaging) will be accessed via facades
+
+
+PIPELINE (PIPE/FILTER)==================
+--initialisation process runs on a pipeline since there is a predefined sequence of actions to be taken
+--business services run in a pipeline since there is a sequence of actions to be taken
+--API library could probably use a pipeline if there are any predefined "lengthy" sequences of actions to be taken
+--integration (messaging) could probably use a pipeline if there are any predefined "lengthy" sequences of messages to be sent/received/analysed
+--events could probably use a pipeline if there are any predefined "lengthy" sequences of events to be handled
+
+
+RULE-BASED==================
+--OSQL could be rule-based since there must be some defined rules about how OSQL looks like
+--configuration is rule-based since there are rules regarding configuration hierarchy, checking of the existence of the "configuration" folder in plugins, etc.
+--type system has rules
+--some services could have rules
+--some web services could have rules
+--integration(messaging) could have rules
+--events could have rules
+--business services could have rules
+
+
+EVENT-DRIVEN + PUBLISH/SUBSCRIBE===============
+--the front-end (GUI) will use events
+--the front-end (web services) will use events
+--services will use events
+--web services will use events
+--business services will use events
+--initialisation could use events
+--data layer could use events
+--integration (messaging) could use events
+
+
+ABSTRACT FACTORY==================
+--

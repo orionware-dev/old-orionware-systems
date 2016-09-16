@@ -1,0 +1,3 @@
+﻿--create an eventengine for event-driven programming
+--use ReactiveX for asynchronous and event-based back-end and front-end = http://reactivex.io/ or use http://vertx.io
+--use React.js for front-end event-driven programming or something else that does not require node.js

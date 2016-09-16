@@ -1,0 +1,49 @@
+﻿--produce charts and graphs
+--make the beauty of the admin tool to look like = http://grafana.org/
+
+
+--USERS========
+--you can create new user groups
+--you can create new users
+--you can define user-group restrictions and access rights. These will be tightly coupled with internal and web services
+--manually enable/disable users accounts
+
+
+--CONFIGURATION===========
+--change configuration parameters in the database
+--get build number file
+--get system version history
+--create a way to enable/disable features while live or after tomcat restart
+
+
+--DATA==========
+--using the AdminTool you can backup data, etc. to other servers, or the file system, etc.
+--in the admin tool for specific paid customers that want their own databases, they will be able to retrieve stats about their databases (like number of requests, etc.), searching stats, etc.
+--import/export facility
+--create database explorer
+--create direct SQL execution system
+
+
+--SERVICES============
+--create a services operation monitor which will show the current services being executed
+
+
+--CRONJOBS==========
+--businesses will be able to manually execute some CronJobs relevant to them and their data
+--use CronJobs to backup the databases
+
+
+--STATISTICS==========
+--get information and statistics about what user actions have been taken
+--get number of registered users
+--get number of logged in users
+--get number of users that registered in a given time period
+
+
+--REPORTS========
+--create beautiful PDF that reports all important system statistics (number of registered users, logged in users, number of polls, actions users do categorised by country, date, etc.)
+--get HeartBeat logs/reports
+
+
+-TOOLS==========
+--emailer with GUI

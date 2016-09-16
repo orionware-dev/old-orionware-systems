@@ -1,0 +1,5 @@
+﻿--create an asynchronous method executor. Whoever uses it, they will provide the time in selected time units to start the new thread, when to stop and the number of time units for execution. The number of time units for execution is the how often to execute the method. They will also pass a reference to a method that will execute either every some time units or when it timeouts
+--use Google Guava libraries for various stuff
+--use code analysis tools during the build process like PMD, checkstyle, FindBugs and SonarQube
+--create a constraint programming service that handles ranges/constraints. It could be used for data validation like: "required age has to be 18+" or "number of addresses you have to provide has to be 1+", etc.
+--convert various useful Java libraries to JavaScript ones

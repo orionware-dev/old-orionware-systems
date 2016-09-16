@@ -1,0 +1,32 @@
+﻿--handle resource changes with concurrency control
+--find all HTTP methods and use them accordingly
+--use HTTP status codes for responses
+--create custom exceptions for errors that occur in the WS
+--decide if after a GET we need to return subobjects or just reference them and make the client make a separate request for that embedded/included subobject
+--persist the application state of necessary and use signatures to avoid tampering
+--make sure that POST, PUT, and DELETE operations when executed multiple times, produce the same result
+--if net or server error during GET, PUT and DELETE, repeat the operation
+--if POST then either tell the client in the response that there was an error and he can repeat the call or put in the API doc that the system will automatically repeat the operation on its own and the client does not have to do it himself
+--when we use POST to create a poll put in the response the content-location of the new resource
+--who is the owner of the API and the data it generates? Are there third-party providers of data (like Google Analytics)
+--the motivation of clients to use the API has to do with adding value to the client
+--decide what information to make available through the API
+--public APIs can be used by anyone
+--private APIs are used by specific authenticated and authorised clients
+--optimisation for mobile apps
+--make sure that the API does not overexpose the business data to competitors
+--people and companies can register their apps they want to create like facebook app dashboard and twitter app dashboard (the pages that show you the API key, API secret, etc.)
+--the company can partner with app companies to create new apps using the API to increase the marketshare and expand the company's reach
+--some services are free, some paid. Maybe freemium, as well, like google maps API that allows a number of requests for free and later that you have to pay
+--maybe we can create an affiliate program using API. A website can get the information of a poll, get the creator's profile data including the eCommerce thing: if a poll has information and/or links to products or services provided by the poll creator, the website can get that and advertise them in it
+--taking functionality back is very difficult if apps have already been built using the API
+--we can enable PollPlug Login/registration like facebook and twitter login/registration
+--create an API status/health page
+--create JavaDocs for the API
+--keep API usage statistics
+--internal services should be used by other internal services only and web services should have their own implementation
+--Orion will have a generic RESTful-based and Spring Integration-based infrastructure that will allow paid customers/businesses to integrate whatever data they need from their systems with your own extensions
+--Orion will have a reporting tool so that users can generate reports either from within the admin tool or by using a web service
+--for RESTful use restlet.com framework
+--use RESTAssured to test RESTful services from within Java like JUnit = https://github.com/jayway/rest-assured
+--create something like Hybris VJDBC and call it RESTfulDBC that exposes CRUD operations of database models as RESTful services

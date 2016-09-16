@@ -1,0 +1,20 @@
+﻿--delivery consists of build and deployment
+--create build number file that will be updated after each build
+--create system version history file
+--use a small NoSQL (JSON-based) database during the build and deployment phases for internal use
+--instead of having to directly call SetAntHome, etc. either create an Ant task that we can run or a Java program or Python script that will go through the building process instead of *.bat and *.sh files
+--create a bash script that downloads the code from SVN, builds it, deploys it, starts MySQL and starts Tomcat
+--create a bash script that checks out the code from SVN, builds it and deploys the JAR files. In the script we can pass a parameter like "get tomcat" so that it downloads only tomcat and not apache. Passing "get apache,tomcat" or "get tomcat,apache" will download both
+--during deployment we do not have to copy/paste the JSPs, CSS and JavaScript files. In the <Context path="" docBase=""/> we can prepend the operating-system-specific path of the actual location of the project that has front-end files. This way, we can just make changes to the JSPs, for example, directly without having to redeploy those files
+--the build engine reads all the plugins.xml files, determines the dependencies ordering and builds the projects in the appropriate order
+--create Ant target "clean" that deletes all classes, etc. before build process
+--check in the ant manual all the attributes of all the Ant tasks I use to find good ones
+--if you want to manually call a target do <antcall target="target_name"/>
+--if you want to download a file in Ant do <get dest="${directory}" usetimestamp="true" ignoreerrors="true" src="http://a.com/1.jpg"/>
+--find a way to not only deploy all the projects in one tomcat, but multiple ones, Amazon Lambda (for services), etc. A way to create and deploy microservices and nanoservices
+--in Ant files we can load global properties and then in Java we can use them using: "System.getProperty("HYBRIS_CONFIG_DIR")"
+--create something like a Docker/Vagrant file in which we have configuration for Tomcat, JVM, etc. instead of properties files we have now
+--as a building engine, also use Gradle
+--as a building engine, also use google's Bazel = http://bazel.io
+--as a building engine, also use Maven
+--put macrodefs and Java Ant tasks in separate plugin

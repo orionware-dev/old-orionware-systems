@@ -1,0 +1,13 @@
+﻿--use XSS filter. Patterns to implement======
+xss.filter.rule.script_fragments=(?i)<script>(.*?)</script>
+xss.filter.rule.src=(?ims)[\\s\r\n]+src[\\s\r\n]*=[\\s\r\n]*'(.*?)'
+xss.filter.rule.lonely_script_tags=(?i)</script>
+xss.filter.rule.lonely_script_tags2=(?ims)<script(.*?)>
+xss.filter.rule.eval=(?ims)eval\\((.*?)\\)
+xss.filter.rule.expression=(?ims)expression\\((.*?)\\)
+xss.filter.rule.javascript=(?i)javascript:
+xss.filter.rule.vbscript=(?i)vbscript:
+xss.filter.rule.onload=(?ims)onload(.*?)=
+--prevent Request Header Exploits
+--prevent clickjacking. The X-Frame-Options HTTP response header can be used to indicate whether or not a browser should be allowed to render a page in a <frame> or <iframe>. The parameters are: DENY, SAMEORIGIN and ALLOW-FROM uri. Use it for URLs that we do not want to be in frames. Create a filter and in doFilter() add that parameter in the HTTP response header (response.addHeader("X-FRAME-OPTIONS", "DENY");)
+--licensing system

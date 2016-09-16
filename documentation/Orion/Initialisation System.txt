@@ -1,0 +1,1 @@
+﻿--if we want some methods or constructors to be executed during Tomcat startup then create a @ExecuteOnStartup annotation. Use the AnnotationService to check which methods have this annotation

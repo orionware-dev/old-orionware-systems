@@ -1,0 +1,19 @@
+﻿--Orion consists of plugins. Each library is a plugin and it is not Spring-based. Each plugin consists of modules
+--see how I can make modules in a way I can enable/disable them during the building process in case I want to build only specific plugins with specific modules
+--everything is derived from interfaces and abstract classes
+--enable concurrency wherever I can
+--enable parallelism wherever I can
+
+--Orion consists of the following layers:
+data layer
+    persistence layer
+        database layer
+            data searching layer
+        data processing layer
+    data type layer
+    caching layer
+infrastructure layer
+service layer (libraries like configuration service, string manipulation, collections, XML handling, JSON, etc.)
+web layer
+    web service layer
+    presentation layer

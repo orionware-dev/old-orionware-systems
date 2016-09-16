@@ -1,0 +1,1 @@
+﻿--use files like *-items.xml to declare POJOs in plugins. During build Orion will generate the POJOs and put them inside pluginsbeans project

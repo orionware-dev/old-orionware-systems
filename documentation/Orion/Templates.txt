@@ -1,0 +1,3 @@
+﻿--use Apache Velocity templates for code generation of any language
+--create my own template engine for custom-made files/templates
+--for Java-generated, JavaScript-generated, etc. HTML/text/code/etc., use templates so that during generation formatting, structure and security rules like XSS are applied before delivering the generated code

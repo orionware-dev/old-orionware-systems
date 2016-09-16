@@ -1,0 +1,4 @@
+﻿--it monitors the lifecycle of services, CronJobs, user actions, system actions, etc.
+--use Nagios to monitor the infrastructure = https://www.nagios.org/
+--use this to get ideas = https://exchange.nagios.org/directory
+--make the beauty of the monitoring tool to look like = http://grafana.org/

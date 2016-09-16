@@ -1,0 +1,4 @@
+﻿--facebook login/registration
+--twitter login/registration
+--google login/registration
+--linkedin login/registration

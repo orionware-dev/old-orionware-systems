@@ -1,0 +1,2 @@
+﻿--use SonarQube
+--static analysis tool for Eclipse = https://developers.google.com/java-dev-tools/codepro/doc/

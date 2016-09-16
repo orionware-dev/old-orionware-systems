@@ -1,0 +1,6 @@
+﻿--create a persistent connection between JavaScript and the server to exchange messages without the need for polling
+--reusable GUI components creator like Apache Velocity = https://developers.google.com/closure/templates/
+--use Dojo = http://dojotoolkit.org/
+--use Granule
+--see if WebChannel API allows to open bidirectional persistent connection to the server
+--provide agility for compatibility with future devices

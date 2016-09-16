@@ -1,0 +1,18 @@
+﻿--add response to cache after POST
+--cache responses and update cache when content changes after PUT or DELETE
+--find how to create new URL mappings dynamically without server restart
+--context filters (declared in web.xml)
+--create your own HTTP methods
+--use multi-tenancy
+--there are properties files that have configuration parameters for Apache and Tomcat. Instead of using Java's replaceAll() method, create a file like Docker with my own format/structure and declare the actions to be taken for configuration in there. It will be executed during the deployment process. The file will look like:
+REPLACE_ALL "${keystore_password}" WITH "4528193370825" (or for more advanced)
+REPLACE_ALL "${keystore_password}" WITH ${keystore_password_linux}
+COPY /path/to/file to /another/path
+etc.
+--put apache configuration in properties file and set them during deployment. Put it in
+../orion/configuration/WEB-INF/properties/server/ApacheConfiguration.prop
+--put tomcat configuration in properties file and set them during deployment. Put it in
+../orion/configuration/WEB-INF/properties/server/TomcatConfiguration.prop
+--make it so that tomcat can be start from the command-line or as a system service
+--go through the Google Web Fundamentals to learn stuff about security, performance, etc. = https://github.com/google/WebFundamentals
+--create HeartBeat service

@@ -1,0 +1,10 @@
+﻿--create an asynchronous function executor. Whoever uses it, they will provide the time in selected time units to start the new thread, when to stop and the number of time units for execution. The number of time units for execution is the how often to execute the function. They will also pass a reference to a function that will execute either every some time units or when it timeouts
+--create an ImportJavaScriptsService which is an API to be used by HTML/JSPs to dynamically import scripts
+--JavaScript utilities = https://developers.google.com/closure/library
+--something like JSLint = https://developers.google.com/closure/utilities
+--JavaScript utilities = http://mootools.net/ and http://mootools.net/more
+--use Google Closure Compiler to optimise JavaScript files to faster ones = https://github.com/google/closure-compiler
+--convert various useful JavaScript libraries to Java ones
+--use Direct Web Remoting for AJAX calls (http://directwebremoting.org/dwr/index.html)
+--JavaScript libraries = https://www.javascripting.com/
+--use charting/graphing libraries like D3.js

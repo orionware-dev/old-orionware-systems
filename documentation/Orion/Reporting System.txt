@@ -1,0 +1,4 @@
+﻿--create reports in PDF, DOCX, CSV, XML, PNG, etc.
+--report can have charts and graphs
+--see if the use of Google Docs is relevant
+--create bug reports for the Orion Bugger

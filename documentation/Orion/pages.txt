@@ -1,0 +1,14 @@
+﻿--make it possible for the server to send the data necessary for the page to JavaScript and the front-end to build the HTML using that data
+--dynamic page loading = http://youtube.github.io/spfjs/
+--use Polymer for web components = https://www.polymer-project.org
+--use modernizr.com
+--see if I could use or create something like HAML files
+--create annotations for HTML/JSPs
+--use Material Design for web page components = http://www.getmdl.io/
+--use vaadin.com to build web components in Java or JavaScript
+--use ZKoss = http://www.zkoss.org
+--create an image URL link for charts that can be requested by a web service, etc.
+--create a library of page layouts
+--using WCMS or code, you can select a layout for a page or assemble a combination of layouts for the page and you can add components to the partitions of each layout. Looks like = http://keen.github.io/dashboards/
+--create various pagination systems
+--create a sitemap generator

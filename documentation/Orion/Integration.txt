@@ -1,0 +1,2 @@
+﻿--use Spring Integration so that plugins in a cluster/different servers can communicate
+--integration with various 3rd part libraries and APIs

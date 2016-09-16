@@ -1,0 +1,1 @@
+﻿--create "environments" directory in which we have configuration for development, UAT and production environments. Which configuration to be used will be determined by the parameter you will pass to the delivery engine. If you say for example: "ant build development" then it will load the dev configuration

@@ -1,0 +1,20 @@
+﻿--use factories instead of directly doing "new ClassName"
+--we can have configuration of factories in *.oxml files and we can set if a particular factory should create singletons or prototypes
+--implement some Design Patterns as a Framework (DPaaF) so that in XML files we can configure factory methods with the "new" keyword and as beans. For example:
+<factory class="orion.factories.EngineServicesFactory">
+    <factoryMethod beanID="LoggingService" type="object,bean"/>
+    <factoryMethod beanID="StringsService" type="bean"/>
+</factory>
+these lines will generate EngineServicesFactory.java (use Apache Velocity for the factory class template) and will put 2 factory methods inside. Example:
+public LoggingService getLoggingService()
+{
+    return new LoggingService();
+}
+public LoggingService getLoggingServiceBean()
+{
+    return beanService.getBean(LoggingService);
+}
+public StringsService getStringsServiceBean()
+{
+    return beanService.getBean(StringsService);
+}

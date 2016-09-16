@@ -1,0 +1,1 @@
+﻿--expose AdminTool services as RESTful so that they can be used within a cluster, etc.

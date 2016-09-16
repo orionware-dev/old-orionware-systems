@@ -1,0 +1,267 @@
+﻿--*beans projects include model classes (POJOs)
+
+
+--GIT==============
+create repos:
+    delivery-engine, servers, orionplatform, orionengine, orionwebengine, oriontemplates
+    
+    
+--JDK8 (in GIT "orionplatform")
+
+
+--JDK9 (in GIT "orionplatform")
+    
+    
+--apache (in GIT "orionplatform")
+
+
+--tomcat (in GIT "orionplatform")
+
+
+--initialisation==============
+ConfigurationInitialisationService
+DatabaseInitialisationService
+
+
+--pluginsbeans (in GIT "orionplatform". Type engine puts here the code-generates models from *-items.xml)
+
+
+--deliveryengine (in GIT "delivery-engine")=================
+MacroService
+Ant tasks that do:
+    execute task
+    before execution
+    after execution
+
+
+--enginebuild (in GIT "orionengine". Uses deliveryengine)
+
+
+--enginedeployment (in GIT "orionengine". Uses deliveryengine)==============
+TomcatService (handles server.xml)
+
+
+--enginebeans (in GIT "orionengine". Belongs to the data type layer)
+
+
+--enginefacades (in GIT "orionengine". Uses enginebeans, engineservices)
+
+
+--engineservices (in GIT "orionengine". Uses enginebeans)
+
+
+--engine (in GIT "orionengine". Uses enginebeans, engineservices, enginefacades)===============
+generic mapper of String->Object (ID -> object)
+OrionVersionService
+ThreadService (pauseThread())
+PluginsService
+Media (static vars to represent file extensions (XML, JSON, JPG, TXT, etc.)
+MediaService
+FactoryService (represents something that can create/build something else)
+OrionException
+Error
+ExceptionService
+ReflectionService
+    ClassService
+    MethodService (isGetter(), isSetter(), invoke)
+BeanService
+LoggingService
+    log by string
+    log by message key
+ResourceService
+    FileSystemService
+        DirectoryService
+        FileService
+abstract Pipeline/Filter pattern
+ConfigurationService
+    PropertiesService
+CollectionService
+DocumentService
+    XMLService
+    JSONService
+    CSVService
+TypeSystemService
+TokenGeneratorService
+    APIKeyGeneratorService
+CryptologyService
+    EncryptionService
+        SHAEncryptionService
+    DecryptionService
+        SHADecryptionService
+CodingService
+    EncodingService
+        HashingService
+        MD5EncodingService
+    DecodingService
+        UnhashingService
+        MD5DecodingService
+Event
+EventStatus
+EventsPoll
+EventService
+    EventPublicationService
+    EventListenerService
+UserService
+ValidationService
+FormatterService
+    NumberFormatterService
+    CurrencyFormatterService
+ConversionService
+CountriesService
+RegularExpressionService
+ClasspathService
+DependencyModel (represents a map of object(s) that depend on other object(s))
+ServiceMethodInterceptorService (interceptor to hook into Java methods)
+CounterService (increment/decrement)
+MonitoringService (metrics collector like CPU usage, etc.)
+PasswordGeneratorService
+IdentifierGeneratorService
+JobModel
+JobService (manually starts a job)
+CronJobModel
+CronJobService
+Pagination (represents pagination of results/data)
+LanguagesMapper (code->language e.g. GB->English, DE->German)
+LocalisationService
+    TextLocalisationService
+    LanguageService
+CalendarService
+    DateService
+    TimeService
+    TimeZoneService
+    StopwatchService or TimerService
+    TimestampService
+AnnotationService
+ScriptingEngine
+    JavaScriptService
+    GroovyService
+annotations
+    Test
+    UnitTest
+    IntegrationTest
+    PerformanceTest
+    
+    
+--webenginebuild (in GIT "orionwebengine". Uses deliveryengine)
+
+
+--webenginedeployment (in GIT "orionwebengine". Uses deliveryengine)
+
+
+--webenginebeans (in GIT "orionwebengine". Uses enginebeans. Belongs to the data type layer)
+
+
+--webenginefacades (in GIT "orionwebengine". Uses engine, webenginebeans, webengineservices)
+
+
+--webengineservices (in GIT "orionwebengine". Uses engine, webenginebeans)
+
+
+--webengine (in GIT "orionwebengine". Uses engine, webenginebeans, webengineservices, webenginefacades)
+SessionService
+SocketServerService
+URLService
+HTTPCodesConstants (extends engine.Constants)
+HTTPService
+    HTTPHeaderService
+    HTTPBodyService
+FileDownloaderService
+FileUploaderService
+
+
+--webservicesengine (in GIT "orionwebengine". Uses webengine, engine)================
+WebService (extends engine.Service)
+WebServiceResource (accessed by URI like GET https://localhost/api/v1/version which returns string: "version 1.0")
+WebServiceResourceParameters (consumes, produces, paths, GET/POST/PUT/DELETE/OPTIONS/HEAD, etc.)
+PaginatedWebServiceResults
+WebServiceParameters
+
+
+--pagecomponentslibrary (in GIT "orionwebengine". Uses deliveryengine)============
+--JSP components
+--JSP tag library
+
+
+--javascriptcomponentslibrary (in GIT "orionwebengine". Uses deliveryengine)
+
+
+--databaseengine (in GIT "orionengine". Uses engine)============
+DataAccessObject
+DataTransferObject
+DatabaseService
+DatabaseStatementService
+DatabasePropertiesService
+DatabaseIndexService
+FlexibleSearchService
+DataModelService
+SQLService (uses DatabaseService)
+    MySQLService
+    MSSQLService
+    OracleDBService
+NoSQLService (uses DatabaseService)
+    MongoDBService
+    CouchDBService
+    CassandraDBService
+DataIndexingService
+DataHubService (a common place that references all data sources)
+    
+    
+--authenticationandauthorisation (in GIT "orionwebengine". Uses engine, databases)===================
+AuthenticationService
+    UsernameAuthenticationService
+    SocialMediaAuthenticationService
+        FacebookAuthenticationService
+        TwitterAuthenticationService
+AuthorisationService
+OAuthService
+OAuth2Service
+
+
+--registration (in GIT "orionwebengine". Uses engine, databases)================
+RegistrationService
+    UsernameRegistrationService
+    SocialMediaRegistrationService
+        FacebookRegistrationService
+        TwitterRegistrationService
+
+    
+--strings (in GIT "orionengine". Uses engine)===============
+
+
+--selenium (in GIT "orionplatform". Uses engine)===========
+
+
+--scriptingengine (in GIT "orionwebengine". Uses webengine, engine)================
+--JavaScript engine
+--Groovy engine
+
+
+--cloudservices (in GIT "orionwebengine". Uses webengine, engine)================
+--ClusteringService
+--AmazonWebServicesSDK
+--GoogleCloudSDK
+--MicrosoftAzureSDK
+
+
+--annotations (in GIT "orionengine". various annotations. Uses engine, etc.)================
+
+
+--comparators (in GIT "orionengine". various comparators to be used for sorting (file objects, etc.). Uses engine, etc.)================
+
+
+--templateprojectbuild (in GIT "oriontemplates". Uses deliveryengine)
+
+
+--templateprojectdeployment (in GIT "oriontemplates". Uses deliveryengine)
+
+
+--templateprojectfacades (in GIT "oriontemplates". Uses enginebeans, engineservices)
+
+
+--templateprojectservices (in GIT "oriontemplates". Uses enginebeans)
+
+
+--templateprojectwebservices (in GIT "oriontemplates". Uses enginebeans)
+
+
+--templateproject (in GIT "oriontemplates". Uses webengine, engine)

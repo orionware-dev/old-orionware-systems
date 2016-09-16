@@ -1,0 +1,49 @@
+﻿--Orion is hosted on GitHub with a daily backup on my personal SVN server hosted on AWS
+--Orion consists of several repositories each of which has a set of projects
+--JDK8 and JDK9 support
+--Orion comes bundled with Ant, Apache Web Server and Apache Tomcat
+--Apache Tomcat is needed for web-based systems, but Apache Web Server is optional
+--preconfigured and further configurable Apache Web Server
+--preconfigured and further configurable Apache Tomcat
+--Apache Tomcat comes with a default SSL keystore for both MS Windows and Linux for development purposes
+--Orin comes with a Docker-like deployment system
+--initialisation system that runs during tomcat startup
+--models are declared in *-items.oxml files and converted/generated to Java-based models for the engine's convenience
+--Orion is built and deployed with the help of the Orion Delivery Engine which consists of the Orion Build Engine and the Orion Deployment Engine. The Orion Delivery Engine uses Apache Ant by default, but also, optionally, Google Bazel, Apache Maven, or Gradle
+--Orion provides a number of reusable Apache Ant macrodefs and Java Ant tasks
+--Orion is based on the Orion Engine and the Orion Web Engine that can be reused for the development of libraries, command-line applications, desktop applications, web applications, web services, API libraries/wrappers, etc.
+--Orion follows an interface-based and facade-based services and web services design
+--a number of operations execute asynchronously for better performance
+--a number of operations execute in parallel for better performance
+--Orion provides a factory service that can be used to autogenerate the factory pattern for services and facades
+--Orion comes with the Orion Exceptions Engine that can be used to create custom exceptions with several configuration options
+--Orion is based on a simple custom dependency injector. If your project is Spring-based you can still use Spring beans the normal way
+--Orion comes with the Orion DataSource Engine that can handle SQL-based, NoSQL-based, graph-based databases, Google Docs, CSVs, etc.
+--Orion comes with the Orion Configuration Engine
+--Orion comes with the Orion Logging Engine that can log information of several severity levels to various locations
+--Orion comes with a reusable and extensible data type system
+--Orion comes with the Orion Security Engine that can do encoding/decoding, encryption/decryption, and more
+--Orion comes with the Orion Events Engine for event-driven programming
+--Orion comes with the Orion Monitoring Engine which is an advanced user and system action monitoring system
+--Orion comes with the Orion CronJob Engine
+--Orion comes with the Orion Annotation Engine
+--The Orion Web Engine is the basis of all things web and internet
+--Orion comes bundled with a library of reusable and extensible web page components
+--Orion comes bundled with a library of reusable and extensible JavaScript components
+--Orion comes with a reusable and extensible registration, authentication and authorisation engine for email-based and token-based systems
+--Orion comes with the Orion Testing Engine for unit, integration and web-based testing
+--Orion comes with SDKs of several cloud computing providers like AWS, GCP and MS Azure
+--Orion comes with a collection of template projects with basic code that you can use as a basis to build new applications and libraries that are based on the Orion Platform
+--Orion comes with a suite of administration tools of varied concerns
+--the AdminTool services also come as RESTful web services so that they can be used within a cluster, etc.
+--Orion comes with the Orion Analytics Engine that is used to produce insights drawn from statistics logged by the system
+--Orion comes with the Orion API Collection which is the wrapper of the system's web services and it is written in Java, JavaScript, Python, etc.
+--Orion comes with the Orion Business Process Engine
+--Orion comes with a Web Content Management System
+--Orion allows users to define their own database schema and Orion will build it. It could be used by these users to link their own systems/users/etc. with Orion
+--Orion comes with OrionSQL which is a more "every day speech" version of some of the most commonly used SQL commands
+--Orion comes with the Orion ICS Engine (Indexing/Caching/Searching)
+--Orion comes with the Orion Reporting Engine for generating PDFs, DOCXs, Excel, CSVs, etc.
+Orion comes with the custom-made Orion AJAX/JSON/XML protocols
+--produces charts and graphs
+--when there are exceptions/errors, Orion automatically creates a bug report on the Orion Bugger

@@ -1,0 +1,4 @@
+﻿--how many users logged in since the beginning of time or since yesterday morning, etc.
+--number of registered users
+--use Metrics for component behaviour metrics = http://metrics.dropwizard.io/3.1.0/
+--create a resource usage / performance /metrics system that will run on a server (if configured to "true") that will collect stats about the system resource usage only. Use file in linux like: "/sys/fs/cgroup/cpu"

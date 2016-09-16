@@ -1,0 +1,5 @@
+﻿--use Google Protocol Buffers as an example for how to create my own protocols like Orion XMLs to define various stuff like data structures, configuration files, templates, etc. = https://developers.google.com/protocol-buffers/
+--create my own AJAX protocol and use FlatBuffers or Protocol Buffers like: ajax://orionware.co/getProductDetails?id=543262
+--create my own JSON protocol. It will be used in conjunction with the RESTfulDBC and use it to retrieve database objects in JSON format like: "json://orionware.co/"
+--create my own XML protocol. It will be used in conjunction with the RESTfulDBC and use it to retrieve database objects in XML format like: "xml://orionware.co/"
+--create my own chart/graph protocol. It will be used to request charts/graphs like: "chart://orionware.co/"

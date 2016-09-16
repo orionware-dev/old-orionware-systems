@@ -1,0 +1,6 @@
+﻿--use FlexibleSearch
+--use Apache Solr for indexing
+--implement EHCache for caching
+--Orion will provide a generic customised search integration facility. For PollPlug for example, Vodafone can integrate a search bar (like the Google search bar) in their own site and people can either do poll searches right there or they can search for polls created only by Vodafone (Vodafone will have to tell the system what kind of searching they want). Businesses with their own custom databases will be able to enable/disable showing their polls in search results
+--Orion will have advanced searching so that users can do filter-based searching like search for polls on category technology and poll title contains the string "phone" or technology category with keyword "android"
+--use ElasticSearch to enable text searching of indexed data as a Java API and as a RESTful service

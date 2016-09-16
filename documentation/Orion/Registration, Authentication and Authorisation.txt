@@ -1,0 +1,3 @@
+﻿--use Spring Security
+--create a generic registration system
+--create my own authorisation service

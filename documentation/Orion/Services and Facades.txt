@@ -1,0 +1,77 @@
+﻿--a service splits into service tasks
+s
+*********************************************************************************************
+THINK ABOUT THE 4 CASES STATED BELOW AND REWRITE EVERYTHING BASED ON EACH CASE AND CREATE AN OBJECT-ORIENTED (HIERARCHICAL) PRESENTATION OF EACH ASPECT STATED BELOW
+*********************************************************************************************
+
+
+--the service architecture shown below is implemented within the engine in a project called "serviceframework"
+
+Services Architecture============
+--everything this document has, has to be thought for 4 cases:
+    single server + Orion enabled
+    single server + Orion disabled
+    multiple servers + Orion enabled
+    multiple servers + Orion disabled
+some stuff will be applicable for Orion and some for non-Orion
+--use Apache Velocity to define NAME, LOCATION, OPERATION, DEPENDENCY AND DEFINITION documents
+
+
+--SERVICE NAME = SERVICE name as string
+--SERVICE LOCATION = maps SERVICE NAME to "co.orionware.package1.UserService"
+--SERVICE LOCATION RESOLVER = takes a SERVICE NAME and looks through the SERVICE LOCATION map to find the needed SERVICE LOCATION
+--SERVICE OPERATION = SERVICE Java methods description
+--SERVICE DEPENDENCY = class or other resource the SERVICE needs in order to operate
+--SERVICE DEFINITION = document with metadata about the SERVICE like SERVICE NAME, SERVICE LOCATION, SERVICE OPERATIONS you can execute, SERVICE DEPENDENCIES, etc.
+--SERVICE DEFINITION RETRIEVER = takes a SERVICE name and returns the SERVICE DEFINITION
+--SERVICE REGISTRY = keeps metadata of all available SERVICES. Takes a SERVICE name and uses SERVICE LOCATION RESOLVER to get the SERVICE LOCATION 
+--SERVICE FACTORY = takes a SERVICE name and returns an instance of the service class. Uses SERVICE REGISTRY. Used by FACADES
+--SERVICE INTERFACE = the Java interface the SERVICE will implement
+--SERVICE TASK = SERVICE Java methods are split into SERVICE TASKS which are Java classes
+--SERVICE = actual SERVICE INTERFACE implementation. A SERVICE consists of SERVICE TASKS. It can use SERVICE DEFINITION RETRIEVER in case Orion is disabled to get its own SERVICE DEFINITION in order to initialise itself or see if I can do it with annotations
+--see if I can create something like Orion XML that will be used by the build engine to generate the SERVICE LOCATION or SERVICE DEPENDENCY
+--SERVICE GROUP = a conceptual group of related services
+--SERVICE MONITOR = monitors SERVICE calls, data that go back and forth, etc.
+
+
+--FACADE NAME = FACADE name as string
+--FACADE LOCATION = maps FACADE NAME to "co.orionware.package1.UserFacade"
+--FACADE LOCATION RESOLVER = takes a FACADE NAME and looks through the FACADE LOCATION map to find the needed FACADE LOCATION
+--FACADE OPERATION = FACADE Java methods description
+--FACADE DEPENDENCY = class or other resource the FACADE needs in order to operate
+--FACADE DEFINITION = document with metadata about the FACADE like FACADE NAME, FACADE LOCATION, FACADE OPERATIONS you can execute, FACADE DEPENDENCIES, etc.
+--FACADE DEFINITION RETRIEVER = takes a FACADE name and returns the FACADE DEFINITION
+--FACADE REGISTRY = keeps metadata of all available FACADES. Takes a FACADE name and uses FACADE LOCATION RESOLVER to get the FACADE LOCATION 
+--FACADE FACTORY = takes a FACADE name and returns an instance of the FACADE class. Uses FACADE REGISTRY
+--FACADE = actual FACADE implementation that wraps only one SERVICE. Uses SERVICE FACTORY. The FACADE is the SERVICE invoker and it acts as the SERVICE invocation manager. It can use FACADE DEFINITION RETRIEVER in case Orion is disabled to get its own FACADE DEFINITION in order to initialise itself or see if I can do it with annotations
+--FACADE GROUP = a conceptual group of related FACADES
+--create FACADES GROUPS
+--FACADE AUTHORISER = when someone calls for a FACADE, it checks if the current "user" that calls it is authorised to use the facade
+--FACADE ACCESS CONTROLLER = uses FACADE DEFINITION that has policies about accessibility/authorisation rules of the FACADE
+--FACADE MONITOR = monitors FACADE calls, data that go back and forth, etc.
+
+
+--*FACADE/SERVICE MAPPER = FACADE/SERVICE mapper which maps FACADE NAME and SERVICE NAME like "UserFacade" -> "UserService". We cannot have more than one facades with the same name. The build engine will throw error if it happens
+--*SERVICE/FACADE MAPPER = SERVICE/FACADE mapper which maps SERVICE NAME and FACADE NAME like "UserService" -> "UserFacade". We cannot have more than one services with the same name. The build engine will throw error if it happens
+--Anybody can know about the FACADES, but only FACADES should know about services. The FACADES sit on top of the services
+--SERVICES GATEWAY = 
+--create optional system that can create central SERVICES and FACADES registries that could be deployed to a dedicated server and it could act as the SERVICES and FACADES gateway
+
+
+--BUSINESS PROCESS NAME = BUSINESS PROCESS name as string
+--BUSINESS PROCESS LOCATION = maps BUSINESS PROCESS NAME to "co.orionware.package1.UserFacade"
+--BUSINESS PROCESS LOCATION RESOLVER = takes a BUSINESS PROCESS NAME and looks through the BUSINESS PROCESS LOCATION map to find the needed BUSINESS PROCESS LOCATION
+--BUSINESS PROCESS DEFINITION = is an XML that defines the BUSINESS PROCESS name, location, etc. of the BUSINESS PROCESS
+--BUSINESS PROCESS DEFINITION RETRIEVER = takes a BUSINESS PROCESS name and returns the BUSINESS PROCESS DEFINITION
+--BUSINESS PROCESS = represents a sequence of FACADE calls that have to be made in order to accomplish this process
+--BUSINESS PROCESS REGISTRY = keeps metadata of all available processes. Takes a BUSINESS PROCESS name and uses BUSINESS PROCESS LOCATION RESOLVER to get the BUSINESS PROCESS LOCATION
+--BUSINESS PROCESS STATE = represents a snapshot of the process lifecycle, current values, etc.
+--BUSINESS ACTION = represents a single task that a BUSINESS PROCESS can execute. It can be defined as a Orion bean and it can be triggered
+--a BUSINESS PROCESS is split into BUSINESS ACTIONS
+--BUSINESS PROCESS MODEL = realisation of the BUSINESS PROCESS
+--BUSINESS PROCESS ENGINE = executes BUSINESS PROCESSES and handles the lifecycle
+--BUSINESS PROCESS MANAGER = takes the parameters of a BUSINESS PROCESS execution we want to do, uses the ProcessXML of the desired process to initialise it. Then the client has to call the BUSINESS PROCESS FACTORY to instantiate the process and send it to the BUSINESS PROCESS ENGINE to execute and sends the results back to the manager which sends it back to the client
+--BUSINESS PROCESS FACTORY = takes the initialised BUSINESS PROCESS and instantiates it. The factory belongs to the BUSINESS PROCESS ENGINE
+--BUSINESS PROCESS STATE MANAGER = manages the process BUSINESS PROCESS STATE which means state transitions
+--BUSINESS PROCESS FACTORY = exposes BUSINESS PROCESSES as normal SERVICES. Takes a BUSINESS PROCESS name and returns an instance of the BUSINESS PROCESS class. Uses BUSINESS PROCESS REGISTRY
+--BUSINESS PROCESS MONITOR = monitors BUSINESS PROCESS calls, data that go back and forth, etc.

@@ -1,0 +1,2 @@
+﻿--use GitHub
+--create an automatic GitHub exporter that will export a snapshot of the trunk daily or whatever to a specialised Git tag as an archive

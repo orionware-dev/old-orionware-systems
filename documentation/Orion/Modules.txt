@@ -1,0 +1,1 @@
+﻿--plugins consist of a set of modules. Each module is a feature or set of logically grouped features of the plugin

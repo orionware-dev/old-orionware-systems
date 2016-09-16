@@ -1,0 +1,11 @@
+﻿--a user group has a UUID, details, access rights, set of users
+--create a few predefined user groups
+--a user has UUID, password(s) (depending on the applications he can access), details, belongs to at least one user group
+--show appropriate content to client based on role and credentials
+--Orion will include a generic personalisation/segmentation module to split users into groups and apply specific rules to each group so that extensions can extend it
+--Orion will provide location-based services
+--Orion will provide localisation capabilities. It can be used for enabling/disabling features, search results and languages for your extension based on the user's location
+--you can personalise the content of a user based on their location, etc.
+--forgot password will work only when the user is not logged in. When the user declares that they forgot their password, disable the account right after we send the resetPassword URL to their email address (PollPlugUser.setEnabled(Boolean.FALSE)) and enable the account once they set a new password
+--create "UserAccountActivitiesReporter"
+--Orion will have a generic internal user stats subsystem that will generate stats about user actions and behaviour. For the PollPlug example, it will create a timeline-like transitional graph that will show, on average, what kind of poll categories users vote on. Which means that the graph will show on the x-axis the time and the y-axis the poll categories. Poll creators will be able to see what kind of poll trends are created as time passes. This can work for polls created by a specific user or for all polls. For example the graph may show that in the first 6 months of 2016, on average, people voted mostly on technology-related polls and in the second semester they voted mostly on product-related polls. Orion will be able to do that for user searches, as well so that you can see what kind of searches are the most common. This kind of functionality will be part of the paid advanced analytics

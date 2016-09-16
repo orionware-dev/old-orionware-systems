@@ -1,0 +1,4 @@
+﻿--create a generic command-line executor like https://github.com/500px/gunter
+--for each class that has annotations, put in the constructor a call to the AnnotationService to which we pass this object. Then inside the service, analyse the annotations and process them accordingly one-by-one or in parallel or in separate threads (if possible, because I have to find out if I can use reflection on an object from different threads at teh same time)
+--see how to replicate a Spring "new GlobalParentApplicationContext" to be used as the global parent Orion application context in which we can merge all the individual application contexts so that extensions/plugins can use Orion XMLs to refer to Orion beans
+--find a way to be able to save the entire webapp state and be able to restore it. Something like system restore

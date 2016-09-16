@@ -1,0 +1,9 @@
+﻿--a plugin is either a reusable library (which can depend on the web engine, as well, if necessary) or part of the engines
+--each plugin will have a features.oxml file that will declare all its features along with enable/disable
+--during build, the delivery engine will produce for each plugin, a PluginManagerService.java which will keep a registry of information about the plugin (dependencies, name, etc.)
+--see how to integrate various existing systems/plugins/modules/3rd-party-APIs/3rd-party-web-services to Orion like Gliffy for diagrams, google analytics, etc.
+--when I want to create a library (strings, collections, etc.) it has to be either an Orion-based library or a "normal" library (=using the "new" keyword). For that create OrionObject.java and put in it====
+"private boolean haveDependenciesBeenInitialised = false;"
+"protected void initialiseDependencies();" = this will use "new" to instantiate the dependencies
+--all projects will have Orion XML configuration, but also, inside the Java methods, put as the first line====
+"initialiseDependencies();"

@@ -1,0 +1,2 @@
+﻿--Orion will include a generic client-specific WCMS (web content management system) so that extensions can extend it
+--premium customers can use the WCMS to build personalised webpage within the platform with its own URL (like GitHub and WordPress)

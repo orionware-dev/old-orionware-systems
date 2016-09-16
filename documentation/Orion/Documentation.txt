@@ -1,0 +1,2 @@
+﻿--use Doxygen to define settings for the generated documentation after a build
+--build help system in a separate URL like http://localhost/orionhelp

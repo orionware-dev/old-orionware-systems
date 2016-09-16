@@ -1,0 +1,10 @@
+﻿--implement as many 3rd-party = https://market.mashape.com/explore
+--Java libraries, etc. = https://github.com/akullpp/awesome-java
+--misc awesome stuff = https://github.com/sindresorhus/awesome + https://github.com/bayandin/awesome-awesomeness
+--get ideas by looking at every single IETF RFC, design pattern (OO patterns, architecture patterns, integration patterns, engineering patterns, etc.)
+--create chatting system or use Smack for chatting system = http://www.igniterealtime.org/projects/smack/
+--create user notifications system
+--use XMLUnit to compare 2 XMLs or validate XML files
+--I have a document that has the use-cases for when to use which data structure. Create a system that abstracts the collections framework, implement the use-case rules as described in the document and the developer can do something like:
+DataStructure<String> temp = new DataStructure<String>(DataStructure.UNIQUE, DataStructure.SORTED);
+This way Orion will determine which data structure to use by itself automatically. In this case a SortedSet with TreeSet

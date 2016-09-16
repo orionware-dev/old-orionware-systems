@@ -1,0 +1,47 @@
+﻿--we have PageService.java to be extended by all page controllers.
+Each page has a <page_name>PageService.java extends PageController
+
+--we have PageInitialiser.java to be extended by all page initialisers.
+Each page has a <page_name>PageInitialiser.java extends PageInitialiser.
+They are called by the page controller
+
+--we have PageAJAXService.java to be extended by all page AJAX services/controllers.
+Each page has a <page_name>PageAJAXService.java extends PageAJAXService.
+They are called by the page controller
+
+--we have PageFormService.java to be extended by all page form services/controllers.
+Each page has a <page_name>PageFormService.java extends PageFormService.
+They are called by the page controller
+
+--we have PageComponentService.java to be extended by all page component controllers.
+Each page consists of a set of page components. Each page component has its own
+<component_name><page_name>PageComponentService.java extends PageComponentService
+
+--we have PageComponentInitialisationService.java to be extended by all page component initialiser.
+Each page consists of a set of page components. Each page component has its own
+<component_name><page_name>PageComponentInitialisationService.java extends PageComponentInitialisationService
+
+--we have PageComponentAJAXService.java to be extended by all page component AJAX controller.
+Each page consists of a set of page components. Each page component has its own
+<component_name><page_name>PageComponentAJAXService.java extends PageComponentAJAXService
+
+--we have PageComponentFormService.java to be extended by all page component form controller.
+Each page consists of a set of page components. Each page component has its own
+<component_name><page_name>PageComponentFormService.java extends PageComponentFormService
+
+--use Google Web Toolkit
+
+--upload/download facility
+
+--emailing system for internal use and for paid customers that would like to email
+people about new polls they created, or whatever. The email will set the sender
+to be the email address the user registered with
+
+--configurable session timeout.
+Use https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0CB8QFjAA&url=http%3A%2F%2Fstackoverflow.com%2Fquestions%2F2960764%2Fhow-to-set-session-timeout-dynamically-in-java-web-applications&ei=UszQVO6lIunW7AahooDoCQ&usg=AFQjCNFXiFZDD8Qe7605CfTsCL3QklgHCg&sig2=0XFrBb0XB2_A8sqxU184kQ
+
+--make page controllers and other web classes lazy-initialised
+
+--each webapp (admintool, plugin, etc.) has its own application context.
+Orion will have a global application context that includes all the application contexts.
+Use de.hybris.platform.spring.HybrisContextLoaderListener and com.gucci.storefront.filters.HybrisStorefrontContextLoaderListeners

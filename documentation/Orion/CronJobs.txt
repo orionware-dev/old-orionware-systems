@@ -1,0 +1,4 @@
+﻿--create a calendar model and use it to register/schedule tasks
+--create a mapper of Cron expressions to natural language like: "every day at 14:30 => 0 30 14 * * ?"
+--enable RESTful for CronJobs
+--CronJobs should be able to be triggered manually

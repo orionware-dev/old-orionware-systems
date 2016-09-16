@@ -1,0 +1,6 @@
+﻿--templateprojectbuild = uses deliveryengine
+--templateprojectdeployment = uses deliveryengine
+--templateprojectfacades = uses enginebeans, engineservices
+--templateprojectservices = uses enginebeans
+--templateprojectwebservices = uses enginebeans
+--templateproject = uses webengine, engine

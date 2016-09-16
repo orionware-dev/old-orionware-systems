@@ -1,8 +1,10 @@
 package webcore.pages;
 
 import webcore.WebCoreObject;
+import webcore.WebCoreService;
+import webcore.WebCoreServiceObject;
 
-public abstract class PageController extends WebCoreObject
+public interface PageService extends WebCoreService
 {
     /*public abstract void initialisePage(Model model, Map<String, Object> parameters);
 

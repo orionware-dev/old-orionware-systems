@@ -1,0 +1,4 @@
+﻿--classes can have annotations
+--create AnnotationService.java that takes an object, inspects the annotation Orion can support and uses reflection to call the appropriate annotation processor
+--create Injector annotation
+--create @Prop annotation that can be used on instance variables and it injects a value retrieved from the properties/configuration system
