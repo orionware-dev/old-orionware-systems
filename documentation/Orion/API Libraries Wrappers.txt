@@ -1,2 +1,6 @@
-﻿--for web services, create an API library/wrapper, as well in Java, JavaScript, Python, etc.
---create a general API wrapper that can be used and it will act as a wrapper/importer of individual APIs you want, instead of manually importing the ones you want one-by-one
+﻿--for web services, create an API library/wrapper,
+as well in Java, JavaScript, Python, etc.
+
+--create a general API wrapper that can be used and it will
+act as a wrapper/importer of individual APIs you want,
+instead of manually importing the ones you want one-by-one

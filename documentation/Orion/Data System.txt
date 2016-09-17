@@ -1,18 +1,39 @@
-﻿--MODEL = class that keeps only a data structure inside that represents a database table. Used by front-end, page controllers, web services, API libraries and by FACADES as method inputs/outputs. A model class represents a table in the database. All models are POJOs, but not all POJOs are model classes. MODELS do not necessarily represent the exact database schema. Orion may create, internally, a little different columns or tables or data types for a database if it is more convenient or faster, etc. for the database engine. The MODEL represents the conceptual model, but there is a discrepancy between the MODEL and the physical model. Create a system that handles that discrepancy/mapping
+﻿--MODEL = class that keeps only a data structure inside that
+represents a database table. Used by front-end, page controllers,
+web services, API libraries and by FACADES as method inputs/outputs.
+A model class represents a table in the database. All models
+are POJOs, but not all POJOs are model classes. MODELS do not
+necessarily represent the exact database schema. Orion may create,
+internally, a little different columns or tables or data types
+for a database if it is more convenient or faster, etc. for the
+database engine. The MODEL represents the conceptual model,
+but there is a discrepancy between the MODEL and the physical model.
+Create a system that handles that discrepancy/mapping
 --instantiate a MODEL by:
     using "new MyModel();"
     using the factory method in the ModelService.java
 --DATA ACCESS OBJECT = it does CRUD. DAOs interact with services via model classes
---DATA TRANSFER OBJECT = it is a use-case-centric MODEL. Class that keeps a data structure inside. Used by FACADES as method inputs/outputs to accept/return data from/to the caller, send/receive data to/from services. Implement Serializable
+--DATA TRANSFER OBJECT = it is a use-case-centric MODEL. Class that keeps a data structure inside.
+Used by FACADES as method inputs/outputs to accept/return data
+from/to the caller, send/receive data to/from services. Implement Serializable
 --DATA POPULATORS = take Object1 and Object2 and populate Object1 with values from Object2. Used by FACADES
 --DATA FORMATTERS = number, string-based formatting, etc. Usually used by FACADES
 --DATA CONVERTERS = take Object1 and Object2 and convert Object1 to Object2. Use DATA POPULATORS. Used by FACADES
 --create a model context that keeps track of loaded models. If we have, for example:
-    CartModel and it has a variable ProductModel then if we change the CartModel, but not the ProductModel, it will save only the CartModel
-    CartModel and it has a variable ProductModel then if we change both CartModel and ProductModel, it will save both models
+    CartModel and it has a variable ProductModel then if we change
+    the CartModel, but not the ProductModel, it will save only the CartModel
+    CartModel and it has a variable ProductModel then if we change
+    both CartModel and ProductModel, it will save both models
 --create custom Hibernate Validator
---data transfer API. It can be used, for example, to transfer data, settings, etc. from one user to another, if a employee leaves a company, for example, and you reallocate the data to another employee that took over
+--data transfer API. It can be used, for example, to transfer data, settings, etc.
+from one user to another, if a employee leaves a company, for example,
+and you reallocate the data to another employee that took over
 --create serialisers = converters from Object to JSON, to XML, JAXB, etc.
 --learn XPath
---think if there is a good reason to use a compression engine to compress files/data/etc. anywhere for whatever reason
---create something like Spring interceptor to hook into a model's lifecycle in ModelService.java. When we load a model from the database load the primitive types to begin with and then as we request other variables, the interceptor in the getter in the model class will call the ModelService to retrieve the requested object. It is lazy initialisation
+--think if there is a good reason to use a compression engine to
+compress files/data/etc. anywhere for whatever reason
+--create something like Spring interceptor to hook into a model's lifecycle
+in ModelService.java. When we load a model from the database load the
+primitive types to begin with and then as we request other variables,
+the interceptor in the getter in the model class will call the ModelService
+to retrieve the requested object. It is lazy initialisation

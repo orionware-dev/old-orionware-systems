@@ -1,13 +1,18 @@
 ﻿--create an advanced Orion Configuration Engine (OCE)
---the Orion Configuration System will be able to import configuration/properties from multiple locations:
+--the Orion Configuration System will be able to import
+configuration/properties from multiple locations:
     from *.prop files from different directories/locations,
     from *.oxml files (Orion XML) from different directories/locations where hierarchical configuration is needed,
     from System.getProperty(),
     from remote locations, etc.
 --save properties/configurations to a NoSQL OrionSystemDatabase
---if I create my own XML config files then use apache commons OGNL as an expression language so that users can enter expressions inside XML
+--if I create my own XML config files then use apache commons OGNL
+as an expression language so that users can enter expressions inside XML
 --use XSD and XSLT
---for some cases, instead of creating manually configuration files directly, create Java files that represent that configuration and during build the actual configuration files will be generated using those Java files. Create velocity templates for those files and during build use them as the templates
+--for some cases, instead of creating manually configuration files directly,
+create Java files that represent that configuration and during build the
+actual configuration files will be generated using those Java files.
+Create velocity templates for those files and during build use them as the templates
 --to use orion properties inside pollplug's spring XMLs, do
 <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
     <property name="properties" ref="OrionProperties"/>

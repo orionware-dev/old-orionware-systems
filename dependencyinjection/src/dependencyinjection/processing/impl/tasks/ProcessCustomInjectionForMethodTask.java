@@ -20,15 +20,4 @@ public class ProcessCustomInjectionForMethodTask extends DependencyInjectionObje
             injectClassToMethodTask.run(object, classToInjectString, method);
         }
     }
-    
-    
-    public void run(Object object, Prop propertyInjection, Method method)
-    {
-        if(propertyInjection != null)
-        {
-            String propertyToInjectString = propertyInjection.key();
-            String propertyToInject = new ConfigurationPropertiesServiceImpl().getProp(propertyToInjectString);
-            new InjectObjectToMethodTask().run(object, propertyToInject, method);
-        }
-    }
 }

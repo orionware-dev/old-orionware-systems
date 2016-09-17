@@ -1,17 +1,32 @@
 ﻿--BUSINESS PROCESS NAME = BUSINESS PROCESS name as string
 --BUSINESS PROCESS LOCATION = maps BUSINESS PROCESS NAME to "co.orionware.package1.UserFacade"
---BUSINESS PROCESS LOCATION RESOLVER = takes a BUSINESS PROCESS NAME and looks through the BUSINESS PROCESS LOCATION map to find the needed BUSINESS PROCESS LOCATION
---BUSINESS PROCESS DEFINITION = is an XML that defines the BUSINESS PROCESS name, location, etc. of the BUSINESS PROCESS
---BUSINESS PROCESS DEFINITION RETRIEVER = takes a BUSINESS PROCESS name and returns the BUSINESS PROCESS DEFINITION
---BUSINESS PROCESS = represents a sequence of FACADE calls that have to be made in order to accomplish this process
---BUSINESS PROCESS REGISTRY = keeps metadata of all available processes. Takes a BUSINESS PROCESS name and uses BUSINESS PROCESS LOCATION RESOLVER to get the BUSINESS PROCESS LOCATION
---BUSINESS PROCESS STATE = represents a snapshot of the process lifecycle, current values, etc.
---BUSINESS ACTION = represents a single task that a BUSINESS PROCESS can execute. It can be defined as a Spring bean and it can be triggered
+--BUSINESS PROCESS LOCATION RESOLVER = takes a BUSINESS PROCESS NAME and
+looks through the BUSINESS PROCESS LOCATION map to find the needed BUSINESS PROCESS LOCATION
+--BUSINESS PROCESS DEFINITION = is an XML that defines the
+BUSINESS PROCESS name, location, etc. of the BUSINESS PROCESS
+--BUSINESS PROCESS DEFINITION RETRIEVER = takes a BUSINESS PROCESS
+name and returns the BUSINESS PROCESS DEFINITION
+--BUSINESS PROCESS = represents a sequence of FACADE calls that
+have to be made in order to accomplish this process
+--BUSINESS PROCESS REGISTRY = keeps metadata of all available processes.
+Takes a BUSINESS PROCESS name and uses BUSINESS PROCESS LOCATION RESOLVER
+to get the BUSINESS PROCESS LOCATION
+--BUSINESS PROCESS STATE = represents a snapshot of the
+process lifecycle, current values, etc.
+--BUSINESS ACTION = represents a single task that a BUSINESS PROCESS can execute.
+It can be defined as a Spring bean and it can be triggered
 --a BUSINESS PROCESS is split into BUSINESS ACTIONS
 --BUSINESS PROCESS MODEL = realisation of the BUSINESS PROCESS
 --BUSINESS PROCESS ENGINE = executes BUSINESS PROCESSES and handles the lifecycle
---BUSINESS PROCESS MANAGER = takes the parameters of a BUSINESS PROCESS execution we want to do, uses the ProcessXML of the desired process to initialise it. Then the client has to call the BUSINESS PROCESS FACTORY to instantiate the process and send it to the BUSINESS PROCESS ENGINE to execute and sends the results back to the manager which sends it back to the client
---BUSINESS PROCESS FACTORY = takes the initialised BUSINESS PROCESS and instantiates it. The factory belongs to the BUSINESS PROCESS ENGINE
+--BUSINESS PROCESS MANAGER = takes the parameters of a BUSINESS PROCESS
+execution we want to do, uses the ProcessXML of the desired process to initialise it.
+Then the client has to call the BUSINESS PROCESS FACTORY to instantiate
+the process and send it to the BUSINESS PROCESS ENGINE to execute and
+sends the results back to the manager which sends it back to the client
+--BUSINESS PROCESS FACTORY = takes the initialised BUSINESS PROCESS and instantiates it.
+The factory belongs to the BUSINESS PROCESS ENGINE
 --BUSINESS PROCESS STATE MANAGER = manages the process BUSINESS PROCESS STATE which means state transitions
---BUSINESS PROCESS FACTORY = exposes BUSINESS PROCESSES as normal SERVICES. Takes a BUSINESS PROCESS name and returns an instance of the BUSINESS PROCESS class. Uses BUSINESS PROCESS REGISTRY
+--BUSINESS PROCESS FACTORY = exposes BUSINESS PROCESSES as normal SERVICES.
+Takes a BUSINESS PROCESS name and returns an instance of the BUSINESS PROCESS class.
+Uses BUSINESS PROCESS REGISTRY
 --BUSINESS PROCESS MONITOR = monitors BUSINESS PROCESS calls, data that go back and forth, etc.

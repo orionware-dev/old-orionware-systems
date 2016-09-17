@@ -10,12 +10,12 @@ import dependencyinjection.annotation.Prop;
 public class ProcessInstanceVariableForPropertyInjectionTask extends DependencyInjectionObject implements DependencyInjectionTask
 {
     private static AnnotationsGatheringService annotationsGatheringService = new AnnotationsGatheringServiceImpl();
-    private static ProcessCustomInjectionForInstanceVariableTask processCustomInjectionForInstanceVariableTask = new ProcessCustomInjectionForInstanceVariableTask();
+    private static ProcessCustomPropertyInjectionForInstanceVariableTask processCustomPropertyInjectionForInstanceVariableTask = new ProcessCustomPropertyInjectionForInstanceVariableTask();
     
     
     public void run(Object object, Field instanceVariable)
     {
         Prop injection = (Prop)annotationsGatheringService.extractAnnotationFromInstanceVariable(instanceVariable, Prop.class);
-        processCustomInjectionForInstanceVariableTask.run(object, injection, instanceVariable);
+        processCustomPropertyInjectionForInstanceVariableTask.run(object, injection, instanceVariable);
     }
 }

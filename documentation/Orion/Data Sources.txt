@@ -1,14 +1,21 @@
-﻿--Orion defines some generic database types: SystemDatabase, ApplicationDatabase and ResourceDatabase. When you create a database in PollPlug, for example, and you have to register it in Orion so that it can manage it using the predefined database manager
---do a batch of database operations with the use of one method in DatabaseService. It is useful when we setup the user's facebook friends for example. Use getJDBC().batch();
+﻿--Orion defines some generic database types: SystemDatabase, ApplicationDatabase and ResourceDatabase.
+When you create a database in PollPlug, for example, and you have to
+register it in Orion so that it can manage it using the predefined database manager
+--do a batch of database operations with the use of one method in DatabaseService.
+It is useful when we setup the user's facebook friends for example. Use getJDBC().batch();
 --implement PreparedStatement
 --use new NamedParameterJdbcTemplate(dataSource);
 --to load a database table in a model class either:
     use the primary key in ModelService or
     use a SQL query
---create OSQLService which will be translate OSQL commands to SQL
+--create OSQLService which will translate OSQL commands to SQL
 --use Apache Drill for SQL-based commands to run on SQL, NoSQL and Hadoop engines
 --support graph databases like Apache Cassandra and Google Cayley
---see if there are cases where a relatively small SQL or NoSQL database should exist on the browser for some use-cases. One of the requirements of these use-cases will be that the server-side database(s) should not be aware of the database stored on the browser. It could be used to temporarily store a whole DOM or like poll/survey information before the user submits a form
+--see if there are cases where a relatively small SQL or NoSQL database
+should exist on the browser for some use-cases. One of the requirements
+of these use-cases will be that the server-side database(s) should not
+be aware of the database stored on the browser. It could be used to
+temporarily store a whole DOM or like poll/survey information before the user submits a form
 --for big files like videos that cannot be saved in a database, create a BlobSystem
 --use Morphia to handle MongoDB database
 --create data transfer/migration service

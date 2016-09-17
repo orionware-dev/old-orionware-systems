@@ -1,3 +1,7 @@
 ﻿--*.prop files that are normal properties files
 --*.oxml files (Orion XML) that are normal XML files
---*.osql files (OrionSQL) which will be a translation of MySQL commands in my way. E.g. "get DatabaseName.TableName" == "select * from DatabaseName.TableName;" or "get DatabaseName.TableName(column1, column2)" == "select column1, column2 from DatabaseName.TableName;", etc. and use it in the admintool and in the future maybe even in Java
+--*.osql files (OrionSQL) which will be a translation of
+MySQL commands in my way. E.g.
+"get DatabaseName.TableName" == "select * from DatabaseName.TableName;"
+or "get DatabaseName.TableName(column1, column2)" == "select column1, column2 from DatabaseName.TableName;", etc.
+and use it in the admintool and in the future maybe even in Java
