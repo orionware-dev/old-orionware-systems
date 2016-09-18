@@ -3,8 +3,8 @@ package reflection.constructors.retrieval.impl;
 import java.lang.reflect.Constructor;
 import reflection.ReflectionServiceObject;
 import reflection.constructors.retrieval.ReflectionConstructorRetrievalService;
-import reflection.constructors.retrieval.impl.tasks.GetDeclaredConstructorTask;
-import reflection.constructors.retrieval.impl.tasks.GetPublicConstructorTask;
+import reflection.constructors.retrieval.impl.tasks.declared.GetDeclaredConstructorTask;
+import reflection.constructors.retrieval.impl.tasks.publics.GetPublicConstructorTask;
 
 public class ReflectionConstructorRetrievalServiceImpl extends ReflectionServiceObject implements ReflectionConstructorRetrievalService
 {

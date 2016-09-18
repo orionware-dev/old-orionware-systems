@@ -3,16 +3,16 @@ package reflection.methods.retrieval.impl;
 import java.lang.reflect.Method;
 import reflection.ReflectionServiceObject;
 import reflection.methods.retrieval.ReflectionMethodRetrievalService;
-import reflection.methods.retrieval.impl.tasks.GetDeclaredDefaultMethodTask;
-import reflection.methods.retrieval.impl.tasks.GetDeclaredMethodTask;
-import reflection.methods.retrieval.impl.tasks.GetDeclaredProtectedMethodTask;
-import reflection.methods.retrieval.impl.tasks.GetDeclaredPublicMethodTask;
-import reflection.methods.retrieval.impl.tasks.GetInherittedMethodTask;
-import reflection.methods.retrieval.impl.tasks.GetPrivateMethodTask;
-import reflection.methods.retrieval.impl.tasks.IsDefaultMethodTask;
-import reflection.methods.retrieval.impl.tasks.IsPrivateMethodTask;
-import reflection.methods.retrieval.impl.tasks.IsProtectedMethodTask;
-import reflection.methods.retrieval.impl.tasks.IsPublicMethodTask;
+import reflection.methods.retrieval.impl.tasks.checks.IsDefaultMethodTask;
+import reflection.methods.retrieval.impl.tasks.checks.IsPrivateMethodTask;
+import reflection.methods.retrieval.impl.tasks.checks.IsProtectedMethodTask;
+import reflection.methods.retrieval.impl.tasks.checks.IsPublicMethodTask;
+import reflection.methods.retrieval.impl.tasks.declared.GetDeclaredDefaultMethodTask;
+import reflection.methods.retrieval.impl.tasks.declared.GetDeclaredMethodTask;
+import reflection.methods.retrieval.impl.tasks.declared.GetDeclaredProtectedMethodTask;
+import reflection.methods.retrieval.impl.tasks.declared.GetDeclaredPublicMethodTask;
+import reflection.methods.retrieval.impl.tasks.inheritted.GetInherittedMethodTask;
+import reflection.methods.retrieval.impl.tasks.privates.GetPrivateMethodTask;
 
 public class ReflectionMethodRetrievalServiceImpl extends ReflectionServiceObject implements ReflectionMethodRetrievalService
 {

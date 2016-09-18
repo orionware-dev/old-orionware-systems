@@ -10,10 +10,13 @@ import annotations.AnnotationType;
 import annotations.OrionAnnotation;
 import annotations.filtering.AnnotationsFilteringService;
 import annotations.filtering.impl.AnnotationsFilteringServiceImpl;
+import annotations.registry.AnnotationsRegistryService;
+import annotations.registry.impl.AnnotationsRegistryServiceImpl;
 
 public class GatherClassLevelAnnotationsFromObjectTask extends AnnotationServiceObject implements AnnotationTask
 {
     private static AnnotationsFilteringService annotationsFilteringService = new AnnotationsFilteringServiceImpl();
+    private static AnnotationsRegistryService annotationsRegistryService = new AnnotationsRegistryServiceImpl();
     
     
     public static List<OrionAnnotation> run(Object object)
@@ -37,7 +40,7 @@ public class GatherClassLevelAnnotationsFromObjectTask extends AnnotationService
             //Java/Spring/etc. annotations
             //in which case it is processed by the respective framework
             List<OrionAnnotation> registeredAnnotations = annotationsFilteringService.filterRegisteredAnnotationsFromObjectAnnotations(annotationsList);
-            registeredAnnotations.forEach(orionAnnotation -> annotationsFilteringService.addAnnotationTypeForObject(orionAnnotation, AnnotationType.CLASS));
+            registeredAnnotations.forEach(orionAnnotation -> annotationsRegistryService.addAnnotationTypeForObject(orionAnnotation, AnnotationType.CLASS));
             return registeredAnnotations;
         }
         

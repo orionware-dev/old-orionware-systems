@@ -9,11 +9,14 @@ import annotations.AnnotationType;
 import annotations.OrionAnnotation;
 import annotations.filtering.AnnotationsFilteringService;
 import annotations.filtering.impl.AnnotationsFilteringServiceImpl;
+import annotations.registry.AnnotationsRegistryService;
+import annotations.registry.impl.AnnotationsRegistryServiceImpl;
 import reflection.constructors.retrieval.impl.ReflectionConstructorsRetrievalServiceImpl;
 
 public class GatherConstructorsAnnotationsFromObjectTask extends AnnotationServiceObject implements AnnotationTask
 {
     private static AnnotationsFilteringService annotationsFilteringService = new AnnotationsFilteringServiceImpl();
+    private static AnnotationsRegistryService annotationsRegistryService = new AnnotationsRegistryServiceImpl();
     
     
     public static List<OrionAnnotation> run(Object object)
@@ -22,7 +25,7 @@ public class GatherConstructorsAnnotationsFromObjectTask extends AnnotationServi
         {
             List<Constructor<?>> constructors = new ReflectionConstructorsRetrievalServiceImpl().getDeclaredConstructors(object);
             List<OrionAnnotation> allConstructorAnnotations = new ArrayList<OrionAnnotation>();
-            constructors.forEach(constructor -> allConstructorAnnotations.addAll(GatherInstanceElementAnnotationsFromObjectTask.run(constructor)));
+            constructors.forEach(constructor -> allConstructorAnnotations.addAll(GatherAnnotationsFromInstanceElementTask.run(constructor)));
             //we filter the annotations, because if it finds a registered
             //annotation that matches
             //one in the list of object annotations then we can process it
@@ -31,7 +34,7 @@ public class GatherConstructorsAnnotationsFromObjectTask extends AnnotationServi
             //Java/Spring/etc. annotations
             //in which case it is processed by the respective framework
             List<OrionAnnotation> registeredAnnotations = annotationsFilteringService.filterRegisteredAnnotationsFromObjectAnnotations(allConstructorAnnotations);
-            registeredAnnotations.forEach(orionAnnotation -> annotationsFilteringService.addAnnotationTypeForObject(orionAnnotation, AnnotationType.CONSTRUCTOR));
+            registeredAnnotations.forEach(orionAnnotation -> annotationsRegistryService.addAnnotationTypeForObject(orionAnnotation, AnnotationType.CONSTRUCTOR));
             return registeredAnnotations;
         }
         

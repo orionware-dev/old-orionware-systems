@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 import reflection.ReflectionObject;
 import reflection.ReflectionTask;
+import reflection.methods.retrieval.impl.tasks.declared.GetDeclaredMethodsArrayTask;
+import reflection.methods.retrieval.impl.tasks.inheritted.GetInherittedMethodsArrayTask;
 
 public class GetAllMethodsArrayTask extends ReflectionObject implements ReflectionTask
 {

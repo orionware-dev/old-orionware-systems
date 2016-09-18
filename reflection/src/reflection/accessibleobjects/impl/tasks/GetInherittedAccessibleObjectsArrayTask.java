@@ -6,8 +6,8 @@ import java.util.Arrays;
 import java.util.List;
 import reflection.ReflectionObject;
 import reflection.ReflectionTask;
-import reflection.instancevariables.retrieval.impl.tasks.GetInherittedInstanceVariablesArrayTask;
-import reflection.methods.retrieval.impl.tasks.GetInherittedMethodsArrayTask;
+import reflection.instancevariables.retrieval.impl.tasks.inheritted.GetInherittedInstanceVariablesArrayTask;
+import reflection.methods.retrieval.impl.tasks.inheritted.GetInherittedMethodsArrayTask;
 
 public class GetInherittedAccessibleObjectsArrayTask extends ReflectionObject implements ReflectionTask
 {

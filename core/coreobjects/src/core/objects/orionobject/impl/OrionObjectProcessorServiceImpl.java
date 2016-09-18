@@ -2,12 +2,12 @@ package core.objects.orionobject.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import annotations.processing.impl.AnnotationsProcessorServiceImpl;
-import annotations.registry.impl.AnnotationsRegistrationServiceImpl;
+import annotations.registry.impl.AnnotationsRegistryServiceImpl;
 import configuration.CoreConfigurationConfigurationEnumeration;
 import configuration.LibrariesConfiguration;
 import configuration.LibrariesConfigurationMapper;
 import configuration.LibraryConfiguration;
-import configuration.classpath.impl.ConfigurationClasspathServiceImpl;
+import configuration.registry.impl.ConfigurationRegistryServiceImpl;
 import core.OrionSimpleObject;
 import core.abstraction.ConfigurationEnumeration;
 import core.objects.orionobject.OrionObjectProcessorService;
@@ -106,13 +106,13 @@ public class OrionObjectProcessorServiceImpl extends OrionSimpleObject implement
 
     private void loadLibrariesProperties()
     {
-        new ConfigurationClasspathServiceImpl().loadLibrariesProperties();
+        new ConfigurationRegistryServiceImpl().loadLibrariesProperties();
     }
 
 
     private void registerLibrariesAnnotations()
     {
-        new AnnotationsRegistrationServiceImpl().registerLibrariesAnnotations();
+        new AnnotationsRegistryServiceImpl().registerLibrariesAnnotations();
     }
 
 

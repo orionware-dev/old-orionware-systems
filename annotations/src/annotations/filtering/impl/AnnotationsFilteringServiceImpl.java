@@ -3,18 +3,17 @@ package annotations.filtering.impl;
 import java.util.Collection;
 import java.util.List;
 import annotations.AnnotationServiceObject;
-import annotations.AnnotationType;
 import annotations.OrionAnnotation;
 import annotations.filtering.AnnotationsFilteringService;
-import annotations.filtering.impl.tasks.AddAnnotationTypeForObjectTask;
-import annotations.filtering.impl.tasks.DoesObjectHaveRegisteredAnnotationTask;
-import annotations.filtering.impl.tasks.FilterRegisteredAnnotationsFromObjectAnnotationsTask;
+import annotations.filtering.impl.tasks.libraries.FilterLibrariesConfigurationsHavingAnnotationsTask;
+import annotations.filtering.impl.tasks.libraries.FilterNotRegisteredLibrariesConfigurationTask;
+import annotations.filtering.impl.tasks.libraries.FilterRegisteredLibrariesConfigurationTask;
+import annotations.filtering.impl.tasks.objects.DoesObjectHaveRegisteredAnnotationTask;
+import annotations.filtering.impl.tasks.objects.FilterRegisteredAnnotationsFromObjectAnnotationsTask;
+import configuration.LibraryConfiguration;
 
 public class AnnotationsFilteringServiceImpl extends AnnotationServiceObject implements AnnotationsFilteringService
 {
-    private AddAnnotationTypeForObjectTask addAnnotationTypeForObjectTask = new AddAnnotationTypeForObjectTask();
-    
-    
     @Override
     public List<OrionAnnotation> filterRegisteredAnnotationsFromObjectAnnotations(Collection<OrionAnnotation> allObjectAnnotationsList)
     {
@@ -27,11 +26,25 @@ public class AnnotationsFilteringServiceImpl extends AnnotationServiceObject imp
     {
         return DoesObjectHaveRegisteredAnnotationTask.run(allObjectAnnotations, registeredAnnotation);
     }
+    
+    
+    @Override
+    public List<LibraryConfiguration> filterLibrariesConfigurationsHavingAnnotations(Collection<LibraryConfiguration> librariesConfiguration)
+    {
+        return FilterLibrariesConfigurationsHavingAnnotationsTask.run(librariesConfiguration);
+    }
+    
+    
+    @Override
+    public List<LibraryConfiguration> filterRegisteredLibrariesConfiguration(Collection<LibraryConfiguration> librariesConfiguration)
+    {
+        return FilterRegisteredLibrariesConfigurationTask.run(librariesConfiguration);
+    }
 
 
     @Override
-    public void addAnnotationTypeForObject(OrionAnnotation annotation, AnnotationType annotationType)
+    public List<LibraryConfiguration> filterNotRegisteredLibrariesConfiguration(Collection<LibraryConfiguration> librariesConfiguration)
     {
-        addAnnotationTypeForObjectTask.run(annotation, annotationType);
+        return FilterNotRegisteredLibrariesConfigurationTask.run(librariesConfiguration);
     }
 }

@@ -9,11 +9,14 @@ import annotations.AnnotationType;
 import annotations.OrionAnnotation;
 import annotations.filtering.AnnotationsFilteringService;
 import annotations.filtering.impl.AnnotationsFilteringServiceImpl;
+import annotations.registry.AnnotationsRegistryService;
+import annotations.registry.impl.AnnotationsRegistryServiceImpl;
 import reflection.methods.retrieval.impl.ReflectionMethodsRetrievalServiceImpl;
 
 public class GatherMethodsAnnotationsFromObjectTask extends AnnotationServiceObject implements AnnotationTask
 {
     private static AnnotationsFilteringService annotationsFilteringService = new AnnotationsFilteringServiceImpl();
+    private static AnnotationsRegistryService annotationsRegistryService = new AnnotationsRegistryServiceImpl();
     
     
     public static List<OrionAnnotation> run(Object object)
@@ -22,7 +25,7 @@ public class GatherMethodsAnnotationsFromObjectTask extends AnnotationServiceObj
         {
             List<Method> methods = new ReflectionMethodsRetrievalServiceImpl().getDeclaredMethods(object);
             List<OrionAnnotation> allMethodAnnotations = new ArrayList<OrionAnnotation>();
-            methods.forEach(method -> allMethodAnnotations.addAll(GatherInstanceElementAnnotationsFromObjectTask.run(method)));
+            methods.forEach(method -> allMethodAnnotations.addAll(GatherAnnotationsFromInstanceElementTask.run(method)));
             //we filter the annotations, because if it finds a registered
             //annotation that matches
             //one in the list of object annotations then we can process it
@@ -31,7 +34,7 @@ public class GatherMethodsAnnotationsFromObjectTask extends AnnotationServiceObj
             //Java/Spring/etc. annotations
             //in which case it is processed by the respective framework
             List<OrionAnnotation> registeredAnnotations = annotationsFilteringService.filterRegisteredAnnotationsFromObjectAnnotations(allMethodAnnotations);
-            registeredAnnotations.forEach(orionAnnotation -> annotationsFilteringService.addAnnotationTypeForObject(orionAnnotation, AnnotationType.METHOD));
+            registeredAnnotations.forEach(orionAnnotation -> annotationsRegistryService.addAnnotationTypeForObject(orionAnnotation, AnnotationType.METHOD));
             return registeredAnnotations;
         }
         

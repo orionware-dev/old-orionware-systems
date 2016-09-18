@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 import reflection.ReflectionObject;
 import reflection.ReflectionTask;
+import reflection.instancevariables.retrieval.impl.tasks.declared.GetDeclaredInstanceVariablesArrayTask;
+import reflection.instancevariables.retrieval.impl.tasks.inheritted.GetInherittedInstanceVariablesArrayTask;
 
 public class GetAllInstanceVariablesArrayTask extends ReflectionObject implements ReflectionTask
 {

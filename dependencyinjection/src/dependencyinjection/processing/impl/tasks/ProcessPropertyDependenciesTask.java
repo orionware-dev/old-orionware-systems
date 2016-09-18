@@ -5,6 +5,8 @@ import java.lang.reflect.Method;
 import java.util.List;
 import dependencyinjection.DependencyInjectionObject;
 import dependencyinjection.DependencyInjectionTask;
+import dependencyinjection.processing.impl.tasks.instancevariables.ProcessInstanceVariableForPropertyInjectionTask;
+import dependencyinjection.processing.impl.tasks.methods.ProcessMethodForPropertyInjectionTask;
 import reflection.instancevariables.retrieval.ReflectionInstanceVariablesRetrievalService;
 import reflection.instancevariables.retrieval.impl.ReflectionInstanceVariablesRetrievalServiceImpl;
 import reflection.methods.retrieval.ReflectionMethodsRetrievalService;

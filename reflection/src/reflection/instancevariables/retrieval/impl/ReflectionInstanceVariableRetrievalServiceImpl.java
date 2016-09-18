@@ -3,14 +3,14 @@ package reflection.instancevariables.retrieval.impl;
 import java.lang.reflect.Field;
 import reflection.ReflectionServiceObject;
 import reflection.instancevariables.retrieval.ReflectionInstanceVariableRetrievalService;
-import reflection.instancevariables.retrieval.impl.tasks.GetDeclaredInstanceVariableTask;
-import reflection.instancevariables.retrieval.impl.tasks.GetDeclaredProtectedInstanceVariableTask;
-import reflection.instancevariables.retrieval.impl.tasks.GetDeclaredPublicInstanceVariableTask;
-import reflection.instancevariables.retrieval.impl.tasks.GetInherittedInstanceVariableTask;
-import reflection.instancevariables.retrieval.impl.tasks.GetPrivateInstanceVariableTask;
-import reflection.instancevariables.retrieval.impl.tasks.IsPrivateInstanceVariableTask;
-import reflection.instancevariables.retrieval.impl.tasks.IsProtectedInstanceVariableTask;
-import reflection.instancevariables.retrieval.impl.tasks.IsPublicInstanceVariableTask;
+import reflection.instancevariables.retrieval.impl.tasks.checks.IsPrivateInstanceVariableTask;
+import reflection.instancevariables.retrieval.impl.tasks.checks.IsProtectedInstanceVariableTask;
+import reflection.instancevariables.retrieval.impl.tasks.checks.IsPublicInstanceVariableTask;
+import reflection.instancevariables.retrieval.impl.tasks.declared.GetDeclaredInstanceVariableTask;
+import reflection.instancevariables.retrieval.impl.tasks.declared.GetDeclaredProtectedInstanceVariableTask;
+import reflection.instancevariables.retrieval.impl.tasks.declared.GetDeclaredPublicInstanceVariableTask;
+import reflection.instancevariables.retrieval.impl.tasks.inheritted.GetInherittedInstanceVariableTask;
+import reflection.instancevariables.retrieval.impl.tasks.privates.GetPrivateInstanceVariableTask;
 
 public class ReflectionInstanceVariableRetrievalServiceImpl extends ReflectionServiceObject implements ReflectionInstanceVariableRetrievalService
 {

@@ -6,12 +6,12 @@ import java.util.List;
 import reflection.ReflectionServiceObject;
 import reflection.methods.retrieval.ReflectionMethodsRetrievalService;
 import reflection.methods.retrieval.impl.tasks.GetAllMethodsArrayTask;
-import reflection.methods.retrieval.impl.tasks.GetDeclaredDefaultMethodsArrayTask;
-import reflection.methods.retrieval.impl.tasks.GetDeclaredMethodsArrayTask;
-import reflection.methods.retrieval.impl.tasks.GetDeclaredProtectedMethodsArrayTask;
-import reflection.methods.retrieval.impl.tasks.GetDeclaredPublicMethodsArrayTask;
-import reflection.methods.retrieval.impl.tasks.GetInherittedMethodsArrayTask;
-import reflection.methods.retrieval.impl.tasks.GetPrivateMethodsArrayTask;
+import reflection.methods.retrieval.impl.tasks.declared.GetDeclaredDefaultMethodsArrayTask;
+import reflection.methods.retrieval.impl.tasks.declared.GetDeclaredMethodsArrayTask;
+import reflection.methods.retrieval.impl.tasks.declared.GetDeclaredProtectedMethodsArrayTask;
+import reflection.methods.retrieval.impl.tasks.declared.GetDeclaredPublicMethodsArrayTask;
+import reflection.methods.retrieval.impl.tasks.inheritted.GetInherittedMethodsArrayTask;
+import reflection.methods.retrieval.impl.tasks.privates.GetPrivateMethodsArrayTask;
 
 public class ReflectionMethodsRetrievalServiceImpl extends ReflectionServiceObject implements ReflectionMethodsRetrievalService
 {

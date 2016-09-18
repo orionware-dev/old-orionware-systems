@@ -1,7 +1,7 @@
 package designpatterns.annotations.impl.tasks;
 
 import java.lang.reflect.Method;
-import annotations.gathering.AnnotationsGatheringService;
+import annotations.extraction.AnnotationsExtractionService;
 import dependencyinjection.annotation.InjectorImpl;
 import dependencyinjection.processing.DependencyInjectorService;
 import designpatterns.DesignPatternsObject;
@@ -13,7 +13,7 @@ import designpatterns.pipeline.PipelineFilterService;
 public class ProcessMethodForEmptyFilterInjectionTask extends DesignPatternsObject implements DesignPatternsTask
 {
     @InjectorImpl
-    private AnnotationsGatheringService annotationsGatheringService;
+    private AnnotationsExtractionService annotationsExtractionService;
     @InjectorImpl
     private PipelineFilterService pipelineFilterService;
     @InjectorImpl
@@ -22,7 +22,7 @@ public class ProcessMethodForEmptyFilterInjectionTask extends DesignPatternsObje
     
     public void run(Object object, Method method)
     {
-        EmptyFilter emptyFilterAnnotation = (EmptyFilter)annotationsGatheringService
+        EmptyFilter emptyFilterAnnotation = (EmptyFilter)annotationsExtractionService
                         .extractAnnotationFromMethod(method, EmptyFilter.class);
 
         if(emptyFilterAnnotation != null)

@@ -5,13 +5,13 @@ import java.lang.reflect.Method;
 import dependencyinjection.DependencyInjectionServiceObject;
 import dependencyinjection.annotation.Injector;
 import dependencyinjection.processing.DependencyInjectorService;
-import dependencyinjection.processing.impl.tasks.InjectClassToInstanceVariableTask;
-import dependencyinjection.processing.impl.tasks.InjectClassToMethodTask;
-import dependencyinjection.processing.impl.tasks.InjectObjectToInstanceVariableTask;
-import dependencyinjection.processing.impl.tasks.InjectObjectToMethodTask;
-import dependencyinjection.processing.impl.tasks.ProcessCustomInjectionForInstanceVariableTask;
-import dependencyinjection.processing.impl.tasks.ProcessCustomInjectionForMethodTask;
 import dependencyinjection.processing.impl.tasks.ProcessDependenciesTask;
+import dependencyinjection.processing.impl.tasks.classes.InjectClassToInstanceVariableTask;
+import dependencyinjection.processing.impl.tasks.classes.InjectClassToMethodTask;
+import dependencyinjection.processing.impl.tasks.custom.ProcessCustomInjectionForInstanceVariableTask;
+import dependencyinjection.processing.impl.tasks.custom.ProcessCustomInjectionForMethodTask;
+import dependencyinjection.processing.impl.tasks.objects.InjectObjectToInstanceVariableTask;
+import dependencyinjection.processing.impl.tasks.objects.InjectObjectToMethodTask;
 
 public class DependencyInjectorServiceImpl extends DependencyInjectionServiceObject implements DependencyInjectorService
 {

@@ -5,8 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 import reflection.ReflectionServiceObject;
 import reflection.constructors.retrieval.ReflectionConstructorsRetrievalService;
-import reflection.constructors.retrieval.impl.tasks.GetDeclaredConstructorsArrayTask;
-import reflection.constructors.retrieval.impl.tasks.GetPublicConstructorsArrayTask;
+import reflection.constructors.retrieval.impl.tasks.declared.GetDeclaredConstructorsArrayTask;
+import reflection.constructors.retrieval.impl.tasks.publics.GetPublicConstructorsArrayTask;
 
 public class ReflectionConstructorsRetrievalServiceImpl extends ReflectionServiceObject implements ReflectionConstructorsRetrievalService
 {

@@ -9,11 +9,14 @@ import annotations.AnnotationType;
 import annotations.OrionAnnotation;
 import annotations.filtering.AnnotationsFilteringService;
 import annotations.filtering.impl.AnnotationsFilteringServiceImpl;
+import annotations.registry.AnnotationsRegistryService;
+import annotations.registry.impl.AnnotationsRegistryServiceImpl;
 import reflection.instancevariables.retrieval.impl.ReflectionInstanceVariablesRetrievalServiceImpl;
 
 public class GatherInstanceVariablesAnnotationsFromObjectTask extends AnnotationServiceObject implements AnnotationTask
 {
     private static AnnotationsFilteringService annotationsFilteringService = new AnnotationsFilteringServiceImpl();
+    private static AnnotationsRegistryService annotationsRegistryService = new AnnotationsRegistryServiceImpl();
     
     
     public static List<OrionAnnotation> run(Object object)
@@ -22,7 +25,7 @@ public class GatherInstanceVariablesAnnotationsFromObjectTask extends Annotation
         {
             List<Field> variables = new ReflectionInstanceVariablesRetrievalServiceImpl().getDeclaredInstanceVariables(object);
             List<OrionAnnotation> allInstanceVariablesAnnotations = new ArrayList<OrionAnnotation>();
-            variables.forEach(variable -> allInstanceVariablesAnnotations.addAll(GatherInstanceElementAnnotationsFromObjectTask.run(variable)));
+            variables.forEach(variable -> allInstanceVariablesAnnotations.addAll(GatherAnnotationsFromInstanceElementTask.run(variable)));
             //we filter the annotations, because if it finds a registered
             //annotation that matches
             //one in the list of object annotations then we can process it
@@ -31,7 +34,7 @@ public class GatherInstanceVariablesAnnotationsFromObjectTask extends Annotation
             //Java/Spring/etc. annotations
             //in which case it is processed by the respective framework
             List<OrionAnnotation> registeredAnnotations = annotationsFilteringService.filterRegisteredAnnotationsFromObjectAnnotations(allInstanceVariablesAnnotations);
-            registeredAnnotations.forEach(orionAnnotation -> annotationsFilteringService.addAnnotationTypeForObject(orionAnnotation, AnnotationType.INSTANCE_VARIABLE));
+            registeredAnnotations.forEach(orionAnnotation -> annotationsRegistryService.addAnnotationTypeForObject(orionAnnotation, AnnotationType.INSTANCE_VARIABLE));
             return registeredAnnotations;
         }
         

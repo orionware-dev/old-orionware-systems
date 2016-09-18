@@ -6,9 +6,9 @@ import java.util.Arrays;
 import java.util.List;
 import reflection.ReflectionObject;
 import reflection.ReflectionTask;
-import reflection.constructors.retrieval.impl.tasks.GetDeclaredConstructorsArrayTask;
-import reflection.instancevariables.retrieval.impl.tasks.GetDeclaredInstanceVariablesArrayTask;
-import reflection.methods.retrieval.impl.tasks.GetDeclaredMethodsArrayTask;
+import reflection.constructors.retrieval.impl.tasks.declared.GetDeclaredConstructorsArrayTask;
+import reflection.instancevariables.retrieval.impl.tasks.declared.GetDeclaredInstanceVariablesArrayTask;
+import reflection.methods.retrieval.impl.tasks.declared.GetDeclaredMethodsArrayTask;
 
 public class GetDeclaredAccessibleObjectsArrayTask extends ReflectionObject implements ReflectionTask
 {
