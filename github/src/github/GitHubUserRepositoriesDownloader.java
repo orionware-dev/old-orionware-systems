@@ -21,6 +21,7 @@ public class GitHubUserRepositoriesDownloader
     private static void initialiseListOfGitHubUsers()
     {
         userNames = new ArrayList<String>();
+        
         userNames.add("8thlight");
         userNames.add("500px");
         userNames.add("2359media");
@@ -150,6 +151,7 @@ public class GitHubUserRepositoriesDownloader
         userNames.add("ea-cm");
         userNames.add("eBay");
         userNames.add("ebaylabs");
+        userNames.add("eclipse");
         userNames.add("efounders");
         userNames.add("eHarmony");
         userNames.add("electronicarts");
