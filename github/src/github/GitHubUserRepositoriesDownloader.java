@@ -509,7 +509,7 @@ public class GitHubUserRepositoriesDownloader
     }
     
     
-    public static void main(String[] args)
+    /*public static void main(String[] args)
     {
         initialiseListOfGitHubUsers();
         GitHub github = null;
@@ -564,6 +564,39 @@ public class GitHubUserRepositoriesDownloader
         catch(IOException exception)
         {
             exception.printStackTrace();
+        }
+    }*/
+    
+    
+    public static void main(String[] args)
+    {
+        Path repositoriesLinksFile = FileSystems.getDefault().getPath("D:\\temp\\RepositoriesDownloadedFromGitHub.txt");
+        Path downloadLinksFile = FileSystems.getDefault().getPath("D:\\temp\\GitHubRepositoriesDownloadLinks.txt");
+        
+        try
+        {
+            List<String> repositoriesLinks = Files.readAllLines(repositoriesLinksFile);
+            
+            for(String repositoryLink : repositoriesLinks)
+            {
+                byte[] bytes = null;
+
+                String downloadURL = repositoryLink + "/archive/master.zip\n";
+                bytes = downloadURL.getBytes();
+
+                try
+                {
+                    Files.write(downloadLinksFile, bytes, StandardOpenOption.APPEND);
+                }
+                catch(IOException e)
+                {
+                    System.out.println(e);
+                }
+            }
+        }
+        catch(IOException e)
+        {
+            System.out.println(e);
         }
     }
 }
