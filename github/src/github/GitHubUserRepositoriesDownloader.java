@@ -116,6 +116,30 @@ public class GitHubUserRepositoriesDownloader
         userNames.add("limetext");
         userNames.add("ftlabs");
         userNames.add("hashicorp");
+        userNames.add("flatiron");
+        userNames.add("git");
+        userNames.add("basecamp");
+        userNames.add("diaspora");
+        userNames.add("collectiveidea");
+        userNames.add("openstack");
+        userNames.add("yiisoft");
+        userNames.add("cucumber");
+        userNames.add("cucumber-ltd");
+        userNames.add("scrapy");
+        userNames.add("scrapy-plugins");
+        userNames.add("phusion");
+        userNames.add("npm");
+        userNames.add("reddit");
+        userNames.add("ecomfe");
+        userNames.add("guard");
+        userNames.add("Famous");
+        userNames.add("famous-project");
+        userNames.add("CocoaPods");
+        userNames.add("videojs");
+        userNames.add("zendframework");
+        userNames.add("enormego");
+        userNames.add("metafizzy");
+        userNames.add("playframework");
 
         /*userNames.add("8thlight");
         userNames.add("500px");
@@ -621,9 +645,16 @@ public class GitHubUserRepositoriesDownloader
         {
             // github = GitHub.connectAnonymously();
             github = GitHub.connectUsingPassword("efthymiou.dimitrios1@gmail.com", "bunkzh3Z");
-            Path file = FileSystems.getDefault().getPath("D:\\temp\\RepositoriesDownloadedFromGitHub.txt");
+            // Path file = FileSystems.getDefault().getPath("D:\\temp\\RepositoriesDownloadedFromGitHub.txt");
+            Set<String> usersWithManyRepos = new HashSet<String>();
+            Path file = FileSystems.getDefault().getPath("C:\\temp\\RepositoriesDownloadedFromGitHub2.txt");
 
-            for(String userName : userNames)
+            for(GHUser user : github.searchUsers().q("repos:>=500").list())
+            {
+                usersWithManyRepos.add(user.getHtmlUrl().toString().substring(user.getHtmlUrl().toString().lastIndexOf("/") + 1));
+            }
+
+            for(String userName : usersWithManyRepos)
             {
                 try
                 {
@@ -653,6 +684,43 @@ public class GitHubUserRepositoriesDownloader
                             }
                         }
                     }
+                }
+                catch(IOException exception)
+                {
+                    exception.printStackTrace();
+                }
+            }
+
+            /*for(String userName : userNames)
+            {
+                try
+                {
+                    GHUser user = github.getUser(userName);
+            
+                    if(user != null)
+                    {
+                        PagedIterable<GHRepository> userRepositories = user.listRepositories();
+            
+                        if(userRepositories != null)
+                        {
+                            for(GHRepository userRepository : userRepositories.asList())
+                            {
+                                byte[] bytes = null;
+            
+                                String downloadURL = userRepository.getHtmlUrl().toString() + "\n";
+                                bytes = downloadURL.getBytes();
+            
+                                try
+                                {
+                                    Files.write(file, bytes, StandardOpenOption.APPEND);
+                                }
+                                catch(IOException e)
+                                {
+                                    System.out.println(e);
+                                }
+                            }
+                        }
+                    }
                     else
                     {
                         System.out.println(userName + " -- does not exist");
@@ -662,7 +730,7 @@ public class GitHubUserRepositoriesDownloader
                 {
                     exception.printStackTrace();
                 }
-            }
+            }*/
         }
         catch(IOException exception)
         {
