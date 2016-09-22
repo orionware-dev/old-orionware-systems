@@ -140,6 +140,24 @@ public class GitHubUserRepositoriesDownloader
         userNames.add("enormego");
         userNames.add("metafizzy");
         userNames.add("playframework");
+        userNames.add("lodash");
+        userNames.add("TransitApp");
+        userNames.add("marmelab");
+        userNames.add("capistrano");
+        userNames.add("rethinkdb");
+        userNames.add("LightTable");
+        userNames.add("nodejitsu");
+        userNames.add("breach");
+        userNames.add("browserstate");
+        userNames.add("NUKnightLab");
+        userNames.add("RestKit");
+        userNames.add("doctrine");
+        userNames.add("roots");
+        userNames.add("JetBrains");
+        userNames.add("WhisperSystems");
+        userNames.add("KnpLabs");
+        userNames.add("stackforge");
+        userNames.add("zeromq");
 
         /*userNames.add("8thlight");
         userNames.add("500px");
