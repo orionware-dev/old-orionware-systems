@@ -1,11 +1,9 @@
 https://github.com/arduino/Arduino
 https://github.com/cdnjs/cdnjs
-https://github.com/adobe-fonts/source-han-sans
 https://github.com/mapsme/omim
 https://github.com/WebKit/webkit
 https://github.com/raspberrypi/firmware
 https://github.com/cloudera/Impala
-https://github.com/jglovier/gifs
 https://github.com/illacceptanything/illacceptanything
 https://github.com/google/skia
 https://github.com/liferay/liferay-portal
