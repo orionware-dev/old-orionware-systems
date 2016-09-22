@@ -7,7 +7,9 @@ import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import org.kohsuke.github.GHRepository;
 import org.kohsuke.github.GHUser;
 import org.kohsuke.github.GitHub;
@@ -15,20 +17,118 @@ import org.kohsuke.github.PagedIterable;
 
 public class GitHubUserRepositoriesDownloader
 {
-    private static List<String> userNames;
-    
-    
+    private static Set<String> userNames;
+
+
     private static void initialiseListOfGitHubUsers()
     {
-        userNames = new ArrayList<String>();
-        
-        userNames.add("8thlight");
+        userNames = new HashSet<String>();
+        userNames.add("adobe");
+        userNames.add("Adobe-Marketing-Cloud");
+        userNames.add("adobe-research");
+        userNames.add("adobe-webplatform");
+        userNames.add("adobe-flash");
+        userNames.add("brocade");
+
+        // unsorted names
+        userNames.add("BRCDcomm");
+        userNames.add("eBayClassifiedsGroup");
+        userNames.add("technology-ebay-de");
+        userNames.add("TheGiftsProject");
+        userNames.add("connected-commerce");
+        userNames.add("HPENetworking");
+        userNames.add("Juniper");
+        userNames.add("JNPRAutomate");
+        userNames.add("juniper-it");
+        userNames.add("juniper-project");
+        userNames.add("fogleman");
+        userNames.add("twbs");
+        userNames.add("h5bp");
+        userNames.add("joyent");
+        userNames.add("Automattic");
+        userNames.add("zurb");
+        userNames.add("elastic");
+        userNames.add("Homebrew");
+        userNames.add("driftyco");
+        userNames.add("meteor");
+        userNames.add("strongloop");
+        userNames.add("strongloop-forks");
+        userNames.add("strongloop-community");
+        userNames.add("LearnBoost");
+        userNames.add("filamentgroup");
+        userNames.add("codrops");
+        userNames.add("plataformatec");
+        userNames.add("moment");
+        userNames.add("AFNetworking");
+        userNames.add("intridea");
+        userNames.add("segmentio");
+        userNames.add("GitLaboratory");
+        userNames.add("gitlabhq");
+        userNames.add("android");
+        userNames.add("mapbox");
+        userNames.add("TryGhost");
+        userNames.add("usablica");
+        userNames.add("discourse");
+        userNames.add("coreos");
+        userNames.add("fedora-infra");
+        userNames.add("torvalds");
+        userNames.add("symfony");
+        userNames.add("Polymer");
+        userNames.add("PolymerLabs");
+        userNames.add("PolymerElements");
+        userNames.add("polymerWeb");
+        userNames.add("phonegap");
+        userNames.add("textmate");
+        userNames.add("chef");
+        userNames.add("lmco");
+        userNames.add("NetApp");
+        userNames.add("riverbed");
+        userNames.add("teslamotors");
+        userNames.add("simplevisa");
+        userNames.add("Xilinx");
+        userNames.add("altera-opensource");
+        userNames.add("dell");
+        userNames.add("ImperialInfosys");
+        userNames.add("narmadainfosys");
+        userNames.add("skydel");
+        userNames.add("Infosys");
+        userNames.add("nokia");
+        userNames.add("Samsung");
+        userNames.add("SamsungDForum");
+        userNames.add("samsungaccelerator");
+        userNames.add("samsung-cnct");
+        userNames.add("TiVo");
+        userNames.add("verisign");
+        userNames.add("Verisign-iDefense");
+        userNames.add("walmart");
+        userNames.add("walmartlabs");
+        userNames.add("tastejs");
+        userNames.add("jenkinsci");
+        userNames.add("shadowsocks");
+        userNames.add("ansible");
+        userNames.add("OpenAnsible");
+        userNames.add("puppetlabs");
+        userNames.add("visionmedia");
+        userNames.add("interagent");
+        userNames.add("GitbookIO");
+        userNames.add("basho");
+        userNames.add("senchalabs");
+        userNames.add("limetext");
+        userNames.add("ftlabs");
+        userNames.add("hashicorp");
+
+        /*userNames.add("8thlight");
         userNames.add("500px");
         userNames.add("2359media");
         userNames.add("3pillarlabs");
         userNames.add("99designs");
         userNames.add("Accenture");
         userNames.add("acntech");
+        userNames.add("adobe");
+        userNames.add("Adobe-Marketing-Cloud");
+        userNames.add("adobe-research");
+        userNames.add("adobe-webplatform");
+        userNames.add("adobe-flash");
         userNames.add("AdRoll");
         userNames.add("adzerk");
         userNames.add("adzerk-oss");
@@ -71,6 +171,7 @@ public class GitHubUserRepositoriesDownloader
         userNames.add("Blizzard");
         userNames.add("bloomreach");
         userNames.add("BrandwatchLtd");
+        userNames.add("brocade");
         userNames.add("Brownplt");
         userNames.add("brownsys");
         userNames.add("Brown-University-Library");
@@ -503,33 +604,35 @@ public class GitHubUserRepositoriesDownloader
         userNames.add("zillow");
         userNames.add("zulily");
         userNames.add("zumba");
-        userNames.add("zynga");
-        
-        Collections.sort(userNames);
+        userNames.add("zynga");*/
+
+        List<String> userNamesTemp = new ArrayList<String>(userNames);
+        Collections.sort(userNamesTemp);
+        userNames = new HashSet<String>(userNamesTemp);
     }
-    
-    
-    /*public static void main(String[] args)
+
+
+    public static void main(String[] args)
     {
         initialiseListOfGitHubUsers();
         GitHub github = null;
-        
+
         try
         {
-            //github = GitHub.connectAnonymously();
+            // github = GitHub.connectAnonymously();
             github = GitHub.connectUsingPassword("efthymiou.dimitrios1@gmail.com", "bunkzh3Z");
             Path file = FileSystems.getDefault().getPath("D:\\temp\\RepositoriesDownloadedFromGitHub.txt");
-            
+
             for(String userName : userNames)
             {
                 try
                 {
                     GHUser user = github.getUser(userName);
-                    
+
                     if(user != null)
                     {
                         PagedIterable<GHRepository> userRepositories = user.listRepositories();
-                        
+
                         if(userRepositories != null)
                         {
                             for(GHRepository userRepository : userRepositories.asList())
@@ -565,25 +668,24 @@ public class GitHubUserRepositoriesDownloader
         {
             exception.printStackTrace();
         }
-    }*/
-    
-    
-    public static void main(String[] args)
+    }
+
+    /*public static void main(String[] args)
     {
         Path repositoriesLinksFile = FileSystems.getDefault().getPath("D:\\temp\\RepositoriesDownloadedFromGitHub.txt");
         Path downloadLinksFile = FileSystems.getDefault().getPath("D:\\temp\\GitHubRepositoriesDownloadLinks.txt");
-        
+    
         try
         {
             List<String> repositoriesLinks = Files.readAllLines(repositoriesLinksFile);
-            
+    
             for(String repositoryLink : repositoriesLinks)
             {
                 byte[] bytes = null;
-
+    
                 String downloadURL = repositoryLink + "/archive/master.zip\n";
                 bytes = downloadURL.getBytes();
-
+    
                 try
                 {
                     Files.write(downloadLinksFile, bytes, StandardOpenOption.APPEND);
@@ -598,5 +700,5 @@ public class GitHubUserRepositoriesDownloader
         {
             System.out.println(e);
         }
-    }
+    }*/
 }
