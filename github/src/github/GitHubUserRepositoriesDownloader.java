@@ -191,6 +191,7 @@ public class GitHubUserRepositoriesDownloader
         userNames.add("edx");
         userNames.add("edx-solutions");
         userNames.add("jbosstools");
+        userNames.add("jbossorg");
 
         /*userNames.add("8thlight");
         userNames.add("500px");
