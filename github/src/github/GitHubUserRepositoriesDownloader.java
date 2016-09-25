@@ -29,8 +29,6 @@ public class GitHubUserRepositoriesDownloader
         userNames.add("adobe-webplatform");
         userNames.add("adobe-flash");
         userNames.add("brocade");
-
-        // unsorted names
         userNames.add("BRCDcomm");
         userNames.add("eBayClassifiedsGroup");
         userNames.add("technology-ebay-de");
@@ -192,8 +190,7 @@ public class GitHubUserRepositoriesDownloader
         userNames.add("edx-solutions");
         userNames.add("jbosstools");
         userNames.add("jbossorg");
-
-        /*userNames.add("8thlight");
+        userNames.add("8thlight");
         userNames.add("500px");
         userNames.add("2359media");
         userNames.add("3pillarlabs");
@@ -680,7 +677,7 @@ public class GitHubUserRepositoriesDownloader
         userNames.add("zillow");
         userNames.add("zulily");
         userNames.add("zumba");
-        userNames.add("zynga");*/
+        userNames.add("zynga");
 
         List<String> userNamesTemp = new ArrayList<String>(userNames);
         Collections.sort(userNamesTemp);
@@ -688,20 +685,20 @@ public class GitHubUserRepositoriesDownloader
     }
 
 
-    public static void main(String[] args)
+    /*public static void main(String[] args)
     {
         initialiseListOfGitHubUsers();
-        GitHub github = null;
+        GitHub github = null;*/
 
-        try
-        {
-            // github = GitHub.connectAnonymously();
-            github = GitHub.connectUsingPassword("efthymiou.dimitrios1@gmail.com", "bunkzh3Z");
-            // Path file = FileSystems.getDefault().getPath("D:\\temp\\RepositoriesDownloadedFromGitHub.txt");
-            Set<String> usersWithManyRepos = new HashSet<String>();
-            Path file = FileSystems.getDefault().getPath("C:\\temp\\RepositoriesDownloadedFromGitHub2.txt");
+        /*try
+        {*/
+            //github = GitHub.connectAnonymously();
+            //github = GitHub.connectUsingPassword("efthymiou.dimitrios1@gmail.com", "bunkzh3Z");
+            //Path file = FileSystems.getDefault().getPath("D:\\temp\\RepositoriesDownloadedFromGitHub.txt");
+            //Set<String> usersWithManyRepos = new HashSet<String>();
+            Path file = FileSystems.getDefault().getPath("D:\\temp\\RepositoriesDownloadedFromGitHub2.txt");
 
-            for(GHUser user : github.searchUsers().q("repos:>=500").list())
+            /*for(GHUser user : github.searchUsers().q("repos:>=500").list())
             {
                 usersWithManyRepos.add(user.getHtmlUrl().toString().substring(user.getHtmlUrl().toString().lastIndexOf("/") + 1));
             }
@@ -741,7 +738,7 @@ public class GitHubUserRepositoriesDownloader
                 {
                     exception.printStackTrace();
                 }
-            }
+            }*/
 
             /*for(String userName : userNames)
             {
@@ -783,16 +780,17 @@ public class GitHubUserRepositoriesDownloader
                     exception.printStackTrace();
                 }
             }*/
-        }
+        /*}
         catch(IOException exception)
         {
             exception.printStackTrace();
-        }
-    }
+        }*/
+    //}
 
-    /*public static void main(String[] args)
+    
+    public static void main(String[] args)
     {
-        Path repositoriesLinksFile = FileSystems.getDefault().getPath("D:\\temp\\RepositoriesDownloadedFromGitHub.txt");
+        Path repositoriesLinksFile = FileSystems.getDefault().getPath("D:\\temp\\RepositoriesDownloadedFromGitHub2.txt");
         Path downloadLinksFile = FileSystems.getDefault().getPath("D:\\temp\\GitHubRepositoriesDownloadLinks.txt");
     
         try
@@ -820,5 +818,5 @@ public class GitHubUserRepositoriesDownloader
         {
             System.out.println(e);
         }
-    }*/
+    }
 }
