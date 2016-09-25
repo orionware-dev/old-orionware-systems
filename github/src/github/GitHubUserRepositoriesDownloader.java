@@ -190,6 +190,7 @@ public class GitHubUserRepositoriesDownloader
         userNames.add("graphite-project");
         userNames.add("edx");
         userNames.add("edx-solutions");
+        userNames.add("jbosstools");
 
         /*userNames.add("8thlight");
         userNames.add("500px");
