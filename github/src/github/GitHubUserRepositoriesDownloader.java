@@ -10,10 +10,6 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import org.kohsuke.github.GHRepository;
-import org.kohsuke.github.GHUser;
-import org.kohsuke.github.GitHub;
-import org.kohsuke.github.PagedIterable;
 
 public class GitHubUserRepositoriesDownloader
 {
@@ -23,7 +19,110 @@ public class GitHubUserRepositoriesDownloader
     private static void initialiseListOfGitHubUsers()
     {
         userNames = new HashSet<String>();
-        userNames.add("adobe");
+
+        userNames.add("sindresorhus");
+        userNames.add("vhf");
+        userNames.add("mbostock");
+        userNames.add("kennethreitz");
+        userNames.add("tj");
+        userNames.add("substack");
+        userNames.add("bartaz");
+        userNames.add("nicklockwood");
+        userNames.add("astaxie");
+        userNames.add("mitsuhiko");
+        userNames.add("defunkt");
+        userNames.add("typicode");
+        userNames.add("addyosmani");
+        userNames.add("JakeWharton");
+        userNames.add("bevacqua");
+        userNames.add("mattt");
+        userNames.add("rstacruz");
+        userNames.add("robbyrussell");
+        userNames.add("sstephenson");
+        userNames.add("donnemartin");
+        userNames.add("mrdoob");
+        userNames.add("alvarotrigo");
+        userNames.add("creationix");
+        userNames.add("mitchellh");
+        userNames.add("antirez");
+        userNames.add("progrium");
+        userNames.add("madrobby");
+        userNames.add("ryanb");
+        userNames.add("nvie");
+        userNames.add("maxogden");
+        userNames.add("mathiasbynens");
+        userNames.add("caolan");
+        userNames.add("igrigorik");
+        userNames.add("wycats");
+        userNames.add("remy");
+        userNames.add("sahat");
+        userNames.add("felixge");
+        userNames.add("maccman");
+        userNames.add("getify");
+        userNames.add("rwaldron");
+        userNames.add("mojombo");
+        userNames.add("jakiestfu");
+        userNames.add("sferik");
+        userNames.add("soffes");
+        userNames.add("jrburke");
+        userNames.add("prakhar1989");
+        userNames.add("paulirish");
+        userNames.add("jaredhanson");
+        userNames.add("mperham");
+        userNames.add("ankane");
+        userNames.add("mattn");
+        userNames.add("alex");
+        userNames.add("technomancy");
+        userNames.add("mrmrs");
+        userNames.add("karan");
+        userNames.add("imakewebthings");
+        userNames.add("spf13");
+        userNames.add("isaacs");
+        userNames.add("mislav");
+        userNames.add("schacon");
+        userNames.add("kriskowal");
+        userNames.add("ccoenraets");
+        userNames.add("koush");
+        userNames.add("rsms");
+        userNames.add("zenorocha");
+        userNames.add("dominictarr");
+        userNames.add("xdissent");
+        userNames.add("enyo");
+        userNames.add("fgnass");
+        userNames.add("supermarin");
+        userNames.add("btford");
+        userNames.add("janl");
+        userNames.add("ddollar");
+        userNames.add("audreyr");
+        userNames.add("mafintosh");
+        userNames.add("grosser");
+        userNames.add("feross");
+        userNames.add("gmarik");
+        userNames.add("TooTallNate");
+        userNames.add("rvagg");
+        userNames.add("Shougo");
+        userNames.add("Marak");
+        userNames.add("apotonick");
+        userNames.add("CamDavidsonPilon");
+        userNames.add("andris9");
+        userNames.add("cowboy");
+        userNames.add("charliesome");
+        userNames.add("joewalnes");
+        userNames.add("johnpolacek");
+        userNames.add("technoweenie");
+        userNames.add("jdg");
+        userNames.add("jordansissel");
+        userNames.add("amatsuda");
+        userNames.add("markdalgleish");
+        userNames.add("");
+        userNames.add("");
+        userNames.add("");
+        userNames.add("");
+        userNames.add("");
+        userNames.add("");
+        userNames.add("");
+
+        /*userNames.add("adobe");
         userNames.add("Adobe-Marketing-Cloud");
         userNames.add("adobe-research");
         userNames.add("adobe-webplatform");
@@ -677,133 +776,132 @@ public class GitHubUserRepositoriesDownloader
         userNames.add("zillow");
         userNames.add("zulily");
         userNames.add("zumba");
-        userNames.add("zynga");
+        userNames.add("zynga");*/
 
         List<String> userNamesTemp = new ArrayList<String>(userNames);
         Collections.sort(userNamesTemp);
         userNames = new HashSet<String>(userNamesTemp);
     }
 
-
     /*public static void main(String[] args)
     {
         initialiseListOfGitHubUsers();
         GitHub github = null;*/
 
-        /*try
-        {*/
-            //github = GitHub.connectAnonymously();
-            //github = GitHub.connectUsingPassword("efthymiou.dimitrios1@gmail.com", "bunkzh3Z");
-            //Path file = FileSystems.getDefault().getPath("D:\\temp\\RepositoriesDownloadedFromGitHub.txt");
-            //Set<String> usersWithManyRepos = new HashSet<String>();
-            Path file = FileSystems.getDefault().getPath("D:\\temp\\RepositoriesDownloadedFromGitHub2.txt");
+    /*try
+    {*/
+    // github = GitHub.connectAnonymously();
+    // github = GitHub.connectUsingPassword("efthymiou.dimitrios1@gmail.com", "bunkzh3Z");
+    // Path file = FileSystems.getDefault().getPath("D:\\temp\\RepositoriesDownloadedFromGitHub.txt");
+    // Set<String> usersWithManyRepos = new HashSet<String>();
+    Path file = FileSystems.getDefault().getPath("D:\\temp\\RepositoriesDownloadedFromGitHub2.txt");
 
-            /*for(GHUser user : github.searchUsers().q("repos:>=500").list())
+    /*for(GHUser user : github.searchUsers().q("repos:>=500").list())
+    {
+        usersWithManyRepos.add(user.getHtmlUrl().toString().substring(user.getHtmlUrl().toString().lastIndexOf("/") + 1));
+    }
+    
+    for(String userName : usersWithManyRepos)
+    {
+        try
+        {
+            GHUser user = github.getUser(userName);
+    
+            if(user != null)
             {
-                usersWithManyRepos.add(user.getHtmlUrl().toString().substring(user.getHtmlUrl().toString().lastIndexOf("/") + 1));
+                PagedIterable<GHRepository> userRepositories = user.listRepositories();
+    
+                if(userRepositories != null)
+                {
+                    for(GHRepository userRepository : userRepositories.asList())
+                    {
+                        byte[] bytes = null;
+    
+                        String downloadURL = userRepository.getHtmlUrl().toString() + "\n";
+                        bytes = downloadURL.getBytes();
+    
+                        try
+                        {
+                            Files.write(file, bytes, StandardOpenOption.APPEND);
+                        }
+                        catch(IOException e)
+                        {
+                            System.out.println(e);
+                        }
+                    }
+                }
             }
-
-            for(String userName : usersWithManyRepos)
-            {
-                try
-                {
-                    GHUser user = github.getUser(userName);
-
-                    if(user != null)
-                    {
-                        PagedIterable<GHRepository> userRepositories = user.listRepositories();
-
-                        if(userRepositories != null)
-                        {
-                            for(GHRepository userRepository : userRepositories.asList())
-                            {
-                                byte[] bytes = null;
-
-                                String downloadURL = userRepository.getHtmlUrl().toString() + "\n";
-                                bytes = downloadURL.getBytes();
-
-                                try
-                                {
-                                    Files.write(file, bytes, StandardOpenOption.APPEND);
-                                }
-                                catch(IOException e)
-                                {
-                                    System.out.println(e);
-                                }
-                            }
-                        }
-                    }
-                }
-                catch(IOException exception)
-                {
-                    exception.printStackTrace();
-                }
-            }*/
-
-            /*for(String userName : userNames)
-            {
-                try
-                {
-                    GHUser user = github.getUser(userName);
-            
-                    if(user != null)
-                    {
-                        PagedIterable<GHRepository> userRepositories = user.listRepositories();
-            
-                        if(userRepositories != null)
-                        {
-                            for(GHRepository userRepository : userRepositories.asList())
-                            {
-                                byte[] bytes = null;
-            
-                                String downloadURL = userRepository.getHtmlUrl().toString() + "\n";
-                                bytes = downloadURL.getBytes();
-            
-                                try
-                                {
-                                    Files.write(file, bytes, StandardOpenOption.APPEND);
-                                }
-                                catch(IOException e)
-                                {
-                                    System.out.println(e);
-                                }
-                            }
-                        }
-                    }
-                    else
-                    {
-                        System.out.println(userName + " -- does not exist");
-                    }
-                }
-                catch(IOException exception)
-                {
-                    exception.printStackTrace();
-                }
-            }*/
-        /*}
+        }
         catch(IOException exception)
         {
             exception.printStackTrace();
-        }*/
-    //}
+        }
+    }*/
 
+    /*for(String userName : userNames)
+    {
+        try
+        {
+            GHUser user = github.getUser(userName);
     
+            if(user != null)
+            {
+                PagedIterable<GHRepository> userRepositories = user.listRepositories();
+    
+                if(userRepositories != null)
+                {
+                    for(GHRepository userRepository : userRepositories.asList())
+                    {
+                        byte[] bytes = null;
+    
+                        String downloadURL = userRepository.getHtmlUrl().toString() + "\n";
+                        bytes = downloadURL.getBytes();
+    
+                        try
+                        {
+                            Files.write(file, bytes, StandardOpenOption.APPEND);
+                        }
+                        catch(IOException e)
+                        {
+                            System.out.println(e);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                System.out.println(userName + " -- does not exist");
+            }
+        }
+        catch(IOException exception)
+        {
+            exception.printStackTrace();
+        }
+    }*/
+    /*}
+    catch(IOException exception)
+    {
+        exception.printStackTrace();
+    }*/
+    // }
+
+
     public static void main(String[] args)
     {
         Path repositoriesLinksFile = FileSystems.getDefault().getPath("D:\\temp\\RepositoriesDownloadedFromGitHub2.txt");
         Path downloadLinksFile = FileSystems.getDefault().getPath("D:\\temp\\GitHubRepositoriesDownloadLinks.txt");
-    
+
         try
         {
             List<String> repositoriesLinks = Files.readAllLines(repositoriesLinksFile);
-    
+
             for(String repositoryLink : repositoriesLinks)
             {
                 byte[] bytes = null;
-    
+
                 String downloadURL = repositoryLink + "/archive/master.zip\n";
                 bytes = downloadURL.getBytes();
-    
+
                 try
                 {
                     Files.write(downloadLinksFile, bytes, StandardOpenOption.APPEND);
