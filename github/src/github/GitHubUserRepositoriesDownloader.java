@@ -10,6 +10,10 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import org.kohsuke.github.GHRepository;
+import org.kohsuke.github.GHUser;
+import org.kohsuke.github.GitHub;
+import org.kohsuke.github.PagedIterable;
 
 public class GitHubUserRepositoriesDownloader
 {
@@ -19,8 +23,17 @@ public class GitHubUserRepositoriesDownloader
     private static void initialiseListOfGitHubUsers()
     {
         userNames = new HashSet<String>();
+        userNames.add("JakeWhartonS");
+        userNames.add("");
+        userNames.add("");
+        userNames.add("");
+        userNames.add("");
+        userNames.add("");
+        userNames.add("");
+        userNames.add("");
+        userNames.add("");
 
-        userNames.add("sindresorhus");
+        /*userNames.add("sindresorhus");
         userNames.add("vhf");
         userNames.add("mbostock");
         userNames.add("kennethreitz");
@@ -114,15 +127,47 @@ public class GitHubUserRepositoriesDownloader
         userNames.add("jordansissel");
         userNames.add("amatsuda");
         userNames.add("markdalgleish");
-        userNames.add("");
-        userNames.add("");
-        userNames.add("");
-        userNames.add("");
-        userNames.add("");
-        userNames.add("");
-        userNames.add("");
-
-        /*userNames.add("adobe");
+        userNames.add("honcheng");
+        userNames.add("jnicklas");
+        userNames.add("Unitech");
+        userNames.add("miguelgrinberg");
+        userNames.add("rentzsch");
+        userNames.add("mgonto");
+        userNames.add("SlexAxton");
+        userNames.add("hadley");
+        userNames.add("weavejester");
+        userNames.add("BurntSushi");
+        userNames.add("jnunemaker");
+        userNames.add("bobthecow");
+        userNames.add("leafo");
+        userNames.add("tmm1");
+        userNames.add("mgcrea");
+        userNames.add("avelino");
+        userNames.add("tuupola");
+        userNames.add("yyx990803");
+        userNames.add("mroth");
+        userNames.add("nst");
+        userNames.add("airblade");
+        userNames.add("marcuswestin");
+        userNames.add("vladikoff");
+        userNames.add("fffaraz");
+        userNames.add("robb");
+        userNames.add("kangax");
+        userNames.add("jxnblk");
+        userNames.add("cloudhead");
+        userNames.add("JacksonTian");
+        userNames.add("jzaefferer");
+        userNames.add("andreamazz");
+        userNames.add("mbleigh");
+        userNames.add("mgechev");
+        userNames.add("petkaantonov");
+        userNames.add("jondot");
+        userNames.add("lloyd");
+        userNames.add("benoitc");
+        userNames.add("wenzhixin");
+        userNames.add("jeresig");
+        userNames.add("lepture");
+        userNames.add("jessepollak");userNames.add("adobe");
         userNames.add("Adobe-Marketing-Cloud");
         userNames.add("adobe-research");
         userNames.add("adobe-webplatform");
@@ -783,52 +828,63 @@ public class GitHubUserRepositoriesDownloader
         userNames = new HashSet<String>(userNamesTemp);
     }
 
+
     /*public static void main(String[] args)
     {
         initialiseListOfGitHubUsers();
-        GitHub github = null;*/
-
-    /*try
-    {*/
-    // github = GitHub.connectAnonymously();
-    // github = GitHub.connectUsingPassword("efthymiou.dimitrios1@gmail.com", "bunkzh3Z");
-    // Path file = FileSystems.getDefault().getPath("D:\\temp\\RepositoriesDownloadedFromGitHub.txt");
-    // Set<String> usersWithManyRepos = new HashSet<String>();
-    Path file = FileSystems.getDefault().getPath("D:\\temp\\RepositoriesDownloadedFromGitHub2.txt");
-
-    /*for(GHUser user : github.searchUsers().q("repos:>=500").list())
-    {
-        usersWithManyRepos.add(user.getHtmlUrl().toString().substring(user.getHtmlUrl().toString().lastIndexOf("/") + 1));
-    }
+        GitHub github = null;
     
-    for(String userName : usersWithManyRepos)
-    {
         try
         {
-            GHUser user = github.getUser(userName);
+            // github = GitHub.connectAnonymously();
+            github = GitHub.connectUsingPassword("efthymiou.dimitrios1@gmail.com", "bunkzh3Z");
+            // Path file = FileSystems.getDefault().getPath("D:\\temp\\RepositoriesDownloadedFromGitHub.txt");
+            // Set<String> usersWithManyRepos = new HashSet<String>();
+            Path file = FileSystems.getDefault().getPath("D:\\temp\\RepositoriesDownloadedFromGitHub2.txt");
     
-            if(user != null)
+            //for(GHUser user : github.searchUsers().q("repos:>=500").list())
+            //{
+            //    usersWithManyRepos.add(user.getHtmlUrl().toString().substring(user.getHtmlUrl().toString().lastIndexOf("/") + 1));
+            //}
+    
+            for(String userName : userNames)
             {
-                PagedIterable<GHRepository> userRepositories = user.listRepositories();
-    
-                if(userRepositories != null)
+                try
                 {
-                    for(GHRepository userRepository : userRepositories.asList())
+                    GHUser user = github.getUser(userName);
+    
+                    if(user != null)
                     {
-                        byte[] bytes = null;
+                        PagedIterable<GHRepository> userRepositories = user.listRepositories();
     
-                        String downloadURL = userRepository.getHtmlUrl().toString() + "\n";
-                        bytes = downloadURL.getBytes();
+                        if(userRepositories != null)
+                        {
+                            for(GHRepository userRepository : userRepositories.asList())
+                            {
+                                byte[] bytes = null;
     
-                        try
-                        {
-                            Files.write(file, bytes, StandardOpenOption.APPEND);
-                        }
-                        catch(IOException e)
-                        {
-                            System.out.println(e);
+                                String downloadURL = userRepository.getHtmlUrl().toString() + "\n";
+                                bytes = downloadURL.getBytes();
+    
+                                try
+                                {
+                                    Files.write(file, bytes, StandardOpenOption.APPEND);
+                                }
+                                catch(IOException e)
+                                {
+                                    System.out.println(e);
+                                }
+                            }
                         }
                     }
+                    else
+                    {
+                        System.out.println(userName + " -- does not exist");
+                    }
+                }
+                catch(IOException exception)
+                {
+                    exception.printStackTrace();
                 }
             }
         }
@@ -837,54 +893,6 @@ public class GitHubUserRepositoriesDownloader
             exception.printStackTrace();
         }
     }*/
-
-    /*for(String userName : userNames)
-    {
-        try
-        {
-            GHUser user = github.getUser(userName);
-    
-            if(user != null)
-            {
-                PagedIterable<GHRepository> userRepositories = user.listRepositories();
-    
-                if(userRepositories != null)
-                {
-                    for(GHRepository userRepository : userRepositories.asList())
-                    {
-                        byte[] bytes = null;
-    
-                        String downloadURL = userRepository.getHtmlUrl().toString() + "\n";
-                        bytes = downloadURL.getBytes();
-    
-                        try
-                        {
-                            Files.write(file, bytes, StandardOpenOption.APPEND);
-                        }
-                        catch(IOException e)
-                        {
-                            System.out.println(e);
-                        }
-                    }
-                }
-            }
-            else
-            {
-                System.out.println(userName + " -- does not exist");
-            }
-        }
-        catch(IOException exception)
-        {
-            exception.printStackTrace();
-        }
-    }*/
-    /*}
-    catch(IOException exception)
-    {
-        exception.printStackTrace();
-    }*/
-    // }
-
 
     public static void main(String[] args)
     {
