@@ -24,16 +24,874 @@ public class GitHubUserRepositoriesDownloader
     {
         userNames = new HashSet<String>();
         userNames.add("JakeWhartonS");
-        userNames.add("");
-        userNames.add("");
-        userNames.add("");
-        userNames.add("");
-        userNames.add("");
-        userNames.add("");
-        userNames.add("");
-        userNames.add("");
-
-        /*userNames.add("sindresorhus");
+        userNames.add("futurice");
+        userNames.add("chriszeng87");
+        userNames.add("xebia-france");
+        userNames.add("kodizant");
+        userNames.add("MinHuZ");
+        userNames.add("tetratec");
+        userNames.add("thomasdarimont");
+        userNames.add("yinaxiong");
+        userNames.add("HKMOpen");
+        userNames.add("tarikyurtlu");
+        userNames.add("talkvip");
+        userNames.add("e4basil");
+        userNames.add("yangming85");
+        userNames.add("ltd920678778");
+        userNames.add("AKSW");
+        userNames.add("FihlaTV");
+        userNames.add("zhourihu5");
+        userNames.add("03050903");
+        userNames.add("taoguan");
+        userNames.add("jelychow");
+        userNames.add("LiWeiQiangAndroid");
+        userNames.add("cgpllx");
+        userNames.add("wangjia55");
+        userNames.add("surjit");
+        userNames.add("UsherBaby");
+        userNames.add("ps-jimmy");
+        userNames.add("mistrydarshan99");
+        userNames.add("weizai");
+        userNames.add("yhtsnda");
+        userNames.add("darrennight");
+        userNames.add("designreuse");
+        userNames.add("carriercomm");
+        userNames.add("koush");
+        userNames.add("joshlong");
+        userNames.add("kentcdodds");
+        userNames.add("mattdesl");
+        userNames.add("kohsuke");
+        userNames.add("nolanlawson");
+        userNames.add("shekhargulati");
+        userNames.add("jamesward");
+        userNames.add("SkillCollege");
+        userNames.add("zhuowei");
+        userNames.add("HotBitmapGG");
+        userNames.add("pranavlathigara");
+        userNames.add("bunnyblue");
+        userNames.add("ktoso");
+        userNames.add("tobegit3hub");
+        userNames.add("kastnerkyle");
+        userNames.add("githubteacher");
+        userNames.add("mojavelinux");
+        userNames.add("anubiann00b");
+        userNames.add("simplyianm");
+        userNames.add("ppamorim");
+        userNames.add("nuptboyzhb");
+        userNames.add("koron");
+        userNames.add("making");
+        userNames.add("alexandregama");
+        userNames.add("up1");
+        userNames.add("tjhorner");
+        userNames.add("christian-posta");
+        userNames.add("freewind");
+        userNames.add("avh4");
+        userNames.add("ndeloof");
+        userNames.add("hanhailong");
+        userNames.add("aybabtme");
+        userNames.add("svn2github");
+        userNames.add("masterUNG");
+        userNames.add("jdsjlzx");
+        userNames.add("yy1300326388");
+        userNames.add("matrixxun");
+        userNames.add("kinow");
+        userNames.add("way1989");
+        userNames.add("Mahdi-Rom");
+        userNames.add("morristech");
+        userNames.add("achellies");
+        userNames.add("soyoungboy");
+        userNames.add("chinnurtb");
+        userNames.add("tamzi");
+        userNames.add("jglick");
+        userNames.add("weimingtom");
+        userNames.add("dalong982242260");
+        userNames.add("JohnTsaiAndroid");
+        userNames.add("devsoulwolf");
+        userNames.add("matzew");
+        userNames.add("prayagupd");
+        userNames.add("twlkyao");
+        userNames.add("luiscape");
+        userNames.add("paulvi");
+        userNames.add("TyOverby");
+        userNames.add("siwangqishiq");
+        userNames.add("0359xiaodong");
+        userNames.add("obazoud");
+        userNames.add("strategist922");
+        userNames.add("wanghaisheng");
+        userNames.add("CodeMyAss");
+        userNames.add("melvincabatuan");
+        userNames.add("leodufer");
+        userNames.add("davidmr001");
+        userNames.add("brainv");
+        userNames.add("mychoices");
+        userNames.add("khmarbaise");
+        userNames.add("54niuge");
+        userNames.add("kaendfinger");
+        userNames.add("kHRYSTAL");
+        userNames.add("Rowandjj");
+        userNames.add("qq254963746");
+        userNames.add("shareme");
+        userNames.add("llpj");
+        userNames.add("huangwm1984");
+        userNames.add("blha303");
+        userNames.add("mohsenuss91");
+        userNames.add("SAC-CS");
+        userNames.add("jameswei");
+        userNames.add("geminiyellow");
+        userNames.add("tangkai");
+        userNames.add("Vexatos");
+        userNames.add("blighli");
+        userNames.add("lovejavaee");
+        userNames.add("pjq");
+        userNames.add("Dreamer206602");
+        userNames.add("DevenLu");
+        userNames.add("javajack");
+        userNames.add("KhalidElSayed");
+        userNames.add("anismiles");
+        userNames.add("angcyo");
+        userNames.add("xiaoyanit");
+        userNames.add("longtaoge");
+        userNames.add("androidzhaoxiaogang");
+        userNames.add("Ribeiro");
+        userNames.add("qiyeboy");
+        userNames.add("MaTriXy");
+        userNames.add("shohei");
+        userNames.add("armeo");
+        userNames.add("frankswu");
+        userNames.add("androiddream");
+        userNames.add("sleyzerzon");
+        userNames.add("wuqingman");
+        userNames.add("luxiaoming");
+        userNames.add("RahulSDeshpande");
+        userNames.add("Klozz");
+        userNames.add("Neils320");
+        userNames.add("nitroglycerine33");
+        userNames.add("mkolod");
+        userNames.add("antonini");
+        userNames.add("xiaoshi316");
+        userNames.add("djun100");
+        userNames.add("LittlePanpc");
+        userNames.add("hardikamal");
+        userNames.add("avalond");
+        userNames.add("haikuowuya");
+        userNames.add("ycaihua");
+        userNames.add("gnomix");
+        userNames.add("Shekharrajak");
+        userNames.add("Juneor");
+        userNames.add("sslavic");
+        userNames.add("noprom");
+        userNames.add("Aromer-room");
+        userNames.add("jdcasey");
+        userNames.add("chubbymaggie");
+        userNames.add("shawwinbin");
+        userNames.add("gabhi");
+        userNames.add("zhaiyuyong");
+        userNames.add("chwzou");
+        userNames.add("jeonghopark");
+        userNames.add("wangmingjob");
+        userNames.add("mba811");
+        userNames.add("angelen10");
+        userNames.add("androidroadies");
+        userNames.add("f4cker");
+        userNames.add("zhengyouxiang");
+        userNames.add("chenhbzl");
+        userNames.add("msdgwzhy6");
+        userNames.add("dzwillpower");
+        userNames.add("hcxiong");
+        userNames.add("jbaginski");
+        userNames.add("h4ck4life");
+        userNames.add("tapickell");
+        userNames.add("jokerNi");
+        userNames.add("paladin74");
+        userNames.add("jwcastillo");
+        userNames.add("Volcanoscar");
+        userNames.add("yanglichuan");
+        userNames.add("solderzzc");
+        userNames.add("rameshvoltella");
+        userNames.add("Comdex");
+        userNames.add("LarryPham");
+        userNames.add("liuyatao");
+        userNames.add("lihongjiang");
+        userNames.add("qingsong-xu");
+        userNames.add("luiz158");
+        userNames.add("jackyglony");
+        userNames.add("mailmahee");
+        userNames.add("Adaptivity");
+        userNames.add("Grishu");
+        userNames.add("ealliaume");
+        userNames.add("andrecurvello");
+        userNames.add("weikipeng");
+        userNames.add("lstNull");
+        userNames.add("zwcshy");
+        userNames.add("9cat");
+        userNames.add("JakeWoki");
+        userNames.add("flychen50");
+        userNames.add("ALEXGUOQ");
+        userNames.add("jiangyinbin");
+        userNames.add("niuxdexiaobai");
+        userNames.add("nickman");
+        userNames.add("myheat");
+        userNames.add("terry2012");
+        userNames.add("FelixLinBH");
+        userNames.add("zwqjsj0404");
+        userNames.add("fuhongliang");
+        userNames.add("freakynit");
+        userNames.add("TonyTangAndroid");
+        userNames.add("zcwfeng");
+        userNames.add("cnbird1999");
+        userNames.add("AnanthaRajuC");
+        userNames.add("Purushottam2005");
+        userNames.add("johnnyeric");
+        userNames.add("slachiewicz");
+        userNames.add("gnagel");
+        userNames.add("guoxiaojun001");
+        userNames.add("drakh");
+        userNames.add("xiedantibu");
+        userNames.add("hejunbinlan");
+        userNames.add("zhhb");
+        userNames.add("teffy");
+        userNames.add("universsky");
+        userNames.add("lpj0017");
+        userNames.add("romantic011");
+        userNames.add("zonquan");
+        userNames.add("Jonham");
+        userNames.add("hendisantika");
+        userNames.add("pranaypatel512");
+        userNames.add("davidmueller13");
+        userNames.add("avgx");
+        userNames.add("Hi4Joker");
+        userNames.add("john0xff");
+        userNames.add("alaattinturyan");
+        userNames.add("Solertis");
+        userNames.add("loki2302");
+        userNames.add("rengokantai");
+        userNames.add("thaingo");
+        userNames.add("juniorsatanas");
+        userNames.add("jiangzhonghui");
+        userNames.add("bulbulhossen");
+        userNames.add("anujsrc");
+        userNames.add("randhika");
+        userNames.add("blademainer");
+        userNames.add("zeratel");
+        userNames.add("ArsenShnurkov");
+        userNames.add("mobdim");
+        userNames.add("natanovia");
+        userNames.add("Freedom000");
+        userNames.add("intermezzo-fr");
+        userNames.add("VegiS");
+        userNames.add("mimoccc");
+        userNames.add("Y-bao");
+        userNames.add("xiaomaguoguo");
+        userNames.add("keepcleargas");
+        userNames.add("fdln");
+        userNames.add("neomadara");
+        userNames.add("h87kg");
+        userNames.add("Godchin1990");
+        userNames.add("niuxinghua");
+        userNames.add("1nv4d3r5");
+        userNames.add("brandhill");
+        userNames.add("tsdl2013");
+        userNames.add("banketree");
+        userNames.add("wolf0931");
+        userNames.add("kalwar");
+        userNames.add("melbfish");
+        userNames.add("fc-dream");
+        userNames.add("erosiners");
+        userNames.add("vaginessa");
+        userNames.add("miqui");
+        userNames.add("bangslosan");
+        userNames.add("lokinell");
+        userNames.add("longhongjun");
+        userNames.add("FaverSoar");
+        userNames.add("minthubk");
+        userNames.add("tedzyc");
+        userNames.add("saifrahmed");
+        userNames.add("kingslou");
+        userNames.add("dotfeng");
+        userNames.add("teocci");
+        userNames.add("1181631922");
+        userNames.add("leelei");
+        userNames.add("manniru");
+        userNames.add("jokamjohn");
+        userNames.add("Rockyspade");
+        userNames.add("ethanliew");
+        userNames.add("wang9090980");
+        userNames.add("techscientist");
+        userNames.add("asd1355215911");
+        userNames.add("cnhans");
+        userNames.add("hejie");
+        userNames.add("carozhu");
+        userNames.add("vonwenm");
+        userNames.add("zcfrank1st");
+        userNames.add("dennisit");
+        userNames.add("victoryckl");
+        userNames.add("donaminos");
+        userNames.add("mstram");
+        userNames.add("techmik");
+        userNames.add("rsaiyuki");
+        userNames.add("zilaiyedaren");
+        userNames.add("doctorwho1986");
+        userNames.add("studyfordream");
+        userNames.add("dancingalone");
+        userNames.add("yangningbo");
+        userNames.add("SadieYuCN");
+        userNames.add("aaaliua");
+        userNames.add("ajju4455");
+        userNames.add("chrinide");
+        userNames.add("xingzhixi");
+        userNames.add("chuangWu");
+        userNames.add("xyzmst");
+        userNames.add("patilswapnilv");
+        userNames.add("lwllovewf2010");
+        userNames.add("sfrias");
+        userNames.add("dnydoney");
+        userNames.add("baotingfang");
+        userNames.add("java02014");
+        userNames.add("prashant31191");
+        userNames.add("DuongNTdev");
+        userNames.add("simple88");
+        userNames.add("crystalDf");
+        userNames.add("FelixZhang00");
+        userNames.add("jackLi93");
+        userNames.add("honeyflyfish");
+        userNames.add("DeveloperYin");
+        userNames.add("apsaltis");
+        userNames.add("duataud");
+        userNames.add("snice");
+        userNames.add("guiping");
+        userNames.add("VRDate");
+        userNames.add("suiyuchen");
+        userNames.add("lebronzj");
+        userNames.add("darcyg");
+        userNames.add("lijian8");
+        userNames.add("sjyun");
+        userNames.add("lslab");
+        userNames.add("sjfloat");
+        userNames.add("yubobo");
+        userNames.add("Ygauraw");
+        userNames.add("number0");
+        userNames.add("shook2012");
+        userNames.add("zhuojianhai");
+        userNames.add("brucemei");
+        userNames.add("hoanganhx86");
+        userNames.add("wangchang163");
+        userNames.add("feijian8");
+        userNames.add("yinrongping");
+        userNames.add("b-cuts");
+        userNames.add("peidachang");
+        userNames.add("Ajunboys");
+        userNames.add("manithnuon");
+        userNames.add("chenld");
+        userNames.add("jiyuren");
+        userNames.add("aven-yang");
+        userNames.add("djodjoni");
+        userNames.add("supercoeus");
+        userNames.add("lazycrazyowl");
+        userNames.add("bryanbanda");
+        userNames.add("licong");
+        userNames.add("gspandy");
+        userNames.add("hoangpq");
+        userNames.add("dalinhuang");
+        userNames.add("singhpk89");
+        userNames.add("AhmadHegazy");
+        userNames.add("achun2080");
+        userNames.add("tojames");
+        userNames.add("tieusangaka");
+        userNames.add("crackeer");
+        userNames.add("mengtest");
+        userNames.add("githubzoujiayun");
+        userNames.add("bensonX");
+        userNames.add("hbcbh1999");
+        userNames.add("songfj");
+        userNames.add("generalzou");
+        userNames.add("AbooJan");
+        userNames.add("kairon007");
+        userNames.add("ajaykoppisetty");
+        userNames.add("inno-v");
+        userNames.add("cesarmarinhorj");
+        userNames.add("Mazdallier");
+        userNames.add("amikey");
+        userNames.add("chenyi2013");
+        userNames.add("StreamNgai");
+        userNames.add("whoze");
+        userNames.add("datalink747");
+        userNames.add("yanglangfei");
+        userNames.add("mkodekar");
+        userNames.add("gdweijin");
+        userNames.add("jashion");
+        userNames.add("mindis");
+        userNames.add("donggx");
+        userNames.add("codeaudit");
+        userNames.add("Howard9891");
+        userNames.add("askxionghu");
+        userNames.add("lol666666");
+        userNames.add("fotopretty");
+        userNames.add("khulegu");
+        userNames.add("fuycadw");
+        userNames.add("Tambralinga");
+        userNames.add("woshizilong");
+        userNames.add("heocon8319");
+        userNames.add("heyl1989");
+        userNames.add("Ravikumarmaddi");
+        userNames.add("softctrl");
+        userNames.add("langxj");
+        userNames.add("MiHiTiger");
+        userNames.add("caoyang521");
+        userNames.add("yzp531");
+        userNames.add("eliobotogoske");
+        userNames.add("amrzagloul");
+        userNames.add("weijiang2009");
+        userNames.add("RudyChin");
+        userNames.add("mvpleung");
+        userNames.add("darklost");
+        userNames.add("widegalaxy");
+        userNames.add("wrightmikea");
+        userNames.add("binque");
+        userNames.add("MIssyang");
+        userNames.add("imace");
+        userNames.add("shgharib");
+        userNames.add("vamsirajendra");
+        userNames.add("chengli3209");
+        userNames.add("liyun1030");
+        userNames.add("julianhaslinger");
+        userNames.add("apprisi");
+        userNames.add("since2014");
+        userNames.add("Muki-SkyWalker");
+        userNames.add("rizvan");
+        userNames.add("NageshKulkarni");
+        userNames.add("draekko");
+        userNames.add("lhn200835");
+        userNames.add("zy841336855");
+        userNames.add("markus2610");
+        userNames.add("zhuhui");
+        userNames.add("Huynhvantoan");
+        userNames.add("heyuanchao");
+        userNames.add("orinocoz");
+        userNames.add("GavinHwa");
+        userNames.add("szn0212");
+        userNames.add("geekcheng");
+        userNames.add("gopal151295");
+        userNames.add("fysoft2006");
+        userNames.add("theseusyang");
+        userNames.add("hoadn");
+        userNames.add("hwwang");
+        userNames.add("it114");
+        userNames.add("DastanIqbal");
+        userNames.add("ahtohlcy");
+        userNames.add("knoppixmeister");
+        userNames.add("jvlstudio");
+        userNames.add("steveLYL");
+        userNames.add("xiaox0321");
+        userNames.add("guffyWave");
+        userNames.add("SmarkSeven");
+        userNames.add("dgrlucky");
+        userNames.add("ashank");
+        userNames.add("xiwc");
+        userNames.add("animeshinvinci");
+        userNames.add("Scrik");
+        userNames.add("peterdocter");
+        userNames.add("zjpjohn");
+        userNames.add("qx");
+        userNames.add("hy2012");
+        userNames.add("linving");
+        userNames.add("oasis2008");
+        userNames.add("dawangjiaowolaixunshan");
+        userNames.add("hongfeiliuxing");
+        userNames.add("zixingzhinu");
+        userNames.add("AskViky");
+        userNames.add("gigfork");
+        userNames.add("rongdong1988");
+        userNames.add("allen1988");
+        userNames.add("SmartCloud2025");
+        userNames.add("abner0914");
+        userNames.add("kuguobing");
+        userNames.add("sidn753");
+        userNames.add("banlyst");
+        userNames.add("kzganesan");
+        userNames.add("robsonmobile");
+        userNames.add("hidaron");
+        userNames.add("yuzhongxingke");
+        userNames.add("hancy2013");
+        userNames.add("yieryi");
+        userNames.add("Lerist");
+        userNames.add("goodfree");
+        userNames.add("khj0704");
+        userNames.add("longzekai");
+        userNames.add("Tifancy");
+        userNames.add("Tifancy");
+        userNames.add("ashishpatil396");
+        userNames.add("chailei9005");
+        userNames.add("weiguo21");
+        userNames.add("AaronZhangL");
+        userNames.add("b2b2244424");
+        userNames.add("2050utopia");
+        userNames.add("hpdx");
+        userNames.add("jiashilei-1985");
+        userNames.add("king-dev");
+        userNames.add("kriishna");
+        userNames.add("kshtzsharma48");
+        userNames.add("vsoft-phuong");
+        userNames.add("c-ong");
+        userNames.add("xintao222");
+        userNames.add("HackLinux");
+        userNames.add("clawplach");
+        userNames.add("home201448");
+        userNames.add("BGCX261");
+        userNames.add("balao7");
+        userNames.add("wutianlong");
+        userNames.add("Jalsoncc");
+        userNames.add("devvishal");
+        userNames.add("BGCX067");
+        userNames.add("zbxzc35");
+        userNames.add("gloryliu");
+        userNames.add("chinajames");
+        userNames.add("hiXing");
+        userNames.add("mukadder");
+        userNames.add("baseboxorg");
+        userNames.add("BadaDu");
+        userNames.add("jarey");
+        userNames.add("sorisum");
+        userNames.add("vercent");
+        userNames.add("309746069");
+        userNames.add("gao746700783");
+        userNames.add("longjl");
+        userNames.add("saravanan-vdg");
+        userNames.add("xtmgah");
+        userNames.add("vorabhai");
+        userNames.add("trfiladelfo");
+        userNames.add("jforge");
+        userNames.add("keyeMyria");
+        userNames.add("wiltonlazary");
+        userNames.add("suclike");
+        userNames.add("tmxdyf");
+        userNames.add("mazouri");
+        userNames.add("bayan1987");
+        userNames.add("jibaro");
+        userNames.add("foxerfly");
+        userNames.add("alanma");
+        userNames.add("turionboy");
+        userNames.add("xuzhikethinker");
+        userNames.add("wang663632304");
+        userNames.add("mdabbagh88");
+        userNames.add("zillachan");
+        userNames.add("FlavioFalcao");
+        userNames.add("OspreyX");
+        userNames.add("BGCX262");
+        userNames.add("giul2016");
+        userNames.add("sangupandi");
+        userNames.add("MStart");
+        userNames.add("yavuzyurtbegendi");
+        userNames.add("ixzus");
+        userNames.add("mohanrajsambath");
+        userNames.add("etsrepo");
+        userNames.add("VikingDen");
+        userNames.add("shenxiaolin");
+        userNames.add("ruisebastiao");
+        userNames.add("gaoguibao1921");
+        userNames.add("flelax");
+        userNames.add("reifnotreef");
+        userNames.add("feer921");
+        userNames.add("huyongqiang");
+        userNames.add("onexuan");
+        userNames.add("MartinDong");
+        userNames.add("directorscut82");
+        userNames.add("Wagnerp");
+        userNames.add("TKNUK026");
+        userNames.add("lihuiyao1986");
+        userNames.add("junwuwei");
+        userNames.add("Cloudez");
+        userNames.add("moon-sky");
+        userNames.add("shenditya");
+        userNames.add("duqian291902259");
+        userNames.add("weatherfish");
+        userNames.add("hai8108");
+        userNames.add("eity0323");
+        userNames.add("suevip");
+        userNames.add("huayuxian");
+        userNames.add("caidaow");
+        userNames.add("zerobitzero");
+        userNames.add("hendyyou");
+        userNames.add("parksangkil");
+        userNames.add("alex1818");
+        userNames.add("wangscript");
+        userNames.add("ganeshgitrepo");
+        userNames.add("hardikbhalodi");
+        userNames.add("skumar2998");
+        userNames.add("kidcrazequ");
+        userNames.add("AdamRLukaitis");
+        userNames.add("qingchen1984");
+        userNames.add("ranxiaoyi");
+        userNames.add("lifeinoppo");
+        userNames.add("ztoh");
+        userNames.add("LinQingWei");
+        userNames.add("123yangu");
+        userNames.add("jameschen00");
+        userNames.add("xuhuawei131");
+        userNames.add("tasfe");
+        userNames.add("iwabuchiken");
+        userNames.add("lxlx704034204");
+        userNames.add("sangohan");
+        userNames.add("XClouded");
+        userNames.add("hmagph");
+        userNames.add("zzyycobra1234");
+        userNames.add("panggirl");
+        userNames.add("ajrulez");
+        userNames.add("omegasoft7");
+        userNames.add("ajrulez");
+        userNames.add("yan96in");
+        userNames.add("zhangwei5095");
+        userNames.add("roger2000hk");
+        userNames.add("maolala");
+        userNames.add("iKyle");
+        userNames.add("armoun");
+        userNames.add("phamthaithinh");
+        userNames.add("ygwang");
+        userNames.add("linarz");
+        userNames.add("leahov");
+        userNames.add("guotechfin");
+        userNames.add("itang01");
+        userNames.add("shotishu");
+        userNames.add("hoopslb");
+        userNames.add("ishara");
+        userNames.add("MEZOCLONE");
+        userNames.add("moses-sun");
+        userNames.add("Toqu3");
+        userNames.add("Kurukshetran");
+        userNames.add("MichealJou");
+        userNames.add("ariesw");
+        userNames.add("rlxrlxrlx");
+        userNames.add("widerules");
+        userNames.add("yyzz1987431");
+        userNames.add("postdep");
+        userNames.add("faisal-w");
+        userNames.add("sohel274");
+        userNames.add("marcthomas");
+        userNames.add("lram7");
+        userNames.add("sundarsan");
+        userNames.add("fumeidonga");
+        userNames.add("li2014");
+        userNames.add("popboyking");
+        userNames.add("achristensen3");
+        userNames.add("emmet7life");
+        userNames.add("GREYFOXRGR");
+        userNames.add("dbirchak");
+        userNames.add("azureplus");
+        userNames.add("ZaneSummer");
+        userNames.add("handong890");
+        userNames.add("daxiaohuzi");
+        userNames.add("liubo404");
+        userNames.add("blueflychief");
+        userNames.add("cgc1983");
+        userNames.add("mengyou658");
+        userNames.add("Intellifora");
+        userNames.add("i-spark");
+        userNames.add("LiruiBryant");
+        userNames.add("fengshao0907");
+        userNames.add("csshuai");
+        userNames.add("hydcoder");
+        userNames.add("mldeng");
+        userNames.add("pk-codebox-evo");
+        userNames.add("ricots");
+        userNames.add("javierpuntonet");
+        userNames.add("hnlshzx");
+        userNames.add("mikelee009");
+        userNames.add("obtained");
+        userNames.add("faint32");
+        userNames.add("riengcs");
+        userNames.add("liaoyuanhuo");
+        userNames.add("spark85");
+        userNames.add("Ar3kkusu");
+        userNames.add("BeyondAosp2");
+        userNames.add("BeyondAosp");
+        userNames.add("schmidtfx2");
+        userNames.add("dxiaogang");
+        userNames.add("Omegaphora");
+        userNames.add("Ranjan101");
+        userNames.add("liutianze");
+        userNames.add("johntheripp3r");
+        userNames.add("ljl546158733");
+        userNames.add("ly-android");
+        userNames.add("XBurnerAir");
+        userNames.add("Letractively");
+        userNames.add("kidaak");
+        userNames.add("tudorsaitoc");
+        userNames.add("liangmingjie");
+        userNames.add("krichter722");
+        userNames.add("djjackylei");
+        userNames.add("xty88645");
+        userNames.add("ywxstar");
+        userNames.add("scorpiovn");
+        userNames.add("lenovor");
+        userNames.add("zyh329");
+        userNames.add("wsy1983wsy");
+        userNames.add("scorpiovn");
+        userNames.add("ywxstar");
+        userNames.add("guozhiling");
+        userNames.add("eseawind");
+        userNames.add("bluepeople1");
+        userNames.add("davidsoloman");
+        userNames.add("mhcrnl");
+        userNames.add("fangzheng354");
+        userNames.add("cqululei");
+        userNames.add("yszx123");
+        userNames.add("qiailin");
+        userNames.add("cjjcsu");
+        userNames.add("yibaimishenlan");
+        userNames.add("kknet");
+        userNames.add("icloudkit");
+        userNames.add("liuwq105");
+        userNames.add("anukat2015");
+        userNames.add("whztt07");
+        userNames.add("wzlee");
+        userNames.add("zhoupan");
+        userNames.add("thenewcircle");
+        userNames.add("helowar");
+        userNames.add("KangProject");
+        userNames.add("shjgiser");
+        userNames.add("lqlstudio");
+        userNames.add("DevFactory");
+        userNames.add("PAC-ROM");
+        userNames.add("keeplive");
+        userNames.add("rvganesh");
+        userNames.add("alecfan");
+        userNames.add("yesiamready");
+        userNames.add("Technology-Hatchery");
+        userNames.add("agilemobiledev");
+        userNames.add("codehaus");
+        userNames.add("hyl87");
+        userNames.add("aungmyo");
+        userNames.add("zhiyou007");
+        userNames.add("bluelzx");
+        userNames.add("tongbor");
+        userNames.add("sjzneil");
+        userNames.add("chenzhenyang");
+        userNames.add("ShareSofa");
+        userNames.add("vkarihaloo");
+        userNames.add("trananh1992");
+        userNames.add("CMOX");
+        userNames.add("Librari");
+        userNames.add("HackShare");
+        userNames.add("DeLaSalleUniversity-Manila");
+        userNames.add("internousdevjava");
+        userNames.add("ULE-Informatica");
+        userNames.add("ToanProject");
+        userNames.add("penpan85");
+        userNames.add("cherysky");
+        userNames.add("jenkinsci");
+        userNames.add("JetBrains");
+        userNames.add("erpragatisingh-AndroidDeveloper");
+        userNames.add("VLADYRON");
+        userNames.add("Geek365");
+        userNames.add("xenon007");
+        userNames.add("ksharpdabu");
+        userNames.add("srinivasgowda097");
+        userNames.add("erpragatisingh-AndroidDeveloper");
+        userNames.add("jenkinsci");
+        userNames.add("JetBrains");
+        userNames.add("j0sem4rio");
+        userNames.add("863699466");
+        userNames.add("awslabs");
+        userNames.add("mulesoft");
+        userNames.add("little1tow");
+        userNames.add("cs160-berkeley");
+        userNames.add("eltld");
+        userNames.add("ljl2014");
+        userNames.add("augmify");
+        userNames.add("smartnetguru");
+        userNames.add("andVisions");
+        userNames.add("diorsman");
+        userNames.add("yippeeapp");
+        userNames.add("lqjack");
+        userNames.add("zhoushineyoung");
+        userNames.add("yanghongkjxy");
+        userNames.add("AndroidTheWorld");
+        userNames.add("kstv");
+        userNames.add("Jahia");
+        userNames.add("JamesLiAndroid");
+        userNames.add("yanghongkjxy");
+        userNames.add("naseemakhtar994");
+        userNames.add("TangGSen");
+        userNames.add("InsightsDev-dev");
+        userNames.add("JobsSteve");
+        userNames.add("InsightsDev");
+        userNames.add("carrot-garden");
+        userNames.add("prog012");
+        userNames.add("sigh0829");
+        userNames.add("yunsite");
+        userNames.add("semantalytics");
+        userNames.add("xmmdream");
+        userNames.add("jerry870101");
+        userNames.add("Cafogen");
+        userNames.add("mengjues");
+        userNames.add("ox-it");
+        userNames.add("xwiki-contrib");
+        userNames.add("idega");
+        userNames.add("anywhy");
+        userNames.add("bag-of-projects");
+        userNames.add("CenturyGlorion");
+        userNames.add("Poneyo");
+        userNames.add("byterom");
+        userNames.add("yongxu74");
+        userNames.add("jianlinwei");
+        userNames.add("mikesth007");
+        userNames.add("murat8505");
+        userNames.add("chinnyannieb");
+        userNames.add("learn-OS");
+        userNames.add("tigerqiu712");
+        userNames.add("cuitiantian2016");
+        userNames.add("nullog");
+        userNames.add("srcclrapache1");
+        userNames.add("udayinfy");
+        userNames.add("windygu");
+        userNames.add("wendelas");
+        userNames.add("wsyandy");
+        userNames.add("corelchen");
+        userNames.add("PDi-Communication-Systems-Inc");
+        userNames.add("mt0803");
+        userNames.add("arshadalisoomro");
+        userNames.add("eclipse");
+        userNames.add("freemindhack");
+        userNames.add("HwangKC");
+        userNames.add("hao707822882");
+        userNames.add("wso2-extensions");
+        userNames.add("wso2");
+        userNames.add("reference-project");
+        userNames.add("andto");
+        userNames.add("nilopc-learning-android");
+        userNames.add("viktortat");
+        userNames.add("Peter1303");
+        userNames.add("cjq");
+        userNames.add("duanxifeng");
+        userNames.add("Appdynamics");
+        userNames.add("PhongHuynh93");
+        userNames.add("owenb132");
+        userNames.add("nilopc-learning-android");
+        userNames.add("viktortat");
+        userNames.add("Appdynamics");
+        userNames.add("PhongHuynh93");
+        userNames.add("duanxifeng");
+        userNames.add("owenb132");
+        userNames.add("cjq");
+        userNames.add("fork-lib");
+        userNames.add("wsw2008new");
+        userNames.add("xsnxj");
+        userNames.add("cybercircuits");
+        userNames.add("maniacs-m");
+        userNames.add("apache");
+        userNames.add("mapleskip");
+        userNames.add("huyanghu");
+        userNames.add("reloadbrain");
+        userNames.add("NIUDONG2015");
+        userNames.add("lwan487");
+        userNames.add("ppbao");
+        userNames.add("champistalking");
+        userNames.add("kyoucr");
+        userNames.add("LYDXY");
+        userNames.add("ligzy");
+        userNames.add("wxtech");
+        userNames.add("mars0122");
+        userNames.add("zhiqinghuang");
+        userNames.add("sindresorhus");
         userNames.add("vhf");
         userNames.add("mbostock");
         userNames.add("kennethreitz");
@@ -167,7 +1025,8 @@ public class GitHubUserRepositoriesDownloader
         userNames.add("wenzhixin");
         userNames.add("jeresig");
         userNames.add("lepture");
-        userNames.add("jessepollak");userNames.add("adobe");
+        userNames.add("jessepollak");
+        userNames.add("adobe");
         userNames.add("Adobe-Marketing-Cloud");
         userNames.add("adobe-research");
         userNames.add("adobe-webplatform");
@@ -821,7 +1680,7 @@ public class GitHubUserRepositoriesDownloader
         userNames.add("zillow");
         userNames.add("zulily");
         userNames.add("zumba");
-        userNames.add("zynga");*/
+        userNames.add("zynga");
 
         List<String> userNamesTemp = new ArrayList<String>(userNames);
         Collections.sort(userNamesTemp);
@@ -829,43 +1688,87 @@ public class GitHubUserRepositoriesDownloader
     }
 
 
-    /*public static void main(String[] args)
+    public static void main(String[] args)
     {
         initialiseListOfGitHubUsers();
         GitHub github = null;
-    
+
         try
         {
             // github = GitHub.connectAnonymously();
             github = GitHub.connectUsingPassword("efthymiou.dimitrios1@gmail.com", "bunkzh3Z");
             // Path file = FileSystems.getDefault().getPath("D:\\temp\\RepositoriesDownloadedFromGitHub.txt");
             // Set<String> usersWithManyRepos = new HashSet<String>();
-            Path file = FileSystems.getDefault().getPath("D:\\temp\\RepositoriesDownloadedFromGitHub2.txt");
-    
-            //for(GHUser user : github.searchUsers().q("repos:>=500").list())
-            //{
-            //    usersWithManyRepos.add(user.getHtmlUrl().toString().substring(user.getHtmlUrl().toString().lastIndexOf("/") + 1));
-            //}
-    
-            for(String userName : userNames)
+            Path file = FileSystems.getDefault().getPath("C:\\temp\\RepositoriesDownloadedFromGitHub2.txt");
+            /*Set<String> usersWithManyRepos = new HashSet<String>();
+            
+            for(GHUser user : github.searchUsers().q("language:Java repos:>200").list())
+            {
+                String userName = user.getHtmlUrl().toString().substring(user.getHtmlUrl().toString().lastIndexOf("/") + 1);
+                usersWithManyRepos.add(userName);
+                System.out.println("userNames.add(\"" + userName + "\");");
+            }
+            
+            for(String userName : usersWithManyRepos)
             {
                 try
                 {
                     GHUser user = github.getUser(userName);
-    
+            
                     if(user != null)
                     {
                         PagedIterable<GHRepository> userRepositories = user.listRepositories();
-    
+            
                         if(userRepositories != null)
                         {
                             for(GHRepository userRepository : userRepositories.asList())
                             {
                                 byte[] bytes = null;
-    
+            
                                 String downloadURL = userRepository.getHtmlUrl().toString() + "\n";
                                 bytes = downloadURL.getBytes();
-    
+            
+                                try
+                                {
+                                    Files.write(file, bytes, StandardOpenOption.APPEND);
+                                }
+                                catch(IOException e)
+                                {
+                                    System.out.println(e);
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        System.out.println(userName + " -- does not exist");
+                    }
+                }
+                catch(IOException exception)
+                {
+                    exception.printStackTrace();
+                }
+            }*/
+
+            for(String userName : userNames)
+            {
+                try
+                {
+                    GHUser user = github.getUser(userName);
+
+                    if(user != null)
+                    {
+                        PagedIterable<GHRepository> userRepositories = user.listRepositories();
+
+                        if(userRepositories != null)
+                        {
+                            for(GHRepository userRepository : userRepositories.asList())
+                            {
+                                byte[] bytes = null;
+
+                                String downloadURL = userRepository.getHtmlUrl().toString() + "\n";
+                                bytes = downloadURL.getBytes();
+
                                 try
                                 {
                                     Files.write(file, bytes, StandardOpenOption.APPEND);
@@ -892,24 +1795,24 @@ public class GitHubUserRepositoriesDownloader
         {
             exception.printStackTrace();
         }
-    }*/
+    }
 
-    public static void main(String[] args)
+    /*public static void main(String[] args)
     {
         Path repositoriesLinksFile = FileSystems.getDefault().getPath("D:\\temp\\RepositoriesDownloadedFromGitHub2.txt");
         Path downloadLinksFile = FileSystems.getDefault().getPath("D:\\temp\\GitHubRepositoriesDownloadLinks.txt");
-
+    
         try
         {
             List<String> repositoriesLinks = Files.readAllLines(repositoriesLinksFile);
-
+    
             for(String repositoryLink : repositoriesLinks)
             {
                 byte[] bytes = null;
-
+    
                 String downloadURL = repositoryLink + "/archive/master.zip\n";
                 bytes = downloadURL.getBytes();
-
+    
                 try
                 {
                     Files.write(downloadLinksFile, bytes, StandardOpenOption.APPEND);
@@ -924,5 +1827,5 @@ public class GitHubUserRepositoriesDownloader
         {
             System.out.println(e);
         }
-    }
+    }*/
 }
