@@ -778,7 +778,6 @@ public class GitHubUserRepositoriesDownloader
         userNames.add("penpan85");
         userNames.add("cherysky");
         userNames.add("jenkinsci");
-        userNames.add("JetBrains");
         userNames.add("erpragatisingh-AndroidDeveloper");
         userNames.add("VLADYRON");
         userNames.add("Geek365");
@@ -787,10 +786,8 @@ public class GitHubUserRepositoriesDownloader
         userNames.add("srinivasgowda097");
         userNames.add("erpragatisingh-AndroidDeveloper");
         userNames.add("jenkinsci");
-        userNames.add("JetBrains");
         userNames.add("j0sem4rio");
         userNames.add("863699466");
-        userNames.add("awslabs");
         userNames.add("mulesoft");
         userNames.add("little1tow");
         userNames.add("cs160-berkeley");
@@ -862,7 +859,6 @@ public class GitHubUserRepositoriesDownloader
         userNames.add("Peter1303");
         userNames.add("cjq");
         userNames.add("duanxifeng");
-        userNames.add("Appdynamics");
         userNames.add("PhongHuynh93");
         userNames.add("owenb132");
         userNames.add("nilopc-learning-android");
@@ -877,7 +873,6 @@ public class GitHubUserRepositoriesDownloader
         userNames.add("xsnxj");
         userNames.add("cybercircuits");
         userNames.add("maniacs-m");
-        userNames.add("apache");
         userNames.add("mapleskip");
         userNames.add("huyanghu");
         userNames.add("reloadbrain");
